@@ -4,7 +4,7 @@
 Context (`docs/three-square-m4-exact-closure.md`): the three-orbit (t=3)
 finite-m closure screen `scripts/check_three_orbit_window_closure.py` clears
 every branch for `m = 3..16` except the degenerate ``m = 0 mod 4`` quarter
-cells, which it skips and reports as named open sub-cases. This script closes
+cells, which it skips and reports as named handoff sub-cases. This script closes
 the smallest such cell, ``m = 4`` (three concentric regular 4-gons, ``n = 12``
 points), exactly, with an SMT (z3) certificate.
 

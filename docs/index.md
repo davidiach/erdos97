@@ -418,6 +418,12 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-label4-transfer-paths.md`](bootstrap-t12-151-6-label4-transfer-paths.md):
   checked transfer-path ledger pinning shortest selected-distance equality
   paths from label-`4` pairs to residual strict-cycle endpoint pairs.
+- [`bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`](bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md):
+  solver-screen diagnostic for the three source-`151` row-`6` label-`4`
+  target-sparse endpoint quotient misses.
+- [`bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`](bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md):
+  exact dual route-pruning certificate for those three current-row-family
+  full-cone screens.
 - [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
   source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-151-singleton-two-row-drop.md`](bootstrap-t12-151-singleton-two-row-drop.md):
@@ -472,7 +478,9 @@ put detailed reconciliation in the canonical synthesis.
   routes separate.
 - [`n9-vertex-circle-exhaustive.md`](n9-vertex-circle-exhaustive.md):
   review-pending exhaustive `n=9` selected-witness checker using the
-  vertex-circle strict-chord filter.
+  vertex-circle strict-chord filter; also records the combined
+  selected-witness replay joining localized counting, compact frontier
+  regeneration, and explicit per-assignment obstruction certificates.
 - [`n9-vertex-circle-independent-recheck.md`](n9-vertex-circle-independent-recheck.md):
   independent implementation-level recheck of the review-pending `n=9`
   vertex-circle frontier, plus the minimal obstruction-core catalog; audit
@@ -485,7 +493,9 @@ put detailed reconciliation in the canonical synthesis.
   the vertex-circle, turn-packing, and algebraic obstruction routes.
 - [`n9-kalmanson-selfedge.md`](n9-kalmanson-selfedge.md):
   compact review-pending replay showing that all 184 `n=9`
-  pre-vertex-circle frontier assignments have a strict Kalmanson self-edge.
+  pre-vertex-circle frontier assignments have a strict Kalmanson self-edge,
+  including a self-contained frontier-regeneration replay imported on
+  2026-06-19.
 - [`n9-turn-inequality-frontier.md`](n9-turn-inequality-frontier.md):
   review-pending replay of 184 `n=9` selected-witness assignments killed by
   candidate exterior-turn Farkas certificates; not a proof of `n=9`.
@@ -669,7 +679,7 @@ put detailed reconciliation in the canonical synthesis.
   connectors and chord containments; proof-mining scaffolding only.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
   review-pending `n=10` singleton-slice finite-case draft, including the
-  secondary first-five replay cross-check.
+  portable C++ all-slice replay and secondary first-five replay cross-checks.
 - [`n10-mixed-rich-support-capacity.md`](n10-mixed-rich-support-capacity.md):
   generator-independent `n=10` four/five support-capacity diagnostic; finite
   support bookkeeping only, not an `n=10` proof.
@@ -826,7 +836,7 @@ put detailed reconciliation in the canonical synthesis.
   review-pending paired-cosine reduction for the three-orbit (t=3) family
   with a four-branch finite-`m` closure screen (`m = 3..16`), exact
   characterization of the degenerate `m = 0 mod 4` quarter cells as named
-  open sub-cases, and a 60/240-digit escalation audit; screen evidence
+  handoff sub-cases, and a 60/240-digit escalation audit; screen evidence
   only, not an all-`m` lemma, an exact certificate, or a proof.
 - [`three-square-m4-exact-closure.md`](three-square-m4-exact-closure.md):
   exact SMT (z3) closure of the smallest three-orbit quarter cell, `m = 4`
@@ -838,12 +848,16 @@ put detailed reconciliation in the canonical synthesis.
   (a three-orbit quarter cell closes iff `A_0` cannot be 4-bad, uniform in the
   C-row choice `a3`) and the exact boundary-band confinement lemma, plus a
   float grid showing the witness locus is tangent to the convexity boundary;
-  exact lemmas + `NUMERICAL_EVIDENCE` for `m = 8, 12, 16` (which remain open),
-  with the exact-SMT route recorded as not scaling past `m = 4`.
+  exact lemmas + `NUMERICAL_EVIDENCE` for `m = 8, 12, 16`, with the exact-SMT
+  route recorded as not scaling past `m = 4`.
 - [`quarter-cell-signed-band-preflight.md`](quarter-cell-signed-band-preflight.md):
   signed boundary-band split for the remaining quarter-cell turn-sign target,
   recording 12 signed cells and a fixed negative first nonzero boundary term
-  for each; precise proof target only, not closure of `m = 8, 12, 16`.
+  for each; precise proof target only, not a closure certificate by itself.
+- [`quarter-cell-derivative-certificate.md`](quarter-cell-derivative-certificate.md):
+  repo-local interval-derivative certificate closing the named `m = 8, 12, 16`
+  three-orbit quarter-cell signed-band subcases; restricted finite-`m`
+  interval certificate only, not an all-`m` obstruction or proof of Erdos #97.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):

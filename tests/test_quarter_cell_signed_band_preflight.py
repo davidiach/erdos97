@@ -36,8 +36,13 @@ def test_signed_case_table_has_all_cells() -> None:
 def test_payload_keeps_open_cells_open() -> None:
     payload = MOD.build_payload((8,), grid=12)
 
-    assert payload["open_quarter_cells_still_open"] == [8, 12, 16]
-    assert "m=8,12,16 quarter cells closed" in payload["does_not_claim"]
+    assert payload["preflight_only_not_certified_m_values"] == [8, 12, 16]
+    assert payload["superseded_for_m_values_by"]["m_values"] == [8, 12, 16]
+    assert (
+        payload["superseded_for_m_values_by"]["artifact"]
+        == "data/certificates/quarter_cell_derivative_certificate.json"
+    )
+    assert "preflight artifact closes m=8,12,16 quarter cells" in payload["does_not_claim"]
     assert "all-m three-orbit obstruction" in payload["does_not_claim"]
     assert "general proof of Erdos Problem #97" in payload["does_not_claim"]
     assert "counterexample to Erdos Problem #97" in payload["does_not_claim"]

@@ -8,7 +8,7 @@ Source of truth: `README.md`, `STATE.md`, `RESULTS.md`, `docs/claims.md`,
 `docs/n10-vertex-circle-singleton-slices.md`, and
 `metadata/erdos97.yaml`.
 
-Last assembled: 2026-06-04.
+Last assembled: 2026-06-19.
 
 ## Non-claims
 
@@ -38,12 +38,15 @@ checked, what has been cross-checked, and what is still missing.
 
 - `docs/n10-vertex-circle-singleton-slices.md`
 - `data/certificates/n10_vertex_circle_singleton_slices.json`
+- `data/certificates/n10_fast_cpp_singleton_replay.json`
 - `data/certificates/2026-05-05/n10_secondary.json`
+- `cpp/n_vertex_search_fast.cpp`
 - `src/erdos97/generic_vertex_search.py`
 - `src/erdos97/n10_vertex_circle_singletons.py`
 - `src/erdos97/n10_secondary_singleton_replay.py`
 - `scripts/check_n10_vertex_circle_singletons.py`
 - `scripts/check_n10_singleton_input_audit.py`
+- `scripts/check_n10_fast_cpp_singleton_replay.py`
 - `scripts/check_n10_secondary_singleton_replay.py`
 - `tests/test_n10_vertex_circle_singletons.py`
 
@@ -103,10 +106,47 @@ python scripts/check_n10_vertex_circle_singletons.py \
 ```
 
 Acceptance outcome: this layer can detect disagreement between the imported
-artifact and the repo-native checker at the sampled rows. It cannot replace an
-all-slice independent replay.
+artifact and the repo-native checker at the sampled rows. It does not replace
+the all-slice second-source replay layer below.
 
-### Layer D: secondary first-five replay
+### Layer D: portable C++ all-slice replay
+
+Second-source artifact:
+`data/certificates/n10_fast_cpp_singleton_replay.json`.
+
+This artifact records a portable C++17 replay from
+`cpp/n_vertex_search_fast.cpp`. It replays all 126 row0 singleton slices,
+records an n=9 calibration run, and compares every n=10 row summary against
+the primary artifact.
+
+Expected aggregate invariants:
+
+```text
+row0 choices covered:      126 / 126
+full assignments:          0
+nodes visited:             4,142,738
+partial self-edge prunes:  4,467,592
+partial strict cycles:     5,318,250
+row digest:                64ebe12406c8777bcc7d7e2c5f1db3adb7703cbdba3898bb069bf964091b2fbb
+```
+
+Run the stored-artifact check:
+
+```bash
+python scripts/check_n10_fast_cpp_singleton_replay.py --check --json
+```
+
+When a C++17 compiler is available, rerun the C++ source:
+
+```bash
+python scripts/check_n10_fast_cpp_singleton_replay.py --check --run-cpp --json
+```
+
+Acceptance outcome: this layer can accept all-slice second-implementation
+agreement with the primary artifact. It is still not an independent written
+review of the pruning lemmas or either implementation.
+
+### Layer E: secondary first-five replay
 
 Secondary artifact:
 `data/certificates/2026-05-05/n10_secondary.json`.
@@ -140,14 +180,14 @@ promote the primary artifact by itself.
 ## Missing promotion evidence
 
 The current packet is intentionally incomplete. Before the n=10 candidate can
-move beyond draft, it still needs at least one of:
+move beyond draft, it still needs:
 
-- a second implementation that replays all `126` singleton slices and agrees
-  with the primary artifact;
+- independent review of the primary Python checker, the portable C++ replay,
+  and the geometric necessity of the filters;
 - a replayable terminal-conflict certificate for every terminal branch, with a
-  verifier that does not trust the brancher search history;
-- a smaller exact mathematical lemma that subsumes the singleton search and
-  has independently reviewed hypotheses.
+  verifier that does not trust the brancher search history, or a smaller exact
+  mathematical lemma that subsumes the singleton search and has independently
+  reviewed hypotheses.
 
 Any of those routes would still remain a repo-local finite-case review result,
 not a general proof of Erdos Problem #97.
@@ -161,18 +201,22 @@ not a general proof of Erdos Problem #97.
   rows and selected-distance equalities.
 - Confirm that the primary artifact has exact row0 singleton coverage
   `[0,126)` with no symmetry quotient.
-- Confirm that the input-data audit, selected spot replay, and secondary
-  first-five replay are described with their actual scopes.
-- Require all-slice independent replay, terminal-conflict certificates, or an
-  independently reviewed replacement lemma before promoting the n=10 package.
+- Confirm that the input-data audit, selected spot replay, portable C++ replay,
+  and secondary first-five replay are described with their actual scopes.
+- Require independent implementation/filter review plus either terminal-conflict
+  certificates or an independently reviewed replacement lemma before promoting
+  the n=10 package.
 
 ## Safe acceptance outcomes
 
 - `accepted_input_coverage`: row0 singleton coverage and stored aggregate
   arithmetic are accepted.
 - `accepted_selected_spot_replay`: sampled rows match the repo-native checker.
+- `accepted_cpp_all_slice_replay`: all `126` rows match the portable C++
+  replay artifact and optional live C++ rerun where available.
 - `accepted_secondary_prefix`: rows `0..4` match the archived secondary replay.
-- `blocked_on_all_slice_replay`: promotion is blocked until all `126` slices
-  have independent replay or an equivalent replayable certificate.
+- `blocked_on_independent_review`: promotion is blocked until the finite
+  encoding, pruning rules, and replay implementations receive independent
+  review or are replaced by an independently reviewed certificate/lemma route.
 - `gap_found`: any mismatch or unsound pruning rule keeps the artifact as
   diagnostic input only.

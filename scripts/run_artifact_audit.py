@@ -320,6 +320,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_selected_witness_combined_replay",
+        command=(
+            "python",
+            "scripts/check_n9_selected_witness_combined_replay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Combined review-pending n=9 selected-witness replay with "
+            "localized-counting, compact-frontier, and per-assignment "
+            "vertex-circle certificate accounting; audit evidence only, not "
+            "completed independent review, not a proof of n=9, not a proof of "
+            "Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n9_kalmanson_selfedge",
         command=(
             "python",
@@ -351,6 +368,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "digest agreement only. It is not brancher coverage, a proof of "
             "n=9, independent review completion, or an official/global status "
             "update."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_kalmanson_selfedge_frontier_replay",
+        command=(
+            "python",
+            "scripts/check_n9_kalmanson_selfedge_frontier_replay.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Self-contained regeneration of the review-pending n=9 "
+            "selected-witness frontier plus Kalmanson self-edge certificates; "
+            "corroborating audit evidence only, not a proof of n=9, "
+            "independent review completion, a counterexample, or an "
+            "official/global status update."
         ),
     ),
     AuditCommand(
@@ -3363,6 +3397,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n10_fast_cpp_singleton_replay",
+        command=(
+            "python",
+            "scripts/check_n10_fast_cpp_singleton_replay.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Second-source portable C++ replay artifact comparing all 126 draft "
+            "n=10 singleton slices with the primary artifact; not a proof of n=10, "
+            "a source-of-truth finite-case result, a counterexample, or an "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n10_singleton_input_audit",
         command=(
             "python",
@@ -3410,8 +3459,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope=(
             "Sub-range replay of the three-orbit (t=3) finite-m closure "
             "screen with its atom-catalogue audit; float64 screen with "
-            "60-digit escalation only, the m = 0 mod 4 quarter cells stay "
-            "named open sub-cases, and it is not an all-m lemma, an exact "
+            "60-digit escalation only, the m = 0 mod 4 quarter cells are "
+            "named handoff sub-cases, and it is not an all-m lemma, an exact "
             "certificate, a proof of Erdos Problem #97, or an "
             "official/global status update."
         ),
@@ -3446,9 +3495,10 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "reduction and boundary-band confinement lemmas, plus a float "
             "grid over m in {4,8,12,16} showing every sampled witness config "
             "is strictly non-convex. Tangency-limited evidence for m>=8 (not "
-            "a certificate; those cells remain open), m=4 closed exactly "
-            "elsewhere; not an all-m lemma, not a proof of Erdos Problem #97, "
-            "not a counterexample, not an official/global status update."
+            "this artifact's certificate), m=4 closed exactly elsewhere, "
+            "and the m=8/12/16 finite-m certificate recorded separately; not "
+            "an all-m lemma, not a proof of Erdos Problem #97, not a "
+            "counterexample, not an official/global status update."
         ),
     ),
     AuditCommand(
@@ -3464,10 +3514,31 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "Signed-band preflight for the three-orbit quarter-cell turn-sign "
             "lemma: records the boundary-band split and first nonzero "
             "negative killer-turn term in each signed cell, plus deterministic "
-            "float stress. It is not the global sign proof, does not close "
-            "the m=8/12/16 quarter cells, is not an all-m three-orbit "
-            "obstruction, and is not a proof of Erdos Problem #97, "
-            "counterexample, or official/global status update."
+            "float stress. This preflight artifact is not the global sign "
+            "proof and does not by itself certify the m=8/12/16 quarter "
+            "cells; the finite-m certificate is recorded separately. It is "
+            "not an all-m three-orbit obstruction, proof of Erdos Problem "
+            "#97, counterexample, or official/global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="three_orbit_quarter_cell_derivative_certificate_m8_12_16",
+        command=(
+            "python",
+            "scripts/check_quarter_cell_derivative_certificate.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Repo-local interval-derivative certificate for the A-row-reduced "
+            "three-orbit C_m quarter-cell witness locus at m in {8,12,16}: "
+            "certifies one fixed non-positive killer turn throughout each of "
+            "the 12 strict signed boundary-band cells for those m-values. "
+            "Restricted-family interval certificate only; not an all-m "
+            "quarter-cell obstruction, not an all-m three-orbit obstruction, "
+            "not a proof of Erdos Problem #97, not a counterexample, and not "
+            "an official/global status update."
         ),
     ),
     AuditCommand(

@@ -133,6 +133,10 @@ def test_verify_n9_review_includes_documented_frontier_audits() -> None:
             "--check --assert-expected --json"
         ),
         (
+            "python scripts/check_n9_kalmanson_selfedge_frontier_replay.py "
+            "--check --assert-expected --json"
+        ),
+        (
             "python scripts/check_n9_vertex_circle_strict_edge_geometry.py "
             "--check --assert-expected --json"
         ),

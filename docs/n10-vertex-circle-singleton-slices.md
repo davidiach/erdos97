@@ -68,6 +68,30 @@ singleton ranges, witness masks, explicit witness lists, and aggregate count
 arithmetic. This is a stored-data consistency audit only, not a terminal
 conflict replay and not an `n=10` proof.
 
+## Portable C++ second-source replay
+
+The artifact
+`data/certificates/n10_fast_cpp_singleton_replay.json` records a portable
+C++17 second-source replay for the same 126 row0 singleton slices, generated
+from `cpp/n_vertex_search_fast.cpp` and checked by
+`scripts/check_n10_fast_cpp_singleton_replay.py`. It also records an `n=9`
+calibration run matching the review-pending vertex-circle counts.
+
+The C++ replay matches the primary n=10 artifact row-for-row:
+
+```text
+row0 choices covered:      126 / 126
+full assignments:          0
+nodes visited:             4,142,738
+partial self-edge prunes:  4,467,592
+partial strict cycles:     5,318,250
+row digest:                64ebe12406c8777bcc7d7e2c5f1db3adb7703cbdba3898bb069bf964091b2fbb
+```
+
+This closes the earlier "beyond selected spot-checks" replay gap as
+reviewer-facing evidence, but it is still not an independent written review,
+not a public theorem-style `n=10` proof, and not a status promotion.
+
 ## Secondary first-five replay
 
 The archived secondary artifact
@@ -117,6 +141,24 @@ python scripts/check_n10_vertex_circle_singletons.py \
   --spot-check-row0 125
 ```
 
+Validate the stored C++ replay artifact without rebuilding C++:
+
+```bash
+python scripts/check_n10_fast_cpp_singleton_replay.py \
+  --check \
+  --json
+```
+
+Optionally rebuild and rerun the portable C++ verifier when a C++17 compiler is
+available:
+
+```bash
+python scripts/check_n10_fast_cpp_singleton_replay.py \
+  --check \
+  --run-cpp \
+  --json
+```
+
 The legacy shorthand below is still supported and checks only row0 singleton
 `0`:
 
@@ -162,9 +204,9 @@ should check:
 - that the minimum-remaining-options row choice changes only search order;
 - that vertex-circle partial pruning uses only already-fixed selected rows and
   selected-distance equalities;
-- that the generic repo-native checker and the archived C++ checker agree
-  beyond the selected n=10 singleton spot-checks, or that a second independent
-  verifier replays all terminal conflicts;
+- that the generic repo-native checker and the portable C++ second-source
+  replay agree beyond the selected n=10 singleton spot-checks, and that the
+  C++ implementation itself receives code review;
 - that the secondary first-five replay is treated only as prefix agreement
   under an extra necessary filter, not as all-slice coverage;
 - that the artifact remains scoped to the selected-witness n=10 finite case

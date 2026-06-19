@@ -1075,6 +1075,20 @@ certificate is stored, so this is still diagnostic only and does not prove that
 no current-row-family certificate exists, assignments `0` and `11` impossible,
 `n=9`, or the bootstrap bridge.
 
+The exact dual-certificate follow-up in
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`,
+`scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py`,
+and
+`data/certificates/bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.json`
+stores nonnegative integer separating potentials for those same three
+endpoint quotients. The checker verifies exact row-wise lower bound
+`<c,v_j> >= 1` for all `255` strict rows in each quotient, with potential
+weight sums `250`, `253`, and `243`. This certifies infeasibility of the
+current normalized zero-sum and coordinatewise-nonpositive screens, but only
+as route-pruning for the current row family; it still does not prove the local
+quotients realizable, assignments `0` or `11` possible or impossible, `n=9`,
+or the bootstrap bridge.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row
@@ -1260,6 +1274,12 @@ recomputes the row-0 choices as the 70 lexicographic 4-subsets of labels
 no-overclaiming scope. Use `--json` instead when the full expected-count block
 is needed. It does not rerun the brancher or replay the
 vertex-circle certificates.
+The combined selected-witness replay
+`scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json`
+records localized counting, compact regeneration of the same 184 exact-four
+frontier assignments, and explicit per-assignment vertex-circle obstruction
+certificates. This is review-pending audit evidence only, not completed
+independent review, an `n=9` proof, or a status promotion.
 The turn-inequality frontier replay
 `scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`
 checks stored integer dual certificates for the candidate weak turn system on
@@ -1282,6 +1302,13 @@ self-edge records, assignment uniqueness, and digest agreement without
 importing the Kalmanson generator module. It is still stored-certificate
 bookkeeping only, not brancher coverage or a proof of `n=9`. Use `--json` when
 the first stored self-edge example record is needed.
+The fresh-frontier replay
+`scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
+then regenerates the `184` selected-witness terminal assignments without
+importing the repo package or reading the stored Kalmanson certificate, and
+finds one strict Kalmanson self-edge for each assignment. This is
+corroborating audit evidence only, not independent review completion or an
+`n=9` proof.
 A fixed-center-order replay command,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`,
 also closes the vertex-circle-pruned search and reaches the same
@@ -1455,10 +1482,12 @@ partial strict-cycle prunes: 5,318,250
 
 This is a draft audit target only. The repo-native generic checker reproduces
 the n=9 vertex-circle counts and reruns row0 singleton IDs `0`, `63`, and
-`125`, but the full n=10 search still needs independent implementation review
-or a compact replayable
-certificate format before any public theorem-style use. It is not promoted to
-the source-of-truth strongest result. See
+`125`. The portable C++ second-source replay in
+`data/certificates/n10_fast_cpp_singleton_replay.json`, checked by
+`scripts/check_n10_fast_cpp_singleton_replay.py`, now matches all 126 stored
+rows and records the same n=9 calibration counts. The full n=10 draft still
+needs independent implementation review before any public theorem-style use.
+It is not promoted to the source-of-truth strongest result. See
 `docs/n10-vertex-circle-singleton-slices.md`.
 
 The bounded `n=10` row0-index-0 turn pilot in
@@ -1607,7 +1636,7 @@ See `docs/half-step-matching-reduction.md`.
 
 Status: `LEMMA` draft (review pending) for the reduction;
 `NUMERICAL_EVIDENCE` with exact-escalation bookkeeping for the per-`m`
-screen verdicts; the `m = 0 mod 4` quarter cells are named open sub-cases.
+screen verdicts; the `m = 0 mod 4` quarter cells are named handoff sub-cases.
 
 For three concentric regular `m`-gon orbits, the normalization
 `0 < beta < gamma < 2h` admits at most one half-step offset, splitting the
@@ -1621,9 +1650,9 @@ discrete branch cell for `m = 3..16`, refutes every float64 candidate by
 hit, and finds no feasible survivor and no unresolved case. The branch-`G`
 pinning identity degenerates exactly at `m = 0 mod 4`, `a1 = a2 = m/4`,
 `s = m/2`; those quarter cells carry one-parameter solution families, are
-skipped by the point screen, and remain open. Not an all-`m` lemma, not an
-exact certificate for the screened cells, and not a proof of Erdos Problem
-#97. See `docs/three-orbit-window-closure.md`,
+skipped by the point screen, and handed off to the quarter-cell artifacts. Not
+an all-`m` lemma, not an exact certificate for the screened cells, and not a
+proof of Erdos Problem #97. See `docs/three-orbit-window-closure.md`,
 `scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16
 --assert-clear`, and
 `data/certificates/three_orbit_window_closure_m3_16.json`.
@@ -1648,8 +1677,8 @@ is a fortiori empty. Hence no strictly convex three-square configuration is
 branch-G 4-bad. SMT UNSAT is an accepted exact-obstruction certificate here
 (as with the existing Kalmanson z3 certificates). Restricted-family result:
 the `m = 4` half-step branches AB/AC/BC are screen-grade in the three-orbit
-artifact, the `m = 8, 12, 16` quarter cells remain open, and the
-official/global status is unchanged. See
+artifact, the `m = 8, 12, 16` quarter cells are outside this SMT artifact, and
+the official/global status is unchanged. See
 `docs/three-square-m4-exact-closure.md`,
 `scripts/check_three_square_m4_closure.py --assert-clear`, and
 `data/certificates/three_square_m4_closure.json`.
@@ -1657,7 +1686,8 @@ official/global status is unchanged. See
 ### Three-orbit quarter-cell A-row reduction and boundary-band lemma
 
 Status: `LEMMA` (exact, self-checked) for the reductions; `NUMERICAL_EVIDENCE`
-for the `m = 8, 12, 16` non-convexity; `m = 4` closed exactly above.
+for the tangency screen; repo-local interval-derivative certificate for the
+named `m = 8, 12, 16` signed-band cells; `m = 4` closed exactly above.
 
 Two exact, `m`-uniform lemmas reduce the remaining quarter cells. (1) A-row
 reduction: in every quarter cell the A-row and B-row own pair is the 90-pair,
@@ -1671,29 +1701,39 @@ witness offsets are forced into `(0, delta) ∪ (2h - delta, 2h)`,
 orbit. A float grid over `m in {4,8,12,16}` finds every sampled witness
 configuration strictly non-convex, but the locus is **tangent** to the
 convexity boundary (the maximum minimum-turn is `< 0` yet vanishes and is
-grid-dependent), so for `m >= 8` this is evidence of closure, not a
-certificate; those cells remain open. Recorded route limit: the exact-SMT
-route does not scale past `m = 4` (z3 NRA times out on the cubic turn
-determinants and the witness disjunctions). The clean open lemma that would
-close all quarter cells: on the witness locus inside the window the minimum
-per-period turn determinant is `<= 0`, with equality only at the degenerate
-orbit-coincidence limit. See `docs/quarter-cell-closure.md`,
+grid-dependent), so that artifact alone is evidence of closure, not a
+certificate. Recorded route limit: the exact-SMT route does not scale past
+`m = 4` (z3 NRA times out on the cubic turn determinants and the witness
+disjunctions). See `docs/quarter-cell-closure.md`,
 `scripts/check_quarter_cell_closure.py --assert-clear`, and
 `data/certificates/quarter_cell_closure.json`.
 
-A signed-band preflight sharpens the open target without closing it. The
-boundary-band witness locus splits into the three band orders `LL`, `LH`, and
-`HH`, and the two radius signs give `12` signed cells. For each signed cell,
-the packet records one fixed per-period turn determinant whose first nonzero
-term at the orbit-coincidence boundary is negative for `m >= 8`; a
-deterministic grid stress of the same fixed killer turns over
-`m = 8, 12, 16, 20, 40, 100` finds no sampled violation. This is a
-`REVIEW_PENDING_DIAGNOSTIC` and a precise exact-sign target only. It is not a
-certificate for `m >= 8`, does not close the `m = 8, 12, 16` quarter cells, and
-does not prove an all-`m` three-orbit obstruction. See
+A signed-band preflight sharpens the target. The boundary-band witness locus
+splits into the three band orders `LL`, `LH`, and `HH`, and the two radius
+signs give `12` signed cells. For each signed cell, the packet records one
+fixed per-period turn determinant whose first nonzero term at the
+orbit-coincidence boundary is negative for `m >= 8`; a deterministic grid
+stress of the same fixed killer turns over `m = 8, 12, 16, 20, 40, 100` finds
+no sampled violation. This remains a `REVIEW_PENDING_DIAGNOSTIC` and precise
+turn-sign target by itself. See
 `docs/quarter-cell-signed-band-preflight.md`,
 `scripts/check_quarter_cell_signed_band_preflight.py --check --assert-expected --json`,
 and `data/certificates/quarter_cell_signed_band_preflight.json`.
+
+The follow-up interval-derivative certificate closes the named finite-m target
+for `m = 8, 12, 16` in the repo-local interval-arithmetic sense. It evaluates
+the same fixed killer turns with interval automatic differentiation and proves
+a required first or mixed derivative sign on the whole square
+`0 <= d,e <= upper(delta_m)`, a superset of each strict signed cell after the
+order inequalities are imposed. Together with the recorded boundary
+identities, every strict signed cell has a non-positive per-period turn, so no
+strictly convex configuration in those quarter-cell subcases is 4-bad. This is
+not an all-`m` quarter-cell obstruction, not an all-`m` three-orbit
+obstruction, not a formal proof-assistant certificate, not a proof of Erdos
+Problem #97, and not a counterexample. See
+`docs/quarter-cell-derivative-certificate.md`,
+`scripts/check_quarter_cell_derivative_certificate.py --check --assert-expected --json`,
+and `data/certificates/quarter_cell_derivative_certificate.json`.
 
 ## Numerical Attempts
 

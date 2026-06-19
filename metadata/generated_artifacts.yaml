@@ -528,6 +528,77 @@ artifacts:
       - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: n9_selected_witness_combined_replay
+    path: data/certificates/n9_selected_witness_combined_replay.json
+    sha256: 8c37e5766de06e59acece9b8550ebea5c96107e66a3d0609d8bf9f9598bb1213
+    size_bytes: 3219
+    kind: finite_case_audit_artifact
+    generator: scripts/check_n9_selected_witness_combined_replay.py
+    command: python scripts/check_n9_selected_witness_combined_replay.py --write --assert-expected
+    checker: scripts/check_n9_selected_witness_combined_replay.py
+    check_command: python scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Combined review-pending n=9 selected-witness replay joining localized counting, compact frontier regeneration, and explicit per-assignment vertex-circle obstruction certificates; audit evidence only, not completed independent review, not a proof of n=9, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_selected_witness_combined_replay.v1
+      status: REVIEW_PENDING_N9_SELECTED_WITNESS_COMBINED_REPLAY
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      n: 9
+      row_size: 4
+      pair_cap: 2
+      localized_counting.all_centers_forced_exact_four: true
+      localized_counting.selected_indegree_forced_regular: true
+      brancher.nodes_visited: 100817
+      brancher.frontier_assignment_count: 184
+      brancher.assignment_digest_sha256: dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
+      brancher.obstruction_counts.self_edge: 158
+      brancher.obstruction_counts.strict_cycle: 26
+      brancher.clean_assignments: 0
+      certificate_count: 184
+      certificate_digest_sha256: f1a58f2155894ae8e1d0a14bd0478c8d8ed6957f6f294f685405e68a6243f790
+      validation_status: passed
+      provenance.command: python scripts/check_n9_selected_witness_combined_replay.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
+  - id: n9_selected_witness_obstruction_certificates
+    path: data/certificates/n9_selected_witness_obstruction_certificates.json
+    sha256: 930e438c1ed3e1fa750d71127550d146bd8c0ff8133cd636abc70a746b65e0bf
+    size_bytes: 372041
+    kind: finite_case_audit_artifact
+    generator: scripts/check_n9_selected_witness_combined_replay.py
+    command: python scripts/check_n9_selected_witness_combined_replay.py --write --assert-expected
+    checker: scripts/check_n9_selected_witness_combined_replay.py
+    check_command: python scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Per-assignment vertex-circle quotient certificates for the review-pending 184 n=9 exact-four frontier assignments; replay data only, not completed independent review, not a proof of n=9, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_selected_witness_obstruction_certificates.v1
+      status: REVIEW_PENDING_N9_SELECTED_WITNESS_OBSTRUCTION_CERTIFICATES
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      source_summary_artifact: data/certificates/n9_selected_witness_combined_replay.json
+      certificate_count: 184
+      certificate_digest_sha256: f1a58f2155894ae8e1d0a14bd0478c8d8ed6957f6f294f685405e68a6243f790
+      provenance.command: python scripts/check_n9_selected_witness_combined_replay.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - independent review of the exhaustive checker is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n9_kalmanson_selfedge
     path: data/certificates/n9_kalmanson_selfedge.json
     sha256: 526d225653a69abb8329e952e34db6bebb7672934873e3181594052ccb5f525c
@@ -560,6 +631,45 @@ artifacts:
       - independent review of the exhaustive checker is complete
       - source-of-truth strongest result
       - official/global status update
+      - general proof of Erdos Problem #97
+
+  - id: n9_kalmanson_selfedge_frontier_replay
+    path: data/certificates/n9_kalmanson_selfedge_frontier_replay.json
+    sha256: 0678dd07d7d2909ca47a67ca87aaf6dcbdcbe0566c24a603eb051d9985c9a040
+    size_bytes: 241675
+    kind: finite_case_artifact
+    generator: scripts/check_n9_kalmanson_selfedge_frontier_replay.py
+    command: python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --write --assert-expected
+    checker: scripts/check_n9_kalmanson_selfedge_frontier_replay.py
+    check_command: python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Self-contained regeneration of the review-pending n=9 selected-witness frontier plus Kalmanson self-edge certificates; corroborating audit evidence only.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_kalmanson_selfedge_frontier_replay.v1
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      status: REVIEW_PENDING_N9_KALMANSON_SELFEDGE_FRONTIER_REPLAY
+      n: 9
+      row_size: 4
+      raw_options_per_center: 70
+      raw_assignment_count: 40353607000000000
+      nodes_visited: 100818
+      terminal_assignments_after_filters: 184
+      terminal_assignments_killed_by_kalmanson_self_edge: 184
+      unkilled_terminal_assignments: 0
+      kalmanson_kind_counts.K1: 150
+      kalmanson_kind_counts.K2: 34
+      distinct_row0_choices_in_frontier: 32
+      certificate_sha256: 3e6e208cd4212f9275eba2f0be9e32558da9b77544304d33d09abc953feeee9d
+      provenance.command: python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - independent review complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
   - id: n9_vertex_circle_obstruction_shapes
@@ -4747,6 +4857,41 @@ artifacts:
       - official/global status update
       - source-of-truth strongest result
       - general proof of Erdos Problem #97
+
+  - id: n10_fast_cpp_singleton_replay
+    path: data/certificates/n10_fast_cpp_singleton_replay.json
+    sha256: c0f0e2fff435bcca28501b30234eae581fb7e1feacc3560de9eca61c81eee529
+    size_bytes: 39502
+    kind: finite_case_draft_artifact
+    generator: scripts/check_n10_fast_cpp_singleton_replay.py
+    command: python scripts/check_n10_fast_cpp_singleton_replay.py --write --run-cpp
+    checker: scripts/check_n10_fast_cpp_singleton_replay.py
+    check_command: python scripts/check_n10_fast_cpp_singleton_replay.py --check --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING_SECONDARY
+    claim_scope: Second-source portable C++ replay of all 126 draft n=10 selected-witness singleton slices; compares against the primary artifact and records n=9 calibration only.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n10_fast_cpp_singleton_replay.v1
+      status: SECOND_SOURCE_CPP_N10_SINGLETON_REPLAY_REVIEW_PENDING
+      trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING_SECONDARY
+      summary.n9_calibration_ok: true
+      summary.n10_rows_match_primary_artifact: true
+      summary.n10_row0_choices_covered: 126
+      summary.n10_total_full: 0
+      summary.n10_total_nodes: 4142738
+      summary.n10_counts.partial_self_edge: 4467592
+      summary.n10_counts.partial_strict_cycle: 5318250
+      summary.n10_row_summaries_digest_sha256: 64ebe12406c8777bcc7d7e2c5f1db3adb7703cbdba3898bb069bf964091b2fbb
+      summary.solves_n10: false
+      summary.solves_erdos97: false
+    forbidden_claims:
+      - n=10 is proved
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
 
   - id: n10_turn_row0_pilot
     path: data/certificates/n10_turn_row0_pilot.json
@@ -10045,7 +10190,7 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC
-    claim_scope: Float64 screen of all four offset branches of the three-orbit (t=3) concentric regular m-gon family for m = 3..16, with 60-digit deterministic re-derivation of every candidate, 240-digit boundary handling, and the m = 0 mod 4 quarter cells recorded as named open sub-cases; screen evidence only, not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample.
+    claim_scope: Float64 screen of all four offset branches of the three-orbit (t=3) concentric regular m-gon family for m = 3..16, with 60-digit deterministic re-derivation of every candidate, 240-digit boundary handling, and the m = 0 mod 4 quarter cells recorded as named handoff sub-cases for separate quarter-cell artifacts; screen evidence only, not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
       schema: erdos97.three_orbit_window_closure.v1
@@ -10110,14 +10255,14 @@ artifacts:
       in_window_no_convexity.unknown: 0
     forbidden_claims:
       - all of m=4 closed exactly
-      - m=8 m=12 m=16 quarter cells closed
+      - this artifact closes m=8 m=12 m=16 quarter cells
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
   - id: quarter_cell_closure
     path: data/certificates/quarter_cell_closure.json
-    sha256: a7214ad31ea417ac1ddfbbd43f32dae5476650f9db8a00f2fd628bbf21342804
-    size_bytes: 2739
+    sha256: 598313a8af81499798c8531268457e80a326afef64595909c548534ebd5c3ea8
+    size_bytes: 2827
     kind: restricted_family_screen_artifact
     generator: scripts/check_quarter_cell_closure.py
     command: python scripts/check_quarter_cell_closure.py --assert-clear --write-artifact data/certificates/quarter_cell_closure.json
@@ -10126,7 +10271,7 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC
-    claim_scope: Three-orbit (t=3) quarter cells (m=0 mod 4). Exact m-uniform self-tested lemmas - the A-row reduction (the cell closes iff A_0 cannot be 4-bad, uniform in the C-row choice a3) and the boundary-band confinement of the offsets - plus a float grid over m in {4,8,12,16} showing every sampled witness config is strictly non-convex. The locus is tangent to the convexity boundary, so for m>=8 this is evidence of closure, not a certificate; m=4 is closed exactly by SMT elsewhere and m=8,12,16 remain open. Records that the exact-SMT route does not scale past m=4. Not an all-m lemma, not a proof of Erdos Problem #97, not a counterexample.
+    claim_scope: Three-orbit (t=3) quarter cells (m=0 mod 4). Exact m-uniform self-tested lemmas - the A-row reduction (the cell closes iff A_0 cannot be 4-bad, uniform in the C-row choice a3) and the boundary-band confinement of the offsets - plus a float grid over m in {4,8,12,16} showing every sampled witness config is strictly non-convex. The locus is tangent to the convexity boundary, so for m>=8 this artifact is evidence of closure, not a certificate; m=4 is closed exactly by SMT elsewhere, and the m=8,12,16 finite-m certificate is recorded separately by quarter_cell_derivative_certificate_m8_12_16. Records that the exact-SMT route does not scale past m=4. Not an all-m lemma, not a proof of Erdos Problem #97, not a counterexample.
     json_top_level_type: object
     expected_json:
       schema: erdos97.quarter_cell_closure.v1
@@ -10135,8 +10280,8 @@ artifacts:
       clear: true
       boundary_band_lemma_ok: true
     forbidden_claims:
-      - m=8 m=12 m=16 quarter cells closed
-      - exact certificate for m>=8
+      - this artifact closes m=8 m=12 m=16 quarter cells
+      - all-m exact certificate for m>=8
       - all-m quarter-cell obstruction
       - general proof of Erdos Problem #97
       - counterexample
@@ -10144,8 +10289,8 @@ artifacts:
 
   - id: quarter_cell_signed_band_preflight
     path: data/certificates/quarter_cell_signed_band_preflight.json
-    sha256: d77398f17474fc71a5216a305a0d075377cefe1634c3b6917f5b4f9d0fd4e4b6
-    size_bytes: 38931
+    sha256: 6fad41bb59b9b2673aaad5e3f272eb97084f2adfa4d82e56b6857136468bb6fa
+    size_bytes: 39339
     kind: restricted_family_screen_artifact
     generator: scripts/check_quarter_cell_signed_band_preflight.py
     command: python scripts/check_quarter_cell_signed_band_preflight.py --write --assert-expected
@@ -10154,7 +10299,7 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC
-    claim_scope: Quarter-cell signed-band turn preflight for the three-orbit (t=3) m=0 mod 4 residual. Records the exact boundary-band case split and the first nonzero negative turn term in each of the 12 signed cells, plus deterministic float stress of those fixed killer turns for m in {8,12,16,20,40,100}. This is not the global sign proof; m=8,12,16 quarter cells remain open, and this is not an all-m three-orbit obstruction, proof of Erdos Problem #97, counterexample, or official/global status update.
+    claim_scope: Quarter-cell signed-band turn preflight for the three-orbit (t=3) m=0 mod 4 residual. Records the exact boundary-band case split and the first nonzero negative turn term in each of the 12 signed cells, plus deterministic float stress of those fixed killer turns for m in {8,12,16,20,40,100}. This preflight artifact is not the global sign proof and does not, by itself, certify the m=8,12,16 quarter cells; those finite cells are handled separately by the quarter-cell derivative certificate. This is not an all-m three-orbit obstruction, proof of Erdos Problem #97, counterexample, or official/global status update.
     json_top_level_type: object
     expected_json:
       schema: erdos97.quarter_cell_signed_band_preflight.v1
@@ -10164,15 +10309,51 @@ artifacts:
       leading_killer_case_count: 12
       leading_sign_ok_for_sample_ms: true
       sampled_fixed_killer_all_negative: true
-      open_quarter_cells_still_open:
+      preflight_only_not_certified_m_values:
         - 8
         - 12
         - 16
+      superseded_for_m_values_by.artifact: data/certificates/quarter_cell_derivative_certificate.json
     forbidden_claims:
-      - m=8 m=12 m=16 quarter cells closed
-      - exact certificate for m>=8
+      - preflight artifact closes m=8 m=12 m=16 quarter cells
+      - all-m exact certificate for m>=8
       - all-m quarter-cell obstruction
       - all-m three-orbit obstruction
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
+  - id: quarter_cell_derivative_certificate_m8_12_16
+    path: data/certificates/quarter_cell_derivative_certificate.json
+    sha256: 3de36b2833d4721d80ce9c3ddd1a9e0cf40669c23ad6da50e4c30236f92cf0ea
+    size_bytes: 39132
+    kind: restricted_family_interval_certificate
+    generator: scripts/check_quarter_cell_derivative_certificate.py
+    command: python scripts/check_quarter_cell_derivative_certificate.py --m-values 8,12,16 --assert-expected --write data/certificates/quarter_cell_derivative_certificate.json
+    checker: scripts/check_quarter_cell_derivative_certificate.py
+    check_command: python scripts/check_quarter_cell_derivative_certificate.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Repo-local interval-derivative certificate for the A-row-reduced three-orbit C_m quarter-cell witness locus at m in {8,12,16}. For each listed m, certifies a fixed non-positive killer turn throughout each of the 12 strict signed boundary-band cells by interval arithmetic over 0<=d,e<=upper(delta_m). Restricted-family finite-m interval certificate only; not an all-m quarter-cell obstruction, not an all-m three-orbit obstruction, not a proof of Erdos Problem #97, not a counterexample, not a formal proof-assistant certificate, and not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.quarter_cell_derivative_certificate.v1
+      status: REPO_LOCAL_INTERVAL_DERIVATIVE_CERTIFICATE
+      mpmath_dps: 80
+      all_certified: true
+      signed_cell_count_per_m: 12
+      certified_cell_count: 36
+      certified_quarter_cell_m_values:
+        - 8
+        - 12
+        - 16
+      provenance.command: python scripts/check_quarter_cell_derivative_certificate.py --m-values 8,12,16 --assert-expected --write data/certificates/quarter_cell_derivative_certificate.json
+    forbidden_claims:
+      - all-m quarter-cell obstruction
+      - all-m three-orbit obstruction
+      - arbitrary cyclic-order configurations closed
+      - non-three-orbit configurations closed
+      - formal proof-assistant certificate
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update

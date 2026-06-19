@@ -128,9 +128,9 @@ sum shifts the angle by exactly `pi`; the analogous `d`-scan coincidence
 `j2 + j3 = m/2 mod m` then reduces the full six-equation system to three
 independent equations in four unknowns). The point screen cannot sweep
 these solution curves, so for `m = 0 mod 4` the quarter cells are skipped,
-counted, and reported as named open sub-cases (`open_quarter_cells` in the
-artifact). Closing them needs a one-dimensional sweep with margin tracking
-(or an exact curve argument) and is the recorded next target. For
+counted, and reported as named sub-cases outside this screen
+(`open_quarter_cells` in the artifact). Closing them needs a separate
+one-dimensional sweep with margin tracking (or an exact curve argument). For
 `m != 0 mod 4` no degenerate cell exists (the identity conditions force
 `4 | m`), and the branch enumeration is complete.
 
@@ -145,8 +145,10 @@ are reduced and partially settled (`docs/quarter-cell-closure.md`): two exact
 `m`-uniform lemmas (the A-row reduction -- the cell closes iff `A_0` cannot be
 4-bad, uniform in `a3` -- and the boundary-band confinement) plus float-grid
 evidence that the witness locus is tangent to the convexity boundary. For
-`m >= 8` this is evidence of closure, not a certificate, and those cells
-remain open; the exact-SMT route is recorded as not scaling past `m = 4`.
+`m >= 8` that grid is evidence of closure, not a certificate; the later
+interval-derivative certificate closes the named `m = 8, 12, 16` signed-band
+cells in the repo-local interval-arithmetic sense. The exact-SMT route is
+recorded as not scaling past `m = 4`.
 
 ## Machine screen
 
@@ -187,7 +189,8 @@ python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16 \
 The stored artifact records, for `m = 3..16`: every branch cell screened,
 every screen candidate refuted at 60 digits or excluded as an exact
 boundary hit, no unresolved cases, no feasible survivors, and the
-`m = 4, 8, 12, 16` quarter cells as the only open sub-cases. In repo terms:
+`m = 4, 8, 12, 16` quarter cells as the only sub-cases handed off from this
+screen. In repo terms:
 no strictly convex 4-bad three-orbit configuration exists at screen
 precision for `m = 3..16` outside the named quarter cells, and for
 `m = 3, 5, 6, 7, 9, 10, 11, 13, 14, 15` the branch coverage has no named
@@ -203,8 +206,8 @@ gap at all.
   precision only. An exact replay (sympy arithmetic over the cyclotomic
   values, or interval arithmetic with directed rounding) is the natural
   hardening step and is not claimed here.
-- The quarter cells for `m = 0 mod 4` are open sub-cases, recorded in the
-  artifact; nothing is claimed about them.
+- The quarter cells for `m = 0 mod 4` are handed off to separate artifacts;
+  this screen itself claims nothing about them.
 - The official/global status of Erdos Problem #97 is unchanged
   (falsifiable/open); no repository source-of-truth claim is modified by
   this note.

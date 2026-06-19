@@ -103,6 +103,35 @@ two-overlap crossing, witness-pair capacity, selected-distance quotienting,
 the stored strict Kalmanson self-edge, and the certificate-list digest. Use
 `--json` when the first stored self-edge example record is needed.
 
+Fresh frontier regeneration replay:
+
+```bash
+python scripts/check_n9_kalmanson_selfedge_frontier_replay.py \
+  --check --assert-expected --summary-json
+```
+
+This third replay was imported from the 2026-06-19 GPT packet triage and then
+reshaped into repo-native `--check`/`--write` form. Unlike the stored-input
+replay, it imports no `erdos97` package modules and does not read
+`data/certificates/n9_kalmanson_selfedge.json`. It regenerates the
+fixed-cyclic-order selected-witness frontier directly, reaches `100818` search
+nodes and `184` terminal assignments, and finds one strict Kalmanson self-edge
+for each terminal assignment:
+
+```text
+terminal assignments after filters: 184
+killed by Kalmanson self-edge: 184
+unkilled: 0
+Kalmanson split: K1 = 150, K2 = 34
+certificate_sha256:
+  3e6e208cd4212f9275eba2f0be9e32558da9b77544304d33d09abc953feeee9d
+```
+
+The generated artifact is
+`data/certificates/n9_kalmanson_selfedge_frontier_replay.json`. It is
+corroborating audit evidence only, not an independent review completion or a
+status promotion.
+
 ## Audit boundary
 
 This artifact is useful because it replaces the earlier mixed Kalmanson

@@ -114,10 +114,10 @@ The checker carries two internal guards:
   sub-case), and in fact all of branch G for `m = 4`, exactly.
 - The half-step branches AB/AC/BC for `m = 4` are covered at screen grade by
   the main three-orbit artifact; this note does not re-derive them exactly.
-- The `m = 8, 12, 16` quarter cells remain open; the reduction here (own
-  90-pair plus cross singles, the `P`/`Q` conditions, the sinh identity, and
-  the window bound) is the template, but for `m > 4` the C-row own pair can
-  differ from `m/4` and the witness-angle sets are larger.
+- The `m = 8, 12, 16` quarter cells are outside this SMT artifact; the
+  reduction here (own 90-pair plus cross singles, the `P`/`Q` conditions, the
+  sinh identity, and the window bound) is the template, but for `m > 4` the
+  C-row own pair can differ from `m/4` and the witness-angle sets are larger.
 - SMT (z3) UNSAT is an accepted exact-obstruction certificate in this repo
   (alongside the existing Kalmanson z3 certificates); it is reproducible by
   re-running the checker but is not independently human-auditable without z3.

@@ -2,9 +2,11 @@
 
 Trust label: `REVIEW_PENDING_DIAGNOSTIC`.
 
-This note is a follow-up to `docs/quarter-cell-closure.md`. It does not close
-the `m = 8, 12, 16` quarter cells. It records a sharper target for the missing
-exact turn-sign proof.
+This note is a follow-up to `docs/quarter-cell-closure.md`. It records a
+sharper target for the missing exact turn-sign proof. By itself it does not
+close the `m = 8, 12, 16` quarter cells; the successor interval certificate in
+`docs/quarter-cell-derivative-certificate.md` closes those named finite-m
+signed-band cells in the repo-local interval-arithmetic sense.
 
 ## Split
 
@@ -80,6 +82,11 @@ fixed killer turn over sampled interiors for `m = 8, 12, 16, 20, 40, 100`; no
 sampled violation is found. This is useful evidence and a precise exact target,
 not a certificate.
 
+The follow-up certificate
+`data/certificates/quarter_cell_derivative_certificate.json` verifies the
+required derivative signs over interval boxes for `m = 8, 12, 16`, using this
+table's fixed killer turns.
+
 ## Reproduce
 
 ```bash
@@ -94,7 +101,8 @@ python scripts/check_quarter_cell_signed_band_preflight.py --write --assert-expe
 
 ## Non-claims
 
-- Does not close the `m = 8, 12, 16` quarter cells.
-- Does not provide an exact certificate for `m >= 8`.
+- This preflight artifact does not close the `m = 8, 12, 16` quarter cells.
+- This preflight artifact does not, by itself, provide an exact certificate for
+  `m >= 8`.
 - Does not prove an all-`m` quarter-cell obstruction.
 - Does not prove Erdos Problem #97 and does not give a counterexample.
