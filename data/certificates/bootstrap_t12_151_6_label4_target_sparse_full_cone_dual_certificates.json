@@ -1935,7 +1935,7 @@
       "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order"
     }
   ],
-  "payload_sha256": "5041c59691084538ac1aadf8975e6a84f473d3c86d90fa9d61e9bea1473f4e3a",
+  "payload_sha256": "7d49bd02262eb114406701e5bbe0f01dd6588aa4fcda476202ea6fc56ebedd86",
   "proof_lemma": {
     "proof": [
       "Assume weights lambda_j >= 0 with sum lambda_j = 1.",
@@ -1944,6 +1944,10 @@
       "All entries of c and v_j are integers and the checker verifies the inequalities by exact integer arithmetic."
     ],
     "statement": "For each miss, let v_j be every reduced strict-row coefficient vector in the current family. The listed nonnegative integer potential c satisfies <c,v_j> >= 1 for all j. Hence no normalized nonnegative combination of the v_j can be zero or coordinatewise nonpositive."
+  },
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py --write",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py"
   },
   "schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.v1",
   "source_artifacts": [

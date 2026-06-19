@@ -448,6 +448,16 @@ def build_payload() -> dict[str, Any]:
         "status": STATUS,
         "trust": TRUST,
         "base_repo_sha": BASE_REPO_SHA,
+        "provenance": {
+            "generator": (
+                "scripts/check_bootstrap_t12_151_6_label4_target_sparse_"
+                "full_cone_dual_certificates.py"
+            ),
+            "command": (
+                "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_"
+                "full_cone_dual_certificates.py --write"
+            ),
+        },
         "source_artifacts": [
             {
                 "path": SOURCE_MISS_ARTIFACT,
@@ -621,6 +631,7 @@ def main() -> int:
     parser.add_argument("--source-misses", type=Path, default=Path(SOURCE_MISS_ARTIFACT))
     parser.add_argument("--write", action="store_true", help="write deterministic JSON artifact")
     parser.add_argument("--check", action="store_true", help="compare stored artifact to regeneration")
+    parser.add_argument("--assert-expected", action="store_true", help="accepted for checker parity")
     parser.add_argument("--json", action="store_true", help="print compact JSON summary")
     args = parser.parse_args()
 

@@ -9533,6 +9533,56 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates
+    path: data/certificates/bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.json
+    sha256: 1e36cb78a20117aba72081eaab0f3ba25ba98aa760aa76c5f6276773430e3af1
+    size_bytes: 44290
+    kind: proof_target_certificate_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+    claim_scope: Source-151 row-6 label-4 target-sparse full-cone dual-certificate follow-up; stores exact nonnegative integer separating potentials for the three endpoint quotients left uncovered by the full-cone miss screen. This certifies infeasibility of the current normalized zero-sum and coordinatewise-nonpositive screens over the current 255-row family only; it does not prove target-sparse impossibility, n=9, the bridge, Erdos Problem #97, or a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.v1
+      status: EXACT_DUAL_INFEASIBILITY_CERTIFICATES_FOR_CURRENT_FULL_CONE_SCREENS
+      trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+      summary.miss_count: 3
+      summary.distance_class_count_each:
+        - 28
+      summary.strict_row_count_each:
+        - 255
+      summary.minimum_strict_row_dot_each:
+        - 1
+        - 1
+        - 1
+      summary.potential_weight_sum_each:
+        - 250
+        - 253
+        - 243
+      summary.solves_n9: false
+      summary.solves_erdos97: false
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py --write
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center migration is proved
+      - full-cone dual certificates prove target-sparse obstruction
+      - current row family proves target-sparse assignments 0 and 11 are impossible
+      - target-sparse full-cone diagnostics prove the bridge
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

@@ -2966,6 +2966,28 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates",
+        command=(
+            "python",
+            "scripts/"
+            "check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact integer dual route-pruning certificates for the three "
+            "source 151 row 6 label-4 target-sparse full-cone endpoint "
+            "misses; certifies only that the current natural-order "
+            "Kalmanson/Altman row family cannot produce the normalized "
+            "zero-sum or coordinatewise-nonpositive LP screens, not a proof "
+            "that assignments 0 and 11 are impossible, not support "
+            "existence, not center migration, not row forcing, not "
+            "endpoint-8 forcing, not an n=9 proof, not a bridge proof, not "
+            "a proof of Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",
