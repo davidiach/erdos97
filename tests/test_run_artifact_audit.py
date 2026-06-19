@@ -11,6 +11,7 @@ from scripts.run_artifact_audit import (
     AUDIT_COMMANDS,
     AUDIT_PREFLIGHT_COMMANDS,
     AuditCommand,
+    build_summary,
     command_text,
     list_commands_payload,
     run_audit_command,
@@ -41,6 +42,41 @@ def test_run_audit_command_records_metadata(tmp_path: Path) -> None:
     assert (tmp_path / record["stdout_path"]).read_bytes() == b"ok\n"
     assert (tmp_path / record["stderr_path"]).read_bytes() == b""
     assert len(record["combined_output_sha256"]) == 64
+
+
+def test_run_audit_command_resolves_python_to_current_interpreter(tmp_path: Path) -> None:
+    command = AuditCommand(
+        ident="python_alias",
+        command=("python", "-c", "import sys; print(sys.executable)"),
+        claim_scope="test command only",
+    )
+
+    record = run_audit_command(command, tmp_path)
+
+    assert record["command"] == "python -c import sys; print(sys.executable)"
+    assert record["exit_code"] == 0
+    assert (tmp_path / record["stdout_path"]).read_text(encoding="utf-8").strip() == sys.executable
+
+
+def test_build_summary_runs_preflight_and_audit_commands(tmp_path: Path) -> None:
+    preflight = AuditCommand(
+        ident="preflight",
+        command=("python", "-c", "print('preflight')"),
+        claim_scope="test preflight only",
+    )
+    audit = AuditCommand(
+        ident="audit",
+        command=("python", "-c", "print('audit')"),
+        claim_scope="test audit only",
+    )
+
+    summary = build_summary(tmp_path, [audit], preflight_commands=[preflight])
+
+    assert summary["verified"] is True
+    assert summary["preflight_command_count"] == 1
+    assert summary["audit_command_count"] == 1
+    assert summary["command_count"] == 2
+    assert [record["id"] for record in summary["commands"]] == ["preflight", "audit"]
 
 
 def test_audit_commands_cover_generated_artifact_check_commands() -> None:

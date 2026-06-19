@@ -1,4 +1,4 @@
-PYTHON ?= python
+PYTHON ?= $(shell if [ -x .venv/bin/python ]; then printf '%s' .venv/bin/python; elif command -v python >/dev/null 2>&1; then printf '%s' python; else printf '%s' python3; fi)
 
 .PHONY: verify-lint verify-fast verify-lean verify-pytest-artifacts verify-pytest-all verify-n8 verify-kalmanson verify-n9-candidate verify-n9-review verify-bridge-frontier verify-n10-review verify-artifacts audit-artifacts verify-all
 
@@ -254,8 +254,6 @@ verify-n10-review:
 verify-artifacts: verify-n8 verify-kalmanson verify-n9-review verify-bridge-frontier verify-n10-review
 
 audit-artifacts:
-	$(PYTHON) scripts/check_status_consistency.py --max-official-status-age-days 90
-	$(PYTHON) scripts/check_artifact_provenance.py
 	$(PYTHON) scripts/run_artifact_audit.py --output-dir artifact-audit-results
 
 verify-all: verify-fast verify-artifacts

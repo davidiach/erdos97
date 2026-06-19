@@ -3527,6 +3527,13 @@ def command_text(command: Sequence[str]) -> str:
     return " ".join(command)
 
 
+def subprocess_command(command: Sequence[str]) -> tuple[str, ...]:
+    """Return the executable argv for a stored audit command."""
+    if command and command[0] == "python":
+        return (sys.executable, *command[1:])
+    return tuple(command)
+
+
 def run_audit_command(command: AuditCommand, output_dir: Path) -> dict[str, Any]:
     command_dir = output_dir / "commands"
     command_dir.mkdir(parents=True, exist_ok=True)
@@ -3536,7 +3543,7 @@ def run_audit_command(command: AuditCommand, output_dir: Path) -> dict[str, Any]
     started_at = utc_now()
     start = time.perf_counter()
     result = subprocess.run(
-        command.command,
+        subprocess_command(command.command),
         cwd=REPO_ROOT,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
@@ -3566,9 +3573,15 @@ def run_audit_command(command: AuditCommand, output_dir: Path) -> dict[str, Any]
     }
 
 
-def build_summary(output_dir: Path, commands: Sequence[AuditCommand]) -> dict[str, Any]:
+def build_summary(
+    output_dir: Path,
+    commands: Sequence[AuditCommand],
+    *,
+    preflight_commands: Sequence[AuditCommand] = AUDIT_PREFLIGHT_COMMANDS,
+) -> dict[str, Any]:
     started_at = utc_now()
-    command_results = [run_audit_command(command, output_dir) for command in commands]
+    listed_commands = (*preflight_commands, *commands)
+    command_results = [run_audit_command(command, output_dir) for command in listed_commands]
     finished_at = utc_now()
     dependency_snapshot = REPO_ROOT / "requirements-lock.txt"
 
@@ -3587,6 +3600,9 @@ def build_summary(output_dir: Path, commands: Sequence[AuditCommand]) -> dict[st
         "started_at_utc": started_at,
         "finished_at_utc": finished_at,
         "verified": all(record["exit_code"] == 0 for record in command_results),
+        "preflight_command_count": len(preflight_commands),
+        "audit_command_count": len(commands),
+        "command_count": len(listed_commands),
         "repo": {
             "commit": run_git(("rev-parse", "HEAD")),
             "status_porcelain": run_git(("status", "--porcelain")),
