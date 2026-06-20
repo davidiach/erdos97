@@ -69,6 +69,20 @@ DEFAULT_MS = (4, 8, 12, 16)
 TURN_TOL = 1e-12
 
 
+def compare_artifact_replay(payload, artifact_path: str) -> list[str]:
+    """Compare the freshly generated deterministic payload with a stored artifact."""
+
+    with open(artifact_path, encoding="utf-8") as fh:
+        stored = json.load(fh)
+    if payload == stored:
+        return []
+    errors: list[str] = []
+    for key in sorted(set(payload) | set(stored)):
+        if payload.get(key) != stored.get(key):
+            errors.append(f"{key}: replay differs from stored artifact")
+    return errors
+
+
 def offsets_for(p: float, m: int) -> list[float]:
     """All phi in (0, 2h) with cos(phi + 2k h) = p for some integer k."""
     h = math.pi / m
@@ -166,6 +180,12 @@ def main() -> int:
     ap.add_argument("--assert-clear", action="store_true")
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--write-artifact", type=str, default="")
+    ap.add_argument(
+        "--check-artifact",
+        type=str,
+        default="",
+        help="compare deterministic replay fields against a stored artifact",
+    )
     args = ap.parse_args()
 
     band_ok = all(boundary_band_ok(m) for m in args.ms)
@@ -225,6 +245,13 @@ def main() -> int:
         # sampled config is strictly non-convex). It does NOT mean m>=8 closed.
         "clear": clear,
     }
+    if args.check_artifact:
+        errors = compare_artifact_replay(payload, args.check_artifact)
+        if errors:
+            print("artifact replay mismatch:", file=sys.stderr)
+            for err in errors:
+                print(f"- {err}", file=sys.stderr)
+            return 1
     if args.write_artifact:
         with open(args.write_artifact, "w", encoding="utf-8", newline="\n") as fh:
             json.dump(payload, fh, indent=1, sort_keys=True)

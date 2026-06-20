@@ -92,6 +92,26 @@ def test_audit_commands_cover_generated_artifact_check_commands() -> None:
     assert missing == []
 
 
+def test_audit_commands_cover_verify_artifacts_make_target() -> None:
+    dry_run = subprocess.run(
+        ["make", "-n", "verify-artifacts"],
+        cwd=ROOT,
+        check=True,
+        text=True,
+        stdout=subprocess.PIPE,
+    )
+    audit_commands = {command_text(command.command) for command in AUDIT_COMMANDS}
+    missing = []
+    for line in dry_run.stdout.splitlines():
+        command = line.strip()
+        if command.startswith(".venv/bin/python "):
+            command = "python " + command.split(" ", 1)[1]
+        if command.startswith("python ") and command not in audit_commands:
+            missing.append(command)
+
+    assert missing == []
+
+
 def test_list_commands_payload_is_claim_neutral() -> None:
     payload = list_commands_payload(AUDIT_COMMANDS)
 
@@ -596,6 +616,10 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_support_saturation_obstruction.py --check --json"
         in command_texts
     )
@@ -624,6 +648,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n12_rich_support_determinant.py --check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_localized_rich_support_counting.py --check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_localized_rich_support_counting.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json"
     )
     bootstrap_bridge_commands = (
         "python scripts/check_bootstrap_core_crosswalk.py --check "

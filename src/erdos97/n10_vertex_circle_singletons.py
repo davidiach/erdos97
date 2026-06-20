@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from collections import Counter
 from dataclasses import dataclass
 from functools import lru_cache
@@ -20,6 +21,9 @@ EXPECTED_COUNTS = {
     "partial_self_edge": 4_467_592,
     "partial_strict_cycle": 5_318_250,
 }
+EXPECTED_ROW_SUMMARIES_DIGEST_SHA256 = (
+    "64ebe12406c8777bcc7d7e2c5f1db3adb7703cbdba3898bb069bf964091b2fbb"
+)
 TRUST = "MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING"
 
 
@@ -158,6 +162,39 @@ def load_artifact(path: Path) -> dict[str, Any]:
     return payload
 
 
+def normalized_row_summaries(rows: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Return the stable per-row replay signature used by the n=10 checkers."""
+
+    normalized: list[dict[str, Any]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise AssertionError("row is not an object")
+        counts = row.get("counts")
+        if not isinstance(counts, dict):
+            raise AssertionError("row counts is not an object")
+        normalized.append(
+            {
+                "row0_index": int(row["row0_index"]),
+                "row0_witnesses": [int(item) for item in row["row0_witnesses"]],
+                "nodes": int(row["nodes"]),
+                "full": int(row["full"]),
+                "counts": {
+                    str(key): int(value) for key, value in sorted(counts.items())
+                },
+            }
+        )
+    return normalized
+
+
+def row_summaries_digest(rows: Sequence[dict[str, Any]]) -> str:
+    blob = json.dumps(
+        normalized_row_summaries(rows),
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(blob).hexdigest()
+
+
 def assert_expected_payload(payload: dict[str, Any]) -> None:
     """Assert the n=10 singleton artifact has the expected draft counts."""
     if payload.get("type") != "n10_vertex_circle_singleton_slices_v1":
@@ -184,6 +221,9 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
     rows = payload.get("rows")
     if not isinstance(rows, list) or len(rows) != EXPECTED_ROW0_CHOICES:
         raise AssertionError("rows must contain 126 singleton records")
+    digest = row_summaries_digest(rows)
+    if digest != EXPECTED_ROW_SUMMARIES_DIGEST_SHA256:
+        raise AssertionError(f"row summaries digest mismatch: {digest}")
     expected_ranges = [[idx, idx + 1] for idx in range(EXPECTED_ROW0_CHOICES)]
     if payload.get("row0_ranges") != expected_ranges:
         raise AssertionError("row0_ranges are not the 126 singleton slices")

@@ -311,14 +311,14 @@ def validate_official_status_freshness(
         require_string_field(official, "official_status_last_checked", "metadata problem"),
         "metadata problem.official_status_last_checked",
     )
-    if max_age_days is None:
-        return
-    if max_age_days < 0:
-        fail("--max-official-status-age-days should be nonnegative")
     today = today or date.today()
     age_days = (today - checked).days
     if age_days < 0:
         fail("metadata problem.official_status_last_checked is in the future")
+    if max_age_days is None:
+        return
+    if max_age_days < 0:
+        fail("--max-official-status-age-days should be nonnegative")
     if age_days > max_age_days:
         fail(
             "metadata problem.official_status_last_checked is "
