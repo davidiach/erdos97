@@ -10417,7 +10417,7 @@ artifacts:
     generator: scripts/check_n8_survivors_smt.py
     command: python scripts/check_n8_survivors_smt.py --assert-clear --write-artifact data/certificates/n8_survivors_smt.json
     checker: scripts/check_n8_survivors_smt.py
-    check_command: python scripts/check_n8_survivors_smt.py --assert-clear
+    check_command: python scripts/check_n8_survivors_smt.py --assert-clear --check-artifact data/certificates/n8_survivors_smt.json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: EXACT_OBSTRUCTION

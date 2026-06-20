@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import pathlib
 import sys
 
@@ -61,6 +62,31 @@ def test_each_center_has_four_witnesses():
         rows = rec["rows"]
         for i in range(MOD.N):
             assert len(MOD.witnesses(rows, i)) == 4, (rec["id"], i)
+
+
+def test_compare_artifact_replay_detects_stale_payload(tmp_path):
+    payload = {
+        "schema": "erdos97.n8_survivors_smt.v1",
+        "status": "EXACT_OBSTRUCTION_SMT",
+        "trust": "EXACT_OBSTRUCTION",
+        "clear": True,
+        "classes_total": 15,
+        "not_strictly_convex_unsat_failures": [],
+        "order_independent_unsat_classes": list(range(14)),
+        "records": [{"class": 0, "strict_convex": "unsat"}],
+    }
+    artifact = tmp_path / "n8_survivors_smt.json"
+    artifact.write_text(
+        json.dumps({**payload, "clear": False}, sort_keys=True),
+        encoding="utf-8",
+    )
+
+    errors = MOD.compare_artifact_replay(payload, str(artifact))
+
+    assert errors == [
+        f"stored artifact replay mismatch: {artifact}",
+        "field 'clear' differs",
+    ]
 
 
 @pytest.mark.slow

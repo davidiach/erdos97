@@ -174,29 +174,22 @@ def decide_class(rows, timeout_ms: int) -> dict:
     }
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--timeout-ms", type=int, default=60000)
-    ap.add_argument("--assert-clear", action="store_true",
-                    help="exit nonzero unless all 15 classes are UNSAT")
-    ap.add_argument("--json", action="store_true")
-    ap.add_argument("--write-artifact", type=str, default="")
-    args = ap.parse_args()
-
+def build_payload(timeout_ms: int) -> dict[str, object]:
     root = repo_root()
     survivors = load_survivors(root)
     records = []
     for rec in survivors:
         cid = int(rec["id"])
-        d = decide_class(rec["rows"], args.timeout_ms)
+        d = decide_class(rec["rows"], timeout_ms)
         records.append({"class": cid, **d})
     # main result: no strictly convex octagon (any order) realizes any class
     not_convex_unsat = [r["class"] for r in records if r["strict_convex"] != "unsat"]
     # bonus: classes killed with no convexity assumption at all
-    order_independent = [r["class"] for r in records
-                         if r["without_convexity"] == "unsat"]
+    order_independent = [
+        r["class"] for r in records if r["without_convexity"] == "unsat"
+    ]
     clear = len(records) == 15 and not not_convex_unsat
-    payload = {
+    return {
         "schema": "erdos97.n8_survivors_smt.v1",
         "status": "EXACT_OBSTRUCTION_SMT" if clear else "INCOMPLETE",
         "trust": "EXACT_OBSTRUCTION",
@@ -234,6 +227,53 @@ def main() -> int:
         "order_independent_unsat_classes": order_independent,
         "clear": clear,
     }
+
+
+def compare_artifact_replay(payload: dict[str, object], artifact_path: str) -> list[str]:
+    path = Path(artifact_path)
+    if not path.is_absolute():
+        path = repo_root() / path
+    stored = json.loads(path.read_text(encoding="utf-8"))
+    if stored == payload:
+        return []
+    errors = [f"stored artifact replay mismatch: {path}"]
+    for key in (
+        "schema",
+        "status",
+        "trust",
+        "clear",
+        "classes_total",
+        "not_strictly_convex_unsat_failures",
+        "order_independent_unsat_classes",
+        "records",
+    ):
+        if stored.get(key) != payload.get(key):
+            errors.append(f"field {key!r} differs")
+    return errors
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--timeout-ms", type=int, default=60000)
+    ap.add_argument("--assert-clear", action="store_true",
+                    help="exit nonzero unless all 15 classes are UNSAT")
+    ap.add_argument("--json", action="store_true")
+    ap.add_argument("--write-artifact", type=str, default="")
+    ap.add_argument(
+        "--check-artifact",
+        type=str,
+        default="",
+        help="compare regenerated payload to a stored JSON artifact",
+    )
+    args = ap.parse_args()
+
+    payload = build_payload(args.timeout_ms)
+    clear = bool(payload["clear"])
+    artifact_errors = (
+        compare_artifact_replay(payload, args.check_artifact)
+        if args.check_artifact
+        else []
+    )
     if args.write_artifact:
         with open(args.write_artifact, "w", encoding="utf-8", newline="\n") as fh:
             json.dump(payload, fh, indent=1, sort_keys=True)
@@ -241,13 +281,18 @@ def main() -> int:
     if args.json:
         print(json.dumps(payload, indent=1, sort_keys=True))
     else:
-        for r in records:
+        for r in payload["records"]:
             print(f"class {r['class']:2d}: strict_convex={r['strict_convex']:7s} "
                   f"without_convexity={r['without_convexity']:7s} "
                   f"({r['equations']} eqs)")
         print(f"all 15 not-strictly-convex (UNSAT): {clear}")
         print(f"order-independent (UNSAT w/o convexity): "
-              f"{len(order_independent)}/15 classes {order_independent}")
+              f"{len(payload['order_independent_unsat_classes'])}/15 classes "
+              f"{payload['order_independent_unsat_classes']}")
+        for error in artifact_errors:
+            print(f"ERROR: {error}", file=sys.stderr)
+    if artifact_errors:
+        return 1
     if args.assert_clear and not clear:
         return 1
     return 0
