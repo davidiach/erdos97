@@ -100,16 +100,40 @@ def test_audit_commands_cover_verify_artifacts_make_target() -> None:
         text=True,
         stdout=subprocess.PIPE,
     )
-    audit_commands = {command_text(command.command) for command in AUDIT_COMMANDS}
+    audit_order = {
+        command_text(command.command): index for index, command in enumerate(AUDIT_COMMANDS)
+    }
+    make_commands = []
     missing = []
     for line in dry_run.stdout.splitlines():
         command = line.strip()
         if command.startswith(".venv/bin/python "):
             command = "python " + command.split(" ", 1)[1]
-        if command.startswith("python ") and command not in audit_commands:
-            missing.append(command)
+        if command.startswith("python "):
+            make_commands.append(command)
+            if command not in audit_order:
+                missing.append(command)
 
     assert missing == []
+    d3_dependency_order = [
+        "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --artifact "
+        "data/certificates/n9_selected_baseline_escape_budget_overlay.json --check --json",
+        "python scripts/check_n9_d3_escape_slice.py --artifact "
+        "data/certificates/n9_base_apex_d3_escape_slice.json --check --json",
+        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --artifact "
+        "data/certificates/n9_base_apex_low_excess_escape_crosswalk.json --check --json",
+        "python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py "
+        "--artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json "
+        "--check --json",
+        "python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py "
+        "--check --json",
+        "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --artifact "
+        "data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json "
+        "--check --json",
+    ]
+    assert [
+        command for command in make_commands if command in d3_dependency_order
+    ] == d3_dependency_order
 
 
 def test_list_commands_payload_is_claim_neutral() -> None:
@@ -233,16 +257,23 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/probe_c19_proof_tooling.py --check-c19-cnf-summary --json"
     )
     assert (
-        "python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json"
+        "python scripts/check_n9_base_apex_low_excess_ledgers.py --artifact "
+        "data/certificates/n9_base_apex_low_excess_ledgers.json --check --json"
         in command_texts
     )
-    assert "python scripts/check_n9_base_apex_escape_budget.py --check --json" in command_texts
     assert (
-        "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json"
+        "python scripts/check_n9_base_apex_escape_budget.py --artifact "
+        "data/certificates/n9_base_apex_escape_budget_report.json --check --json"
+        in command_texts
+    )
+    assert (
+        "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --artifact "
+        "data/certificates/n9_selected_baseline_escape_budget_overlay.json --check --json"
         in command_texts
     )
     assert (
         "python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py "
+        "--artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json "
         "--check --json"
         in command_texts
     )
@@ -251,17 +282,25 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --json"
         in command_texts
     )
-    assert "python scripts/check_n9_d3_escape_slice.py --check --json" in command_texts
     assert (
-        "python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json"
+        "python scripts/check_n9_d3_escape_slice.py --artifact "
+        "data/certificates/n9_base_apex_d3_escape_slice.json --check --json"
         in command_texts
     )
     assert (
-        "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json"
+        "python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --artifact "
+        "data/certificates/n9_base_apex_d3_escape_frontier_packet.json --check --json"
         in command_texts
     )
     assert (
-        "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json"
+        "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --artifact "
+        "data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json "
+        "--check --json"
+        in command_texts
+    )
+    assert (
+        "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --artifact "
+        "data/certificates/n9_base_apex_d3_incidence_capacity_packet.json --check --json"
         in command_texts
     )
     assert (
@@ -283,11 +322,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
-        "python scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json"
+        "python scripts/check_n9_base_apex_low_excess_escape_ladder.py --artifact "
+        "data/certificates/n9_base_apex_low_excess_escape_ladder.json --check --json"
         in command_texts
     )
     assert (
-        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json"
+        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --artifact "
+        "data/certificates/n9_base_apex_low_excess_escape_crosswalk.json --check --json"
         in command_texts
     )
     assert (
@@ -519,24 +560,31 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --assert-expected --json"
     )
     assert ordered_command_texts.index(
-        "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json"
+        "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --artifact "
+        "data/certificates/n9_selected_baseline_escape_budget_overlay.json --check --json"
     ) < ordered_command_texts.index(
-        "python scripts/check_n9_d3_escape_slice.py --check --json"
+        "python scripts/check_n9_d3_escape_slice.py --artifact "
+        "data/certificates/n9_base_apex_d3_escape_slice.json --check --json"
     )
     assert ordered_command_texts.index(
-        "python scripts/check_n9_d3_escape_slice.py --check --json"
+        "python scripts/check_n9_d3_escape_slice.py --artifact "
+        "data/certificates/n9_base_apex_d3_escape_slice.json --check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py "
+        "--artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json "
         "--check --json"
     )
     assert ordered_command_texts.index(
-        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json"
+        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --artifact "
+        "data/certificates/n9_base_apex_low_excess_escape_crosswalk.json --check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py "
+        "--artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json "
         "--check --json"
     )
     assert ordered_command_texts.index(
         "python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py "
+        "--artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json "
         "--check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py "
@@ -546,15 +594,20 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py "
         "--check --json"
     ) < ordered_command_texts.index(
-        "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json"
+        "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --artifact "
+        "data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json "
+        "--check --json"
     )
     assert ordered_command_texts.index(
-        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json"
+        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --artifact "
+        "data/certificates/n9_base_apex_low_excess_escape_crosswalk.json --check --json"
     ) < ordered_command_texts.index(
-        "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json"
+        "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --artifact "
+        "data/certificates/n9_base_apex_d3_incidence_capacity_packet.json --check --json"
     )
     assert ordered_command_texts.index(
-        "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json"
+        "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --artifact "
+        "data/certificates/n9_base_apex_d3_incidence_capacity_packet.json --check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n9_base_apex_d3_p19_degree_obstruction.py --check "
         "--assert-expected --json"
@@ -578,7 +631,8 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_n9_base_apex_audit_path.py --check --json"
     )
     assert (
-        "python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json"
+        "python scripts/check_n9_row_ptolemy_product_cancellations.py --artifact "
+        "data/certificates/n9_row_ptolemy_product_cancellations.json --check --json"
         in command_texts
     )
     assert (

@@ -82,3 +82,20 @@ def test_c19_compact_vs_legacy_diagnostic_matches_artifact() -> None:
     assert payload["comparison"]["same_cyclic_order"] is True
     assert payload["comparison"]["support_signature_overlap_count"] == 0
     assert payload["comparison"]["compact_support_subset_of_legacy"] is False
+
+
+def test_c19_compact_vs_legacy_check_artifact_replays_stored_payload() -> None:
+    subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--c19-compact-vs-legacy",
+            "--assert-expected",
+            "--check-artifact",
+            str(C19_COMPACT_VS_LEGACY),
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )

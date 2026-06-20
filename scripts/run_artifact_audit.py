@@ -163,6 +163,22 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="c19_compact_vs_legacy_diagnostic",
+        command=(
+            "python",
+            "scripts/analyze_kalmanson_certificates.py",
+            "--c19-compact-vs-legacy",
+            "--assert-expected",
+            "--check-artifact",
+            "reports/c19_kalmanson_compact_vs_legacy.json",
+        ),
+        claim_scope=(
+            "Fixed-order C19_skew compact-vs-legacy certificate support "
+            "diagnostic only; not an all-order obstruction or proof of "
+            "Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
         ident="c19_proof_tooling_preflight",
         command=(
             "python",
@@ -1392,7 +1408,14 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
     ),
     AuditCommand(
         ident="n9_base_apex_low_excess_ledgers",
-        command=("python", "scripts/check_n9_base_apex_low_excess_ledgers.py", "--check", "--json"),
+        command=(
+            "python",
+            "scripts/check_n9_base_apex_low_excess_ledgers.py",
+            "--artifact",
+            "data/certificates/n9_base_apex_low_excess_ledgers.json",
+            "--check",
+            "--json",
+        ),
         claim_scope=(
             "Focused n=9 base-apex low-excess bookkeeping; "
             "not a proof of n=9, not a counterexample, "
@@ -1401,7 +1424,14 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
     ),
     AuditCommand(
         ident="n9_base_apex_escape_budget",
-        command=("python", "scripts/check_n9_base_apex_escape_budget.py", "--check", "--json"),
+        command=(
+            "python",
+            "scripts/check_n9_base_apex_escape_budget.py",
+            "--artifact",
+            "data/certificates/n9_base_apex_escape_budget_report.json",
+            "--check",
+            "--json",
+        ),
         claim_scope=(
             "Focused n=9 base-apex escape-budget bookkeeping; "
             "not a proof of n=9, not a counterexample, and not a global status update."
@@ -1412,6 +1442,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_n9_selected_baseline_escape_budget_overlay.py",
+            "--artifact",
+            "data/certificates/n9_selected_baseline_escape_budget_overlay.json",
             "--check",
             "--json",
         ),
@@ -1423,7 +1455,14 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
     ),
     AuditCommand(
         ident="n9_base_apex_d3_escape_slice",
-        command=("python", "scripts/check_n9_d3_escape_slice.py", "--check", "--json"),
+        command=(
+            "python",
+            "scripts/check_n9_d3_escape_slice.py",
+            "--artifact",
+            "data/certificates/n9_base_apex_d3_escape_slice.json",
+            "--check",
+            "--json",
+        ),
         claim_scope=(
             "Focused n=9 base-apex D=3,r=3 coupled escape-slice bookkeeping; "
             "not a proof of n=9, not a counterexample, not a geometric "
@@ -1435,6 +1474,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_n9_base_apex_d3_escape_frontier_packet.py",
+            "--artifact",
+            "data/certificates/n9_base_apex_d3_escape_frontier_packet.json",
             "--check",
             "--json",
         ),
@@ -1449,6 +1490,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_n9_base_apex_low_excess_escape_ladder.py",
+            "--artifact",
+            "data/certificates/n9_base_apex_low_excess_escape_ladder.json",
             "--check",
             "--json",
         ),
@@ -1463,6 +1506,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_n9_base_apex_low_excess_escape_crosswalk.py",
+            "--artifact",
+            "data/certificates/n9_base_apex_low_excess_escape_crosswalk.json",
             "--check",
             "--json",
         ),
@@ -1477,6 +1522,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py",
+            "--artifact",
+            "data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json",
             "--check",
             "--json",
         ),
@@ -1508,6 +1555,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py",
+            "--artifact",
+            "data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json",
             "--check",
             "--json",
         ),
@@ -1523,6 +1572,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_n9_base_apex_d3_incidence_capacity_packet.py",
+            "--artifact",
+            "data/certificates/n9_base_apex_d3_incidence_capacity_packet.json",
             "--check",
             "--json",
         ),
@@ -1603,6 +1654,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_n9_row_ptolemy_product_cancellations.py",
+            "--artifact",
+            "data/certificates/n9_row_ptolemy_product_cancellations.json",
             "--check",
             "--json",
         ),
@@ -3569,6 +3622,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=(
             "python",
             "scripts/check_quarter_cell_derivative_certificate.py",
+            "--artifact",
+            "data/certificates/quarter_cell_derivative_certificate.json",
             "--check",
             "--assert-expected",
             "--json",

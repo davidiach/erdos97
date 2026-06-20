@@ -44,6 +44,16 @@ def _relative_path(path: Path) -> str:
         return str(path)
 
 
+def load_json(path: Path) -> object:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def check_artifact(path: Path, payload: Mapping[str, object]) -> None:
+    artifact = load_json(path)
+    if artifact != payload:
+        raise AssertionError(f"{_relative_path(path)} does not match regenerated diagnostic payload")
+
+
 def _normalise_cycle(values: Sequence[int]) -> tuple[int, ...]:
     vals = tuple(int(value) for value in values)
     rotations = [vals[idx:] + vals[:idx] for idx in range(len(vals))]
@@ -521,6 +531,7 @@ def main() -> int:
     )
     parser.add_argument("--top", type=int, default=12, help="number of top diagnostic rows to retain")
     parser.add_argument("--out", type=Path, help="write JSON payload to this path")
+    parser.add_argument("--check-artifact", type=Path, help="compare generated JSON to this stored artifact")
     parser.add_argument("--json", action="store_true", help="print JSON payload")
     parser.add_argument("--assert-expected", action="store_true")
     parser.add_argument(
@@ -543,6 +554,9 @@ def main() -> int:
         data = payload(paths, top=args.top)
         if args.assert_expected:
             assert_expected(data)
+    if args.check_artifact:
+        artifact = args.check_artifact if args.check_artifact.is_absolute() else ROOT / args.check_artifact
+        check_artifact(artifact, data)
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -556,10 +570,14 @@ def main() -> int:
         print(f"support overlap: {comparison['support_signature_overlap_count']}")  # type: ignore[index]
         if args.assert_expected:
             print("OK: C19 compact-vs-legacy diagnostic matches expected values")
+        if args.check_artifact:
+            print(f"OK: {_relative_path(args.check_artifact)} matches regenerated payload")
     else:
         print_table(data)
         if args.assert_expected:
             print("OK: Kalmanson certificate diagnostics match expected fixed-order certificates")
+        if args.check_artifact:
+            print(f"OK: {_relative_path(args.check_artifact)} matches regenerated payload")
     return 0
 
 
