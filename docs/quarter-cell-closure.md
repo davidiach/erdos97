@@ -2,9 +2,10 @@
 
 Trust labels: `LEMMA` (exact, self-checked) for the A-row reduction and the
 boundary-band confinement; `NUMERICAL_EVIDENCE` (float grid, tangency-limited)
-for the non-convexity of the witness locus at `m = 8, 12, 16`. The `m = 4` cell
-is the only quarter cell closed **exactly** so far, by SMT
-(`docs/three-square-m4-exact-closure.md`). This is a restricted-family analysis
+for the non-convexity of the witness locus at `m = 8, 12, 16`. The `m = 4`
+cell is closed exactly by SMT (`docs/three-square-m4-exact-closure.md`), and
+the successor derivative note gives a repo-local interval certificate for the
+named `m = 8, 12, 16` signed-band cells. This is a restricted-family analysis
 of the three-orbit (t=3) `C_m` family. It is not an all-`m` lemma, not a proof
 of Erdos Problem #97, and not a counterexample.
 
@@ -16,8 +17,9 @@ own-pair choice `a3`, and a single condition covers every quarter cell. The
 `m = 4` cell is then closed exactly; for `m = 8, 12, 16` the witness locus is
 shown numerically to be tangent to (and on the non-convex side of) the
 convexity boundary, which is strong evidence of closure but, because the
-margin vanishes, **not** a certificate -- those cells remain open pending the
-exact turn-sign lemma stated at the end.
+margin vanishes, **not** a certificate by itself. The exact finite-m turn-sign
+certificate is recorded separately in
+`docs/quarter-cell-derivative-certificate.md`.
 
 ## The A-row reduction
 
@@ -86,8 +88,8 @@ This tangency is why:
 - the float grid at `m = 8, 12, 16` is **evidence, not a certificate**: it
   shows the locus sits on the non-convex side of the boundary, but the
   vanishing, grid-dependent margin means it cannot rule out an exactly-convex
-  point on the locus. Those cells remain open; `m = 4` is the only quarter
-  cell closed exactly.
+  point on the locus. The successor interval-derivative certificate handles
+  those named finite cells; this grid artifact alone does not.
 
 ## Recorded route limits
 
@@ -125,7 +127,10 @@ boundary-band locus into three band orders and `12` radius-sign cells. In each
 cell it records a fixed turn determinant whose first nonzero boundary term is
 negative for `m >= 8`, with deterministic grid stress of the same fixed turns.
 That narrows the exact target but does not prove the full sign-definiteness
-statement, so the `m = 8, 12, 16` cells remain open.
+statement by itself. The successor note
+`docs/quarter-cell-derivative-certificate.md` adds a repo-local interval
+derivative certificate for exactly the named `m = 8, 12, 16` signed-band cells.
+It does not extend this note to an all-`m` quarter-cell obstruction.
 
 ## Reproduce
 
@@ -139,9 +144,9 @@ python scripts/check_quarter_cell_closure.py --assert-clear \
 - The A-row reduction and the boundary-band confinement are exact and
   `m`-uniform proved lemmas (machine-checked self-test).
 - `m = 4` is the only quarter cell closed **exactly** (by SMT, separate note).
-  For `m = 8, 12, 16` the witness locus is shown numerically to be tangent to
-  and on the non-convex side of the convexity boundary -- evidence of closure,
-  not a certificate; those cells remain **open**.
+  For `m = 8, 12, 16`, this note's grid is only evidence, but the successor
+  interval-derivative certificate closes the named signed-band cells in the
+  repo-local interval-arithmetic sense.
 - Says nothing about `m` not divisible by 4 (no quarter cell there -- the
   three-orbit screen already closes those), about more than three orbits, or
   about the general problem; the official/global status of Erdos Problem #97 is

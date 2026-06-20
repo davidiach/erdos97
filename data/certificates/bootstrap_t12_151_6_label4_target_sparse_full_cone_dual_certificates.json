@@ -1,0 +1,2017 @@
+{
+  "base_repo_sha": "8f331b5f234cb1c4bfcd0eb134fca0b2120056e8",
+  "claim_scope": "Exact integer dual certificates for the three source-151 row-6 label-4 assignment-0 endpoint rows left uncovered by the full-cone LP-screen diagnostic. The certificates prove infeasibility of the current normalized zero-sum and coordinatewise-nonpositive LP screens over the fixed natural-order Kalmanson/Altman row family. They are route-pruning evidence only: they do not prove the local quotients are geometrically realizable, do not prove assignments 0 or 11 are possible or impossible, do not prove support existence, center migration, row forcing, endpoint-8 forcing, n=9, the bootstrap bridge, or Erdos #97, and they are not a counterexample.",
+  "dual_certificate_records": [
+    {
+      "assignment_index": 0,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "certified_lp_screens": {
+        "nonpositive_inequalities_normalized": "infeasible_exactly_certified",
+        "zero_sum_equalities_normalized": "infeasible_exactly_certified"
+      },
+      "claim_strength": "Exact dual route-pruning certificate for this encoded local quotient and fixed natural cyclic order: it proves the current Kalmanson/Altman strict-row family cannot produce either a normalized zero-sum or a coordinatewise-nonpositive cone certificate.",
+      "distance_class_count": 28,
+      "dual_potential": {
+        "coordinate_system": "selected-distance quotient class order",
+        "max_weight": 23,
+        "nonnegative_integer_weights_by_distance_class": [
+          {
+            "class_index": 0,
+            "members": [
+              [
+                0,
+                1
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 1,
+            "members": [
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                8
+              ]
+            ],
+            "potential_weight": 6
+          },
+          {
+            "class_index": 2,
+            "members": [
+              [
+                0,
+                3
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 3,
+            "members": [
+              [
+                0,
+                4
+              ]
+            ],
+            "potential_weight": 9
+          },
+          {
+            "class_index": 4,
+            "members": [
+              [
+                0,
+                5
+              ]
+            ],
+            "potential_weight": 23
+          },
+          {
+            "class_index": 5,
+            "members": [
+              [
+                0,
+                6
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 6,
+            "members": [
+              [
+                0,
+                7
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 7,
+            "members": [
+              [
+                0,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                4,
+                8
+              ],
+              [
+                6,
+                8
+              ]
+            ],
+            "potential_weight": 1
+          },
+          {
+            "class_index": 8,
+            "members": [
+              [
+                1,
+                2
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 9,
+            "members": [
+              [
+                1,
+                3
+              ]
+            ],
+            "potential_weight": 6
+          },
+          {
+            "class_index": 10,
+            "members": [
+              [
+                1,
+                4
+              ]
+            ],
+            "potential_weight": 5
+          },
+          {
+            "class_index": 11,
+            "members": [
+              [
+                1,
+                5
+              ]
+            ],
+            "potential_weight": 20
+          },
+          {
+            "class_index": 12,
+            "members": [
+              [
+                1,
+                6
+              ]
+            ],
+            "potential_weight": 9
+          },
+          {
+            "class_index": 13,
+            "members": [
+              [
+                1,
+                7
+              ]
+            ],
+            "potential_weight": 10
+          },
+          {
+            "class_index": 14,
+            "members": [
+              [
+                2,
+                5
+              ]
+            ],
+            "potential_weight": 22
+          },
+          {
+            "class_index": 15,
+            "members": [
+              [
+                2,
+                6
+              ]
+            ],
+            "potential_weight": 12
+          },
+          {
+            "class_index": 16,
+            "members": [
+              [
+                2,
+                7
+              ]
+            ],
+            "potential_weight": 14
+          },
+          {
+            "class_index": 17,
+            "members": [
+              [
+                3,
+                4
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 18,
+            "members": [
+              [
+                3,
+                5
+              ]
+            ],
+            "potential_weight": 17
+          },
+          {
+            "class_index": 19,
+            "members": [
+              [
+                3,
+                6
+              ]
+            ],
+            "potential_weight": 8
+          },
+          {
+            "class_index": 20,
+            "members": [
+              [
+                3,
+                7
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 21,
+            "members": [
+              [
+                3,
+                8
+              ]
+            ],
+            "potential_weight": 4
+          },
+          {
+            "class_index": 22,
+            "members": [
+              [
+                4,
+                6
+              ]
+            ],
+            "potential_weight": 3
+          },
+          {
+            "class_index": 23,
+            "members": [
+              [
+                4,
+                7
+              ]
+            ],
+            "potential_weight": 7
+          },
+          {
+            "class_index": 24,
+            "members": [
+              [
+                5,
+                7
+              ]
+            ],
+            "potential_weight": 16
+          },
+          {
+            "class_index": 25,
+            "members": [
+              [
+                5,
+                8
+              ]
+            ],
+            "potential_weight": 14
+          },
+          {
+            "class_index": 26,
+            "members": [
+              [
+                6,
+                7
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 27,
+            "members": [
+              [
+                7,
+                8
+              ]
+            ],
+            "potential_weight": 0
+          }
+        ],
+        "nonzero_weight_count": 23,
+        "weight_sum": 250
+      },
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "exact_separation_check": {
+        "active_strict_row_count": 24,
+        "active_strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              2,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              3,
+              4,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              4,
+              5,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          }
+        ],
+        "all_potential_weights_nonnegative": true,
+        "all_strict_rows_have_positive_dot": true,
+        "maximum_strict_row_dot": 38,
+        "minimum_strict_row_dot": 1
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255,
+      "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order"
+    },
+    {
+      "assignment_index": 0,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "certified_lp_screens": {
+        "nonpositive_inequalities_normalized": "infeasible_exactly_certified",
+        "zero_sum_equalities_normalized": "infeasible_exactly_certified"
+      },
+      "claim_strength": "Exact dual route-pruning certificate for this encoded local quotient and fixed natural cyclic order: it proves the current Kalmanson/Altman strict-row family cannot produce either a normalized zero-sum or a coordinatewise-nonpositive cone certificate.",
+      "distance_class_count": 28,
+      "dual_potential": {
+        "coordinate_system": "selected-distance quotient class order",
+        "max_weight": 25,
+        "nonnegative_integer_weights_by_distance_class": [
+          {
+            "class_index": 0,
+            "members": [
+              [
+                0,
+                1
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 1,
+            "members": [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                8
+              ],
+              [
+                4,
+                8
+              ],
+              [
+                6,
+                8
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 2,
+            "members": [
+              [
+                0,
+                3
+              ]
+            ],
+            "potential_weight": 10
+          },
+          {
+            "class_index": 3,
+            "members": [
+              [
+                0,
+                4
+              ]
+            ],
+            "potential_weight": 8
+          },
+          {
+            "class_index": 4,
+            "members": [
+              [
+                0,
+                5
+              ]
+            ],
+            "potential_weight": 22
+          },
+          {
+            "class_index": 5,
+            "members": [
+              [
+                0,
+                6
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "potential_weight": 10
+          },
+          {
+            "class_index": 6,
+            "members": [
+              [
+                0,
+                7
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 7,
+            "members": [
+              [
+                1,
+                2
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 8,
+            "members": [
+              [
+                1,
+                3
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 9,
+            "members": [
+              [
+                1,
+                4
+              ]
+            ],
+            "potential_weight": 10
+          },
+          {
+            "class_index": 10,
+            "members": [
+              [
+                1,
+                5
+              ]
+            ],
+            "potential_weight": 25
+          },
+          {
+            "class_index": 11,
+            "members": [
+              [
+                1,
+                6
+              ]
+            ],
+            "potential_weight": 14
+          },
+          {
+            "class_index": 12,
+            "members": [
+              [
+                1,
+                7
+              ]
+            ],
+            "potential_weight": 16
+          },
+          {
+            "class_index": 13,
+            "members": [
+              [
+                1,
+                8
+              ]
+            ],
+            "potential_weight": 6
+          },
+          {
+            "class_index": 14,
+            "members": [
+              [
+                2,
+                5
+              ]
+            ],
+            "potential_weight": 16
+          },
+          {
+            "class_index": 15,
+            "members": [
+              [
+                2,
+                6
+              ]
+            ],
+            "potential_weight": 6
+          },
+          {
+            "class_index": 16,
+            "members": [
+              [
+                2,
+                7
+              ]
+            ],
+            "potential_weight": 9
+          },
+          {
+            "class_index": 17,
+            "members": [
+              [
+                3,
+                4
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 18,
+            "members": [
+              [
+                3,
+                5
+              ]
+            ],
+            "potential_weight": 17
+          },
+          {
+            "class_index": 19,
+            "members": [
+              [
+                3,
+                6
+              ]
+            ],
+            "potential_weight": 8
+          },
+          {
+            "class_index": 20,
+            "members": [
+              [
+                3,
+                7
+              ]
+            ],
+            "potential_weight": 12
+          },
+          {
+            "class_index": 21,
+            "members": [
+              [
+                3,
+                8
+              ]
+            ],
+            "potential_weight": 4
+          },
+          {
+            "class_index": 22,
+            "members": [
+              [
+                4,
+                6
+              ]
+            ],
+            "potential_weight": 2
+          },
+          {
+            "class_index": 23,
+            "members": [
+              [
+                4,
+                7
+              ]
+            ],
+            "potential_weight": 7
+          },
+          {
+            "class_index": 24,
+            "members": [
+              [
+                5,
+                7
+              ]
+            ],
+            "potential_weight": 16
+          },
+          {
+            "class_index": 25,
+            "members": [
+              [
+                5,
+                8
+              ]
+            ],
+            "potential_weight": 13
+          },
+          {
+            "class_index": 26,
+            "members": [
+              [
+                6,
+                7
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 27,
+            "members": [
+              [
+                7,
+                8
+              ]
+            ],
+            "potential_weight": 0
+          }
+        ],
+        "nonzero_weight_count": 22,
+        "weight_sum": 253
+      },
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "exact_separation_check": {
+        "active_strict_row_count": 22,
+        "active_strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              4,
+              5,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          }
+        ],
+        "all_potential_weights_nonnegative": true,
+        "all_strict_rows_have_positive_dot": true,
+        "maximum_strict_row_dot": 43,
+        "minimum_strict_row_dot": 1
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255,
+      "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order"
+    },
+    {
+      "assignment_index": 0,
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "certified_lp_screens": {
+        "nonpositive_inequalities_normalized": "infeasible_exactly_certified",
+        "zero_sum_equalities_normalized": "infeasible_exactly_certified"
+      },
+      "claim_strength": "Exact dual route-pruning certificate for this encoded local quotient and fixed natural cyclic order: it proves the current Kalmanson/Altman strict-row family cannot produce either a normalized zero-sum or a coordinatewise-nonpositive cone certificate.",
+      "distance_class_count": 28,
+      "dual_potential": {
+        "coordinate_system": "selected-distance quotient class order",
+        "max_weight": 22,
+        "nonnegative_integer_weights_by_distance_class": [
+          {
+            "class_index": 0,
+            "members": [
+              [
+                0,
+                1
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 1,
+            "members": [
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                8
+              ]
+            ],
+            "potential_weight": 5
+          },
+          {
+            "class_index": 2,
+            "members": [
+              [
+                0,
+                3
+              ]
+            ],
+            "potential_weight": 10
+          },
+          {
+            "class_index": 3,
+            "members": [
+              [
+                0,
+                4
+              ]
+            ],
+            "potential_weight": 8
+          },
+          {
+            "class_index": 4,
+            "members": [
+              [
+                0,
+                5
+              ]
+            ],
+            "potential_weight": 22
+          },
+          {
+            "class_index": 5,
+            "members": [
+              [
+                0,
+                6
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "potential_weight": 10
+          },
+          {
+            "class_index": 6,
+            "members": [
+              [
+                0,
+                7
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 7,
+            "members": [
+              [
+                0,
+                8
+              ],
+              [
+                4,
+                8
+              ],
+              [
+                6,
+                8
+              ],
+              [
+                7,
+                8
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 8,
+            "members": [
+              [
+                1,
+                2
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 9,
+            "members": [
+              [
+                1,
+                3
+              ]
+            ],
+            "potential_weight": 6
+          },
+          {
+            "class_index": 10,
+            "members": [
+              [
+                1,
+                4
+              ]
+            ],
+            "potential_weight": 5
+          },
+          {
+            "class_index": 11,
+            "members": [
+              [
+                1,
+                5
+              ]
+            ],
+            "potential_weight": 20
+          },
+          {
+            "class_index": 12,
+            "members": [
+              [
+                1,
+                6
+              ]
+            ],
+            "potential_weight": 9
+          },
+          {
+            "class_index": 13,
+            "members": [
+              [
+                1,
+                7
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 14,
+            "members": [
+              [
+                1,
+                8
+              ]
+            ],
+            "potential_weight": 1
+          },
+          {
+            "class_index": 15,
+            "members": [
+              [
+                2,
+                5
+              ]
+            ],
+            "potential_weight": 21
+          },
+          {
+            "class_index": 16,
+            "members": [
+              [
+                2,
+                6
+              ]
+            ],
+            "potential_weight": 11
+          },
+          {
+            "class_index": 17,
+            "members": [
+              [
+                2,
+                7
+              ]
+            ],
+            "potential_weight": 14
+          },
+          {
+            "class_index": 18,
+            "members": [
+              [
+                3,
+                4
+              ]
+            ],
+            "potential_weight": 0
+          },
+          {
+            "class_index": 19,
+            "members": [
+              [
+                3,
+                5
+              ]
+            ],
+            "potential_weight": 17
+          },
+          {
+            "class_index": 20,
+            "members": [
+              [
+                3,
+                6
+              ]
+            ],
+            "potential_weight": 8
+          },
+          {
+            "class_index": 21,
+            "members": [
+              [
+                3,
+                7
+              ]
+            ],
+            "potential_weight": 12
+          },
+          {
+            "class_index": 22,
+            "members": [
+              [
+                3,
+                8
+              ]
+            ],
+            "potential_weight": 4
+          },
+          {
+            "class_index": 23,
+            "members": [
+              [
+                4,
+                6
+              ]
+            ],
+            "potential_weight": 2
+          },
+          {
+            "class_index": 24,
+            "members": [
+              [
+                4,
+                7
+              ]
+            ],
+            "potential_weight": 7
+          },
+          {
+            "class_index": 25,
+            "members": [
+              [
+                5,
+                7
+              ]
+            ],
+            "potential_weight": 16
+          },
+          {
+            "class_index": 26,
+            "members": [
+              [
+                5,
+                8
+              ]
+            ],
+            "potential_weight": 13
+          },
+          {
+            "class_index": 27,
+            "members": [
+              [
+                6,
+                7
+              ]
+            ],
+            "potential_weight": 0
+          }
+        ],
+        "nonzero_weight_count": 23,
+        "weight_sum": 243
+      },
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "exact_separation_check": {
+        "active_strict_row_count": 23,
+        "active_strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              2,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              3,
+              4
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              1,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              4,
+              5,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              5,
+              6,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "potential_dot": 1,
+            "quad": [
+              0,
+              6,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              1,
+              2,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              2,
+              3,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              3,
+              4,
+              7,
+              8
+            ],
+            "source": "kalmanson"
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "potential_dot": 1,
+            "quad": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "source": "kalmanson"
+          }
+        ],
+        "all_potential_weights_nonnegative": true,
+        "all_strict_rows_have_positive_dot": true,
+        "maximum_strict_row_dot": 38,
+        "minimum_strict_row_dot": 1
+      },
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0,
+      "strict_row_count": 255,
+      "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order"
+    }
+  ],
+  "payload_sha256": "7d49bd02262eb114406701e5bbe0f01dd6588aa4fcda476202ea6fc56ebedd86",
+  "proof_lemma": {
+    "proof": [
+      "Assume weights lambda_j >= 0 with sum lambda_j = 1.",
+      "If sum lambda_j v_j = 0, then pairing with c gives 0 on the left but at least sum lambda_j = 1 on the right, contradiction.",
+      "If x = sum lambda_j v_j is coordinatewise nonpositive, then c >= 0 gives <c,x> <= 0, while the row-wise lower bound gives <c,x> >= 1, contradiction.",
+      "All entries of c and v_j are integers and the checker verifies the inequalities by exact integer arithmetic."
+    ],
+    "statement": "For each miss, let v_j be every reduced strict-row coefficient vector in the current family. The listed nonnegative integer potential c satisfies <c,v_j> >= 1 for all j. Hence no normalized nonnegative combination of the v_j can be zero or coordinatewise nonpositive."
+  },
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py --write",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.v1",
+  "source_artifacts": [
+    {
+      "expected_source_status": "BOOTSTRAP_T12_151_6_LABEL4_TARGET_SPARSE_FULL_CONE_MISSES_DIAGNOSTIC_ONLY",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.json",
+      "role": "source full-cone miss identities and LP-screen target"
+    }
+  ],
+  "status": "EXACT_DUAL_INFEASIBILITY_CERTIFICATES_FOR_CURRENT_FULL_CONE_SCREENS",
+  "summary": {
+    "assignment_indices": [
+      0
+    ],
+    "current_evidence_forces_target_sparse_obstruction": false,
+    "distance_class_count_each": [
+      28
+    ],
+    "endpoint_rows": [
+      [
+        0,
+        1,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        4,
+        6,
+        7
+      ]
+    ],
+    "maximum_strict_row_dot_each": [
+      38,
+      43,
+      38
+    ],
+    "minimum_strict_row_dot_each": [
+      1,
+      1,
+      1
+    ],
+    "miss_count": 3,
+    "nonpositive_inequalities_infeasible_exactly_certified_count": 3,
+    "potential_weight_sum_each": [
+      250,
+      253,
+      243
+    ],
+    "solves_erdos97": false,
+    "solves_n9": false,
+    "strict_row_count_each": [
+      255
+    ],
+    "strict_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order",
+    "zero_sum_equalities_infeasible_exactly_certified_count": 3
+  },
+  "trust": "EXACT_ROUTE_PRUNING_CERTIFICATE",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

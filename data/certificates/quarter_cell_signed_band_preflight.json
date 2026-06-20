@@ -1,5 +1,5 @@
 {
- "claim_scope": "Quarter-cell signed-band turn preflight for the three-orbit (t=3) m=0 mod 4 residual. Records the exact boundary-band case split and the first nonzero negative turn term in each signed cell, plus deterministic float stress of those fixed killer turns. This is not the global sign proof: m=8,12,16 quarter cells remain open, and this is not an all-m three-orbit obstruction, proof of Erdos Problem #97, counterexample, or official/global status update.",
+ "claim_scope": "Quarter-cell signed-band turn preflight for the three-orbit (t=3) m=0 mod 4 residual. Records the exact boundary-band case split and the first nonzero negative turn term in each signed cell, plus deterministic float stress of those fixed killer turns. This preflight artifact is not the global sign proof and does not, by itself, certify the m=8,12,16 quarter cells; those finite cells are handled separately by the quarter-cell derivative certificate. This is not an all-m three-orbit obstruction, proof of Erdos Problem #97, counterexample, or official/global status update.",
  "definitions": {
   "A": "sin(T)+cos(T)-1",
   "B": "cos(T)-sin(T)-1",
@@ -15,8 +15,8 @@
   ]
  },
  "does_not_claim": [
-  "m=8,12,16 quarter cells closed",
-  "exact certificate for m>=8 quarter cells",
+  "preflight artifact closes m=8,12,16 quarter cells",
+  "all-m exact certificate for m>=8 quarter cells",
   "all-m quarter-cell obstruction",
   "all-m three-orbit obstruction",
   "general proof of Erdos Problem #97",
@@ -26,10 +26,10 @@
  "leading_killer_case_count": 12,
  "leading_sign_constants": [
   {
-   "A=sinT+cosT-1": 0.41421356237309515,
-   "B=cosT-sinT-1": -1.0,
+   "A=sinT+cosT-1": 0.4142135623730949,
+   "B=cosT-sinT-1": -0.9999999999999999,
    "C=1+sinT-cosT": 0.9999999999999999,
-   "D=1-sinT-cosT": -0.41421356237309515,
+   "D=1-sinT-cosT": -0.41421356237309503,
    "T": 0.7853981633974483,
    "m": 8,
    "signs_ok_for_0_lt_T_le_pi_over_4": true
@@ -81,8 +81,8 @@
   }
  ],
  "leading_sign_ok_for_sample_ms": true,
- "next_exact_target": "Prove the listed killer turn is negative on each full signed band cell, or produce a different exact CAD/resultant/interval certificate. The leading-term table only proves the boundary tangent direction.",
- "open_quarter_cells_still_open": [
+ "next_exact_target": "Extend the finite-m derivative certificate to an all-m quarter-cell sign argument, or produce an independent CAD/resultant/formal certificate. The leading-term table by itself only proves the boundary tangent direction.",
+ "preflight_only_not_certified_m_values": [
   8,
   12,
   16
@@ -110,7 +110,7 @@
       "turns": [
        -0.0004531830830104705,
        2.575998072132216e-09,
-       0.001087880210322124
+       0.0010878802103221237
       ]
      },
      "case_id": "LL_y+_z+",
@@ -127,13 +127,13 @@
       "turns": [
        -0.00033001890419954825,
        0.00016339312814932648,
-       -0.034868119010758494
+       -0.03486811901075848
       ]
      },
      "case_id": "LL_y+_z-",
      "killer_turn": 1,
      "max_killer_turn": -0.00033001890419954825,
-     "max_min_turn": -0.00198421458104426,
+     "max_min_turn": -0.0019842145810442594,
      "sample_count": 2556,
      "sampled_killer_negative": true
     },
@@ -144,7 +144,7 @@
       "turns": [
        0.0010831519781985465,
        -4.727474492172225e-06,
-       0.0026208691229465727
+       0.002620869122946572
       ]
      },
      "case_id": "LL_y-_z+",
@@ -161,13 +161,13 @@
       "turns": [
        0.00108316286772064,
        2.559254510137224e-09,
-       -0.00045121539795710784
+       -0.00045121539795710773
       ]
      },
      "case_id": "LL_y-_z-",
      "killer_turn": 3,
-     "max_killer_turn": -0.00045121539795710784,
-     "max_min_turn": -0.00045121539795710784,
+     "max_killer_turn": -0.00045121539795710773,
+     "max_min_turn": -0.00045121539795710773,
      "sample_count": 2556,
      "sampled_killer_negative": true
     },
@@ -178,7 +178,7 @@
       "turns": [
        -2.3650224530126096e-06,
        0.001085514433031015,
-       0.001085514433030925
+       0.0010855144330309575
       ]
      },
      "case_id": "LH_y+_z+",
@@ -195,13 +195,13 @@
       "turns": [
        2.567617192225803e-09,
        0.0010855198837160962,
-       -0.0004521990793986747
+       -0.0004521990793986421
       ]
      },
      "case_id": "LH_y+_z-",
      "killer_turn": 3,
-     "max_killer_turn": -0.0004521990793986747,
-     "max_min_turn": -0.0004521990793986747,
+     "max_killer_turn": -0.0004521990793986421,
+     "max_min_turn": -0.0004521990793986421,
      "sample_count": 5184,
      "sampled_killer_negative": true
     },
@@ -212,7 +212,7 @@
       "turns": [
        2.567617192126065e-09,
        -0.0004521990793985967,
-       0.0010855198837160065
+       0.0010855198837160386
       ]
      },
      "case_id": "LH_y-_z+",
@@ -229,13 +229,13 @@
       "turns": [
        0.00016320896943266346,
        -0.00033072029367091,
-       -0.03382451346946408
+       -0.033824513469464045
       ]
      },
      "case_id": "LH_y-_z-",
      "killer_turn": 2,
      "max_killer_turn": -0.00033072029367091,
-     "max_min_turn": -0.0004488598832468104,
+     "max_min_turn": -0.000448859883246778,
      "sample_count": 5184,
      "sampled_killer_negative": true
     },
@@ -246,7 +246,7 @@
       "turns": [
        -0.00045318308301048376,
        0.0010878802103221836,
-       2.5759980721987198e-09
+       2.575998072369642e-09
       ]
      },
      "case_id": "HH_y+_z+",
@@ -263,13 +263,13 @@
       "turns": [
        0.0010831519781985333,
        0.00262086912294662,
-       -4.727474492172382e-06
+       -4.72747449217204e-06
       ]
      },
      "case_id": "HH_y+_z-",
      "killer_turn": 3,
-     "max_killer_turn": -4.727474492172382e-06,
-     "max_min_turn": -4.727474492172382e-06,
+     "max_killer_turn": -4.72747449217204e-06,
+     "max_min_turn": -4.72747449217204e-06,
      "sample_count": 2556,
      "sampled_killer_negative": true
     },
@@ -280,7 +280,7 @@
       "turns": [
        -0.0003300189041995619,
        -0.03486811901075845,
-       0.00016339312814931469
+       0.00016339312814931406
       ]
      },
      "case_id": "HH_y-_z+",
@@ -297,7 +297,7 @@
       "turns": [
        0.0010831628677206266,
        -0.0004512153979570507,
-       2.5592545098507277e-09
+       2.5592545098504497e-09
       ]
      },
      "case_id": "HH_y-_z-",
@@ -321,15 +321,15 @@
       "d": 0.0004750976649713451,
       "e": 0.0009501953299426902,
       "turns": [
-       -0.0001743191049696408,
+       -0.00017431910496964082,
        2.1478180332909644e-10,
        0.00030129056952093677
       ]
      },
      "case_id": "LL_y+_z+",
      "killer_turn": 1,
-     "max_killer_turn": -0.0001743191049696408,
-     "max_min_turn": -0.0001743191049696408,
+     "max_killer_turn": -0.00017431910496964082,
+     "max_min_turn": -0.00017431910496964082,
      "sample_count": 2556,
      "sampled_killer_negative": true
     },
@@ -391,7 +391,7 @@
       "turns": [
        -4.51650024475372e-07,
        0.00030083881208196227,
-       0.00030083881208186247
+       0.0003008388120818699
       ]
      },
      "case_id": "LH_y+_z+",
@@ -408,13 +408,13 @@
       "turns": [
        2.1447596689274846e-10,
        0.00030100452778403984,
-       -0.00017415354659077738
+       -0.00017415354659076993
       ]
      },
      "case_id": "LH_y+_z-",
      "killer_turn": 3,
-     "max_killer_turn": -0.00017415354659077738,
-     "max_min_turn": -0.00017415354659077738,
+     "max_killer_turn": -0.00017415354659076993,
+     "max_min_turn": -0.00017415354659076993,
      "sample_count": 5184,
      "sampled_killer_negative": true
     },
@@ -425,7 +425,7 @@
       "turns": [
        2.1447596688380167e-10,
        -0.00017415354659070745,
-       0.00030100452778394015
+       0.0003010045277839475
       ]
      },
      "case_id": "LH_y-_z+",
@@ -448,7 +448,7 @@
      "case_id": "LH_y-_z-",
      "killer_turn": 2,
      "max_killer_turn": -0.00014600018669293295,
-     "max_min_turn": -0.00017353713851039654,
+     "max_min_turn": -0.00017353713851038911,
      "sample_count": 5184,
      "sampled_killer_negative": true
     },
@@ -457,15 +457,15 @@
       "d": 0.0009501953299426902,
       "e": 0.0004750976649713451,
       "turns": [
-       -0.00017431910496964204,
+       -0.00017431910496964206,
        0.00030129056952105516,
-       2.1478180312035576e-10
+       2.147818031564076e-10
       ]
      },
      "case_id": "HH_y+_z+",
      "killer_turn": 1,
-     "max_killer_turn": -0.00017431910496964204,
-     "max_min_turn": -0.00017431910496964204,
+     "max_killer_turn": -0.00017431910496964206,
+     "max_min_turn": -0.00017431910496964206,
      "sample_count": 2556,
      "sampled_killer_negative": true
     },
@@ -474,15 +474,15 @@
       "d": 0.0009501953299426902,
       "e": 0.0004750976649713451,
       "turns": [
-       0.0003003873765707768,
+       0.00030038737657077684,
        0.0007755453436429796,
-       -9.030854709898765e-07
+       -9.030854709897947e-07
       ]
      },
      "case_id": "HH_y+_z-",
      "killer_turn": 3,
-     "max_killer_turn": -9.030854709898765e-07,
-     "max_min_turn": -9.030854709898765e-07,
+     "max_killer_turn": -9.030854709897947e-07,
+     "max_min_turn": -9.030854709897947e-07,
      "sample_count": 2556,
      "sampled_killer_negative": true
     },
@@ -492,8 +492,8 @@
       "e": 0.0004750976649713451,
       "turns": [
        -0.00014593380266733332,
-       -0.012931846542116567,
-       3.194935209312223e-05
+       -0.012931846542116574,
+       3.19493520931215e-05
       ]
      },
      "case_id": "HH_y-_z+",
@@ -508,15 +508,15 @@
       "d": 0.0009501953299426902,
       "e": 0.0004750976649713451,
       "turns": [
-       0.0003007186505126695,
-       -0.00017398803824916165,
-       2.1417042101356974e-10
+       0.00030071865051266956,
+       -0.00017398803824916168,
+       2.1417042100389504e-10
       ]
      },
      "case_id": "HH_y-_z-",
      "killer_turn": 2,
-     "max_killer_turn": -0.00017398803824916165,
-     "max_min_turn": -0.00017398803824916165,
+     "max_killer_turn": -0.00017398803824916168,
+     "max_min_turn": -0.00017398803824916168,
      "sample_count": 2556,
      "sampled_killer_negative": true
     }
@@ -1550,5 +1550,14 @@
   }
  ],
  "status": "QUARTER_CELL_SIGNED_BAND_TURN_PREFLIGHT_ONLY",
+ "superseded_for_m_values_by": {
+  "artifact": "data/certificates/quarter_cell_derivative_certificate.json",
+  "checker": "scripts/check_quarter_cell_derivative_certificate.py",
+  "m_values": [
+   8,
+   12,
+   16
+  ]
+ },
  "trust": "REVIEW_PENDING_DIAGNOSTIC"
 }

@@ -160,6 +160,12 @@ minimal/rich-class hypotheses.
    selected-distance quotienting, stored Kalmanson self-edges, and digest
    agreement without importing the Kalmanson generator module; use `--json`
    when the first stored self-edge example record is needed.
+   The fresh-frontier replay
+   `python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
+   regenerates the same 184 terminal selected-witness assignments without
+   importing the repo package or reading the stored Kalmanson certificate, then
+   finds one strict Kalmanson self-edge for each. Treat it as corroborating
+   audit evidence only.
    The incidence-filter replay
    `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`
    checks the row-level two-overlap crossing, witness-pair cap, and
@@ -602,10 +608,15 @@ minimal/rich-class hypotheses.
    HiGHS reports both normalized zero-sum and nonpositive LP screens
    infeasible for all three, but no exact dual infeasibility certificate is
    stored.
+   The exact dual-certificate command
+   `python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py --check --json`
+   now stores nonnegative integer separating potentials for those same three
+   quotient screens, proving exactly that the current row family cannot
+   produce either normalized screen.
    The next useful PR should therefore prove a support-geometry exclusion
-   under genuine private-support or rich-class hypotheses, exactly certify the
-   full-cone infeasibility screens, enlarge the strict-row family, prove center
-   migration for the off-center `[0,4,6]` rows, or obstruct target-sparse
+   under genuine private-support or rich-class hypotheses, enlarge the strict
+   row family, prove center migration for the off-center `[0,4,6]` rows, or
+   obstruct target-sparse
    assignments `0` and `11` by something stronger than one completion plus two
    arbitrary repairs, not a component-alone impossibility claim, not arbitrary
    label-`8` visibility, and not another selected-row neighborhood widening or
@@ -1080,6 +1091,7 @@ Commands:
 ```bash
 python scripts/check_n10_singleton_input_audit.py --check --assert-expected --json
 python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
+python scripts/check_n10_fast_cpp_singleton_replay.py --check --json
 python -m pytest tests/test_n10_vertex_circle_singletons.py -q -m "artifact"
 ```
 
@@ -1092,7 +1104,8 @@ Expected artifacts:
 - an input-data audit checking the stored `[0,126)` row0 singleton coverage,
   witness masks/lists, and aggregate arithmetic without rerunning the search;
 - selected repo-native spot checks for row0 singletons `0`, `63`, and `125`;
-- optional second-implementation counts or a replayable terminal-conflict certificate.
+- portable C++ second-implementation counts matching all 126 stored singleton
+  rows, or a later replayable terminal-conflict certificate.
 
 Acceptance criteria:
 
@@ -1214,35 +1227,46 @@ Forbidden overclaiming text:
 
 Issue: none yet.
 
+Status: completed for the finite `m = 8, 12, 16` target by the repo-local
+interval-derivative certificate in
+`docs/quarter-cell-derivative-certificate.md`; broader all-`m` quarter-cell
+closure remains separate.
+
 Read first:
 
 - `docs/codex-strategy-instructions.md`
 - `docs/three-orbit-window-closure.md`
 - `docs/quarter-cell-closure.md`
 - `docs/quarter-cell-signed-band-preflight.md`
+- `docs/quarter-cell-derivative-certificate.md`
 - `scripts/check_quarter_cell_closure.py`
 - `scripts/check_quarter_cell_signed_band_preflight.py`
+- `scripts/check_quarter_cell_derivative_certificate.py`
 
 Commands:
 
 ```bash
 python scripts/check_quarter_cell_signed_band_preflight.py --check --assert-expected --json
+python scripts/check_quarter_cell_derivative_certificate.py --check --assert-expected --json
 python scripts/check_quarter_cell_closure.py --assert-clear
 python scripts/check_three_square_m4_closure.py --assert-clear
 ```
 
 Expected artifacts:
 
-- an exact analytic, CAD/resultant, or interval certificate proving that the
-  listed fixed killer turn is negative throughout each signed boundary-band
-  cell; or
+- current finite-`m` artifact:
+  `data/certificates/quarter_cell_derivative_certificate.json`, certifying the
+  listed fixed killer turns throughout each signed boundary-band cell for
+  `m = 8, 12, 16`; or
+- a broader exact analytic, CAD/resultant, or interval certificate extending
+  the signed-band closure beyond the checked finite `m` list; or
 - a counter-diagnostic showing exactly which signed cell escapes the proposed
   fixed killer turn.
 
 Acceptance criteria:
 
-- The result keeps `m = 8, 12, 16` open unless the certificate really covers
-  them.
+- Finite-`m` closure claims identify the exact covered `m` values and
+  certificate type.
 - Any closure claim identifies whether it is finite-`m`, all `m = 0 mod 4`,
   or only a checked sub-band.
 - The result remains scoped to the restricted three-orbit quarter-cell family.

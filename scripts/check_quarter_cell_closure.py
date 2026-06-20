@@ -193,8 +193,10 @@ def main() -> int:
             "strictly non-convex (max min-turn < 0), but the margin is "
             "tangent to 0 and grid-dependent, so for m>=8 this is EVIDENCE "
             "of closure, not a certificate. m=4 is closed exactly by SMT "
-            "elsewhere; m=8,12,16 remain open. Records that the exact-SMT "
-            "route does not scale past m=4. Not an all-m lemma, not a proof "
+            "elsewhere; the m=8,12,16 finite-m certificate is recorded "
+            "separately by check_quarter_cell_derivative_certificate.py. "
+            "Records that the exact-SMT route does not scale past m=4. "
+            "Not an all-m lemma, not a proof "
             "of Erdos Problem #97, not a counterexample."
         ),
         "boundary_band_lemma_ok": band_ok,
@@ -213,10 +215,11 @@ def main() -> int:
         # the grid pass as a closure:
         #  - m=4 is closed EXACTLY (by SMT in check_three_square_m4_closure.py);
         #    this screen only corroborates it.
-        #  - m>=8 remain OPEN; the grid pass is tangency-limited EVIDENCE only.
+        #  - m>=8 entries here are tangency-limited EVIDENCE only; the
+        #    derivative certificate is a separate artifact.
         "exactly_closed_elsewhere": [m for m in args.ms if m == 4],
-        "open_grid_evidence_only": [r["m"] for r in records
-                                    if r["m"] != 4 and r["clear"]],
+        "grid_evidence_only_m_values": [r["m"] for r in records
+                                        if r["m"] != 4 and r["clear"]],
         "grid_all_sampled_nonconvex": [r["m"] for r in records if r["clear"]],
         # `clear` = the checker's reproducibility pass (lemmas hold AND every
         # sampled config is strictly non-convex). It does NOT mean m>=8 closed.

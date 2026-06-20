@@ -65,6 +65,7 @@ verify-n9-candidate:
 verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_compact_brancher.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json
 	$(PYTHON) scripts/analyze_n9_vertex_circle_obstruction_shapes.py --check --assert-expected --json
 	$(PYTHON) scripts/analyze_n9_vertex_circle_motif_families.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_inversive_incidence_pilot.py --check --assert-expected --json
@@ -78,6 +79,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --json
 	$(PYTHON) scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json
+	$(PYTHON) scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --json
@@ -161,6 +163,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_localized_rich_support_counting.py --check --json
 	$(PYTHON) scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json
 	$(PYTHON) scripts/check_brp_boundary_probe.py --check --assert-expected --json
+	$(PYTHON) scripts/check_quarter_cell_derivative_certificate.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_core_crosswalk.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_vertex_circle_overlay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_forcing_targets.py --check --assert-expected --json
@@ -249,6 +252,7 @@ verify-n10-review:
 	$(PYTHON) scripts/check_n10_turn_row0_combined_closure.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n10_singleton_input_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
+	$(PYTHON) scripts/check_n10_fast_cpp_singleton_replay.py --check --json
 	$(PYTHON) scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 
 verify-artifacts: verify-n8 verify-kalmanson verify-n9-review verify-bridge-frontier verify-n10-review

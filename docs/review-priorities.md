@@ -255,6 +255,18 @@ it does not regenerate the 184 frontier, audit brancher coverage, prove `n=9`,
 or complete independent review. Use `--json` when the first stored self-edge
 example record is needed.
 
+Fresh-frontier Kalmanson replay:
+
+```bash
+python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
+```
+
+This command imports no `erdos97` package modules and does not read the stored
+Kalmanson certificate. It regenerates the same 184 terminal selected-witness
+assignments and finds one strict Kalmanson self-edge for each. It is
+corroborating audit evidence only, not a change to the review gate or a
+promotion of `n=9`.
+
 Current dihedral-orbit audit:
 
 ```bash

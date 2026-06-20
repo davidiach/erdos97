@@ -45,7 +45,7 @@ SCHEMA = "erdos97.quarter_cell_signed_band_preflight.v1"
 STATUS = "QUARTER_CELL_SIGNED_BAND_TURN_PREFLIGHT_ONLY"
 TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 DEFAULT_MS = (8, 12, 16, 20, 40, 100)
-OPEN_QUARTER_MS = (8, 12, 16)
+PREFLIGHT_ONLY_TARGET_MS = (8, 12, 16)
 DEFAULT_GRID = 72
 
 
@@ -275,8 +275,10 @@ def build_payload(ms: Sequence[int], grid: int) -> dict[str, Any]:
             "(t=3) m=0 mod 4 residual. Records the exact boundary-band "
             "case split and the first nonzero negative turn term in each "
             "signed cell, plus deterministic float stress of those fixed "
-            "killer turns. This is not the global sign proof: m=8,12,16 "
-            "quarter cells remain open, and this is not an all-m "
+            "killer turns. This preflight artifact is not the global sign "
+            "proof and does not, by itself, certify the m=8,12,16 quarter "
+            "cells; those finite cells are handled separately by the "
+            "quarter-cell derivative certificate. This is not an all-m "
             "three-orbit obstruction, proof of Erdos Problem #97, "
             "counterexample, or official/global status update."
         ),
@@ -330,16 +332,21 @@ def build_payload(ms: Sequence[int], grid: int) -> dict[str, Any]:
         "sample_ms": list(ms),
         "sample_records": sample_records,
         "sampled_fixed_killer_all_negative": all_sampled_negative,
-        "open_quarter_cells_still_open": list(OPEN_QUARTER_MS),
+        "preflight_only_not_certified_m_values": list(PREFLIGHT_ONLY_TARGET_MS),
+        "superseded_for_m_values_by": {
+            "m_values": list(PREFLIGHT_ONLY_TARGET_MS),
+            "artifact": "data/certificates/quarter_cell_derivative_certificate.json",
+            "checker": "scripts/check_quarter_cell_derivative_certificate.py",
+        },
         "next_exact_target": (
-            "Prove the listed killer turn is negative on each full signed "
-            "band cell, or produce a different exact CAD/resultant/interval "
-            "certificate. The leading-term table only proves the boundary "
-            "tangent direction."
+            "Extend the finite-m derivative certificate to an all-m "
+            "quarter-cell sign argument, or produce an independent "
+            "CAD/resultant/formal certificate. The leading-term table by "
+            "itself only proves the boundary tangent direction."
         ),
         "does_not_claim": [
-            "m=8,12,16 quarter cells closed",
-            "exact certificate for m>=8 quarter cells",
+            "preflight artifact closes m=8,12,16 quarter cells",
+            "all-m exact certificate for m>=8 quarter cells",
             "all-m quarter-cell obstruction",
             "all-m three-orbit obstruction",
             "general proof of Erdos Problem #97",
@@ -357,7 +364,7 @@ def assert_expected(payload: dict[str, Any]) -> None:
     assert payload["leading_killer_case_count"] == 12
     assert payload["leading_sign_ok_for_sample_ms"] is True
     assert payload["sampled_fixed_killer_all_negative"] is True
-    assert payload["open_quarter_cells_still_open"] == list(OPEN_QUARTER_MS)
+    assert payload["preflight_only_not_certified_m_values"] == list(PREFLIGHT_ONLY_TARGET_MS)
 
 
 def _read_json(path: Path) -> dict[str, Any]:

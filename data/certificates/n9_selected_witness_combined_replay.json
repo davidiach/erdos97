@@ -1,0 +1,67 @@
+{
+  "brancher": {
+    "assignment_digest_sha256": "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55",
+    "candidate_rows_per_center": [
+      70,
+      70,
+      70,
+      70,
+      70,
+      70,
+      70,
+      70,
+      70
+    ],
+    "center_pair_intersection_histogram": {
+      "0": 72,
+      "1": 3168,
+      "2": 3384
+    },
+    "clean_assignments": 0,
+    "frontier_assignment_count": 184,
+    "nodes_visited": 100817,
+    "obstruction_counts": {
+      "self_edge": 158,
+      "strict_cycle": 26
+    },
+    "selected_indegree_value_histogram": {
+      "4": 1656
+    },
+    "two_overlap_crossing_count": 3384,
+    "witness_pair_profile_counts": {
+      "0:2|1:14|2:20": 36,
+      "1:18|2:18": 148
+    }
+  },
+  "certificate_artifact": "data/certificates/n9_selected_witness_obstruction_certificates.json",
+  "certificate_count": 184,
+  "certificate_digest_sha256": "f1a58f2155894ae8e1d0a14bd0478c8d8ed6957f6f294f685405e68a6243f790",
+  "claim_scope": "Combined review-pending replay for the n=9 selected-witness candidate: localized rich-support counting reduces hypothetical 4-bad nonagons to the exact-four support frontier, the compact brancher regenerates the 184 exact-four frontier assignments, and explicit vertex-circle quotient certificates classify all 184 as obstructed. This is audit evidence only: it does not complete independent review, does not promote n=9 to a theorem, does not prove Erdos Problem #97, does not produce a counterexample, and does not update the official/global status.",
+  "interpretation": "A passed run checks that the review-pending localized-counting and exact-four n=9 vertex-circle route has the expected compact frontier accounting and stores explicit certificates for every frontier assignment. This is audit evidence only, not completed review or a status promotion.",
+  "localized_counting": {
+    "all_centers_forced_exact_four": true,
+    "baseline_occurrences_for_4_bad_polygon": 36,
+    "global_pair_budget": 63,
+    "global_pair_demand_exact_four": 54,
+    "interpretation": "For n=9, every rich support occurrence costs at least three of the localized pair budget at its witness label. The cap floor((2n-4)/3)=4 gives at most 36 total occurrences, while a 4-bad nonagon already needs 36. Therefore all chosen rich supports have size exactly four and every label has selected indegree exactly four.",
+    "lemma": "For each fixed witness label x, sum_{i: x in R_i} (|R_i|-1) <= 2n-4.",
+    "n": 9,
+    "occurrence_cap_per_label_for_support_size_at_least_4": 4,
+    "per_label_pair_budget": 14,
+    "selected_indegree_forced_regular": true,
+    "total_occurrence_cap": 36
+  },
+  "n": 9,
+  "pair_cap": 2,
+  "provenance": {
+    "command": "python scripts/check_n9_selected_witness_combined_replay.py --write --assert-expected",
+    "derived_from": "scripts/check_n9_vertex_circle_compact_brancher.py",
+    "generator": "scripts/check_n9_selected_witness_combined_replay.py"
+  },
+  "row_size": 4,
+  "schema": "erdos97.n9_selected_witness_combined_replay.v1",
+  "status": "REVIEW_PENDING_N9_SELECTED_WITNESS_COMBINED_REPLAY",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

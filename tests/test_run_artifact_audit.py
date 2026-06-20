@@ -822,6 +822,26 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_n9_selected_witness_combined_replay.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
+    assert (
+        "python scripts/check_n9_kalmanson_selfedge.py --verify-certificate "
+        "data/certificates/n9_kalmanson_selfedge.json --assert-expected --json"
+        in command_texts
+    )
+    assert (
+        "python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
+    assert (
+        "python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json"
     ) < ordered_command_texts.index(
@@ -830,6 +850,34 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_compact_brancher.py --check "
+        "--assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_selected_witness_combined_replay.py --check "
+        "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_selected_witness_combined_replay.py --check "
+        "--assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_kalmanson_selfedge.py --verify-certificate "
+        "data/certificates/n9_kalmanson_selfedge.json --assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_kalmanson_selfedge.py --verify-certificate "
+        "data/certificates/n9_kalmanson_selfedge.json --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check "
+        "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check "
+        "--assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check "
+        "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check "
         "--assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/analyze_n9_vertex_circle_obstruction_shapes.py --check "
@@ -1479,12 +1527,27 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_n10_fast_cpp_singleton_replay.py --check --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_n10_singleton_input_audit.py --check --assert-expected --json"
         in command_texts
     )
     assert (
         "python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json"
         in command_texts
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n10_vertex_circle_singletons.py --assert-expected "
+        "--spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n10_fast_cpp_singleton_replay.py --check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n10_fast_cpp_singleton_replay.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json"
     )
     assert (
         "python scripts/check_block6_fragile_sixth_row_survivors.py "

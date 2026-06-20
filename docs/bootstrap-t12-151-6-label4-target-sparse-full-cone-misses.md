@@ -87,9 +87,14 @@ dual infeasibility certificate. The result is therefore only a route-pruning
 diagnostic until an exact dual, rational Farkas certificate, SMT certificate,
 or formal replay is added.
 
+A follow-up packet now supplies exact integer dual certificates for these same
+three LP-screen infeasibility claims. See
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`.
+This page remains the provenance note for the original solver-only
+full-cone-miss diagnostic.
+
 The next exact task should be one of:
 
-- certify the LP infeasibility screens exactly;
 - add a stronger strict-row family and rerun the three quotients;
 - prove a geometric source lemma excluding the three endpoint rows;
 - add a new support-geometry condition for the target-sparse assignments.

@@ -215,6 +215,21 @@ and replays `158` self-edge plus `26` strict-cycle vertex-circle quotient
 obstructions. This is independent audit evidence only, not completed review of
 the n=9 finite case.
 
+A companion combined replay packages the same compact brancher accounting with
+localized rich-support counting and explicit per-assignment obstruction
+certificates:
+
+```bash
+python scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json
+```
+
+It preserves the same 184-assignment frontier digest and `158` self-edge plus
+`26` strict-cycle accounting, and stores one certificate for each frontier
+assignment in
+`data/certificates/n9_selected_witness_obstruction_certificates.json`. This is
+audit evidence only: it does not complete independent review, promote `n=9`,
+prove Erdos Problem #97, or change the official/global status.
+
 The mixed-rich/frontier crosswalk checks that the newer four/five support
 catalogue lands on this same exact-four frontier:
 

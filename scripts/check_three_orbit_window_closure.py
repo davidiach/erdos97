@@ -400,7 +400,7 @@ def is_quarter_cell(m: int, a_shared: int, a_other: int, s: int) -> bool:
     cos(2 s h) = -1 and t_{a_shared} = t_{a_other} = 2, i.e. iff
     m = 0 mod 4, a_shared = a_other = m/4 and s = m/2 (then the two row
     equations coincide and leave a one-parameter family).  These cells are
-    skipped by the point screen and reported as named open sub-cases.
+    skipped by the point screen and reported as named handoff sub-cases.
     """
 
     return (
@@ -1445,7 +1445,7 @@ def main() -> int:
             "relative rotations, all selected-witness rows; float64 screen "
             "with 60-digit deterministic re-derivation of candidates and "
             "240-digit boundary rechecks; the m = 0 mod 4 quarter cells "
-            "are skipped and recorded as named open sub-cases; not an "
+            "are skipped and recorded as named handoff sub-cases; not an "
             "all-m lemma, not an exact certificate for screened cells, "
             "not a proof of Erdos Problem #97, and not a counterexample "
             "claim"

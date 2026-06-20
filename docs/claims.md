@@ -881,6 +881,11 @@ stable certificate-list digest is
 
 Check the certificate replay with
 `python scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json`.
+The fresh-frontier replay
+`python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
+regenerates the 184 terminal selected-witness assignments without importing
+the repo package or reading the stored Kalmanson certificate, then finds one
+strict Kalmanson self-edge for each. It is corroborating audit evidence only.
 This is a compact audit aid for the review-pending `n=9` frontier only. It does
 not independently complete review of the brancher filters, does not promote
 `n=9` to source-of-truth theorem status, does not prove Erdos Problem #97, and

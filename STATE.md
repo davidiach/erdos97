@@ -627,10 +627,13 @@ The full-cone miss follow-up probes exactly those three quotients with
 arbitrary nonnegative weights over the same `255` natural-order
 Kalmanson/Altman strict rows; HiGHS reports both normalized zero-sum and
 nonpositive LP screens infeasible, but no exact dual infeasibility certificate
-is stored. This is still proof-mining bookkeeping only, not support existence,
-row forcing, center migration, endpoint-`8` forcing, `[3,5]` impossibility,
-simultaneous realization of all components, a target-sparse obstruction,
-`n=9`, or the bridge.
+is stored. A new exact dual-certificate follow-up stores nonnegative integer
+separating potentials for those same three quotient screens, with minimum
+strict-row dot `1`; it upgrades the solver-only screen to exact route-pruning
+for the current row family only. This is still proof-mining bookkeeping only,
+not support existence, row forcing, center migration, endpoint-`8` forcing,
+`[3,5]` impossibility, simultaneous realization of all components, a
+target-sparse obstruction, `n=9`, or the bridge.
 See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-transfer-length-components.md`, plus
 `docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md` and
@@ -646,7 +649,8 @@ See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 plus
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`
 and `docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`, plus
-`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`.
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md` and
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
@@ -754,6 +758,12 @@ The companion input-data audit
 checks the stored row0 witness coverage and summary arithmetic without
 rerunning the brancher. Use `--json` instead when the full expected-count
 block is needed. It is a review aid only, not an `n=9` proof.
+The combined selected-witness replay
+`scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json`
+joins localized counting, compact brancher regeneration of the same 184
+exact-four frontier assignments, and explicit per-assignment vertex-circle
+obstruction certificates. It is audit evidence only, not completed independent
+review, an `n=9` proof, or a status promotion.
 The turn-inequality frontier replay
 `scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`
 checks stored integer dual certificates for the candidate weak turn system on
@@ -774,6 +784,12 @@ shape, incidence filters, selected-distance quotients, stored self-edges, and
 the digest. It is still stored-certificate auditing only, not brancher
 coverage or a promotion of `n=9`. Use `--json` when the first stored self-edge
 example record is needed.
+The fresh-frontier Kalmanson replay
+`scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
+imports no `erdos97` package modules, does not read the stored Kalmanson
+certificate, regenerates the same `184` terminal assignments, and finds one
+strict Kalmanson self-edge for each. It is corroborating audit evidence only,
+not independent review completion or an `n=9` promotion.
 The fixed-order Kalmanson branch cuts now cover both no-reciprocal and
 exactly-one-reciprocal selected-pair regimes. The no-reciprocal regular
 tournament audit forces at least one reciprocal selected pair; the
@@ -920,7 +936,9 @@ row0 singleton slices, reports 4,142,738 total visited nodes, zero full
 assignments, and no aborted slices. The repo-native generic checker reproduces
 the n=9 counts and spot-checks row0 singleton IDs `0`, `63`, and `125`, but the
 n=10 package is an audit target only and is not promoted to the source-of-truth
-finite-case result.
+finite-case result. A portable C++ second-source replay now matches all 126
+stored singleton rows and records the same n=9 calibration counts; it is
+reviewer-facing evidence, not a written independent review or status promotion.
 
 The bounded `n=10` row0-index-0 turn pilot remains finite bookkeeping only:
 turn inequalities kill 156 of 160 raw assignments, while the four weak-turn SAT
@@ -996,8 +1014,8 @@ univariate radius pinning plus closed-form offset recovery, and a
 float64-plus-60-digit-escalation screen closes all cells for `m = 3..16`
 with no feasible survivor and no unresolved case. The single structural
 degeneracy is exactly characterized: for `m = 0 mod 4` the quarter cells
-(`a1 = a2 = m/4`, `s = m/2`) collapse to one-parameter families and remain
-named open sub-cases. This is a review-pending reduction plus a screen
+(`a1 = a2 = m/4`, `s = m/2`) collapse to one-parameter families and are
+handed off as named sub-cases. This is a review-pending reduction plus a screen
 verdict, not an all-`m` lemma and not an exact certificate. See
 `docs/three-orbit-window-closure.md` and
 `data/certificates/three_orbit_window_closure_m3_16.json`.
@@ -1009,31 +1027,31 @@ certificate shows all 64 discrete sign/witness combinations are UNSAT inside
 the strict-convexity radius window (the convexity inequalities are not even
 needed). This is an `EXACT_OBSTRUCTION` for the restricted three-square
 family; the `m = 4` half-step branches remain screen-grade and the
-`m = 8, 12, 16` quarter cells remain open. See
+`m = 8, 12, 16` quarter cells are outside this SMT artifact. See
 `docs/three-square-m4-exact-closure.md`,
 `scripts/check_three_square_m4_closure.py`, and
 `data/certificates/three_square_m4_closure.json`.
 
-The `m = 8, 12, 16` quarter cells are now reduced and partially settled
-(2026-06-13). Two exact, `m`-uniform self-tested lemmas: the A-row reduction
+The `m = 8, 12, 16` quarter cells are now reduced and settled in a
+repo-local interval-arithmetic sense for the named signed-band subcases
+(2026-06-19). Two exact, `m`-uniform self-tested lemmas: the A-row reduction
 (a quarter cell closes iff `A_0` cannot be 4-bad, uniform in the C-row choice
 `a3`) and the boundary-band confinement of the offsets. A float grid shows
 every sampled witness configuration is strictly non-convex, but the locus is
-tangent to the convexity boundary (vanishing, grid-dependent margin), so for
-`m >= 8` this is evidence of closure, not a certificate, and those cells
-remain open; the exact-SMT route is recorded as not scaling past `m = 4`. The
-clean open lemma is: on the witness locus inside the window, the minimum
-per-period turn determinant is `<= 0`, with equality only at the degenerate
-orbit-coincidence limit. See `docs/quarter-cell-closure.md`,
-`scripts/check_quarter_cell_closure.py`, and
-`data/certificates/quarter_cell_closure.json`. A signed-band preflight now
-splits that remaining turn-sign target into `12` boundary-band/radius-sign
-cells and records a fixed per-cell killer turn whose first nonzero boundary
-term is negative for `m >= 8`, with deterministic grid stress of the same
-killer turns for `m = 8, 12, 16, 20, 40, 100`. This narrows the exact target
-but is not the global sign proof; the `m = 8, 12, 16` quarter cells remain
-open. See `docs/quarter-cell-signed-band-preflight.md` and
-`data/certificates/quarter_cell_signed_band_preflight.json`.
+tangent to the convexity boundary (vanishing, grid-dependent margin), so that
+artifact alone is evidence of closure, not a certificate; the exact-SMT route
+is recorded as not scaling past `m = 4`. The signed-band preflight then splits
+the remaining target into `12` boundary-band/radius-sign cells and records a
+fixed per-cell killer turn whose first nonzero boundary term is negative. The
+new derivative checker certifies, for `m = 8, 12, 16` only, that those fixed
+killer turns have the required derivative signs on the whole interval square
+`0 <= d,e <= upper(delta_m)`, giving a non-positive turn throughout every
+strict signed cell. This does not prove an all-`m` quarter-cell obstruction,
+any non-quarter branch, the full three-orbit family, or Erdos #97. See
+`docs/quarter-cell-closure.md`,
+`docs/quarter-cell-signed-band-preflight.md`,
+`docs/quarter-cell-derivative-certificate.md`, and
+`data/certificates/quarter_cell_derivative_certificate.json`.
 
 ## Best saved near-miss
 

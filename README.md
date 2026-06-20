@@ -110,11 +110,11 @@ does not settle the larger sparse frontier and does not prove Erdos #97.
 
 Restricted symmetry-family diagnostics are also recorded. The two-orbit
 circulant family has a review-pending obstruction note, and the three-orbit
-program closes the `m = 4` quarter cell exactly while reducing the remaining
-`m = 8, 12, 16` quarter cells to a signed boundary-band turn target. The
-latest signed-band preflight narrows that target to `12` cells with negative
-boundary-leading killer turns, but those cells remain open. See
-[`docs/quarter-cell-signed-band-preflight.md`](docs/quarter-cell-signed-band-preflight.md).
+program closes the `m = 4` quarter cell exactly and now has a repo-local
+interval-derivative certificate for the named `m = 8, 12, 16` quarter-cell
+signed-band subcases. This is still a restricted three-orbit finite-`m`
+certificate, not an all-`m` obstruction or proof of Erdos #97. See
+[`docs/quarter-cell-derivative-certificate.md`](docs/quarter-cell-derivative-certificate.md).
 
 ### Review-pending frontier artifacts
 
@@ -124,6 +124,12 @@ selected-witness assignments after pair/crossing/count filters, and the
 vertex-circle filter kills all 184 by exact self-edge or strict-cycle
 obstructions. This remains review-pending; see
 [`docs/n9-vertex-circle-exhaustive.md`](docs/n9-vertex-circle-exhaustive.md).
+A companion combined replay now records the same compact frontier accounting
+with localized counting and explicit per-assignment obstruction certificates;
+it is still audit evidence only, not an `n=9` proof or status promotion.
+The Kalmanson self-edge route also has a self-contained frontier-regeneration
+replay that reaches the same 184 terminal assignments and finds one strict
+Kalmanson self-edge for each; it is corroborating audit evidence only.
 
 A companion closed-descent packet reformulates the 16 compact local-core
 quotient obstructions as finite descent regions and extracted strict cycles.
@@ -205,8 +211,12 @@ three assignment-`0` endpoint rows as next certificate targets. A full-cone
 miss follow-up then probes those three quotients with arbitrary nonnegative
 weights over the same `255` natural-order Kalmanson/Altman strict rows; HiGHS
 reports both normalized zero-sum and nonpositive LP screens infeasible, but no
-exact dual infeasibility certificate is stored. This is still a diagnostic
-only, not a proof that assignments `0` and `11` are impossible. See
+exact dual infeasibility certificate is stored. The dual-certificate follow-up
+then stores exact nonnegative integer separating potentials for those same
+three quotients, with minimum strict-row dot `1` and potential weight sums
+`250`, `253`, and `243`; this certifies only that the current row family
+cannot produce either normalized screen. This is still route-pruning
+bookkeeping, not a proof that assignments `0` and `11` are impossible. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
 [`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
@@ -233,7 +243,9 @@ and
 plus
 [`docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`](docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md)
 and
-[`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`](docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md).
+[`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`](docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md),
+with
+[`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`](docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic
@@ -250,6 +262,8 @@ and
 An incoming `n=10` singleton-slice continuation is recorded as a finite-case
 draft review target only; see
 [`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
+It now has a portable C++ second-source replay that matches all 126 stored
+singleton rows, still as review evidence only and not an `n=10` proof.
 
 ### Numerical near-misses
 
