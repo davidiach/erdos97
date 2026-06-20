@@ -314,6 +314,8 @@ artifacts:
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_kalmanson_certificates.py
     command: python scripts/analyze_kalmanson_certificates.py --c19-compact-vs-legacy --assert-expected --out reports/c19_kalmanson_compact_vs_legacy.json
+    checker: scripts/analyze_kalmanson_certificates.py
+    check_command: python scripts/analyze_kalmanson_certificates.py --c19-compact-vs-legacy --assert-expected --check-artifact reports/c19_kalmanson_compact_vs_legacy.json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
     trust: EXACT_CERTIFICATE_DIAGNOSTIC
@@ -2713,7 +2715,7 @@ artifacts:
     generator: scripts/explore_n9_base_apex.py
     command: python scripts/explore_n9_base_apex.py --low-excess-report --out data/certificates/n9_base_apex_low_excess_ledgers.json
     checker: scripts/check_n9_base_apex_low_excess_ledgers.py
-    check_command: python scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
+    check_command: python scripts/check_n9_base_apex_low_excess_ledgers.py --artifact data/certificates/n9_base_apex_low_excess_ledgers.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -2746,7 +2748,7 @@ artifacts:
     generator: scripts/explore_n9_base_apex.py
     command: python scripts/explore_n9_base_apex.py --escape-budget-report --out data/certificates/n9_base_apex_escape_budget_report.json
     checker: scripts/check_n9_base_apex_escape_budget.py
-    check_command: python scripts/check_n9_base_apex_escape_budget.py --check --json
+    check_command: python scripts/check_n9_base_apex_escape_budget.py --artifact data/certificates/n9_base_apex_escape_budget_report.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -2776,7 +2778,7 @@ artifacts:
     generator: scripts/analyze_n9_selected_baseline_escape_budget_overlay.py
     command: python scripts/analyze_n9_selected_baseline_escape_budget_overlay.py --assert-expected --out data/certificates/n9_selected_baseline_escape_budget_overlay.json
     checker: scripts/check_n9_selected_baseline_escape_budget_overlay.py
-    check_command: python scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json
+    check_command: python scripts/check_n9_selected_baseline_escape_budget_overlay.py --artifact data/certificates/n9_selected_baseline_escape_budget_overlay.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -2816,7 +2818,7 @@ artifacts:
     generator: scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py
     command: python scripts/analyze_n9_selected_baseline_d3_escape_class_crosswalk.py --assert-expected --out data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json
     checker: scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py
-    check_command: python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --check --json
+    check_command: python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -2953,7 +2955,7 @@ artifacts:
     generator: scripts/analyze_n9_d3_escape_slice.py
     command: python scripts/analyze_n9_d3_escape_slice.py --assert-expected --out data/certificates/n9_base_apex_d3_escape_slice.json
     checker: scripts/check_n9_d3_escape_slice.py
-    check_command: python scripts/check_n9_d3_escape_slice.py --check --json
+    check_command: python scripts/check_n9_d3_escape_slice.py --artifact data/certificates/n9_base_apex_d3_escape_slice.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -2993,7 +2995,7 @@ artifacts:
     generator: scripts/analyze_n9_base_apex_d3_escape_frontier_packet.py
     command: python scripts/analyze_n9_base_apex_d3_escape_frontier_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_escape_frontier_packet.json
     checker: scripts/check_n9_base_apex_d3_escape_frontier_packet.py
-    check_command: python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
+    check_command: python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --artifact data/certificates/n9_base_apex_d3_escape_frontier_packet.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -3034,7 +3036,7 @@ artifacts:
     generator: scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py
     command: python scripts/analyze_n9_base_apex_d3_p19_incidence_capacity_pilot.py --assert-expected --out data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json
     checker: scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py
-    check_command: python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
+    check_command: python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --artifact data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -3098,7 +3100,7 @@ artifacts:
     generator: scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py
     command: python scripts/analyze_n9_base_apex_d3_incidence_capacity_packet.py --assert-expected --out data/certificates/n9_base_apex_d3_incidence_capacity_packet.json
     checker: scripts/check_n9_base_apex_d3_incidence_capacity_packet.py
-    check_command: python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
+    check_command: python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --artifact data/certificates/n9_base_apex_d3_incidence_capacity_packet.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -3148,7 +3150,7 @@ artifacts:
     generator: scripts/analyze_n9_base_apex_low_excess_escape_ladder.py
     command: python scripts/analyze_n9_base_apex_low_excess_escape_ladder.py --assert-expected --out data/certificates/n9_base_apex_low_excess_escape_ladder.json
     checker: scripts/check_n9_base_apex_low_excess_escape_ladder.py
-    check_command: python scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json
+    check_command: python scripts/check_n9_base_apex_low_excess_escape_ladder.py --artifact data/certificates/n9_base_apex_low_excess_escape_ladder.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -3188,7 +3190,7 @@ artifacts:
     generator: scripts/analyze_n9_base_apex_low_excess_escape_crosswalk.py
     command: python scripts/analyze_n9_base_apex_low_excess_escape_crosswalk.py --assert-expected --out data/certificates/n9_base_apex_low_excess_escape_crosswalk.json
     checker: scripts/check_n9_base_apex_low_excess_escape_crosswalk.py
-    check_command: python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
+    check_command: python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --artifact data/certificates/n9_base_apex_low_excess_escape_crosswalk.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -3221,7 +3223,7 @@ artifacts:
     generator: scripts/analyze_n9_row_ptolemy_product_cancellations.py
     command: python scripts/analyze_n9_row_ptolemy_product_cancellations.py --assert-expected --out data/certificates/n9_row_ptolemy_product_cancellations.json
     checker: scripts/check_n9_row_ptolemy_product_cancellations.py
-    check_command: python scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
+    check_command: python scripts/check_n9_row_ptolemy_product_cancellations.py --artifact data/certificates/n9_row_ptolemy_product_cancellations.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: FINITE_BOOKKEEPING_NOT_A_PROOF
@@ -10382,7 +10384,7 @@ artifacts:
     generator: scripts/check_quarter_cell_derivative_certificate.py
     command: python scripts/check_quarter_cell_derivative_certificate.py --m-values 8,12,16 --assert-expected --write data/certificates/quarter_cell_derivative_certificate.json
     checker: scripts/check_quarter_cell_derivative_certificate.py
-    check_command: python scripts/check_quarter_cell_derivative_certificate.py --check --assert-expected --json
+    check_command: python scripts/check_quarter_cell_derivative_certificate.py --artifact data/certificates/quarter_cell_derivative_certificate.json --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC

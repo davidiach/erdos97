@@ -133,23 +133,23 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_t11_strict_cycle_minireplay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_t12_strict_cycle_minireplay.py --check --assert-expected --json
-	$(PYTHON) scripts/check_n9_row_ptolemy_product_cancellations.py --check --json
+	$(PYTHON) scripts/check_n9_row_ptolemy_product_cancellations.py --artifact data/certificates/n9_row_ptolemy_product_cancellations.json --check --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_family_signatures.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_order_admissible_census.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_admissible_gap_replay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check --assert-expected --json
-	$(PYTHON) scripts/check_n9_base_apex_low_excess_ledgers.py --check --json
-	$(PYTHON) scripts/check_n9_base_apex_escape_budget.py --check --json
-	$(PYTHON) scripts/check_n9_selected_baseline_escape_budget_overlay.py --check --json
-	$(PYTHON) scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --check --json
+	$(PYTHON) scripts/check_n9_base_apex_low_excess_ledgers.py --artifact data/certificates/n9_base_apex_low_excess_ledgers.json --check --json
+	$(PYTHON) scripts/check_n9_base_apex_escape_budget.py --artifact data/certificates/n9_base_apex_escape_budget_report.json --check --json
+	$(PYTHON) scripts/check_n9_selected_baseline_escape_budget_overlay.py --artifact data/certificates/n9_selected_baseline_escape_budget_overlay.json --check --json
+	$(PYTHON) scripts/check_n9_d3_escape_slice.py --artifact data/certificates/n9_base_apex_d3_escape_slice.json --check --json
+	$(PYTHON) scripts/check_n9_base_apex_d3_escape_frontier_packet.py --artifact data/certificates/n9_base_apex_d3_escape_frontier_packet.json --check --json
+	$(PYTHON) scripts/check_n9_base_apex_low_excess_escape_ladder.py --artifact data/certificates/n9_base_apex_low_excess_escape_ladder.json --check --json
+	$(PYTHON) scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --artifact data/certificates/n9_base_apex_low_excess_escape_crosswalk.json --check --json
+	$(PYTHON) scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json --check --json
 	$(PYTHON) scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --check --json
-	$(PYTHON) scripts/check_n9_d3_escape_slice.py --check --json
-	$(PYTHON) scripts/check_n9_base_apex_d3_escape_frontier_packet.py --check --json
-	$(PYTHON) scripts/check_n9_base_apex_low_excess_escape_ladder.py --check --json
-	$(PYTHON) scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
-	$(PYTHON) scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
-	$(PYTHON) scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
+	$(PYTHON) scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --artifact data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json --check --json
+	$(PYTHON) scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --artifact data/certificates/n9_base_apex_d3_incidence_capacity_packet.json --check --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_p19_degree_obstruction.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_p20_residue_obstruction.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_base_apex_d3_artifact_join.py --check --json
@@ -163,7 +163,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_localized_rich_support_counting.py --check --json
 	$(PYTHON) scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json
 	$(PYTHON) scripts/check_brp_boundary_probe.py --check --assert-expected --json
-	$(PYTHON) scripts/check_quarter_cell_derivative_certificate.py --check --assert-expected --json
+	$(PYTHON) scripts/check_quarter_cell_derivative_certificate.py --artifact data/certificates/quarter_cell_derivative_certificate.json --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_core_crosswalk.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_vertex_circle_overlay.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_forcing_targets.py --check --assert-expected --json

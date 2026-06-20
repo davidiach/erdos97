@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import re
+import shlex
 import subprocess
 import sys
 from pathlib import Path
@@ -53,6 +54,19 @@ JSON_TOP_LEVEL_TYPES = {
 AMBIGUOUS_FORBIDDEN_CLAIMS = {
     "external independent review",
     "independent external review",
+}
+PATH_REPLAY_FLAGS = {
+    "--artifact",
+    "--certificate",
+    "--check-artifact",
+    "--check-compatible-orders-data",
+    "--check-exact-analysis-data",
+}
+PATH_OUTPUT_FLAGS = {
+    "--out",
+    "--output",
+    "--write",
+    "--write-artifact",
 }
 
 
@@ -177,6 +191,7 @@ def validate_artifact(
         not isinstance(check_command, str) or not check_command.strip()
     ):
         errors.append(f"{label}.check_command must be a nonempty string when present")
+    errors.extend(validate_check_command_replays_explicit_artifact_path(artifact, label))
 
     if artifact.get("direct_edit_allowed") is not False:
         errors.append(f"{label}.direct_edit_allowed must be false for generated artifacts")
@@ -206,6 +221,135 @@ def validate_artifact(
     if payload is not None:
         errors.extend(validate_json_payload(artifact, payload, label))
     return errors
+
+
+def command_tokens(command: str) -> list[str]:
+    try:
+        return shlex.split(command)
+    except ValueError:
+        return command.split()
+
+
+def path_variants(raw_path: str) -> set[str]:
+    normalized = raw_path.replace("\\", "/")
+    stripped = normalized
+    while stripped.startswith("./"):
+        stripped = stripped[2:]
+    variants = {normalized, stripped, repo_path(raw_path).resolve().as_posix()}
+    if stripped and not Path(stripped).is_absolute():
+        variants.add(f"./{stripped}")
+    return variants
+
+
+def token_matches_path(token: str, variants: set[str]) -> bool:
+    normalized = token.replace("\\", "/")
+    return normalized in variants
+
+
+def token_value_matches_path(token: str, variants: set[str]) -> bool:
+    if "=" not in token:
+        return False
+    return token_matches_path(token.split("=", 1)[1], variants)
+
+
+def redirection_value(token: str) -> str | None:
+    match = re.fullmatch(r"\d?>{1,2}(.+)", token)
+    if match is None:
+        return None
+    return match.group(1)
+
+
+def command_mentions_path(command: str, raw_path: str) -> bool:
+    variants = path_variants(raw_path)
+    previous: str | None = None
+    for token in command_tokens(command):
+        redirect_target = redirection_value(token)
+        if (
+            token_matches_path(token, variants)
+            or token_value_matches_path(token, variants)
+            or (
+                previous is not None
+                and re.fullmatch(r"\d?>{1,2}", previous)
+                and token_matches_path(token, variants)
+            )
+            or (
+                redirect_target is not None
+                and token_matches_path(redirect_target, variants)
+            )
+        ):
+            return True
+        previous = token
+    return False
+
+
+def command_outputs_path(command: str, raw_path: str) -> bool:
+    tokens = command_tokens(command)
+    variants = path_variants(raw_path)
+    previous: str | None = None
+    for token in tokens:
+        redirect_target = redirection_value(token)
+        if token_matches_path(token, variants):
+            return previous in PATH_OUTPUT_FLAGS
+        if any(
+            token.startswith(f"{flag}=")
+            and token_matches_path(token.split("=", 1)[1], variants)
+            for flag in PATH_OUTPUT_FLAGS
+        ):
+            return True
+        if (
+            previous is not None
+            and re.fullmatch(r"\d?>{1,2}", previous)
+            and token_matches_path(token, variants)
+        ):
+            return True
+        if redirect_target is not None and token_matches_path(redirect_target, variants):
+            return True
+        previous = token
+    return False
+
+
+def command_replays_path(command: str, raw_path: str) -> bool:
+    tokens = command_tokens(command)
+    variants = path_variants(raw_path)
+    previous: str | None = None
+    for token in tokens:
+        if token_matches_path(token, variants):
+            return previous in PATH_REPLAY_FLAGS
+        if any(
+            token.startswith(f"{flag}=")
+            and token_matches_path(token.split("=", 1)[1], variants)
+            for flag in PATH_REPLAY_FLAGS
+        ):
+            return True
+        previous = token
+    return False
+
+
+def validate_check_command_replays_explicit_artifact_path(
+    artifact: dict[str, Any],
+    label: str,
+) -> list[str]:
+    raw_path = artifact.get("path")
+    command = artifact.get("command")
+    check_command = artifact.get("check_command")
+    if not (
+        isinstance(raw_path, str)
+        and isinstance(command, str)
+    ):
+        return []
+    if not command_outputs_path(command, raw_path):
+        return []
+    if not isinstance(check_command, str) or not check_command.strip():
+        return [
+            f"{label}.check_command must replay explicitly generated artifact path "
+            f"{raw_path!r}"
+        ]
+    if command_replays_path(check_command, raw_path):
+        return []
+    return [
+        f"{label}.check_command must replay explicitly generated artifact path "
+        f"{raw_path!r}"
+    ]
 
 
 def validate_file_metadata(artifact: dict[str, Any], path: Path, label: str) -> list[str]:
