@@ -3590,6 +3590,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "python",
             "scripts/check_n8_survivors_smt.py",
             "--assert-clear",
+            "--check-artifact",
+            "data/certificates/n8_survivors_smt.json",
         ),
         claim_scope=(
             "Independent z3 (NRA) second source for the n=8 exact-survivor "
