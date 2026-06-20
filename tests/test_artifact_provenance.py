@@ -3,7 +3,12 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from scripts.check_artifact_provenance import load_manifest, sha256_file, validate_manifest
+from scripts.check_artifact_provenance import (
+    TRACKED_ARTIFACT_COVERAGE_GLOBS,
+    load_manifest,
+    sha256_file,
+    validate_manifest,
+)
 
 
 def test_generated_artifact_manifest_is_valid() -> None:
@@ -13,6 +18,11 @@ def test_generated_artifact_manifest_is_valid() -> None:
     errors = validate_manifest(load_manifest(manifest), check_tracked_coverage=True)
 
     assert errors == []
+
+
+def test_tracked_artifact_coverage_includes_legacy_certificate_root() -> None:
+    assert "data/certificates/**/*.json" in TRACKED_ARTIFACT_COVERAGE_GLOBS
+    assert "certificates/**/*.json" in TRACKED_ARTIFACT_COVERAGE_GLOBS
 
 
 def artifact_metadata(path: Path) -> dict[str, object]:

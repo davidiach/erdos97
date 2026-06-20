@@ -8,12 +8,14 @@ import pytest
 from erdos97.generic_vertex_search import GenericVertexSearch
 from erdos97.n10_vertex_circle_singletons import (
     EXPECTED_COUNTS,
+    EXPECTED_ROW_SUMMARIES_DIGEST_SHA256,
     EXPECTED_ROW0_CHOICES,
     EXPECTED_TOTAL_FULL,
     EXPECTED_TOTAL_NODES,
     assert_expected_payload,
     assert_generic_spot_check,
     row0_mask_for_index,
+    row_summaries_digest,
     row0_witnesses_for_index,
 )
 
@@ -58,6 +60,17 @@ def test_n10_singleton_artifact_expected_counts() -> None:
     assert payload["total_nodes"] == EXPECTED_TOTAL_NODES
     assert payload["total_full"] == EXPECTED_TOTAL_FULL
     assert payload["counts"] == EXPECTED_COUNTS
+    assert row_summaries_digest(payload["rows"]) == EXPECTED_ROW_SUMMARIES_DIGEST_SHA256
+
+
+def test_n10_singleton_artifact_rejects_swapped_unspotted_row_counts() -> None:
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    rows = payload["rows"]
+    for key in ("nodes", "full", "aborted", "counts"):
+        rows[1][key], rows[2][key] = rows[2][key], rows[1][key]
+
+    with pytest.raises(AssertionError, match="row summaries digest mismatch"):
+        assert_expected_payload(payload)
 
 
 def test_n10_selected_singletons_match_generic_checker() -> None:

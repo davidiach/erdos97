@@ -24,7 +24,12 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = REPO_ROOT / "metadata" / "generated_artifacts.yaml"
 SCHEMA = "erdos97.generated_artifacts.v1"
 SHA256_RE = re.compile(r"^[0-9a-fA-F]{64}$")
-TRACKED_ARTIFACT_COVERAGE_GLOBS = ("data/certificates/*.json", "data/certificates/**/*.json")
+TRACKED_ARTIFACT_COVERAGE_GLOBS = (
+    "data/certificates/*.json",
+    "data/certificates/**/*.json",
+    "certificates/*.json",
+    "certificates/**/*.json",
+)
 
 KNOWN_TRUST = {
     "EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN",

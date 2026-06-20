@@ -62,6 +62,20 @@ PZ_KEYS = ("+cg", "-cg", "+sg", "-sg")
 Q_KEYS = ("+cgb", "-cgb", "+sgb", "-sgb")
 
 
+def compare_artifact_replay(payload, artifact_path: str) -> list[str]:
+    """Compare the freshly generated deterministic payload with a stored artifact."""
+
+    with open(artifact_path, encoding="utf-8") as fh:
+        stored = json.load(fh)
+    if payload == stored:
+        return []
+    errors: list[str] = []
+    for key in sorted(set(payload) | set(stored)):
+        if payload.get(key) != stored.get(key):
+            errors.append(f"{key}: replay differs from stored artifact")
+    return errors
+
+
 def _solver_for(combo, *, window: bool, convex: bool, timeout_ms: int):
     import z3
 
@@ -256,6 +270,12 @@ def main() -> int:
                          "and both self-tests (faithfulness, non-vacuity) pass")
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--write-artifact", type=str, default="")
+    ap.add_argument(
+        "--check-artifact",
+        type=str,
+        default="",
+        help="compare deterministic replay fields against a stored artifact",
+    )
     args = ap.parse_args()
 
     faithful = faithfulness_ok()
@@ -300,6 +320,13 @@ def main() -> int:
         "clear": clear,
     }
 
+    if args.check_artifact:
+        errors = compare_artifact_replay(payload, args.check_artifact)
+        if errors:
+            print("artifact replay mismatch:", file=sys.stderr)
+            for err in errors:
+                print(f"- {err}", file=sys.stderr)
+            return 1
     if args.write_artifact:
         with open(args.write_artifact, "w", encoding="utf-8", newline="\n") as fh:
             json.dump(payload, fh, indent=1, sort_keys=True)

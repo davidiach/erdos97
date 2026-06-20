@@ -1788,6 +1788,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="adjacent_closest_pair_nonagon_barrier",
+        command=(
+            "python",
+            "scripts/check_adjacent_closest_pair_nonagon_barrier.py",
+            "--check",
+            "--summary-json",
+        ),
+        claim_scope=(
+            "Finite combinatorial audit of the adjacent closest-pair n=9 "
+            "boundary subcase under endpoint exclusions, two-circle row-pair "
+            "cap, and the two-overlap crossing-bisector rule; conditional "
+            "subcase only, not a proof of n=9, not a proof of Erdos Problem "
+            "#97, not a counterexample, and not an official/global status "
+            "update."
+        ),
+    ),
+    AuditCommand(
         ident="radius_blocker_vertex_circle_pilot",
         command=(
             "python",
@@ -3493,6 +3510,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "python",
             "scripts/check_three_square_m4_closure.py",
             "--assert-clear",
+            "--check-artifact",
+            "data/certificates/three_square_m4_closure.json",
         ),
         claim_scope=(
             "SMT (z3) exact obstruction that no strictly convex three "
@@ -3511,6 +3530,8 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "python",
             "scripts/check_quarter_cell_closure.py",
             "--assert-clear",
+            "--check-artifact",
+            "data/certificates/quarter_cell_closure.json",
         ),
         claim_scope=(
             "Three-orbit quarter cells (m=0 mod 4): self-tested exact A-row "

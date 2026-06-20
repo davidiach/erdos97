@@ -96,6 +96,21 @@ def test_official_status_freshness_can_fail() -> None:
         raise AssertionError("freshness check should fail")
 
 
+def test_official_status_freshness_rejects_future_dates_without_age_ceiling() -> None:
+    checker = load_checker()
+    official = {
+        "official_page_last_edited": "2025-10-27",
+        "official_status_last_checked": "2026-05-20",
+    }
+
+    try:
+        checker.validate_official_status_freshness(official, None, today=date(2026, 5, 4))
+    except SystemExit as exc:
+        assert exc.code == 1
+    else:  # pragma: no cover
+        raise AssertionError("future official status date should fail")
+
+
 def test_pattern_catalog_all_order_status_is_distinct_from_stale_live_wording() -> None:
     checker = load_checker()
 

@@ -358,6 +358,37 @@ def validate_payload(
     if not isinstance(summary, Mapping):
         errors.append("summary must be an object")
     else:
+        _check_equal(errors, "summary.n9_calibration_ok", summary.get("n9_calibration_ok"), True)
+        _check_equal(
+            errors,
+            "summary.n10_rows_match_primary_artifact",
+            summary.get("n10_rows_match_primary_artifact"),
+            True,
+        )
+        _check_equal(
+            errors,
+            "summary.n10_row0_choices_covered",
+            summary.get("n10_row0_choices_covered"),
+            126,
+        )
+        _check_equal(
+            errors,
+            "summary.n10_total_nodes",
+            summary.get("n10_total_nodes"),
+            EXPECTED_N10["nodes"],
+        )
+        _check_equal(
+            errors,
+            "summary.n10_total_full",
+            summary.get("n10_total_full"),
+            EXPECTED_N10["full"],
+        )
+        _check_equal(
+            errors,
+            "summary.n10_counts",
+            summary.get("n10_counts"),
+            EXPECTED_N10["counts"],
+        )
         _check_equal(errors, "summary.solves_n10", summary.get("solves_n10"), False)
         _check_equal(errors, "summary.solves_erdos97", summary.get("solves_erdos97"), False)
         _check_equal(
@@ -366,6 +397,8 @@ def validate_payload(
             summary.get("n10_row_summaries_digest_sha256"),
             EXPECTED_N10_ROW_DIGEST,
         )
+    _check_equal(errors, "validation_status", payload.get("validation_status"), "passed")
+    _check_equal(errors, "validation_errors", payload.get("validation_errors"), [])
     return errors
 
 

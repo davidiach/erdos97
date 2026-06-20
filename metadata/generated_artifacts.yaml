@@ -15,6 +15,8 @@ required_integrity_fields: >
   with an explicit reason.
 
 unmanaged_tracked_artifacts:
+  - path: certificates/best_B12_certificate_template.json
+    reason: tracked legacy/manual template retained at its historical top-level certificates path
   - path: data/certificates/2026-05-05/bridge_lemma_check.json
     reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
   - path: data/certificates/2026-05-05/n11_partial.json
@@ -10230,8 +10232,8 @@ artifacts:
       - general proof of Erdos Problem #97
   - id: three_orbit_window_closure_m3_16
     path: data/certificates/three_orbit_window_closure_m3_16.json
-    sha256: 747d421be84b09cd4c2c0c952335cd2eabe8faeda693d28e8cc8d21a666c43a4
-    size_bytes: 5946
+    sha256: fb598d1c274afb2e54b03b63aa739efceec83a32134624c1f58d2e38fe5e78a4
+    size_bytes: 5947
     kind: restricted_family_screen_artifact
     generator: scripts/check_three_orbit_window_closure.py
     command: python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 16 --audit-samples 40 --write-artifact data/certificates/three_orbit_window_closure_m3_16.json
@@ -10249,8 +10251,8 @@ artifacts:
       clear: true
       min_m: 3
       max_m: 16
-      total_screen_candidates: 9926
-      total_boundary_exclusions: 967
+      total_screen_candidates: 9597
+      total_boundary_exclusions: 932
       total_systems.G: 3552
       total_systems.AB: 15155
       total_systems.AC: 15155
@@ -10286,7 +10288,7 @@ artifacts:
     generator: scripts/check_three_square_m4_closure.py
     command: python scripts/check_three_square_m4_closure.py --assert-clear --write-artifact data/certificates/three_square_m4_closure.json
     checker: scripts/check_three_square_m4_closure.py
-    check_command: python scripts/check_three_square_m4_closure.py --assert-clear
+    check_command: python scripts/check_three_square_m4_closure.py --assert-clear --check-artifact data/certificates/three_square_m4_closure.json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: EXACT_OBSTRUCTION
@@ -10317,7 +10319,7 @@ artifacts:
     generator: scripts/check_quarter_cell_closure.py
     command: python scripts/check_quarter_cell_closure.py --assert-clear --write-artifact data/certificates/quarter_cell_closure.json
     checker: scripts/check_quarter_cell_closure.py
-    check_command: python scripts/check_quarter_cell_closure.py --assert-clear
+    check_command: python scripts/check_quarter_cell_closure.py --assert-clear --check-artifact data/certificates/quarter_cell_closure.json
     direct_edit_allowed: false
     provenance_mode: embedded
     trust: REVIEW_PENDING_DIAGNOSTIC

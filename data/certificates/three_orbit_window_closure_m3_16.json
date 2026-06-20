@@ -31,12 +31,12 @@
  },
  "records": [
   {
-   "boundary_exclusions": 1,
+   "boundary_exclusions": 0,
    "feasible_survivors": [],
    "m": 3,
    "open_quarter_cells": 0,
-   "refuted": 5,
-   "screen_candidates": 6,
+   "refuted": 1,
+   "screen_candidates": 1,
    "self_audit": {
     "configs_checked": 159,
     "m": 3
@@ -69,12 +69,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 4,
+   "boundary_exclusions": 0,
    "feasible_survivors": [],
    "m": 5,
    "open_quarter_cells": 0,
-   "refuted": 20,
-   "screen_candidates": 24,
+   "refuted": 13,
+   "screen_candidates": 13,
    "self_audit": {
     "configs_checked": 157,
     "m": 5
@@ -88,12 +88,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 9,
+   "boundary_exclusions": 2,
    "feasible_survivors": [],
    "m": 6,
    "open_quarter_cells": 0,
-   "refuted": 29,
-   "screen_candidates": 38,
+   "refuted": 22,
+   "screen_candidates": 24,
    "self_audit": {
     "configs_checked": 159,
     "m": 6
@@ -107,12 +107,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 14,
+   "boundary_exclusions": 25,
    "feasible_survivors": [],
    "m": 7,
    "open_quarter_cells": 0,
-   "refuted": 138,
-   "screen_candidates": 152,
+   "refuted": 120,
+   "screen_candidates": 145,
    "self_audit": {
     "configs_checked": 160,
     "m": 7
@@ -130,8 +130,8 @@
    "feasible_survivors": [],
    "m": 8,
    "open_quarter_cells": 1,
-   "refuted": 85,
-   "screen_candidates": 113,
+   "refuted": 92,
+   "screen_candidates": 120,
    "self_audit": {
     "configs_checked": 155,
     "m": 8
@@ -145,12 +145,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 68,
+   "boundary_exclusions": 58,
    "feasible_survivors": [],
    "m": 9,
    "open_quarter_cells": 0,
-   "refuted": 366,
-   "screen_candidates": 434,
+   "refuted": 329,
+   "screen_candidates": 387,
    "self_audit": {
     "configs_checked": 153,
     "m": 9
@@ -164,12 +164,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 11,
+   "boundary_exclusions": 9,
    "feasible_survivors": [],
    "m": 10,
    "open_quarter_cells": 0,
-   "refuted": 250,
-   "screen_candidates": 261,
+   "refuted": 242,
+   "screen_candidates": 251,
    "self_audit": {
     "configs_checked": 160,
     "m": 10
@@ -187,8 +187,8 @@
    "feasible_survivors": [],
    "m": 11,
    "open_quarter_cells": 0,
-   "refuted": 803,
-   "screen_candidates": 854,
+   "refuted": 761,
+   "screen_candidates": 812,
    "self_audit": {
     "configs_checked": 155,
     "m": 11
@@ -202,12 +202,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 152,
+   "boundary_exclusions": 148,
    "feasible_survivors": [],
    "m": 12,
    "open_quarter_cells": 1,
-   "refuted": 628,
-   "screen_candidates": 780,
+   "refuted": 646,
+   "screen_candidates": 794,
    "self_audit": {
     "configs_checked": 156,
     "m": 12
@@ -221,12 +221,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 210,
+   "boundary_exclusions": 229,
    "feasible_survivors": [],
    "m": 13,
    "open_quarter_cells": 0,
-   "refuted": 1460,
-   "screen_candidates": 1670,
+   "refuted": 1358,
+   "screen_candidates": 1587,
    "self_audit": {
     "configs_checked": 158,
     "m": 13
@@ -244,8 +244,8 @@
    "feasible_survivors": [],
    "m": 14,
    "open_quarter_cells": 0,
-   "refuted": 967,
-   "screen_candidates": 1043,
+   "refuted": 814,
+   "screen_candidates": 890,
    "self_audit": {
     "configs_checked": 156,
     "m": 14
@@ -259,12 +259,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 131,
+   "boundary_exclusions": 139,
    "feasible_survivors": [],
    "m": 15,
    "open_quarter_cells": 0,
-   "refuted": 2609,
-   "screen_candidates": 2740,
+   "refuted": 2605,
+   "screen_candidates": 2744,
    "self_audit": {
     "configs_checked": 157,
     "m": 15
@@ -278,12 +278,12 @@
    "unresolved": []
   },
   {
-   "boundary_exclusions": 212,
+   "boundary_exclusions": 167,
    "feasible_survivors": [],
    "m": 16,
    "open_quarter_cells": 1,
-   "refuted": 1598,
-   "screen_candidates": 1810,
+   "refuted": 1661,
+   "screen_candidates": 1828,
    "self_audit": {
     "configs_checked": 156,
     "m": 16
@@ -298,11 +298,11 @@
   }
  ],
  "schema": "erdos97.three_orbit_window_closure.v1",
- "scope": "three concentric regular m-gon orbits (t=3), all radii, all relative rotations, all selected-witness rows; float64 screen with 60-digit deterministic re-derivation of candidates and 240-digit boundary rechecks; the m = 0 mod 4 quarter cells are skipped and recorded as named open sub-cases; not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample claim",
+ "scope": "three concentric regular m-gon orbits (t=3), all radii, all relative rotations, all selected-witness rows; float64 screen with 60-digit deterministic re-derivation of candidates and 240-digit boundary rechecks; the m = 0 mod 4 quarter cells are skipped and recorded as named handoff sub-cases; not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample claim",
  "status": "REVIEW_PENDING_SCREEN_ONLY",
  "tool": "scripts/check_three_orbit_window_closure.py",
- "total_boundary_exclusions": 967,
- "total_screen_candidates": 9926,
+ "total_boundary_exclusions": 932,
+ "total_screen_candidates": 9597,
  "total_systems": {
   "AB": 15155,
   "AC": 15155,
