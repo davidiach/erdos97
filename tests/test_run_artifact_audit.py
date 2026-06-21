@@ -15,6 +15,7 @@ from scripts.run_artifact_audit import (
     command_text,
     list_commands_payload,
     run_audit_command,
+    run_verify_commands,
     sha256_bytes,
 )
 
@@ -56,6 +57,43 @@ def test_run_audit_command_resolves_python_to_current_interpreter(tmp_path: Path
     assert record["command"] == "python -c import sys; print(sys.executable)"
     assert record["exit_code"] == 0
     assert (tmp_path / record["stdout_path"]).read_text(encoding="utf-8").strip() == sys.executable
+
+
+def test_run_verify_commands_resolves_python_to_current_interpreter(capfd) -> None:
+    command = AuditCommand(
+        ident="python_alias",
+        command=("python", "-c", "import sys; print(sys.executable)"),
+        claim_scope="test command only",
+    )
+
+    exit_code = run_verify_commands([command])
+
+    assert exit_code == 0
+    captured = capfd.readouterr()
+    assert sys.executable in captured.out
+
+
+def test_run_verify_commands_stops_on_first_failure(capfd) -> None:
+    commands = [
+        AuditCommand(
+            ident="fail",
+            command=("python", "-c", "import sys; sys.exit(7)"),
+            claim_scope="test command only",
+        ),
+        AuditCommand(
+            ident="skip",
+            command=("python", "-c", "print('should not run')"),
+            claim_scope="test command only",
+        ),
+    ]
+
+    exit_code = run_verify_commands(commands)
+
+    assert exit_code == 7
+    captured = capfd.readouterr()
+    assert "fail" in captured.out
+    assert "skip" not in captured.out
+    assert "should not run" not in captured.out
 
 
 def test_build_summary_runs_preflight_and_audit_commands(tmp_path: Path) -> None:
@@ -100,40 +138,16 @@ def test_audit_commands_cover_verify_artifacts_make_target() -> None:
         text=True,
         stdout=subprocess.PIPE,
     )
-    audit_order = {
-        command_text(command.command): index for index, command in enumerate(AUDIT_COMMANDS)
-    }
-    make_commands = []
-    missing = []
-    for line in dry_run.stdout.splitlines():
-        command = line.strip()
-        if command.startswith(".venv/bin/python "):
-            command = "python " + command.split(" ", 1)[1]
-        if command.startswith("python "):
-            make_commands.append(command)
-            if command not in audit_order:
-                missing.append(command)
-
-    assert missing == []
-    d3_dependency_order = [
-        "python scripts/check_n9_selected_baseline_escape_budget_overlay.py --artifact "
-        "data/certificates/n9_selected_baseline_escape_budget_overlay.json --check --json",
-        "python scripts/check_n9_d3_escape_slice.py --artifact "
-        "data/certificates/n9_base_apex_d3_escape_slice.json --check --json",
-        "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --artifact "
-        "data/certificates/n9_base_apex_low_excess_escape_crosswalk.json --check --json",
-        "python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py "
-        "--artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json "
-        "--check --json",
-        "python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py "
-        "--check --json",
-        "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --artifact "
-        "data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json "
-        "--check --json",
+    command_lines = [
+        line.strip()
+        for line in dry_run.stdout.splitlines()
+        if line.strip() and not line.startswith("make[")
     ]
-    assert [
-        command for command in make_commands if command in d3_dependency_order
-    ] == d3_dependency_order
+    assert len(command_lines) == 1
+    command = command_lines[0]
+    if command.startswith(".venv/bin/python "):
+        command = "python " + command.split(" ", 1)[1]
+    assert command == "python scripts/run_artifact_audit.py --verify-only"
 
 
 def test_list_commands_payload_is_claim_neutral() -> None:

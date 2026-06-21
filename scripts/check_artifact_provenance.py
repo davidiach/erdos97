@@ -61,10 +61,18 @@ PATH_REPLAY_FLAGS = {
     "--check-artifact",
     "--check-compatible-orders-data",
     "--check-exact-analysis-data",
+    "--verify-certificate",
 }
 PATH_OUTPUT_FLAGS = {
     "--out",
     "--output",
+    "--write",
+    "--write-artifact",
+}
+PATH_OUTPUT_SWITCHES_WITH_TARGET_FLAGS = {
+    "--write-artifact": {"--artifact"},
+}
+PATH_DEFAULT_OUTPUT_SWITCHES = {
     "--write",
     "--write-artifact",
 }
@@ -191,7 +199,7 @@ def validate_artifact(
         not isinstance(check_command, str) or not check_command.strip()
     ):
         errors.append(f"{label}.check_command must be a nonempty string when present")
-    errors.extend(validate_check_command_replays_explicit_artifact_path(artifact, label))
+    errors.extend(validate_check_command_for_generated_write(artifact, label))
 
     if artifact.get("direct_edit_allowed") is not False:
         errors.append(f"{label}.direct_edit_allowed must be false for generated artifacts")
@@ -285,15 +293,23 @@ def command_mentions_path(command: str, raw_path: str) -> bool:
 def command_outputs_path(command: str, raw_path: str) -> bool:
     tokens = command_tokens(command)
     variants = path_variants(raw_path)
+    output_target_flags: set[str] = set()
     previous: str | None = None
     for token in tokens:
         redirect_target = redirection_value(token)
+        output_target_flags.update(PATH_OUTPUT_SWITCHES_WITH_TARGET_FLAGS.get(token, set()))
         if token_matches_path(token, variants):
-            return previous in PATH_OUTPUT_FLAGS
+            return previous in PATH_OUTPUT_FLAGS or previous in output_target_flags
         if any(
             token.startswith(f"{flag}=")
             and token_matches_path(token.split("=", 1)[1], variants)
             for flag in PATH_OUTPUT_FLAGS
+        ):
+            return True
+        if any(
+            token.startswith(f"{flag}=")
+            and token_matches_path(token.split("=", 1)[1], variants)
+            for flag in output_target_flags
         ):
             return True
         if (
@@ -306,6 +322,12 @@ def command_outputs_path(command: str, raw_path: str) -> bool:
             return True
         previous = token
     return False
+
+
+def command_uses_default_output_path(command: str, raw_path: str) -> bool:
+    if command_outputs_path(command, raw_path):
+        return False
+    return any(token in PATH_DEFAULT_OUTPUT_SWITCHES for token in command_tokens(command))
 
 
 def command_replays_path(command: str, raw_path: str) -> bool:
@@ -325,7 +347,7 @@ def command_replays_path(command: str, raw_path: str) -> bool:
     return False
 
 
-def validate_check_command_replays_explicit_artifact_path(
+def validate_check_command_for_generated_write(
     artifact: dict[str, Any],
     label: str,
 ) -> list[str]:
@@ -337,6 +359,13 @@ def validate_check_command_replays_explicit_artifact_path(
         and isinstance(command, str)
     ):
         return []
+    if command_uses_default_output_path(command, raw_path) and (
+        not isinstance(check_command, str) or not check_command.strip()
+    ):
+        return [
+            f"{label}.check_command must be present for default-path artifact write "
+            f"command {raw_path!r}"
+        ]
     if not command_outputs_path(command, raw_path):
         return []
     if not isinstance(check_command, str) or not check_command.strip():

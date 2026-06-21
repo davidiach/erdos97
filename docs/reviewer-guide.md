@@ -53,13 +53,16 @@ For CI-style audit metadata, run:
 make audit-artifacts
 ```
 
-The `audit-artifacts` target includes the dated official-status consistency
-check, so this audit path is stricter than the default fast tier.
+Both artifact targets use the command registry in
+`scripts/run_artifact_audit.py`: `verify-artifacts` runs the registered
+artifact commands without metadata capture, while `audit-artifacts` also runs
+the two audit preflights and records per-command stdout/stderr plus environment
+metadata.
 
-If `make` is unavailable, treat `Makefile` and
-`scripts/run_artifact_audit.py` as the source of truth for the current raw
-command set. To print the registered artifact-audit command list without
-running the audit, including the two `audit-artifacts` preflight checks, use:
+If `make` is unavailable, use `python scripts/run_artifact_audit.py --verify-only`
+for the current raw artifact command set. To print the registered artifact-audit
+command list without running the audit, including the two `audit-artifacts`
+preflight checks, use:
 
 ```bash
 python scripts/run_artifact_audit.py --list-commands
