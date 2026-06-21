@@ -3744,6 +3744,18 @@ def run_audit_command(command: AuditCommand, output_dir: Path) -> dict[str, Any]
     }
 
 
+def run_verify_commands(commands: Sequence[AuditCommand]) -> int:
+    for index, command in enumerate(commands, start=1):
+        print(
+            f"[{index}/{len(commands)}] {command.ident}: {command_text(command.command)}",
+            flush=True,
+        )
+        result = subprocess.run(subprocess_command(command.command), cwd=REPO_ROOT)
+        if result.returncode != 0:
+            return result.returncode
+    return 0
+
+
 def build_summary(
     output_dir: Path,
     commands: Sequence[AuditCommand],
@@ -3829,10 +3841,16 @@ def list_commands_payload(
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument(
         "--list-commands",
         action="store_true",
         help="Print the registered audit command list as JSON without running it.",
+    )
+    mode.add_argument(
+        "--verify-only",
+        action="store_true",
+        help="Run registered artifact audit commands without writing metadata.",
     )
     parser.add_argument(
         "--output-dir",
@@ -3848,6 +3866,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.list_commands:
         print(json.dumps(list_commands_payload(AUDIT_COMMANDS), indent=2, sort_keys=True))
         return 0
+    if args.verify_only:
+        return run_verify_commands(AUDIT_COMMANDS)
 
     output_dir = args.output_dir
     if not output_dir.is_absolute():

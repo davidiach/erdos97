@@ -380,10 +380,12 @@ For CI-style metadata capture, run:
 make audit-artifacts
 ```
 
-If `make` is unavailable, treat [`Makefile`](Makefile),
-[`scripts/run_artifact_audit.py`](scripts/run_artifact_audit.py), and
-[`docs/reviewer-guide.md`](docs/reviewer-guide.md) as the source of truth for
-the current raw artifact command set.
+Both targets use the command registry in
+[`scripts/run_artifact_audit.py`](scripts/run_artifact_audit.py): `verify-artifacts`
+runs the registry without metadata capture, while `audit-artifacts` records
+per-command stdout/stderr and environment metadata. If `make` is unavailable,
+use `python scripts/run_artifact_audit.py --verify-only` for the same raw
+artifact command set.
 
 Useful exploratory commands:
 

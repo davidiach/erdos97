@@ -8,6 +8,7 @@ from scripts.check_artifact_provenance import (
     command_mentions_path,
     command_outputs_path,
     command_replays_path,
+    command_uses_default_output_path,
     load_manifest,
     sha256_file,
     validate_manifest,
@@ -211,6 +212,19 @@ def test_manifest_rejects_explicit_write_path_without_check_command(tmp_path: Pa
     assert any("must replay explicitly generated artifact path" in error for error in errors)
 
 
+def test_manifest_rejects_default_write_without_check_command(tmp_path: Path) -> None:
+    generator = tmp_path / "generator.py"
+    manifest = replay_manifest(
+        tmp_path,
+        command=f"python {generator} --write --assert-expected",
+        check_command=None,
+    )
+
+    errors = validate_manifest(manifest)
+
+    assert any("must be present for default-path artifact write command" in error for error in errors)
+
+
 def test_manifest_rejects_check_path_without_replay_flag(tmp_path: Path) -> None:
     artifact = tmp_path / "artifact.json"
     generator = tmp_path / "generator.py"
@@ -264,8 +278,20 @@ def test_command_path_detection_accepts_common_artifact_path_forms() -> None:
         "python generator.py >data/certificates/example.json",
         "data/certificates/example.json",
     )
+    assert command_outputs_path(
+        "python generator.py --write-artifact --artifact data/certificates/example.json --check",
+        "data/certificates/example.json",
+    )
     assert not command_outputs_path(
         "python checker.py --artifact data/certificates/example.json --check",
+        "data/certificates/example.json",
+    )
+    assert command_uses_default_output_path(
+        "python generator.py --write --assert-expected",
+        "data/certificates/example.json",
+    )
+    assert not command_uses_default_output_path(
+        "python generator.py --out data/certificates/example.json",
         "data/certificates/example.json",
     )
     assert command_replays_path(
@@ -274,6 +300,11 @@ def test_command_path_detection_accepts_common_artifact_path_forms() -> None:
     )
     assert command_replays_path(
         f"python checker.py --artifact {artifact} --check",
+        "data/certificates/example.json",
+    )
+    assert command_replays_path(
+        "python checker.py --verify-certificate data/certificates/example.json "
+        "--assert-expected --json",
         "data/certificates/example.json",
     )
     assert not command_replays_path(

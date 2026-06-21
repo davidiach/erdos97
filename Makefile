@@ -255,7 +255,8 @@ verify-n10-review:
 	$(PYTHON) scripts/check_n10_fast_cpp_singleton_replay.py --check --json
 	$(PYTHON) scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 
-verify-artifacts: verify-n8 verify-kalmanson verify-n9-review verify-bridge-frontier verify-n10-review
+verify-artifacts:
+	$(PYTHON) scripts/run_artifact_audit.py --verify-only
 
 audit-artifacts:
 	$(PYTHON) scripts/run_artifact_audit.py --output-dir artifact-audit-results
