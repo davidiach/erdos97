@@ -5,6 +5,7 @@ from pathlib import Path
 
 from scripts.check_n9_vertex_circle_route_decision_request import (
     ACCEPTED_VERTEX_CIRCLE_ROUTE,
+    DECISION_TEMPLATE_COMMAND,
     DECISION_REQUIRED_ACCEPTED_GATES,
     DEFAULT_REQUEST,
     build_request_payload,
@@ -29,6 +30,10 @@ def test_n9_vertex_circle_route_decision_request_is_valid() -> None:
         DECISION_REQUIRED_ACCEPTED_GATES
     )
     assert request_payload["requested_rejected_gates"] == []
+    assert request_payload["decision_template_command"] == DECISION_TEMPLATE_COMMAND
+    assert request_payload["decision_template_command"].endswith(
+        "--accepted-route-template"
+    )
     assert request_payload["external_reviewer_required"] is True
     assert request_payload["source_of_truth_update_allowed"] is False
 

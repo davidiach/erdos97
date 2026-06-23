@@ -42,6 +42,18 @@ The preflight checks that:
 - a schema-only draft shape for `accepted_vertex_circle_route` validates as a
   decision record shape, without recording or implying a real decision.
 
+To print the fillable accepted-route template that carries this exact gate
+partition into decision intake, run:
+
+```bash
+python scripts/check_n9_vertex_circle_route_decision_preflight.py --accepted-route-template
+```
+
+That output is only a template. It is emitted as a final decision record with
+blank required reviewer/provenance fields, so it does not validate until an
+independent reviewer fills the reviewer identity, review date, reviewed
+checkout, run-bundle digest, and any review notes.
+
 ## Decision Boundary
 
 The next required external artifact remains a filled decision record checked by:

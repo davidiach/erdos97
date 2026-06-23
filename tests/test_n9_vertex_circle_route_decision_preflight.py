@@ -3,12 +3,18 @@ from __future__ import annotations
 from copy import deepcopy
 from pathlib import Path
 
-from scripts.check_n9_review_decision_intake import load_intake
+from scripts.check_n9_review_decision_intake import (
+    load_intake,
+    validate_decision_record,
+)
 from scripts.check_n9_review_gate_ledger import load_ledger
 from scripts.check_n9_vertex_circle_route_decision_preflight import (
+    ACCEPTED_ROUTE_TEMPLATE_COMMAND,
     DECISION_REQUIRED_ACCEPTED_GATES,
     INTERNAL_REVIEW_NOTES,
     VERTEX_CIRCLE_ROUTE_GATES,
+    build_accepted_route_decision_template,
+    main,
     validate_preflight,
 )
 
@@ -58,6 +64,84 @@ def test_n9_vertex_circle_route_decision_preflight_is_valid() -> None:
         payload["draft_vertex_circle_decision_shape"]["validation_status"]
         == "passed"
     )
+    assert payload["accepted_route_template_command"] == ACCEPTED_ROUTE_TEMPLATE_COMMAND
+
+
+def test_n9_vertex_circle_route_preflight_builds_accepted_route_template() -> None:
+    ledger = load_ledger(LEDGER)
+    intake = load_intake(INTAKE)
+
+    template = build_accepted_route_decision_template(intake)
+    template_errors = validate_decision_record(template, intake, gate_ledger=ledger)
+
+    assert template["decision_status"] == "final"
+    assert template["recommended_outcome"] == "accepted_vertex_circle_route"
+    assert template["accepted_gates"] == list(DECISION_REQUIRED_ACCEPTED_GATES)
+    assert template["rejected_gates"] == []
+    assert template["not_reviewed_gates"] == [
+        "turn_geometry",
+        "turn_arithmetic_replay",
+        "kalmanson_corroboration",
+        "lean_compilation",
+    ]
+    assert template["acknowledgements"]["source_of_truth_pr_required"] is True
+    assert "does not accept any gate" in template["notes"]
+    assert "reviewer_name must be nonempty for final decisions" in template_errors
+    assert "review_date must be nonempty for final decisions" in template_errors
+    assert "reviewed_git_head must be nonempty for final decisions" in template_errors
+    assert "run_bundle_digest must be nonempty for final decisions" in template_errors
+
+
+def test_n9_vertex_circle_route_preflight_filled_template_validates() -> None:
+    ledger = load_ledger(LEDGER)
+    intake = load_intake(INTAKE)
+    template = build_accepted_route_decision_template(intake)
+    template.update(
+        {
+            "reviewer_name": "Independent Reviewer",
+            "review_date": "2026-06-23",
+            "reviewed_git_head": "0123456789abcdef0123456789abcdef01234567",
+            "run_bundle_digest": "sha256:review-run-bundle-placeholder",
+            "notes": (
+                "Independent written review notes would be recorded here "
+                "before validation."
+            ),
+        }
+    )
+
+    assert validate_decision_record(template, intake, gate_ledger=ledger) == []
+
+
+def test_n9_vertex_circle_route_preflight_prints_accepted_route_template(
+    capsys,
+) -> None:
+    assert main(["--accepted-route-template"]) == 0
+
+    output = capsys.readouterr().out
+
+    assert "decision_status: final" in output
+    assert "recommended_outcome: accepted_vertex_circle_route" in output
+    assert "- frontier_enumeration" in output
+    assert "- independent_review" in output
+    assert "source_of_truth_pr_required: true" in output
+
+
+def test_n9_vertex_circle_route_preflight_template_failure_is_nonzero(
+    monkeypatch,
+    capsys,
+) -> None:
+    monkeypatch.setattr(
+        "scripts.check_n9_vertex_circle_route_decision_preflight.validate_preflight",
+        lambda *, ledger, intake: ({"status": "REVIEW_PREFLIGHT_ONLY"}, ["boom"]),
+    )
+
+    assert main(["--accepted-route-template"]) == 1
+
+    captured = capsys.readouterr()
+
+    assert captured.out == ""
+    assert "accepted-route template unavailable" in captured.err
+    assert "boom" in captured.err
 
 
 def test_n9_vertex_circle_route_preflight_rejects_closed_route_gate() -> None:

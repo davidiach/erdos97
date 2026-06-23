@@ -53,10 +53,10 @@ Capture a live run digest for the checkout under review:
 python scripts/check_n9_review_run_bundle.py --check --run --summary-json
 ```
 
-Print the decision template:
+Print the accepted-route decision draft:
 
 ```bash
-python scripts/check_n9_review_decision_intake.py --template
+python scripts/check_n9_vertex_circle_route_decision_preflight.py --accepted-route-template
 ```
 
 Validate a filled written decision:
@@ -64,6 +64,10 @@ Validate a filled written decision:
 ```bash
 python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json
 ```
+
+The generic intake template remains available from
+`python scripts/check_n9_review_decision_intake.py --template` when a reviewer
+needs a different outcome shape, such as a precise gap record.
 
 ## Boundary
 

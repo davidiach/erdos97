@@ -39,6 +39,10 @@ CANONICAL_COMMAND = (
     "python scripts/check_n9_vertex_circle_route_decision_preflight.py "
     "--check --summary-json"
 )
+ACCEPTED_ROUTE_TEMPLATE_COMMAND = (
+    "python scripts/check_n9_vertex_circle_route_decision_preflight.py "
+    "--accepted-route-template"
+)
 ACCEPTED_VERTEX_CIRCLE_ROUTE = "accepted_vertex_circle_route"
 VERTEX_CIRCLE_ROUTE_GATES = (
     "frontier_enumeration",
@@ -176,31 +180,38 @@ def _gate_list(
 
 
 def _decision_template_gate_ids(intake: dict[str, Any]) -> set[str]:
+    return set(_decision_template_gate_order(intake))
+
+
+def _decision_template_gate_order(intake: dict[str, Any]) -> tuple[str, ...]:
     template = intake.get("decision_template", {})
     if not isinstance(template, dict):
-        return set()
+        return ()
     gates = template.get("not_reviewed_gates", [])
     if not isinstance(gates, list):
-        return set()
-    return {gate for gate in gates if isinstance(gate, str)}
+        return ()
+    return tuple(gate for gate in gates if isinstance(gate, str))
 
 
-def _draft_vertex_circle_decision_record(
+def _accepted_route_decision_record(
     intake: dict[str, Any],
+    *,
+    decision_status: str,
+    notes: str,
 ) -> dict[str, Any]:
     accepted = set(DECISION_REQUIRED_ACCEPTED_GATES)
-    all_gates = _decision_template_gate_ids(intake)
+    all_gates = _decision_template_gate_order(intake)
     return {
         "schema": intake.get("decision_record_schema"),
-        "decision_status": "draft",
+        "decision_status": decision_status,
         "reviewer_name": "",
         "review_date": "",
         "reviewed_git_head": "",
         "run_bundle_digest": "",
         "recommended_outcome": ACCEPTED_VERTEX_CIRCLE_ROUTE,
-        "accepted_gates": sorted(accepted),
+        "accepted_gates": list(DECISION_REQUIRED_ACCEPTED_GATES),
         "rejected_gates": [],
-        "not_reviewed_gates": sorted(all_gates - accepted),
+        "not_reviewed_gates": [gate for gate in all_gates if gate not in accepted],
         "precise_gaps": [],
         "acknowledgements": {
             "no_general_proof_claimed": True,
@@ -208,11 +219,36 @@ def _draft_vertex_circle_decision_record(
             "official_status_unchanged": True,
             "source_of_truth_pr_required": True,
         },
-        "notes": (
+        "notes": notes,
+    }
+
+
+def _draft_vertex_circle_decision_record(
+    intake: dict[str, Any],
+) -> dict[str, Any]:
+    return _accepted_route_decision_record(
+        intake,
+        decision_status="draft",
+        notes=(
             "Schema preflight only. This draft shape is not a written review "
             "decision and does not accept any gate."
         ),
-    }
+    )
+
+
+def build_accepted_route_decision_template(
+    intake: dict[str, Any],
+) -> dict[str, Any]:
+    return _accepted_route_decision_record(
+        intake,
+        decision_status="final",
+        notes=(
+            "Accepted-route template only. Fill the independent reviewer "
+            "identity, review date, reviewed checkout, run-bundle digest, and "
+            "review notes before validating this as a written decision. This "
+            "unfilled template does not accept any gate."
+        ),
+    )
 
 
 def _validate_internal_notes() -> tuple[list[dict[str, Any]], list[str]]:
@@ -341,6 +377,7 @@ def validate_preflight(
         "status": STATUS,
         "trust": TRUST,
         "canonical_command": CANONICAL_COMMAND,
+        "accepted_route_template_command": ACCEPTED_ROUTE_TEMPLATE_COMMAND,
         "route_outcome": ACCEPTED_VERTEX_CIRCLE_ROUTE,
         "route_gate_ids": list(VERTEX_CIRCLE_ROUTE_GATES),
         "decision_required_accepted_gates": list(DECISION_REQUIRED_ACCEPTED_GATES),
@@ -393,6 +430,9 @@ def summary_payload(payload: dict[str, Any], errors: Sequence[str]) -> dict[str,
         "source_of_truth_update_allowed": payload.get(
             "source_of_truth_update_allowed"
         ),
+        "accepted_route_template_command": payload.get(
+            "accepted_route_template_command"
+        ),
         "next_required_external_artifact": payload.get(
             "next_required_external_artifact"
         ),
@@ -426,6 +466,8 @@ def render_markdown(payload: dict[str, Any], errors: Sequence[str]) -> str:
         ),
         f"- Source-of-truth update allowed: "
         f"`{payload.get('source_of_truth_update_allowed')}`",
+        f"- Accepted-route template: "
+        f"`{payload.get('accepted_route_template_command')}`",
         "",
         "## Internal Notes",
         "",
@@ -460,18 +502,40 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         help="print compact reviewer-facing JSON",
     )
     output_group.add_argument("--markdown", action="store_true", help="print Markdown")
+    output_group.add_argument(
+        "--accepted-route-template",
+        action="store_true",
+        help="print the fillable accepted-route decision draft",
+    )
     return parser.parse_args(argv)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
     try:
-        payload, errors = validate_preflight()
+        intake = load_intake(REPO_ROOT / "metadata" / "n9_review_decision_intake.yaml")
+        ledger = load_ledger(REPO_ROOT / "metadata" / "n9_review_gate_ledger.yaml")
+        payload, errors = validate_preflight(ledger=ledger, intake=intake)
+        accepted_route_template = build_accepted_route_decision_template(intake)
     except (OSError, ValueError, YAMLError) as exc:
         payload = {"schema": SCHEMA, "status": "LOAD_FAILED", "trust": TRUST}
         errors = [str(exc)]
+        accepted_route_template = {}
 
-    if args.markdown:
+    if args.accepted_route_template:
+        if errors:
+            print(
+                "accepted-route template unavailable because preflight failed",
+                file=sys.stderr,
+            )
+            for error in errors:
+                print(error, file=sys.stderr)
+            return 1
+        elif yaml is not None:
+            print(yaml.safe_dump(accepted_route_template, sort_keys=False), end="")
+        else:  # pragma: no cover - exercised only without dependencies.
+            print(json.dumps(accepted_route_template, indent=2))
+    elif args.markdown:
         print(render_markdown(payload, errors))
     elif args.summary_json:
         print(json.dumps(summary_payload(payload, errors), indent=2, sort_keys=True))
