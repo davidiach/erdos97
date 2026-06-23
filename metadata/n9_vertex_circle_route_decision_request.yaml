@@ -12,7 +12,7 @@ canonical_command: python scripts/check_n9_vertex_circle_route_decision_request.
 markdown_command: python scripts/check_n9_vertex_circle_route_decision_request.py --markdown
 preflight_command: python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
 run_capture_command: python scripts/check_n9_review_run_bundle.py --check --run --summary-json
-decision_template_command: python scripts/check_n9_review_decision_intake.py --template
+decision_template_command: python scripts/check_n9_vertex_circle_route_decision_preflight.py --accepted-route-template
 decision_validation_command: python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json
 claim_scope: >
   Machine-readable request packet for asking an external reviewer to decide
@@ -94,9 +94,10 @@ reviewer_steps:
       Capture command-output digests for the checkout being reviewed. This is
       execution provenance only.
   - id: template
-    command: python scripts/check_n9_review_decision_intake.py --template
+    command: python scripts/check_n9_vertex_circle_route_decision_preflight.py --accepted-route-template
     purpose: >
-      Print the fillable decision record schema.
+      Print the fillable accepted-route decision template with the requested
+      gate partition and boundary acknowledgements.
   - id: filled_decision_validation
     command: python scripts/check_n9_review_decision_intake.py --decision path/to/decision.yaml --check --summary-json
     purpose: >

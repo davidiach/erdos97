@@ -31,6 +31,7 @@ from scripts.check_n9_review_gate_ledger import (  # noqa: E402
     validate_ledger,
 )
 from scripts.check_n9_vertex_circle_route_decision_preflight import (  # noqa: E402
+    ACCEPTED_ROUTE_TEMPLATE_COMMAND,
     DECISION_REQUIRED_ACCEPTED_GATES,
     INTERNAL_REVIEW_NOTES,
     validate_preflight,
@@ -60,9 +61,7 @@ PREFLIGHT_COMMAND = (
 RUN_CAPTURE_COMMAND = (
     "python scripts/check_n9_review_run_bundle.py --check --run --summary-json"
 )
-DECISION_TEMPLATE_COMMAND = (
-    "python scripts/check_n9_review_decision_intake.py --template"
-)
+DECISION_TEMPLATE_COMMAND = ACCEPTED_ROUTE_TEMPLATE_COMMAND
 DECISION_VALIDATION_COMMAND = (
     "python scripts/check_n9_review_decision_intake.py --decision "
     "path/to/decision.yaml --check --summary-json"
