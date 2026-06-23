@@ -613,6 +613,17 @@ aggregate scan and the simpler replay audit describe the same stored local
 template coverage. It does not certify that the packet family list is complete
 for `n=9`, and it does not promote the review-pending exhaustive checker.
 
+The focused packet/catalog audit checks the T01-T12 packet records against
+the source template packets, template catalog, and aggregate focused-note
+ledger before packet soundness review:
+
+```bash
+python scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json
+```
+
+Use `--json` instead of `--summary-json` when the full packet records are
+needed.
+
 The focused packet/minireplay crosswalk checks that the 12 packet-specific
 mini-replays agree with their source focused packets on identity, source
 schema, family coverage, obstruction flags, and compact local shape counts:
@@ -652,6 +663,17 @@ This verifies that the compact quotient-relation skeletons agree with the
 stored local-lemma layer on template ids, family ids, obstruction kind, and
 assignment counts. It remains a packet audit, not a completeness proof for
 `n=9`.
+
+The relation-skeleton/closed-descent companion checks the same 16 relation
+skeletons against the closed-descent packet's one-class self-edge and
+multi-class strict-cycle regions:
+
+```bash
+python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json
+```
+
+It is a companion accounting view, not a replacement for packet soundness
+review.
 
 The local-lemma audit-path checker then runs the reviewer-facing handoff as
 one chain. It checks that the focused packet/catalog audit, focused

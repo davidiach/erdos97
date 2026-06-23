@@ -32,6 +32,7 @@ from scripts.check_n9_vertex_circle_local_lemma_audit_path import (
     failure_lines,
     local_lemma_audit_path_payload,
     main as audit_path_main,
+    reviewer_command_plan,
     summary_json_payload,
     summary_lines,
 )
@@ -1208,6 +1209,49 @@ def test_local_lemma_audit_path_handoff_summaries() -> None:
     assert all(handoff["mismatches"] == [] for handoff in handoffs)
 
 
+def test_local_lemma_audit_path_reviewer_command_plan() -> None:
+    payload = local_lemma_audit_path_payload()
+    plan = payload["reviewer_command_plan"]
+
+    assert plan == reviewer_command_plan()
+    assert [step["step_id"] for step in plan] == [
+        "combined_audit_path",
+        "focused_packet_catalog",
+        "focused_minireplay",
+        "aggregate_simple_replay",
+        "exhaustive_local_lemma",
+        "relation_skeleton_local_lemma",
+        "relation_skeleton_closed_descent",
+    ]
+    assert [step["kind"] for step in plan] == [
+        "combined",
+        "layer",
+        "layer",
+        "layer",
+        "layer",
+        "layer",
+        "companion",
+    ]
+    assert all(
+        step["summary_command"].endswith("--summary-json") for step in plan
+    )
+    assert all(step["full_json_command"].endswith("--json") for step in plan)
+
+
+def test_local_lemma_audit_path_reviewer_command_surface_contract() -> None:
+    payload = local_lemma_audit_path_payload()
+    contract = payload["reviewer_command_surface_contract"]
+
+    assert contract["status"] == "passed"
+    assert contract["step_count"] == 7
+    assert contract["failed_step_count"] == 0
+    assert contract["failed_step_ids"] == []
+    assert [record["step_id"] for record in contract["records"]] == [
+        step["step_id"] for step in reviewer_command_plan()
+    ]
+    assert all(record["missing_docs"] == [] for record in contract["records"])
+
+
 def test_local_lemma_audit_path_rejects_handoff_compared_key_drift() -> None:
     payload = local_lemma_audit_path_payload()
     payload["audit_path"]["handoff_checks"][0]["compared_keys"].remove(
@@ -1274,6 +1318,7 @@ def test_local_lemma_audit_path_summary_lines_include_contract_rollups() -> None
         "layer input contracts: passed",
         "focused minireplay record paths: passed",
         "closed-descent companion: passed",
+        "reviewer command surface: passed",
         "audit contract summary: passed",
         "manifest roles: passed",
         "manifest digests: passed",
@@ -1313,6 +1358,7 @@ def test_local_lemma_audit_path_cli_text_summary_includes_contract_rollups() -> 
     lines = result.stdout.splitlines()
     assert "validation: passed" in lines
     assert "audit contract summary: passed" in lines
+    assert "reviewer command surface: passed" in lines
     assert "manifest contract summary: passed" in lines
 
 
@@ -2056,6 +2102,8 @@ def test_local_lemma_audit_path_summary_json_payload() -> None:
     assert parsed["coverage_summary"]["assignment_count"] == 184
     assert parsed["audit_contract_summary"]["status"] == "passed"
     assert parsed["manifest_contract_summary"]["status"] == "passed"
+    assert parsed["reviewer_command_surface_contract"]["status"] == "passed"
+    assert parsed["reviewer_command_plan"] == reviewer_command_plan()
     assert parsed["source_artifact_contract_summary"]["status"] == "passed"
     assert parsed["source_artifact_contract_summary"]["expected_artifact_count"] == 13
     assert parsed["input_manifest_summary"]["artifact_count"] == 33
@@ -2084,4 +2132,5 @@ def test_local_lemma_audit_path_cli_summary_json() -> None:
     assert parsed["validation_status"] == "passed"
     assert parsed["coverage_summary"]["assignment_count"] == 184
     assert parsed["audit_contract_summary"]["status"] == "passed"
+    assert parsed["reviewer_command_surface_contract"]["status"] == "passed"
     assert "audit_path" not in parsed
