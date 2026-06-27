@@ -122,6 +122,7 @@ EXPECTED_AUDIT_CONTRACT_COMPONENT_IDS = [
     "focused_minireplay_record_path_contract",
     "handoff_checks",
     "closed_descent_companion",
+    "reviewer_command_surface",
     "manifest_contracts",
 ]
 EXPECTED_LAYER_CONTRACTS = {
@@ -194,6 +195,45 @@ EXPECTED_LAYER_PROVENANCE = {
             "--check --assert-expected --json"
         ),
     },
+}
+CLOSED_DESCENT_COMPANION_PROVENANCE = {
+    "generator": "scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py",
+    "command": (
+        "python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py "
+        "--check --assert-expected --json"
+    ),
+}
+REVIEWER_COMMAND_DOC_REQUIREMENTS = {
+    "combined_audit_path": (
+        "docs/n9-vertex-circle-local-lemma-review-packet.md",
+        "docs/n9-vertex-circle-local-lemmas.md",
+        "docs/reviewer-guide.md",
+        "docs/review-priorities.md",
+    ),
+    "focused_packet_catalog": (
+        "docs/n9-vertex-circle-local-lemma-review-packet.md",
+        "docs/n9-vertex-circle-local-lemmas.md",
+    ),
+    "focused_minireplay": (
+        "docs/n9-vertex-circle-local-lemma-review-packet.md",
+        "docs/n9-vertex-circle-local-lemmas.md",
+    ),
+    "aggregate_simple_replay": (
+        "docs/n9-vertex-circle-local-lemma-review-packet.md",
+        "docs/n9-vertex-circle-local-lemmas.md",
+    ),
+    "exhaustive_local_lemma": (
+        "docs/n9-vertex-circle-local-lemma-review-packet.md",
+        "docs/n9-vertex-circle-local-lemmas.md",
+    ),
+    "relation_skeleton_local_lemma": (
+        "docs/n9-vertex-circle-local-lemma-review-packet.md",
+        "docs/n9-vertex-circle-local-lemmas.md",
+    ),
+    "relation_skeleton_closed_descent": (
+        "docs/n9-vertex-circle-local-lemma-review-packet.md",
+        "docs/n9-vertex-circle-local-lemmas.md",
+    ),
 }
 SOURCE_ARTIFACT_KEYS = ("path", "role", "schema", "status", "trust")
 EXPECTED_LAYER_SOURCE_ARTIFACTS = {
@@ -534,6 +574,7 @@ EXPECTED_SUMMARY_LINES = [
     "focused minireplay record paths: passed",
     f"handoffs: {len(EXPECTED_HANDOFF_EDGES)}",
     "closed-descent companion: passed",
+    "reviewer command surface: passed",
     "audit contract summary: passed",
     f"input artifacts: {EXPECTED_INPUT_ARTIFACT_COUNT}",
     "manifest roles: passed",
@@ -565,6 +606,8 @@ SUMMARY_JSON_KEYS = (
     "layer_summaries",
     "handoff_checks",
     "closed_descent_companion",
+    "reviewer_command_plan",
+    "reviewer_command_surface_contract",
     "source_artifact_contract_summary",
     "input_manifest_summary",
     "manifest_contract_summary",
@@ -577,6 +620,56 @@ OPTIONAL_SUMMARY_JSON_KEYS = (
 )
 
 AssertFn = Callable[[Mapping[str, Any]], None]
+
+
+def _summary_command(full_json_command: str) -> str:
+    if not full_json_command.endswith(" --json"):
+        raise ValueError(f"cannot derive summary command from {full_json_command!r}")
+    return full_json_command.removesuffix(" --json") + " --summary-json"
+
+
+def reviewer_command_plan() -> list[dict[str, str]]:
+    """Return the ordered reviewer-facing command surface for this audit path."""
+
+    layer_purposes = {
+        "focused_packet_catalog": "Check the T01-T12 packet/catalog ledger.",
+        "focused_minireplay": "Join focused packets to packet-specific mini-replays.",
+        "aggregate_simple_replay": "Compare aggregate scan and simple replay.",
+        "exhaustive_local_lemma": "Link local-lemma accounting to frontier counts.",
+        "relation_skeleton_local_lemma": "Compare relation skeletons to local accounting.",
+    }
+    plan = [
+        {
+            "step_id": "combined_audit_path",
+            "kind": "combined",
+            "summary_command": _summary_command(PROVENANCE["command"]),
+            "full_json_command": PROVENANCE["command"],
+            "purpose": "Run the full five-layer audit path rollup.",
+        }
+    ]
+    for layer_id in EXPECTED_LAYER_IDS:
+        full_json_command = EXPECTED_LAYER_PROVENANCE[layer_id]["command"]
+        plan.append(
+            {
+                "step_id": layer_id,
+                "kind": "layer",
+                "summary_command": _summary_command(full_json_command),
+                "full_json_command": full_json_command,
+                "purpose": layer_purposes[layer_id],
+            }
+        )
+    plan.append(
+        {
+            "step_id": "relation_skeleton_closed_descent",
+            "kind": "companion",
+            "summary_command": _summary_command(
+                CLOSED_DESCENT_COMPANION_PROVENANCE["command"]
+            ),
+            "full_json_command": CLOSED_DESCENT_COMPANION_PROVENANCE["command"],
+            "purpose": "Check the relation-skeleton/closed-descent companion.",
+        }
+    )
+    return plan
 
 
 def default_layer_payloads() -> dict[str, Mapping[str, Any]]:
@@ -704,6 +797,11 @@ def local_lemma_audit_path_payload(
         claim_payloads=manifest_claim_payloads,
     )
     manifest_consistency = _manifest_consistency(layers, input_manifest, errors)
+    command_plan = reviewer_command_plan()
+    reviewer_command_surface_contract = _reviewer_command_surface_contract(
+        command_plan,
+        errors,
+    )
     input_manifest_summary = _input_manifest_summary(
         input_manifest,
         manifest_consistency,
@@ -730,6 +828,7 @@ def local_lemma_audit_path_payload(
             "focused_minireplay_record_path_contract": focused_record_path_contract,
             "handoff_checks": handoff_checks,
             "closed_descent_companion": closed_descent_companion,
+            "reviewer_command_surface": reviewer_command_surface_contract,
             "manifest_contracts": manifest_contract_summary,
         }
     )
@@ -756,6 +855,8 @@ def local_lemma_audit_path_payload(
             "layers": layer_summaries,
         },
         "closed_descent_companion": closed_descent_companion,
+        "reviewer_command_plan": command_plan,
+        "reviewer_command_surface_contract": reviewer_command_surface_contract,
         "audit_contract_summary": audit_contract_summary,
         "source_artifact_contract_summary": source_artifact_contract_summary,
         "input_manifest": input_manifest,
@@ -816,6 +917,7 @@ def assert_expected_local_lemma_audit_path(payload: Mapping[str, Any]) -> None:
     _assert_expected_layer_input_contracts(payload)
     _assert_expected_focused_minireplay_record_path_contract(payload)
     _assert_expected_closed_descent_companion(payload)
+    _assert_expected_reviewer_command_surface(payload)
     _assert_expected_source_artifact_contract_summary(payload)
     _assert_expected_input_manifest(payload)
     _assert_expected_input_manifest_summary(payload)
@@ -1126,6 +1228,37 @@ def _assert_expected_closed_descent_companion(payload: Mapping[str, Any]) -> Non
             "closed_descent_companion mismatch: "
             f"{dict(summary)!r} != {EXPECTED_CLOSED_DESCENT_COMPANION_SUMMARY!r}"
         )
+
+
+def _assert_expected_reviewer_command_surface(payload: Mapping[str, Any]) -> None:
+    command_plan = payload.get("reviewer_command_plan")
+    if command_plan != reviewer_command_plan():
+        raise AssertionError(f"reviewer command plan mismatch: {command_plan!r}")
+    contract = payload.get("reviewer_command_surface_contract")
+    if not isinstance(contract, Mapping):
+        raise AssertionError("reviewer_command_surface_contract must be an object")
+    if contract.get("status") != "passed":
+        raise AssertionError(f"reviewer command surface failed: {contract!r}")
+    records = contract.get("records")
+    if not isinstance(records, list):
+        raise AssertionError("reviewer command surface records must be a list")
+    if [record.get("step_id") for record in records] != [
+        step["step_id"] for step in reviewer_command_plan()
+    ]:
+        raise AssertionError("reviewer command surface step order mismatch")
+    for record, step in zip(records, reviewer_command_plan(), strict=True):
+        if not isinstance(record, Mapping):
+            raise AssertionError("reviewer command surface record must be an object")
+        step_id = step["step_id"]
+        expected_docs = list(REVIEWER_COMMAND_DOC_REQUIREMENTS[step_id])
+        if record.get("summary_command") != step["summary_command"]:
+            raise AssertionError(f"{step_id} reviewer summary command mismatch")
+        if record.get("required_docs") != expected_docs:
+            raise AssertionError(f"{step_id} reviewer command docs mismatch")
+        if record.get("missing_docs") != []:
+            raise AssertionError(f"{step_id} reviewer command missing docs")
+        if record.get("status") != "passed":
+            raise AssertionError(f"{step_id} reviewer command surface failed")
 
 
 def _assert_expected_source_artifact_contract_summary(
@@ -3756,6 +3889,52 @@ def _handoff_checks(
     return checks
 
 
+def _reviewer_command_surface_contract(
+    command_plan: list[dict[str, str]],
+    errors: list[str],
+) -> dict[str, Any]:
+    records: list[dict[str, Any]] = []
+    failed_step_ids: list[str] = []
+    for step in command_plan:
+        step_id = step.get("step_id", "")
+        summary_command = step.get("summary_command", "")
+        required_docs = list(REVIEWER_COMMAND_DOC_REQUIREMENTS.get(step_id, ()))
+        missing_docs: list[str] = []
+        for doc in required_docs:
+            path = ROOT / doc
+            try:
+                text = path.read_text(encoding="utf-8")
+            except OSError as exc:
+                missing_docs.append(doc)
+                errors.append(f"{step_id} reviewer command doc unreadable: {doc}: {exc}")
+                continue
+            if summary_command not in text:
+                missing_docs.append(doc)
+                errors.append(
+                    f"{step_id} reviewer command missing from {doc}: "
+                    f"{summary_command}"
+                )
+        status = "passed" if not missing_docs and required_docs else "failed"
+        if status != "passed":
+            failed_step_ids.append(step_id)
+        records.append(
+            {
+                "step_id": step_id,
+                "summary_command": summary_command,
+                "required_docs": required_docs,
+                "missing_docs": missing_docs,
+                "status": status,
+            }
+        )
+    return {
+        "status": "passed" if not failed_step_ids else "failed",
+        "step_count": len(command_plan),
+        "failed_step_count": len(failed_step_ids),
+        "failed_step_ids": failed_step_ids,
+        "records": records,
+    }
+
+
 def _required_mapping(
     payload: Mapping[str, Any],
     key: str,
@@ -3954,6 +4133,8 @@ def summary_lines(payload: Mapping[str, Any]) -> list[str]:
         f"{payload['audit_path']['focused_minireplay_record_path_contract']['status']}",
         f"handoffs: {payload['audit_path']['handoff_count']}",
         f"closed-descent companion: {payload['closed_descent_companion']['status']}",
+        "reviewer command surface: "
+        f"{payload['reviewer_command_surface_contract']['status']}",
         f"audit contract summary: {payload['audit_contract_summary']['status']}",
         f"input artifacts: {payload['input_manifest']['artifact_count']}",
         f"manifest roles: {payload['manifest_role_contract']['status']}",
