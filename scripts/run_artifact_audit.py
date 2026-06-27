@@ -3080,6 +3080,28 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk",
+        command=(
+            "python",
+            "scripts/"
+            "check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact route-decision crosswalk for the three source 151 row 6 "
+            "label-4 target-sparse full-cone endpoint misses; combines the "
+            "natural-order exact dual route-pruning certificates with the "
+            "alternate-order exact Kalmanson zero-sum certificates to record "
+            "order sensitivity of the current certificate route, not an "
+            "all-order obstruction, not a proof that assignments 0 and 11 are "
+            "impossible, not support existence, not center migration, not row "
+            "forcing, not endpoint-8 forcing, not an n=9 proof, not a bridge "
+            "proof, not a proof of Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",
