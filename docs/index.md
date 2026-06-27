@@ -806,6 +806,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`gpt55-pro-zip10-triage-2026-06-04.md`](gpt55-pro-zip10-triage-2026-06-04.md):
   triage of the tenth June 4 GPT-5.5 Pro zip; records a localized-cap C++
   vertex-circle replay packet as duplicate corroborating provenance only.
+- [`gpt55-pro-zip-batch-triage-2026-06-27.md`](gpt55-pro-zip-batch-triage-2026-06-27.md):
+  triage of the June 27 GPT-5.5 Pro zip batch; imports only the `n=9`
+  Kalmanson three-row core compression packet and records the rest as
+  duplicate, superseded, bounded, or numerical provenance.
 - [`archive-research-pass-2026-06-09.md`](archive-research-pass-2026-06-09.md):
   triage of the June 9 research-pass archive; imports the gear-equation
   two-orbit certificate and records duplicate `n=9` reproduction provenance.
