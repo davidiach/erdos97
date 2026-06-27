@@ -267,6 +267,21 @@ assignments and finds one strict Kalmanson self-edge for each. It is
 corroborating audit evidence only, not a change to the review gate or a
 promotion of `n=9`.
 
+Current Kalmanson three-row core compression:
+
+```bash
+python scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json
+```
+
+This command also imports no `erdos97` package modules and regenerates the
+same 184 terminal selected-witness assignments. It searches all strict
+Kalmanson inequalities and all row subsets in increasing cardinality, then
+checks that every assignment has an optimally chosen Kalmanson self-edge core
+using exactly three selected rows. It is proof-mining compression evidence
+only, not brancher soundness, a bridge proof, a proof of `n=9`, or complete
+independent review. Use `--json` when the full per-assignment core records are
+needed.
+
 Current dihedral-orbit audit:
 
 ```bash

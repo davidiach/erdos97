@@ -404,6 +404,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_kalmanson_three_row_core_compression",
+        command=(
+            "python",
+            "scripts/check_n9_kalmanson_three_row_core_compression.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Self-contained regeneration of the review-pending n=9 "
+            "selected-witness frontier plus Kalmanson three-row core "
+            "compression; proof-mining evidence only, not brancher review "
+            "completion, a bridge proof, proof of n=9, counterexample, or "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_obstruction_shapes",
         command=(
             "python",

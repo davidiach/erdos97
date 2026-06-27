@@ -166,6 +166,12 @@ minimal/rich-class hypotheses.
    importing the repo package or reading the stored Kalmanson certificate, then
    finds one strict Kalmanson self-edge for each. Treat it as corroborating
    audit evidence only.
+   The three-row compression replay
+   `python scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json`
+   regenerates the same frontier and records that every terminal assignment
+   has an optimally chosen row-minimal Kalmanson self-edge core using exactly
+   three selected rows. Treat it as proof-mining compression evidence only,
+   not as a bridge proof or a status promotion.
    The incidence-filter replay
    `python scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`
    checks the row-level two-overlap crossing, witness-pair cap, and
