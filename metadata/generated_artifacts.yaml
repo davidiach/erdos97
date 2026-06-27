@@ -9059,6 +9059,124 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_center8_migration_support_crosswalk
+    path: data/certificates/bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.json
+    sha256: 4eb17163306fe4bdab8ddaa241d8515a69f89e8611b9dd7fae3521c85bb30ecc
+    size_bytes: 11472
+    kind: proof_target_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 label-4 center-8 migration support crosswalk; records that three of five off-center [0,4,6] residual rows have same-center support backing, including exactly one row-5 [4,6] cascade-support row, while no support requirement is centered at 8 and same-center support backing is not center-8 migration. This is a diagnostic only; it does not prove center migration, support existence, row forcing, endpoint-8 forcing, assignments 0 and 11 impossible, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_CENTER8_MIGRATION_SUPPORT_CROSSWALK_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_target_center_class:
+        - 0
+        - 3
+        - 5
+        - 7
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.conditional_center8_target_center: 8
+      summary.conditional_center8_triple:
+        - 0
+        - 4
+        - 6
+      summary.source_residual_gate_status: NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8
+      summary.source_residual_status: RESIDUAL_SPLIT_OFF_CENTER_TARGET_ROWS_OR_TARGET_SPARSE
+      summary.source_support_ledger_status: LABEL4_SUPPORT_HYPOTHESES_PINNED_NOT_DISCHARGED
+      summary.residual_assignment_count: 6
+      summary.residual_assignment_indices:
+        - 0
+        - 5
+        - 7
+        - 9
+        - 10
+        - 11
+      summary.off_center_target_row_occurrence_count: 5
+      summary.off_center_target_assignment_indices:
+        - 5
+        - 7
+        - 9
+        - 10
+      summary.target_sparse_assignment_indices:
+        - 0
+        - 11
+      summary.support_requirement_centers:
+        - 5
+        - 6
+        - 7
+      summary.support_requirement_center8_count: 0
+      summary.off_center_row_centers:
+        - 2
+        - 5
+        - 7
+      summary.off_center_rows_at_unsupported_center_count: 2
+      summary.off_center_assignments_at_unsupported_center_indices:
+        - 9
+      summary.off_center_rows_with_same_center_support_count: 3
+      summary.off_center_assignments_with_same_center_support_indices:
+        - 5
+        - 7
+        - 10
+      summary.same_center_support_requirement_match_count: 5
+      summary.same_center_support_match_count_by_row_center.5: 3
+      summary.same_center_support_match_count_by_row_center.7: 2
+      summary.same_center_support_endpoint_triple_pair_count: 2
+      summary.same_center_support_endpoint_triple_pairs:
+        - - 0
+          - 4
+        - - 4
+          - 6
+      summary.endpoint_triple_pairs_missing_from_same_center_support:
+        - - 0
+          - 6
+      summary.off_center_rows_with_cascade_row5_support_count: 1
+      summary.cascade_row5_support_assignment_indices:
+        - 5
+      summary.off_center_rows_with_row6_cascade_support_count: 0
+      summary.cascade_row6_support_assignment_indices: []
+      summary.support_backing_supplies_center8_target: false
+      summary.current_evidence_proves_center_migration: false
+      summary.current_evidence_obstructs_target_sparse_assignments: false
+      summary.migration_status: NOT_READY_SUPPORT_BACKING_DOES_NOT_MIGRATE_OFF_CENTER_ROWS
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the missing T12 row centers are forced
+      - relation-sufficient rows are forced
+      - outside pair support proves row-center forcing
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center-8 rich triple is forced
+      - support-backed off-center rows force center-8 [0,4,6]
+      - same-center support backing proves center migration
+      - row-5 cascade support proves center-8 migration
+      - center migration is proved
+      - target-sparse assignments 0 and 11 are impossible
+      - the private-halo-only pair 3,5 is impossible
+      - center-8 migration support proves the bridge
+      - endpoint target proves support existence
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_6_label4_center8_target_sparse_completions
     path: data/certificates/bootstrap_t12_151_6_label4_center8_target_sparse_completions.json
     sha256: f4df74c7787cf92738d4bb521c159375f468ee4980c72e312abbdac307c53202

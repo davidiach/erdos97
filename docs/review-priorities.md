@@ -1074,6 +1074,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   or `7`; assignments `0` and `11` are target-sparse. The remaining target is
   a genuine center-migration lemma for the off-center rows, or a separate
   obstruction for the target-sparse assignments.
+- bootstrap/T12 focused `151:6` label-`4` center-`8` migration-support
+  evidence, as recorded in
+  `docs/bootstrap-t12-151-6-label4-center8-migration-support-crosswalk.md`,
+  checking whether the current support ledger backs the off-center target
+  rows. Three of five off-center rows have same-center support backing, with
+  exactly one using the row-`5` `[4,6]` cascade support, but no support
+  requirement is centered at `8`. The remaining target is a genuine migration
+  theorem from support-backed off-center rows, not a bookkeeping promotion.
 - bootstrap/T12 focused `151:6` label-`4` center-`8` target-sparse completion
   evidence, as recorded in
   `docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`,

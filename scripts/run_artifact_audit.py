@@ -2930,6 +2930,28 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_center8_migration_support_crosswalk",
+        command=(
+            "python",
+            "scripts/"
+            "check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Center-8 migration support crosswalk for the source 151 row 6 "
+            "label-4 residual split; records that three of five off-center "
+            "[0,4,6] rows have same-center support backing, including one "
+            "row-5 [4,6] cascade-support row, while no current support "
+            "requirement is centered at 8, not center migration, not "
+            "support existence, not row forcing, not endpoint-8 forcing, "
+            "not a proof that assignments 0 and 11 are impossible, not a "
+            "proof that [3,5] is impossible, not an n=9 proof, not a bridge "
+            "proof, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_6_label4_center8_target_sparse_completions",
         command=(
             "python",
