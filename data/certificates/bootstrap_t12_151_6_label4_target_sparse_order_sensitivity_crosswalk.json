@@ -1,0 +1,124 @@
+{
+  "claim_scope": "Exact route-decision crosswalk for the three source-151 row-6 label-4 target-sparse endpoint quotients. It combines the natural-order dual certificates, which prove the current 255-row Kalmanson/Altman family cannot produce either normalized screen in the natural order, with the alternate-order Kalmanson zero-sum certificates for fixed cyclic order [0,1,2,3,4,5,7,8,6]. This proves only order sensitivity of the current certificate route and blocks a no-new-ingredient current-row-family all-order certificate route. It does not prove an all-order obstruction, does not prove assignments 0 or 11 possible or impossible, does not prove support existence, does not prove center migration, does not prove row forcing, does not prove endpoint-8 forcing, does not prove pair [3,5] impossibility, does not prove n=9, does not prove the bootstrap bridge, does not prove Erdos #97, and is not a counterexample or global status update.",
+  "interpretation": [
+    "The natural-order artifact is an exact negative result about the current row-family certificate route, not a realization or counterexample.",
+    "The alternate-order artifact is an exact positive certificate for one fixed cyclic order, not an all-order obstruction.",
+    "Together they say the current evidence is order-sensitive: a future bridge step needs order forcing, a new strict-row source, or genuine endpoint/source geometry."
+  ],
+  "payload_sha256": "d7329dbd2ba983b6fbf7a8057bcc131d54e7720a61bfffbc3d6818e83aef608b",
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py"
+  },
+  "route_decision": {
+    "answer": "no_not_without_new_rows_order_forcing_or_geometric_endpoint_exclusion",
+    "exact_blocker": "The natural-order dual certificates prove that the current 255-row Kalmanson/Altman family cannot produce either a normalized zero-sum or coordinatewise-nonpositive certificate for these endpoint quotients in the natural order.",
+    "minimal_next_ingredients": [
+      "prove useful cyclic-order structure from geometry",
+      "add a stronger strict-row family with an exact source",
+      "prove a geometric endpoint exclusion for the target-sparse lane",
+      "prove center migration for the off-center [0,4,6] rows"
+    ],
+    "positive_signal": "The alternate order [0,1,2,3,4,5,7,8,6] has exact Kalmanson zero-sum certificates for the same endpoint quotients, so the obstruction is strongly order-sensitive.",
+    "question": "Can the current natural/alternate Kalmanson-Altman row-family evidence be promoted directly into an all-order certificate for the three target-sparse endpoint quotients?"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.v1",
+  "source_artifacts": [
+    {
+      "expected_schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.v1",
+      "expected_status": "EXACT_DUAL_INFEASIBILITY_CERTIFICATES_FOR_CURRENT_FULL_CONE_SCREENS",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.json",
+      "role": "natural-order exact dual infeasibility certificate for the current row-family screens"
+    },
+    {
+      "expected_schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.v1",
+      "expected_status": "EXACT_FIXED_ORDER_KALMANSON_CERTIFICATES_FOR_ALT_ORDER",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.json",
+      "role": "alternate-order exact Kalmanson zero-sum certificates for the same endpoint quotients"
+    }
+  ],
+  "status": "EXACT_ORDER_SENSITIVITY_ROUTE_DECISION_CROSSWALK",
+  "summary": {
+    "all_order_obstruction_proved": false,
+    "alternate_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      6
+    ],
+    "alternate_order_certificate_row_count_each": [
+      10,
+      10,
+      9
+    ],
+    "alternate_order_certificate_row_family": "kalmanson_rows_only_subsequence_of_fixed_alternate_order",
+    "alternate_order_certificate_weight_sum_each": [
+      10,
+      11,
+      10
+    ],
+    "alternate_order_exact_zero_sum_certificates": true,
+    "current_row_family_all_order_route_ready": false,
+    "endpoint_rows": [
+      [
+        0,
+        1,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        4,
+        6,
+        7
+      ]
+    ],
+    "natural_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "natural_order_current_row_family": "kalmanson_all_quads_plus_altman_gaps_natural_order",
+    "natural_order_current_row_family_size_each": [
+      255
+    ],
+    "natural_order_minimum_strict_row_dot_each": [
+      1,
+      1,
+      1
+    ],
+    "natural_order_nonpositive_screen_certified_infeasible": true,
+    "natural_order_potential_weight_sum_each": [
+      250,
+      253,
+      243
+    ],
+    "natural_order_zero_sum_screen_certified_infeasible": true,
+    "same_endpoint_rows_verified": true,
+    "solves_erdos97": false,
+    "solves_n9": false,
+    "source_miss_count": 3,
+    "target_row_key": "151:6",
+    "target_sparse_obstruction_proved": false
+  },
+  "trust": "EXACT_ROUTE_PRUNING_CERTIFICATE",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

@@ -218,7 +218,10 @@ three quotients, with minimum strict-row dot `1` and potential weight sums
 cannot produce either normalized screen. A fixed alternate-order follow-up for
 cyclic order `[0,1,2,3,4,5,7,8,6]` then gives tiny exact Kalmanson zero-sum
 certificates for the same three quotients, with row counts `10`, `10`, and
-`9`; this is a fixed-order obstruction only. This is still route-pruning
+`9`; this is a fixed-order obstruction only. An order-sensitivity crosswalk
+then records the route decision: the current certificate evidence needs order
+forcing, a stronger row family, or endpoint geometry before it can become an
+all-order target-sparse obstruction. This is still route-pruning
 bookkeeping, not a proof that assignments `0` and `11` are impossible. See
 [`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
 and
@@ -250,7 +253,9 @@ and
 with
 [`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`](docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md)
 and
-[`docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`](docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md).
+[`docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`](docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md),
+plus
+[`docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`](docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic

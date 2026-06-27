@@ -9589,8 +9589,8 @@ artifacts:
 
   - id: bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson
     path: data/certificates/bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.json
-    sha256: a6ca4ba9f42445b4703fab5d2ac4d3b62fc00d735eeb4cb6c36813506712deff
-    size_bytes: 50607
+    sha256: 9d6bbfff0133f200198af27d71d836de9d6406ff0317fd228f38c05bd10799ee
+    size_bytes: 48109
     kind: proof_target_certificate_artifact
     generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py
     command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py --write --assert-expected
@@ -9647,6 +9647,69 @@ artifacts:
       - center migration is proved
       - all-order target-sparse obstruction is proved
       - fixed-order Kalmanson certificates prove target-sparse obstruction
+      - target-sparse assignments 0 and 11 are impossible
+      - target-sparse full-cone diagnostics prove the bridge
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
+  - id: bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk
+    path: data/certificates/bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.json
+    sha256: 9754aa86b63273e172df5fbe10d35bd23da8044d192d262166873c1cec27e3ce
+    size_bytes: 5490
+    kind: proof_target_certificate_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+    claim_scope: Source-151 row-6 label-4 target-sparse order-sensitivity crosswalk; combines the natural-order dual route-pruning certificates and the alternate-order fixed Kalmanson certificates for the same three endpoint quotients. This records only that the current certificate route is order-sensitive and needs a new ingredient before any all-order target-sparse obstruction claim; it does not prove n=9, the bridge, Erdos Problem #97, or a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.v1
+      status: EXACT_ORDER_SENSITIVITY_ROUTE_DECISION_CROSSWALK
+      trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+      summary.target_row_key: "151:6"
+      summary.source_miss_count: 3
+      summary.natural_order_current_row_family_size_each:
+        - 255
+      summary.natural_order_potential_weight_sum_each:
+        - 250
+        - 253
+        - 243
+      summary.alternate_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 7
+        - 8
+        - 6
+      summary.alternate_order_certificate_row_count_each:
+        - 10
+        - 10
+        - 9
+      summary.current_row_family_all_order_route_ready: false
+      summary.all_order_obstruction_proved: false
+      summary.target_sparse_obstruction_proved: false
+      summary.solves_n9: false
+      summary.solves_erdos97: false
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center migration is proved
+      - order sensitivity proves target-sparse obstruction
+      - all-order target-sparse obstruction is proved
       - target-sparse assignments 0 and 11 are impossible
       - target-sparse full-cone diagnostics prove the bridge
       - general proof of Erdos Problem #97

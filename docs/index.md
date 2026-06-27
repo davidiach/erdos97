@@ -427,6 +427,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`](bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md):
   exact fixed-order Kalmanson zero-sum certificates for those three endpoint
   quotients in the alternate cyclic order `[0,1,2,3,4,5,7,8,6]`.
+- [`bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`](bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md):
+  route-decision crosswalk recording that the current certificate evidence is
+  order-sensitive rather than an all-order target-sparse obstruction.
 - [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
   source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-151-singleton-two-row-drop.md`](bootstrap-t12-151-singleton-two-row-drop.md):

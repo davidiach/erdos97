@@ -1122,9 +1122,12 @@ condition that the surviving multi-block family does not automatically satisfy:
   `docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`
   certifies those same three endpoint quotients in the single fixed cyclic
   order `[0,1,2,3,4,5,7,8,6]` by exact zero-sum combinations with row counts
-  `10`, `10`, and `9`. The remaining target is an all-order certificate,
-  a stronger row family tied to geometry, or a geometric endpoint exclusion,
-  not a repeated full-cone solver screen.
+  `10`, `10`, and `9`. The order-sensitivity crosswalk in
+  `docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`
+  records that the current row-family evidence is not a no-new-ingredient
+  all-order certificate route. The remaining target is useful cyclic-order
+  forcing, a stronger row family tied to geometry, or a geometric endpoint
+  exclusion, not a repeated full-cone solver screen.
 - bootstrap/T12 focused source-`151` singleton-support evidence, as recorded
   in `docs/bootstrap-t12-151-singleton-support-audit.md`, showing that rows
   `151:5` and `151:8` have no non-original activation survivor in the fixed

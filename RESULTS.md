@@ -1101,6 +1101,18 @@ vectors in the `28`-class quotient. This is a fixed-order obstruction only,
 not an all-order target-sparse obstruction, not a proof of assignments `0` or
 `11` impossible, not `n=9`, and not the bootstrap bridge.
 
+The order-sensitivity crosswalk in
+`docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`,
+`scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py`,
+and
+`data/certificates/bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.json`
+joins those two exact packets as a route decision: the natural-order current
+row-family route is exactly blocked, while one alternate order is exactly
+obstructed. The checker records `current_row_family_all_order_route_ready:
+false`, `all_order_obstruction_proved: false`, `solves_n9: false`, and
+`solves_erdos97: false`. The remaining useful route needs order forcing, a
+stronger exact row family, or endpoint/source geometry.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row
