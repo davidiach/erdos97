@@ -613,10 +613,16 @@ minimal/rich-class hypotheses.
    now stores nonnegative integer separating potentials for those same three
    quotient screens, proving exactly that the current row family cannot
    produce either normalized screen.
+   The alternate-order Kalmanson command
+   `python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py --check --assert-expected --json`
+   certifies the same three endpoint quotients in the single fixed cyclic
+   order `[0,1,2,3,4,5,7,8,6]` by exact zero-sum combinations with row counts
+   `10`, `10`, and `9`.
    The next useful PR should therefore prove a support-geometry exclusion
-   under genuine private-support or rich-class hypotheses, enlarge the strict
-   row family, prove center migration for the off-center `[0,4,6]` rows, or
-   obstruct target-sparse
+   under genuine private-support or rich-class hypotheses, turn the
+   fixed-order obstruction into an all-order exact certificate, enlarge the
+   strict row family with a geometric source, prove center migration for the
+   off-center `[0,4,6]` rows, or obstruct target-sparse
    assignments `0` and `11` by something stronger than one completion plus two
    arbitrary repairs, not a component-alone impossibility claim, not arbitrary
    label-`8` visibility, and not another selected-row neighborhood widening or

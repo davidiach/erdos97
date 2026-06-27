@@ -1295,6 +1295,24 @@ assignments `0` and `11` impossible, center migration, support existence, row
 forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap
 bridge, or Erdos Problem #97.
 
+The target-sparse support-cone and full-cone follow-ups in
+`docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`,
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`, and
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`
+record the next local quotient layer: cascade equalities leave exactly three
+assignment-`0` endpoint misses, the natural-order `255`-row full-cone LP
+screens have no solver witness, and exact nonnegative integer dual potentials
+certify that the natural-order row family cannot produce either normalized
+screen. The alternate-order Kalmanson follow-up in
+`docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md` then
+certifies those same three endpoint quotients in the one fixed cyclic order
+`[0,1,2,3,4,5,7,8,6]` by exact Kalmanson zero-sum combinations with row counts
+`10`, `10`, and `9`. These are route-pruning and fixed-order certificates
+only; they do not prove an all-order target-sparse obstruction, assignments
+`0` or `11` impossible, support existence, center migration, row forcing,
+endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap bridge, or
+Erdos Problem #97.
+
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and
 `151:8`. In both fixed source-`151` neighborhoods, only the original target row

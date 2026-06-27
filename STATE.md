@@ -630,7 +630,10 @@ nonpositive LP screens infeasible, but no exact dual infeasibility certificate
 is stored. A new exact dual-certificate follow-up stores nonnegative integer
 separating potentials for those same three quotient screens, with minimum
 strict-row dot `1`; it upgrades the solver-only screen to exact route-pruning
-for the current row family only. This is still proof-mining bookkeeping only,
+for the current row family only. A fixed alternate-order Kalmanson follow-up
+then certifies the same three quotients for cyclic order
+`[0,1,2,3,4,5,7,8,6]` by exact zero-sum row combinations with row counts
+`10`, `10`, and `9`. This is still proof-mining bookkeeping only,
 not support existence, row forcing, center migration, endpoint-`8` forcing,
 `[3,5]` impossibility, simultaneous realization of all components, a
 target-sparse obstruction, `n=9`, or the bridge.
@@ -650,7 +653,9 @@ plus
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`
 and `docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`, plus
 `docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md` and
-`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`.
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`,
+with
+`docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation

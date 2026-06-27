@@ -424,6 +424,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`](bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md):
   exact dual route-pruning certificate for those three current-row-family
   full-cone screens.
+- [`bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`](bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md):
+  exact fixed-order Kalmanson zero-sum certificates for those three endpoint
+  quotients in the alternate cyclic order `[0,1,2,3,4,5,7,8,6]`.
 - [`bootstrap-t12-151-singleton-support-audit.md`](bootstrap-t12-151-singleton-support-audit.md):
   source-`151` singleton-support audit covering rows `151:5` and `151:8`.
 - [`bootstrap-t12-151-singleton-two-row-drop.md`](bootstrap-t12-151-singleton-two-row-drop.md):

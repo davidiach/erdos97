@@ -1,0 +1,2498 @@
+{
+  "certificate_records": [
+    {
+      "all_certificate_rows_in_fixed_order": true,
+      "assignment_index": 0,
+      "available_fixed_order_strict_row_count": 255,
+      "available_strict_row_family": "kalmanson_all_quads_plus_altman_gaps_fixed_alternate_order",
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        }
+      ],
+      "certificate_row_count": 10,
+      "certificate_row_family": "kalmanson_rows_only_subsequence_of_fixed_alternate_order",
+      "certificate_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            1,
+            5,
+            7
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            1,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            5,
+            8,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                8
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                5
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                8
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            1,
+            3,
+            5,
+            7
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            1,
+            4,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            2,
+            3,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            2,
+            4,
+            5,
+            7
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            2,
+            5,
+            7,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                5
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            2,
+            7,
+            8,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                8
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                6,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                8
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            3,
+            4,
+            5,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        }
+      ],
+      "certificate_weight_sum": 10,
+      "claim_strength": "Exact Kalmanson zero-sum obstruction for this encoded local quotient and this one fixed alternate cyclic order only.",
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,1,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "exact_zero_sum_check": {
+        "all_weights_positive": true,
+        "combined_reduced_vector": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "coordinate_system": "selected-distance quotient class order",
+        "integer_arithmetic_only": true,
+        "zero_sum_verified": true
+      },
+      "fixed_cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        6
+      ],
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0
+    },
+    {
+      "all_certificate_rows_in_fixed_order": true,
+      "assignment_index": 0,
+      "available_fixed_order_strict_row_count": 255,
+      "available_strict_row_family": "kalmanson_all_quads_plus_altman_gaps_fixed_alternate_order",
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      ],
+      "certificate_row_count": 10,
+      "certificate_row_family": "kalmanson_rows_only_subsequence_of_fixed_alternate_order",
+      "certificate_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            2,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            3,
+            5,
+            7
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            5,
+            8,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                8
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                5
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                8
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            1,
+            2,
+            5,
+            7
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            1,
+            4,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            1,
+            5,
+            7,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                5
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            1,
+            7,
+            8,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                8
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                6,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                8
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            2,
+            3,
+            5,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            3,
+            4,
+            5,
+            7
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                5
+              ]
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            3,
+            4,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        }
+      ],
+      "certificate_weight_sum": 11,
+      "claim_strength": "Exact Kalmanson zero-sum obstruction for this encoded local quotient and this one fixed alternate cyclic order only.",
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,2,4,6",
+      "endpoint_row_witnesses": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "exact_zero_sum_check": {
+        "all_weights_positive": true,
+        "combined_reduced_vector": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "coordinate_system": "selected-distance quotient class order",
+        "integer_arithmetic_only": true,
+        "zero_sum_verified": true
+      },
+      "fixed_cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        6
+      ],
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0
+    },
+    {
+      "all_certificate_rows_in_fixed_order": true,
+      "assignment_index": 0,
+      "available_fixed_order_strict_row_count": 255,
+      "available_strict_row_family": "kalmanson_all_quads_plus_altman_gaps_fixed_alternate_order",
+      "centered_classes": [
+        {
+          "center": 2,
+          "witnesses": [
+            0,
+            3,
+            4,
+            8
+          ]
+        },
+        {
+          "center": 5,
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "center": 6,
+          "witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "center": 8,
+          "witnesses": [
+            0,
+            4,
+            6,
+            7
+          ]
+        }
+      ],
+      "certificate_row_count": 9,
+      "certificate_row_family": "kalmanson_rows_only_subsequence_of_fixed_alternate_order",
+      "certificate_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            1,
+            5,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            0,
+            2,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            5,
+            7,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                5
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            0,
+            7,
+            8,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                0,
+                8
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                6,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                0,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                8
+              ]
+            }
+          ],
+          "weight": 2
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            1,
+            3,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            1,
+            4,
+            5,
+            7
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                1,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            2,
+            4,
+            7,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                2,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                2,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            3,
+            4,
+            5,
+            8
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                4,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                4,
+                5
+              ]
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            3,
+            5,
+            7,
+            6
+          ],
+          "reduced_vector": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1
+          ],
+          "source": "kalmanson",
+          "terms": [
+            {
+              "coefficient": 1,
+              "pair": [
+                3,
+                7
+              ]
+            },
+            {
+              "coefficient": 1,
+              "pair": [
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                3,
+                5
+              ]
+            },
+            {
+              "coefficient": -1,
+              "pair": [
+                6,
+                7
+              ]
+            }
+          ],
+          "weight": 1
+        }
+      ],
+      "certificate_weight_sum": 10,
+      "claim_strength": "Exact Kalmanson zero-sum obstruction for this encoded local quotient and this one fixed alternate cyclic order only.",
+      "distance_class_count": 28,
+      "endpoint_center": 8,
+      "endpoint_row_key": "0,4,6,7",
+      "endpoint_row_witnesses": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "exact_zero_sum_check": {
+        "all_weights_positive": true,
+        "combined_reduced_vector": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "coordinate_system": "selected-distance quotient class order",
+        "integer_arithmetic_only": true,
+        "zero_sum_verified": true
+      },
+      "fixed_cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        6
+      ],
+      "row_center": 2,
+      "row_witnesses": [
+        0,
+        3,
+        4,
+        8
+      ],
+      "source_core_index": 1,
+      "source_pair_row_index": 0
+    }
+  ],
+  "claim_scope": "Exact fixed-order Kalmanson zero-sum certificates for the three source-151 row-6 label-4 assignment-0 endpoint quotients left by the target-sparse full-cone miss packet. The checker fixes the alternate cyclic order [0,1,2,3,4,5,7,8,6] and verifies exact positive integer combinations of Kalmanson rows whose reduced selected-distance vectors sum to zero. This certifies obstruction only for that encoded local quotient and that one fixed cyclic order. It does not prove an all-order obstruction, does not prove the natural-order row family sufficient, does not prove assignments 0 or 11 possible or impossible, does not prove support existence, does not prove center migration, does not prove row forcing, does not prove endpoint-8 forcing, does not prove pair [3,5] impossibility, does not prove n=9, does not prove the bootstrap bridge, does not prove Erdos #97, and is not a counterexample or global status update.",
+  "interpretation": [
+    "The natural-order full-cone lane is exactly route-pruned by separating potentials; this artifact shows the same quotient misses are obstructed outright in one alternate fixed order.",
+    "The certificate is deliberately not an all-order certificate: cyclic orders other than [0,1,2,3,4,5,7,8,6] are unchecked here.",
+    "The useful bridge signal is order sensitivity. Any future geometric bridge must either force useful order structure or replace this fixed-order obstruction by an all-order exact certificate."
+  ],
+  "payload_sha256": "3447dd0cf49791b2864611e66602fab142faee6af82d3bdcc9485e0eb5030b0d",
+  "proof_lemma": {
+    "proof": [
+      "Each listed row is generated from a four-label subsequence of the fixed cyclic order.",
+      "The selected-distance quotient applies only exact equality identifications, so a zero reduced vector means the weighted sum is the identically zero distance expression on the quotient.",
+      "All weights are positive integers and every component row is strict in the fixed cyclic order, so the same weighted sum would have to be strictly positive.",
+      "The checker verifies the reduced vector sum by exact integer arithmetic."
+    ],
+    "statement": "For one fixed cyclic order, every listed Kalmanson row is a strict necessary inequality. If positive integer weights combine their reduced quotient vectors to the zero vector, then no point configuration realizing that quotient in that fixed cyclic order can exist."
+  },
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.v1",
+  "source_artifacts": [
+    {
+      "expected_schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.v1",
+      "expected_status": "BOOTSTRAP_T12_151_6_LABEL4_TARGET_SPARSE_FULL_CONE_MISSES_DIAGNOSTIC_ONLY",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.json",
+      "role": "source full-cone miss identities"
+    },
+    {
+      "expected_status": "EXACT_DUAL_INFEASIBILITY_CERTIFICATES_FOR_CURRENT_FULL_CONE_SCREENS",
+      "expected_trust": "EXACT_ROUTE_PRUNING_CERTIFICATE",
+      "path": "data/certificates/bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.json",
+      "role": "natural-order exact dual route-pruning comparison for the same three endpoint quotients"
+    }
+  ],
+  "status": "EXACT_FIXED_ORDER_KALMANSON_CERTIFICATES_FOR_ALT_ORDER",
+  "summary": {
+    "all_certificate_rows_in_fixed_order": true,
+    "all_exact_zero_sum_verified": true,
+    "all_order_obstruction_proved": false,
+    "assignment_indices": [
+      0
+    ],
+    "available_fixed_order_strict_row_count_each": [
+      255
+    ],
+    "available_strict_row_family": "kalmanson_all_quads_plus_altman_gaps_fixed_alternate_order",
+    "certificate_count": 3,
+    "certificate_row_count_each": [
+      10,
+      10,
+      9
+    ],
+    "certificate_row_family": "kalmanson_rows_only_subsequence_of_fixed_alternate_order",
+    "certificate_weight_sum_each": [
+      10,
+      11,
+      10
+    ],
+    "current_evidence_forces_target_sparse_obstruction": false,
+    "distance_class_count_each": [
+      28
+    ],
+    "endpoint_rows": [
+      [
+        0,
+        1,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        4,
+        6,
+        7
+      ]
+    ],
+    "fixed_cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      6
+    ],
+    "solves_erdos97": false,
+    "solves_n9": false,
+    "source_miss_count": 3,
+    "target_row_key": "151:6"
+  },
+  "trust": "EXACT_ROUTE_PRUNING_CERTIFICATE",
+  "validation_errors": [],
+  "validation_status": "passed"
+}
