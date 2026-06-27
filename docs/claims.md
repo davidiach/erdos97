@@ -1277,7 +1277,12 @@ target-row follow-up in
 `docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md` splits those
 six assignments: four contain `[0,4,6]` only as off-center strict-core rows,
 and assignments `0` and `11` contain no full target triple in any residual
-strict-core row. The target-sparse completion preflight in
+strict-core row. The migration-support crosswalk in
+`docs/bootstrap-t12-151-6-label4-center8-migration-support-crosswalk.md`
+shows that `3` of the `5` off-center rows have same-center support backing,
+including exactly one row-`5` `[4,6]` cascade-support row, but no support
+requirement is centered at `8` and same-center support backing is not center
+migration. The target-sparse completion preflight in
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md` then
 checks the cheapest repair for assignments `0` and `11`: all `12` one-row
 completions of target-pair rows to `[0,4,6]` fail basic filters before

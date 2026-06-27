@@ -579,7 +579,12 @@ minimal/rich-class hypotheses.
    `python scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py --check --assert-expected --json`
    splits those six residual assignments: four contain `[0,4,6]` only as
    off-center strict-core rows at centers `2`, `5`, or `7`, while assignments
-   `0` and `11` are target-sparse. The target-sparse completion command
+   `0` and `11` are target-sparse. The migration-support crosswalk
+   `python scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py --check --assert-expected --json`
+   joins those off-center rows to the support ledger: `3` of `5` off-center
+   rows have same-center support backing, exactly one uses the row-`5`
+   `[4,6]` cascade support, and no support requirement is centered at `8`, so
+   support backing is still not center migration. The target-sparse completion command
    `python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py --check --assert-expected --json`
    checks the cheapest repair for assignments `0` and `11`; all `12` one-row
    completions of target-pair rows to `[0,4,6]` fail basic filters before
