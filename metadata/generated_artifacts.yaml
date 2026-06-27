@@ -9587,6 +9587,71 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson
+    path: data/certificates/bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.json
+    sha256: a6ca4ba9f42445b4703fab5d2ac4d3b62fc00d735eeb4cb6c36813506712deff
+    size_bytes: 50607
+    kind: proof_target_certificate_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+    claim_scope: Source-151 row-6 label-4 target-sparse alternate-order Kalmanson follow-up; stores exact positive integer zero-sum certificates for the three endpoint quotients left uncovered by the full-cone miss screen in the single fixed cyclic order [0,1,2,3,4,5,7,8,6]. This certifies only those encoded local quotients in that fixed order; it does not prove an all-order target-sparse obstruction, n=9, the bridge, Erdos Problem #97, or a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.v1
+      status: EXACT_FIXED_ORDER_KALMANSON_CERTIFICATES_FOR_ALT_ORDER
+      trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+      summary.target_row_key: "151:6"
+      summary.source_miss_count: 3
+      summary.certificate_count: 3
+      summary.fixed_cyclic_order:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 7
+        - 8
+        - 6
+      summary.available_fixed_order_strict_row_count_each:
+        - 255
+      summary.certificate_row_count_each:
+        - 10
+        - 10
+        - 9
+      summary.certificate_weight_sum_each:
+        - 10
+        - 11
+        - 10
+      summary.distance_class_count_each:
+        - 28
+      summary.all_exact_zero_sum_verified: true
+      summary.all_order_obstruction_proved: false
+      summary.solves_n9: false
+      summary.solves_erdos97: false
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center migration is proved
+      - all-order target-sparse obstruction is proved
+      - fixed-order Kalmanson certificates prove target-sparse obstruction
+      - target-sparse assignments 0 and 11 are impossible
+      - target-sparse full-cone diagnostics prove the bridge
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

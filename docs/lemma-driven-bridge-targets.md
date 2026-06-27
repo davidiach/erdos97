@@ -191,10 +191,14 @@ Required guardrails:
   The target-sparse full-cone miss packet probes those three quotients with
   arbitrary nonnegative weights over the same `255` natural-order
   Kalmanson/Altman strict rows; HiGHS reports both normalized LP screens
-  infeasible, but no exact dual infeasibility certificate is stored. The next
-  target is exact infeasibility certification, a stronger row family, or a
-  genuine endpoint/source geometry lemma, not another solver-only replay of
-  the same cone.
+  infeasible, and the exact dual-certificate follow-up stores nonnegative
+  integer potentials certifying that the natural-order row family cannot
+  produce either normalized screen. The alternate-order Kalmanson follow-up
+  kills the same three quotients in the fixed cyclic order
+  `[0,1,2,3,4,5,7,8,6]` by exact zero-sum certificates. The next target is an
+  all-order certificate, a stronger row family tied to geometry, or a genuine
+  endpoint/source geometry lemma, not another solver-only replay of the same
+  cone.
 - The private-halo-only pair `[3,5]` is the named escape and must be excluded
   or explicitly realized as an escape mechanism.
 

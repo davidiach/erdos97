@@ -475,6 +475,16 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert (
+        "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py "
         "--check --assert-expected --json"
@@ -571,6 +581,20 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--check --assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py "
+        "--check --assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py "
+        "--check --assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py "
         "--check --assert-expected --json"
     )
     assert ordered_command_texts.index(

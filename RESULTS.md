@@ -1089,6 +1089,18 @@ as route-pruning for the current row family; it still does not prove the local
 quotients realizable, assignments `0` or `11` possible or impossible, `n=9`,
 or the bootstrap bridge.
 
+The alternate-order Kalmanson follow-up in
+`docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`,
+`scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py`,
+and
+`data/certificates/bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.json`
+stores exact zero-sum certificates for the same three endpoint quotients in
+the fixed cyclic order `[0,1,2,3,4,5,7,8,6]`. The checker verifies row counts
+`10`, `10`, and `9`, weight sums `10`, `11`, and `10`, and exact zero reduced
+vectors in the `28`-class quotient. This is a fixed-order obstruction only,
+not an all-order target-sparse obstruction, not a proof of assignments `0` or
+`11` impossible, not `n=9`, and not the bootstrap bridge.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row

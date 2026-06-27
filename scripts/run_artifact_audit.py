@@ -3058,6 +3058,28 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson",
+        command=(
+            "python",
+            "scripts/"
+            "check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact fixed-order Kalmanson zero-sum certificates for the three "
+            "source 151 row 6 label-4 target-sparse full-cone endpoint "
+            "misses in the alternate cyclic order [0,1,2,3,4,5,7,8,6]; "
+            "certifies only those encoded local quotients in that one fixed "
+            "cyclic order, not an all-order obstruction, not a proof that "
+            "assignments 0 and 11 are impossible, not support existence, not "
+            "center migration, not row forcing, not endpoint-8 forcing, not "
+            "an n=9 proof, not a bridge proof, not a proof of Erdos Problem "
+            "#97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",
