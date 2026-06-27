@@ -676,6 +676,55 @@ artifacts:
       - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: n9_kalmanson_three_row_core_compression
+    path: data/certificates/n9_kalmanson_three_row_core_compression.json
+    sha256: a5387ef8575ace0cd16d55a0a29bbc45f72ca88caa7233be4c80041924fd703a
+    size_bytes: 743972
+    kind: finite_case_artifact
+    generator: scripts/check_n9_kalmanson_three_row_core_compression.py
+    command: python scripts/check_n9_kalmanson_three_row_core_compression.py --write --assert-expected
+    checker: scripts/check_n9_kalmanson_three_row_core_compression.py
+    check_command: python scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Self-contained regeneration of the review-pending n=9 selected-witness frontier plus Kalmanson three-row core compression; proof-mining evidence only.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_kalmanson_three_row_core_compression.v1
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      status: REVIEW_PENDING_N9_KALMANSON_THREE_ROW_CORE_COMPRESSION
+      n: 9
+      row_size: 4
+      raw_options_per_center: 70
+      raw_assignment_count: 40353607000000000
+      nodes_visited: 100818
+      terminal_assignments_after_filters: 184
+      terminal_assignments_killed_by_first_kalmanson_self_edge: 184
+      unkilled_terminal_assignments: 0
+      kalmanson_kind_counts.K1: 150
+      kalmanson_kind_counts.K2: 34
+      core_compression.first_self_edge_minimal_core_size_histogram.3: 90
+      core_compression.first_self_edge_minimal_core_size_histogram.4: 53
+      core_compression.first_self_edge_minimal_core_size_histogram.5: 31
+      core_compression.first_self_edge_minimal_core_size_histogram.6: 6
+      core_compression.first_self_edge_minimal_core_size_histogram.7: 4
+      core_compression.best_kalmanson_minimal_core_size_histogram.3: 184
+      core_compression.best_kalmanson_minimal_core_size_by_kalmanson_kind.K1.3: 95
+      core_compression.best_kalmanson_minimal_core_size_by_kalmanson_kind.K2.3: 89
+      core_compression.first_self_edge_distinct_dihedral_core_signatures16: 93
+      core_compression.best_kalmanson_distinct_dihedral_core_signatures16: 56
+      frontier_replay_compatibility.frontier_certificate_sha256: 3e6e208cd4212f9275eba2f0be9e32558da9b77544304d33d09abc953feeee9d
+      compressed_certificate_sha256: 55edb73475517dcc4e8413cdb84082957bc8426d2d67bd25cc28502ef3c124c0
+      provenance.command: python scripts/check_n9_kalmanson_three_row_core_compression.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - independent review complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_obstruction_shapes
     path: data/certificates/n9_vertex_circle_obstruction_shapes.json
     sha256: c10ead3203b87e72c96af7eef98b656d6b33788994b8fad6577cb59b99df78c6

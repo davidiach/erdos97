@@ -132,6 +132,23 @@ The generated artifact is
 corroborating audit evidence only, not an independent review completion or a
 status promotion.
 
+Three-row core compression:
+
+```bash
+python scripts/check_n9_kalmanson_three_row_core_compression.py \
+  --check --assert-expected --summary-json
+```
+
+This follow-up regenerates the same frontier without project imports, then
+searches all strict Kalmanson inequalities and all selected-row subsets in
+increasing cardinality. It records that every terminal assignment has an
+optimally chosen row-minimal Kalmanson self-edge core using exactly three
+selected rows, with 56 cyclic-dihedral three-row core signatures. The generated
+artifact is
+`data/certificates/n9_kalmanson_three_row_core_compression.json`. It is
+proof-mining compression evidence only; it does not prove `n=9`, complete
+independent review, or change the official/global status.
+
 ## Audit boundary
 
 This artifact is useful because it replaces the earlier mixed Kalmanson

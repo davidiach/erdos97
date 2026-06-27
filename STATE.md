@@ -799,6 +799,12 @@ imports no `erdos97` package modules, does not read the stored Kalmanson
 certificate, regenerates the same `184` terminal assignments, and finds one
 strict Kalmanson self-edge for each. It is corroborating audit evidence only,
 not independent review completion or an `n=9` promotion.
+The three-row compression replay
+`scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json`
+uses the same self-contained frontier regeneration and records that every
+terminal assignment has an optimally chosen row-minimal Kalmanson self-edge
+core using exactly three selected rows. It is proof-mining compression evidence
+only, not brancher soundness, a bridge proof, or an `n=9` promotion.
 The fixed-order Kalmanson branch cuts now cover both no-reciprocal and
 exactly-one-reciprocal selected-pair regimes. The no-reciprocal regular
 tournament audit forces at least one reciprocal selected pair; the

@@ -129,7 +129,9 @@ with localized counting and explicit per-assignment obstruction certificates;
 it is still audit evidence only, not an `n=9` proof or status promotion.
 The Kalmanson self-edge route also has a self-contained frontier-regeneration
 replay that reaches the same 184 terminal assignments and finds one strict
-Kalmanson self-edge for each; it is corroborating audit evidence only.
+Kalmanson self-edge for each; a follow-up compression checker records that an
+optimally chosen Kalmanson self-edge core uses exactly three selected rows in
+all 184 assignments. Both are corroborating/proof-mining audit evidence only.
 
 A companion closed-descent packet reformulates the 16 compact local-core
 quotient obstructions as finite descent regions and extracted strict cycles.

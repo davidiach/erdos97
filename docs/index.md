@@ -502,6 +502,10 @@ put detailed reconciliation in the canonical synthesis.
   pre-vertex-circle frontier assignments have a strict Kalmanson self-edge,
   including a self-contained frontier-regeneration replay imported on
   2026-06-19.
+- [`n9-kalmanson-three-row-core-compression.md`](n9-kalmanson-three-row-core-compression.md):
+  proof-mining compression showing that all 184 regenerated `n=9` Kalmanson
+  frontier assignments have optimally chosen three-row Kalmanson self-edge
+  cores; not a status promotion.
 - [`n9-turn-inequality-frontier.md`](n9-turn-inequality-frontier.md):
   review-pending replay of 184 `n=9` selected-witness assignments killed by
   candidate exterior-turn Farkas certificates; not a proof of `n=9`.

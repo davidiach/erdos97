@@ -1333,6 +1333,14 @@ importing the repo package or reading the stored Kalmanson certificate, and
 finds one strict Kalmanson self-edge for each assignment. This is
 corroborating audit evidence only, not independent review completion or an
 `n=9` proof.
+The three-row compression replay
+`scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json`
+then searches all strict Kalmanson inequalities and all selected-row subsets
+in increasing cardinality for the regenerated frontier. It records that all
+184 terminal assignments have an optimally chosen row-minimal Kalmanson
+self-edge core using exactly three selected rows, with 56 cyclic-dihedral core
+signatures. This is proof-mining compression evidence only, not a bridge proof
+or an `n=9` promotion.
 A fixed-center-order replay command,
 `scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`,
 also closes the vertex-circle-pruned search and reaches the same

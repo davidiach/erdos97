@@ -989,6 +989,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "--assert-expected --json"
         in command_texts
     )
+    assert (
+        "python scripts/check_n9_kalmanson_three_row_core_compression.py --check "
+        "--assert-expected --json"
+        in command_texts
+    )
     assert ordered_command_texts.index(
         "python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json"
     ) < ordered_command_texts.index(
@@ -1025,6 +1030,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check "
+        "--assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_n9_kalmanson_three_row_core_compression.py --check "
+        "--assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_n9_kalmanson_three_row_core_compression.py --check "
         "--assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/analyze_n9_vertex_circle_obstruction_shapes.py --check "
