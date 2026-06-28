@@ -1089,6 +1089,15 @@ condition that the surviving multi-block family does not automatically satisfy:
   or `7`; assignments `0` and `11` are target-sparse. The remaining target is
   a genuine center-migration lemma for the off-center rows, or a separate
   obstruction for the target-sparse assignments.
+- bootstrap/T12 focused `151:6` label-`4` center-`8` migration preflight, as
+  recorded in
+  `docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md`, checking
+  whether current evidence already migrates those off-center `[0,4,6]` rows.
+  The five off-center row occurrences would be conditional center-`8`
+  endpoint targets if re-centered, but current checked support evidence and
+  the existing source-`151` row-`8` packet do not prove such migration. The
+  remaining target is still a genuine center-migration/source lemma, not a
+  selected-row neighborhood widening.
 - bootstrap/T12 focused `151:6` label-`4` center-`8` migration-support
   evidence, as recorded in
   `docs/bootstrap-t12-151-6-label4-center8-migration-support-crosswalk.md`,

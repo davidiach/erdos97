@@ -451,6 +451,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py "
+        "--check --assert-expected --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py "
         "--check --assert-expected --json"
         in command_texts
@@ -560,6 +565,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py "
+        "--check --assert-expected --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py "
+        "--check --assert-expected --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py "
         "--check --assert-expected --json"
     ) < ordered_command_texts.index(
         "python scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py "
@@ -872,6 +884,8 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_bootstrap_t12_151_6_label4_center8_core_route.py "
         "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py "
+        "--check --assert-expected --json",
+        "python scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py "
         "--check --assert-expected --json",
         "python scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py "
         "--check --assert-expected --json",

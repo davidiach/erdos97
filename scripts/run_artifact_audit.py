@@ -2947,6 +2947,27 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_center8_migration_preflight",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Center-8 migration preflight for the source 151 row 6 label-4 "
+            "private-lane split; records that the five off-center [0,4,6] "
+            "row occurrences would land in the conditional center-8 endpoint "
+            "target family if migrated, but current checked support and "
+            "source-151 row-8 evidence do not prove such migration, not "
+            "support existence, not row forcing, not endpoint-8 forcing, not "
+            "a proof that assignments 0 and 11 are impossible, not a proof "
+            "that [3,5] is impossible, not an n=9 proof, not a bridge proof, "
+            "and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_6_label4_center8_migration_support_crosswalk",
         command=(
             "python",

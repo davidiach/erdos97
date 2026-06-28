@@ -1018,7 +1018,15 @@ records `NOT_READY_RESIDUAL_TARGET_ROWS_DO_NOT_FORCE_CENTER8`: four residual
 assignments have `[0,4,6]` only as off-center rows at centers `2`, `5`, or
 `7`, while assignments `0` and `11` are target-sparse. This splits the next
 task into center migration for the off-center rows or a separate obstruction
-for the target-sparse assignments. The target-sparse completion preflight in
+for the target-sparse assignments. The center-migration preflight in
+`docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md`,
+`scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_center8_migration_preflight.json`
+records `NOT_READY_CENTER_MIGRATION_NOT_PROVED`: the five off-center
+`[0,4,6]` row occurrences would be conditional center-`8` endpoint targets if
+re-centered, but current checked support evidence and the existing
+source-`151` row-`8` packet do not prove such migration. The target-sparse
+completion preflight in
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`,
 `scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py`,
 and
