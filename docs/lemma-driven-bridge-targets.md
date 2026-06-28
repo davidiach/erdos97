@@ -57,6 +57,13 @@ force one of the stored local templates by themselves.
 | source `151`, rows `7` and `8` | `docs/bootstrap-t12-hard-strict-endpoints.md` isolates missing strict-edge endpoint sets | Supply the hard endpoint labels from genuine closure/support geometry, not fixed-row bookkeeping |
 | block-6 fragile family | `docs/block6-fragile-vertex-circle-extension-audit.md` and `docs/bridge-negative-controls.md` record exact negative controls | A minimal/rich-class condition that rejects the family beyond fixed natural/block-preserving order slices |
 
+For the source-`151`, row-`6` center-`8` lane, the migration preflight in
+`docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md` is the
+earlier gate showing that the five off-center `[0,4,6]` rows would become
+conditional center-`8` endpoint targets if re-centered. The support crosswalk
+listed in the table is the later refinement; neither packet proves center
+migration.
+
 ## Recommended lemma contracts
 
 ### Contract A: exact local-template forcing

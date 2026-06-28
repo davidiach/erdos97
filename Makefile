@@ -218,6 +218,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_core_route.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py --check --assert-expected --json
+	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_three_row_repairs.py --check --assert-expected --json

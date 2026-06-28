@@ -418,6 +418,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`bootstrap-t12-151-6-label4-transfer-paths.md`](bootstrap-t12-151-6-label4-transfer-paths.md):
   checked transfer-path ledger pinning shortest selected-distance equality
   paths from label-`4` pairs to residual strict-cycle endpoint pairs.
+- [`bootstrap-t12-151-6-label4-center8-migration-preflight.md`](bootstrap-t12-151-6-label4-center8-migration-preflight.md):
+  center-`8` migration preflight for off-center `[0,4,6]` residual rows in
+  the source-`151` row-`6` label-`4` lane.
 - [`bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`](bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md):
   solver-screen diagnostic for the three source-`151` row-`6` label-`4`
   target-sparse endpoint quotient misses.

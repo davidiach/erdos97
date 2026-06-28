@@ -1285,7 +1285,12 @@ target-row follow-up in
 `docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md` splits those
 six assignments: four contain `[0,4,6]` only as off-center strict-core rows,
 and assignments `0` and `11` contain no full target triple in any residual
-strict-core row. The migration-support crosswalk in
+strict-core row. The center-migration preflight in
+`docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md` records that
+the five off-center `[0,4,6]` row occurrences would be conditional center-`8`
+endpoint targets if re-centered, but current checked support evidence and the
+existing source-`151` row-`8` packet do not prove such migration. The
+migration-support crosswalk in
 `docs/bootstrap-t12-151-6-label4-center8-migration-support-crosswalk.md`
 shows that `3` of the `5` off-center rows have same-center support backing,
 including exactly one row-`5` `[4,6]` cascade-support row, but no support

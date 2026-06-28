@@ -606,9 +606,13 @@ source for the center-`8` cascade target. A residual target-row split then
 records that four of those six residual assignments contain `[0,4,6]` only as
 off-center strict-core rows at centers `2`, `5`, or `7`, while assignments `0`
 and `11` are target-sparse and contain no full `[0,4,6]` row in any residual
-strict core. A target-sparse completion preflight then records that all `12`
-one-row completions of target-pair rows to `[0,4,6]` for assignments `0` and
-`11` fail basic filters by witness-pair caps and crossings before
+strict core. A center-migration preflight then records that the five
+off-center `[0,4,6]` rows would be conditional center-`8` endpoint targets if
+re-centered, but the current support ledger has no center-`8` support
+requirement and the existing source-`151` row-`8` packet has no target pair
+from `[0,4,6]`. A target-sparse completion preflight then records that all
+`12` one-row completions of target-pair rows to `[0,4,6]` for assignments `0`
+and `11` fail basic filters by witness-pair caps and crossings before
 vertex-circle replay; this blocks only the one-row repair route, not the
 assignments themselves. A repair-extension follow-up then allows one
 additional arbitrary non-completion row replacement after each target
@@ -650,6 +654,7 @@ See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
 `docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`, plus
 `docs/bootstrap-t12-151-6-label4-center8-core-route.md` and
 `docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`, plus
+`docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md` and
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md` and
 `docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`,
 plus

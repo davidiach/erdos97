@@ -624,6 +624,12 @@ minimal/rich-class hypotheses.
    now stores nonnegative integer separating potentials for those same three
    quotient screens, proving exactly that the current row family cannot
    produce either normalized screen.
+   The center-migration preflight
+   `python scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py --check --assert-expected --json`
+   records the other residual lane: the five off-center `[0,4,6]` row
+   occurrences would land in the conditional center-`8` endpoint target family
+   if re-centered, but current checked support evidence and the existing
+   source-`151` row-`8` packet do not prove that migration.
    The alternate-order Kalmanson command
    `python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py --check --assert-expected --json`
    certifies the same three endpoint quotients in the single fixed cyclic
