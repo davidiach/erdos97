@@ -95,9 +95,12 @@ None.
   `:419-429` (`validate_archived_synthesis`).
 - Evidence: `require_no_forbidden_overclaims` runs only on those three files plus
   the `metadata local_repo.overall_claim` YAML field. `docs/canonical-synthesis.md`
-  is scanned only for stale n=8 "Open" wording, not overclaims. `AGENTS.md`
-  designates `docs/claims.md` as a file to keep aligned, yet it is not in
-  `REQUIRED_STATUS_FILES`; the ~300 `docs/*.md` files (including the large
+  is scanned only for stale n=8 "Open" wording, not overclaims. `AGENTS.md:28-29`
+  lists `docs/claims.md` as required reading before changing mathematical claims
+  (its source-of-truth alignment rule at `AGENTS.md:21` names
+  `metadata/erdos97.yaml` against `README.md`/`STATE.md`/`RESULTS.md`), yet this
+  proof-facing claims ledger is not in `REQUIRED_STATUS_FILES` and is never
+  overclaim-scanned; nor are the ~300 `docs/*.md` files (including the large
   `bootstrap-t12-*` corpus) are never overclaim-scanned. `check_text_clean.py`
   scans all files but only for hidden Unicode/CRLF, not overclaims.
 - Why it matters: the policy is described as repo-wide but enforced on a narrow
@@ -115,7 +118,7 @@ None.
   import chain `WitnessLemmas.lean:1` → `SelectedWitness.lean:1` → `Basic.lean`.
 - Evidence (reviewer-reproduced): `check_lean_files.py` prints `"lake not found;
   skipped Lean compilation"` and returns success when `lake` is absent (the
-  default; `make verify-lean` does not pass the opt-in `--fail` flag); no CI
+  default; `make verify-lean` does not pass the opt-in `--require-lean` flag); no CI
   workflow installs Lean/lake. Independently, `Basic.lean` declares
   `lemma Witness4.b_ne_a … d_ne_c` (6 lemmas) and `WitnessLemmas.lean` declares
   `theorem Witness4.b_ne_a … d_ne_c` (same 6 fully-qualified names in namespace
@@ -356,8 +359,9 @@ What I could **not** verify (and why):
   geometric turn lemma (Priorities 5–6); the `n=10` singleton-slice draft
   (Priority 6b); and the all-order Kalmanson/SMT encoding trust (Priority 7).
 - **Coverage was by sampling and targeted adversarial reads, not line-by-line
-  over all 344 scripts / 333 test files / ~300 docs / 238 certificates / 13 Lean
-  files.** The load-bearing paths (n≤8, Kalmanson, the guardrail checkers, the
+  over all 344 scripts / 333 test files / ~300 docs / 238 certificates / 12 Lean
+  files under `lean/` (plus the root `lakefile.lean`).** The load-bearing paths
+  (n≤8, Kalmanson, the guardrail checkers, the
   n9 certificate verifiers, cross-file consistency, scope discipline) were read
   closely; the long tail of `bootstrap-t12-*` micro-packets and per-template
   packets was spot-checked (headers/footers uniformly carry the review-pending +
