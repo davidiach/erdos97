@@ -34,3 +34,35 @@ def test_forbidden_overclaim_detector_allows_explicit_nonclaims() -> None:
     )
 
     assert find_forbidden_overclaim_lines(text) == []
+
+
+def test_forbidden_overclaim_detector_blocks_known_evasions() -> None:
+    # A negation in a different comma/colon/dash clause must not excuse the claim.
+    assert find_forbidden_overclaim_lines(
+        "Summary - no longer open: we have proven Erdos Problem #97"
+    )
+    assert find_forbidden_overclaim_lines(
+        "Cannot stress enough, we have proven Erdos Problem #97 today"
+    )
+    # Synonym proof/refutation verbs applied to the global target.
+    for line in (
+        "We resolved Erdos Problem #97.",
+        "We have refuted the conjecture.",
+        "We have settled the problem.",
+    ):
+        assert find_forbidden_overclaim_lines(line), line
+    # An uppercase-led wrapped continuation line still joins to the claim verb.
+    assert find_forbidden_overclaim_lines(
+        "We have constructed a valid\nCounterexample to the conjecture."
+    )
+
+
+def test_forbidden_overclaim_detector_keeps_governing_negation() -> None:
+    # A negation that genuinely governs the verb in its own clause stays allowed.
+    assert find_forbidden_overclaim_lines("This does not prove Erdos Problem #97.") == []
+    assert (
+        find_forbidden_overclaim_lines(
+            "minimality produces a remaining center; this is not a counterexample."
+        )
+        == []
+    )
