@@ -236,6 +236,9 @@ def line_continues_wrapped_sentence(line: str) -> bool:
     return bool(line) and (line[0].islower() or line[0].isdigit() or line[0] in "`([{")
 
 
+_BLOCK_LINE_PREFIX_RE = re.compile(r"^(?:#{1,6}\s|[-*+]\s|\d+[.)]\s|>|\||`{3}|~{3})")
+
+
 def previous_line_opens_sentence(previous: str) -> bool:
     """True when the previous prose line did not finish its sentence.
 
@@ -243,10 +246,17 @@ def previous_line_opens_sentence(previous: str) -> bool:
     uppercase word, which ``line_continues_wrapped_sentence`` alone would miss.
     A line ending in sentence-final punctuation (``.!?``) or a clause/list
     terminator (``:;``) is treated as complete and is not joined forward.
+
+    Block-level Markdown lines (headings, list items, block quotes, table rows,
+    code fences) are NOT prose continuations even when they lack terminal
+    punctuation; joining them would leak a negation in e.g. ``## Not solved``
+    into a following standalone overclaim and wrongly excuse it.
     """
 
     stripped = previous.rstrip()
-    return bool(stripped) and stripped[-1] not in ".!?:;"
+    if not stripped or _BLOCK_LINE_PREFIX_RE.match(stripped):
+        return False
+    return stripped[-1] not in ".!?:;"
 
 
 def local_claim_context(line: str, start: int, end: int) -> str:

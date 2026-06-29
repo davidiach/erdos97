@@ -57,6 +57,27 @@ def test_forbidden_overclaim_detector_blocks_known_evasions() -> None:
     )
 
 
+def test_forbidden_overclaim_detector_does_not_carry_block_line_negation() -> None:
+    # A negation on a heading / list item / block quote must NOT be joined to a
+    # following standalone overclaim and excuse it (regression for the wrap-join).
+    assert find_forbidden_overclaim_lines(
+        "## Not solved\nWe have proven Erdos Problem #97."
+    )
+    assert find_forbidden_overclaim_lines(
+        "- not yet\nWe have proven Erdos Problem #97."
+    )
+    assert find_forbidden_overclaim_lines(
+        "> not a proof\nWe have proven Erdos Problem #97."
+    )
+    # A genuine wrapped prose sentence with a governing negation is still allowed.
+    assert (
+        find_forbidden_overclaim_lines(
+            "This fixed-pattern obstruction does not\nProve Erdos Problem #97."
+        )
+        == []
+    )
+
+
 def test_forbidden_overclaim_detector_keeps_governing_negation() -> None:
     # A negation that genuinely governs the verb in its own clause stays allowed.
     assert find_forbidden_overclaim_lines("This does not prove Erdos Problem #97.") == []
