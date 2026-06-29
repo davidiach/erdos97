@@ -12,41 +12,9 @@ namespace Erdos97
 
 universe u
 
-section Witness4
-
-variable {Point : Type u}
-
-/-- Reverse orientation of the `a_ne_b` witness distinctness field. -/
-theorem Witness4.b_ne_a (W : Witness4 Point) : Not (W.b = W.a) := by
-  intro h
-  exact W.a_ne_b h.symm
-
-/-- Reverse orientation of the `a_ne_c` witness distinctness field. -/
-theorem Witness4.c_ne_a (W : Witness4 Point) : Not (W.c = W.a) := by
-  intro h
-  exact W.a_ne_c h.symm
-
-/-- Reverse orientation of the `a_ne_d` witness distinctness field. -/
-theorem Witness4.d_ne_a (W : Witness4 Point) : Not (W.d = W.a) := by
-  intro h
-  exact W.a_ne_d h.symm
-
-/-- Reverse orientation of the `b_ne_c` witness distinctness field. -/
-theorem Witness4.c_ne_b (W : Witness4 Point) : Not (W.c = W.b) := by
-  intro h
-  exact W.b_ne_c h.symm
-
-/-- Reverse orientation of the `b_ne_d` witness distinctness field. -/
-theorem Witness4.d_ne_b (W : Witness4 Point) : Not (W.d = W.b) := by
-  intro h
-  exact W.b_ne_d h.symm
-
-/-- Reverse orientation of the `c_ne_d` witness distinctness field. -/
-theorem Witness4.d_ne_c (W : Witness4 Point) : Not (W.d = W.c) := by
-  intro h
-  exact W.c_ne_d h.symm
-
-end Witness4
+-- The reverse-orientation `Witness4.b_ne_a` … `Witness4.d_ne_c` lemmas live in
+-- `Erdos97.Basic` (imported transitively via `Erdos97.SelectedWitness`); they
+-- are intentionally not re-declared here to avoid duplicate declarations.
 
 section WitnessInSet
 

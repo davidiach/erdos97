@@ -14,6 +14,10 @@ official problem. Its first layer is deliberately abstract:
 - `lean/Erdos97/Basic.lean` defines a point-set selected-witness interface;
 - `lean/Erdos97/SelectedWitness.lean` proves the choice-based extraction from
   that abstract interface;
+- `lean/Erdos97/WitnessLemmas.lean` collects dependency-free interface-unpacking
+  lemmas for the witness, equidistance, and shared-row data;
+- `lean/Erdos97/TwoCircleCap.lean` states the two-circle intersection cap and
+  the `|S_a ∩ S_b| ≤ 2` pair-sharing cap in dependency-free conditional form;
 - `lean/Erdos97/OfficialBridge.lean` proves the first dependency-free adapter:
   official-shaped four-point radius fibers imply the local
   `HasFourEquidistantProperty` interface;
