@@ -299,6 +299,13 @@ def command_outputs_path(command: str, raw_path: str) -> bool:
         redirect_target = redirection_value(token)
         output_target_flags.update(PATH_OUTPUT_SWITCHES_WITH_TARGET_FLAGS.get(token, set()))
         if token_matches_path(token, variants):
+            # A path token written by a space-separated redirection (`> path`,
+            # `2>> path`) or piped into `tee path` is an output, even though the
+            # previous token is not an --out-style flag.
+            if previous is not None and (
+                re.fullmatch(r"\d?>{1,2}", previous) or previous == "tee"
+            ):
+                return True
             return previous in PATH_OUTPUT_FLAGS or previous in output_target_flags
         if any(
             token.startswith(f"{flag}=")
@@ -310,12 +317,6 @@ def command_outputs_path(command: str, raw_path: str) -> bool:
             token.startswith(f"{flag}=")
             and token_matches_path(token.split("=", 1)[1], variants)
             for flag in output_target_flags
-        ):
-            return True
-        if (
-            previous is not None
-            and re.fullmatch(r"\d?>{1,2}", previous)
-            and token_matches_path(token, variants)
         ):
             return True
         if redirect_target is not None and token_matches_path(redirect_target, variants):
