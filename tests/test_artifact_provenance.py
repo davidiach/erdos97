@@ -313,6 +313,17 @@ def test_command_path_detection_accepts_common_artifact_path_forms() -> None:
     )
 
 
+def test_command_outputs_path_detects_space_separated_redirection_and_tee() -> None:
+    path = "data/certificates/example.json"
+    # Space-separated shell redirection writes were previously missed.
+    assert command_outputs_path(f"python generator.py > {path}", path)
+    assert command_outputs_path(f"python generator.py 2>> {path}", path)
+    assert command_outputs_path(f"python generator.py | tee {path}", path)
+    # Reading a path (positional arg or input redirection) is not an output.
+    assert not command_outputs_path(f"python checker.py {path}", path)
+    assert not command_outputs_path(f"python checker.py < {path}", path)
+
+
 def test_manifest_accepts_exact_certificate_diagnostic_trust(tmp_path: Path) -> None:
     artifact = tmp_path / "artifact.json"
     generator = tmp_path / "generator.py"

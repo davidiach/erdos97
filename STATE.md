@@ -1087,7 +1087,7 @@ distance equalities and strict convexity.
 ```text
 n: 12
 pattern: B12_3x4_danzer_lift
-max squared-distance spread: 0.006806368780585714
+max selected-distance spread: 0.006806368780585714
 RMS equality residual:       0.0019599509549614457
 convexity margin:            9.999999943508973e-07
 minimum edge length:         0.0007465865604262556

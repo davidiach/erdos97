@@ -45,29 +45,44 @@ ERDOS97_TARGET_RE = (
     r"(?:erd\S*s(?:\s+problem)?\s*#?\s*97|problem\s*#?\s*97|"
     r"the\s+(?:general\s+)?(?:problem|conjecture))"
 )
+# Proof/refutation verbs that overclaim a result on the global target. Kept as
+# one bare alternation so the forward and reverse patterns cannot drift apart.
+ERDOS97_PROOF_VERBS = (
+    r"prove[sd]?|proven|proving|settle[sd]?|settling|solve[sd]?|solving|"
+    r"disprove[sd]?|disproven|disproving|resolve[sd]?|resolving|"
+    r"refute[sd]?|refuting"
+)
+# Verbs that, applied to a counterexample/solution, assert it was built. Kept
+# deliberately NARROW: "counterexample" is a pervasive technical term in this
+# repo ("minimal counterexample", "certified counterexample"), so broad verbs
+# near it produce false positives. Only verbs that rarely co-occur innocently
+# with "counterexample" are included.
+COUNTEREXAMPLE_VERBS = (
+    r"found|constructed|verified|certified|confirmed|exhibited"
+)
 BANNED_OVERCLAIM_RE_LIST = (
     re.compile(
-        rf"\b(?:prove[sd]?|proven|settled|solved|disproved)\b"
+        rf"\b(?:{ERDOS97_PROOF_VERBS})\b"
         rf"[^.\n]{{0,120}}\b{ERDOS97_TARGET_RE}\b",
         re.I,
     ),
     re.compile(
         rf"\b{ERDOS97_TARGET_RE}\b"
-        rf"[^.\n]{{0,120}}\b(?:prove[sd]?|proven|settled|solved|disproved)\b",
+        rf"[^.\n]{{0,120}}\b(?:{ERDOS97_PROOF_VERBS})\b",
         re.I,
     ),
     re.compile(
-        r"\b(?:found|constructed|verified|certified|confirmed|have|has|is|are)\b"
+        rf"\b(?:{COUNTEREXAMPLE_VERBS}|have|has|is|are)\b"
         r"[^.\n]{0,100}\b(?:counterexample|solution)\b",
         re.I,
     ),
     re.compile(
-        r"\b(?:counterexample|solution)\b[^.\n]{0,100}"
-        r"\b(?:found|constructed|verified|certified|confirmed)\b",
+        rf"\b(?:counterexample|solution)\b[^.\n]{{0,100}}"
+        rf"\b(?:{COUNTEREXAMPLE_VERBS})\b",
         re.I,
     ),
     re.compile(
-        rf"\b(?:found|constructed|verified|certified|confirmed|have|has)\b"
+        rf"\b(?:{COUNTEREXAMPLE_VERBS}|have|has)\b"
         rf"[^.\n]{{0,100}}\bproof\b[^.\n]{{0,80}}\b(?:of|for)\b"
         rf"[^.\n]{{0,80}}\b{ERDOS97_TARGET_RE}\b",
         re.I,
@@ -80,7 +95,7 @@ OVERCLAIM_ALLOW_RE = re.compile(
     re.I,
 )
 CLAIM_CONTEXT_BOUNDARY_RE = re.compile(
-    r"(?i)(?:[.;|]|\b(?:but|however|although|though)\b)"
+    r"(?i)(?:[.;|:,]|\s[-–—]\s|\b(?:but|however|although|though)\b)"
 )
 STALE_PATTERN_CATALOG_RE = re.compile(
     r"\b(?:remains\s+live|live/unresolved|survives\s+current\s+fixed-order\s+exact\s+filters)\b",
@@ -192,7 +207,16 @@ def find_forbidden_overclaim_lines(text: str) -> list[tuple[int, str]]:
             continue
         scan_text = normalized
         previous_prefix_len = 0
-        if previous and line_continues_wrapped_sentence(normalized):
+        joined_wrapped_continuation = False
+        joined_open_previous = False
+        joined_previous = ""
+        if previous and (
+            line_continues_wrapped_sentence(normalized)
+            or previous_line_opens_sentence(previous)
+        ):
+            joined_wrapped_continuation = line_continues_wrapped_sentence(normalized)
+            joined_open_previous = previous_line_opens_sentence(previous)
+            joined_previous = previous
             scan_text = f"{previous} {normalized}"
             previous_prefix_len = len(previous) + 1
         previous = normalized
@@ -204,7 +228,23 @@ def find_forbidden_overclaim_lines(text: str) -> list[tuple[int, str]]:
                 continue
             if match.end() <= previous_prefix_len:
                 continue
-            context = local_claim_context(scan_text, match.start(), match.end())
+            context_text = scan_text
+            context_start = match.start()
+            context_end = match.end()
+            if (
+                previous_prefix_len
+                and joined_open_previous
+                and not joined_wrapped_continuation
+                and match.start() >= previous_prefix_len
+                and not previous_line_ends_with_governing_negation(joined_previous)
+            ):
+                # When an uppercase-led line is joined only because the previous
+                # line was unterminated, a negation in the previous line should
+                # not govern a complete positive claim that starts on this line.
+                context_text = normalized
+                context_start -= previous_prefix_len
+                context_end -= previous_prefix_len
+            context = local_claim_context(context_text, context_start, context_end)
             if OVERCLAIM_ALLOW_RE.search(context):
                 continue
             hits.append((index, normalized))
@@ -216,6 +256,41 @@ def line_continues_wrapped_sentence(line: str) -> bool:
     """Heuristic for Markdown prose wrapped in the middle of a sentence."""
 
     return bool(line) and (line[0].islower() or line[0].isdigit() or line[0] in "`([{")
+
+
+_BLOCK_LINE_PREFIX_RE = re.compile(r"^(?:#{1,6}\s|[-*+]\s|\d+[.)]\s|>|\||`{3}|~{3})")
+
+
+def previous_line_opens_sentence(previous: str) -> bool:
+    """True when the previous prose line did not finish its sentence.
+
+    Catches overclaims hand-wrapped onto a continuation line that starts with an
+    uppercase word, which ``line_continues_wrapped_sentence`` alone would miss.
+    A line ending in sentence-final punctuation (``.!?``) or a clause/list
+    terminator (``:;``) is treated as complete and is not joined forward.
+
+    Block-level Markdown lines (headings, list items, block quotes, table rows,
+    code fences) are NOT prose continuations even when they lack terminal
+    punctuation; joining them would leak a negation in e.g. ``## Not solved``
+    into a following standalone overclaim and wrongly excuse it.
+    """
+
+    stripped = previous.rstrip()
+    if not stripped or _BLOCK_LINE_PREFIX_RE.match(stripped):
+        return False
+    return stripped[-1] not in ".!?:;"
+
+
+WRAPPED_NEGATION_TRAILER_RE = re.compile(
+    r"(?i)\b(?:does\s+not|do\s+not|should\s+not|must\s+not|can\s*not|"
+    r"cannot|not|never|without|not\s+a|not\s+an)\s*$"
+)
+
+
+def previous_line_ends_with_governing_negation(previous: str) -> bool:
+    """True when a wrapped next line can inherit a trailing negation."""
+
+    return bool(WRAPPED_NEGATION_TRAILER_RE.search(previous.rstrip()))
 
 
 def local_claim_context(line: str, start: int, end: int) -> str:
