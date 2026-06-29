@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import shlex
 import subprocess
@@ -232,6 +233,10 @@ def validate_artifact(
 
 
 def command_tokens(command: str) -> list[str]:
+    if os.name == "nt":
+        # POSIX shlex treats backslashes as escapes, which collapses Windows
+        # absolute paths like C:\repo\artifact.json before path matching.
+        command = command.replace("\\", "\\\\")
     try:
         return shlex.split(command)
     except ValueError:

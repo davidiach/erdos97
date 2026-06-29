@@ -78,6 +78,16 @@ def test_forbidden_overclaim_detector_does_not_carry_block_line_negation() -> No
     )
 
 
+def test_forbidden_overclaim_detector_does_not_borrow_previous_line_negation() -> None:
+    # Uppercase-led next-line claims are joined for scanning, but a negation in
+    # the previous line must not govern a complete positive claim on this line.
+    for text in (
+        "No status change\nWe have proven Erdos Problem #97.",
+        "Cannot stress enough\nWe have proven Erdos Problem #97.",
+    ):
+        assert find_forbidden_overclaim_lines(text), text
+
+
 def test_forbidden_overclaim_detector_keeps_governing_negation() -> None:
     # A negation that genuinely governs the verb in its own clause stays allowed.
     assert find_forbidden_overclaim_lines("This does not prove Erdos Problem #97.") == []

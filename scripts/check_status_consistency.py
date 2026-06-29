@@ -207,10 +207,16 @@ def find_forbidden_overclaim_lines(text: str) -> list[tuple[int, str]]:
             continue
         scan_text = normalized
         previous_prefix_len = 0
+        joined_wrapped_continuation = False
+        joined_open_previous = False
+        joined_previous = ""
         if previous and (
             line_continues_wrapped_sentence(normalized)
             or previous_line_opens_sentence(previous)
         ):
+            joined_wrapped_continuation = line_continues_wrapped_sentence(normalized)
+            joined_open_previous = previous_line_opens_sentence(previous)
+            joined_previous = previous
             scan_text = f"{previous} {normalized}"
             previous_prefix_len = len(previous) + 1
         previous = normalized
@@ -222,7 +228,23 @@ def find_forbidden_overclaim_lines(text: str) -> list[tuple[int, str]]:
                 continue
             if match.end() <= previous_prefix_len:
                 continue
-            context = local_claim_context(scan_text, match.start(), match.end())
+            context_text = scan_text
+            context_start = match.start()
+            context_end = match.end()
+            if (
+                previous_prefix_len
+                and joined_open_previous
+                and not joined_wrapped_continuation
+                and match.start() >= previous_prefix_len
+                and not previous_line_ends_with_governing_negation(joined_previous)
+            ):
+                # When an uppercase-led line is joined only because the previous
+                # line was unterminated, a negation in the previous line should
+                # not govern a complete positive claim that starts on this line.
+                context_text = normalized
+                context_start -= previous_prefix_len
+                context_end -= previous_prefix_len
+            context = local_claim_context(context_text, context_start, context_end)
             if OVERCLAIM_ALLOW_RE.search(context):
                 continue
             hits.append((index, normalized))
@@ -257,6 +279,18 @@ def previous_line_opens_sentence(previous: str) -> bool:
     if not stripped or _BLOCK_LINE_PREFIX_RE.match(stripped):
         return False
     return stripped[-1] not in ".!?:;"
+
+
+WRAPPED_NEGATION_TRAILER_RE = re.compile(
+    r"(?i)\b(?:does\s+not|do\s+not|should\s+not|must\s+not|can\s*not|"
+    r"cannot|not|never|without|not\s+a|not\s+an)\s*$"
+)
+
+
+def previous_line_ends_with_governing_negation(previous: str) -> bool:
+    """True when a wrapped next line can inherit a trailing negation."""
+
+    return bool(WRAPPED_NEGATION_TRAILER_RE.search(previous.rstrip()))
 
 
 def local_claim_context(line: str, start: int, end: int) -> str:
