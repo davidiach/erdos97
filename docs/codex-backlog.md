@@ -640,7 +640,11 @@ minimal/rich-class hypotheses.
    combines the natural-order blocker and alternate-order certificate and
    records that the current row-family route is not an all-order certificate
    route without a new ingredient.
-   The next useful PR should therefore prove a support-geometry exclusion
+   The next-lemma obligation contract
+   `python scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py --check --assert-expected --json`
+   now joins the endpoint-`8` forcing, center-`8` migration-support, and
+   target-sparse order-sensitivity gates into one reviewer-facing task
+   contract. The next useful PR should therefore prove a support-geometry exclusion
    under genuine private-support or rich-class hypotheses, prove useful
    cyclic-order structure, enlarge the strict row family with a geometric
    source, prove center migration for the off-center `[0,4,6]` rows, or

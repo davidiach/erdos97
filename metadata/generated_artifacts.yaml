@@ -10013,6 +10013,69 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: bootstrap_t12_151_6_label4_next_lemma_obligations
+    path: data/certificates/bootstrap_t12_151_6_label4_next_lemma_obligations.json
+    sha256: 609f361a3da727921caae7e36e1b58a01fe04f361a9bf71245c7d1983249948b
+    size_bytes: 8239
+    kind: proof_mining_diagnostic_artifact
+    generator: scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py
+    command: python scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py --write --assert-expected
+    checker: scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py
+    check_command: python scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Source-151 row-6 label-4 next-lemma obligation contract; joins the endpoint-8 forcing preflight, center-8 migration support crosswalk, and target-sparse order-sensitivity crosswalk to pin remaining useful bridge obligations and dead-end guards. This is task-selection infrastructure only; it does not prove support existence, center migration, row forcing, endpoint-8 forcing, pair [3,5] impossibility, assignments 0 or 11 possible or impossible, an all-order obstruction, n=9, the bridge, Erdos Problem #97, or a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.bootstrap_t12_151_6_label4_next_lemma_obligations.v1
+      status: BOOTSTRAP_T12_151_6_LABEL4_NEXT_LEMMA_OBLIGATIONS_CONTRACT
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      summary.target_row_key: "151:6"
+      summary.target_center: 6
+      summary.private_support_pair:
+        - 3
+        - 5
+      summary.conditional_center8_target:
+        - 0
+        - 4
+        - 6
+      summary.open_obligation_count: 3
+      summary.open_obligation_ids:
+        - private_halo_endpoint8_exclusion
+        - center8_migration_or_source
+        - target_sparse_order_or_geometry
+      summary.blocked_shortcut_count: 8
+      summary.endpoint8_forced_by_current_evidence: false
+      summary.private_halo_only_basic_survivor_count: 12
+      summary.support_requirement_center8_count: 0
+      summary.off_center_target_row_occurrence_count: 5
+      summary.off_center_rows_with_same_center_support_count: 3
+      summary.target_sparse_assignment_indices:
+        - 0
+        - 11
+      summary.current_row_family_all_order_route_ready: false
+      summary.all_order_obstruction_proved: false
+      summary.solves_n9: false
+      summary.solves_erdos97: false
+      provenance.generator: scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py
+      provenance.command: python scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - the n=9 vertex-circle checker has been independently reviewed
+      - bootstrap-core capacity proves the bridge
+      - T12/F16 proves the bridge
+      - the 151:6 row is forced
+      - endpoint-8 support exists
+      - endpoint-8 support is forced
+      - center migration is proved
+      - pair [3,5] is impossible
+      - assignments 0 and 11 are impossible
+      - all-order target-sparse obstruction is proved
+      - target-sparse full-cone diagnostics prove the bridge
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: bootstrap_t12_151_singleton_support_audit
     path: data/certificates/bootstrap_t12_151_singleton_support_audit.json
     sha256: 9647c2062ffdc1363dab531a70aa3e2e97e4bb4330b337516f286591eb1dfc5e

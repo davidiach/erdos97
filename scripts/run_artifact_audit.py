@@ -3162,6 +3162,26 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="bootstrap_t12_151_6_label4_next_lemma_obligations",
+        command=(
+            "python",
+            "scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending bridge-obligation contract for the source 151 row "
+            "6 label-4 private-lane target; joins endpoint-8 forcing, "
+            "center-8 migration support, and target-sparse order-sensitivity "
+            "route decisions to record the useful next lemma obligations, "
+            "not support existence, not center migration, not row forcing, "
+            "not endpoint-8 forcing, not pair [3,5] impossibility, not an "
+            "all-order obstruction, not an n=9 proof, not a bridge proof, "
+            "not a proof of Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="bootstrap_t12_151_singleton_support_audit",
         command=(
             "python",

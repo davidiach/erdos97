@@ -263,7 +263,9 @@ with
 and
 [`docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`](docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md),
 plus
-[`docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`](docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md).
+[`docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`](docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md)
+and the next-lemma obligation contract
+[`docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md`](docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md).
 On the source-`81` side, the `81:3` ordered chain-closure, one-layer
 repeated-support, two-repeated-support, and repeated-support saturation packets
 close the current bounded support-chain continuations under basic
