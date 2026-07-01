@@ -761,6 +761,11 @@ put detailed reconciliation in the canonical synthesis.
 - [`prompt-roadmap.md`](prompt-roadmap.md): prompt-derived planning roadmap and
   next recommended workstreams; heuristic guidance only, not mathematical
   evidence.
+- [`fable5-proof-search-prompt.md`](fable5-proof-search-prompt.md): operator
+  prompt for a Claude Fable 5 select/attack/verify/record/publish research
+  loop with explicit review-pending exit states and the repo verification and
+  GitHub workflow gates embedded; operational guidance only, not mathematical
+  evidence.
 - [`bridge-output-triage-2026-05-10.md`](bridge-output-triage-2026-05-10.md):
   triage of ten AI-generated bridge-output candidates; provenance only.
 - [`gpt55-solver-output-triage-2026-05-10.md`](gpt55-solver-output-triage-2026-05-10.md):
