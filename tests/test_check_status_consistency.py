@@ -119,3 +119,34 @@ def test_pattern_catalog_all_order_status_is_distinct_from_stale_live_wording() 
 
     assert checker.ALL_ORDER_OBSTRUCTION_RE.search(current)
     assert checker.STALE_PATTERN_CATALOG_RE.search(stale)
+
+
+def test_claims_ledger_is_overclaim_scanned_not_status_boilerplate() -> None:
+    checker = load_checker()
+
+    assert "docs/claims.md" in checker.ADDITIONAL_OVERCLAIM_SCAN_FILES
+    assert "docs/claims.md" not in checker.REQUIRED_STATUS_FILES
+
+
+def test_additional_overclaim_scan_files_do_not_require_full_status_boilerplate(
+    tmp_path: Path,
+) -> None:
+    checker = load_checker()
+    docs = tmp_path / "docs"
+    docs.mkdir()
+    claims = docs / "claims.md"
+    claims.write_text("This proof-facing ledger has no positive overclaim.\n", encoding="utf-8")
+
+    original_root = checker.ROOT
+    checker.ROOT = tmp_path
+    try:
+        checker.validate_additional_overclaim_scan_files(["docs/claims.md"])
+        claims.write_text("We have proven Erdos Problem #97.\n", encoding="utf-8")
+        try:
+            checker.validate_additional_overclaim_scan_files(["docs/claims.md"])
+        except SystemExit as exc:
+            assert exc.code == 1
+        else:  # pragma: no cover
+            raise AssertionError("positive overclaim should fail")
+    finally:
+        checker.ROOT = original_root

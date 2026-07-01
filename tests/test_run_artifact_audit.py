@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -21,6 +22,37 @@ from scripts.run_artifact_audit import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _verify_artifacts_make_command() -> str:
+    make = shutil.which("make")
+    if make:
+        dry_run = subprocess.run(
+            [make, "-n", "verify-artifacts"],
+            cwd=ROOT,
+            check=True,
+            text=True,
+            stdout=subprocess.PIPE,
+        )
+        command_lines = [
+            line.strip()
+            for line in dry_run.stdout.splitlines()
+            if line.strip() and not line.startswith("make[")
+        ]
+        assert len(command_lines) == 1
+        command = command_lines[0]
+        if command.startswith(".venv/bin/python "):
+            command = "python " + command.split(" ", 1)[1]
+        return command
+
+    makefile = (ROOT / "Makefile").read_text(encoding="utf-8")
+    lines = makefile.splitlines()
+    for index, line in enumerate(lines):
+        if line == "verify-artifacts:":
+            command = lines[index + 1].strip()
+            assert command.startswith("$(PYTHON) ")
+            return "python " + command.split(" ", 1)[1]
+    raise AssertionError("verify-artifacts target not found")
 
 
 def test_sha256_bytes_is_stable() -> None:
@@ -131,22 +163,7 @@ def test_audit_commands_cover_generated_artifact_check_commands() -> None:
 
 
 def test_audit_commands_cover_verify_artifacts_make_target() -> None:
-    dry_run = subprocess.run(
-        ["make", "-n", "verify-artifacts"],
-        cwd=ROOT,
-        check=True,
-        text=True,
-        stdout=subprocess.PIPE,
-    )
-    command_lines = [
-        line.strip()
-        for line in dry_run.stdout.splitlines()
-        if line.strip() and not line.startswith("make[")
-    ]
-    assert len(command_lines) == 1
-    command = command_lines[0]
-    if command.startswith(".venv/bin/python "):
-        command = "python " + command.split(" ", 1)[1]
+    command = _verify_artifacts_make_command()
     assert command == "python scripts/run_artifact_audit.py --verify-only"
 
 

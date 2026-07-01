@@ -15,7 +15,9 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from erdos97.brp_boundary_probe import (  # noqa: E402
+    JSON_FLOAT_DIGITS,
     ROOT_TOL,
+    SAMPLED_A5_BOUNDARY_ROOT_TOL,
     assert_expected_counts,
     build_payload,
 )
@@ -23,6 +25,13 @@ from erdos97.path_display import display_path  # noqa: E402
 
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "brp_boundary_vertexization_probe.json"
+JSON_ROUNDED_FLOAT_TOL = 5 * 10 ** (-JSON_FLOAT_DIGITS)
+
+
+def _comparison_tol(path: str, default: float) -> float:
+    if path.endswith(".t") or ".t_interval." in path:
+        return max(default, SAMPLED_A5_BOUNDARY_ROOT_TOL)
+    return max(default, JSON_ROUNDED_FLOAT_TOL)
 
 
 def _load_json(path: Path) -> dict[str, object]:
@@ -42,7 +51,13 @@ def _assert_payload_current(
     if isinstance(stored, float) or isinstance(current, float):
         if not isinstance(stored, (int, float)) or not isinstance(current, (int, float)):
             raise AssertionError(f"{path}: numeric type mismatch")
-        if not math.isclose(float(stored), float(current), rel_tol=tol, abs_tol=tol):
+        value_tol = _comparison_tol(path, tol)
+        if not math.isclose(
+            float(stored),
+            float(current),
+            rel_tol=value_tol,
+            abs_tol=value_tol,
+        ):
             raise AssertionError(f"{path}: expected {current!r}, got {stored!r}")
         return
 

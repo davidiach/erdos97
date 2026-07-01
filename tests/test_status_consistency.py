@@ -97,3 +97,26 @@ def test_forbidden_overclaim_detector_keeps_governing_negation() -> None:
         )
         == []
     )
+
+
+def test_forbidden_overclaim_detector_keeps_wrapped_governing_negation() -> None:
+    assert (
+        find_forbidden_overclaim_lines(
+            "This packet is bookkeeping only; it does not\n"
+            "prove row forcing, `n=9`, the bootstrap bridge,\n"
+            "or Erdos Problem #97."
+        )
+        == []
+    )
+    assert (
+        find_forbidden_overclaim_lines(
+            "This family is too weak to prove the problem."
+        )
+        == []
+    )
+    assert (
+        find_forbidden_overclaim_lines(
+            "This conditional program would prove the problem if a missing lemma held."
+        )
+        == []
+    )

@@ -1,0 +1,882 @@
+{
+  "schema": "erdos97.n8_release_bundle.v1",
+  "release_date": "2026-07-02",
+  "official_status_check": "2026-07-02",
+  "claim_scope": "Repo-local selected-witness n <= 8 finite-case release packet; not a proof of Erdos Problem #97 and not a counterexample.",
+  "reproduction_commands": [
+    "python scripts/independent_check_n8_artifacts.py --check --json",
+    "python scripts/enumerate_n8_incidence.py --summary",
+    "python scripts/analyze_n8_exact_survivors.py --check --json",
+    "python scripts/independent_n8_obstruction_recheck.py --check --json",
+    "python scripts/check_n8_class14_certificate.py --check --json",
+    "python scripts/check_n8_residual_certificates.py --check --json",
+    "python scripts/check_n8_survivors_smt.py --assert-clear --check-artifact data/certificates/n8_survivors_smt.json"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 24536,
+      "sha256": "172c467562522ebf16a34d404fba81e2490440a25138d01042fa02818d3e8a80"
+    },
+    {
+      "path": "RESULTS.md",
+      "size_bytes": 113848,
+      "sha256": "daf6e2d8fb0e3ce3c1d9cf51a69c9f93ac5d026e753db0e289b65cc369cf6196"
+    },
+    {
+      "path": "STATE.md",
+      "size_bytes": 77350,
+      "sha256": "ac0cdfe6b69e45c24722a518311c2912bd5bbca99f7b2f37d2f6f62de6842ab9"
+    },
+    {
+      "path": "certificates/n8_exact_analysis.json",
+      "size_bytes": 1072175,
+      "sha256": "2fcbc2c393c9440036237c9a06aef0bb512ddf5f1c3eb5df1f568999b6f4140e"
+    },
+    {
+      "path": "certificates/n8_polynomial_systems.txt",
+      "size_bytes": 66353,
+      "sha256": "ff667385e1838692836f3f3f209415a48b0ac9627bab9dfd8af4ff829eb5a1c2"
+    },
+    {
+      "path": "data/certificates/n8_survivors_smt.json",
+      "size_bytes": 3169,
+      "sha256": "d515c45dae7c9d21ce85125b8bb58c0b6c8011a61571a5e38db660f9468fe949"
+    },
+    {
+      "path": "data/incidence/n8_compatible_orders.json",
+      "size_bytes": 735149,
+      "sha256": "96856b05fb133df01e95d8f1d2899fc84044ad75b77da116affb91d249a3bad3"
+    },
+    {
+      "path": "data/incidence/n8_incidence_completeness.json",
+      "size_bytes": 20192,
+      "sha256": "95f860d78c3784b38e2448296abba93518758de987fa84159809bb78e00d64ad"
+    },
+    {
+      "path": "data/incidence/n8_reconstructed_15_survivors.json",
+      "size_bytes": 13102,
+      "sha256": "4568a49be1a3681e897ae2b5d57336349f939614c1b79bdb09035a35873e1586"
+    },
+    {
+      "path": "docs/claims.md",
+      "size_bytes": 135126,
+      "sha256": "df9e3fca99a99de5bae6724bdfb92b4c909401c7447f3055ba6137f2a418771a"
+    },
+    {
+      "path": "docs/dumitrescu-isosceles-n8-shortcut.md",
+      "size_bytes": 2852,
+      "sha256": "c58547ca7f1bbc03bb43b2d321549ebc18bcd2d98ac49f2bdcadc15ae355900e"
+    },
+    {
+      "path": "docs/n7-fano-enumeration.md",
+      "size_bytes": 3769,
+      "sha256": "74e211404f74b61fb5aa61f7b1c5e9e803e50b1c91e8f42c44469234f1803a19"
+    },
+    {
+      "path": "docs/n8-class14-certificate.md",
+      "size_bytes": 2444,
+      "sha256": "a759e285ef3f33ee3d69a1c5481ce24213ec137073464a8c9d1487de7399d976"
+    },
+    {
+      "path": "docs/n8-exact-survivors.md",
+      "size_bytes": 8078,
+      "sha256": "6f9470a17d0f72567dab7108e3f22e30bc522315e6eccf155ee95c0ca669621a"
+    },
+    {
+      "path": "docs/n8-geometric-proof.md",
+      "size_bytes": 6596,
+      "sha256": "b0ffaebd8118e60f4ae8ce702dbc064310f49948f184d1ce7de0e38c51e3df09"
+    },
+    {
+      "path": "docs/n8-incidence-enumeration.md",
+      "size_bytes": 2941,
+      "sha256": "6e922715a32d5a0f8583795df864ff59bd72fdae9d3b47ad460ebd6cf181628e"
+    },
+    {
+      "path": "docs/n8-independent-obstruction.md",
+      "size_bytes": 4360,
+      "sha256": "c2b225c560d11c8efeee255bb4990d641220b156659c791dace85d91b700c5f9"
+    },
+    {
+      "path": "docs/n8-proof-trail.md",
+      "size_bytes": 8644,
+      "sha256": "827624e5e932b8e18cd643239c6981081caf359a6383b88df8762375679dab69"
+    },
+    {
+      "path": "docs/n8-residual-certificates.md",
+      "size_bytes": 2073,
+      "sha256": "2e99f016ab571efa6e1e04f83cad7db1ec04cffb2d1b74915f7ae1ac03072be3"
+    },
+    {
+      "path": "docs/n8-survivors-smt-cross-check.md",
+      "size_bytes": 5187,
+      "sha256": "4d0ab9f592511e0afd572087ca2e2873731efa6c7964f424ef33a8b39af59148"
+    },
+    {
+      "path": "metadata/erdos97.yaml",
+      "size_bytes": 80629,
+      "sha256": "0082234c1b55047a14ac8317e2a8d46787e39fa72fc1a26342d45159fc58bb81"
+    },
+    {
+      "path": "papers/n8-reviewer-packet.md",
+      "size_bytes": 14535,
+      "sha256": "e2c5db5068e488d8cd5ba287cf36871d541927b63227058697ccbe4f4da54ba2"
+    },
+    {
+      "path": "papers/small-counterexamples-erdos97.md",
+      "size_bytes": 6676,
+      "sha256": "e25453ba12706f50a2df3b3c1d30c1b07f435b6fea116edf90cd32dfa03c773c"
+    },
+    {
+      "path": "pyproject.toml",
+      "size_bytes": 716,
+      "sha256": "3b008501a7002f38cc310aa94b3fb1dc6e523b71329636e176741c5dab7f6026"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "size_bytes": 332,
+      "sha256": "ed4e997135d76841f34f6f4904d5b3f499e150ed951c67a241a053bf69adda28"
+    },
+    {
+      "path": "scripts/analyze_n8_exact_survivors.py",
+      "size_bytes": 28515,
+      "sha256": "70375551926328b69d924340e00b2af2266e61167b12d5bb8cab3b1be3b6caf9"
+    },
+    {
+      "path": "scripts/check_n8_class14_certificate.py",
+      "size_bytes": 14924,
+      "sha256": "eaa7db12def6b1dee3772439e5a30422cf4dc3e3d6ecc7fd9e642498a110743c"
+    },
+    {
+      "path": "scripts/check_n8_residual_certificates.py",
+      "size_bytes": 11385,
+      "sha256": "3845f152acbfad6f0a81840f36f8714dd7abb2bb5ae77059ec12cd4286ea5143"
+    },
+    {
+      "path": "scripts/check_n8_survivors_smt.py",
+      "size_bytes": 11966,
+      "sha256": "92db7eb7d2b0bf57d2c9ad7e2803bbeabac57b79382e734a4a08629bebb5063f"
+    },
+    {
+      "path": "scripts/enumerate_n8_incidence.py",
+      "size_bytes": 2874,
+      "sha256": "465dbc4a57470203a2164e825abbecff70a4d61ac9caace33bce9ffcb93a3c75"
+    },
+    {
+      "path": "scripts/independent_check_n8_artifacts.py",
+      "size_bytes": 11557,
+      "sha256": "96e2d02520ca6be9e71ade06e621a07204b94342f1025aec0617f2c1d409d07b"
+    },
+    {
+      "path": "scripts/independent_check_n8_incidence_json.py",
+      "size_bytes": 8578,
+      "sha256": "a99aa63bb1d2cf3c3c5f616cd42424276b0b268b8084f85f313fbf07dca6d782"
+    },
+    {
+      "path": "scripts/independent_n8_obstruction_recheck.py",
+      "size_bytes": 7034,
+      "sha256": "bef2f9b6e4ac9cfdf927ad3bc0fd8c2b38a157f3c62d450810391e564d12c131"
+    },
+    {
+      "path": "src/erdos97/__init__.py",
+      "size_bytes": 61,
+      "sha256": "0abae6c715e42c0db9da687843ed055b8eca230fd068851924eeeeee066cb90d"
+    },
+    {
+      "path": "src/erdos97/adaptive_blockers.py",
+      "size_bytes": 7607,
+      "sha256": "351eafc58f64ecf5e276e2f74a8268556b56ca75faf5f5ad406efdb68d5d78ef"
+    },
+    {
+      "path": "src/erdos97/affine_circuit_certificates.py",
+      "size_bytes": 18118,
+      "sha256": "c9c23208e4f6eb7c45e9ced51d4980a9d3ea4ae14069dfab55eb243632e0a2d0"
+    },
+    {
+      "path": "src/erdos97/altman_diagonal_sums.py",
+      "size_bytes": 20512,
+      "sha256": "5ea58fa848337b70253ce881e4f0659cbb53d2fc7c33b49dc6e02cabd0752b2e"
+    },
+    {
+      "path": "src/erdos97/bootstrap_core_crosswalk.py",
+      "size_bytes": 21103,
+      "sha256": "f3f2533559b99a35e29c839641dbb5bea001de843b9db2bee02ea09a9185faf4"
+    },
+    {
+      "path": "src/erdos97/bootstrap_cores.py",
+      "size_bytes": 14318,
+      "sha256": "00d985cdea152fb9f0855c3b8a1c69c7218ebbb4c55b1d02c93f5c0613297a76"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_151_6_outside_pair_audit.py",
+      "size_bytes": 26011,
+      "sha256": "99a9ff59cd3b6518d463f5ff0a088aeb04ea7b5f930da5ad57bdf7d72676722d"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_151_6_outside_pair_connector_contract.py",
+      "size_bytes": 25906,
+      "sha256": "7ac6eac7fe179b642ca098e2565f3f8e47fce13f4a82fc0dad79e717d6e40f8d"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_151_6_outside_pair_full_neighborhood_vertex_circle.py",
+      "size_bytes": 26939,
+      "sha256": "0f7d3b96c1c1bcd0deb103e38988d4d18ecf708309d8bf5c5840588396b03b12"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_151_6_outside_pair_two_row_drop.py",
+      "size_bytes": 25425,
+      "sha256": "ab8f90fcfc7916c91832559d1796b94048bd5fc876ce9a664d09d7ec38ffcc56"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py",
+      "size_bytes": 35474,
+      "sha256": "84a5929f3cc6ec6b8c59c36a8d77a10601c45a7c76a655e0b801a42b23cc0ce3"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_151_singleton_support_audit.py",
+      "size_bytes": 24888,
+      "sha256": "f403171016235c5f0da2d7bcafa0c80697c016039d42a8921618735e96b1402b"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_151_singleton_two_row_drop.py",
+      "size_bytes": 26165,
+      "sha256": "dd70ea25890d8a954457ef6db08dc1ea03710322b9c45593e75c3325118b3596"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_chain_closure_csp.py",
+      "size_bytes": 19803,
+      "sha256": "3534053d44c183224feef1e4a7016ea80055e45a23ecead60b08faa0c85b464f"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_closure_target.py",
+      "size_bytes": 20117,
+      "sha256": "22514aebf18dad7fc1418e13c6c39cc386809ac20d3bfa5624542f19fb5a492c"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_escape_auxiliary_csp.py",
+      "size_bytes": 17963,
+      "sha256": "ecbada046fac69ad23d5742a7a88512399b2e458489a06e7228ebafd422e221a"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_escape_candidates.py",
+      "size_bytes": 14203,
+      "sha256": "62fb3f6e1ca93131363c14fd57bb7aa729c72ea71e8ce8858ee39820d32169d6"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_escape_full_neighborhood.py",
+      "size_bytes": 15279,
+      "sha256": "2df2a3fd219c83531ca372b7f79dbfc7b6030bbf4a0aec05dd93d176718a4e95"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_escape_one_row_drop.py",
+      "size_bytes": 14448,
+      "sha256": "4fbfe57348138ce274ad74ee8776cc071de63a7f86ad66791233dd24d933284d"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_escape_rich_support_csp.py",
+      "size_bytes": 23358,
+      "sha256": "7db0f68930ca63dc84734b0cc649fc5ef58316ed3d041bd880f03db3b44875fa"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_escape_two_row_drop.py",
+      "size_bytes": 19507,
+      "sha256": "dc79446d5b8a703046ffb3e6d8c9042aa25487ecce4807afb0466c1ea1ce98e5"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_first_supply_chains.py",
+      "size_bytes": 33252,
+      "sha256": "a826aed3cd8472e5992b4c6f531269d4c97751133cdfcbd42ecc48f711ee0966"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_order_escape.py",
+      "size_bytes": 31803,
+      "sha256": "dd5ce174f40edfd549ab1f8cfcc2583f1c53b2c9015697911f4a58deaf46b06c"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_post8_supply_chains.py",
+      "size_bytes": 27247,
+      "sha256": "62a187265f4a3a1d6f79464b412006e6f85560106fbef8a1e5ba755bf94e166b"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_repeated_support_catalogue_audit.py",
+      "size_bytes": 30492,
+      "sha256": "ed62cd7c4054c3355a2838e41de8fef2d4c6909203eb2237c6f1efbc9cf4ca32"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_repeated_support_saturation_audit.py",
+      "size_bytes": 20364,
+      "sha256": "6cbae2f6211ecfd84206c34ae08702488ad5c343fe99175187e1238a971bf7fc"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_rich_triple_contract.py",
+      "size_bytes": 17102,
+      "sha256": "f4051841c5128e0ae1e3199514abfcd9012f7a7326aa5903494d807caa248a56"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_second_step_chains.py",
+      "size_bytes": 26540,
+      "sha256": "de9a7cfc40ca6d4110bd9b4f8a5ed178749296a0d37960ab4ecc79bc2d959ea7"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_second_supply_chains.py",
+      "size_bytes": 37423,
+      "sha256": "655b8b953c65e7594d52ea103c8f173e2ffd98b9fb101598f04b001fae6ea0da"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_trigger_uniqueness.py",
+      "size_bytes": 15640,
+      "sha256": "f66b040b4136d0d8a46965a8194ff270c052b903bba5fff1fde5dcb299b27fff"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_3_two_repeated_support_catalogue_audit.py",
+      "size_bytes": 23142,
+      "sha256": "939417e1ae7e62c3d1b59a4afce4acf919b929eece4275a57090b23865feb6f2"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_8_full_neighborhood_vertex_circle.py",
+      "size_bytes": 22585,
+      "sha256": "39f16a84bc9b5fb9d2b3c54a600b2cb31d28281c1f0b95b087cbc677bf061238"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_8_singleton_support_audit.py",
+      "size_bytes": 24295,
+      "sha256": "5cc709dee3500d61a456c115ff4f05d936130b9d63ccf74d23c285e35b8236c9"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_81_8_singleton_support_two_row_drop.py",
+      "size_bytes": 27233,
+      "sha256": "418947501ec1b03632138941e224dedaca245f880f1d2c457a1d40b407ddd342"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_activation_requirements.py",
+      "size_bytes": 20952,
+      "sha256": "a5bb5094863b9aab2499786ddbc84e552f777e73ee454144e90ec2b88b4fb827"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_bridge_target_map.py",
+      "size_bytes": 20994,
+      "sha256": "812818bcfc524891bcd7b8901f4b4d68370c89bb21437e1d338b44eb9fcaeb8f"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_closure_exposed.py",
+      "size_bytes": 13764,
+      "sha256": "df823167cd6020facdd4b6b8793692c01e9519fa59c28035585ffb58f5d6747f"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_forcing_targets.py",
+      "size_bytes": 17009,
+      "sha256": "b8458869a721961ebe6844a42e43ed816aa3b311a390c3afdc44e298d91fccb3"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_hard_strict_endpoints.py",
+      "size_bytes": 17132,
+      "sha256": "4211cfa8e39ffcd375a9f3b3bde35b11240e923fcde6704eb72f9d45c1c55ef1"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_one_outside.py",
+      "size_bytes": 15161,
+      "sha256": "bf07865b604a4a293f583c1db11506f19cd7ae14d0a931f5e8c9f4fe8eb34277"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_open_connector_pair.py",
+      "size_bytes": 16968,
+      "sha256": "e666b67cba5c7299d961da4401b716092a689bf6481ee36806e06043503491cd"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_outside_pair.py",
+      "size_bytes": 16257,
+      "sha256": "69944604a79d8784e75dbac753b8f5dace6732ebd0ceb760e155cb26418d462e"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_relation_sufficient_rows.py",
+      "size_bytes": 15221,
+      "sha256": "20e8225cd99c7fba3a7776b6f3218180a40ca3891cd8518ee2335b77c545db1f"
+    },
+    {
+      "path": "src/erdos97/bootstrap_t12_row_pressure.py",
+      "size_bytes": 18899,
+      "sha256": "d78d91f0ac519e49692dae7748a84b03799b82059355e43ba349b5ef13ed26f1"
+    },
+    {
+      "path": "src/erdos97/bootstrap_vertex_circle_overlay.py",
+      "size_bytes": 29168,
+      "sha256": "e819af42073bbe0b094c78aba8456299a9de682cca864b8864fc2e85ff5e429e"
+    },
+    {
+      "path": "src/erdos97/bridge_lemma_frontier.py",
+      "size_bytes": 18408,
+      "sha256": "637b25cf4899cbc2d2f8ea15b9bff2b02ed2ef525b1ed4e3b0f911df1b5f9a0c"
+    },
+    {
+      "path": "src/erdos97/bridge_negative_controls.py",
+      "size_bytes": 11048,
+      "sha256": "f5e195e610b5adbcb5e82e4d8aa7738470502910b803b43194743c79fee087fb"
+    },
+    {
+      "path": "src/erdos97/brp_boundary_probe.py",
+      "size_bytes": 77628,
+      "sha256": "98a69ae7a59c6aa7531ba942a9dcd3d2cbf9e79e738fdc72604db6fbce7ce6db"
+    },
+    {
+      "path": "src/erdos97/cap_cut_constraints.py",
+      "size_bytes": 14070,
+      "sha256": "97a8033548cc81c93d7924accc48f098d573516bf6f13d28253ee115ffa0aa25"
+    },
+    {
+      "path": "src/erdos97/closure_activation_negative_controls.py",
+      "size_bytes": 58955,
+      "sha256": "7db176cdd2c2c4df4eb3f340014707bcdbf70dd537cb1712839fa90151484302"
+    },
+    {
+      "path": "src/erdos97/cyclic_crossing_csp.py",
+      "size_bytes": 8008,
+      "sha256": "787a2264dd841a21c8c07d33e51731a1df2db41786596858e566235a04766340"
+    },
+    {
+      "path": "src/erdos97/dynamic_witness_search.py",
+      "size_bytes": 18467,
+      "sha256": "6804ded51da22f2639a3fa9339a7607f05df76727e0c7bb0ff05f1bb3e9c6ca4"
+    },
+    {
+      "path": "src/erdos97/edge_event_packet.py",
+      "size_bytes": 12757,
+      "sha256": "354bf040381a90637bb8a967b61bc2c27dd8f7c9399470d3f86d462d9685dda3"
+    },
+    {
+      "path": "src/erdos97/fast_vertex_search.py",
+      "size_bytes": 20823,
+      "sha256": "0d5e3081dba4fc1d4249287fc7998127efec44fba1e75b556b41537614ddd094"
+    },
+    {
+      "path": "src/erdos97/fragile_benchmarks.py",
+      "size_bytes": 615,
+      "sha256": "017dc191019ce9d2eebe4f9ea65dde0e4bd2a8ca1d4c3306b514bbb2084710c7"
+    },
+    {
+      "path": "src/erdos97/fragile_hypergraph.py",
+      "size_bytes": 19362,
+      "sha256": "320f55e7fc70892d5ce28d2efaaad5b621bc16e4f0c70fabbf4f1802c3d1cb7a"
+    },
+    {
+      "path": "src/erdos97/generic_vertex_search.py",
+      "size_bytes": 14600,
+      "sha256": "a57b9acd9217f779c539a3f80825cdd8ad8381d9835b16eca640fa7d809e12d7"
+    },
+    {
+      "path": "src/erdos97/incidence_filters.py",
+      "size_bytes": 24196,
+      "sha256": "b5534fd77b9691a815f35b0de6995ef40150a22a3dc82970d8f648baaab714d7"
+    },
+    {
+      "path": "src/erdos97/interval_verify.py",
+      "size_bytes": 13698,
+      "sha256": "de5a57df4e06ff54dceb98b1a92c17a151e9c9bf1d68cfd6735b4fe5a9bcaebd"
+    },
+    {
+      "path": "src/erdos97/inversive_incidence.py",
+      "size_bytes": 16012,
+      "sha256": "747a7ede9d112c651e7b8a53416ce69b0ae46ec01f5fed20b84a2c4533bc67eb"
+    },
+    {
+      "path": "src/erdos97/metric_order_lp.py",
+      "size_bytes": 8710,
+      "sha256": "d2ef95ea30d8b49c2eb785db42a70859a3c20b578f5932b201a7e062b575ee80"
+    },
+    {
+      "path": "src/erdos97/min_radius_filter.py",
+      "size_bytes": 18527,
+      "sha256": "4e0e0bcc87383dac45be0199297b7118d325fe2d8c719a55c87eaff126eac77c"
+    },
+    {
+      "path": "src/erdos97/motif_fingerprint.py",
+      "size_bytes": 4273,
+      "sha256": "edbf511e223f7a7e27039827fb6873ffec7da8825bc6d28fce48d00a83831090"
+    },
+    {
+      "path": "src/erdos97/n10_secondary_singleton_replay.py",
+      "size_bytes": 8655,
+      "sha256": "4d6ff697c419c97fb776246452bf0ca32e3ce438616361ec8989590152114356"
+    },
+    {
+      "path": "src/erdos97/n10_turn_row0_pilot.py",
+      "size_bytes": 18693,
+      "sha256": "fb5d38c08d3d28fb5204fe9a029571e69c8fd86d2ec4b74254164a3a1b52de52"
+    },
+    {
+      "path": "src/erdos97/n10_vertex_circle_singletons.py",
+      "size_bytes": 12280,
+      "sha256": "86158090bec94abbee4abd0262962e04fa04993355163ef263b16c0dfcd75b58"
+    },
+    {
+      "path": "src/erdos97/n7_fano.py",
+      "size_bytes": 19444,
+      "sha256": "f502acb02c574a2104b840c94e37db6995efea3d8bf2e6a3c19cdf4cd45ee18f"
+    },
+    {
+      "path": "src/erdos97/n8_incidence.py",
+      "size_bytes": 15752,
+      "sha256": "219d9ae9d6a120b1f1c535e906e556cef7a1081ed331e388ad75b0543d79aa42"
+    },
+    {
+      "path": "src/erdos97/n8_independent_obstruction.py",
+      "size_bytes": 20323,
+      "sha256": "fae1c200b19ac27c0e37f4f98b780c9fd93331e41dfb4206e46040b405f31294"
+    },
+    {
+      "path": "src/erdos97/n9_base_apex.py",
+      "size_bytes": 41360,
+      "sha256": "ff63775c2e7035ce6d8a61e7c586a6d13bfcc5bc1743b893c9df8a76cc77dc68"
+    },
+    {
+      "path": "src/erdos97/n9_base_apex_d3_artifact_join.py",
+      "size_bytes": 33577,
+      "sha256": "5d7bc0e39ea44309953ead79b366c1292d23f5a3e18df74ed9ebf09ff810ff16"
+    },
+    {
+      "path": "src/erdos97/n9_base_apex_d3_escape_frontier_packet.py",
+      "size_bytes": 10209,
+      "sha256": "12cd8dd058054078e3fa67145204101c1cee5664060a862664835b7c4bf749a2"
+    },
+    {
+      "path": "src/erdos97/n9_base_apex_d3_incidence_capacity_packet.py",
+      "size_bytes": 14260,
+      "sha256": "663359da0b95327d05231c3b241040b1db18cffa69844cbd5d0fc8ef702107a0"
+    },
+    {
+      "path": "src/erdos97/n9_base_apex_d3_p19_incidence_capacity_pilot.py",
+      "size_bytes": 11969,
+      "sha256": "45e75de0cc677d4595f76f03a92673e5b9c645c7c394882a3234f4f051c7df6a"
+    },
+    {
+      "path": "src/erdos97/n9_base_apex_low_excess_escape_crosswalk.py",
+      "size_bytes": 21158,
+      "sha256": "e4b3fdf4fbd9a88d596e56f81769eb86b226c46a93329f00e7d79c94d4027b2e"
+    },
+    {
+      "path": "src/erdos97/n9_base_apex_low_excess_escape_ladder.py",
+      "size_bytes": 13126,
+      "sha256": "bb83a06eb41907886dd2da9494cafc34630ec8d5ce4199a0ee2a7e00102ead67"
+    },
+    {
+      "path": "src/erdos97/n9_d3_escape_slice.py",
+      "size_bytes": 14956,
+      "sha256": "524041124474d8918247c6d7955eb05241e34104422897680b02c0fcd81702b3"
+    },
+    {
+      "path": "src/erdos97/n9_high_risk_frontier_packet.py",
+      "size_bytes": 19400,
+      "sha256": "852126250457a1712284723c8f8740dc93a0f72f24f14138a9681a79007e5e01"
+    },
+    {
+      "path": "src/erdos97/n9_incidence_frontier.py",
+      "size_bytes": 20764,
+      "sha256": "df3d3bab640bd1131de909a6d3eff488664632bae376f1ffd3464986d9e874f4"
+    },
+    {
+      "path": "src/erdos97/n9_kalmanson_selfedge.py",
+      "size_bytes": 14662,
+      "sha256": "3b0fd4372f078609019e602775d9e7d8b1a8b092386c8673b231fa73a821dff5"
+    },
+    {
+      "path": "src/erdos97/n9_row_ptolemy_product_cancellations.py",
+      "size_bytes": 20231,
+      "sha256": "fde1a0b19ef8f0768d6b9b319c89792d4ad4e9cc3f72c4e48df366913aeb70eb"
+    },
+    {
+      "path": "src/erdos97/n9_selected_baseline_d3_escape_class_crosswalk.py",
+      "size_bytes": 17320,
+      "sha256": "06bcc19c328356f335d653712e158d1cd8b6e0dbaf66e4dbe8edd2095221b55e"
+    },
+    {
+      "path": "src/erdos97/n9_selected_baseline_d3_vertex_circle_template_join.py",
+      "size_bytes": 20493,
+      "sha256": "21255dc5702c6117efd1eae0475b2a53f3766c4aac1e3d92851d69a7b2347eb9"
+    },
+    {
+      "path": "src/erdos97/n9_selected_baseline_escape_budget.py",
+      "size_bytes": 25189,
+      "sha256": "81818862720c27df9d58ff8f002cc9f0401301bfeef05a827afb7c0ae0012ada"
+    },
+    {
+      "path": "src/erdos97/n9_t01_self_edge_minireplay.py",
+      "size_bytes": 13930,
+      "sha256": "dd5d1787502155f18527e5abd668630256026e211ea72666d9fc23c3838bc69d"
+    },
+    {
+      "path": "src/erdos97/n9_t02_self_edge_minireplay.py",
+      "size_bytes": 17589,
+      "sha256": "c97630954188cbcc39c98c767ed47b50f5d11093b72c65e56714c88092df8300"
+    },
+    {
+      "path": "src/erdos97/n9_t03_self_edge_minireplay.py",
+      "size_bytes": 9304,
+      "sha256": "2cb8c6a73e40c1a170b86585101e5d819b9e21354c6cfebcf6ad9ff665fa9eed"
+    },
+    {
+      "path": "src/erdos97/n9_t04_self_edge_minireplay.py",
+      "size_bytes": 9207,
+      "sha256": "9bb35524e807f49c182b613ca3f27018687e40b79adfb98550fb803ef02f47af"
+    },
+    {
+      "path": "src/erdos97/n9_t05_self_edge_minireplay.py",
+      "size_bytes": 9209,
+      "sha256": "368d72510fa216d49f961de955d2117c53a960c985932fb2d1113a6d36619c83"
+    },
+    {
+      "path": "src/erdos97/n9_t06_self_edge_minireplay.py",
+      "size_bytes": 9209,
+      "sha256": "3af36edc084041c609e2d3c5f14905fc2a38573d3eebbdc4b77ba2207e3d497a"
+    },
+    {
+      "path": "src/erdos97/n9_t07_self_edge_minireplay.py",
+      "size_bytes": 9209,
+      "sha256": "98c6a6d44fa269c63ad86371e2acdbdbba681a7bd4aadcf63187f18605d5a0cc"
+    },
+    {
+      "path": "src/erdos97/n9_t08_self_edge_minireplay.py",
+      "size_bytes": 9209,
+      "sha256": "7f9d8476927c35136f46f73e1a7f267d88182afd9a535e0ce1086ea4914d3aa9"
+    },
+    {
+      "path": "src/erdos97/n9_t09_self_edge_minireplay.py",
+      "size_bytes": 9209,
+      "sha256": "e615aea3fc3cfa0e0c68e6dedbf30eb15b2b244fa46a65344921de2fe492e643"
+    },
+    {
+      "path": "src/erdos97/n9_t10_strict_cycle_minireplay.py",
+      "size_bytes": 17682,
+      "sha256": "4124fcbdd9423fcba58c045a447eae98977099ca47b5820f4dcb38f3fbbb90ba"
+    },
+    {
+      "path": "src/erdos97/n9_t11_strict_cycle_minireplay.py",
+      "size_bytes": 17789,
+      "sha256": "85479938d9d01ade2142c41abf780023fcbb9c8136a7fbab0850dcd04ff1a96f"
+    },
+    {
+      "path": "src/erdos97/n9_t12_strict_cycle_minireplay.py",
+      "size_bytes": 17803,
+      "sha256": "c761794843004324a5bb3600e66d2b7c0d8a95c6b0dda4b9e93b658c3f334b3f"
+    },
+    {
+      "path": "src/erdos97/n9_turn_inequality_frontier.py",
+      "size_bytes": 33598,
+      "sha256": "cc3a21469f5e993dce95f33c2215fe261e88d44bad6363b6331746dae6ebe664"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_exhaustive.py",
+      "size_bytes": 13911,
+      "sha256": "e783bcdfa1fdc8f2f49550394d4812c1d698fba7341990b84eff8f3bb5f32574"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_frontier_comparison.py",
+      "size_bytes": 11483,
+      "sha256": "655e3ec10d0de2e55c0daa3c489c0e8a57bef07e98da9aa455215eb115af981a"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_frontier_motif_classification.py",
+      "size_bytes": 15103,
+      "sha256": "86c773f54a1322f60fd469c9ee419b20a2c7ac0a011d4d38252030a7307b8cb1"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_local_lemma_simple_replay.py",
+      "size_bytes": 23662,
+      "sha256": "0c77f068a9ba07a6cd238b71ea4a949749f9dcee7eb09ccdb285610ef8fad20b"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_local_lemmas.py",
+      "size_bytes": 50980,
+      "sha256": "f060f6f7e9b96f493b0d94ccee1bc31c3dce28d65c2e0db49e3fa48874325dbd"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_obstruction_shapes.py",
+      "size_bytes": 43833,
+      "sha256": "eb0d586662503ce3c1693b0f553f5b2caa117af31da38f14c755f3fb40b63e3b"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_self_edge_path_join.py",
+      "size_bytes": 16613,
+      "sha256": "eeef028be483fe444d55f1c6eb6aacdef22dfb1f79ceaf948ea510f1d6616fa1"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_self_edge_template_packet.py",
+      "size_bytes": 17707,
+      "sha256": "eab09b04951edf35d16cbc34791f8f0a7489f1759267215abbb4527034565930"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_strict_cycle_path_join.py",
+      "size_bytes": 21833,
+      "sha256": "8fe14279fa95dfaa8b92157823eaad58dcc3549014f4fce492eb203fc31ce539"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_strict_cycle_template_packet.py",
+      "size_bytes": 22421,
+      "sha256": "cf917be85c8bb85f7b1a8ceb92a5c36af4d41a06331b4be5a74f1692f5c8c1ee"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t01_self_edge_lemma_packet.py",
+      "size_bytes": 19905,
+      "sha256": "4c0738826dcec90670d26b4d5dd3633614f41b538d796e4467352f2498f0692b"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t02_self_edge_lemma_packet.py",
+      "size_bytes": 27446,
+      "sha256": "f8198c8a5694926abfd50b01590f491f4bd9e575410cf6738eb93f1f025f65c2"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t03_self_edge_lemma_packet.py",
+      "size_bytes": 26309,
+      "sha256": "e1bfaa53caa64a0af16a146a9c02e2b3e40f9b00649eac08764c44b70c3a1b25"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t04_self_edge_lemma_packet.py",
+      "size_bytes": 23845,
+      "sha256": "95705cb0bb65785578260122e92a885e3d0f6e26beb244c2db9b6c479e2085d7"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t05_self_edge_lemma_packet.py",
+      "size_bytes": 24068,
+      "sha256": "e7b70706605c508eea146cfa8208ddb218a97ce43590c178aeaf21116a35752e"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t06_self_edge_lemma_packet.py",
+      "size_bytes": 24154,
+      "sha256": "d291dfe826fe4b40d9adc709fb56ce8e0749649f6a00ca7b62dbcb47537e0798"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t07_self_edge_lemma_packet.py",
+      "size_bytes": 24162,
+      "sha256": "56754084819c61815983d212ee7218008ea8dadefe3132ec397ccdf38d0dc013"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t08_self_edge_lemma_packet.py",
+      "size_bytes": 24240,
+      "sha256": "78e28f9fb7d40e2dd91a7e2bead0204900a405ec65e0310996b300e20984b42b"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t09_self_edge_lemma_packet.py",
+      "size_bytes": 24300,
+      "sha256": "fd3333241660875b6208b82557c2174f636aacec49b85499a0596db8e2619787"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t10_strict_cycle_lemma_packet.py",
+      "size_bytes": 34738,
+      "sha256": "5c75bf611b8d70ef3c34d9e9ec1eacb18b7b52d34c3ecdb1b51dde2d939c554d"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t11_strict_cycle_lemma_packet.py",
+      "size_bytes": 33229,
+      "sha256": "e6ee2750bd1814b284dd8c7483d609e64d03f5618a7001f0ac8dd19fc86e6717"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_t12_strict_cycle_lemma_packet.py",
+      "size_bytes": 33144,
+      "sha256": "13804353bc2121c0320901d906b8bf36028fead77c050f6f541f1078166de334"
+    },
+    {
+      "path": "src/erdos97/n9_vertex_circle_template_lemma_catalog.py",
+      "size_bytes": 19174,
+      "sha256": "82582e5bd1b0df56bc3ed6a7b303404a713aea05c94f2b1fad45a62d4b5b7b8b"
+    },
+    {
+      "path": "src/erdos97/path_display.py",
+      "size_bytes": 453,
+      "sha256": "3386feda107c24aa2ab75dbaf4be7406160108b8bf51fd7376f79700a73bcc0b"
+    },
+    {
+      "path": "src/erdos97/pattern_io.py",
+      "size_bytes": 2081,
+      "sha256": "a6c0f06e24c865764c5dee7f36c04695d6b879a558ff88ba76fa53b3b7e1f450"
+    },
+    {
+      "path": "src/erdos97/phi4_frontier.py",
+      "size_bytes": 5833,
+      "sha256": "1b6bee86e5d7dd2885609014ef380447bfd6f61380329c986a21274808f24698"
+    },
+    {
+      "path": "src/erdos97/ptolemy_order_nlp.py",
+      "size_bytes": 10227,
+      "sha256": "4b0555df17b7e7851b63acca26f257b9a2ce32ea1829d200df41c7e7eb910905"
+    },
+    {
+      "path": "src/erdos97/quotient_cone.py",
+      "size_bytes": 16484,
+      "sha256": "25c5cf81e497c60180ec5d40f627db288ffb739147a3da7f91c25eb1c456a570"
+    },
+    {
+      "path": "src/erdos97/radius_blocker_packets.py",
+      "size_bytes": 18708,
+      "sha256": "622f1d83980defa6992e06c89d02bc5b822211f5a6df7337a64d952071297be7"
+    },
+    {
+      "path": "src/erdos97/reciprocal_radial_budget.py",
+      "size_bytes": 10972,
+      "sha256": "e45370b3b2efb61f8955d9af597f5ac2a60fb633f4efa8ccd3a05b49fc017826"
+    },
+    {
+      "path": "src/erdos97/relation_skeleton_catalog.py",
+      "size_bytes": 24808,
+      "sha256": "64eedabefb98390be3ede2f197ef87fade574d9f8296c6cf9a5e179a2726236b"
+    },
+    {
+      "path": "src/erdos97/row_circle_ptolemy_nlp.py",
+      "size_bytes": 19944,
+      "sha256": "fcaec216011061381f7600e8bfd534b9ace0cabf78f08f3a835146032f03ea81"
+    },
+    {
+      "path": "src/erdos97/search.py",
+      "size_bytes": 38529,
+      "sha256": "a17e286cfae37dcbd757d2328a5ab7d59b79c5af9cf23f2b0d2b3e18af1e4fda"
+    },
+    {
+      "path": "src/erdos97/sparse_frontier.py",
+      "size_bytes": 40299,
+      "sha256": "dcb01f70f7ce336493cdd8799385c524a6d48c0bb19f844e8521045ff5d20874"
+    },
+    {
+      "path": "src/erdos97/stuck_motif_search.py",
+      "size_bytes": 11857,
+      "sha256": "4241ed2a8457b857326c76dae550a99593247c634b3ff74b4e02abf2de38f1f3"
+    },
+    {
+      "path": "src/erdos97/stuck_motif_sweep.py",
+      "size_bytes": 6986,
+      "sha256": "808bba0e71699083941c33594b67daa10e9938e01a41129f30f0acc03523f50c"
+    },
+    {
+      "path": "src/erdos97/stuck_sets.py",
+      "size_bytes": 34859,
+      "sha256": "a4b4174f383004e8988161b5954cc9bb6e713e57d68a60c33b1ae4b5d2f012c3"
+    },
+    {
+      "path": "src/erdos97/turn_inequality_indexing.py",
+      "size_bytes": 11426,
+      "sha256": "ae7cdb7cd6444a6005d0a05513064b2e4e6a0cf40741b6dd3611fa99e5689656"
+    },
+    {
+      "path": "src/erdos97/two_orbit_radius_propagation.py",
+      "size_bytes": 34767,
+      "sha256": "2b168c4ec65d41cf832ad5deb20b74fdf5561ea0ed027ba6dc2155aa344fb404"
+    },
+    {
+      "path": "src/erdos97/two_parabola_lens_closure.py",
+      "size_bytes": 13199,
+      "sha256": "6d955bd95e4b5234100e0b6734bd1e32f86d76305afb75701aa2cee15d838a12"
+    },
+    {
+      "path": "src/erdos97/vertex_circle_closed_descent.py",
+      "size_bytes": 5482,
+      "sha256": "bbb65af257a862c2c4d6972e2d263c4b4846a9b20b2e385ef55690544aa2fbf1"
+    },
+    {
+      "path": "src/erdos97/vertex_circle_order_filter.py",
+      "size_bytes": 19850,
+      "sha256": "6b377a0672255f0996b2acd4b982a96acc06be3dc14446cfe471ed8b04d58472"
+    },
+    {
+      "path": "src/erdos97/vertex_circle_quotient_replay.py",
+      "size_bytes": 19490,
+      "sha256": "b32dcaf5664b487f7fba08779e277afbf0aee41705965badf177abf3fa3e9984"
+    }
+  ]
+}
