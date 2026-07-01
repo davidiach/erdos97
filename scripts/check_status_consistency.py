@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check top-level status text for stale or overclaiming contradictions."""
+"""Check status and proof-facing text for stale or overclaiming contradictions."""
 from __future__ import annotations
 
 import argparse
@@ -18,6 +18,7 @@ except ImportError:  # pragma: no cover - exercised only without dev dependencie
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_STATUS_FILES = ["README.md", "STATE.md", "RESULTS.md"]
+ADDITIONAL_OVERCLAIM_SCAN_FILES = ["docs/claims.md"]
 PATTERN_CATALOG = ROOT / "data" / "patterns" / "candidate_patterns.json"
 PATTERN_DOC = "docs/candidate-patterns.md"
 ALL_ORDER_PATTERN_NAMES = ("C19_skew", "C13_sidon_1_2_4_10")
@@ -91,7 +92,9 @@ BANNED_OVERCLAIM_RE_LIST = (
 OVERCLAIM_LINE_ALLOW_RE = re.compile(r"\bforbidden\s+overclaiming\s+text\b", re.I)
 OVERCLAIM_ALLOW_RE = re.compile(
     r"\b(?:no|not|never|without|forbid(?:den)?|does\s+not|do\s+not|cannot|"
-    r"should\s+not|must\s+not|required\s+before|rejected\s+as|not\s+a|not\s+an)\b",
+    r"should\s+not|must\s+not|required\s+before|rejected\s+as|not\s+a|not\s+an|"
+    r"too\s+weak\s+to)\b"
+    rf"|would\s+(?:{ERDOS97_PROOF_VERBS})\b[^.\n;|:]{{0,120}}\bif\b",
     re.I,
 )
 CLAIM_CONTEXT_BOUNDARY_RE = re.compile(
@@ -200,10 +203,12 @@ def find_forbidden_overclaim_lines(text: str) -> list[tuple[int, str]]:
 
     hits: list[tuple[int, str]] = []
     previous = ""
+    previous2 = ""
     for index, line in enumerate(text.splitlines(), start=1):
         normalized = " ".join(line.split())
         if not normalized:
             previous = ""
+            previous2 = ""
             continue
         scan_text = normalized
         previous_prefix_len = 0
@@ -217,8 +222,13 @@ def find_forbidden_overclaim_lines(text: str) -> list[tuple[int, str]]:
             joined_wrapped_continuation = line_continues_wrapped_sentence(normalized)
             joined_open_previous = previous_line_opens_sentence(previous)
             joined_previous = previous
-            scan_text = f"{previous} {normalized}"
-            previous_prefix_len = len(previous) + 1
+            if previous2 and line_continues_wrapped_sentence(previous) and previous_line_opens_sentence(previous2):
+                joined_previous = f"{previous2} {previous}"
+                scan_text = f"{previous2} {previous} {normalized}"
+            else:
+                scan_text = f"{previous} {normalized}"
+            previous_prefix_len = len(scan_text) - len(normalized)
+        previous2 = previous
         previous = normalized
         if OVERCLAIM_LINE_ALLOW_RE.search(scan_text):
             continue
@@ -491,6 +501,13 @@ def validate_top_level_status() -> None:
         fail("README.md or STATE.md should reference metadata/erdos97.yaml")
 
 
+def validate_additional_overclaim_scan_files(
+    paths: Sequence[str] = ADDITIONAL_OVERCLAIM_SCAN_FILES,
+) -> None:
+    for rel in paths:
+        require_no_forbidden_overclaims(rel, read_text(rel))
+
+
 def validate_archived_synthesis() -> None:
     synthesis = ROOT / "docs" / "canonical-synthesis.md"
     if not synthesis.exists():
@@ -522,6 +539,7 @@ def main(argv: Sequence[str] | None = None) -> None:
     args = parse_args(argv)
     validate_metadata(args.max_official_status_age_days)
     validate_top_level_status()
+    validate_additional_overclaim_scan_files()
     validate_archived_synthesis()
 
 

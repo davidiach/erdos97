@@ -292,6 +292,60 @@ def test_cli_check_tolerates_tiny_float_drift(tmp_path: Path) -> None:
     assert check.returncode == 0, check.stderr
 
 
+def test_cli_check_tolerates_boundary_root_float_drift(tmp_path: Path) -> None:
+    artifact = tmp_path / "brp_probe.json"
+    payload = build_payload()
+    root_hit = payload["sampled_a5_boundary_support_scan"]["best_boundary_circles"][2][
+        "interior_hits"
+    ][2]
+    root_hit["t"] += 5e-8
+    interval_root = payload["sampled_a5_six_hit_rational_replay"]["buckets"][2][
+        "exact_radius_replays"
+    ][0]["certified_interior_roots"][2]["t_interval"]
+    interval_root["lower"] += 5e-8
+    artifact.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+    check = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_brp_boundary_probe.py",
+            "--artifact",
+            str(artifact),
+            "--check",
+            "--assert-expected",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert check.returncode == 0, check.stderr
+
+
+def test_cli_check_tolerates_json_rounded_float_drift(tmp_path: Path) -> None:
+    artifact = tmp_path / "brp_probe.json"
+    payload = build_payload()
+    bucket = payload["sampled_a5_six_hit_rational_replay"]["buckets"][2]
+    bucket["squared_distance_gap_float"] += 4e-9
+    artifact.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+    check = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_brp_boundary_probe.py",
+            "--artifact",
+            str(artifact),
+            "--check",
+            "--assert-expected",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    assert check.returncode == 0, check.stderr
+
+
 def test_cli_check_rejects_material_float_drift(tmp_path: Path) -> None:
     artifact = tmp_path / "brp_probe.json"
     payload = build_payload()
