@@ -194,7 +194,7 @@ Optional corroborating commands:
 ```bash
 python scripts/independent_n9_vertex_circle_recheck.py --json
 python scripts/check_n9_vertex_circle_compact_brancher.py --check --assert-expected --json
-python scripts/decode_n9_groebner_f07_f13.py
+python scripts/decode_n9_groebner_f07_f13.py --check
 ```
 
 ## Expected invariants

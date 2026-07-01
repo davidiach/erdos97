@@ -44,7 +44,7 @@ import itertools
 import json
 import time
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 import sympy as sp
 from sympy import (
@@ -62,6 +62,31 @@ SOURCE_GROEBNER = ROOT / "data" / "certificates" / "2026-05-05" / "n9_groebner_r
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_groebner_real_root_decoders.json"
 
 TARGET_FAMILIES = ("F07", "F08", "F09", "F13")
+TIMING_KEYS = {
+    "wall_time_seconds",
+    "grevlex_basis_seconds",
+    "lex_basis_seconds",
+}
+
+
+def without_timing_fields(payload: Any) -> Any:
+    """Return payload with volatile runtime measurements removed."""
+
+    if isinstance(payload, dict):
+        return {
+            key: without_timing_fields(value)
+            for key, value in payload.items()
+            if key not in TIMING_KEYS
+        }
+    if isinstance(payload, list):
+        return [without_timing_fields(item) for item in payload]
+    return payload
+
+
+def json_shape(payload: Any) -> Any:
+    """Normalize tuples and other JSON-serializable values to loaded-JSON shape."""
+
+    return json.loads(json.dumps(payload))
 
 
 def build_system(rows: list[list[int]], n: int = 9):
@@ -351,6 +376,11 @@ def decode_family(family: dict, *, lex_budget: float = 600.0):
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", default=str(DEFAULT_OUT))
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="regenerate and compare with --out without rewriting the artifact",
+    )
     parser.add_argument("--lex-budget", type=float, default=600.0,
                         help="seconds before lex GB is considered slow (informational)")
     args = parser.parse_args()
@@ -407,11 +437,21 @@ def main() -> int:
         ),
     }
     out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    with out_path.open("w", encoding="utf-8", newline="\n") as fh:
-        json.dump(summary, fh, indent=2, sort_keys=False)
-        fh.write("\n")
-    print(f"\nwrote {out_path}")
+    if args.check:
+        with out_path.open("r", encoding="utf-8") as fh:
+            stored = json.load(fh)
+        generated = json_shape(summary)
+        if without_timing_fields(stored) != without_timing_fields(generated):
+            raise AssertionError(
+                f"regenerated decoder artifact differs outside timing fields: {out_path}"
+            )
+        print(f"\nchecked {out_path} (ignoring runtime timing fields)")
+    else:
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        with out_path.open("w", encoding="utf-8", newline="\n") as fh:
+            json.dump(summary, fh, indent=2, sort_keys=False)
+            fh.write("\n")
+        print(f"\nwrote {out_path}")
     print(f"total real solutions across F07/F08/F09/F13: {summary['headline']['total_real_solutions_across_families']}")
     print(f"strictly convex configurations: {summary['headline']['strictly_convex_solutions']}")
     return 0

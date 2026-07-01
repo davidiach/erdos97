@@ -172,7 +172,7 @@ python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --
 For the algebraic cross-audit:
 
 ```bash
-python scripts/decode_n9_groebner_f07_f13.py
+python scripts/decode_n9_groebner_f07_f13.py --check
 ```
 
 These commands are review aids. Passing them does not, by itself, complete

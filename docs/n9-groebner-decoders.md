@@ -125,8 +125,15 @@ Running
 python3 scripts/decode_n9_groebner_f07_f13.py
 ```
 
-with sympy 1.14.0 (the version pinned in `requirements-lock.txt`) writes
-`data/certificates/n9_groebner_real_root_decoders.json` and prints
+with sympy 1.14.0 (the version pinned in `requirements-lock.txt`) regenerates
+and writes `data/certificates/n9_groebner_real_root_decoders.json`. To verify
+the committed artifact without rewriting timing fields, run
+
+```bash
+python3 scripts/decode_n9_groebner_f07_f13.py --check
+```
+
+Both modes print
 
 ```
 [F07] grevlex GB: 62 polys, zero-dim=True
@@ -155,12 +162,11 @@ exists in the variety of any of the four families.
 ## Verifier instructions
 
 1. Confirm `requirements-lock.txt` lists `sympy==1.14.0` and install it.
-2. Run `python3 scripts/decode_n9_groebner_f07_f13.py`.
-3. Diff the output JSON against the committed
-   `data/certificates/n9_groebner_real_root_decoders.json`. The artifact
-   should reproduce bit-for-bit modulo wall-clock fields
-   (`grevlex_basis_seconds`, `wall_time_seconds`,
-   `univariate_elimination.lex_basis_seconds`).
+2. Run `python3 scripts/decode_n9_groebner_f07_f13.py --check`.
+3. Confirm the check reports no non-timing drift from the committed
+   `data/certificates/n9_groebner_real_root_decoders.json`. The checker
+   ignores volatile wall-clock fields (`grevlex_basis_seconds`,
+   `wall_time_seconds`, and `univariate_elimination.lex_basis_seconds`).
 4. Sanity-check the polynomial system in the artifact against the witness
    rows in `data/certificates/2026-05-05/n9_groebner_results.json`: every
    `polys[k]` should be the difference of two squared-distance polynomials
