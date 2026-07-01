@@ -64,6 +64,14 @@ conditional center-`8` endpoint targets if re-centered. The support crosswalk
 listed in the table is the later refinement; neither packet proves center
 migration.
 
+The task-selection contract in
+`docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md` joins the latest
+endpoint-`8`, center-migration, and target-sparse route decisions. Use it as
+the compact handoff before starting another `151:6` bridge PR: the useful
+targets are private-halo exclusion / endpoint-`8` forcing, center-`8`
+migration or source geometry, and order forcing / stronger exact rows /
+endpoint-source geometry for the target-sparse lane.
+
 ## Recommended lemma contracts
 
 ### Contract A: exact local-template forcing

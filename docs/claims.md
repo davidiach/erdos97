@@ -1336,6 +1336,16 @@ assignments `0` or `11` impossible, support existence, center migration, row
 forcing, endpoint-`8` forcing, `[3,5]` impossibility, `n=9`, the bootstrap
 bridge, or Erdos Problem #97.
 
+The next-lemma obligation contract in
+`docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md` joins the
+endpoint-`8` forcing, center-`8` migration-support, and target-sparse
+order-sensitivity route decisions. It records three still-open proof targets:
+exclude private-halo pair `[3,5]` or force endpoint `8`, prove center-`8`
+migration or an independent center-`8` `[0,4,6]` source, and add order
+forcing, stronger exact rows, or endpoint/source geometry for the
+target-sparse lane. This is bridge task-selection infrastructure only, not a
+proof of any of those obligations and not a status promotion.
+
 The source-`151` singleton-support audit in
 `docs/bootstrap-t12-151-singleton-support-audit.md` covers rows `151:5` and
 `151:8`. In both fixed source-`151` neighborhoods, only the original target row

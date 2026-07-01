@@ -1121,6 +1121,20 @@ false`, `all_order_obstruction_proved: false`, `solves_n9: false`, and
 `solves_erdos97: false`. The remaining useful route needs order forcing, a
 stronger exact row family, or endpoint/source geometry.
 
+The next-lemma obligation contract in
+`docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md`,
+`scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py`, and
+`data/certificates/bootstrap_t12_151_6_label4_next_lemma_obligations.json`
+joins the endpoint-`8` forcing preflight, center-`8` migration-support
+crosswalk, and target-sparse order-sensitivity crosswalk. It pins three open
+obligations: exclude private-halo pair `[3,5]` or force endpoint `8`, prove
+center-`8` migration or an independent center-`8` `[0,4,6]` source, and add
+order forcing, stronger exact rows, or endpoint/source geometry for the
+target-sparse lane. This is task-selection infrastructure only; it does not
+prove support existence, center migration, row forcing, endpoint-`8` forcing,
+`[3,5]` impossibility, assignments `0` or `11` impossible, an all-order
+obstruction, `n=9`, the bootstrap bridge, or Erdos Problem #97.
+
 The source-`151` singleton-support audit covers the two remaining
 one-outside-label row targets, `151:5` and `151:8`. Row `151:5` uses
 bootstrap-core witnesses `[2,4]` and singleton supports `7` and `8`; row

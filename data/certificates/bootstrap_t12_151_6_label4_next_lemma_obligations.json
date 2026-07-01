@@ -1,0 +1,176 @@
+{
+  "claim_scope": "Bridge-obligation contract for the source-151 row-6 label-4 private-lane target. It joins the endpoint-8 forcing preflight, the center-8 migration support crosswalk, and the target-sparse order-sensitivity crosswalk to record the remaining useful lemma obligations: exclude the private-halo pair [3,5] or force endpoint 8, prove genuine center-8 migration or an independent center-8 [0,4,6] source, and add order forcing, stronger exact strict rows, or endpoint/source geometry for the target-sparse lane. It does not prove support existence, does not prove center migration, does not prove row forcing, does not prove endpoint-8 forcing, does not prove pair [3,5] impossible, does not prove assignments 0 or 11 possible or impossible, does not prove an all-order obstruction, does not prove n=9, does not prove the bootstrap bridge, does not prove Erdos #97, is not a counterexample, and is not a global status update.",
+  "dead_end_guards": [
+    "Do not claim endpoint-8 support is forced from the current preflight.",
+    "Do not treat vertex-circle replay of selected-row survivors as support existence.",
+    "Do not treat same-center support backing as center-8 migration.",
+    "Do not reuse the existing source-151 row-8 singleton packet as a source for [0,4,6].",
+    "Do not treat label-8 visibility as a target-compatible center-8 core.",
+    "Do not claim the natural-order dual certificates make the quotients realizable.",
+    "Do not claim the alternate-order certificates prove all-order obstruction.",
+    "Do not run another solver-only cone screen over the same 255-row family as bridge progress."
+  ],
+  "interpretation": [
+    "The source packets already rule out several tempting local shortcuts, so useful work must add a genuine bridge lemma or a new exact geometric source.",
+    "The three open obligations are complementary: private-halo endpoint forcing, center-8 migration/source, and target-sparse order or geometry.",
+    "This ledger is task-selection infrastructure only; it does not promote the 151:6 lane, n=9, or the global problem."
+  ],
+  "obligations": [
+    {
+      "bridge_question": "Under genuine minimal/rich-class hypotheses, must the source-151 row-6 outside-pair support include endpoint 8?",
+      "current_blocker": "The private-halo-only support pair [3,5] has 12 basic-filter selected-row survivors before vertex-circle replay.",
+      "not_satisfied_by": [
+        "the conditional connector contract alone",
+        "basic incidence/crossing filters",
+        "vertex-circle replay of selected-row neighborhoods"
+      ],
+      "obligation_id": "private_halo_endpoint8_exclusion",
+      "source_gate": "NOT_READY_PRIVATE_HALO_ONLY_ESCAPE_SURVIVES_BASIC_FILTERS",
+      "status": "open",
+      "useful_success_criterion": "Either force one of [3,8] or [5,8], or prove that [3,5] cannot occur as a genuine support pair."
+    },
+    {
+      "bridge_question": "Can off-center [0,4,6] rows, or a separate source, force a center-8 rich class containing [0,4,6]?",
+      "current_blocker": "Current support requirements are centered at 5, 6, and 7; none is centered at 8, and same-center support backing does not move the row to center 8.",
+      "not_satisfied_by": [
+        "same-center support backing at centers 5 or 7",
+        "unsupported off-center rows at center 2",
+        "arbitrary label-8 visibility",
+        "the existing source-151 row-8 singleton packet"
+      ],
+      "obligation_id": "center8_migration_or_source",
+      "source_gate": "NOT_READY_SUPPORT_BACKING_DOES_NOT_MIGRATE_OFF_CENTER_ROWS",
+      "status": "open",
+      "useful_success_criterion": "Prove a center-migration theorem, or supply an independent geometric source for the center-8 [0,4,6] rich class."
+    },
+    {
+      "bridge_question": "Can the target-sparse assignments 0 and 11 be obstructed by order forcing, stronger exact strict rows, or endpoint/source geometry?",
+      "current_blocker": "The natural-order 255-row Kalmanson/Altman family is exactly route-pruned for the three endpoint quotients, while one alternate order is exactly obstructed.",
+      "not_satisfied_by": [
+        "another normalized solver screen over the same 255 rows",
+        "the fixed alternate-order certificates alone",
+        "the natural-order dual certificates alone",
+        "one-completion plus two arbitrary selected-row repairs"
+      ],
+      "obligation_id": "target_sparse_order_or_geometry",
+      "source_gate": "no_not_without_new_rows_order_forcing_or_geometric_endpoint_exclusion",
+      "status": "open",
+      "useful_success_criterion": "Prove useful cyclic-order structure, add a stronger strict row family with a geometric source, or prove a genuine endpoint/source exclusion for the target-sparse lane."
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py --write --assert-expected",
+    "generator": "scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py"
+  },
+  "schema": "erdos97.bootstrap_t12_151_6_label4_next_lemma_obligations.v1",
+  "source_artifacts": [
+    {
+      "path": "data/certificates/bootstrap_t12_151_6_endpoint8_forcing_preflight.json",
+      "role": "endpoint-8 forcing preflight",
+      "schema": "erdos97.bootstrap_t12_151_6_endpoint8_forcing_preflight.v1",
+      "status": "BOOTSTRAP_T12_151_6_ENDPOINT8_FORCING_PREFLIGHT_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "validation_status": "passed"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.json",
+      "role": "center-8 migration support crosswalk",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.v1",
+      "status": "BOOTSTRAP_T12_151_6_LABEL4_CENTER8_MIGRATION_SUPPORT_CROSSWALK_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC",
+      "validation_status": "passed"
+    },
+    {
+      "path": "data/certificates/bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.json",
+      "role": "target-sparse order-sensitivity crosswalk",
+      "schema": "erdos97.bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.v1",
+      "status": "EXACT_ORDER_SENSITIVITY_ROUTE_DECISION_CROSSWALK",
+      "trust": "EXACT_ROUTE_PRUNING_CERTIFICATE",
+      "validation_status": "passed"
+    }
+  ],
+  "status": "BOOTSTRAP_T12_151_6_LABEL4_NEXT_LEMMA_OBLIGATIONS_CONTRACT",
+  "summary": {
+    "all_order_obstruction_proved": false,
+    "alternate_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      6
+    ],
+    "alternate_order_certificate_row_count_each": [
+      10,
+      10,
+      9
+    ],
+    "blocked_shortcut_count": 8,
+    "conditional_center8_target": [
+      0,
+      4,
+      6
+    ],
+    "current_row_family_all_order_route_ready": false,
+    "endpoint8_forced_by_current_evidence": false,
+    "migration_status": "NOT_READY_SUPPORT_BACKING_DOES_NOT_MIGRATE_OFF_CENTER_ROWS",
+    "natural_order_current_row_family_size_each": [
+      255
+    ],
+    "natural_order_potential_weight_sum_each": [
+      250,
+      253,
+      243
+    ],
+    "off_center_rows_at_unsupported_center_count": 2,
+    "off_center_rows_with_same_center_support_count": 3,
+    "off_center_target_row_occurrence_count": 5,
+    "open_obligation_count": 3,
+    "open_obligation_ids": [
+      "private_halo_endpoint8_exclusion",
+      "center8_migration_or_source",
+      "target_sparse_order_or_geometry"
+    ],
+    "private_halo_escape_status": "PRIVATE_HALO_ONLY_PAIR_3_5_REMAINS_OPEN",
+    "private_halo_only_basic_survivor_count": 12,
+    "private_support_pair": [
+      3,
+      5
+    ],
+    "solves_erdos97": false,
+    "solves_n9": false,
+    "support_requirement_center8_count": 0,
+    "target_center": 6,
+    "target_row_key": "151:6",
+    "target_sparse_assignment_indices": [
+      0,
+      11
+    ],
+    "target_sparse_endpoint_rows": [
+      [
+        0,
+        1,
+        4,
+        6
+      ],
+      [
+        0,
+        2,
+        4,
+        6
+      ],
+      [
+        0,
+        4,
+        6,
+        7
+      ]
+    ]
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
+  "validation_errors": [],
+  "validation_status": "passed"
+}

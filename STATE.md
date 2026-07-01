@@ -665,6 +665,14 @@ and `docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`, plus
 with
 `docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md` and
 `docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`.
+The next-lemma obligation contract
+`docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md` joins the
+endpoint-`8`, center-migration, and target-sparse route decisions into one
+task-selection ledger: the remaining useful directions are to exclude the
+private-halo pair `[3,5]` or force endpoint `8`, prove center-`8` migration or
+an independent `[0,4,6]` source, or add order forcing / stronger exact rows /
+endpoint-source geometry. This is still only review-pending bridge
+bookkeeping, not `n=9`, not the bridge, and not Erdos #97.
 
 A source-`151` singleton-support audit now probes the two remaining
 one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
