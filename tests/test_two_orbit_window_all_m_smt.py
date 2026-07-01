@@ -19,14 +19,6 @@ MOD = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = MOD
 SPEC.loader.exec_module(MOD)
 
-LEGACY_SPEC = importlib.util.spec_from_file_location(
-    "check_two_orbit_dynamic_window_lemma",
-    REPO_ROOT / "scripts" / "check_two_orbit_dynamic_window_lemma.py",
-)
-LEGACY = importlib.util.module_from_spec(LEGACY_SPEC)
-sys.modules[LEGACY_SPEC.name] = LEGACY
-LEGACY_SPEC.loader.exec_module(LEGACY)
-
 ARTIFACT = REPO_ROOT / "data" / "certificates" / "two_orbit_window_all_m_smt.json"
 
 
@@ -38,11 +30,26 @@ def test_exact_rational_self_checks():
     assert MOD.no_gap_witness_exact_check()
 
 
-def test_valid_pairs_match_legacy_screen():
-    """The (a, p) instance ranges agree with the finite float screen this
-    certificate supersedes, for every m up to 60."""
-    for m in range(3, 61):
-        assert MOD.valid_pairs(m) == LEGACY.valid_pairs(m), m
+def test_valid_pairs_match_spec():
+    """The (a, p) instance ranges match the lemma's stated index set
+    directly: a in {1, ..., ceil(m/2) - 1} and odd p in {1, ..., m - 1}."""
+    for m in range(3, 201):
+        spec = [
+            (a, p)
+            for a in range(1, (m + 1) // 2)
+            for p in range(1, m, 2)
+        ]
+        assert MOD.valid_pairs(m) == spec, m
+
+
+def test_constraint_doc_matches_solver_assertion_count():
+    """CONSTRAINT_DOC (embedded in the certificate as encoding_constraints)
+    stays in step with the actual main-variant solver: one documented row per
+    asserted constraint. This guards the certificate's self-description
+    against silent drift from the decided system."""
+    z3 = pytest.importorskip("z3")
+    solver = MOD.solver_for(z3)
+    assert len(solver.assertions()) == len(MOD.CONSTRAINT_DOC) == 14
 
 
 def test_embedding_spot_check_small():
@@ -79,7 +86,7 @@ def test_stored_artifact_fields():
 
 
 def test_z3_decisions_replay():
-    """The five z3 decisions replay: main strict system UNSAT (the all-m
+    """The six z3 decisions replay: main strict system UNSAT (the all-m
     certificate), non-strict variant SAT only at the pinned m=3 corner, and
     the no-gap control SAT."""
     pytest.importorskip("z3")

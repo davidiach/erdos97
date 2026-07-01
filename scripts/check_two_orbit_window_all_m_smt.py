@@ -479,6 +479,13 @@ def main() -> int:
         help="compare deterministic replay fields against a stored artifact",
     )
     args = ap.parse_args()
+    if args.max_m < 3:
+        ap.error("--max-m must be at least 3 (the smallest valid m)")
+    if args.agreement_max_m < 3:
+        ap.error(
+            "--agreement-max-m must be at least 3 so the scan includes the "
+            "m=3 boundary corner that the clear predicate expects"
+        )
 
     payload = build_payload(args)
 
@@ -490,6 +497,14 @@ def main() -> int:
                 print(f"- {err}", file=sys.stderr)
             return 1
     if args.write_artifact:
+        if not payload["clear"]:
+            print(
+                "refusing to write a non-clear payload (a z3 decision "
+                "returned an unexpected result or a self-test failed); "
+                "the target artifact is left untouched",
+                file=sys.stderr,
+            )
+            return 1
         with open(args.write_artifact, "w", encoding="utf-8", newline="\n") as fh:
             json.dump(payload, fh, indent=1, sort_keys=True)
             fh.write("\n")

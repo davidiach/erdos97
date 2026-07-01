@@ -19,9 +19,10 @@ counterexample are claimed.
   integer instance `(m, a, p)` and is UNSAT together with the open-window
   root condition, so the row equation `E_A` has no root in the
   strict-convexity window for every `m >= 3` at once; three further z3
-  decisions pin the closed-boundary contact uniquely to the known `m = 3`
-  corner `x = sec(pi/3)`, and a no-gap control shows the odd-offset gap
-  constraint is load-bearing. This supersedes the finite `m <= 400` float64
+  decisions pin upper-boundary contact uniquely to the known `m = 3`
+  corner `x = sec(pi/3)`, a fourth shows exact lower-boundary contact is
+  impossible in the relaxation, and a no-gap control shows the odd-offset
+  gap constraint is load-bearing. This supersedes the finite `m <= 400` float64
   screen as the machine audit of Step 5 (the screen remains a per-`m`
   cross-check). Trust `EXACT_OBSTRUCTION` (SMT) for the Step 5 window
   exclusion only; the two-orbit lemma's Steps 1-4 remain review-pending

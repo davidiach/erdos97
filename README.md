@@ -111,8 +111,9 @@ does not settle the larger sparse frontier and does not prove Erdos #97.
 Restricted symmetry-family diagnostics are also recorded. The two-orbit
 circulant family has a review-pending obstruction note whose window-root
 step is now exactly certified for all `m >= 3` at once by an SMT (z3)
-certificate (see [`docs/two-orbit-window-all-m-smt.md`](docs/two-orbit-window-all-m-smt.md)),
-and the three-orbit
+certificate (see [`docs/two-orbit-window-all-m-smt.md`](docs/two-orbit-window-all-m-smt.md));
+the note's remaining reduction steps stay review-pending prose, so the
+family lemma itself is still a review-pending draft. The three-orbit
 program closes the `m = 4` quarter cell exactly and now has a repo-local
 interval-derivative certificate for the named `m = 8, 12, 16` quarter-cell
 signed-band subcases. This is still a restricted three-orbit finite-`m`

@@ -1648,7 +1648,9 @@ symmetric two-orbit reduction entry above: that note's gear equation is
 algebraically identical to the row equation here, and its `k = 3` boundary
 factor matches the `m = 3` window-endpoint hit. It is not a proof of Erdos
 Problem #97 and says nothing about three or more orbits. See
-`docs/two-orbit-circulant-obstruction.md`; machine audit:
+`docs/two-orbit-circulant-obstruction.md`; finite-`m` machine screen, now a
+corroborating per-`m` cross-check of the superseding all-`m` SMT
+certificate below:
 `scripts/check_two_orbit_dynamic_window_lemma.py --max-m 400 --assert-clear`
 (5,313,300 offset pairs float64-screened with high-precision escalation for
 the one exact `m = 3` boundary hit at `x = sec(pi/3)`, zero window roots,

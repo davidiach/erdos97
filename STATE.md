@@ -1004,9 +1004,10 @@ symmetric two-orbit reduction note
 (`docs/symmetric-two-orbit-reduction.md`), whose gear equation is
 algebraically identical to this note's row equation; the two are mutual
 second-source provenance. See `docs/two-orbit-circulant-obstruction.md` and
-the audit checker `scripts/check_two_orbit_dynamic_window_lemma.py`
+the finite-`m` screen checker `scripts/check_two_orbit_dynamic_window_lemma.py`
 (float64-screened clear for `m <= 400`, with high-precision escalation for
-one exact `m = 3` boundary hit excluded by strictness).
+one exact `m = 3` boundary hit excluded by strictness; now a corroborating
+per-`m` cross-check of the all-`m` certificate below).
 The window-root step of that proof (Step 5) now has an exact all-`m` SMT
 certificate: a single z3 nonlinear-real-arithmetic UNSAT decision over a
 polynomial relaxation containing every integer instance `(m, a, p)` proves
