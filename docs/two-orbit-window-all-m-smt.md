@@ -160,7 +160,7 @@ single member is the `m = 3` corner.
 python scripts/check_two_orbit_window_all_m_smt.py --assert-clear
 python scripts/check_two_orbit_window_all_m_smt.py --assert-clear \
   --check-artifact data/certificates/two_orbit_window_all_m_smt.json
-python -m pytest tests/test_two_orbit_window_all_m_smt.py -q -m ""
+python -m pytest tests/test_two_orbit_window_all_m_smt.py -q -m "not slow and not exhaustive"
 ```
 
 The finite screen `scripts/check_two_orbit_dynamic_window_lemma.py` remains
