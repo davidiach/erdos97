@@ -33,6 +33,10 @@ autonomy explicitly so the loop does not stall waiting for permission.
   prompt; it re-orients from the repo and continues.
 - Each iteration lands as a pull request, so the repository's own GitHub
   Actions gate every step (see the workflow section inside the prompt).
+- The prompt contains the keyword "ultracode" deliberately: in Claude Code
+  it opts the session into multi-agent workflow orchestration, which the
+  verify phase uses for adversarial refutation panels and loop-until-dry
+  discovery sweeps. Expect correspondingly higher token usage.
 
 ## The prompt
 
@@ -126,13 +130,22 @@ convexity, not pictures; verify every crossing-bisector use; treat generic
 rank and dimension counts as diagnostics unless the special solution locus
 is controlled.
 
-Verify: adversarially, before recording anything. Spawn fresh-context
-sub-agents to attempt to refute each new claim -- a verifier that has not
-seen your derivation, prompted to find the hole, outperforms self-critique.
-Delegate independent workstreams (parallel case sweeps, independent
-re-derivations, literature checks) to sub-agents and keep working while
-they run. A claim survives only if the refutation attempts fail AND the
-repo checkers pass.
+Verify: adversarially, before recording anything, using ultracode
+multi-agent orchestration as the default for every substantive claim.
+Structure verification as workflows, not single checks: fan out several
+independent fresh-context skeptics per claim, each prompted to REFUTE it
+and to default to refuted when uncertain -- a verifier that has not seen
+your derivation outperforms self-critique -- and kill any claim a majority
+refutes. Give the panel diverse lenses rather than identical refuters: one
+verifier each for strict-convexity usage, cyclic-order justification,
+crossing-bisector usage, degenerate/special solution loci, and a
+does-it-reproduce run of the actual checker. For discovery work (survivor
+sweeps, case enumerations, countermodel hunts, literature triangulation),
+use loop-until-dry finder pools that keep spawning until consecutive
+rounds return nothing new, and finish with a completeness critic asking
+what was not covered. Delegate independent workstreams to sub-agents and
+keep working while they run. A claim survives only if the refutation
+panel fails to kill it AND the repo checkers pass.
 
 Record: on success, add the artifact plus its checker plus a doc note with
 explicit scope and trust labels, and update STATE.md / RESULTS.md /
@@ -258,11 +271,14 @@ Why the prompt is shaped this way, tied to the Fable 5 guidance it follows:
   claim to be auditable against a tool result from the session. In testing
   this nearly eliminated fabricated status reports on long runs, and it
   matches this repo's trust taxonomy discipline.
-- Explicit self-verification with fresh-context sub-agents. Separate
-  verifier sub-agents prompted to refute outperform self-critique; here they
-  sit in front of the repo's own checker gates, mirroring the repo's
-  existing generate-then-audit-in-a-fresh-chat protocol in
-  docs/prompt-roadmap.md.
+- Explicit self-verification with fresh-context sub-agents, scaled up via
+  ultracode. Separate verifier sub-agents prompted to refute outperform
+  self-critique; the prompt asks for perspective-diverse refutation panels
+  (convexity, cyclic order, crossing-bisector, special loci, reproduction)
+  and loop-until-dry discovery pools, orchestrated as workflows. They sit
+  in front of the repo's own checker gates, mirroring the repo's existing
+  generate-then-audit-in-a-fresh-chat protocol in docs/prompt-roadmap.md,
+  where plausible arguments have historically died exactly at those steps.
 - A memory surface. Fable 5 performs notably better when told where to
   write learnings and to consult them later. This repo already is that
   surface (STATE.md, failed-route docs, graveyard files), so the prompt
