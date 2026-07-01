@@ -7,6 +7,27 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-01
+
+- Added an exact all-`m` SMT (z3 NRA) certificate for Step 5 of the
+  review-pending two-orbit circulant obstruction
+  (`docs/two-orbit-window-all-m-smt.md`,
+  `scripts/check_two_orbit_window_all_m_smt.py`,
+  `data/certificates/two_orbit_window_all_m_smt.json`, tests, managed
+  manifest entry + registered audit command). A single polynomial relaxation
+  in `(cos h, sin h, cos 2ah, sin 2ah, cos ph, sin ph)` contains every
+  integer instance `(m, a, p)` and is UNSAT together with the open-window
+  root condition, so the row equation `E_A` has no root in the
+  strict-convexity window for every `m >= 3` at once; three further z3
+  decisions pin the closed-boundary contact uniquely to the known `m = 3`
+  corner `x = sec(pi/3)`, and a no-gap control shows the odd-offset gap
+  constraint is load-bearing. This supersedes the finite `m <= 400` float64
+  screen as the machine audit of Step 5 (the screen remains a per-`m`
+  cross-check). Trust `EXACT_OBSTRUCTION` (SMT) for the Step 5 window
+  exclusion only; the two-orbit lemma's Steps 1-4 remain review-pending
+  prose, and there is no change to the strongest local result or the
+  official/global status.
+
 ## 2026-06-13
 
 - Added an independent SMT (z3 NRA) second source for the `n = 8`

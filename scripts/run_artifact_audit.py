@@ -3682,6 +3682,30 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="two_orbit_window_all_m_smt",
+        command=(
+            "python",
+            "scripts/check_two_orbit_window_all_m_smt.py",
+            "--assert-clear",
+            "--check-artifact",
+            "data/certificates/two_orbit_window_all_m_smt.json",
+        ),
+        claim_scope=(
+            "SMT (z3 NRA) certificate for Step 5 of the review-pending "
+            "two-orbit circulant obstruction only: for every m >= 3 and "
+            "every valid offset pair (a, p), the row equation E_A has no "
+            "root in the open strict-convexity window (cos h, sec h), via a "
+            "continuous polynomial relaxation containing every integer "
+            "instance, with closed-boundary contact pinned uniquely to the "
+            "m=3 corner x = sec(pi/3). Supersedes the finite m<=400 float64 "
+            "screen as the machine audit of Step 5 only; Steps 1-4 of the "
+            "two-orbit lemma remain review-pending prose. Not a proof of "
+            "the full two-orbit lemma by itself, not a proof of Erdos "
+            "Problem #97, not a counterexample, and not an official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
         ident="three_orbit_quarter_cell_closure",
         command=(
             "python",

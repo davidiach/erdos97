@@ -1,0 +1,101 @@
+{
+ "clear": true,
+ "decisions": {
+  "lower_boundary_contact": "unsat",
+  "main_strict": "unsat",
+  "no_gap": "sat",
+  "nonstrict_upper": "sat",
+  "nonstrict_upper_ch_above_half": "unsat",
+  "nonstrict_upper_off_corner": "unsat"
+ },
+ "embedding_spot_check": {
+  "max_m": 120,
+  "ok": true,
+  "pairs_checked": 142190
+ },
+ "encoding_constraints": [
+  [
+   "unit_h",
+   "ch^2 + sh^2 == 1"
+  ],
+  [
+   "h_positive",
+   "sh > 0"
+  ],
+  [
+   "m_at_least_3",
+   "ch >= 1/2"
+  ],
+  [
+   "unit_u",
+   "cu^2 + su^2 == 1"
+  ],
+  [
+   "u_in_0_pi",
+   "su >= 0"
+  ],
+  [
+   "unit_v",
+   "cv^2 + sv^2 == 1"
+  ],
+  [
+   "v_in_0_pi",
+   "sv >= 0"
+  ],
+  [
+   "u_ge_2h",
+   "cu <= 2*ch^2 - 1"
+  ],
+  [
+   "u_le_pi_minus_h",
+   "cu >= -ch"
+  ],
+  [
+   "v_ge_h",
+   "cv <= ch"
+  ],
+  [
+   "v_le_pi_minus_h",
+   "cv >= -ch"
+  ],
+  [
+   "odd_gap",
+   "cu*cv + su*sv <= ch"
+  ],
+  [
+   "window_lower",
+   "2*cv*ch - 2*cu > -sh^2"
+  ],
+  [
+   "window_upper_strict",
+   "2*cv*ch - 2*cu < (1 - 2*cu)*sh^2"
+  ]
+ ],
+ "exact_checks": {
+  "corner_is_m3_boundary_root_x2": true,
+  "corner_point_verified": true,
+  "no_gap_witness_verified": true
+ },
+ "expected_decisions": {
+  "lower_boundary_contact": "unsat",
+  "main_strict": "unsat",
+  "no_gap": "sat",
+  "nonstrict_upper": "sat",
+  "nonstrict_upper_ch_above_half": "unsat",
+  "nonstrict_upper_off_corner": "unsat"
+ },
+ "formulation_agreement": {
+  "boundary_band_hits": 1,
+  "max_m": 40,
+  "mismatches": 0,
+  "pairs_checked": 5130
+ },
+ "provenance": {
+  "command": "python scripts/check_two_orbit_window_all_m_smt.py --assert-clear --write-artifact data/certificates/two_orbit_window_all_m_smt.json",
+  "generator": "scripts/check_two_orbit_window_all_m_smt.py"
+ },
+ "schema": "erdos97.two_orbit_window_all_m_smt.v1",
+ "scope": "Exact SMT (z3 nonlinear real arithmetic) certificate for Step 5 of the review-pending two-orbit circulant obstruction: for every m >= 3, every a in {1, ..., ceil(m/2) - 1}, and every odd p in {1, ..., m - 1}, the row equation E_A has no root in the open strict-convexity window (cos h, sec h), h = pi/m. Proved via a continuous polynomial relaxation in (cos h, sin h, cos 2ah, sin 2ah, cos ph, sin ph) that contains every integer instance and is UNSAT; equality contact with the closed window boundary is pinned uniquely to the m=3, a=1, p=1 corner x = sec(pi/3) = 2. This covers all m >= 3 at once, uniformly, and supersedes the finite float64 screen as the machine audit of Step 5. It is conditional on the Step 1-4 reduction of docs/two-orbit-circulant-obstruction.md (offset forcing, row shape, convexity window), which remains review-pending prose. Not a proof of the full two-orbit lemma by itself, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update.",
+ "status": "EXACT_STEP5_ALL_M_SMT",
+ "trust": "EXACT_OBSTRUCTION"
+}

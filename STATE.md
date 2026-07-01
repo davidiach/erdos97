@@ -1007,6 +1007,17 @@ second-source provenance. See `docs/two-orbit-circulant-obstruction.md` and
 the audit checker `scripts/check_two_orbit_dynamic_window_lemma.py`
 (float64-screened clear for `m <= 400`, with high-precision escalation for
 one exact `m = 3` boundary hit excluded by strictness).
+The window-root step of that proof (Step 5) now has an exact all-`m` SMT
+certificate: a single z3 nonlinear-real-arithmetic UNSAT decision over a
+polynomial relaxation containing every integer instance `(m, a, p)` proves
+the row equation has no root in the open strict-convexity window for every
+`m >= 3` at once, with the closed-boundary contact pinned uniquely to the
+`m = 3` corner `x = sec(pi/3)`. This supersedes the finite float screen as
+the machine audit of Step 5 only; the offset-forcing, row-shape, and window
+steps of the two-orbit lemma remain review-pending prose. See
+`docs/two-orbit-window-all-m-smt.md`,
+`scripts/check_two_orbit_window_all_m_smt.py`, and
+`data/certificates/two_orbit_window_all_m_smt.json`.
 
 A companion dynamic-witness free-pattern searcher
 (`scripts/search_dynamic_witness.py`) lets every center re-select its best

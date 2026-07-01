@@ -1654,6 +1654,19 @@ Problem #97 and says nothing about three or more orbits. See
 the one exact `m = 3` boundary hit at `x = sec(pi/3)`, zero window roots,
 boundary hit excluded by strictness).
 
+The window-root step of that draft (Step 5: the radius-ratio quadratic has
+no root in the open window) is now exactly certified for all `m >= 3` at
+once, not just screened for `m <= 400`: a single z3 nonlinear-real-arithmetic
+UNSAT decision over a polynomial relaxation in
+`(cos h, sin h, cos 2ah, sin 2ah, cos ph, sin ph)` that contains every
+integer instance, with the closed-boundary contact pinned uniquely to the
+`m = 3` corner. Trust `EXACT_OBSTRUCTION` (SMT) for the Step 5 window
+exclusion only; the offset-forcing, row-shape, and window steps remain
+review-pending prose, so the family lemma itself stays a review-pending
+draft. See `docs/two-orbit-window-all-m-smt.md`,
+`scripts/check_two_orbit_window_all_m_smt.py`, and
+`data/certificates/two_orbit_window_all_m_smt.json`.
+
 ### Lemma draft (review pending): half-step matching for multi-orbit cyclic configurations
 
 Status: `LEMMA` draft, review pending; structural reduction only.

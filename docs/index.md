@@ -844,6 +844,12 @@ put detailed reconciliation in the canonical synthesis.
   review-pending lemma draft excluding all two-orbit circulant
   configurations (any radii, any relative rotation) with its audit checker;
   a restricted-family obstruction, not a general proof.
+- [`two-orbit-window-all-m-smt.md`](two-orbit-window-all-m-smt.md): exact
+  all-`m` SMT (z3) certificate for Step 5 of the two-orbit obstruction --
+  the row equation has no root in the open strict-convexity window for
+  every `m >= 3` at once, via a continuous polynomial relaxation containing
+  every integer instance; supersedes the finite float screen as the machine
+  audit of Step 5 only, with Steps 1-4 still review-pending prose.
 - [`half-step-matching-reduction.md`](half-step-matching-reduction.md):
   review-pending matching lemma for multi-orbit cyclic configurations (no
   aligned orbit pairs; half-step pairs form a partial matching) with the

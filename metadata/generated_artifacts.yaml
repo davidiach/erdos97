@@ -10739,6 +10739,37 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
+  - id: two_orbit_window_all_m_smt
+    path: data/certificates/two_orbit_window_all_m_smt.json
+    sha256: fd113c23a104880026764891f3c1439c988da89a02152f2e26b2e9580545a410
+    size_bytes: 2826
+    kind: smt_certificate_artifact
+    generator: scripts/check_two_orbit_window_all_m_smt.py
+    command: python scripts/check_two_orbit_window_all_m_smt.py --assert-clear --write-artifact data/certificates/two_orbit_window_all_m_smt.json
+    checker: scripts/check_two_orbit_window_all_m_smt.py
+    check_command: python scripts/check_two_orbit_window_all_m_smt.py --assert-clear --check-artifact data/certificates/two_orbit_window_all_m_smt.json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: SMT (z3 NRA) certificate for Step 5 of the review-pending two-orbit circulant obstruction only - for every m >= 3, every a in {1..ceil(m/2)-1}, and every odd p in {1..m-1}, the row equation E_A has no root in the open strict-convexity window (cos h, sec h), proved via a continuous polynomial relaxation containing every integer instance, with the closed-boundary contact pinned uniquely to the m=3 corner x = sec(pi/3). Supersedes the finite m<=400 float64 screen as the machine audit of Step 5; the two-orbit lemma's Steps 1-4 remain review-pending prose. Not a proof of the full two-orbit lemma by itself, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.two_orbit_window_all_m_smt.v1
+      status: EXACT_STEP5_ALL_M_SMT
+      trust: EXACT_OBSTRUCTION
+      clear: true
+      decisions.main_strict: unsat
+      decisions.nonstrict_upper: sat
+      decisions.nonstrict_upper_ch_above_half: unsat
+      decisions.nonstrict_upper_off_corner: unsat
+      decisions.lower_boundary_contact: unsat
+      decisions.no_gap: sat
+    forbidden_claims:
+      - two-orbit lemma fully machine-checked
+      - all orbits ruled out
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
   - id: quarter_cell_closure
     path: data/certificates/quarter_cell_closure.json
     sha256: 598313a8af81499798c8531268457e80a326afef64595909c548534ebd5c3ea8

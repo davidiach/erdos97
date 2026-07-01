@@ -109,7 +109,10 @@ across all cyclic orders by exact Kalmanson/Farkas certificate searches. That
 does not settle the larger sparse frontier and does not prove Erdos #97.
 
 Restricted symmetry-family diagnostics are also recorded. The two-orbit
-circulant family has a review-pending obstruction note, and the three-orbit
+circulant family has a review-pending obstruction note whose window-root
+step is now exactly certified for all `m >= 3` at once by an SMT (z3)
+certificate (see [`docs/two-orbit-window-all-m-smt.md`](docs/two-orbit-window-all-m-smt.md)),
+and the three-orbit
 program closes the `m = 4` quarter cell exactly and now has a repo-local
 interval-derivative certificate for the named `m = 8, 12, 16` quarter-cell
 signed-band subcases. This is still a restricted three-orbit finite-`m`
