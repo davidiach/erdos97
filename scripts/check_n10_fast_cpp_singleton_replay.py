@@ -85,9 +85,9 @@ def digest_json(payload: Any) -> str:
 
 def display_path(path: Path) -> str:
     try:
-        return str(path.relative_to(ROOT))
+        return path.resolve().relative_to(ROOT).as_posix()
     except ValueError:
-        return str(path)
+        return path.as_posix()
 
 
 def normalize_primary_rows(primary: Mapping[str, Any]) -> list[dict[str, Any]]:

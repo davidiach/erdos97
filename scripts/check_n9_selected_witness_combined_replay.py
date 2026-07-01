@@ -99,6 +99,15 @@ Row = tuple[int, ...]
 Assignment = dict[int, int]
 
 
+def repo_path(path: Path) -> str:
+    """Return a stable repo-relative path for JSON artifacts."""
+
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 @dataclass(frozen=True)
 class CombinedReplayResult:
     """Generated summary and certificate payloads."""
@@ -573,7 +582,7 @@ def generate_replay(*, include_components: bool = False) -> CombinedReplayResult
         "pair_cap": PAIR_CAP,
         "localized_counting": localized_counting_summary(N),
         "brancher": brancher_summary,
-        "certificate_artifact": str(DEFAULT_CERTIFICATES_ARTIFACT.relative_to(ROOT)),
+        "certificate_artifact": repo_path(DEFAULT_CERTIFICATES_ARTIFACT),
         "certificate_count": len(assignment_certificates),
         "certificate_digest_sha256": certificate_digest,
         "validation_status": "passed" if not errors else "failed",
@@ -592,7 +601,7 @@ def generate_replay(*, include_components: bool = False) -> CombinedReplayResult
         "status": CERTIFICATE_STATUS,
         "trust": TRUST,
         "claim_scope": CERTIFICATE_CLAIM_SCOPE,
-        "source_summary_artifact": str(DEFAULT_ARTIFACT.relative_to(ROOT)),
+        "source_summary_artifact": repo_path(DEFAULT_ARTIFACT),
         "certificate_count": len(assignment_certificates),
         "certificate_digest_sha256": certificate_digest,
         "certificates": assignment_certificates,
