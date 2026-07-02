@@ -1012,9 +1012,21 @@ symmetric two-orbit reduction note
 (`docs/symmetric-two-orbit-reduction.md`), whose gear equation is
 algebraically identical to this note's row equation; the two are mutual
 second-source provenance. See `docs/two-orbit-circulant-obstruction.md` and
-the audit checker `scripts/check_two_orbit_dynamic_window_lemma.py`
+the finite-`m` screen checker `scripts/check_two_orbit_dynamic_window_lemma.py`
 (float64-screened clear for `m <= 400`, with high-precision escalation for
-one exact `m = 3` boundary hit excluded by strictness).
+one exact `m = 3` boundary hit excluded by strictness; now a corroborating
+per-`m` cross-check of the all-`m` certificate below).
+The window-root step of that proof (Step 5) now has an exact all-`m` SMT
+certificate: a single z3 nonlinear-real-arithmetic UNSAT decision over a
+polynomial relaxation containing every integer instance `(m, a, p)` proves
+the row equation has no root in the open strict-convexity window for every
+`m >= 3` at once, with the closed-boundary contact pinned uniquely to the
+`m = 3` corner `x = sec(pi/3)`. This supersedes the finite float screen as
+the machine audit of Step 5 only; the offset-forcing, row-shape, and window
+steps of the two-orbit lemma remain review-pending prose. See
+`docs/two-orbit-window-all-m-smt.md`,
+`scripts/check_two_orbit_window_all_m_smt.py`, and
+`data/certificates/two_orbit_window_all_m_smt.json`.
 
 A companion dynamic-witness free-pattern searcher
 (`scripts/search_dynamic_witness.py`) lets every center re-select its best
@@ -1080,6 +1092,21 @@ any non-quarter branch, the full three-orbit family, or Erdos #97. See
 `docs/quarter-cell-signed-band-preflight.md`,
 `docs/quarter-cell-derivative-certificate.md`, and
 `data/certificates/quarter_cell_derivative_certificate.json`.
+The three mixed-derivative signed cells (`LL_y-_z+`, `LH_y+_z+`,
+`HH_y+_z-`) are now closed for all `m >= 8` at once (2026-07-02): exact
+sympy boundary identities `F(d,0) = F(0,e) = 0` plus one z3
+nonlinear-real-arithmetic UNSAT decision per cell prove the mixed
+derivative negative over a polynomial relaxation containing every
+`T = 2*pi/m in (0, pi/4]` and the full closed band square, so double
+integration gives a negative killer turn throughout each strict cell. The
+nine first-derivative cells remain finite-`m` interval-certified only; the
+recorded z3-unknown outcomes and the named small-T dominance lemma are the
+next-target ledger for them. This is conditional on the review-pending
+A-row reduction and band confinement, and it is still not an all-`m`
+quarter-cell obstruction, any non-quarter branch, the full three-orbit
+family, or Erdos #97. See `docs/quarter-cell-mixed-cells-all-m-smt.md`,
+`scripts/check_quarter_cell_mixed_cells_all_m_smt.py`, and
+`data/certificates/quarter_cell_mixed_cells_all_m_smt.json`.
 
 ## Best saved near-miss
 
