@@ -116,8 +116,14 @@ the note's remaining reduction steps stay review-pending prose, so the
 family lemma itself is still a review-pending draft. The three-orbit
 program closes the `m = 4` quarter cell exactly and now has a repo-local
 interval-derivative certificate for the named `m = 8, 12, 16` quarter-cell
-signed-band subcases. This is still a restricted three-orbit finite-`m`
-certificate, not an all-`m` obstruction or proof of Erdos #97. See
+signed-band subcases, with the three mixed-derivative signed cells further
+closed for all `m >= 8` at once by an exact SMT-plus-boundary-identity
+certificate (see
+[`docs/quarter-cell-mixed-cells-all-m-smt.md`](docs/quarter-cell-mixed-cells-all-m-smt.md));
+the nine first-derivative signed cells remain finite-`m` only. All of this
+is still restricted three-orbit quarter-cell evidence conditional on
+review-pending reduction prose, not an all-`m` quarter-cell obstruction or
+a proof of Erdos #97. See
 [`docs/quarter-cell-derivative-certificate.md`](docs/quarter-cell-derivative-certificate.md).
 
 ### Review-pending frontier artifacts

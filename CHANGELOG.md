@@ -7,6 +7,30 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-02
+
+- Added an exact all-`m` closure of the three mixed-derivative quarter-cell
+  signed band cells (`docs/quarter-cell-mixed-cells-all-m-smt.md`,
+  `scripts/check_quarter_cell_mixed_cells_all_m_smt.py`,
+  `data/certificates/quarter_cell_mixed_cells_all_m_smt.json`, tests,
+  managed manifest entry + registered audit command). For cells `LL_y-_z+`,
+  `LH_y+_z+`, and `HH_y+_z-`, sympy verifies the boundary identities
+  `F(d,0) = F(0,e) = 0` exactly and z3 NRA proves the cleared
+  mixed-derivative numerator cannot be nonnegative over a polynomial
+  relaxation containing every `T = 2*pi/m in (0, pi/4]` and the full closed
+  band square, so double integration gives a negative killer turn
+  throughout each strict cell for every `m >= 8` -- upgrading those three
+  cells from the finite `m = 8, 12, 16` interval certificate, which remains
+  the only machine closure of the other nine cells and an independent
+  finite-`m` cross-check of these three. The artifact also records the
+  route boundary: the direct all-`m` killer-turn sign claim and the nine
+  first-derivative cells returned `unknown` from z3 NRA within the tried
+  budgets in this encoding (450-480 s and 120 s respectively), with a
+  small-T dominance lemma named as the next target. Trust `EXACT_OBSTRUCTION` for the three
+  named cells only, conditional on the review-pending A-row reduction and
+  band-confinement prose; no change to the strongest local result or the
+  official/global status.
+
 ## 2026-07-01
 
 - Added an exact all-`m` SMT (z3 NRA) certificate for Step 5 of the

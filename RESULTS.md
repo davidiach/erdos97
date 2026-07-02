@@ -1790,6 +1790,25 @@ Problem #97, and not a counterexample. See
 `scripts/check_quarter_cell_derivative_certificate.py --check --assert-expected --json`,
 and `data/certificates/quarter_cell_derivative_certificate.json`.
 
+The three mixed-derivative signed cells (`LL_y-_z+`, `LH_y+_z+`,
+`HH_y+_z-`, proof rule `F(d,0) = F(0,e) = 0` and `F_de < 0`) are now closed
+for all `m >= 8` at once, not just `m = 8, 12, 16`: sympy verifies both
+boundary identities exactly, and a single z3 nonlinear-real-arithmetic
+UNSAT decision per cell proves the cleared mixed-derivative numerator
+cannot be nonnegative over a polynomial relaxation containing every
+`T = 2*pi/m in (0, pi/4]` and the full closed band square, so double
+integration gives a negative killer turn throughout each strict cell. The
+nine first-derivative cells remain at the finite-`m` interval grade; the
+direct all-`m` sign claim and the nine first-derivative claims are recorded
+as returning z3 `unknown` within the tried budgets in this encoding, with a
+small-T dominance lemma named as the next target. Trust `EXACT_OBSTRUCTION`
+for the three named cells only, conditional on the review-pending A-row
+reduction and band confinement; not a
+quarter-cell, three-orbit, or Erdos #97 closure. See
+`docs/quarter-cell-mixed-cells-all-m-smt.md`,
+`scripts/check_quarter_cell_mixed_cells_all_m_smt.py`, and
+`data/certificates/quarter_cell_mixed_cells_all_m_smt.json`.
+
 ## Numerical Attempts
 
 ### Dynamic-witness free-pattern sweep (2026-06-09)

@@ -87,6 +87,12 @@ The follow-up certificate
 required derivative signs over interval boxes for `m = 8, 12, 16`, using this
 table's fixed killer turns.
 
+The three mixed-derivative cells of that table (`LL_y-_z+`, `LH_y+_z+`,
+`HH_y+_z-`) are now closed for all `m >= 8` at once by
+`docs/quarter-cell-mixed-cells-all-m-smt.md`; the exact missing lemma above
+remains open only for the nine first-derivative cells, with a small-T
+dominance lemma recorded there as the named next target.
+
 ## Reproduce
 
 ```bash

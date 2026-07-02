@@ -10868,6 +10868,32 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
+  - id: quarter_cell_mixed_cells_all_m_smt
+    path: data/certificates/quarter_cell_mixed_cells_all_m_smt.json
+    sha256: 63806607026c0c49dca4f6f0d42f1d599859dd8686ca4df1b282c5d4b11d9d38
+    size_bytes: 10354
+    kind: smt_certificate_artifact
+    generator: scripts/check_quarter_cell_mixed_cells_all_m_smt.py
+    command: python scripts/check_quarter_cell_mixed_cells_all_m_smt.py --assert-clear --write-artifact data/certificates/quarter_cell_mixed_cells_all_m_smt.json
+    checker: scripts/check_quarter_cell_mixed_cells_all_m_smt.py
+    check_command: python scripts/check_quarter_cell_mixed_cells_all_m_smt.py --assert-clear --check-artifact data/certificates/quarter_cell_mixed_cells_all_m_smt.json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Exact all-m closure of the three mixed-derivative three-orbit quarter-cell signed band cells (LL_y-_z+, LH_y+_z+, HH_y+_z-) for every m >= 8 at once - exact sympy boundary identities F(d,0)=F(0,e)=0 plus one z3 NRA UNSAT decision per cell over a polynomial relaxation containing every T = 2*pi/m in (0, pi/4] and the full closed band square, with double integration giving a negative killer turn throughout each strict cell. Supersedes the finite m=8,12,16 interval certificate for these three cells only; the nine first-derivative cells remain finite-m interval-certified. Conditional on the review-pending A-row reduction and band confinement; not a quarter-cell, three-orbit, n=9, or Erdos Problem #97 closure, not a counterexample, and not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.quarter_cell_mixed_cells_all_m_smt.v1
+      status: EXACT_MIXED_CELLS_ALL_M_SMT
+      trust: EXACT_OBSTRUCTION
+      clear: true
+    forbidden_claims:
+      - all twelve signed cells closed for all m
+      - all-m quarter-cell obstruction
+      - all-m three-orbit obstruction
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
   - id: n8_survivors_smt
     path: data/certificates/n8_survivors_smt.json
     sha256: d515c45dae7c9d21ce85125b8bb58c0b6c8011a61571a5e38db660f9468fe949

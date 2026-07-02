@@ -3768,6 +3768,31 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="quarter_cell_mixed_cells_all_m_smt",
+        command=(
+            "python",
+            "scripts/check_quarter_cell_mixed_cells_all_m_smt.py",
+            "--assert-clear",
+            "--check-artifact",
+            "data/certificates/quarter_cell_mixed_cells_all_m_smt.json",
+        ),
+        claim_scope=(
+            "Exact all-m closure of the three mixed-derivative three-orbit "
+            "quarter-cell signed band cells (LL_y-_z+, LH_y+_z+, HH_y+_z-) "
+            "for every m >= 8 at once: exact sympy boundary identities plus "
+            "one z3 NRA UNSAT decision per cell over a polynomial "
+            "relaxation containing every T = 2*pi/m in (0, pi/4] and the "
+            "full closed band square, with double integration giving a "
+            "negative killer turn throughout each strict cell. Supersedes "
+            "the finite m=8,12,16 interval certificate for these three "
+            "cells only; the nine first-derivative cells remain finite-m "
+            "interval-certified. Conditional on the review-pending A-row "
+            "reduction and band confinement; not a quarter-cell, "
+            "three-orbit, n=9, or Erdos Problem #97 closure, not a "
+            "counterexample, and not an official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="n8_survivors_smt_cross_check",
         command=(
             "python",
