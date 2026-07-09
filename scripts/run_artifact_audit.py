@@ -115,8 +115,9 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
         claim_scope=(
             "Focused audit of the n=8 class 3, 4, and 5 duplicate, "
-            "collinearity, and Groebner-y2 certificates; repo-local exact "
-            "obstruction audit pending external review, not a public theorem claim."
+            "collinearity, saturated substitution, and full-PB unit-ideal "
+            "certificates; repo-local exact obstruction audit pending external "
+            "review, not a public theorem claim."
         ),
     ),
     AuditCommand(
@@ -455,4 +456,4 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
         claim_scope=(
             "Review-pending n=9 motif-family diagnostic for the stored "
-            "pre-vertex-circle frontier; not a proof of n=9, counterexample, "
+            "pre-vertex-circle f
