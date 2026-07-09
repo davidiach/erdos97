@@ -47,6 +47,13 @@ TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 DEFAULT_MS = (8, 12, 16, 20, 40, 100)
 PREFLIGHT_ONLY_TARGET_MS = (8, 12, 16)
 DEFAULT_GRID = 72
+# The sampled turn grid is explicitly diagnostic floating-point evidence.
+# Linux/macOS libm evaluations differ at the tail of these calculations, so
+# compare only those JSON floats through a narrow portability envelope.  All
+# symbolic strings, integer counts, booleans, signs, and claim-scope fields
+# remain exact comparisons.
+PORTABLE_FLOAT_REL_TOL = 5e-13
+PORTABLE_FLOAT_ABS_TOL = 1e-17
 
 
 @dataclass(frozen=True)
@@ -357,19 +364,85 @@ def build_payload(ms: Sequence[int], grid: int) -> dict[str, Any]:
 
 
 def assert_expected(payload: dict[str, Any]) -> None:
-    assert payload["schema"] == SCHEMA
-    assert payload["status"] == STATUS
-    assert payload["trust"] == TRUST
-    assert payload["signed_case_count"] == 12
-    assert payload["leading_killer_case_count"] == 12
-    assert payload["leading_sign_ok_for_sample_ms"] is True
-    assert payload["sampled_fixed_killer_all_negative"] is True
-    assert payload["preflight_only_not_certified_m_values"] == list(PREFLIGHT_ONLY_TARGET_MS)
+    """Validate proof-facing decisions even when Python runs with ``-O``."""
+    expected: dict[str, Any] = {
+        "schema": SCHEMA,
+        "status": STATUS,
+        "trust": TRUST,
+        "signed_case_count": 12,
+        "leading_killer_case_count": 12,
+        "leading_sign_ok_for_sample_ms": True,
+        "sampled_fixed_killer_all_negative": True,
+        "preflight_only_not_certified_m_values": list(PREFLIGHT_ONLY_TARGET_MS),
+    }
+    for key, expected_value in expected.items():
+        if key not in payload:
+            raise AssertionError(f"missing expected field: {key}")
+        actual = payload[key]
+        if type(actual) is not type(expected_value) or actual != expected_value:
+            raise AssertionError(
+                f"{key}: expected {expected_value!r}, got {actual!r}"
+            )
 
 
 def _read_json(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as fh:
         return json.load(fh)
+
+
+def _assert_portable_payload_equal(
+    stored: Any,
+    current: Any,
+    *,
+    path: str = "$",
+) -> None:
+    """Compare payload semantics exactly and diagnostic floats portably."""
+    if type(stored) is not type(current):
+        raise AssertionError(
+            f"{path}: type mismatch ({type(stored).__name__} != "
+            f"{type(current).__name__})"
+        )
+    if isinstance(current, dict):
+        if stored.keys() != current.keys():
+            missing = sorted(set(current) - set(stored))
+            extra = sorted(set(stored) - set(current))
+            raise AssertionError(f"{path}: key mismatch (missing={missing}, extra={extra})")
+        for key in current:
+            _assert_portable_payload_equal(stored[key], current[key], path=f"{path}.{key}")
+        return
+    if isinstance(current, list):
+        if len(stored) != len(current):
+            raise AssertionError(f"{path}: length mismatch ({len(stored)} != {len(current)})")
+        for index, (stored_item, current_item) in enumerate(zip(stored, current, strict=True)):
+            _assert_portable_payload_equal(
+                stored_item,
+                current_item,
+                path=f"{path}[{index}]",
+            )
+        return
+    if isinstance(current, float):
+        if not math.isfinite(stored) or not math.isfinite(current):
+            if stored != current:
+                raise AssertionError(f"{path}: non-finite float mismatch")
+            return
+        if stored == current:
+            return
+        # A sign change is a semantic change even if both values are tiny.
+        sign_changed = math.copysign(1.0, stored) != math.copysign(1.0, current)
+        if stored == 0.0 or current == 0.0 or sign_changed:
+            raise AssertionError(
+                f"{path}: float sign/zero mismatch ({stored!r} != {current!r})"
+            )
+        if not math.isclose(
+            stored,
+            current,
+            rel_tol=PORTABLE_FLOAT_REL_TOL,
+            abs_tol=PORTABLE_FLOAT_ABS_TOL,
+        ):
+            raise AssertionError(f"{path}: material float mismatch ({stored!r} != {current!r})")
+        return
+    if stored != current:
+        raise AssertionError(f"{path}: exact value mismatch ({stored!r} != {current!r})")
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -397,13 +470,19 @@ def main(argv: Sequence[str] | None = None) -> int:
             fh.write(json.dumps(payload, indent=1, sort_keys=True) + "\n")
     if args.check:
         stored = _read_json(artifact_path)
-        if stored != payload:
+        try:
+            # Keep the claim/status and decision assertions exact for the
+            # checked-in object as well as the freshly generated payload.
+            assert_expected(stored)
+            _assert_portable_payload_equal(stored, payload)
+        except AssertionError as exc:
             print(
                 json.dumps(
                     {
                         "schema": SCHEMA,
                         "status": "ARTIFACT_MISMATCH",
                         "artifact": str(artifact_path),
+                        "reason": str(exc),
                     },
                     indent=1,
                     sort_keys=True,

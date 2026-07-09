@@ -407,6 +407,20 @@ per-command stdout/stderr and environment metadata. If `make` is unavailable,
 use `python scripts/run_artifact_audit.py --verify-only` for the same raw
 artifact command set.
 
+The command registry and the excluded pytest tiers support deterministic,
+zero-based CI shards. Every command or collected test is assigned by SHA-256
+of its stable id, so the shards are disjoint and their union is the unsharded
+selection:
+
+```bash
+python scripts/run_artifact_audit.py --verify-only --shard-count 8 --shard-index 0
+python -m pytest -q -m "artifact" --shard-count 8 --shard-index 0
+python -m pytest -q -m "(slow or exhaustive) and not artifact" \
+  --shard-count 8 --shard-index 0
+```
+
+Run every index from `0` through `shard-count - 1` for complete coverage.
+
 Useful exploratory commands:
 
 ```bash
