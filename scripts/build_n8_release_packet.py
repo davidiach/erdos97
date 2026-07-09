@@ -442,4 +442,529 @@ def make_pdf(path: Path, title: str, subtitle: str, sections: list[Section]) -> 
         author="davidiach/erdos97",
     )
     story = [
-        
+        Paragraph(title, styles["ReleaseTitle"]),
+        Paragraph(subtitle, styles["ReleaseSubtitle"]),
+        Table(
+            [
+                ["Status", "Repo-local n <= 8 finite-case release packet"],
+                ["Global status", "Falsifiable/open; no general proof or counterexample claimed"],
+                ["Date", RELEASE_DATE],
+            ],
+            colWidths=[1.25 * inch, 5.45 * inch],
+            hAlign="LEFT",
+            style=[
+                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#888888")),
+                ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#eeeeee")),
+                ("FONTNAME", (0, 0), (0, -1), "Helvetica-Bold"),
+                ("FONTSIZE", (0, 0), (-1, -1), 8.6),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 5),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+            ],
+        ),
+        Spacer(1, 8),
+    ]
+
+    for section in sections:
+        story.append(Paragraph(section.heading, styles["ReleaseHeading"]))
+        for block in clean_text(section.body).split("\n\n"):
+            if "\n" in block and block.lstrip().startswith("python "):
+                wrapped = "\n".join(
+                    wrapped_line
+                    for line in block.splitlines()
+                    for wrapped_line in (
+                        textwrap.wrap(
+                            line,
+                            width=88,
+                            subsequent_indent="    ",
+                            break_long_words=False,
+                            break_on_hyphens=False,
+                        )
+                        or [""]
+                    )
+                )
+                story.append(Preformatted(wrapped, styles["ReleaseCode"]))
+            else:
+                story.append(Paragraph(block.replace("\n", " "), styles["ReleaseBody"]))
+
+    def footer(canvas, _doc) -> None:  # type: ignore[no-untyped-def]
+        canvas.saveState()
+        canvas.setFont("Helvetica", 8)
+        canvas.setFillColor(colors.HexColor("#666666"))
+        canvas.drawString(0.72 * inch, 0.38 * inch, "davidiach/erdos97 n <= 8 release packet")
+        canvas.drawRightString(7.78 * inch, 0.38 * inch, f"Page {_doc.page}")
+        canvas.restoreState()
+
+    doc.build(story, onFirstPage=footer, onLaterPages=footer)
+
+
+def sha256_records(records: Sequence[dict[str, object]]) -> str:
+    digest = hashlib.sha256()
+    for record in sorted(records, key=lambda item: str(item["path"])):
+        digest.update(str(record["path"]).encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(str(record["sha256"]).encode("ascii"))
+        digest.update(b"\n")
+    return digest.hexdigest()
+
+
+def file_record(path: Path, relative_path: str) -> dict[str, object]:
+    return {
+        "path": relative_path,
+        "size_bytes": path.stat().st_size,
+        "sha256": sha256_file(path),
+    }
+
+
+def git_output(*args: str, text: bool = True) -> str | bytes:
+    completed = subprocess.run(
+        ["git", *args],
+        cwd=ROOT,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=text,
+    )
+    return completed.stdout.strip() if text else completed.stdout
+
+
+def require_clean_worktree() -> None:
+    status = str(git_output("status", "--porcelain=v1", "--untracked-files=all"))
+    if status:
+        raise SystemExit(
+            "release generation/checking requires a clean Git worktree; "
+            f"found:\n{status}"
+        )
+
+
+def git_file_bytes(commit: str, relative_path: str) -> bytes:
+    try:
+        return bytes(git_output("show", f"{commit}:{relative_path}", text=False))
+    except subprocess.CalledProcessError as exc:
+        raise SystemExit(
+            f"source commit {commit} does not contain {relative_path}"
+        ) from exc
+
+
+def current_source_records() -> list[dict[str, object]]:
+    if len(BUNDLE_SOURCE_FILES) != len(set(BUNDLE_SOURCE_FILES)):
+        raise SystemExit("BUNDLE_SOURCE_FILES contains duplicate paths")
+    records = []
+    for relative_path in BUNDLE_SOURCE_FILES:
+        path = ROOT / relative_path
+        if not path.is_file():
+            raise SystemExit(f"missing bundle input: {relative_path}")
+        records.append(file_record(path, relative_path))
+    return sorted(records, key=lambda item: str(item["path"]))
+
+
+def load_manifest(path: Path) -> dict[str, object]:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise SystemExit(f"cannot read release manifest {path}: {exc}") from exc
+    if not isinstance(payload, dict):
+        raise SystemExit(f"release manifest must be an object: {path}")
+    return payload
+
+
+def recorded_source_commit(manifest: dict[str, object]) -> str:
+    source = manifest.get("source")
+    if not isinstance(source, dict) or not isinstance(source.get("commit"), str):
+        raise SystemExit("existing release manifest has no source.commit")
+    return source["commit"]
+
+
+def resolve_source_provenance(
+    source_ref: str | None,
+    *,
+    release_dir: Path = RELEASE_DIR,
+) -> tuple[dict[str, object], list[dict[str, object]]]:
+    require_clean_worktree()
+    source_records = current_source_records()
+    builder_sha256 = sha256_file(ROOT / BUILDER_PATH)
+    manifest_path = release_dir / BUNDLE_MANIFEST_NAME
+
+    if source_ref is None:
+        if not manifest_path.is_file():
+            raise SystemExit(
+                "no recorded source snapshot; rerun with --source-ref HEAD "
+                "from the clean source commit"
+            )
+        existing = load_manifest(manifest_path)
+        source = existing.get("source")
+        if not isinstance(source, dict):
+            raise SystemExit("existing release manifest has no source object")
+        builder = source.get("builder")
+        if not isinstance(builder, dict) or builder.get("sha256") != builder_sha256:
+            raise SystemExit(
+                "builder differs from the recorded source snapshot; commit the "
+                "source changes, then rebuild with --source-ref HEAD"
+            )
+        commit = recorded_source_commit(existing)
+    else:
+        commit = str(git_output("rev-parse", f"{source_ref}^{{commit}}"))
+
+    tree = str(git_output("rev-parse", f"{commit}^{{tree}}"))
+    for record in source_records:
+        relative_path = str(record["path"])
+        committed_sha256 = hashlib.sha256(
+            git_file_bytes(commit, relative_path)
+        ).hexdigest()
+        if committed_sha256 != record["sha256"]:
+            raise SystemExit(
+                f"{relative_path} does not match source commit {commit}; "
+                "commit source inputs before building"
+            )
+
+    source = {
+        "repository_url": REPOSITORY_URL,
+        "commit": commit,
+        "tree": tree,
+        "commit_url": f"{REPOSITORY_URL}/commit/{commit}",
+        "builder": {"path": BUILDER_PATH, "sha256": builder_sha256},
+        "bundle_source_files_sha256": sha256_records(source_records),
+        "worktree": {
+            "dirty": False,
+            "policy": (
+                "Build and check require a clean Git worktree. Generated release "
+                "outputs are committed after, and are not part of, the named "
+                "source snapshot."
+            ),
+        },
+    }
+    return source, source_records
+
+
+def dependency_snapshot() -> dict[str, object]:
+    lock_path = ROOT / "requirements-lock.txt"
+    dependencies = []
+    for line in lock_path.read_text(encoding="utf-8").splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        match = re.fullmatch(r"([A-Za-z0-9_.-]+)==([^\s]+)", stripped)
+        if not match:
+            raise SystemExit(f"unsupported requirements-lock entry: {stripped}")
+        dependencies.append({"name": match.group(1), "version": match.group(2)})
+
+    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    requires_match = re.search(r'^requires-python\s*=\s*"([^"]+)"', pyproject, re.M)
+    if not requires_match:
+        raise SystemExit("pyproject.toml has no requires-python field")
+    return {
+        "snapshot_kind": "declared_reproduction_environment",
+        "python": {
+            "implementation": "CPython",
+            "version": REPRODUCTION_PYTHON,
+            "requires_python": requires_match.group(1),
+        },
+        "platform": {
+            "supported_hosts": ["Linux", "macOS", "Windows"],
+            "archive_paths": "POSIX",
+            "archive_compression": "stored",
+            "host_specific_metadata": "excluded",
+        },
+        "lockfile": {
+            "path": "requirements-lock.txt",
+            "sha256": sha256_file(lock_path),
+        },
+        "dependencies": dependencies,
+    }
+
+
+def bundle_readme(source: dict[str, object]) -> str:
+    return clean_text(
+        f"""
+        # Erdős Problem 97: n <= 8 Review Bundle
+
+        This is the self-contained review bundle for the repository-local
+        elementary `n <= 8` theorem and its selected-witness finite-case
+        corroboration. It does not prove Erdős Problem #97 and does not claim
+        a counterexample. The global problem remains open.
+
+        Repository: {REPOSITORY_URL}
+
+        Source commit: `{source['commit']}`
+
+        The compact release note is
+        `papers/release/small-counterexamples-erdos97-release.md` (also supplied
+        as `papers/release/small-counterexamples-erdos97-release.pdf`). The
+        one-page summary is `papers/release/n8-review-summary.md` (also supplied
+        as `papers/release/n8-review-summary.pdf`). The shortest human proof is
+        `docs/n8-geometric-proof.md`; its repository review record is
+        `docs/n8-geometric-proof-audit-2026-07-09.md`.
+
+        ## Integrity
+
+        `BUNDLE_MANIFEST.json` records the source commit/tree, builder digest,
+        declared Python/dependency environment, and every bundled file digest.
+        `SHA256SUMS.txt` is the plain-text checksum list.
+
+        ## Reproduction environment
+
+        Use CPython {REPRODUCTION_PYTHON}. Install the pinned snapshot and this
+        package without resolving newer dependencies:
+
+        ```bash
+        python -m pip install -r requirements-lock.txt
+        python -m pip install -e . --no-deps
+        ```
+
+        Run the following commands from this directory:
+
+        ```bash
+        {chr(10).join(REPRODUCTION_COMMANDS)}
+        ```
+
+        Citation metadata is in `CITATION.cff`. The split license and complete
+        license texts are `LICENSE.md`, `LICENSE-CODE.md`, and
+        `LICENSE-DOCS-DATA.md`.
+        """
+    ) + "\n"
+
+
+def copy_file(source: Path, destination: Path) -> None:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(source, destination)
+
+
+def copy_bundle_files(
+    bundle_root: Path,
+    release_dir: Path,
+    source: dict[str, object],
+) -> list[dict[str, object]]:
+    bundle_root.mkdir(parents=True)
+    for relative_path in BUNDLE_SOURCE_FILES:
+        copy_file(ROOT / relative_path, bundle_root / relative_path)
+    for relative_path in BUNDLE_DOCUMENT_FILES:
+        copy_file(release_dir / Path(relative_path).name, bundle_root / relative_path)
+    write_text(bundle_root / "README.md", bundle_readme(source))
+
+    for relative_path in BUNDLE_README_REFERENCES:
+        if relative_path in {"BUNDLE_MANIFEST.json", "SHA256SUMS.txt"}:
+            continue
+        if not (bundle_root / relative_path).is_file():
+            raise SystemExit(f"bundle README references missing file: {relative_path}")
+
+    paths = [path for path in bundle_root.rglob("*") if path.is_file()]
+    return sorted(
+        [file_record(path, path.relative_to(bundle_root).as_posix()) for path in paths],
+        key=lambda item: str(item["path"]),
+    )
+
+
+def write_bundle_manifest(
+    bundle_root: Path,
+    release_dir: Path,
+    records: list[dict[str, object]],
+    source: dict[str, object],
+) -> None:
+    manifest = {
+        "schema": "erdos97.n8_release_bundle.v2",
+        "release_date": RELEASE_DATE,
+        "official_status_check": OFFICIAL_STATUS_CHECK,
+        "claim_scope": (
+            "Repo-local elementary n <= 8 theorem and selected-witness "
+            "finite-case corroboration; not a proof of Erdos Problem #97 "
+            "and not a counterexample."
+        ),
+        "source": source,
+        "environment": dependency_snapshot(),
+        "reproduction_commands": REPRODUCTION_COMMANDS,
+        "files": records,
+    }
+    manifest_text = json.dumps(manifest, indent=2, sort_keys=True) + "\n"
+    write_text(bundle_root / "BUNDLE_MANIFEST.json", manifest_text)
+    checksum_lines = [f"{record['sha256']}  {record['path']}" for record in records]
+    checksum_lines.append(
+        f"{sha256_file(bundle_root / 'BUNDLE_MANIFEST.json')}  BUNDLE_MANIFEST.json"
+    )
+    checksum_text = "\n".join(checksum_lines) + "\n"
+    write_text(bundle_root / "SHA256SUMS.txt", checksum_text)
+    write_text(release_dir / BUNDLE_MANIFEST_NAME, manifest_text)
+    write_text(release_dir / BUNDLE_CHECKSUMS_NAME, checksum_text)
+
+
+def canonical_zip_members(bundle_root: Path) -> list[tuple[str, Path]]:
+    members = [
+        (
+            f"{BUNDLE_DIRECTORY_NAME}/{path.relative_to(bundle_root).as_posix()}",
+            path,
+        )
+        for path in bundle_root.rglob("*")
+        if path.is_file()
+    ]
+    return sorted(members, key=lambda item: item[0])
+
+
+def zip_bundle(bundle_root: Path, zip_path: Path) -> None:
+    with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_STORED) as archive:
+        archive.comment = b""
+        for member_name, path in canonical_zip_members(bundle_root):
+            info = zipfile.ZipInfo(member_name, date_time=ZIP_TIMESTAMP)
+            info.compress_type = zipfile.ZIP_STORED
+            info.create_system = 3
+            info.create_version = 20
+            info.extract_version = 20
+            info.flag_bits = 0
+            info.internal_attr = 0
+            info.external_attr = ZIP_FILE_MODE << 16
+            info.extra = b""
+            info.comment = b""
+            archive.writestr(info, path.read_bytes())
+
+
+def write_release_checksums(release_dir: Path) -> None:
+    names = [name for name in RELEASE_OUTPUT_NAMES if name != "SHA256SUMS.txt"]
+    lines = [f"{sha256_file(release_dir / name)}  {name}" for name in names]
+    write_text(release_dir / "SHA256SUMS.txt", "\n".join(lines) + "\n")
+
+
+def build_release(
+    release_dir: Path,
+    staging_dir: Path,
+    source: dict[str, object],
+) -> None:
+    release_dir.mkdir(parents=True)
+    note_subtitle = (
+        "Self-contained reviewer release note. Source-of-truth status remains "
+        "README.md, STATE.md, RESULTS.md, docs/claims.md, and metadata/erdos97.yaml."
+    )
+    summary_subtitle = (
+        "One-page external-review summary for the repo-local elementary n <= 8 "
+        "theorem and selected-witness corroboration."
+    )
+
+    write_text(
+        release_dir / "small-counterexamples-erdos97-release.md",
+        markdown_document(
+            "Small Counterexamples To Erdos Problem 97: n <= 8 Release Note",
+            note_subtitle,
+            NOTE_SECTIONS,
+        ),
+    )
+    write_text(
+        release_dir / "n8-review-summary.md",
+        markdown_document("n <= 8 Review Summary", summary_subtitle, SUMMARY_SECTIONS),
+    )
+    make_pdf(
+        release_dir / "small-counterexamples-erdos97-release.pdf",
+        "Small Counterexamples To Erdos Problem 97",
+        note_subtitle,
+        NOTE_SECTIONS,
+    )
+    make_pdf(
+        release_dir / "n8-review-summary.pdf",
+        "n <= 8 Review Summary",
+        summary_subtitle,
+        SUMMARY_SECTIONS,
+    )
+
+    bundle_root = staging_dir / BUNDLE_DIRECTORY_NAME
+    records = copy_bundle_files(bundle_root, release_dir, source)
+    write_bundle_manifest(bundle_root, release_dir, records, source)
+    zip_bundle(bundle_root, release_dir / ZIP_NAME)
+    write_text(release_dir / "README.md", release_readme(source))
+    write_release_checksums(release_dir)
+
+
+def release_readme(source: dict[str, object]) -> str:
+    return clean_text(
+        f"""
+        # n <= 8 Release Packet
+
+        Status: generated reviewer release packet; not mathematical evidence
+        by itself.
+
+        Generated from source commit `{source['commit']}` (tree
+        `{source['tree']}`) in {REPOSITORY_URL}. To rebuild it from that clean
+        source snapshot:
+
+        ```bash
+        git checkout {source['commit']}
+        python scripts/build_n8_release_packet.py --source-ref HEAD
+        ```
+
+        To verify these generated files without modifying the checkout:
+
+        ```bash
+        python scripts/build_n8_release_packet.py --check
+        ```
+
+        `{ZIP_NAME}` is a self-contained platform-neutral review bundle with
+        its own README, licenses, citation metadata, code, and certificates.
+        `{BUNDLE_MANIFEST_NAME}` records source and environment provenance;
+        `{BUNDLE_CHECKSUMS_NAME}` and `SHA256SUMS.txt` record file integrity.
+
+        Official/global status remains falsifiable/open, rechecked from
+        https://www.erdosproblems.com/97 on {OFFICIAL_STATUS_CHECK}. No general
+        proof and no counterexample are claimed.
+        """
+    ) + "\n"
+
+
+def compare_release(expected_dir: Path, actual_dir: Path) -> list[str]:
+    mismatches = []
+    for name in RELEASE_OUTPUT_NAMES:
+        expected = expected_dir / name
+        actual = actual_dir / name
+        if not actual.is_file():
+            mismatches.append(f"missing: {name}")
+        elif expected.read_bytes() != actual.read_bytes():
+            mismatches.append(
+                f"stale: {name} (expected {sha256_file(expected)}, "
+                f"found {sha256_file(actual)})"
+            )
+    return mismatches
+
+
+def install_release(expected_dir: Path, actual_dir: Path) -> None:
+    actual_dir.mkdir(parents=True, exist_ok=True)
+    for name in RELEASE_OUTPUT_NAMES:
+        copy_file(expected_dir / name, actual_dir / name)
+
+
+def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="rebuild temporarily and compare without changing the checkout",
+    )
+    parser.add_argument(
+        "--source-ref",
+        help="clean committed source ref to record (normally HEAD)",
+    )
+    args = parser.parse_args(argv)
+    if args.check and args.source_ref:
+        parser.error("--check cannot be combined with --source-ref")
+    return args
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    args = parse_args(argv)
+    source, _source_records = resolve_source_provenance(args.source_ref)
+    with tempfile.TemporaryDirectory(prefix="erdos97-n8-release-") as temporary:
+        temporary_root = Path(temporary)
+        expected_dir = temporary_root / "release"
+        build_release(expected_dir, temporary_root / "bundle", source)
+        if args.check:
+            mismatches = compare_release(expected_dir, RELEASE_DIR)
+            if mismatches:
+                print("n <= 8 release packet is stale:", file=sys.stderr)
+                for mismatch in mismatches:
+                    print(f"- {mismatch}", file=sys.stderr)
+                return 1
+            print("n <= 8 release packet is current")
+            return 0
+        install_release(expected_dir, RELEASE_DIR)
+        print(
+            f"wrote n <= 8 release packet from {source['commit']} "
+            f"to {RELEASE_DIR.relative_to(ROOT)}"
+        )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

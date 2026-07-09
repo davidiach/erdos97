@@ -636,4 +636,571 @@
     function isStrictlyConvex() {
       let sign = 0;
       for (let i = 0; i < state.n; i += 1) {
-        const z = cross(state.vertices[i], state.vertices[mod(i + 1)], state.vert
+        const z = cross(state.vertices[i], state.vertices[mod(i + 1)], state.vertices[mod(i + 2)]);
+        if (Math.abs(z) < 0.015) return false;
+        const s = Math.sign(z);
+        if (sign === 0) sign = s;
+        if (s !== sign) return false;
+      }
+      return true;
+    }
+
+    function distance(a, b) {
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    function witnessIndices() {
+      const p = state.vertices[state.center];
+      return state.vertices
+        .map((v, i) => ({ i, d: i === state.center ? Infinity : distance(p, v) }))
+        .sort((a, b) => a.d - b.d)
+        .slice(0, Math.min(4, state.n - 1));
+    }
+
+    function basePair() {
+      const a = mod(state.baseStart);
+      let b = mod(state.baseStart + state.baseOffset);
+      if (b === a) b = mod(a + 1);
+      return [a, b];
+    }
+
+    function lineDash(on = true) {
+      ctx.setLineDash(on ? [6, 6] : []);
+    }
+
+    function drawPolygon() {
+      const pts = state.vertices.map(toScreen);
+      ctx.save();
+      ctx.beginPath();
+      pts.forEach((p, i) => i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y));
+      ctx.closePath();
+      ctx.fillStyle = "rgba(232, 240, 255, 0.62)";
+      ctx.strokeStyle = colors.black;
+      ctx.lineWidth = 2.5;
+      ctx.shadowColor = "rgba(12, 24, 50, 0.14)";
+      ctx.shadowBlur = 18;
+      ctx.shadowOffsetY = 12;
+      ctx.fill();
+      ctx.shadowColor = "transparent";
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawVertex(i, opts = {}) {
+      const p = toScreen(state.vertices[i]);
+      const r = opts.radius || 6;
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = opts.fill || colors.black;
+      ctx.strokeStyle = opts.stroke || "#ffffff";
+      ctx.lineWidth = opts.lineWidth || 2;
+      ctx.fill();
+      ctx.stroke();
+      if (opts.label) {
+        ctx.font = "700 15px ui-sans-serif, system-ui";
+        ctx.fillStyle = opts.fill || colors.ink;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "bottom";
+        ctx.fillText(opts.label, p.x, p.y - r - 8);
+      }
+      ctx.restore();
+    }
+
+    function drawAllVertices(extra = {}) {
+      for (let i = 0; i < state.n; i += 1) {
+        drawVertex(i, extra[i] || {});
+      }
+    }
+
+    function drawApexStep() {
+      const p = toScreen(state.vertices[state.center]);
+      const witnesses = witnessIndices();
+      const witnessIds = witnesses.map(item => item.i);
+      const avg = witnesses.reduce((sum, item) => sum + item.d, 0) / witnesses.length;
+      const spread = Math.max(...witnesses.map(item => item.d)) - Math.min(...witnesses.map(item => item.d));
+      const nearlyCocircular = spread < 0.045;
+
+      ctx.save();
+      if (nearlyCocircular) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, avg * state.bounds.scale, 0, Math.PI * 2);
+        lineDash(true);
+        ctx.strokeStyle = colors.blue;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      }
+
+      witnessIds.forEach((i, idx) => {
+        const w = toScreen(state.vertices[i]);
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(w.x, w.y);
+        ctx.strokeStyle = colors.blue;
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+        if (!nearlyCocircular) {
+          const angle = Math.atan2(w.y - p.y, w.x - p.x);
+          const tx = w.x - Math.cos(angle) * 18;
+          const ty = w.y - Math.sin(angle) * 18;
+          ctx.beginPath();
+          ctx.moveTo(tx - Math.sin(angle) * 5, ty + Math.cos(angle) * 5);
+          ctx.lineTo(tx + Math.sin(angle) * 5, ty - Math.cos(angle) * 5);
+          ctx.strokeStyle = colors.blue;
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
+        if (idx < witnesses.length - 1) {
+          for (let j = idx + 1; j < witnesses.length; j += 1) {
+            const q = toScreen(state.vertices[witnessIds[j]]);
+            ctx.beginPath();
+            ctx.moveTo(w.x, w.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = "rgba(242, 108, 34, 0.32)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      });
+      lineDash(false);
+      ctx.restore();
+
+      const extra = {};
+      extra[state.center] = { fill: colors.blue, radius: 10, label: "p" };
+      witnessIds.forEach(i => extra[i] = { fill: colors.orange, radius: 8 });
+      drawAllVertices(extra);
+    }
+
+    function drawBaseStep() {
+      const [ai, bi] = basePair();
+      const a = state.vertices[ai];
+      const b = state.vertices[bi];
+      const as = toScreen(a);
+      const bs = toScreen(b);
+      const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+      const mids = toScreen(mid);
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const len = Math.hypot(dx, dy) || 1;
+      const nx = -dy / len;
+      const ny = dx / len;
+      const far1 = toScreen({ x: mid.x + nx * 1.7, y: mid.y + ny * 1.7 });
+      const far2 = toScreen({ x: mid.x - nx * 1.7, y: mid.y - ny * 1.7 });
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(as.x, as.y);
+      ctx.lineTo(bs.x, bs.y);
+      ctx.strokeStyle = colors.orange;
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(far1.x, far1.y);
+      ctx.lineTo(far2.x, far2.y);
+      lineDash(true);
+      ctx.strokeStyle = colors.blue;
+      ctx.lineWidth = 1.8;
+      ctx.stroke();
+      lineDash(false);
+
+      ctx.beginPath();
+      ctx.arc(mids.x, mids.y, 4, 0, Math.PI * 2);
+      ctx.fillStyle = colors.blue;
+      ctx.fill();
+
+      state.vertices.forEach((v, i) => {
+        if (i === ai || i === bi) return;
+        const side = Math.sign((v.x - a.x) * (b.y - a.y) - (v.y - a.y) * (b.x - a.x));
+        const proj = toScreen({ x: v.x, y: v.y });
+        const alpha = side > 0 ? "rgba(11, 111, 115, 0.16)" : "rgba(21, 86, 192, 0.14)";
+        ctx.beginPath();
+        ctx.moveTo(mids.x, mids.y);
+        ctx.lineTo(proj.x, proj.y);
+        ctx.strokeStyle = alpha;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+      ctx.restore();
+
+      const extra = {};
+      extra[ai] = { fill: colors.orange, radius: 9, label: "a" };
+      extra[bi] = { fill: colors.orange, radius: 9, label: "b" };
+      drawAllVertices(extra);
+    }
+
+    function drawPayoffStep() {
+      drawAllVertices();
+      const y = 42;
+      const startX = 38;
+      const gap = 68;
+      ctx.save();
+      ctx.font = "800 15px ui-sans-serif, system-ui";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      for (let n = 3; n <= 8; n += 1) {
+        const x = startX + (n - 3) * gap;
+        const possible = n >= 8;
+        ctx.fillStyle = possible ? colors.teal : colors.red;
+        ctx.beginPath();
+        ctx.arc(x, y, 20, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#fff";
+        ctx.fillText(String(n), x, y);
+        ctx.fillStyle = colors.muted;
+        ctx.font = "700 11px ui-sans-serif, system-ui";
+        ctx.fillText(possible ? "first possible" : "ruled out", x, y + 34);
+        ctx.font = "800 15px ui-sans-serif, system-ui";
+      }
+      ctx.restore();
+    }
+
+    function drawArcMarker(center, prev, next, radius, label) {
+      const c = toScreen(center);
+      const a1 = Math.atan2(prev.y - center.y, prev.x - center.x);
+      const a2 = Math.atan2(next.y - center.y, next.x - center.x);
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, radius, a1, a2, false);
+      ctx.strokeStyle = colors.orange;
+      ctx.lineWidth = 5;
+      ctx.stroke();
+      ctx.font = "800 13px ui-sans-serif, system-ui";
+      ctx.fillStyle = colors.orange;
+      ctx.textAlign = "center";
+      ctx.fillText(label, c.x, c.y - radius - 8);
+      ctx.restore();
+    }
+
+    function drawForcedTurnMarker(point, startAngle, radius, label) {
+      const sweep = (2 * Math.PI) / 3;
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(point.x, point.y, radius, startAngle, startAngle + sweep, false);
+      ctx.strokeStyle = colors.orange;
+      ctx.lineWidth = 5;
+      ctx.stroke();
+      const mid = startAngle + sweep / 2;
+      ctx.font = "800 13px ui-sans-serif, system-ui";
+      ctx.fillStyle = colors.orange;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(label, point.x + Math.cos(mid) * (radius + 24), point.y + Math.sin(mid) * (radius + 24));
+      ctx.restore();
+    }
+
+    function drawOctagonStep() {
+      if (state.n !== 8) {
+        ctx.save();
+        ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
+        ctx.strokeStyle = colors.line;
+        ctx.lineWidth = 1.5;
+        const boxW = Math.min(360, state.bounds.width - 48);
+        const boxH = 104;
+        const x = (state.bounds.width - boxW) / 2;
+        const y = (state.bounds.height - boxH) / 2;
+        ctx.beginPath();
+        ctx.roundRect(x, y, boxW, boxH, 8);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = colors.ink;
+        ctx.font = "800 18px ui-sans-serif, system-ui";
+        ctx.textAlign = "center";
+        ctx.fillText("Octagon step is n = 8 only", state.bounds.width / 2, y + 40);
+        ctx.fillStyle = colors.muted;
+        ctx.font = "600 13px ui-sans-serif, system-ui";
+        ctx.fillText("Switch back to earlier steps to explore other vertex counts.", state.bounds.width / 2, y + 68);
+        ctx.restore();
+        return;
+      }
+      const forced = [0, 2, 4, 6];
+      ctx.save();
+      for (let i = 0; i < state.n; i += 1) {
+        const a = toScreen(state.vertices[i]);
+        const b = toScreen(state.vertices[mod(i + 2)]);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = "rgba(21, 86, 192, 0.2)";
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+      }
+      for (let i = 0; i < state.n; i += 1) {
+        const a = toScreen(state.vertices[i]);
+        const b = toScreen(state.vertices[mod(i + 3)]);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = "rgba(242, 108, 34, 0.18)";
+        ctx.lineWidth = 1.1;
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      const cx = state.bounds.width - 104;
+      const cy = 96;
+      const turnRadius = 42;
+      ctx.save();
+      ctx.fillStyle = "rgba(255, 255, 255, 0.88)";
+      ctx.strokeStyle = colors.line;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(cx - 76, cy - 60, 152, 132, 8);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = colors.muted;
+      ctx.font = "800 12px ui-sans-serif, system-ui";
+      ctx.textAlign = "center";
+      ctx.fillText("forced turn budget", cx, cy - 38);
+      ctx.strokeStyle = "rgba(21, 86, 192, 0.2)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(cx, cy + 8, turnRadius, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+
+      forced.forEach((i, idx) => {
+        const start = -Math.PI / 2 + idx * (Math.PI / 2);
+        drawForcedTurnMarker({ x: cx, y: cy + 8 }, start, turnRadius, "120deg");
+      });
+
+      const extra = {};
+      forced.forEach(i => extra[i] = { fill: colors.orange, radius: 9 });
+      drawAllVertices(extra);
+    }
+
+    function draw() {
+      const w = state.bounds.width;
+      const h = state.bounds.height;
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.save();
+      ctx.fillStyle = colors.paper;
+      ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = "rgba(82, 96, 112, 0.14)";
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 42) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += 42) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      drawPolygon();
+      if (state.step === "apex") drawApexStep();
+      if (state.step === "base") drawBaseStep();
+      if (state.step === "payoff") drawPayoffStep();
+      if (state.step === "octagon") drawOctagonStep();
+      if (state.step !== "apex" && state.step !== "base" && state.step !== "octagon") drawAllVertices();
+      updateConvexStatus();
+    }
+
+    function updateConvexStatus() {
+      const ok = isStrictlyConvex();
+      convexDot.classList.toggle("warn", !ok);
+      convexText.textContent = ok ? "Strictly convex polygon" : "Strict convexity assumption broken";
+    }
+
+    function updatePanel() {
+      const data = stepData[state.step];
+      stepTitle.textContent = data.title;
+      stepNumber.textContent = data.number;
+      stepCopy.textContent = data.copy;
+      formula.textContent = data.formula;
+      formulaCopy.textContent = data.formulaCopy;
+      nValue.textContent = String(state.n);
+      centerValue.textContent = String(state.center);
+      baseValue.textContent = String(state.baseStart);
+      centerRange.max = String(state.n - 1);
+      baseRange.max = String(state.n - 1);
+      nRange.disabled = state.step === "octagon";
+      nRange.setAttribute("aria-disabled", state.step === "octagon" ? "true" : "false");
+
+      document.querySelectorAll(".segment").forEach(btn => {
+        btn.setAttribute("aria-pressed", btn.dataset.step === state.step ? "true" : "false");
+      });
+      updateBaseButtons();
+
+      const lower = 6 * state.n;
+      const upper = state.n * (state.n - 2);
+      const canPass = lower <= upper;
+      const baseCap = state.baseOffset === 1 || state.baseOffset === state.n - 1 ? 1 : 2;
+      const list = {
+        apex: [
+          ["Every bad center contributes at least six triples.", "orange"],
+          [`Current count preview: lower bound 6n = ${lower}.`, ""],
+          ["The highlighted vertices are a proof sketch layer, not a certificate that the dragged shape is bad.", ""],
+          ["When the four nearest vertices are not nearly cocircular, the canvas shows ticked rays instead of a witness circle.", ""]
+        ],
+        base: [
+          [`Selected base capacity: at most ${baseCap} apex${baseCap === 1 ? "" : "es"}.`, ""],
+          ["The cap distinguishes the two sides of the base line; the dashed line is the perpendicular bisector where equal-distance apices would lie.", "orange"]
+        ],
+        payoff: [
+          [`For n = ${state.n}: 6n = ${lower}, while n(n-2) = ${upper}.`, canPass ? "" : "red"],
+          [canPass ? "The double count does not rule this n out by itself." : "The theorem's double count rules this n out immediately.", canPass ? "orange" : "red"]
+        ],
+        octagon: [
+          ["This step is specific to n = 8; the vertex-count slider is locked while this tab is active.", ""],
+          ["In the equality case, every side and diagonal must hit its maximum base capacity.", ""],
+          ["Length-2 diagonals force equal sides; length-3 diagonals force a vertex cover by 120 degree turns.", "orange"],
+          ["The 120 degree markers are drawn in the forced-turn budget inset, not as measured angles of the draggable sketch.", ""],
+          ["Four forced 120 degree turns already exceed the 360 degree exterior-turn budget.", "red"]
+        ]
+      }[state.step];
+
+      facts.innerHTML = "";
+      list.forEach(([text, tone]) => {
+        const div = document.createElement("div");
+        div.className = `fact ${tone}`.trim();
+        div.textContent = text;
+        facts.appendChild(div);
+      });
+    }
+
+    function setN(n) {
+      state.n = n;
+      state.center = Math.min(state.center, n - 1);
+      state.baseStart = Math.min(state.baseStart, n - 1);
+      state.baseOffset = Math.min(state.baseOffset, maxBaseOffset(n));
+      state.vertices = makeShape(n);
+      nRange.value = String(n);
+      centerRange.value = String(state.center);
+      baseRange.value = String(state.baseStart);
+      updatePanel();
+      draw();
+    }
+
+    function maxBaseOffset(n = state.n) {
+      return Math.floor(n / 2);
+    }
+
+    function baseOffsetLabel(offset) {
+      return offset === 1 ? "Side" : `Length ${offset}`;
+    }
+
+    function updateBaseButtons() {
+      const maxOffset = maxBaseOffset();
+      if (state.baseOffset > maxOffset) state.baseOffset = maxOffset;
+      baseButtons.innerHTML = "";
+      for (let offset = 1; offset <= maxOffset; offset += 1) {
+        const btn = document.createElement("button");
+        btn.className = "mini";
+        btn.type = "button";
+        btn.dataset.offset = String(offset);
+        btn.setAttribute("aria-pressed", offset === state.baseOffset ? "true" : "false");
+        btn.textContent = baseOffsetLabel(offset);
+        baseButtons.appendChild(btn);
+      }
+    }
+
+    function pointerPos(event) {
+      const rect = canvas.getBoundingClientRect();
+      return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    }
+
+    function nearestVertex(pos) {
+      let best = -1;
+      let bestDist = Infinity;
+      state.vertices.forEach((v, i) => {
+        const p = toScreen(v);
+        const d = Math.hypot(p.x - pos.x, p.y - pos.y);
+        if (d < bestDist) {
+          best = i;
+          bestDist = d;
+        }
+      });
+      return bestDist < 24 ? best : -1;
+    }
+
+    canvas.addEventListener("pointerdown", event => {
+      const pos = pointerPos(event);
+      const hit = nearestVertex(pos);
+      if (hit >= 0) {
+        state.dragIndex = hit;
+        state.center = hit;
+        centerRange.value = String(hit);
+        canvas.classList.add("dragging");
+        canvas.setPointerCapture(event.pointerId);
+        updatePanel();
+        draw();
+      }
+    });
+
+    canvas.addEventListener("pointermove", event => {
+      if (state.dragIndex < 0) return;
+      const pos = pointerPos(event);
+      const p = fromScreen(pos.x, pos.y);
+      state.vertices[state.dragIndex] = {
+        x: Math.max(-1.08, Math.min(1.08, p.x)),
+        y: Math.max(-1.08, Math.min(1.08, p.y))
+      };
+      draw();
+    });
+
+    canvas.addEventListener("pointerup", event => {
+      state.dragIndex = -1;
+      canvas.classList.remove("dragging");
+      try {
+        canvas.releasePointerCapture(event.pointerId);
+      } catch (err) {
+        // Pointer capture may already be released on some browsers.
+      }
+    });
+
+    canvas.addEventListener("pointercancel", () => {
+      state.dragIndex = -1;
+      canvas.classList.remove("dragging");
+    });
+
+    document.querySelectorAll(".segment").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.step = btn.dataset.step;
+        if (state.step === "octagon" && state.n !== 8) setN(8);
+        updatePanel();
+        draw();
+      });
+    });
+
+    baseButtons.addEventListener("click", event => {
+      const btn = event.target.closest(".mini");
+      if (!btn) return;
+      state.baseOffset = Number(btn.dataset.offset);
+      updatePanel();
+      draw();
+    });
+
+    nRange.addEventListener("input", () => {
+      if (state.step === "octagon") {
+        nRange.value = "8";
+        return;
+      }
+      setN(Number(nRange.value));
+    });
+    centerRange.addEventListener("input", () => {
+      state.center = Number(centerRange.value);
+      updatePanel();
+      draw();
+    });
+    baseRange.addEventListener("input", () => {
+      state.baseStart = Number(baseRange.value);
+      updatePanel();
+      draw();
+    });
+    resetBtn.addEventListener("click", () => setN(state.step === "octagon" ? 8 : state.n));
+
+    window.addEventListener("resize", resize);
+
+    state.vertices = makeShape(state.n);
+    updatePanel();
+    resize();
+  </script>
+</body>
+</html>

@@ -348,4 +348,65 @@ Check:
 Primary references:
 
 - `docs/n10-vertex-circle-singleton-review-packet.md`
-- `docs/n10-vert
+- `docs/n10-vertex-circle-singleton-slices.md`
+- `scripts/check_n10_singleton_input_audit.py`
+- `scripts/check_n10_vertex_circle_singletons.py`
+- `scripts/check_n10_secondary_singleton_replay.py`
+
+Run:
+
+```bash
+python scripts/check_n10_singleton_input_audit.py --check --assert-expected --json
+python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
+python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
+```
+
+Check:
+
+- that row0 singleton coverage is exactly `[0,126)` with no hidden symmetry
+  quotient;
+- that the input-data audit is only stored-data validation, not a terminal
+  conflict replay;
+- that the selected spot replay covers only rows `0`, `63`, and `125`;
+- that the secondary replay covers only rows `0..4` and uses an extra
+  necessary filter;
+- that all-slice independent replay, terminal-conflict certificates, or an
+  independently reviewed replacement lemma are still required before the n=10
+  package can move beyond draft.
+
+## Known weak points / independent review requests
+
+- Independent audit of `scripts/enumerate_n8_incidence.py`.
+- Independent audit of exact certificates, especially classes `3`, `4`, and
+  `14` if those remain singled out in `RESULTS.md`.
+- A minimal standalone class `14` checker would be especially valuable because
+  that obstruction combines Groebner reasoning with a strict-interior
+  conclusion.
+- A Z3-independent replay path for the C19 all-order Kalmanson order UNSAT
+  certificate would reduce single-solver trust. A checkable SAT/SMT proof or a
+  pure finite-order checker is preferred over an UNSAT core alone.
+- Independent review of the `n=9` local-lemma audit path should check packet
+  soundness, mini-replay soundness, local-lemma completeness, strict-edge
+  geometry, selected-distance quotient soundness, and brancher coverage before
+  any `n=9` promotion.
+- Independent review of the `n=9` base-apex audit path should check the
+  low-excess ledger arithmetic, D=3 handoffs, selected-baseline crosswalk, and
+  vertex-circle frontier connection before using it as bridge evidence.
+- Independent review of the `n=10` singleton-slice draft should check the
+  primary search implementation, row0 singleton split, partial vertex-circle
+  pruning, and all-slice replay gap before any n=10 promotion.
+- Bridge work should start from `docs/lemma-driven-bridge-targets.md` and
+  state which minimal/rich-class lemma contract or negative control it
+  addresses before adding another finite packet.
+- Independent reproduction of `certificates/n8_exact_analysis.json`.
+- A Lean, SMT, interval, or algebraic certificate checker would be high value.
+
+## Reporting review findings
+
+Open an issue or PR that states:
+
+- which artifact was reviewed;
+- exact command run;
+- environment details;
+- whether the result reproduced;
+- any mathematical or implementation gap found.

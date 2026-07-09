@@ -450,4 +450,66 @@ def test_archived_artifact_is_digest_pinned_and_cannot_be_cited(tmp_path: Path) 
         "reason": "legacy diagnostic only",
     }
     manifest["archived_tracked_artifacts"] = [archive_entry]
-    manifest["archive_inventory_sha256"]
+    manifest["archive_inventory_sha256"] = archive_inventory_digest([archive_entry])
+    manifest["source_of_truth_surfaces"] = [str(surface)]
+
+    assert validate_manifest(manifest) == []
+
+    surface.write_text(f"Cites {archived}\n", encoding="utf-8")
+    errors = validate_manifest(manifest)
+    assert any("promote it to a managed artifact" in error for error in errors)
+
+    surface.write_text("No archived citation.\n", encoding="utf-8")
+    archived.write_text(json.dumps({"status": "CHANGED"}) + "\n", encoding="utf-8")
+    errors = validate_manifest(manifest)
+    assert any(".sha256 is" in error for error in errors)
+
+
+def test_native_trust_mismatch_requires_exact_explicit_mapping(tmp_path: Path) -> None:
+    generator = tmp_path / "generator.py"
+    manifest = replay_manifest(
+        tmp_path,
+        command=f"python {generator}",
+        check_command=None,
+    )
+    artifact = Path(str(manifest["artifacts"][0]["path"]))
+    artifact.write_text(json.dumps({"trust": "NATIVE_DIAGNOSTIC"}) + "\n", encoding="utf-8")
+    manifest["artifacts"][0].update(artifact_metadata(artifact))
+    manifest["artifacts"][0]["trust_class"] = "REVIEW_PENDING_DIAGNOSTIC"
+    manifest["artifacts"][0].pop("expected_json")
+
+    errors = validate_manifest(manifest)
+    assert any("differs from canonical trust_class" in error for error in errors)
+
+    manifest["native_trust_policy"]["mismatch_overrides"] = {
+        "sample": {
+            "native_value": "NATIVE_DIAGNOSTIC",
+            "trust_class": "REVIEW_PENDING_DIAGNOSTIC",
+            "rationale": "native producer wording maps conservatively",
+        }
+    }
+    assert validate_manifest(manifest) == []
+
+
+def test_missing_native_trust_requires_explicit_mapping(tmp_path: Path) -> None:
+    generator = tmp_path / "generator.py"
+    manifest = replay_manifest(
+        tmp_path,
+        command=f"python {generator}",
+        check_command=None,
+    )
+    artifact = Path(str(manifest["artifacts"][0]["path"]))
+    artifact.write_text(json.dumps({"status": "LEGACY"}) + "\n", encoding="utf-8")
+    manifest["artifacts"][0].update(artifact_metadata(artifact))
+    manifest["artifacts"][0].pop("expected_json")
+
+    errors = validate_manifest(manifest)
+    assert any("has no top-level native trust" in error for error in errors)
+
+    manifest["native_trust_policy"]["missing_overrides"] = {
+        "sample": {
+            "trust_class": "EXACT_OBSTRUCTION",
+            "rationale": "legacy payload omitted a trust field",
+        }
+    }
+    assert validate_manifest(manifest) == []

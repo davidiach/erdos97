@@ -270,4 +270,972 @@ See `docs/n9-all-five-rich-support-obstruction.md`.
 
 A sharpened rich-support counting lemma now gives a proof-level shortcut for
 all-five-rich subcases: for any same-radius supports `R_i`,
-`sum_i binom(|R_i|, 2) <= n(n 
+`sum_i binom(|R_i|, 2) <= n(n - 2)`. The improvement over the coarse `n(n-1)`
+pair-sharing count is that a hull-edge witness pair can occur in at most one
+support, while a non-edge witness pair can occur in at most two. A
+support-saturation obstruction rules out the equality wall, so every center
+having five equidistant witnesses requires `n >= 13`. The same pair-counting
+relaxation says any hypothetical 4-bad decagon has at least five exact-four
+centers and any hypothetical 4-bad hendecagon has at least three. A nonagon
+profile-deficiency refinement in the same checker rules out the remaining raw
+size-five and size-six nonagon support-size profiles. The localized per-label
+support-pair cap gives a second route to the same sharpened nonagon conclusion:
+any hypothetical 4-bad nonagon is forced into the all-exact-four,
+selected-indegree-four support case by counting alone. This does not prove the
+review-pending exact-four frontier, `n=9`, `n=10`, `n=11`, or Erdos Problem #97.
+An independent determinant obstruction now rechecks the all-five-rich `n=12`
+equality wall: the saturated `12 x 12` support-incidence Gram matrix would have
+determinant `2,592,000 = 720^2 * 5`, not a square, contradicting
+`det(A^T A) = det(A)^2`. This is redundant with support saturation and does
+not prove the full dodecagon case. See `docs/rich-support-counting-lemma.md`,
+`docs/support-saturation-obstruction.md`,
+`docs/n12-rich-support-determinant-obstruction.md`, and
+`docs/localized-rich-support-counting.md`.
+
+The follow-up mixed rich-support reduction enumerates every four- or
+five-witness support at every center, for `126^9 =
+8,004,512,848,309,157,376` raw assignments. With the same pair/crossing
+filters plus witness-pair capacity, the exact search leaves `184` complete
+assignments, and every one is all-exact-four. There are `0` complete
+assignments containing a size-five support. This is now a catalogue regression
+and provenance check for the proof-facing localized count, which already
+reduces any hypothetical `n=9` selected-witness counterexample to the
+exact-four frontier before vertex-circle replay. It still does not
+independently prove the review-pending exact-four exhaustive checker, prove
+`n=9`, or give a counterexample. See
+`docs/n9-mixed-rich-support-reduction.md`.
+
+A mixed-rich/frontier crosswalk now checks that those `184` terminal
+mixed-support assignments are exactly the stored `184` exact-four
+pre-vertex-circle frontier assignments as a labelled row set. The brancher
+sequences differ at six positions, but the sorted row-set digest agrees, and
+the matched stored statuses are `158` self-edges and `26` strict cycles. This
+is support-to-frontier bookkeeping only; it still does not prove the
+review-pending exact-four exhaustive checker, prove `n=9`, or give a
+counterexample. See `docs/n9-mixed-rich-frontier-crosswalk.md`.
+
+A second bootstrap-core diagnostic overlays the two tight non-ear-orderable
+`n=9` crosswalk rows with the review-pending vertex-circle strict-cycle chain.
+Both rows join by selected-row signature to the same `T12/F16` strict-cycle
+template, but neither strict-cycle core is contained in the bootstrap core. See
+`docs/bootstrap-vertex-circle-overlay.md`.
+
+A follow-up T12 forcing-target ledger spells out the next bridge gap in that
+overlay: source `81` still needs equality-connector rows `3` and `8` and has no
+direct private-pair hit, while source `151` needs row centers `5,6,7,8` and has
+only two direct private-pair hits. This is target bookkeeping only; it is not a
+proof that those rows are forced. See `docs/bootstrap-t12-forcing-targets.md`.
+
+A row-pressure refinement classifies those six missing T12 row centers: two
+are already exposed in a deletion closure, three need one outside label while
+their row centers stay private, and one needs an outside pair with partial
+private-pair ledger support. This is still only a diagnostic for the next
+bridge lemma. See `docs/bootstrap-t12-row-pressure.md`.
+
+A closure-exposed subpacket isolates the two easiest row-pressure gaps:
+`81:3` and `151:7` are activation-ready in the deletion closure for core
+vertex `2`. Source `81` has the full selected row in that closure, while
+source `151` has only the row center and three core witnesses. This is
+proof-mining bookkeeping only, not a proof that either row is forced. See
+`docs/bootstrap-t12-closure-exposed.md`.
+
+A one-outside-label subpacket isolates the three singleton-support
+row-pressure gaps: `81:8`, `151:5`, and `151:8`. Each has two bootstrap-core
+witnesses and a row center private in every deletion closure; in each row, one
+singleton support is private in all deletion halos and one is already internal
+to the deletion closure for core vertex `2`. This remains diagnostic
+bookkeeping only, not a row-forcing theorem. See
+`docs/bootstrap-t12-one-outside.md`.
+
+An outside-pair subpacket isolates the remaining row-pressure gap, `151:6`.
+It has one bootstrap-core witness, row center `6` private in every deletion
+closure, and three outside-pair supports. All three supports are private in
+every deletion halo; `[3,8]` and `[5,8]` also hit the private-pair ledger,
+while `[3,5]` is private-halo-only. This is still diagnostic bookkeeping only,
+not a row-forcing theorem. See `docs/bootstrap-t12-outside-pair.md`.
+
+A role-sensitive activation-support ledger now separates the witness subsets
+actually needed by the stored T12/F16 quotient certificate from the unproved
+row-forcing problem. It records five equality-connector pair requirements and
+two strict-edge endpoint-set requirements across the six missing row centers;
+in particular, source `151` row `7` is closure-exposed through `[0,1,4]` but
+still misses endpoint `6` for its strict edge. This remains diagnostic
+bookkeeping only, not a proof that any missing row is forced. See
+`docs/bootstrap-t12-activation-requirements.md`.
+
+A joined T12 bridge-target map now names the next proof obligation for each of
+the six missing rows. It keeps the row-pressure packet, the connector/strict
+relation requirement, and the still-unproved row-forcing bridge target in
+separate columns. The hardest current targets are the hard strict endpoint
+rows `151:7` and `151:8`, plus the open connector-pair row `151:5`. This is
+still a proof-mining diagnostic only. See
+`docs/bootstrap-t12-bridge-target-map.md`.
+
+A hard strict-endpoint subpacket now isolates rows `151:7` and `151:8`.
+Neither strict-edge endpoint requirement is closure-sufficient or
+support-sufficient: `151:7` is closure-exposed but misses outside endpoint `6`,
+while `151:8` has singleton supports that split endpoints `5` and `7`. This
+is diagnostic bookkeeping only, not a theorem that the missing endpoints are
+forced. See `docs/bootstrap-t12-hard-strict-endpoints.md`.
+
+An open connector-pair subpacket now isolates row `151:5`. Its stored
+equality connector needs outside pair `[7,8]`; the deletion closure for core
+vertex `2` sees only endpoint `7`, and singleton supports `7` and `8` split
+the pair one endpoint at a time. This is diagnostic bookkeeping only, not a
+theorem that the connector endpoints or row are forced. See
+`docs/bootstrap-t12-open-connector-pair.md`.
+
+A relation-sufficient row subpacket now isolates rows `81:3`, `81:8`, and
+`151:6`. Their stored connector requirements are already bootstrap-core
+sufficient or support-sufficient, but the packet keeps the row/rich-class
+forcing step open. This is diagnostic bookkeeping only, not a theorem that
+the relation-sufficient rows are forced. See
+`docs/bootstrap-t12-relation-sufficient-rows.md`.
+
+A focused `81:3` closure-target packet now isolates the sharpest current
+bridge subcase: source `81` row `3` is the unique relation-sufficient target
+whose full fixed selected row is contained in a deletion closure, and it is
+the final equality connector `[1,3]=[0,3]` in the `T12/F16` local strict-cycle
+packet. The missing step is still genuine row/rich-class forcing, not more
+fixed-row bookkeeping. See `docs/bootstrap-t12-81-3-closure-target.md`.
+
+A follow-up `81:3` rich-triple connector contract weakens that target: the
+full fixed row is not needed for the stored connector, only a genuine rich
+class at center `3` containing witnesses `0` and `1`. The checked packet proves
+only this local conditional and records the exact remaining escape: every rich
+class at center `3` must avoid the pair `[0,1]`, so any connector-avoiding
+activation through the fixed row must first expose label `6`. This is still
+diagnostic bookkeeping only, not a row-forcing theorem. See
+`docs/bootstrap-t12-81-3-rich-triple-contract.md`.
+
+An order-resolved `81:3` fixed-row escape audit now checks that the current
+singleton-rich closure from seed `[0,1,4]` does not supply that escape: center
+`3` is the only initial activation, and label `6` is added only afterward via
+trigger `[0,3,4]`, which already uses center `3`. The remaining target is
+genuine rich-class data: either find a pre-`3` supply of label `6` that avoids
+the connector, or prove such a supply impossible under the minimal/rich-class
+hypotheses. See `docs/bootstrap-t12-81-3-order-escape.md`.
+
+The relaxed `81:3` escape-candidate scans probe that remaining target under
+fixed-row-neighborhood hypotheses. The first scan replaces centers `3` and `6`
+while preserving the other seven source-`81` rows and finds no surviving
+basic incidence/crossing candidate. The one-row-drop scan then allows any one
+of those seven preserved rows to move as an arbitrary 4-set; all `19600`
+candidates again fail the basic filters. The two-row-drop scan allows any pair
+of those seven rows to move and all `4116000` candidates fail as well. This is
+now subsumed by a full-neighborhood CSP: with centers `3` and `6` still using
+the same one-class replacement spaces, all seven other source-`81` rows may be
+arbitrary 4-sets, and the exact backtracker finds no complete basic-filter
+assignment in the implicit `329417200000000`-assignment space. The auxiliary
+CSP then lets the center-`3` connector and center-`6` supply classes exist as
+extra rich classes while selected rows at those centers may be equal or
+disjoint; it rules out the implicit `1317668800000000` selected-row assignment
+space under the same basic filters plus same-center disjointness. This is
+still proof-mining bookkeeping only, not a theorem about all genuine
+rich-class catalogues. A follow-up trigger-family uniqueness audit checks that
+the specified center-`6` supply family and center-`3` connector-avoiding family
+are each same-center unique: all pairs inside either family intersect, so a
+genuine rich-class catalogue can contain at most one class from each specified
+trigger family. This narrows the auxiliary-CSP wording only; it still does not
+prove trigger-class existence, row forcing, `n=9`, or the bridge. A richer
+support CSP then allows the center-`6` supply object and center-`3`
+connector-avoiding object to be full rich supports of size larger than four:
+31 supply supports and 30 connector-avoiding supports produce 930 auxiliary
+support pairs, and exact backtracking finds no complete basic-filter
+assignment in the implicit `996734092900000000` selected-row space. This still
+does not prove the supports exist, row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-81-3-escape-candidates.md` and
+`docs/bootstrap-t12-81-3-escape-one-row-drop.md`, plus
+`docs/bootstrap-t12-81-3-escape-two-row-drop.md` and
+`docs/bootstrap-t12-81-3-escape-full-neighborhood.md`, and then
+`docs/bootstrap-t12-81-3-escape-auxiliary-csp.md` and
+`docs/bootstrap-t12-81-3-trigger-uniqueness.md`, plus
+`docs/bootstrap-t12-81-3-escape-rich-support-csp.md`.
+
+The first-supply-chain, second-supply-chain, and second-step-chain packets now
+push that same `81:3` escape model through the next bounded continuation
+layers. The first-supply-chain scan leaves exactly three basic-filter prefix
+survivors, all first activating center `8`, and no immediate center-`6`
+label-`6` supply extension. The second-supply-chain prefix crosswalk then
+allows one additional non-target, non-supply activation from closure
+`[0,1,4,8]`; it leaves one center-`8` then center-`2` prefix, with support
+`[1,3,4,8]`, and no immediate center-`6` label-`6` extension for that prefix.
+The second-step-chain scan then lets distinct intermediate centers from
+`{2,5,7}` activate after those center-`8` prefixes before testing one
+center-`6` label-`6` supply support; it finds no surviving chain. This remains
+one-support-per-activated-center proof-mining bookkeeping, not support
+existence, row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-81-3-first-supply-chains.md`,
+`docs/bootstrap-t12-81-3-second-supply-chains.md`, and
+`docs/bootstrap-t12-81-3-second-step-chains.md`. A companion post-`8`
+supply-chain packet records the raw support-catalogue denominator for the same
+bounded model: `3,918,164,268` support catalogues collapse to `58` initially
+compatible catalogues and zero selected-row completions. See
+`docs/bootstrap-t12-81-3-post8-supply-chains.md`.
+An ordered chain-closure CSP then lets any eligible not-yet-closed center in
+`[2,5,6,7,8]` activate as long as its support contains at least three
+currently closed labels, while holding center `3` back. It checks `5916`
+candidate extensions, leaves four non-supply prefixes, and finds no surviving
+prefix whose next activated center is `6`. This closes only the audited
+sequential support-chain model; repeated or multiple rich supports and any
+future minimality/rich-class bridge hypothesis remain outside the model. See
+`docs/bootstrap-t12-81-3-chain-closure-csp.md`.
+A one-layer repeated-support audit now probes the first such non-sequential
+continuation. Starting from those four stored prefixes, it adds one disjoint
+same-center support at an already activated prefix center, generating five
+repeated-support catalogues and `464` center-`6` supply-extension attempts.
+Only one combined catalogue is initially compatible, and it still has zero
+selected-row completions. This remains one bounded catalogue audit only, not
+support existence, genuine rich-class order, row forcing, `n=9`, or the
+bridge. See `docs/bootstrap-t12-81-3-repeated-support-catalogue-audit.md`.
+A two-repeated-support audit now checks the next deduplicated catalogue layer:
+the only unique two-support catalogue has repeated supports at centers `2` and
+`8`, is already initially incompatible, and all `118` center-`6` supply
+extensions remain incompatible. This is still bounded catalogue bookkeeping,
+not support existence, genuine rich-class order, row forcing, `n=9`, or the
+bridge. See
+`docs/bootstrap-t12-81-3-two-repeated-support-catalogue-audit.md`.
+A saturation audit now records the boundary of that exact repeated-support
+model. Across the four stored prefixes it finds four base catalogues, five
+one-repeated-support catalogues, one deduplicated two-repeated-support
+catalogue, and no three-repeated-support catalogue. This closes only the
+stored-prefix same-center-disjoint repeated-support model; richer catalogues,
+new activation provenance, support existence, row forcing, `n=9`, and the
+bridge remain outside the claim. See
+`docs/bootstrap-t12-81-3-repeated-support-saturation-audit.md`.
+
+A source-`81` row-`8` singleton-support audit now probes the other
+relation-sufficient target in source `81`. It enumerates the nine center-`8`
+rows containing bootstrap-core witnesses `[0,2]` and one singleton support
+label from `[5,6]`; only the original row `[0,2,5,6]` survives with the fixed
+source-`81` neighborhood. A one-row-drop relaxation checks `5040` candidates
+and again has no non-original row-`8` survivor. This remains basic
+incidence/crossing bookkeeping only, not singleton-support existence, row
+forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-81-8-singleton-support-audit.md`.
+
+The source-`81` row-`8` two-row-drop follow-up lets any two non-target
+source-`81` rows move. It checks `1,234,800` candidates and leaves `28`
+survivors, all trivial original-neighborhood survivors with row `8` still
+`[0,2,5,6]` and both dropped rows still original. This remains basic
+incidence/crossing bookkeeping only, not singleton-support existence, row
+forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-81-8-singleton-support-two-row-drop.md`.
+
+The source-`81` row-`8` full-neighborhood vertex-circle packet gives the
+matching negative control: when all other centers may use arbitrary selected
+4-sets, basic filters leave `34` complete assignments, including `27` with
+non-original row `8`; vertex-circle quotient replay kills all `34`. This
+remains finite bookkeeping only, not singleton-support existence, row forcing,
+`n=9`, or the bridge. See
+`docs/bootstrap-t12-81-8-full-neighborhood-vertex-circle.md`.
+
+A source-`151` row-`6` outside-pair audit now probes the remaining
+relation-sufficient row target. It enumerates the thirteen center-`6` rows
+containing bootstrap-core witness `[0]` and one outside support pair from
+`[3,5]`, `[3,8]`, or `[5,8]`; only the original row `[0,3,5,8]` survives with
+the fixed source-`151` neighborhood. A one-row-drop relaxation checks `7280`
+candidates and again has no non-original row-`6` survivor. This remains basic
+incidence/crossing bookkeeping only, not outside-pair support existence, row
+forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-audit.md`.
+
+The source-`151` row-`6` outside-pair two-row-drop extension checks the next
+relaxation level: any unordered pair of non-target rows may move to arbitrary
+selected 4-sets. It checks `1,783,600` candidate states and leaves only `28`
+trivial original-neighborhood survivors, one for each dropped-center pair.
+This remains diagnostic bookkeeping only, not outside-pair support existence,
+row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-two-row-drop.md`.
+
+The source-`151` row-`6` outside-pair full-neighborhood vertex-circle packet
+then lets every other center move to an arbitrary selected `4`-set while row
+`6` stays in the same outside-pair activation family. Basic filters leave `28`
+complete assignments, including `21` with non-original row `6`, and
+vertex-circle quotient replay kills all `28` by `20` self-edges and `8` strict
+cycles. This remains proof-mining bookkeeping only, not outside-pair support
+existence, row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`.
+
+The source-`151` row-`6` outside-pair connector contract now records the exact
+local conditional left by that lane: any genuine center-`6` rich class
+containing witnesses `0` and `8` supplies connector `[0,6]=[8,6]`. Thus the
+endpoint-`8` supports `[3,8]` and `[5,8]` are connector-forcing targets, while
+the private-halo-only pair `[3,5]` is the unique connector-avoiding outside-pair
+escape. This remains diagnostic bookkeeping only, not outside-pair support
+existence, row forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`.
+
+The source-`151` row-`6` private-lane residual packets now refine that
+connector-avoiding escape down to row-local label-`4` transfer obligations.
+The label-`8`-free strict-core split leaves `10` distinct exact residual
+signatures; every one needs auxiliary label `4`, and the transfer-path ledger
+pins shortest selected-distance paths from label-`4` pairs into the residual
+strict-cycle endpoint classes. The row-local obligation ledger then records
+`8` positive transfer incidences, `7` unique equality obligations, and `6` path
+motifs: every positive transfer starts with a label-`4` spoke swap at row `5`
+or row `7`, and every row-`6` obligation is the connector step `[5,6]=[0,6]`
+after the row-`5` step `[4,5]=[5,6]`. The length-component ledger then
+collapses those obligations into `6` undirected segment-length components over
+`9` distinct segments. There are `3` edge-diagonal components, `2`
+diagonal-only components, and one row-`5`/row-`6` connector cascade
+`D[0,6]=D[4,5]=D[5,6]`, tying two hull edges to a cyclic-gap-`3` diagonal.
+The component-feasibility negative control gives a strict cyclic convex
+`9`-gon arc witness for each component considered alone, including a
+modulus-`13` witness for the row-`6` cascade. Thus component-alone
+impossibility is rejected, and any future exclusion must use extra
+private-support, rich-class, row-forcing, or activation-provenance hypotheses.
+The support-hypothesis ledger makes that extra layer explicit: the cascade
+requires center `5` with witnesses `[4,6]` and center `6` with witnesses
+`[0,5]`, while none of the seven centered label-`4` transfer requirements is
+the exact private pair `[3,5]`. The cascade row-criticality packet then checks
+the three auxiliary-center-`5,8` cascade signatures and finds a sharp
+three-row boundary: `{5,6,8}` is strict-cycle obstructed, while all `18`
+nonempty proper row truncations are quotient-clean. The remaining bridge
+target therefore has to force the row-`8` strict endpoint row as well as the
+row-`5`/row-`6` cascade equalities. The endpoint-target follow-up now shows
+that, for each stored cascade package, any center-`8` rich class containing
+the triple `[0,4,6]` keeps the quotient replay obstructed; across `93`
+signature-level rich supersets the statuses are `72` self-edges and `21`
+strict cycles. A center-`8` rich-triple preflight then records that current
+support evidence does not yet force this target: the support ledger has
+centered requirements at `5`, `6`, and `7`, no center-`8` support
+requirement, no label-`8` support witness, and no support requirement
+containing the full triple `[0,4,6]`. A source-crosswalk follow-up now also
+rules out reusing the existing source-`151` row-`8` singleton packet as this
+cascade source: its checked row-`8` candidates are built from core `[1,2]` and
+one support from `[5,7]`, so none contains a pair or full triple from
+`[0,4,6]`. A core-route follow-up joins the private-lane strict-core split
+with the endpoint target: `8` of `9` center-`8` local cores contain `[0,4,6]`,
+but only `4` of the `32` label-`8`-visible cores are label-`8`-visible and
+target-compatible, and `6` of the `12` private-lane assignments still have no
+center-`8` target core. Thus label-`8` visibility alone is not a forcing
+source for the center-`8` cascade target. A residual target-row split then
+records that four of those six residual assignments contain `[0,4,6]` only as
+off-center strict-core rows at centers `2`, `5`, or `7`, while assignments `0`
+and `11` are target-sparse and contain no full `[0,4,6]` row in any residual
+strict core. A center-migration preflight then records that the five
+off-center `[0,4,6]` rows would be conditional center-`8` endpoint targets if
+re-centered, but the current support ledger has no center-`8` support
+requirement and the existing source-`151` row-`8` packet has no target pair
+from `[0,4,6]`. A target-sparse completion preflight then records that all
+`12` one-row completions of target-pair rows to `[0,4,6]` for assignments `0`
+and `11` fail basic filters by witness-pair caps and crossings before
+vertex-circle replay; this blocks only the one-row repair route, not the
+assignments themselves. A repair-extension follow-up then allows one
+additional arbitrary non-completion row replacement after each target
+completion; all `6624` one-completion plus one-repair candidates still fail
+basic filters before vertex-circle replay. A depth-two repair follow-up then
+allows two additional arbitrary non-completion row replacements after each
+target completion; all `1599696` one-completion plus two-repair candidates
+still fail basic filters before vertex-circle replay. A support-cone follow-up
+then converts the cascade support requirements center `5` with `[4,6]` and
+center `6` with `[0,5]` into exact quotient equalities. The target-pair and
+completion probes have no bounded one- or two-row Kalmanson/Altman cone
+certificate, while adding a center-`8` exact target row covers `27` of `30`
+endpoint-augmented probes and leaves exactly the assignment-`0` endpoint rows
+`[0,1,4,6]`, `[0,2,4,6]`, and `[0,4,6,7]`.
+The full-cone miss follow-up probes exactly those three quotients with
+arbitrary nonnegative weights over the same `255` natural-order
+Kalmanson/Altman strict rows; HiGHS reports both normalized zero-sum and
+nonpositive LP screens infeasible, but no exact dual infeasibility certificate
+is stored. A new exact dual-certificate follow-up stores nonnegative integer
+separating potentials for those same three quotient screens, with minimum
+strict-row dot `1`; it upgrades the solver-only screen to exact route-pruning
+for the current row family only. A fixed alternate-order Kalmanson follow-up
+then certifies the same three quotients for cyclic order
+`[0,1,2,3,4,5,7,8,6]` by exact zero-sum row combinations with row counts
+`10`, `10`, and `9`. The order-sensitivity crosswalk combines these exact
+packets and records that the current certificate route needs order forcing,
+a stronger row family, or endpoint/source geometry before it can become an
+all-order target-sparse obstruction. This is still proof-mining bookkeeping only,
+not support existence, row forcing, center migration, endpoint-`8` forcing,
+`[3,5]` impossibility, simultaneous realization of all components, a
+target-sparse obstruction, `n=9`, or the bridge.
+See `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` and
+`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`, plus
+`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md` and
+`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`, plus
+`docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md` and
+`docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`, plus
+`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md` and
+`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`, plus
+`docs/bootstrap-t12-151-6-label4-center8-core-route.md` and
+`docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`, plus
+`docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md` and
+`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md` and
+`docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`,
+plus
+`docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`
+and `docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`, plus
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md` and
+`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`,
+with
+`docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md` and
+`docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`.
+The next-lemma obligation contract
+`docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md` joins the
+endpoint-`8`, center-migration, and target-sparse route decisions into one
+task-selection ledger: the remaining useful directions are to exclude the
+private-halo pair `[3,5]` or force endpoint `8`, prove center-`8` migration or
+an independent `[0,4,6]` source, or add order forcing / stronger exact rows /
+endpoint-source geometry. This is still only review-pending bridge
+bookkeeping, not `n=9`, not the bridge, and not Erdos #97.
+
+A source-`151` singleton-support audit now probes the two remaining
+one-outside-label rows, `151:5` and `151:8`. Each target has nine activation
+rows built from its bootstrap-core witnesses plus one singleton support; in
+both fixed source-`151` neighborhoods, only the original target row survives.
+The one-row-drop relaxations check `10080` candidates across the two targets
+and have no non-original target-row survivor. This remains basic
+incidence/crossing bookkeeping only, not singleton-support existence, row
+forcing, `n=9`, or the bridge. See
+`docs/bootstrap-t12-151-singleton-support-audit.md`.
+
+The source-`151` singleton-support two-row-drop extension checks the next
+relaxation level: any unordered pair of non-target rows may move to arbitrary
+selected 4-sets. Across targets `151:5` and `151:8`, it checks `2,469,600`
+candidates and leaves only `56` original-neighborhood survivors. This is still
+diagnostic bookkeeping only, not row forcing or a bridge proof. See
+`docs/bootstrap-t12-151-singleton-two-row-drop.md`.
+
+The source-`151` full-neighborhood vertex-circle replay then lets every other
+center move to an arbitrary selected 4-set while the target row stays in the
+same singleton-support activation family. Basic filters leave `50` complete
+assignments across targets `151:5` and `151:8`, including `36` with
+non-original target rows, and vertex-circle quotient replay kills all `50` by
+`37` self-edges and `13` strict cycles. This remains proof-mining
+bookkeeping only, not singleton-support existence, row forcing, `n=9`, or the
+bridge. See
+`docs/bootstrap-t12-151-singleton-full-neighborhood-vertex-circle.md`.
+
+A singleton full-neighborhood crosswalk now joins that source-`151` replay
+with the source-`81` row-`8` full-neighborhood packet. Across the three
+one-outside-label singleton-support targets `81:8`, `151:5`, and `151:8`,
+basic filters leave `84` complete assignments, including `63` with
+non-original target rows; vertex-circle quotient replay kills all `84` by
+`64` self-edges and `20` strict cycles. This is only a diagnostic boundary
+marker for the selected-row neighborhoods; singleton-support existence, row
+forcing, `n=9`, and the bootstrap bridge remain open. See
+`docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`.
+
+## New exact fixed-pattern obstructions
+
+The crossing-bisector, mutual-rhombus, phi 4-cycle rectangle-trap, cyclic
+crossing-CSP, and vertex-circle order filters now exactly kill several
+previously live fixed selected-witness patterns. In particular,
+`B12_3x4_danzer_lift` is no longer live as a fixed selected pattern: its
+mutual-rhombus midpoint equations force labels `[0,4,8]`, `[1,5,9]`,
+`[2,6,10]`, and `[3,7,11]` to coincide. The old numerical near-miss remains
+useful as a degeneration diagnostic, but not as a counterexample candidate.
+
+Also killed as fixed selected patterns: `B20_4x5_FR_lift`, `C17_skew`,
+`C20_pm_4_9`, `C16_pm_1_6`, `C13_pm_3_5`, `C9_pm_2_4`,
+`P18_parity_balanced`, and `P24_parity_balanced`. The `P18_parity_balanced`
+abstract-incidence obstruction uses the crossing constraints plus the
+vertex-circle order strict-cycle filter; `P24_parity_balanced` is already
+killed by the finite cyclic crossing CSP.
+
+Round two first added an exact Kalmanson/Farkas fixed-order obstruction for the
+registered `C19_skew` selected-witness pattern with offsets `[-8,-3,5,9]` and
+cyclic order `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The preferred
+compact certificate is a positive integer combination of 2 strict convex
+Kalmanson distance inequalities whose coefficient vector is exactly zero after
+selected-distance quotienting. The earlier 94-inequality certificate remains
+checked as provenance. See `docs/round2/kalmanson_distance_filter.md`.
+
+A follow-up Z3 refinement certificate now kills the fixed abstract `C19_skew`
+pattern across all cyclic orders. The certificate stores 7,981 exact forbidden
+ordered-quadrilateral pairs; each pair is checked to be a Kalmanson inverse
+pair after selected-distance quotienting, and Z3 verifies that the accumulated
+cyclic-order constraints are unsatisfiable. See
+`docs/kalmanson-two-order-search.md`,
+`scripts/check_kalmanson_two_order_z3.py`, and
+`data/certificates/c19_skew_all_orders_kalmanson_z3.json`.
+
+The C19 sampled-prefix workspace also records exact branch certificates for
+480 deterministic three-boundary-prefix states. The 288-479
+catalog-prefilter replay applies three checked unit supports after the two-row
+lookup and leaves zero ordinary fifth-pair Farkas fallbacks in that sampled
+range. This is a reproducibility and pruning artifact for the sampled branch
+chain, not a separate all-order C19 claim.
+
+A C13 Kalmanson pilot also kills the registered non-natural
+`C13_sidon_1_2_4_10` order `[5,0,10,8,9,7,4,6,2,11,12,3,1]` by an exact
+2-inequality Kalmanson/Farkas certificate. The follow-up exact order search now
+kills this fixed C13 Sidon pattern across all cyclic orders by proving that
+every cyclic order contains a two-inequality inverse-pair obstruction. See
+`docs/kalmanson-two-order-search.md`.
+
+The phi 4-cycle rectangle-trap filter kills a registered fixed `n=9`
+selected-witness pattern with directed cycle
+`{0,6}->{2,8}->{1,5}->{4,7}->{0,6}`. The obstruction is the exact determinant
+identity `D1 + D3 + D5 + D7 = -4*a*b` under cyclic-order signs `a,b > 0`.
+See `docs/phi4-rectangle-trap.md` and
+`data/certificates/n9_phi4_rectangle_trap.json`. This is not an `n=9`
+completeness result.
+
+A review-pending exhaustive `n=9` vertex-circle checker has been imported from
+the 2026-05-03 archive bundle and refactored into
+`scripts/check_n9_vertex_circle_exhaustive.py`. It records 184 full
+selected-witness systems after the pair/crossing/count filters and kills all
+184 by exact vertex-circle self-edge or strict-cycle obstructions. This is a
+candidate repo-local finite-case extension only; it does not change the
+official/global falsifiable/open status, and it is not promoted beyond the
+current `n <= 8` source-of-truth result until independent review.
+The companion input-data audit
+`scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json`
+checks the stored row0 witness coverage and summary arithmetic without
+rerunning the brancher. Use `--json` instead when the full expected-count
+block is needed. It is a review aid only, not an `n=9` proof.
+The combined selected-witness replay
+`scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json`
+joins localized counting, compact brancher regeneration of the same 184
+exact-four frontier assignments, and explicit per-assignment vertex-circle
+obstruction certificates. It is audit evidence only, not completed independent
+review, an `n=9` proof, or a status promotion.
+The turn-inequality frontier replay
+`scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`
+checks stored integer dual certificates for the candidate weak turn system on
+all 184 regenerated pair/crossing/count frontier assignments. It is
+review-pending finite-case evidence only: the geometric turn lemma and
+indexing conventions remain the review bottleneck, and this does not promote
+`n=9`. Use `--json` instead when the full certificate rows are needed.
+The compact Kalmanson self-edge replay
+`scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json`
+checks a stored certificate with one strict Kalmanson self-edge for each of the
+same 184 terminal assignments. It is a certificate replay and audit aid only,
+not an independent completion of brancher review or a promotion of `n=9`. Use
+`--json` when the full replay payload is needed.
+The independent stored-input replay
+`scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json`
+checks the same JSON without importing the Kalmanson generator module: row
+shape, incidence filters, selected-distance quotients, stored self-edges, and
+the digest. It is still stored-certificate auditing only, not brancher
+coverage or a promotion of `n=9`. Use `--json` when the first stored self-edge
+example record is needed.
+The fresh-frontier Kalmanson replay
+`scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
+imports no `erdos97` package modules, does not read the stored Kalmanson
+certificate, regenerates the same `184` terminal assignments, and finds one
+strict Kalmanson self-edge for each. It is corroborating audit evidence only,
+not independent review completion or an `n=9` promotion.
+The three-row compression replay
+`scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json`
+uses the same self-contained frontier regeneration and records that every
+terminal assignment has an optimally chosen row-minimal Kalmanson self-edge
+core using exactly three selected rows. It is proof-mining compression evidence
+only, not brancher soundness, a bridge proof, or an `n=9` promotion.
+The fixed-order Kalmanson branch cuts now cover both no-reciprocal and
+exactly-one-reciprocal selected-pair regimes. The no-reciprocal regular
+tournament audit forces at least one reciprocal selected pair; the
+one-reciprocal audit checks `76` dihedral reciprocal/absent status
+representatives covering `1,260` labelled statuses and finds no
+Kalmanson-acyclic orientation. Together they imply only that an `n=9`
+candidate must have at least two reciprocal selected pairs, not an `n=9`
+proof or source-of-truth promotion. See
+`docs/n9-regular-tournament-kalmanson-audit.md` and
+`docs/n9-one-reciprocal-kalmanson-audit.md`.
+A fixed-center-order replay,
+`scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json`,
+checks agreement with the dynamic minimum-remaining-options brancher on the
+closed search and 184-frontier classification. It is also a review aid only;
+use `--json` when the full fixed-order replay sections are needed.
+The strict-edge geometry audit
+`scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json`
+checks the local proper-interval inequality generator for all 630 candidate
+selected rows, while leaving quotient and coverage review separate. Use
+`--json` instead when the full mismatch example block is needed.
+The incidence-filter audit
+`scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json`
+checks the row-level two-overlap crossing table, witness-pair cap predicate,
+and selected-indegree cap predicate, while leaving branch replay and
+vertex-circle pruning review separate. Use `--json` instead when the full
+histogram blocks are needed.
+The quotient-soundness audit
+`scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json`
+checks selected-distance quotient status agreement on the stored local-core
+rows, stored full frontier assignments, and stored transformed frontier cores.
+It leaves branch coverage and strict-edge geometry review separate. Use
+`--json` instead when the full per-view status and mismatch example blocks are
+needed.
+The closed-descent packet
+`scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json`
+replays the 16 compact local-core representatives as finite closed-descent
+regions, with region/cycle length counts `1:13`, `2:1`, and `3:2`.
+It is a diagnostic reformulation only, not local-lemma completeness, a bridge
+proof, or an `n=9` proof.
+The partial-pruning audit
+`scripts/check_n9_vertex_circle_partial_pruning.py --check --assert-expected --summary-json`
+checks all 94,024 nonempty selected-row subsets of the stored 184 frontier
+assignments for monotone obstruction persistence and checker/replay status
+agreement. It is stored-frontier diagnostics only and leaves frontier coverage,
+brancher soundness, strict-edge geometry, and quotient soundness separate. Use
+`--json` when the full mismatch example block is needed.
+The frontier-assignment audit
+`scripts/check_n9_vertex_circle_frontier_assignment_audit.py --check --assert-expected --summary-json`
+checks the stored 184 frontier assignments directly for row shape, center
+coverage, row-pair intersection/crossing, witness-pair capacity, and
+selected-indegree capacity. It is stored-frontier diagnostics only, not
+frontier coverage or brancher soundness. Use `--json` when the full example
+error block is needed.
+The branch-option audit
+`scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --summary-json`
+walks the fixed-order no-vertex-circle search states and compares
+`valid_options_for_center` plus maintained count arrays against a direct
+implementation. It is a branch-option implementation audit only, not
+dynamic-MRO coverage or vertex-circle geometry review. The dynamic-MRO choice
+audit
+`scripts/check_n9_vertex_circle_dynamic_mro_choices.py --check --assert-expected --summary-json`
+replays the actual minimum-remaining-options center choice with and without
+vertex-circle pruning. It checks direct all-center option counts, first-minimum
+tie breaking, and maintained count arrays at every reached state; it is still
+branch-choice implementation diagnostics only. The frontier-coverage crosswalk
+`scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json`
+reruns the dynamic no-vertex-circle brancher and compares the generated 184
+complete selected-row assignments, in order, with the stored frontier
+motif-classification artifact. It is coverage bookkeeping against the current
+brancher, not filter soundness or a proof of `n=9`. Use `--json` instead for
+the full audit records and histograms. The dihedral-orbit audit
+`scripts/check_n9_vertex_circle_dihedral_orbit_audit.py --check --assert-expected --summary-json`
+then treats the stored motif and frontier-classification artifacts as inputs,
+replays the dihedral relabeling action independently, and checks canonical
+representatives, orbit sizes, orbit disjointness, and assignment-to-orbit maps.
+It is orbit bookkeeping only, not frontier coverage or a proof of `n=9`. Use
+`--json` when the full mismatch example block is needed.
+The motif-obstruction audit
+`scripts/check_n9_vertex_circle_motif_obstruction_audit.py --check --assert-expected --summary-json`
+treats the stored motif representatives as input and verifies their stored
+self-edge equality paths or strict-cycle edge chains by recomputing quotient
+classes and strict interval edges. It is stored-certificate bookkeeping only,
+not frontier coverage, brancher soundness, or a proof of `n=9`. Use `--json`
+when the full example error block is needed.
+The frontier comparison
+`scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --summary-json`
+checks the stored P18/C19 comparison artifact against the current local-core
+and vertex-circle helpers. It records zero exact n=9 local-core embeddings into
+the recorded P18 and C19 patterns, while preserving the P18 strict-cycle and
+C19 fixed-order pass guardrails. It is comparison diagnostics only, not a
+transfer theorem, counterexample, or proof of `n=9`. Use `--json` when the
+full pattern records are needed.
+The local-core subset audit
+`scripts/check_n9_vertex_circle_local_core_subset_audit.py --check --assert-expected --summary-json`
+checks that the compact local-core packet rows are exact subsets of the stored
+full motif representatives and already force the same obstruction status by
+direct quotient replay. It is compact-core bookkeeping only, not local-lemma
+completeness or a proof of `n=9`. Use `--json` when the full example error
+block is needed.
+The focused packet catalog audit
+`scripts/check_n9_vertex_circle_focused_packet_catalog_audit.py --check --assert-expected --summary-json`
+checks that the 12 focused local-lemma packets, source template packet records,
+template catalog records, and aggregate focused-note crosschecks agree on the
+same `184` assignments and 16 families. Use `--json` instead when the full
+packet records are needed. It is packet/catalog bookkeeping only, not packet
+soundness, local-lemma completeness, frontier coverage, or a proof of `n=9`.
+The focused mini-replay crosswalk
+`scripts/check_n9_vertex_circle_focused_minireplay_crosswalk.py --check --assert-expected --summary-json`
+joins those same 12 focused packets to their packet-specific minimal
+input-data replay artifacts. Use `--json` instead when the full mini-replay
+records are needed. The local-lemma audit path
+`scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json`
+runs the packet/catalog, focused mini-replay, aggregate/simple-replay,
+exhaustive/local-lemma, and relation-skeleton/local-lemma handoffs with
+adjacent drift localization, plus the relation-skeleton/closed-descent
+companion summary. Use `--json` instead when the full layer and manifest
+records are needed. These are review-pending handoff audits only, not packet
+soundness, local-lemma completeness, frontier coverage, or a proof of `n=9`.
+The relation-skeleton/closed-descent crosswalk
+`scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --summary-json`
+checks the same 16 families against the closed-descent packet, matching
+self-edge skeletons to one-class regions and strict-cycle skeletons to
+multi-class regions. It is packet bookkeeping only.
+
+A 2026-05-05 multi-agent attack adds an independent Gröbner-basis verification
+at n=8 (all 15 incidence-completeness survivors unrealizable by algebra alone)
+and partial n=9 algebraic corroboration: 150 labelled assignments are killed
+by GB={1}, and 18 more by F12's `y_8^2 + 1/4 = 0`. A 2026-05-06 follow-up
+adds replayable real-root / non-degeneracy decoders for the remaining 16
+labelled assignments in F07/F08/F09/F13, recording them as a review-pending
+candidate second-source algebraic audit target. The same audit reports no
+soundness defect in the vertex-circle checker filters. See
+`docs/erdos97-attack-2026-05-05.md` and
+`data/certificates/2026-05-05/n9_groebner_results.json`; for the decoder
+follow-up see `docs/n9-groebner-decoders.md`,
+`scripts/decode_n9_groebner_f07_f13.py`, and
+`data/certificates/n9_groebner_real_root_decoders.json`. Independent reviewer
+audit is still required before any source-of-truth promotion.
+
+A later incoming `n=10` continuation is now recorded as a
+`MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING` artifact at
+`data/certificates/n10_vertex_circle_singleton_slices.json`. It covers all 126
+row0 singleton slices, reports 4,142,738 total visited nodes, zero full
+assignments, and no aborted slices. The repo-native generic checker reproduces
+the n=9 counts and spot-checks row0 singleton IDs `0`, `63`, and `125`, but the
+n=10 package is an audit target only and is not promoted to the source-of-truth
+finite-case result. A portable C++ second-source replay now matches all 126
+stored singleton rows and records the same n=9 calibration counts; it is
+reviewer-facing evidence, not a written independent review or status promotion.
+
+The bounded `n=10` row0-index-0 turn pilot remains finite bookkeeping only:
+turn inequalities kill 156 of 160 raw assignments, while the four weak-turn SAT
+escapes are all killed by row0-local vertex-circle self-edge templates. The
+derived template artifact records those four first self-edges compactly; it is
+not a proof of `n=10`, not a complete `n=10` search, and not a counterexample.
+See `docs/n10-turn-row0-pilot.md` and
+`docs/n10-turn-row0-escape-self-edges.md`.
+
+The derived row0 combined-closure crosswalk records the same bounded slice as
+a checked partition: `156` assignments are closed by stored weak-turn Farkas
+certificates, and the four weak-turn SAT escapes are exactly the four stored
+row0-local vertex-circle self-edge templates. This remains finite bookkeeping
+only, not a proof of `n=10`, not a complete `n=10` search, and not a
+counterexample. See `docs/n10-turn-row0-combined-closure.md`.
+
+The `n=10` mixed rich-support capacity diagnostic is now recorded as
+review-pending finite support bookkeeping. Under only row-pair cap,
+two-overlap crossing, and witness-pair capacity filters, all support
+assignments with `q=3,...,7` size-five supports are obstructed; a direct `q=2`
+witness remains, so the bound is sharp for these filters. This says only that
+surviving four/five support assignments have at most two size-five supports.
+Follow-up rich vertex-circle quotient replays close the `q=2` and `q=1`
+layers, so the combined support-plus-quotient abstraction now leaves only the
+all-exact-four `q=0` layer. This is still not a proof of `n=10`, does not close
+that all-exact-four layer, and does not change the global status. See
+`docs/n10-mixed-rich-support-capacity.md`,
+`docs/n10-q2-rich-vertex-circle.md`, and
+`docs/n10-q1-rich-vertex-circle.md`.
+
+## Two-orbit family obstruction and free-pattern search (2026-06-09)
+
+A review-pending lemma draft now covers the whole two-orbit circulant family:
+no strictly convex polygon whose vertex set is two concentric regular
+`m`-gons (any radii, any relative rotation, `m >= 3`) is 4-bad. The proof
+forces the relative rotation to the exact half-step `pi/m`, forces each
+first-orbit row to one same-orbit pair plus one cross-orbit pair, and shows
+the resulting radius-ratio quadratic has no root in the strict-convexity
+window. Within its family this supersedes the fixed quarter-turn half-step
+ansatz; it is not a proof of Erdos Problem #97 and says nothing about three
+or more orbits. It was derived independently of the same-day restricted
+symmetric two-orbit reduction note
+(`docs/symmetric-two-orbit-reduction.md`), whose gear equation is
+algebraically identical to this note's row equation; the two are mutual
+second-source provenance. See `docs/two-orbit-circulant-obstruction.md` and
+the audit checker `scripts/check_two_orbit_dynamic_window_lemma.py`
+(float64-screened clear for `m <= 400`, with high-precision escalation for
+one exact `m = 3` boundary hit excluded by strictness).
+
+A companion dynamic-witness free-pattern searcher
+(`scripts/search_dynamic_witness.py`) lets every center re-select its best
+witness 4-set at each evaluation, probing all witness patterns reachable by a
+configuration family at once, with hard anti-cluster floors against the known
+degenerate exploit. Its first equivariant sweep (`10 <= n <= 36`) found no
+candidate: strictly convex optima plateau at relative spreads near `1e-2`,
+and the smallest spreads occur only in floor-riding degenerations. A second
+deep pass (64 restarts on every `t >= 3` symmetric cell, asymmetric
+`n = 10..16`) sharpened the same outcome with no candidate. This is
+`NUMERICAL_EVIDENCE` only; see
+`docs/dynamic-witness-free-pattern-search.md`.
+
+A follow-up half-step matching reduction records the `t >= 3` structure:
+no aligned orbit pairs exist, half-step pairs form a partial matching on
+the orbits, and for three orbits at least two pairwise offsets are generic,
+forcing own-pair-plus-two-singles rows with two equations each, so every
+`t = 3` branch is strictly overdetermined. This is review-pending
+structural reduction bookkeeping toward window analyses, not an
+obstruction. See `docs/half-step-matching-reduction.md`.
+
+The first `t = 3` execution of that program is now recorded (2026-06-12):
+a paired-cosine reduction collapses every discrete branch cell to
+univariate radius pinning plus closed-form offset recovery, and a
+float64-plus-60-digit-escalation screen closes all cells for `m = 3..16`
+with no feasible survivor and no unresolved case. The single structural
+degeneracy is exactly characterized: for `m = 0 mod 4` the quarter cells
+(`a1 = a2 = m/4`, `s = m/2`) collapse to one-parameter families and are
+handed off as named sub-cases. This is a review-pending reduction plus a screen
+verdict, not an all-`m` lemma and not an exact certificate. See
+`docs/three-orbit-window-closure.md` and
+`data/certificates/three_orbit_window_closure_m3_16.json`.
+
+The smallest of those quarter cells, `m = 4` (three concentric squares,
+`n = 12`), is now closed exactly (2026-06-13). Branch-G 4-badness reduces to
+three explicit algebraic conditions on the radii and offsets, and an SMT (z3)
+certificate shows all 64 discrete sign/witness combinations are UNSAT inside
+the strict-convexity radius window (the convexity inequalities are not even
+needed). This is an `EXACT_OBSTRUCTION` for the restricted three-square
+family; the `m = 4` half-step branches remain screen-grade and the
+`m = 8, 12, 16` quarter cells are outside this SMT artifact. See
+`docs/three-square-m4-exact-closure.md`,
+`scripts/check_three_square_m4_closure.py`, and
+`data/certificates/three_square_m4_closure.json`.
+
+The `m = 8, 12, 16` quarter cells are now reduced and settled in a
+repo-local interval-arithmetic sense for the named signed-band subcases
+(2026-06-19). Two exact, `m`-uniform self-tested lemmas: the A-row reduction
+(a quarter cell closes iff `A_0` cannot be 4-bad, uniform in the C-row choice
+`a3`) and the boundary-band confinement of the offsets. A float grid shows
+every sampled witness configuration is strictly non-convex, but the locus is
+tangent to the convexity boundary (vanishing, grid-dependent margin), so that
+artifact alone is evidence of closure, not a certificate; the exact-SMT route
+is recorded as not scaling past `m = 4`. The signed-band preflight then splits
+the remaining target into `12` boundary-band/radius-sign cells and records a
+fixed per-cell killer turn whose first nonzero boundary term is negative. The
+new derivative checker certifies, for `m = 8, 12, 16` only, that those fixed
+killer turns have the required derivative signs on the whole interval square
+`0 <= d,e <= upper(delta_m)`, giving a non-positive turn throughout every
+strict signed cell. This does not prove an all-`m` quarter-cell obstruction,
+any non-quarter branch, the full three-orbit family, or Erdos #97. See
+`docs/quarter-cell-closure.md`,
+`docs/quarter-cell-signed-band-preflight.md`,
+`docs/quarter-cell-derivative-certificate.md`, and
+`data/certificates/quarter_cell_derivative_certificate.json`.
+
+## Best saved near-miss
+
+The best saved near-miss is still the historical `B12_3x4_danzer_lift`
+artifact. It is numerical only, rejected as proof or counterexample, and now
+also attached to a fixed selected pattern that is exactly killed by the
+mutual-rhombus midpoint filter.[^repo]
+
+Numerical near-misses are not counterexamples. Any solution claim needs exact
+coordinates, or an exact algebraic/interval certificate, for both the selected
+distance equalities and strict convexity.
+
+```text
+n: 12
+pattern: B12_3x4_danzer_lift
+max selected-distance spread: 0.006806368780585714
+RMS equality residual:       0.0019599509549614457
+convexity margin:            9.999999943508973e-07
+minimum edge length:         0.0007465865604262556
+status: numerical artifact only; fixed selected pattern exactly killed
+```
+
+The archive also contained two C12 numerical artifacts. They were normalized
+under `data/runs/`, but excluded from this dashboard: one fails the `1e-6`
+verification threshold and the other collapses to a non-strict configuration.[^comp]
+
+## Top remaining live / unresolved patterns
+
+The registered sparse circulant leads `C13_sidon_1_2_4_10` and `C19_skew` are
+now both killed across all cyclic orders by exact two-certificate Kalmanson
+order obstructions. This retires those fixed selected-witness patterns as live
+counterexample leads.
+
+The global problem remains open: a counterexample could use a different
+selected-witness incidence pattern, and the current repository still has no
+bridge proving that arbitrary counterexamples reduce to the registered sparse
+families.
+
+Retired sparse lead: `C13_sidon_1_2_4_10`, a (13,4,1)
+Singer planar-difference-set circulant, is now killed across all cyclic orders
+by the exact two-certificate Kalmanson order search. The older numerical
+evidence below is retained as historical diagnostic data only.
+
+## Numerical status: C13 Sidon-type circulant
+
+NUMERICAL_EVIDENCE. Constrained SLSQP under hard strict-convexity / edge /
+pair margins, polar parameterisation, 20 restarts, seed `2026`, on
+`C13_sidon_1_2_4_10`:
+
+```text
+n: 13
+pattern: C13_sidon_1_2_4_10
+margin schedule: 1e-3, 1e-4, 1e-5, 1e-6
+RMS equality residual at each margin:  0.848, 0.841, 0.839, 0.838
+max squared-distance spread:           3.38, 3.37, 3.37, 3.37
+convexity margin achieved:             1e-3, 1e-4, 1e-5, 1e-6 (hits bound)
+min edge length:                       3.3e-2, 1.1e-2, 3.3e-3, 1.0e-3
+status: equality residual shows an apparent positive plateau; not a
+        cluster-collapse signature; numerical only, not a proof
+```
+
+The residual does not decrease monotonically as the margin tightens
+(`eq_rms` moves only from `0.848` to `0.838` over three orders of
+magnitude in margin), and the optimum does not cluster. This is
+qualitatively different from the B12 cluster degeneration. It is
+consistent with the prior LLM-run conjecture that Sidon-type cohort
+patterns form a structural wall against the row-4 matrix bound but are
+not realisable by a strictly convex polygon. **It is not a proof.** The
+trust label is NUMERICAL_EVIDENCE; the pattern is not promoted to
+COUNTEREXAMPLE_CANDIDATE because the simultaneous criteria
+(`residual < 1e-10`, `convexity margin > 1e-3`, `min edge length > 1e-3`)
+are not met, and -- the opposite reading -- a positive residual does not
+by itself constitute an obstruction proof. Independent verification with
+different parameterisations (`direct`, `support`) and more restarts is
+recommended before any structural claim. See
+`docs/sidon-patterns.md` and `data/runs/C13_sidon_m{1e-3,1e-4,1e-5,1e-6}.json`.
+
+The catalog also contains `C25_sidon_2_5_9_14` and `C29_sidon_1_3_7_15`
+as cheap-to-define INCIDENCE_PATTERN entries. A 2026-05-05 sparse-frontier
+probe found that a C25 Kalmanson-filter survivor is exactly killed by
+vertex-circle and Altman filters. The same probe found one fixed C29 cyclic
+order that survived the lightweight fixed-order exact filters, the
+two-inequality Kalmanson inverse-pair search, the metric LP diagnostic, and a
+slow global Ptolemy NLP diagnostic. A later exact full Kalmanson/Farkas
+certificate now kills that fixed C29 order:
+`data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json`. This is a
+fixed-order obstruction only; it is not an all-order obstruction for the
+abstract C29 pattern and not a counterexample claim. The original probe remains
+provenance at `data/certificates/c25_c29_sparse_frontier_probe.json`.
+
+A sparse-frontier Kalmanson escape audit now replays the direct two-inequality
+Kalmanson inverse-pair filter for the stored C25/C29 fixed orders over all
+`2*binom(n,4)` strict Kalmanson rows. It confirms zero inverse-pair conflicts
+for both fixed orders and records that the older probe's `rows_seen` counters
+were lower than the full-row replay (`25,025` versus `25,300`, and `47,259`
+versus `47,502`). This is a fixed-order filter negative control only, not an
+all-order obstruction, geometric realizability result, counterexample, or
+proof. See `docs/sparse-frontier-kalmanson-escape-audit.md`.
+
+## Top killed approaches
+
+1. Middle-neighbor forest proof: killed by an affine regular 24-gon cycle in
+   the proposed middle-neighbor graph.[^forest]
+2. `C39_pm_18_19`: killed exactly because adjacent rows share three selected
+   targets, violating the two-circle cap.[^n39]
+3. Generic rank obstruction: rank `2n-3` at non-solutions is only diagnostic;
+   exact solutions have an extra scaling kernel.[^rank]
+4. Cube witness pattern as an `n=8` proof: the pattern is obstructed, but this
+   is not an exhaustive `n=8` argument.[^syn]
+5. Uniform-radius shortcut via `2n-7`: this is a direction-of-bound error; the
+   cited result is a lower-bound construction, not the needed upper bound.[^canon]
+
+## Exactification frontier
+
+The current frontier is fixed-pattern certification on special rank-drop loci.
+Distance-equality equations are polynomial and center-affine; exact convexity
+should be certified with edge-line orientation inequalities. The rank route is
+promising only as a conditional program: repair the ear-orderable rank proof,
+then prove or refute the bridge that every realizable counterexample admits an
+ear-orderable selected witness pattern.[^alg][^rank]
+
+The `n=8` artifacts are now the sharpest computer-assisted proof objects in the
+repo. The incidence checker proves completeness of the 15 survivor classes, and
+the exact checker verifies the class `3` duplicate certificate, the class `4`
+collinearity certificate, the class `14` strict-interior certificate, and the
+archived-ID provenance mapping when the archive JSON is available.
+
+## Open literature questions
+
+- Recheck the public Erdos Problems listing before any solution claim.[^repo]
+- Pin exact citations and statements for Danzer's 9-point `k=3` example.[^digest]
+- Treat the Erdos 1975 unpublished all-`k` Danzer statement as unverified
+  literature risk unless a primary construction or exact certificate is found.
+- Pin exact citations and statements for the Fishburn--Reeds 20-point
+  unit-distance `k=3` example.[^digest]
+- Keep convex unit-distance bounds separate from the variable-radius problem.[^syn]
+- In particular, do not cite the `2n-7` unit-distance construction as an upper
+  bound resolving the uniform-radius subcase.[^canon]
+- Search related work on repeated distances, order-k Voronoi degeneracies, and
+  metric oriented-matroid realizability before paper-style claims.[^repo]
+
+[^repo]: Public consolidation: `docs/public-provenance.md#repository-handoff-and-claim-taxonomy`.
+[^small]: Public consolidation: `docs/public-provenance.md#small-cases-n5-through-n8`.
+[^comp]: Public consolidation: `docs/public-provenance.md#computational-finding-digest`.
+[^forest]: Public consolidation: `docs/public-provenance.md#forest-lemma-failure`.
+[^n39]: Public consolidation: `docs/public-provenance.md#n39-circulant-degeneracy`.
+[^rank]: Public consolidation: `docs/public-provenance.md#rank-and-bridge-status`.
+[^alg]: Public consolidation: `docs/public-provenance.md#algebraic-and-semicircle-corrections`.
+[^digest]: Public consolidation: `docs/public-provenance.md#literature-digest`.
+[^syn]: Public consolidation: `docs/public-provenance.md#canonical-synthesis`.
+[^canon]: Source file: `docs/canonical-synthesis.md`.
