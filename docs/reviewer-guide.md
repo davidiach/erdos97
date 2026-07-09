@@ -156,12 +156,17 @@ The default pytest configuration excludes tests marked `artifact`, `slow`, or
 `exhaustive`. Use `python -m pytest -q -m ""` when intentionally replaying the
 full marker set.
 
-For a version-matched reproduction run, replace `pip install -e .[dev]` with:
+For the checked CPython 3.12 direct-dependency snapshot, replace
+`pip install -e .[dev]` with:
 
 ```bash
 pip install -r requirements-lock.txt
 pip install -e . --no-deps
 ```
+
+This snapshot pins direct dependencies only; use CPython 3.12 for this path.
+The Python 3.10 and 3.11 compatibility lanes resolve the supported ranges from
+`pyproject.toml`.
 
 ## Expected `n=8` outputs
 
@@ -343,11 +348,4 @@ Check:
 Primary references:
 
 - `docs/n10-vertex-circle-singleton-review-packet.md`
-- `docs/n10-vertex-circle-singleton-slices.md`
-- `scripts/check_n10_singleton_input_audit.py`
-- `scripts/check_n10_vertex_circle_singletons.py`
-- `scripts/check_n10_secondary_singleton_replay.py`
-
-Run:
-
-```ba
+- `docs/n10-vert

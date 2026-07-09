@@ -1,0 +1,36 @@
+name: lean
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lean.yml'
+      - 'lakefile.lean'
+      - 'lean-toolchain'
+      - 'lean/**'
+      - 'scripts/check_lean_files.py'
+      - 'scripts/check_lean_sketch_integrity.py'
+  pull_request:
+    paths:
+      - '.github/workflows/lean.yml'
+      - 'lakefile.lean'
+      - 'lean-toolchain'
+      - 'lean/**'
+      - 'scripts/check_lean_files.py'
+      - 'scripts/check_lean_sketch_integrity.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean toolchain and build
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+      - name: Check sketch boundaries
+        run: python scripts/check_lean_sketch_integrity.py
+      - name: Compile every Lean source with the pinned toolchain
+        run: python scripts/check_lean_files.py --require-lean
