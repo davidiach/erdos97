@@ -125,6 +125,157 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         command=("python", "scripts/check_round2_certificates.py"),
         claim_scope="Fixed-pattern and fixed-order round-two certificate regression checks only.",
     ),
+    # Keep promoted replays as separate shardable commands. Nine are low-cost
+    # (under roughly five seconds on the reference audit host); the C19
+    # catalogue prefilter below is a high-cost full sweep (over two minutes).
+    AuditCommand(
+        ident="c13_legacy_fixed_order_kalmanson",
+        command=(
+            "python",
+            "scripts/check_kalmanson_certificate.py",
+            "data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json",
+        ),
+        claim_scope=(
+            "Exact replay of the legacy C13 certificate for one stored "
+            "selected-witness pattern and one fixed cyclic order only; not an "
+            "all-order obstruction or proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="c19_legacy_fixed_order_kalmanson",
+        command=(
+            "python",
+            "scripts/check_kalmanson_certificate.py",
+            "data/certificates/round2/c19_kalmanson_known_order_unsat.json",
+        ),
+        claim_scope=(
+            "Exact replay of the legacy C19 certificate for one fixed "
+            "selected-witness cyclic order only; not an all-order obstruction "
+            "or proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="c19_catalog_prefilter_sweep_288_479",
+        command=(
+            "python",
+            "scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py",
+            "--json",
+            "--assert-expected",
+        ),
+        claim_scope=(
+            "Exact prefix-window catalogue prefilter accounting for the stored "
+            "C19 index window 288..479; route pruning only, not an all-order "
+            "obstruction or proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="c19_row_circle_ptolemy_active_set",
+        command=(
+            "python",
+            "scripts/reduce_row_circle_multipliers.py",
+            "--snapshot",
+            "data/certificates/c19_row_circle_ptolemy_active_set.json",
+            "--out",
+            "/tmp/c19_multiplier_reduction.json",
+            "--assert-expected",
+        ),
+        claim_scope=(
+            "Numerical multiplier reduction for the stored C19 row-circle "
+            "Ptolemy active-set snapshot; optimizer diagnostic only, not an "
+            "exact obstruction or proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="c25_c29_sparse_frontier_probe",
+        command=(
+            "python",
+            "scripts/check_sparse_frontier_kalmanson_escapes.py",
+            "--source-artifact",
+            "data/certificates/c25_c29_sparse_frontier_probe.json",
+            "--check",
+            "--assert-expected",
+        ),
+        claim_scope=(
+            "Replay of the fixed-order C25/C29 sparse-frontier probe and input "
+            "provenance for the escape audit; diagnostic only, not all-order "
+            "evidence, a proof, or a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_incidence_frontier_bounded",
+        command=(
+            "python",
+            "scripts/check_n9_incidence_frontier.py",
+            "--json",
+            "--assert-expected",
+        ),
+        claim_scope=(
+            "Bounded n=9 incidence CSP scan over its configured search limits; "
+            "not an unrestricted completeness result, proof of n=9, or proof "
+            "of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="n9_phi4_rectangle_trap_legacy",
+        command=(
+            "python",
+            "scripts/check_phi4_rectangle_trap.py",
+            "--json",
+            "--assert-expected",
+        ),
+        claim_scope=(
+            "Exact rectangle-trap replay for one stored n=9 selected-witness "
+            "assignment and cyclic order only; not a proof of n=9 or Erdos "
+            "Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="p18_vertex_circle_order_unsat",
+        command=(
+            "python",
+            "scripts/check_vertex_circle_order_filter.py",
+            "--pattern",
+            "P18_parity_balanced",
+            "--search",
+            "--assert-obstructed",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact vertex-circle cyclic-order obstruction for the built-in "
+            "P18_parity_balanced pattern only; not a transfer to arbitrary "
+            "selected-witness patterns or proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="p24_cyclic_crossing_unsat",
+        command=(
+            "python",
+            "scripts/check_cyclic_crossing_csp.py",
+            "--pattern",
+            "P24_parity_balanced",
+            "--assert-unsat",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact cyclic-crossing CSP obstruction for the built-in "
+            "P24_parity_balanced pattern only; not a transfer to arbitrary "
+            "selected-witness patterns or proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="phi4_frontier_scan",
+        command=(
+            "python",
+            "scripts/check_phi4_frontier_scan.py",
+            "--json",
+            "--assert-expected",
+        ),
+        claim_scope=(
+            "Exact phi4 filter scan over the enumerated stored frontier cases; "
+            "diagnostic coverage only, not frontier completeness, proof of n=9, "
+            "or proof of Erdos Problem #97."
+        ),
+    ),
     AuditCommand(
         ident="c19_fixed_order_compact_kalmanson",
         command=(
@@ -310,150 +461,4 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
     AuditCommand(
         ident="n9_vertex_circle_review_pending",
         command=("python", "scripts/check_n9_vertex_circle_exhaustive.py", "--assert-expected", "--json"),
-        claim_scope="Review-pending n=9 selected-witness finite-case checker; not an official/global status update.",
-    ),
-    AuditCommand(
-        ident="n9_vertex_circle_minimal_cores",
-        command=(
-            "python",
-            "scripts/n9_vertex_circle_minimal_cores.py",
-            "--check",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Independent implementation-level minimal obstruction-core catalog "
-            "for the 184 review-pending n=9 vertex-circle frontier systems; "
-            "not a proof of n=9, completed independent review, or an "
-            "official/global status update."
-        ),
-    ),
-    AuditCommand(
-        ident="n9_vertex_circle_compact_brancher",
-        command=(
-            "python",
-            "scripts/check_n9_vertex_circle_compact_brancher.py",
-            "--check",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Compact independent regeneration of the review-pending n=9 "
-            "selected-witness frontier and vertex-circle quotient "
-            "obstruction; audit/replay aid only, not completed independent "
-            "review, not a proof of n=9, not a proof of Erdos Problem #97, "
-            "and not a counterexample."
-        ),
-    ),
-    AuditCommand(
-        ident="n9_selected_witness_combined_replay",
-        command=(
-            "python",
-            "scripts/check_n9_selected_witness_combined_replay.py",
-            "--check",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Combined review-pending n=9 selected-witness replay with "
-            "localized-counting, compact-frontier, and per-assignment "
-            "vertex-circle certificate accounting; audit evidence only, not "
-            "completed independent review, not a proof of n=9, not a proof of "
-            "Erdos Problem #97, and not a counterexample."
-        ),
-    ),
-    AuditCommand(
-        ident="n9_kalmanson_selfedge",
-        command=(
-            "python",
-            "scripts/check_n9_kalmanson_selfedge.py",
-            "--verify-certificate",
-            "data/certificates/n9_kalmanson_selfedge.json",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Review-pending n=9 selected-witness Kalmanson self-edge "
-            "certificate replay only; not a proof of n=9, counterexample, "
-            "independent review completion, or official/global status update."
-        ),
-    ),
-    AuditCommand(
-        ident="n9_kalmanson_selfedge_independent_replay",
-        command=(
-            "python",
-            "scripts/check_n9_kalmanson_selfedge_independent_replay.py",
-            "--check",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Independent stored-input replay for the review-pending n=9 "
-            "Kalmanson self-edge certificate; checks row shape, incidence "
-            "filters, selected-distance quotienting, stored self-edges, and "
-            "digest agreement only. It is not brancher coverage, a proof of "
-            "n=9, independent review completion, or an official/global status "
-            "update."
-        ),
-    ),
-    AuditCommand(
-        ident="n9_kalmanson_selfedge_frontier_replay",
-        command=(
-            "python",
-            "scripts/check_n9_kalmanson_selfedge_frontier_replay.py",
-            "--check",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Self-contained regeneration of the review-pending n=9 "
-            "selected-witness frontier plus Kalmanson self-edge certificates; "
-            "corroborating audit evidence only, not a proof of n=9, "
-            "independent review completion, a counterexample, or an "
-            "official/global status update."
-        ),
-    ),
-    AuditCommand(
-        ident="n9_kalmanson_three_row_core_compression",
-        command=(
-            "python",
-            "scripts/check_n9_kalmanson_three_row_core_compression.py",
-            "--check",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Self-contained regeneration of the review-pending n=9 "
-            "selected-witness frontier plus Kalmanson three-row core "
-            "compression; proof-mining evidence only, not brancher review "
-            "completion, a bridge proof, proof of n=9, counterexample, or "
-            "official/global status update."
-        ),
-    ),
-    AuditCommand(
-        ident="n9_vertex_circle_obstruction_shapes",
-        command=(
-            "python",
-            "scripts/analyze_n9_vertex_circle_obstruction_shapes.py",
-            "--check",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Review-pending n=9 obstruction-shape diagnostic for the stored "
-            "pre-vertex-circle frontier; not a proof of n=9, counterexample, "
-            "independent review completion, or official/global status update."
-        ),
-    ),
-    AuditCommand(
-        ident="n9_vertex_circle_motif_families",
-        command=(
-            "python",
-            "scripts/analyze_n9_vertex_circle_motif_families.py",
-            "--check",
-            "--assert-expected",
-            "--json",
-        ),
-        claim_scope=(
-            "Review-pending n=9 motif-family diagnostic for the stored "
-            "pre-vertex-circle f
+        claim_scope="Review-pending n=9 selected-witness finite-case checker; not an offici
