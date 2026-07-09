@@ -5,8 +5,10 @@ the three mixed-derivative signed band cells of the three-orbit quarter-cell
 program only. This note upgrades those three cells from the finite
 `m = 8, 12, 16` interval certificate
 (`docs/quarter-cell-derivative-certificate.md`) to a single exact closure
-covering all `m >= 8` at once. The other nine signed cells remain at the
-finite-`m` interval grade. Conditional on the quarter-cell A-row reduction
+covering all `m >= 8` at once. The other nine signed cells are closed for
+all `m >= 8` by the follow-up dominance artifact
+(`docs/quarter-cell-first-derivative-all-m-dominance.md`). Conditional on
+the quarter-cell A-row reduction
 and boundary-band confinement (`docs/quarter-cell-closure.md`,
 review-pending prose). Not a closure of the quarter cells by itself, not the
 three-orbit family, not Erdos Problem #97, and not a counterexample.
@@ -125,14 +127,12 @@ is not blindly re-run:
   violation of any of the twelve derivative claims; that screen is not
   archived as an artifact, and only the deterministic finite-difference
   lattice inside the checker is reproducible from this repo.
-- The named next target is a small-T dominance lemma: each first-derivative
-  component equals its (nonzero, sign-definite) `d = e = 0` corner value
-  plus an error term that is `O(delta)` on the band square, and
-  `delta = O(T^2)` while the corner values scale like
-  `A = sin T + cos T - 1 = Theta(T)`; explicit constants would close all
-  nine cells for all `m` by hand, with the corner values and Lipschitz
-  bounds machine-checkable per cell. This is elementary but careful work,
-  and it is the intended continuation -- not another direct solver run.
+- The named next target -- a small-T dominance lemma -- is now executed by
+  `docs/quarter-cell-first-derivative-all-m-dominance.md`: the corner
+  values are exactly `+/-A` with `A = 2 sin(h)(cos h - sin h) = Theta(sin h)`
+  while the band radius is `O(sin^2 h)`, and a certified interval Lipschitz
+  bound plus two small z3 inequalities close all nine first-derivative
+  cells for every `m >= 8`, completing the twelve-cell signed-band closure.
 
 ## Commands
 
@@ -146,15 +146,16 @@ python -m pytest tests/test_quarter_cell_mixed_cells_all_m_smt.py -q -m "not slo
 The finite-`m` interval certificate
 (`scripts/check_quarter_cell_derivative_certificate.py`,
 `data/certificates/quarter_cell_derivative_certificate.json`) remains in
-place: it is still the only machine closure of the nine first-derivative
-cells (for `m = 8, 12, 16`), and it is an independent finite-`m` cross-check
-of the three cells closed here.
+place as an independent finite-`m` cross-check; the nine first-derivative
+cells, originally left at its `m = 8, 12, 16` grade by this note, are now
+closed for all `m >= 8` by
+`docs/quarter-cell-first-derivative-all-m-dominance.md`.
 
 ## Scope and non-claims
 
 - Covers exactly the three mixed-derivative signed band cells, all
-  `m >= 8`. The nine first-derivative cells remain finite-`m`
-  interval-certified only.
+  `m >= 8`. (The nine first-derivative cells, outside this artifact's
+  scope, are closed separately by the follow-up dominance artifact.)
 - Conditional on the quarter-cell A-row reduction and boundary-band
   confinement (review-pending prose in `docs/quarter-cell-closure.md` and
   `docs/quarter-cell-signed-band-preflight.md`), which reduce quarter-cell

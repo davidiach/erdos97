@@ -1798,16 +1798,33 @@ UNSAT decision per cell proves the cleared mixed-derivative numerator
 cannot be nonnegative over a polynomial relaxation containing every
 `T = 2*pi/m in (0, pi/4]` and the full closed band square, so double
 integration gives a negative killer turn throughout each strict cell. The
-nine first-derivative cells remain at the finite-`m` interval grade; the
 direct all-`m` sign claim and the nine first-derivative claims are recorded
-as returning z3 `unknown` within the tried budgets in this encoding, with a
-small-T dominance lemma named as the next target. Trust `EXACT_OBSTRUCTION`
-for the three named cells only, conditional on the review-pending A-row
-reduction and band confinement; not a
-quarter-cell, three-orbit, or Erdos #97 closure. See
+as returning z3 `unknown` within the tried budgets in that encoding. Trust
+`EXACT_OBSTRUCTION` for the three named cells, conditional on the
+review-pending A-row reduction and band confinement. See
 `docs/quarter-cell-mixed-cells-all-m-smt.md`,
 `scripts/check_quarter_cell_mixed_cells_all_m_smt.py`, and
 `data/certificates/quarter_cell_mixed_cells_all_m_smt.json`.
+
+The nine first-derivative signed cells are closed for all `m >= 8` by a
+dominance certificate: exact sympy corner identities
+`F_c(T,0,0) = +/-(sin T + cos T - 1)` with the factorization
+`A = 2 sin(h)(cos h - sin h)`, exact vanishing-boundary identities
+(including the diagonal `F(d,d) = 0` cases), an outward-rounded interval
+Lipschitz bound `sup|dF_c/dd| + sup|dF_c/de| <= 4` over a box containing
+every band square, and z3-verified band/dominance inequalities giving
+`4 * delta_bar < A` on the whole `m >= 8` range, so each derivative
+component keeps its corner sign throughout the band square and
+one-variable integration closes each strict cell. Together with the
+mixed-cells artifact, all twelve signed band cells are closed for every
+`m >= 8`; with the separate `m = 4` SMT closure, every `m = 0 mod 4`
+quarter cell is exactly closed, conditional on the review-pending A-row
+reduction and band confinement. Trust `EXACT_OBSTRUCTION` with three
+disclosed trust roots (sympy, outward-rounded intervals, z3). Not a
+closure of non-quarter three-orbit branches, `n = 9`, or Erdos #97. See
+`docs/quarter-cell-first-derivative-all-m-dominance.md`,
+`scripts/check_quarter_cell_first_derivative_all_m_dominance.py`, and
+`data/certificates/quarter_cell_first_derivative_all_m_dominance.json`.
 
 ## Numerical Attempts
 

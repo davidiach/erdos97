@@ -1,0 +1,319 @@
+{
+ "box_de_max": "2/25",
+ "cells": [
+  {
+   "cell": "LL_y+_z+",
+   "certified": true,
+   "component": "d",
+   "corner_sign": -1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 1,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 2.786872055,
+    "sup_abs_dd_upper": 1.001320309,
+    "sup_abs_de_upper": 1.785551746
+   },
+   "required_sign": "<",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "d0",
+   "y_sign": 1,
+   "z_sign": 1
+  },
+  {
+   "cell": "LL_y+_z-",
+   "certified": true,
+   "component": "d",
+   "corner_sign": -1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 1,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 3.265388687,
+    "sup_abs_dd_upper": 1.024871856,
+    "sup_abs_de_upper": 2.240516832
+   },
+   "required_sign": "<",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "d0",
+   "y_sign": 1,
+   "z_sign": -1
+  },
+  {
+   "cell": "LL_y-_z-",
+   "certified": true,
+   "component": "e",
+   "corner_sign": -1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 3,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 0.88439029,
+    "sup_abs_dd_upper": 0.188827122,
+    "sup_abs_de_upper": 0.695563169
+   },
+   "required_sign": "<",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "diag",
+   "y_sign": -1,
+   "z_sign": -1
+  },
+  {
+   "cell": "LH_y+_z-",
+   "certified": true,
+   "component": "e",
+   "corner_sign": -1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 3,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 2.228646136,
+    "sup_abs_dd_upper": 1.525135249,
+    "sup_abs_de_upper": 0.703510886
+   },
+   "required_sign": "<",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "e0",
+   "y_sign": 1,
+   "z_sign": -1
+  },
+  {
+   "cell": "LH_y-_z+",
+   "certified": true,
+   "component": "d",
+   "corner_sign": -1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 2,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 2.228054351,
+    "sup_abs_dd_upper": 0.703510886,
+    "sup_abs_de_upper": 1.524543465
+   },
+   "required_sign": "<",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "d0",
+   "y_sign": -1,
+   "z_sign": 1
+  },
+  {
+   "cell": "LH_y-_z-",
+   "certified": true,
+   "component": "d",
+   "corner_sign": -1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 2,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 2.81731485,
+    "sup_abs_dd_upper": 0.739761497,
+    "sup_abs_de_upper": 2.077553353
+   },
+   "required_sign": "<",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "d0",
+   "y_sign": -1,
+   "z_sign": -1
+  },
+  {
+   "cell": "HH_y+_z+",
+   "certified": true,
+   "component": "e",
+   "corner_sign": -1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 1,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 2.786872055,
+    "sup_abs_dd_upper": 1.785551746,
+    "sup_abs_de_upper": 1.001320309
+   },
+   "required_sign": "<",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "e0",
+   "y_sign": 1,
+   "z_sign": 1
+  },
+  {
+   "cell": "HH_y-_z+",
+   "certified": true,
+   "component": "e",
+   "corner_sign": -1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 1,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 3.265388687,
+    "sup_abs_dd_upper": 2.240516832,
+    "sup_abs_de_upper": 1.024871856
+   },
+   "required_sign": "<",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "e0",
+   "y_sign": -1,
+   "z_sign": 1
+  },
+  {
+   "cell": "HH_y-_z-",
+   "certified": true,
+   "component": "e",
+   "corner_sign": 1,
+   "finite_difference_agreement": {
+    "grid": 5,
+    "ok": true,
+    "points_checked": 180
+   },
+   "killer_turn": 2,
+   "lipschitz": {
+    "certified_le_m": true,
+    "subdivision": [
+     24,
+     4,
+     4
+    ],
+    "sum_upper": 0.88439029,
+    "sup_abs_dd_upper": 0.188827122,
+    "sup_abs_de_upper": 0.695563169
+   },
+   "required_sign": ">",
+   "symbolic_identities": {
+    "boundary_identity": true,
+    "corner_identity": true
+   },
+   "vanishing_boundary": "diag",
+   "y_sign": -1,
+   "z_sign": -1
+  }
+ ],
+ "clear": true,
+ "embedding_spot_check": {
+  "instances_checked": 29,
+  "max_m": 120,
+  "ok": true
+ },
+ "exact_checks": {
+  "a_factorization_2sh_ch_minus_sh": true,
+  "band_inside_box_rational": true,
+  "dominance_clearing_identity_symbolic": true
+ },
+ "expected_z3_decisions": {
+  "ch_gt_sh": "unsat",
+  "domain_nonempty": "sat",
+  "dominance_combination_m4": "unsat",
+  "dominance_combination_m6_control": "sat",
+  "omega_bound": "unsat"
+ },
+ "m_lipschitz": 4,
+ "omega_bound": "397/5000",
+ "provenance": {
+  "command": "python scripts/check_quarter_cell_first_derivative_all_m_dominance.py --assert-clear --write-artifact data/certificates/quarter_cell_first_derivative_all_m_dominance.json",
+  "generator": "scripts/check_quarter_cell_first_derivative_all_m_dominance.py"
+ },
+ "schema": "erdos97.quarter_cell_first_derivative_all_m_dominance.v1",
+ "scope": "All-m dominance closure of the nine first-derivative three-orbit quarter-cell signed band cells for every m >= 8 at once: exact sympy corner identities F_c(T,0,0) = +/-(sin T + cos T - 1) and vanishing-boundary identities, an outward-rounded interval Lipschitz bound sup|dF_c/dd| + sup|dF_c/de| <= 4 over a box containing every band square, and z3-verified band/dominance inequalities showing 4 * delta_bar < A on the whole m >= 8 range, so each derivative component keeps its corner sign throughout the band square and one-variable integration closes each strict cell. Supersedes the finite m = 8, 12, 16 interval certificate for these nine cells (retained as an independent finite-m cross-check); together with quarter_cell_mixed_cells_all_m_smt this closes all twelve signed band cells for every m >= 8. Conditional on the review-pending A-row reduction and boundary-band confinement prose. Not a closure of non-quarter three-orbit branches, n = 9, or Erdos Problem #97, not a counterexample, and not an official/global status update.",
+ "status": "EXACT_FIRST_DERIVATIVE_CELLS_ALL_M_DOMINANCE",
+ "trust": "EXACT_OBSTRUCTION",
+ "z3_decisions": {
+  "ch_gt_sh": "unsat",
+  "domain_nonempty": "sat",
+  "dominance_combination_m4": "unsat",
+  "dominance_combination_m6_control": "sat",
+  "omega_bound": "unsat"
+ }
+}

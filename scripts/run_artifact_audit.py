@@ -3785,11 +3785,37 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "full closed band square, with double integration giving a "
             "negative killer turn throughout each strict cell. Supersedes "
             "the finite m=8,12,16 interval certificate for these three "
-            "cells only; the nine first-derivative cells remain finite-m "
-            "interval-certified. Conditional on the review-pending A-row "
-            "reduction and band confinement; not a quarter-cell, "
-            "three-orbit, n=9, or Erdos Problem #97 closure, not a "
-            "counterexample, and not an official/global status update."
+            "cells only; the nine first-derivative cells (outside this "
+            "artifact's scope) are closed separately by "
+            "quarter_cell_first_derivative_all_m_dominance. Conditional on "
+            "the review-pending A-row reduction and band confinement; not "
+            "a quarter-cell, three-orbit, n=9, or Erdos Problem #97 "
+            "closure, not a counterexample, and not an official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
+        ident="quarter_cell_first_derivative_all_m_dominance",
+        command=(
+            "python",
+            "scripts/check_quarter_cell_first_derivative_all_m_dominance.py",
+            "--assert-clear",
+            "--check-artifact",
+            "data/certificates/quarter_cell_first_derivative_all_m_dominance.json",
+        ),
+        claim_scope=(
+            "All-m dominance closure of the nine first-derivative "
+            "three-orbit quarter-cell signed band cells for every m >= 8 "
+            "at once: exact sympy corner and vanishing-boundary "
+            "identities, an outward-rounded interval Lipschitz bound "
+            "(<= 4) over a box containing every band square, and "
+            "z3-verified band/dominance inequalities. Together with the "
+            "mixed-cells artifact this closes all twelve signed band "
+            "cells for every m >= 8, conditional on the review-pending "
+            "A-row reduction and band confinement. Not a closure of "
+            "non-quarter three-orbit branches, n=9, or Erdos Problem "
+            "#97, not a counterexample, and not an official/global "
+            "status update."
         ),
     ),
     AuditCommand(

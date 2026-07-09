@@ -1090,15 +1090,27 @@ sympy boundary identities `F(d,0) = F(0,e) = 0` plus one z3
 nonlinear-real-arithmetic UNSAT decision per cell prove the mixed
 derivative negative over a polynomial relaxation containing every
 `T = 2*pi/m in (0, pi/4]` and the full closed band square, so double
-integration gives a negative killer turn throughout each strict cell. The
-nine first-derivative cells remain finite-`m` interval-certified only; the
-recorded z3-unknown outcomes and the named small-T dominance lemma are the
-next-target ledger for them. This is conditional on the review-pending
-A-row reduction and band confinement, and it is still not an all-`m`
-quarter-cell obstruction, any non-quarter branch, the full three-orbit
-family, or Erdos #97. See `docs/quarter-cell-mixed-cells-all-m-smt.md`,
+integration gives a negative killer turn throughout each strict cell. See
+`docs/quarter-cell-mixed-cells-all-m-smt.md`,
 `scripts/check_quarter_cell_mixed_cells_all_m_smt.py`, and
 `data/certificates/quarter_cell_mixed_cells_all_m_smt.json`.
+The nine first-derivative signed cells are now also closed for all
+`m >= 8` (2026-07-02), by a dominance argument: each required derivative
+component has exact corner value `+/-A` with
+`A = 2 sin(h)(cos h - sin h)` of order `sin h`, an outward-rounded
+interval bound certifies the component's Lipschitz constant is at most
+`4` on a box containing every band square, and z3-verified band
+inequalities show `4 * delta_bar < A` on the whole `m >= 8` range (band
+radius of order `sin^2 h`), so each component keeps its corner sign and
+one-variable integration closes each strict cell. Together the twelve
+signed band cells are closed for every `m >= 8`; with the separate `m = 4`
+SMT closure, every `m = 0 mod 4` quarter cell is exactly closed,
+conditional on the review-pending A-row reduction and band confinement.
+This is still not a closure of any non-quarter branch (screen-grade for
+`m <= 16`, open beyond), the full three-orbit family, or Erdos #97. See
+`docs/quarter-cell-first-derivative-all-m-dominance.md`,
+`scripts/check_quarter_cell_first_derivative_all_m_dominance.py`, and
+`data/certificates/quarter_cell_first_derivative_all_m_dominance.json`.
 
 ## Best saved near-miss
 

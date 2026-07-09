@@ -89,9 +89,14 @@ table's fixed killer turns.
 
 The three mixed-derivative cells of that table (`LL_y-_z+`, `LH_y+_z+`,
 `HH_y+_z-`) are now closed for all `m >= 8` at once by
-`docs/quarter-cell-mixed-cells-all-m-smt.md`; the exact missing lemma above
-remains open only for the nine first-derivative cells, with a small-T
-dominance lemma recorded there as the named next target.
+`docs/quarter-cell-mixed-cells-all-m-smt.md`, and the nine
+first-derivative cells are closed for all `m >= 8` by the dominance
+argument of `docs/quarter-cell-first-derivative-all-m-dominance.md`
+(exact corner identities `F_c(T,0,0) = +/-A`, a certified interval
+Lipschitz bound, and the scale separation `A ~ sin h` versus band radius
+`~ sin^2 h`). The exact missing lemma above is therefore closed in all
+twelve signed cells for every `m >= 8`, still conditional on this note's
+band split and the A-row reduction remaining review-pending prose.
 
 ## Reproduce
 

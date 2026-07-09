@@ -9,6 +9,30 @@ counterexample are claimed.
 
 ## 2026-07-02
 
+- Added an all-`m` dominance closure of the nine first-derivative
+  quarter-cell signed band cells
+  (`docs/quarter-cell-first-derivative-all-m-dominance.md`,
+  `scripts/check_quarter_cell_first_derivative_all_m_dominance.py`,
+  `data/certificates/quarter_cell_first_derivative_all_m_dominance.json`,
+  tests, managed manifest entry + registered audit command). Exact sympy
+  corner identities `F_c(T,0,0) = +/-(sin T + cos T - 1)` (with
+  `A = 2 sin(h)(cos h - sin h)` of order `sin h` against a band radius of
+  order `sin^2 h`), exact vanishing-boundary identities, an
+  outward-rounded interval Lipschitz bound (`<= 4`) over a box containing
+  every band square, and z3-verified band/dominance inequalities give each
+  derivative component its corner sign throughout the band square for
+  every `m >= 8`, closing all nine cells by one-variable integration.
+  Together with the mixed-derivative artifact below, all twelve signed
+  band cells are closed for every `m >= 8`, so -- conditional on the
+  review-pending A-row reduction and band-confinement prose -- every
+  `m = 0 mod 4` quarter cell is exactly closed (`m = 4` by its own SMT
+  artifact). The finite `m = 8, 12, 16` interval certificate is superseded
+  as primary for all twelve cells and retained as an independent
+  cross-check. Trust `EXACT_OBSTRUCTION` with disclosed sympy/interval/z3
+  trust roots; non-quarter branches remain screen-grade (`m <= 16`) or
+  open (`m > 16`), and there is no change to the strongest local result or
+  the official/global status.
+
 - Added an exact all-`m` closure of the three mixed-derivative quarter-cell
   signed band cells (`docs/quarter-cell-mixed-cells-all-m-smt.md`,
   `scripts/check_quarter_cell_mixed_cells_all_m_smt.py`,
