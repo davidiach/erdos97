@@ -236,7 +236,9 @@ real branches, and verifies exact strict-interior failure branch by branch.
 The `check_n8_residual_certificates.py` entrypoint isolates classes `3`, `4`,
 and `5` from the same larger checker. It verifies the duplicate-vertex,
 collinearity, and class `5` Groebner-y2 certificates from the stored survivor
-rows and exact-analysis data.
+rows and exact-analysis data. Its v2 audit mechanically derives every
+substitution through nonzero-branch saturation and independently checks that
+the full class-`5` PB ideal on that branch is the unit ideal.
 
 The expanded polynomial systems and full compatible cyclic-order lists are stored
 as reproducibility artifacts:

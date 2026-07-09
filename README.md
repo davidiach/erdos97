@@ -10,10 +10,12 @@ repository.
 
 - Official/global status: **falsifiable/open**.
 - No general proof and no counterexample are claimed.
-- Strongest local result: the selected-witness method rules out `n <= 8` in a
-  repo-local, machine-checked finite-case sense.
-- Independent external review is still recommended before paper-style or
-  public theorem-style use of the `n <= 8` computer-assisted artifacts.
+- Strongest local result: an elementary geometric theorem rules out bad
+  strictly convex polygons with `n <= 8`; the selected-witness pipeline gives
+  independent repo-local, machine-checked finite-case corroboration.
+- The geometric proof was line-by-line rederived in the 2026-07-09 repository
+  audit. Independent external review is still recommended before paper-style
+  citation, and is not claimed here.
 - Review-pending `n=9` and draft `n=10` artifacts are recorded for audit, but
   they are not promoted to the source-of-truth strongest local result.
 - Canonical status metadata lives in
@@ -69,8 +71,12 @@ The live GitHub issue list is here:
 
 ### Local small cases
 
-The selected-witness incidence pipeline rules out `n <= 8` in the repo-local,
-machine-checked finite-case sense.
+The elementary proof in
+[`docs/n8-geometric-proof.md`](docs/n8-geometric-proof.md) rules out bad
+strictly convex polygons with `n <= 8`: a base-apex count handles `n <= 7`,
+and equality for an octagon forces too many exterior turns of size `2*pi/3`.
+The selected-witness incidence pipeline independently corroborates `n <= 8`
+in the repo-local, machine-checked finite-case sense.
 
 - `n <= 7`: incidence counting and the crossing/bisection lemma rule out the
   cases. The repo also keeps a reproducible `n=7` Fano enumeration because it
@@ -82,10 +88,10 @@ machine-checked finite-case sense.
   [`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md) and
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
 
-There is also a compact human-readable proof-note draft for the small cases in
-[`docs/n8-geometric-proof.md`](docs/n8-geometric-proof.md), with an interactive
-visualization at [`docs/octagon-trap.html`](docs/octagon-trap.html). That note
-is still marked for independent review.
+An interactive visualization of the octagon endgame is available at
+[`docs/octagon-trap.html`](docs/octagon-trap.html). External mathematical
+review of the theorem remains welcome; the repository audit is not presented
+as independent publication review.
 
 ### Fixed-pattern obstructions
 

@@ -9,6 +9,18 @@ counterexample are claimed.
 
 ## 2026-07-09
 
+- Promoted `docs/n8-geometric-proof.md` from draft to `REPO_LOCAL_THEOREM`
+  after two independent line-by-line derivations accepted the base-apex count,
+  octagon equality saturation, equilateral chord formula, length-3 diagonal
+  step, and `C_8` vertex-cover contradiction. The note now states explicitly
+  that an apex cannot lie on its base line and that the two open boundary
+  chains of a strict-convex diagonal lie in opposite open half-planes. The
+  theorem excludes bad strictly convex polygons only for `n <= 8`; external
+  publication review is still encouraged, `n >= 9` remains open, and the
+  official/global status is unchanged.
+- Reclassified the selected-witness `n <= 8` computation as independent
+  machine-checked corroboration of the elementary theorem. Its artifact trust
+  labels and review boundaries remain unchanged.
 - Condensed the README's bootstrap/T12 review-pending narrative into a short
   route summary pointing to the working state, documentation index, focused
   bridge notes, and current next-lemma contract. The `n=9` material remains

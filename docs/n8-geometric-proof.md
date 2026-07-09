@@ -1,18 +1,19 @@
 # A short geometric obstruction for bad convex octagons
 
-Status: proof-note draft; independent review requested.
+Status: `REPO_LOCAL_THEOREM` -- elementary geometric proof for `n <= 8`.
 
-This note records a proposed human-readable geometric proof that no bad convex
-polygon exists with `n <= 8`. It is independent of the selected-witness
-incidence enumeration retained in `docs/n8-incidence-enumeration.md` and
-`docs/n8-exact-survivors.md`, but it should still be treated as a proof-note
-draft until it has independent mathematical review.
+This note proves that no bad strictly convex polygon exists with `n <= 8`. It
+is independent of the selected-witness incidence enumeration retained in
+`docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`. The proof
+was line-by-line rederived twice during the 2026-07-09 repository audit;
+independent external/publication review is still encouraged and is not claimed.
 
 It does not prove Erdos Problem #97. The case `n >= 9` remains open.
 
-Reviewer trail: `docs/n8-proof-trail.md` places this proof note alongside the
-selected-witness finite artifact and the literature-backed Dumitrescu shortcut.
-It is a worksheet only and does not promote any claim.
+Reviewer trail: `docs/n8-geometric-proof-audit-2026-07-09.md` records the
+line-by-line verdict, while `docs/n8-proof-trail.md` places this theorem
+alongside the selected-witness finite artifact and the literature-backed
+Dumitrescu shortcut.
 
 Here a bad polygon means a strictly convex polygon in which every vertex has at
 least four other vertices at one common distance from that vertex.
@@ -46,6 +47,10 @@ p = (s/t) q + ((1 - s/t)/2) a + ((1 - s/t)/2) b.
 
 Thus `p` lies in `conv{a,b,q}`, contradicting strict convexity because `p`
 would not be an extreme vertex of `conv(A)`.
+
+There is no apex on the line `ab` itself: the perpendicular bisector meets
+that line only at the midpoint `(a+b)/2`, which cannot be an extreme point of
+`conv(A)`.
 
 If `ab` is a polygon side, all other vertices lie on the same side of its
 supporting line, so there is at most one apex. If `ab` is a diagonal, there is
@@ -142,6 +147,11 @@ total would be less than `48`. Thus:
 3. At every vertex, the distance-class sizes among the other seven vertices
    are exactly `(4,1,1,1)`.
 
+For a diagonal of a strictly convex polygon, the vertices on its two open
+boundary chains lie in the two opposite open half-planes bounded by the
+diagonal's line. In particular, the vertices on the shorter boundary chain
+below are exactly the vertices on one side of that line.
+
 For the length-2 diagonal `v_i v_{i+2}`, one side contains only `v_{i+1}`.
 Since the diagonal must have an apex on each side, `v_{i+1}` must be the apex
 on the short side. Hence
@@ -217,11 +227,12 @@ bad convex polygon with `n <= 8`.
 
 ## Relationship to the existing n=8 artifacts
 
-This proof note is intended as a compact human-readable obstruction. It does
-not remove or supersede the machine-checked selected-witness pipeline in
+This theorem is the repository's compact human-readable small-case proof. It
+does not remove or supersede the machine-checked selected-witness pipeline in
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
 The computational artifacts remain useful because they audit selected-witness
-incidence structure, exact survivor classes, and certificate machinery. This
-note is a separate geometric argument that should be independently reviewed
-before being used as a public theorem-style claim outside the repository.
+incidence structure, exact survivor classes, and certificate machinery.
+External mathematical review remains recommended before paper-style citation;
+the 2026-07-09 review was repository-local and is not presented as independent
+external review.

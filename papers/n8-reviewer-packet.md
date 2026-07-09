@@ -269,9 +269,10 @@ This packet supports the existing source-of-truth wording in `STATE.md`,
 supersede those files and should be updated if they change.
 
 The packet refines the audit route already described in `docs/reviewer-guide.md`
-and `docs/review-priorities.md`. It is narrower than the proof-note draft
-`papers/small-counterexamples-erdos97.md` and `docs/n8-geometric-proof.md`,
-which pursue a human-readable geometric small-case route.
+and `docs/review-priorities.md`. It is narrower than the repo-local theorem
+notes `papers/small-counterexamples-erdos97.md` and
+`docs/n8-geometric-proof.md`, which give the human-readable geometric
+small-case route.
 
 The relevant boundary-atlas categories are `INCIDENCE_OVERLAP_BOUNDARY`,
 `CYCLIC_ORDER_FORBIDDEN`, `COLLISION_BOUNDARY`,

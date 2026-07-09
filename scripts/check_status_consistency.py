@@ -32,6 +32,11 @@ LOCAL_N8_RE = re.compile(
     r"(?=.{0,500}\bmachine-checked\b)",
     re.I,
 )
+LOCAL_N8_THEOREM_RE = re.compile(
+    r"\b(?:repo-local\s+)?(?:elementary\s+)?(?:geometric\s+)?theorem\b"
+    r"(?=.{0,500}\bn\s*<=\s*8\b)",
+    re.I,
+)
 REVIEW_RE = re.compile(
     r"(?:independent\s+(?:external\s+)?review|external\s+independent\s+review)"
     r"|(?:before\s+(?:paper-style|public\s+theorem-style|public theorem-style))",
@@ -337,6 +342,18 @@ def require_local_n8_status(label: str, text: str) -> None:
         fail(f"{label} should state repo-local machine-checked selected-witness n <= 8 status")
 
 
+def has_local_n8_theorem(text: str) -> bool:
+    return any(
+        LOCAL_N8_THEOREM_RE.search(" ".join(paragraph.split()))
+        for paragraph in re.split(r"\n\s*\n", text)
+    )
+
+
+def require_local_n8_theorem(label: str, text: str) -> None:
+    if not has_local_n8_theorem(text):
+        fail(f"{label} should state the repo-local elementary theorem for n <= 8")
+
+
 def stale_line_is_archived(lines: list[str], index: int) -> bool:
     window = "\n".join(lines[max(0, index - 3) : min(len(lines), index + 4)]).lower()
     return any(marker in window for marker in ARCHIVAL_MARKERS)
@@ -370,6 +387,10 @@ def validate_metadata(max_official_status_age_days: int | None = None) -> None:
         str(metadata_value(metadata, ("local_repo", "overall_claim"))),
     )
     require_local_n8_status(
+        "metadata local_repo.strongest_result",
+        str(metadata_value(metadata, ("local_repo", "strongest_result"))),
+    )
+    require_local_n8_theorem(
         "metadata local_repo.strongest_result",
         str(metadata_value(metadata, ("local_repo", "strongest_result"))),
     )
@@ -494,6 +515,7 @@ def validate_top_level_status() -> None:
         require_pattern(rel, text, NO_OVERCLAIM_RE, "no general proof and no counterexample")
         require_pattern(rel, text, OFFICIAL_OPEN_RE, "official/global falsifiable/open status")
         require_local_n8_status(rel, text)
+        require_local_n8_theorem(rel, text)
         require_pattern(rel, text, REVIEW_RE, "independent review before public theorem-style claims")
 
     readme_state = read_text("README.md") + "\n" + read_text("STATE.md")
