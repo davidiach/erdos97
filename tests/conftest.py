@@ -12,7 +12,11 @@ if str(ROOT) not in sys.path:
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from erdos97.ci_sharding import SHARD_ALGORITHM, stable_shard, validate_shard
+from erdos97.ci_sharding import (  # noqa: E402
+    SHARD_ALGORITHM,
+    stable_shard,
+    validate_shard,
+)
 
 
 def pytest_addoption(parser: pytest.Parser) -> None:
