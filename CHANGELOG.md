@@ -7,6 +7,19 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-09
+
+- Condensed the README's bootstrap/T12 review-pending narrative into a short
+  route summary pointing to the working state, documentation index, focused
+  bridge notes, and current next-lemma contract. The `n=9` material remains
+  review-pending and the separate `n=10` continuation remains draft-only.
+- Reconciled issue-navigation prose with GitHub state verified on 2026-07-09:
+  issues `#5`, `#81`, `#82`, and `#83` were closed as completed on 2026-05-17,
+  and the repository had no open GitHub issues at verification time. The issue
+  crosswalk is now presented as a historical acceptance record.
+- Documentation navigation cleanup only; no mathematical claim, trust label,
+  or official/global status changed.
+
 ## 2026-06-13
 
 - Added an independent SMT (z3 NRA) second source for the `n = 8`

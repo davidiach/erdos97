@@ -143,129 +143,244 @@ The `n=9` Groebner decoder follow-up is a second-source algebraic audit target,
 not a status promotion; see
 [`docs/n9-groebner-decoders.md`](docs/n9-groebner-decoders.md).
 
-Bootstrap/T12 bridge-facing diagnostics are recorded as proof-mining packets
-only. The singleton full-neighborhood crosswalk joins the current
-one-outside-label singleton-support targets and shows that stored
-vertex-circle quotient replays kill all basic-filter survivors in those
-selected-row neighborhoods; it does not prove singleton-support existence, row
-forcing, `n=9`, or the bridge. See
-[`docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md`](docs/bootstrap-t12-singleton-full-neighborhood-crosswalk.md).
-The remaining outside-pair target `151:6` now has the analogous
-full-neighborhood vertex-circle packet: basic filters leave `28` complete
-assignments and vertex-circle replay kills all `28`, still without proving
-outside-pair support existence, row forcing, `n=9`, or the bridge. See
-[`docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md`](docs/bootstrap-t12-151-6-outside-pair-full-neighborhood-vertex-circle.md).
-Its connector contract now isolates the smaller bridge target: an endpoint-`8`
-outside support at center `6` would give connector `[0,6]=[8,6]`, while the
-private-halo-only pair `[3,5]` is the connector-avoiding escape still open.
-See
-[`docs/bootstrap-t12-151-6-outside-pair-connector-contract.md`](docs/bootstrap-t12-151-6-outside-pair-connector-contract.md).
-The current label-`4` transfer ledger collapses that private lane to six
-equal-length segment components, including the unique row-`6` cascade
-`D[0,6]=D[4,5]=D[5,6]`; a companion cyclic-arc negative control shows each
-component is feasible by itself, so any obstruction must use extra
-private-support or rich-class hypotheses. The support-hypothesis ledger then
-pins those extra inputs: the cascade needs center `5` with witnesses `[4,6]`
-and center `6` with witnesses `[0,5]`, while no label-`4` transfer support
-requirement is the exact private pair `[3,5]`. The cascade row-criticality
-packet then checks the three auxiliary-center-`5,8` cascade signatures: the
-full local row package `{5,6,8}` is strict-cycle obstructed, but every
-nonempty proper row truncation is quotient-clean. Thus a bridge proof must
-also force the row-`8` strict endpoint row, not only the row-`5`/row-`6`
-cascade equalities. A follow-up endpoint-target packet sharpens that row-`8`
-requirement: for each stored cascade package, any center-`8` rich class
-containing witnesses `[0,4,6]` keeps the quotient replay obstructed. A
-center-`8` rich-triple preflight then checks the current support evidence and
-records that this target is not yet forced: the label-`4` support ledger has
-requirements at centers `5`, `6`, and `7`, with no centered support
-requirement at center `8` and no support requirement containing the full
-triple `[0,4,6]`. The source-crosswalk follow-up prevents reusing the existing
-source-`151` row-`8` singleton packet for that target: its row-`8` activation
-family is built from core `[1,2]` and singleton supports `[5,7]`, so no checked
-candidate contains even a pair from `[0,4,6]`. A core-route follow-up then
-joins the private-lane strict-core split with the endpoint target: `8` of `9`
-center-`8` local cores contain `[0,4,6]`, but only `4` of the `32`
-label-`8`-visible cores are label-`8`-visible and target-compatible, and `6`
-of the `12` private-lane assignments still have no center-`8` target core. The
-next useful lemma must force a target-compatible center-`8` local core, not
-merely label-`8` visibility. A residual target-row split then shows that four
-of those six residual assignments contain `[0,4,6]` only as off-center rows
-at centers `2`, `5`, or `7`, while assignments `0` and `11` contain no full
-target triple in any strict-core row. A center-migration preflight now records
-that those off-center rows would land in the conditional center-`8` endpoint
-target family if migrated, but current checked support evidence and the
-existing source-`151` row-`8` packet do not prove such migration. Thus the
-remaining lane asks for a genuine center-migration/source lemma or a separate
-target-sparse obstruction. A target-sparse
-completion preflight then checks the cheapest repair for assignments `0` and
-`11`: all `12` one-row completions of target-pair rows to `[0,4,6]` fail
-basic filters before vertex-circle replay. This blocks a one-row repair, but
-does not prove those assignments impossible. A repair-extension follow-up then
-allows one additional non-completion row replacement after each target
-completion; all `6624` such candidates still fail basic filters, so even the
-one-completion plus one-repair route is blocked without proving an exact
-target-sparse obstruction. A depth-two repair packet then allows two
-additional non-completion row replacements after the target completion; all
-`1599696` one-completion plus two-repair candidates still fail basic filters,
-so this selected-row repair route is blocked through two arbitrary extra rows
-without proving a geometric target-sparse obstruction. A support-cone follow-up
-then adds the cascade support equalities center `5` with `[4,6]` and center
-`6` with `[0,5]`; target-pair and completion probes still have no bounded
-one- or two-row Kalmanson/Altman cone certificate, while center-`8`
-endpoint-augmented probes are covered in `27` of `30` cases and leave exactly
-three assignment-`0` endpoint rows as next certificate targets. A full-cone
-miss follow-up then probes those three quotients with arbitrary nonnegative
-weights over the same `255` natural-order Kalmanson/Altman strict rows; HiGHS
-reports both normalized zero-sum and nonpositive LP screens infeasible, but no
-exact dual infeasibility certificate is stored. The dual-certificate follow-up
-then stores exact nonnegative integer separating potentials for those same
-three quotients, with minimum strict-row dot `1` and potential weight sums
-`250`, `253`, and `243`; this certifies only that the current row family
-cannot produce either normalized screen. A fixed alternate-order follow-up for
-cyclic order `[0,1,2,3,4,5,7,8,6]` then gives tiny exact Kalmanson zero-sum
-certificates for the same three quotients, with row counts `10`, `10`, and
-`9`; this is a fixed-order obstruction only. An order-sensitivity crosswalk
-then records the route decision: the current certificate evidence needs order
-forcing, a stronger row family, or endpoint geometry before it can become an
-all-order target-sparse obstruction. This is still route-pruning
-bookkeeping, not a proof that assignments `0` and `11` are impossible. See
-[`docs/bootstrap-t12-151-6-label4-transfer-length-components.md`](docs/bootstrap-t12-151-6-label4-transfer-length-components.md)
-and
-[`docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md),
-plus
-[`docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`](docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md)
-and
-[`docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md`](docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md),
-with
-[`docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`](docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md)
-and
-[`docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`](docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md)
-plus
-[`docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md`](docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md)
-and
-[`docs/bootstrap-t12-151-6-label4-center8-core-route.md`](docs/bootstrap-t12-151-6-label4-center8-core-route.md),
-plus
-[`docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md`](docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md)
-and
-[`docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md`](docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md),
-plus
-[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-completions.md),
-plus
-[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md)
-and
-[`docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`](docs/bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md),
-plus
-[`docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md`](docs/bootstrap-t12-151-6-label4-target-sparse-support-cone.md)
-and
-[`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md`](docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-misses.md),
-with
-[`docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md`](docs/bootstrap-t12-151-6-label4-target-sparse-full-cone-dual-certificates.md)
-and
-[`docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md`](docs/bootstrap-t12-151-6-label4-target-sparse-alt-order-kalmanson.md),
-plus
-[`docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md`](docs/bootstrap-t12-151-6-label4-target-sparse-order-sensitivity-crosswalk.md)
-and the next-lemma obligation contract
-[`docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md`](docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md).
-On the source-`81` side, the `81:3` ordered chain-closure, one-layer
-repeated-support, two-repeated-support, and repeated-support saturation packets
-close the current bounded suppor
+Bootstrap/T12 material remains proof-mining and route-pruning evidence only.
+The source-`151` lane has isolated a connector-avoiding private pair, a missing
+center-`8` endpoint/core migration step, two target-sparse residual assignments,
+and an order-sensitive fixed-order certificate route. The source-`81` lane
+closes the currently bounded chain and repeated-support continuations under its
+stated filters. Neither lane proves support existence, row forcing, genuine
+rich-class order, the bootstrap bridge, or `n=9`.
+
+Use [`STATE.md`](STATE.md) for the working frontier and
+[`docs/index.md`](docs/index.md) for the complete packet inventory. The focused
+proof-facing route is summarized in
+[`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md),
+[`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md),
+[`docs/bootstrap-t12-bridge-target-map.md`](docs/bootstrap-t12-bridge-target-map.md),
+and the current
+[`next-lemma obligation contract`](docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md).
+These diagnostics do not promote the review-pending `n=9` candidate.
+
+An incoming `n=10` singleton-slice continuation is recorded as a finite-case
+draft review target only; see
+[`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
+It now has a portable C++ second-source replay that matches all 126 stored
+singleton rows, still as review evidence only and not an `n=10` proof.
+
+### Numerical near-misses
+
+The historical best saved near-miss is `B12_3x4_danzer_lift`. It is useful as
+a degeneration diagnostic, but it is **not** a counterexample. Its fixed
+selected pattern is now exactly killed by the mutual-rhombus midpoint filter,
+and the saved floating-point artifact is retained only as provenance for a
+failed route.
+
+```text
+n: 12
+pattern: B12_3x4_danzer_lift
+max selected-distance spread: 0.006806368780585714
+RMS equality residual:       0.0019599509549614457
+convexity margin:            9.999999943508973e-07
+minimum edge length:         0.0007465865604262556
+status: numerical artifact only; fixed selected pattern exactly killed
+```
+
+Any proposed counterexample needs exact coordinates, an exact algebraic
+certificate, an interval certificate, an SMT certificate, or a formal proof
+covering both the distance equalities and strict convexity. Numerical
+near-misses are not counterexamples.
+
+## Trust labels
+
+The repo uses explicit labels so that proof, computation, and exploration do
+not blur together:
+
+- `THEOREM` / `LEMMA`: proved local statements.
+- `MACHINE_CHECKED_FINITE_CASE_ARTIFACT`: checked finite-case result in the
+  repo-local sense.
+- `EXACT_OBSTRUCTION`: exact arithmetic, algebraic, interval, SMT, or formal
+  certificate killing a stated pattern or class.
+- `NUMERICAL_EVIDENCE`: floating-point evidence only.
+- `HEURISTIC` / `CONJECTURE`: search guidance or plausible but unproved
+  mathematics.
+- `COUNTEREXAMPLE_CANDIDATE`: requires independent verification and is not a
+  counterexample claim.
+
+See [`docs/claims.md`](docs/claims.md) and
+[`docs/verification-contract.md`](docs/verification-contract.md) for the
+proof-facing standard.
+
+## Repository map
+
+```text
+.
+|-- README.md
+|-- STATE.md                  # short working dashboard
+|-- RESULTS.md                # compact results ledger
+|-- metadata/
+|   `-- erdos97.yaml          # canonical status metadata snapshot
+|-- docs/                     # proofs, audits, provenance, and planning notes
+|-- src/erdos97/              # reusable search and verification code
+|-- scripts/                  # command-line checkers and generators
+|-- tests/                    # pytest coverage for code and artifacts
+|-- data/                     # checked JSON artifacts and numerical runs
+`-- certificates/             # legacy n=8 certificate paths
+```
+
+New generated checked certificates should normally live under
+`data/certificates/`. The top-level `certificates/` directory is retained for
+legacy n=8 artifacts and manual templates whose paths are already referenced by
+docs, tests, and manifests.
+
+## Quick start
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .[dev]
+make verify-fast
+```
+
+If `make` is not available, run the fast tier directly:
+
+```bash
+python scripts/check_text_clean.py
+python scripts/check_status_consistency.py
+python scripts/check_artifact_provenance.py
+git diff --check
+python -m ruff check .
+python -m pytest -q
+```
+
+`make verify-lint` runs the sub-minute text/status/provenance/ruff tier without
+pytest. The default pytest configuration excludes tests marked `artifact`,
+`slow`, or `exhaustive`; run `python -m pytest -q -m ""` only when you
+intentionally want the full marker set.
+
+For the checked CPython 3.12 direct-dependency snapshot, install the snapshot
+before installing this package:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-lock.txt
+pip install -e . --no-deps
+```
+
+The snapshot pins direct dependencies only. Python 3.10 and 3.11 compatibility
+CI instead resolves the supported ranges in `pyproject.toml`.
+
+## Artifact checks
+
+Run the artifact tier before finite-case, certificate, or public
+theorem-style updates:
+
+```bash
+make verify-artifacts
+```
+
+For CI-style metadata capture, run:
+
+```bash
+make audit-artifacts
+```
+
+Both targets use the command registry in
+[`scripts/run_artifact_audit.py`](scripts/run_artifact_audit.py): `verify-artifacts`
+runs the registry without metadata capture, while `audit-artifacts` records
+per-command stdout/stderr and environment metadata. If `make` is unavailable,
+use `python scripts/run_artifact_audit.py --verify-only` for the same raw
+artifact command set.
+
+The command registry and the excluded pytest tiers support deterministic,
+zero-based CI shards. Every command or collected test is assigned by SHA-256
+of its stable id, so the shards are disjoint and their union is the unsharded
+selection:
+
+```bash
+python scripts/run_artifact_audit.py --verify-only --shard-count 8 --shard-index 0
+python -m pytest -q -m "artifact" --shard-count 8 --shard-index 0
+python -m pytest -q -m "(slow or exhaustive) and not artifact" \
+  --shard-count 8 --shard-index 0
+```
+
+Run every index from `0` through `shard-count - 1` for complete coverage.
+
+Useful exploratory commands:
+
+```bash
+erdos97-search --list-patterns
+erdos97-search --verify data/runs/best_B12_slsqp_m1e-6.json --tol 1e-6
+python scripts/interval_verify_candidate.py data/runs/best_B12_slsqp_m1e-6.json
+python scripts/check_mutual_rhombus_filter.py --assert-expected
+python scripts/check_vertex_circle_order_filter.py --pattern P18_parity_balanced --search --assert-obstructed
+python scripts/check_min_radius_filter.py --pattern C19_skew --assert-pass
+```
+
+Optional dependencies for selected exactification paths:
+
+```bash
+pip install sympy z3-solver
+```
+
+## Research hygiene
+
+1. Do not present floating-point equalities as exact.
+2. Keep search heuristics separate from necessary mathematical constraints.
+3. Record failed approaches clearly enough that future work avoids repeating
+   them.
+4. Prefer small reproducible JSON artifacts over screenshots or prose-only
+   claims.
+5. Do not prepare OEIS submissions from AI-generated output.
+
+## Nearby examples
+
+The 3-neighbor version is false: Danzer produced a 9-point convex polygon
+where every vertex has 3 equidistant vertices, and Fishburn-Reeds produced a
+20-point convex polygon where every vertex has 3 equidistant vertices at a
+common radius. These examples do not automatically extend to the 4-neighbor
+target.
+
+A 1975 Erdos paper reports an unpublished all-`k` Danzer claim, but the
+official #97 page says this was not repeated later and was presumably
+mistaken. This repository treats that statement as unverified literature risk,
+not as a `k=4` counterexample; see
+[`docs/literature-risk.md`](docs/literature-risk.md).
+
+## Contribution policy
+
+Contributions are welcome if they are reproducible and clearly labelled.
+Especially useful contributions include:
+
+- independent verification scripts;
+- exact obstruction lemmas;
+- interval, SOS, SMT, or formal certificates for restricted classes;
+- new incidence patterns satisfying known necessary filters;
+- numerical candidates with robust convexity margins and residual below
+  `1e-10`.
+
+Please avoid presenting numerical near-equalities as counterexamples.
+
+## License and citation
+
+Code is licensed under the MIT License. Research notes, documentation, data
+artifacts, issue templates, and certificate templates are licensed under
+CC-BY-4.0. See [`LICENSE.md`](LICENSE.md).
+
+If you use this repository, please cite it using
+[`CITATION.cff`](CITATION.cff).
+
+## Maintenance checklist
+
+- Run `make verify-fast` or the equivalent raw fast-tier commands after code or
+  documentation changes.
+- Run `make verify-artifacts` before finite-case, certificate, or public
+  theorem-style updates, or record exactly why a command could not be run.
+- Keep `README.md`, `STATE.md`, `RESULTS.md`, and
+  `metadata/erdos97.yaml` aligned when a source-of-truth status changes.
+- Confirm this README still says no general proof and no counterexample are
+  claimed.
+- Keep current-work pointers aligned with
+  [`docs/review-priorities.md`](docs/review-priorities.md),
+  [`docs/codex-backlog.md`](docs/codex-backlog.md), and the live GitHub issue
+  list.
