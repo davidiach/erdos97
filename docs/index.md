@@ -851,6 +851,12 @@ put detailed reconciliation in the canonical synthesis.
   review-pending lemma draft excluding all two-orbit circulant
   configurations (any radii, any relative rotation) with its audit checker;
   a restricted-family obstruction, not a general proof.
+- [`two-orbit-window-all-m-smt.md`](two-orbit-window-all-m-smt.md): exact
+  all-`m` SMT (z3) certificate for Step 5 of the two-orbit obstruction --
+  the row equation has no root in the open strict-convexity window for
+  every `m >= 3` at once, via a continuous polynomial relaxation containing
+  every integer instance; supersedes the finite float screen as the machine
+  audit of Step 5 only, with Steps 1-4 still review-pending prose.
 - [`half-step-matching-reduction.md`](half-step-matching-reduction.md):
   review-pending matching lemma for multi-orbit cyclic configurations (no
   aligned orbit pairs; half-step pairs form a partial matching) with the
@@ -881,7 +887,25 @@ put detailed reconciliation in the canonical synthesis.
 - [`quarter-cell-derivative-certificate.md`](quarter-cell-derivative-certificate.md):
   repo-local interval-derivative certificate closing the named `m = 8, 12, 16`
   three-orbit quarter-cell signed-band subcases; restricted finite-`m`
-  interval certificate only, not an all-`m` obstruction or proof of Erdos #97.
+  interval certificate only, not an all-`m` obstruction or proof of Erdos #97;
+  now superseded as the primary closure by the two all-`m` signed-band
+  artifacts below and retained as an independent finite-`m` cross-check.
+- [`quarter-cell-mixed-cells-all-m-smt.md`](quarter-cell-mixed-cells-all-m-smt.md):
+  exact all-`m` closure of the three mixed-derivative quarter-cell signed
+  band cells (`LL_y-_z+`, `LH_y+_z+`, `HH_y+_z-`) for every `m >= 8` at
+  once, via exact symbolic boundary identities plus one z3 UNSAT decision
+  per cell over a continuous-`T` polynomial relaxation; conditional on the
+  review-pending A-row reduction and band confinement, and not a
+  three-orbit or Erdos #97 closure.
+- [`quarter-cell-first-derivative-all-m-dominance.md`](quarter-cell-first-derivative-all-m-dominance.md):
+  all-`m` dominance closure of the nine first-derivative quarter-cell
+  signed band cells for every `m >= 8`: exact corner identities
+  `F_c(T,0,0) = +/-A` with `A = 2 sin(h)(cos h - sin h)`, a certified
+  interval Lipschitz bound, and z3-verified band/dominance inequalities;
+  completes the twelve-cell signed-band closure together with the
+  mixed-cells artifact, conditional on the review-pending A-row reduction
+  and band confinement; not a non-quarter-branch, three-orbit, or Erdos
+  #97 closure.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):

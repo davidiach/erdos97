@@ -115,11 +115,24 @@ across all cyclic orders by exact Kalmanson/Farkas certificate searches. That
 does not settle the larger sparse frontier and does not prove Erdos #97.
 
 Restricted symmetry-family diagnostics are also recorded. The two-orbit
-circulant family has a review-pending obstruction note, and the three-orbit
-program closes the `m = 4` quarter cell exactly and now has a repo-local
-interval-derivative certificate for the named `m = 8, 12, 16` quarter-cell
-signed-band subcases. This is still a restricted three-orbit finite-`m`
-certificate, not an all-`m` obstruction or proof of Erdos #97. See
+circulant family has a review-pending obstruction note whose window-root
+step is now exactly certified for all `m >= 3` at once by an SMT (z3)
+certificate (see [`docs/two-orbit-window-all-m-smt.md`](docs/two-orbit-window-all-m-smt.md));
+the note's remaining reduction steps stay review-pending prose, so the
+family lemma itself is still a review-pending draft. The three-orbit
+program closes the `m = 4` quarter cell exactly and now closes all twelve
+quarter-cell signed-band cells for every `m >= 8` at once: the three
+mixed-derivative cells by an exact SMT-plus-boundary-identity certificate
+(see
+[`docs/quarter-cell-mixed-cells-all-m-smt.md`](docs/quarter-cell-mixed-cells-all-m-smt.md))
+and the nine first-derivative cells by an exact-corner-plus-certified-
+Lipschitz dominance certificate (see
+[`docs/quarter-cell-first-derivative-all-m-dominance.md`](docs/quarter-cell-first-derivative-all-m-dominance.md)),
+with the earlier finite-`m` interval certificate retained as an
+independent cross-check. All of this is still restricted three-orbit
+quarter-cell evidence conditional on review-pending reduction prose --
+non-quarter branches stay screen-grade for `m <= 16` and open beyond --
+and it is not a proof of Erdos #97. See
 [`docs/quarter-cell-derivative-certificate.md`](docs/quarter-cell-derivative-certificate.md).
 
 ### Review-pending frontier artifacts

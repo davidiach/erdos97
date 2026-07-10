@@ -196,6 +196,22 @@ equality hit, at `m = 3`, `a = 1`, `p = 1`, which is the `x = sec h`
 equality case identified in Step 5 and excluded by strict convexity. The
 default `--max-m 400` run is also clear.
 
+Step 5 now also has an exact certificate covering all `m >= 3` at once:
+`scripts/check_two_orbit_window_all_m_smt.py` encodes the window-root
+condition as a polynomial system in `(cos h, sin h, cos 2ah, sin 2ah,
+cos ph, sin ph)` whose continuous relaxation contains every integer
+instance, and z3 nonlinear real arithmetic proves that system UNSAT, with
+the closed-boundary contact pinned uniquely to the `m = 3` corner
+`x = sec(pi/3)`. See `docs/two-orbit-window-all-m-smt.md` and
+`data/certificates/two_orbit_window_all_m_smt.json`. This supersedes the
+finite float screen as the machine audit of Step 5 (the screen remains as an
+independent per-m cross-check); Steps 1-4 remain review-pending prose.
+
+```bash
+python scripts/check_two_orbit_window_all_m_smt.py --assert-clear \
+  --check-artifact data/certificates/two_orbit_window_all_m_smt.json
+```
+
 ## Scope and non-claims
 
 - The lemma constrains only vertex sets that are unions of two concentric

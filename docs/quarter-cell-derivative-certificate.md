@@ -157,6 +157,23 @@ python scripts/check_quarter_cell_derivative_certificate.py \
 The generated JSON records 36 derivative interval enclosures: 12 signed cells
 for each of `m=8,12,16`.  In the included run, all 36 cells certify.
 
+## Follow-up: all-m closure of all twelve signed cells
+
+The three signed cells whose proof rule is `F(d,0) = F(0,e) = 0 and
+F_de < 0` (`LL_y-_z+`, `LH_y+_z+`, `HH_y+_z-`) are closed for all
+`m >= 8` at once by `docs/quarter-cell-mixed-cells-all-m-smt.md`
+(`scripts/check_quarter_cell_mixed_cells_all_m_smt.py`,
+`data/certificates/quarter_cell_mixed_cells_all_m_smt.json`): exact
+symbolic boundary identities plus one z3 UNSAT decision per cell over a
+polynomial relaxation containing every `T in (0, pi/4]`. The nine
+first-derivative cells are closed for all `m >= 8` by the dominance
+argument of `docs/quarter-cell-first-derivative-all-m-dominance.md`
+(`scripts/check_quarter_cell_first_derivative_all_m_dominance.py`,
+`data/certificates/quarter_cell_first_derivative_all_m_dominance.json`).
+This artifact is therefore superseded as the primary closure for all
+twelve cells and retained as an independent finite-`m` cross-check at
+`m = 8, 12, 16`.
+
 ## Non-claims
 
 - This is not a global proof of Erdos Problem #97.

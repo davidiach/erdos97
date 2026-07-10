@@ -32,6 +32,76 @@ counterexample are claimed.
 - Documentation navigation cleanup only; no mathematical claim, trust label,
   or official/global status changed.
 
+## 2026-07-02
+
+- Added an all-`m` dominance closure of the nine first-derivative
+  quarter-cell signed band cells
+  (`docs/quarter-cell-first-derivative-all-m-dominance.md`,
+  `scripts/check_quarter_cell_first_derivative_all_m_dominance.py`,
+  `data/certificates/quarter_cell_first_derivative_all_m_dominance.json`,
+  tests, managed manifest entry + registered audit command). Exact sympy
+  corner identities `F_c(T,0,0) = +/-(sin T + cos T - 1)` (with
+  `A = 2 sin(h)(cos h - sin h)` of order `sin h` against a band radius of
+  order `sin^2 h`), exact vanishing-boundary identities, an
+  outward-rounded interval Lipschitz bound (`<= 4`) over a box containing
+  every band square, and z3-verified band/dominance inequalities give each
+  derivative component its corner sign throughout the band square for
+  every `m >= 8`, closing all nine cells by one-variable integration.
+  Together with the mixed-derivative artifact below, all twelve signed
+  band cells are closed for every `m >= 8`, so -- conditional on the
+  review-pending A-row reduction and band-confinement prose -- every
+  `m = 0 mod 4` quarter cell is exactly closed (`m = 4` by its own SMT
+  artifact). The finite `m = 8, 12, 16` interval certificate is superseded
+  as primary for all twelve cells and retained as an independent
+  cross-check. Trust `EXACT_OBSTRUCTION` with disclosed sympy/interval/z3
+  trust roots; non-quarter branches remain screen-grade (`m <= 16`) or
+  open (`m > 16`), and there is no change to the strongest local result or
+  the official/global status.
+
+- Added an exact all-`m` closure of the three mixed-derivative quarter-cell
+  signed band cells (`docs/quarter-cell-mixed-cells-all-m-smt.md`,
+  `scripts/check_quarter_cell_mixed_cells_all_m_smt.py`,
+  `data/certificates/quarter_cell_mixed_cells_all_m_smt.json`, tests,
+  managed manifest entry + registered audit command). For cells `LL_y-_z+`,
+  `LH_y+_z+`, and `HH_y+_z-`, sympy verifies the boundary identities
+  `F(d,0) = F(0,e) = 0` exactly and z3 NRA proves the cleared
+  mixed-derivative numerator cannot be nonnegative over a polynomial
+  relaxation containing every `T = 2*pi/m in (0, pi/4]` and the full closed
+  band square, so double integration gives a negative killer turn
+  throughout each strict cell for every `m >= 8` -- upgrading those three
+  cells from the finite `m = 8, 12, 16` interval certificate, which remains
+  the only machine closure of the other nine cells and an independent
+  finite-`m` cross-check of these three. The artifact also records the
+  route boundary: the direct all-`m` killer-turn sign claim and the nine
+  first-derivative cells returned `unknown` from z3 NRA within the tried
+  budgets in this encoding (450-480 s and 120 s respectively), with a
+  small-T dominance lemma named as the next target. Trust `EXACT_OBSTRUCTION` for the three
+  named cells only, conditional on the review-pending A-row reduction and
+  band-confinement prose; no change to the strongest local result or the
+  official/global status.
+
+## 2026-07-01
+
+- Added an exact all-`m` SMT (z3 NRA) certificate for Step 5 of the
+  review-pending two-orbit circulant obstruction
+  (`docs/two-orbit-window-all-m-smt.md`,
+  `scripts/check_two_orbit_window_all_m_smt.py`,
+  `data/certificates/two_orbit_window_all_m_smt.json`, tests, managed
+  manifest entry + registered audit command). A single polynomial relaxation
+  in `(cos h, sin h, cos 2ah, sin 2ah, cos ph, sin ph)` contains every
+  integer instance `(m, a, p)` and is UNSAT together with the open-window
+  root condition, so the row equation `E_A` has no root in the
+  strict-convexity window for every `m >= 3` at once; three further z3
+  decisions pin upper-boundary contact uniquely to the known `m = 3`
+  corner `x = sec(pi/3)`, a fourth shows exact lower-boundary contact is
+  impossible in the relaxation, and a no-gap control shows the odd-offset
+  gap constraint is load-bearing. This supersedes the finite `m <= 400` float64
+  screen as the machine audit of Step 5 (the screen remains a per-`m`
+  cross-check). Trust `EXACT_OBSTRUCTION` (SMT) for the Step 5 window
+  exclusion only; the two-orbit lemma's Steps 1-4 remain review-pending
+  prose, and there is no change to the strongest local result or the
+  official/global status.
+
 ## 2026-06-13
 
 - Added an independent SMT (z3 NRA) second source for the `n = 8`
