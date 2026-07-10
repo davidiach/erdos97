@@ -38,8 +38,9 @@ counterexample are claimed.
   in the pushed history (the previous pin referenced a commit that was
   never pushed).
 - Committed the dependency-free `lake-manifest.json` the pinned
-  `lean-action` CI step requires, so the required Lean compilation job can
-  run.
+  `lean-action` CI step requires, and added the `lean/Erdos97.lean` library
+  root importing every module, so the required Lean compilation job can
+  build the whole pilot.
 
 ## 2026-07-09
 
