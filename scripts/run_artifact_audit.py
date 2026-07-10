@@ -3437,6 +3437,25 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="block6_value_rows_closure",
+        command=(
+            "python",
+            "scripts/check_block6_value_rows_closure.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact z3 real-arithmetic value-row closure of the 16 "
+            "reversed-block vertex-circle-clean escape rows (short-chord "
+            "pigeonhole row alone suffices) plus C29 fixed-order "
+            "satisfiable negative controls; fixed-row and fixed-order "
+            "diagnostics only, not all-order closure, not a fragile-bridge "
+            "proof, not a proof of Erdos Problem #97, and not a "
+            "counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="block6_reversed_block_two_stage_closure",
         command=(
             "python",
