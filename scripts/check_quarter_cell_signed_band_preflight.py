@@ -40,6 +40,14 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Sequence
 
+SRC = Path(__file__).resolve().parents[1] / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from erdos97.portable_compare import (  # noqa: E402
+    assert_portable_payload_equal as _assert_portable_payload_equal,
+)
+
 
 SCHEMA = "erdos97.quarter_cell_signed_band_preflight.v1"
 STATUS = "QUARTER_CELL_SIGNED_BAND_TURN_PREFLIGHT_ONLY"
@@ -52,8 +60,6 @@ DEFAULT_GRID = 72
 # compare only those JSON floats through a narrow portability envelope.  All
 # symbolic strings, integer counts, booleans, signs, and claim-scope fields
 # remain exact comparisons.
-PORTABLE_FLOAT_REL_TOL = 5e-13
-PORTABLE_FLOAT_ABS_TOL = 1e-17
 
 
 @dataclass(frozen=True)
@@ -388,61 +394,6 @@ def assert_expected(payload: dict[str, Any]) -> None:
 def _read_json(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as fh:
         return json.load(fh)
-
-
-def _assert_portable_payload_equal(
-    stored: Any,
-    current: Any,
-    *,
-    path: str = "$",
-) -> None:
-    """Compare payload semantics exactly and diagnostic floats portably."""
-    if type(stored) is not type(current):
-        raise AssertionError(
-            f"{path}: type mismatch ({type(stored).__name__} != "
-            f"{type(current).__name__})"
-        )
-    if isinstance(current, dict):
-        if stored.keys() != current.keys():
-            missing = sorted(set(current) - set(stored))
-            extra = sorted(set(stored) - set(current))
-            raise AssertionError(f"{path}: key mismatch (missing={missing}, extra={extra})")
-        for key in current:
-            _assert_portable_payload_equal(stored[key], current[key], path=f"{path}.{key}")
-        return
-    if isinstance(current, list):
-        if len(stored) != len(current):
-            raise AssertionError(f"{path}: length mismatch ({len(stored)} != {len(current)})")
-        for index, (stored_item, current_item) in enumerate(zip(stored, current, strict=True)):
-            _assert_portable_payload_equal(
-                stored_item,
-                current_item,
-                path=f"{path}[{index}]",
-            )
-        return
-    if isinstance(current, float):
-        if not math.isfinite(stored) or not math.isfinite(current):
-            if stored != current:
-                raise AssertionError(f"{path}: non-finite float mismatch")
-            return
-        if stored == current:
-            return
-        # A sign change is a semantic change even if both values are tiny.
-        sign_changed = math.copysign(1.0, stored) != math.copysign(1.0, current)
-        if stored == 0.0 or current == 0.0 or sign_changed:
-            raise AssertionError(
-                f"{path}: float sign/zero mismatch ({stored!r} != {current!r})"
-            )
-        if not math.isclose(
-            stored,
-            current,
-            rel_tol=PORTABLE_FLOAT_REL_TOL,
-            abs_tol=PORTABLE_FLOAT_ABS_TOL,
-        ):
-            raise AssertionError(f"{path}: material float mismatch ({stored!r} != {current!r})")
-        return
-    if stored != current:
-        raise AssertionError(f"{path}: exact value mismatch ({stored!r} != {current!r})")
 
 
 def main(argv: Sequence[str] | None = None) -> int:

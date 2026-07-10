@@ -1332,23 +1332,53 @@ def check_m(m: int, audit_samples: int, rng: np.random.Generator) -> dict:
     }
 
 
+# Replay-stable per-m fields: combinatorial enumeration counts and the
+# claim-bearing survivor/unresolved lists. The float64 screen bucket counts
+# (``screen_candidates``, ``refuted``, ``boundary_exclusions``) sit on the
+# tangency boundary and genuinely differ between libm implementations
+# (near-boundary systems flip between the pre-screen and the escalation
+# buckets), so they are platform-variant diagnostics: each side must satisfy
+# the bucket accounting identity below, but the counts themselves are not
+# compared across platforms.
 ARTIFACT_RECORD_KEYS = (
     "systems_screened",
     "open_quarter_cells",
-    "screen_candidates",
-    "refuted",
-    "boundary_exclusions",
     "unresolved",
     "feasible_survivors",
 )
+PLATFORM_VARIANT_RECORD_KEYS = (
+    "screen_candidates",
+    "refuted",
+    "boundary_exclusions",
+)
+
+
+def bucket_identity_errors(rec: dict, label: str) -> list[str]:
+    """Check screen_candidates == refuted + boundary + unresolved + feasible."""
+    total = (
+        rec.get("refuted", 0)
+        + rec.get("boundary_exclusions", 0)
+        + len(rec.get("unresolved", ()))
+        + len(rec.get("feasible_survivors", ()))
+    )
+    if rec.get("screen_candidates") != total:
+        return [
+            f"{label} m={rec.get('m')}: screen_candidates "
+            f"{rec.get('screen_candidates')!r} != refuted + boundary + "
+            f"unresolved + feasible ({total})"
+        ]
+    return []
 
 
 def compare_artifact_replay(payload: dict, artifact_path: str) -> list[str]:
-    """Compare deterministic replay fields against a stored artifact.
+    """Compare replay-stable fields against a stored artifact.
 
     The random atom-catalogue audit count depends on ``--audit-samples`` and
-    is intentionally excluded. A subrange replay compares only matching
-    per-m records; a full-range replay also compares aggregate fields.
+    is intentionally excluded, and the float64 screen bucket counts are
+    checked through the per-side accounting identity instead of cross-platform
+    equality (see ``PLATFORM_VARIANT_RECORD_KEYS``). A subrange replay
+    compares only matching per-m records; a full-range replay also compares
+    the replay-stable aggregate fields.
     """
 
     with open(artifact_path, encoding="utf-8") as fh:
@@ -1369,6 +1399,8 @@ def compare_artifact_replay(payload: dict, artifact_path: str) -> list[str]:
                     f"m={m} {key}: replay {rec.get(key)!r} "
                     f"!= stored {expected.get(key)!r}"
                 )
+        errors.extend(bucket_identity_errors(rec, "replay"))
+        errors.extend(bucket_identity_errors(expected, "stored"))
 
     if (
         payload["min_m"] == stored.get("min_m")
@@ -1377,8 +1409,6 @@ def compare_artifact_replay(payload: dict, artifact_path: str) -> list[str]:
         for key in (
             "clear",
             "total_systems",
-            "total_screen_candidates",
-            "total_boundary_exclusions",
             "ms_with_survivors",
             "ms_fully_screened",
             "ms_with_open_quarter_cells",

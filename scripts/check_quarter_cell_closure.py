@@ -56,6 +56,13 @@ import argparse
 import json
 import math
 import sys
+from pathlib import Path
+
+SRC = Path(__file__).resolve().parents[1] / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from erdos97.portable_compare import assert_portable_payload_equal  # noqa: E402
 
 DEFAULT_MS = (4, 8, 12, 16)
 # The 4-bad locus is tangent to the convexity boundary: the supremum of the
@@ -70,17 +77,21 @@ TURN_TOL = 1e-12
 
 
 def compare_artifact_replay(payload, artifact_path: str) -> list[str]:
-    """Compare the freshly generated deterministic payload with a stored artifact."""
+    """Compare a fresh replay with a stored artifact, floats portably.
+
+    The grid diagnostics (``max_min_turn`` and the argmax coordinates) are
+    float-grade screen evidence whose last few ulps differ across libm
+    implementations, so their tails go through the shared portability
+    envelope; signs, booleans, counts, and claim-scope fields stay exact.
+    """
 
     with open(artifact_path, encoding="utf-8") as fh:
         stored = json.load(fh)
-    if payload == stored:
-        return []
-    errors: list[str] = []
-    for key in sorted(set(payload) | set(stored)):
-        if payload.get(key) != stored.get(key):
-            errors.append(f"{key}: replay differs from stored artifact")
-    return errors
+    try:
+        assert_portable_payload_equal(stored, payload)
+    except AssertionError as exc:
+        return [str(exc)]
+    return []
 
 
 def offsets_for(p: float, m: int) -> list[float]:
