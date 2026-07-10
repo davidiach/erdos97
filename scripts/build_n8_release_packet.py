@@ -546,6 +546,21 @@ def git_file_bytes(commit: str, relative_path: str) -> bytes:
         ) from exc
 
 
+def commit_object_available(commit: str) -> bool:
+    """Whether ``commit`` can be resolved in this clone.
+
+    The recorded source commit can be legitimately absent: shallow CI
+    checkouts do not fetch ancestors, and a squash-merge rewrites the
+    branch history that contained it. Its snapshot is then verified
+    against HEAD instead of the recorded commit.
+    """
+    try:
+        git_output("rev-parse", "--verify", "--quiet", f"{commit}^{{commit}}")
+    except subprocess.CalledProcessError:
+        return False
+    return True
+
+
 def current_source_records() -> list[dict[str, object]]:
     if len(BUNDLE_SOURCE_FILES) != len(set(BUNDLE_SOURCE_FILES)):
         raise SystemExit("BUNDLE_SOURCE_FILES contains duplicate paths")
@@ -585,6 +600,24 @@ def resolve_source_provenance(
     builder_sha256 = sha256_file(ROOT / BUILDER_PATH)
     manifest_path = release_dir / BUNDLE_MANIFEST_NAME
 
+    def build_source_object(commit: str, tree: str) -> dict[str, object]:
+        return {
+            "repository_url": REPOSITORY_URL,
+            "commit": commit,
+            "tree": tree,
+            "commit_url": f"{REPOSITORY_URL}/commit/{commit}",
+            "builder": {"path": BUILDER_PATH, "sha256": builder_sha256},
+            "bundle_source_files_sha256": sha256_records(source_records),
+            "worktree": {
+                "dirty": False,
+                "policy": (
+                    "Build and check require a clean Git worktree. Generated release "
+                    "outputs are committed after, and are not part of, the named "
+                    "source snapshot."
+                ),
+            },
+        }
+
     if source_ref is None:
         if not manifest_path.is_file():
             raise SystemExit(
@@ -602,6 +635,24 @@ def resolve_source_provenance(
                 "source changes, then rebuild with --source-ref HEAD"
             )
         commit = recorded_source_commit(existing)
+        if not commit_object_available(commit):
+            recorded_tree = source.get("tree")
+            if not isinstance(recorded_tree, str) or not recorded_tree:
+                raise SystemExit("existing release manifest has no source.tree")
+            recorded_records_sha256 = source.get("bundle_source_files_sha256")
+            if sha256_records(source_records) != recorded_records_sha256:
+                raise SystemExit(
+                    "bundle source files changed since the recorded source "
+                    f"snapshot {commit}; rebuild with --source-ref HEAD from "
+                    "the clean source commit"
+                )
+            print(
+                f"note: recorded source commit {commit} is not present in "
+                "this clone (shallow checkout or squash-merged branch); "
+                "verified the recorded source snapshot against HEAD instead",
+                file=sys.stderr,
+            )
+            return build_source_object(commit, recorded_tree), source_records
     else:
         commit = str(git_output("rev-parse", f"{source_ref}^{{commit}}"))
 
@@ -617,23 +668,7 @@ def resolve_source_provenance(
                 "commit source inputs before building"
             )
 
-    source = {
-        "repository_url": REPOSITORY_URL,
-        "commit": commit,
-        "tree": tree,
-        "commit_url": f"{REPOSITORY_URL}/commit/{commit}",
-        "builder": {"path": BUILDER_PATH, "sha256": builder_sha256},
-        "bundle_source_files_sha256": sha256_records(source_records),
-        "worktree": {
-            "dirty": False,
-            "policy": (
-                "Build and check require a clean Git worktree. Generated release "
-                "outputs are committed after, and are not part of, the named "
-                "source snapshot."
-            ),
-        },
-    }
-    return source, source_records
+    return build_source_object(commit, tree), source_records
 
 
 def dependency_snapshot() -> dict[str, object]:

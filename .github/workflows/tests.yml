@@ -20,7 +20,11 @@ jobs:
       matrix:
         python-version: ${{ fromJSON((github.event_name == 'push' || github.event_name == 'pull_request') && '["3.12"]' || '["3.10", "3.11", "3.12"]') }}
     steps:
+      # Full history so the release-packet provenance tests can resolve the
+      # recorded source commit and take their strict verification path.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}

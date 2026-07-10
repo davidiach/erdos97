@@ -64,14 +64,40 @@ def test_release_manifest_names_rebuildable_source_snapshot() -> None:
         "path": release.BUILDER_PATH,
         "sha256": digest(ROOT / release.BUILDER_PATH),
     }
-    tree = subprocess.check_output(
-        ["git", "rev-parse", f"{source['commit']}^{{tree}}"], cwd=ROOT, text=True
-    ).strip()
-    assert source["tree"] == tree
-    committed_builder = subprocess.check_output(
-        ["git", "show", f"{source['commit']}:{release.BUILDER_PATH}"], cwd=ROOT
-    )
-    assert hashlib.sha256(committed_builder).hexdigest() == source["builder"]["sha256"]
+    if release.commit_object_available(source["commit"]):
+        # Strict path: the recorded source commit is present in this clone,
+        # so re-derive its tree and builder bytes directly from history.
+        tree = subprocess.check_output(
+            ["git", "rev-parse", f"{source['commit']}^{{tree}}"], cwd=ROOT, text=True
+        ).strip()
+        assert source["tree"] == tree
+        committed_builder = subprocess.check_output(
+            ["git", "show", f"{source['commit']}:{release.BUILDER_PATH}"], cwd=ROOT
+        )
+        assert (
+            hashlib.sha256(committed_builder).hexdigest()
+            == source["builder"]["sha256"]
+        )
+    else:
+        # The recorded commit can be absent from shallow CI checkouts and
+        # from clones made after a squash-merge rewrote the source branch;
+        # verify the recorded snapshot against the present sources instead.
+        assert source["tree"] and all(c in "0123456789abcdef" for c in source["tree"])
+        head_records = []
+        for relative_path in release.BUNDLE_SOURCE_FILES:
+            committed = subprocess.check_output(
+                ["git", "show", f"HEAD:{relative_path}"], cwd=ROOT
+            )
+            head_records.append(
+                {
+                    "path": relative_path,
+                    "sha256": hashlib.sha256(committed).hexdigest(),
+                }
+            )
+        assert (
+            release.sha256_records(head_records)
+            == source["bundle_source_files_sha256"]
+        )
     assert source["worktree"]["dirty"] is False
     assert manifest["environment"] == release.dependency_snapshot()
 
