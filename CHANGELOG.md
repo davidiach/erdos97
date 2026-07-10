@@ -7,6 +7,40 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-10
+
+- Migrated the three 2026-07-02 all-`m` certificate manifest entries
+  (`two_orbit_window_all_m_smt`, `quarter_cell_mixed_cells_all_m_smt`,
+  `quarter_cell_first_derivative_all_m_dominance`) to the provenance-v2
+  registry format (`trust_class` instead of native `trust`); no claim,
+  trust level, or artifact byte change.
+- Moved the portable float replay comparison into a shared module
+  (`src/erdos97/portable_compare.py`) and applied it to the quarter-cell
+  closure screen artifact, whose `max_min_turn` diagnostic differs in the
+  last ulps across libm implementations. Signs, booleans, counts, and
+  claim-scope fields remain exact comparisons.
+- Reclassified the three-orbit finite-`m` screen bucket counts
+  (`screen_candidates`, `refuted`, `boundary_exclusions`) as
+  platform-variant diagnostics: near the tangency boundary the float64
+  pre-screen admits different candidate sets per platform, all of which the
+  60-digit escalation then refutes or boundary-excludes. Replay comparison
+  now checks the replay-stable fields (system enumeration counts,
+  quarter-cell handoffs, unresolved/survivor lists, `clear`) exactly plus a
+  per-side bucket accounting identity, instead of cross-platform equality
+  of the bucket counts. The screen's evidence grade and claim scope are
+  unchanged.
+- Made release-packet source verification opportunistic: when the recorded
+  source commit is absent from the clone (shallow CI checkout, or history
+  rewritten by a squash-merge), the recorded snapshot digest is verified
+  against the present sources instead of the missing commit. The tests
+  workflow now checks out full history so PR CI takes the strict path, and
+  the packet was rebuilt so the recorded source commit is one that exists
+  in the pushed history (the previous pin referenced a commit that was
+  never pushed).
+- Committed the dependency-free `lake-manifest.json` the pinned
+  `lean-action` CI step requires, so the required Lean compilation job can
+  run.
+
 ## 2026-07-09
 
 - Promoted `docs/n8-geometric-proof.md` from draft to `REPO_LOCAL_THEOREM`
