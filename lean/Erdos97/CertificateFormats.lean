@@ -202,7 +202,7 @@ theorem not_cycle {α : Type u} {gt : α -> α -> Prop}
     {a : α} :
     Not (StrictReach gt a a) := by
   intro h
-  exact hirrefl a (collapse (fun hab hbc => htrans hab hbc) h)
+  exact hirrefl a (@collapse α gt (fun hab hbc => htrans hab hbc) a a h)
 
 /-- Push a strict path through a map that preserves strict edges. -/
 theorem map {α : Type u} {β : Type v} {r : α -> α -> Prop}
