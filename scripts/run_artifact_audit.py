@@ -3702,6 +3702,30 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="two_orbit_window_all_m_smt",
+        command=(
+            "python",
+            "scripts/check_two_orbit_window_all_m_smt.py",
+            "--assert-clear",
+            "--check-artifact",
+            "data/certificates/two_orbit_window_all_m_smt.json",
+        ),
+        claim_scope=(
+            "SMT (z3 NRA) certificate for Step 5 of the review-pending "
+            "two-orbit circulant obstruction only: for every m >= 3 and "
+            "every valid offset pair (a, p), the row equation E_A has no "
+            "root in the open strict-convexity window (cos h, sec h), via a "
+            "continuous polynomial relaxation containing every integer "
+            "instance, with closed-boundary contact pinned uniquely to the "
+            "m=3 corner x = sec(pi/3). Supersedes the finite m<=400 float64 "
+            "screen as the machine audit of Step 5 only; Steps 1-4 of the "
+            "two-orbit lemma remain review-pending prose. Not a proof of "
+            "the full two-orbit lemma by itself, not a proof of Erdos "
+            "Problem #97, not a counterexample, and not an official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
         ident="three_orbit_quarter_cell_closure",
         command=(
             "python",
@@ -3761,6 +3785,57 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "quarter-cell obstruction, not an all-m three-orbit obstruction, "
             "not a proof of Erdos Problem #97, not a counterexample, and not "
             "an official/global status update."
+        ),
+    ),
+    AuditCommand(
+        ident="quarter_cell_mixed_cells_all_m_smt",
+        command=(
+            "python",
+            "scripts/check_quarter_cell_mixed_cells_all_m_smt.py",
+            "--assert-clear",
+            "--check-artifact",
+            "data/certificates/quarter_cell_mixed_cells_all_m_smt.json",
+        ),
+        claim_scope=(
+            "Exact all-m closure of the three mixed-derivative three-orbit "
+            "quarter-cell signed band cells (LL_y-_z+, LH_y+_z+, HH_y+_z-) "
+            "for every m >= 8 at once: exact sympy boundary identities plus "
+            "one z3 NRA UNSAT decision per cell over a polynomial "
+            "relaxation containing every T = 2*pi/m in (0, pi/4] and the "
+            "full closed band square, with double integration giving a "
+            "negative killer turn throughout each strict cell. Supersedes "
+            "the finite m=8,12,16 interval certificate for these three "
+            "cells only; the nine first-derivative cells (outside this "
+            "artifact's scope) are closed separately by "
+            "quarter_cell_first_derivative_all_m_dominance. Conditional on "
+            "the review-pending A-row reduction and band confinement; not "
+            "a quarter-cell, three-orbit, n=9, or Erdos Problem #97 "
+            "closure, not a counterexample, and not an official/global "
+            "status update."
+        ),
+    ),
+    AuditCommand(
+        ident="quarter_cell_first_derivative_all_m_dominance",
+        command=(
+            "python",
+            "scripts/check_quarter_cell_first_derivative_all_m_dominance.py",
+            "--assert-clear",
+            "--check-artifact",
+            "data/certificates/quarter_cell_first_derivative_all_m_dominance.json",
+        ),
+        claim_scope=(
+            "All-m dominance closure of the nine first-derivative "
+            "three-orbit quarter-cell signed band cells for every m >= 8 "
+            "at once: exact sympy corner and vanishing-boundary "
+            "identities, an outward-rounded interval Lipschitz bound "
+            "(<= 4) over a box containing every band square, and "
+            "z3-verified band/dominance inequalities. Together with the "
+            "mixed-cells artifact this closes all twelve signed band "
+            "cells for every m >= 8, conditional on the review-pending "
+            "A-row reduction and band confinement. Not a closure of "
+            "non-quarter three-orbit branches, n=9, or Erdos Problem "
+            "#97, not a counterexample, and not an official/global "
+            "status update."
         ),
     ),
     AuditCommand(

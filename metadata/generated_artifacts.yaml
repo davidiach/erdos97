@@ -10802,6 +10802,37 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
+  - id: two_orbit_window_all_m_smt
+    path: data/certificates/two_orbit_window_all_m_smt.json
+    sha256: fd113c23a104880026764891f3c1439c988da89a02152f2e26b2e9580545a410
+    size_bytes: 2826
+    kind: smt_certificate_artifact
+    generator: scripts/check_two_orbit_window_all_m_smt.py
+    command: python scripts/check_two_orbit_window_all_m_smt.py --assert-clear --write-artifact data/certificates/two_orbit_window_all_m_smt.json
+    checker: scripts/check_two_orbit_window_all_m_smt.py
+    check_command: python scripts/check_two_orbit_window_all_m_smt.py --assert-clear --check-artifact data/certificates/two_orbit_window_all_m_smt.json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: SMT (z3 NRA) certificate for Step 5 of the review-pending two-orbit circulant obstruction only - for every m >= 3, every a in {1..ceil(m/2)-1}, and every odd p in {1..m-1}, the row equation E_A has no root in the open strict-convexity window (cos h, sec h), proved via a continuous polynomial relaxation containing every integer instance, with the closed-boundary contact pinned uniquely to the m=3 corner x = sec(pi/3). Supersedes the finite m<=400 float64 screen as the machine audit of Step 5; the two-orbit lemma's Steps 1-4 remain review-pending prose. Not a proof of the full two-orbit lemma by itself, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.two_orbit_window_all_m_smt.v1
+      status: EXACT_STEP5_ALL_M_SMT
+      trust: EXACT_OBSTRUCTION
+      clear: true
+      decisions.main_strict: unsat
+      decisions.nonstrict_upper: sat
+      decisions.nonstrict_upper_ch_above_half: unsat
+      decisions.nonstrict_upper_off_corner: unsat
+      decisions.lower_boundary_contact: unsat
+      decisions.no_gap: sat
+    forbidden_claims:
+      - two-orbit lemma fully machine-checked
+      - all orbits ruled out
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
   - id: quarter_cell_closure
     path: data/certificates/quarter_cell_closure.json
     sha256: 598313a8af81499798c8531268457e80a326afef64595909c548534ebd5c3ea8
@@ -10897,6 +10928,59 @@ artifacts:
       - arbitrary cyclic-order configurations closed
       - non-three-orbit configurations closed
       - formal proof-assistant certificate
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
+  - id: quarter_cell_mixed_cells_all_m_smt
+    path: data/certificates/quarter_cell_mixed_cells_all_m_smt.json
+    sha256: 63806607026c0c49dca4f6f0d42f1d599859dd8686ca4df1b282c5d4b11d9d38
+    size_bytes: 10354
+    kind: smt_certificate_artifact
+    generator: scripts/check_quarter_cell_mixed_cells_all_m_smt.py
+    command: python scripts/check_quarter_cell_mixed_cells_all_m_smt.py --assert-clear --write-artifact data/certificates/quarter_cell_mixed_cells_all_m_smt.json
+    checker: scripts/check_quarter_cell_mixed_cells_all_m_smt.py
+    check_command: python scripts/check_quarter_cell_mixed_cells_all_m_smt.py --assert-clear --check-artifact data/certificates/quarter_cell_mixed_cells_all_m_smt.json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: Exact all-m closure of the three mixed-derivative three-orbit quarter-cell signed band cells (LL_y-_z+, LH_y+_z+, HH_y+_z-) for every m >= 8 at once - exact sympy boundary identities F(d,0)=F(0,e)=0 plus one z3 NRA UNSAT decision per cell over a polynomial relaxation containing every T = 2*pi/m in (0, pi/4] and the full closed band square, with double integration giving a negative killer turn throughout each strict cell. Supersedes the finite m=8,12,16 interval certificate for these three cells only; the nine first-derivative cells (outside this artifact's scope; described as finite-m-only in this artifact's frozen embedded scope, which predates the follow-up) are now closed separately by quarter_cell_first_derivative_all_m_dominance. Conditional on the review-pending A-row reduction and band confinement; not a quarter-cell, three-orbit, n=9, or Erdos Problem #97 closure, not a counterexample, and not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.quarter_cell_mixed_cells_all_m_smt.v1
+      status: EXACT_MIXED_CELLS_ALL_M_SMT
+      trust: EXACT_OBSTRUCTION
+      clear: true
+    forbidden_claims:
+      - all twelve signed cells closed for all m
+      - all-m quarter-cell obstruction
+      - all-m three-orbit obstruction
+      - general proof of Erdos Problem #97
+      - counterexample
+      - official/global status update
+  - id: quarter_cell_first_derivative_all_m_dominance
+    path: data/certificates/quarter_cell_first_derivative_all_m_dominance.json
+    sha256: e8e4c1ed172ec4edde9a547a1b3a820f595c1dedd395d20f6a4b7e774ab8f143
+    size_bytes: 7661
+    kind: smt_certificate_artifact
+    generator: scripts/check_quarter_cell_first_derivative_all_m_dominance.py
+    command: python scripts/check_quarter_cell_first_derivative_all_m_dominance.py --assert-clear --write-artifact data/certificates/quarter_cell_first_derivative_all_m_dominance.json
+    checker: scripts/check_quarter_cell_first_derivative_all_m_dominance.py
+    check_command: python scripts/check_quarter_cell_first_derivative_all_m_dominance.py --assert-clear --check-artifact data/certificates/quarter_cell_first_derivative_all_m_dominance.json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_OBSTRUCTION
+    claim_scope: All-m dominance closure of the nine first-derivative three-orbit quarter-cell signed band cells for every m >= 8 at once - exact sympy corner identities F_c(T,0,0) = +/-(sin T + cos T - 1) and vanishing-boundary identities, an outward-rounded interval Lipschitz bound (<= 4) over a box containing every band square, and z3-verified band/dominance inequalities showing 4*delta_bar < A on the whole m >= 8 range, so each derivative component keeps its corner sign and one-variable integration closes each strict cell. Together with quarter_cell_mixed_cells_all_m_smt this closes all twelve signed band cells for every m >= 8; the finite m=8,12,16 interval certificate is retained as an independent cross-check. Conditional on the review-pending A-row reduction and band confinement; not a closure of non-quarter three-orbit branches, n=9, or Erdos Problem #97, not a counterexample, and not an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.quarter_cell_first_derivative_all_m_dominance.v1
+      status: EXACT_FIRST_DERIVATIVE_CELLS_ALL_M_DOMINANCE
+      trust: EXACT_OBSTRUCTION
+      clear: true
+      m_lipschitz: 4
+    forbidden_claims:
+      - non-quarter three-orbit branches closed
+      - all-m quarter-cell obstruction
+      - all-m three-orbit obstruction
       - general proof of Erdos Problem #97
       - counterexample
       - official/global status update
