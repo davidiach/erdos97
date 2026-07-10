@@ -4566,6 +4566,42 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: block6_value_rows_closure
+    path: data/certificates/block6_value_rows_closure.json
+    sha256: d1159042f11486f6d221ced7e0a13bc1c5e604e34583e313c58361fcda44ba63
+    size_bytes: 14082
+    kind: fixed_order_exact_certificate_artifact
+    generator: scripts/check_block6_value_rows_closure.py
+    command: python scripts/check_block6_value_rows_closure.py --write --assert-expected
+    checker: scripts/check_block6_value_rows_closure.py
+    check_command: python scripts/check_block6_value_rows_closure.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: Exact z3 real-arithmetic value-row closure of the 16 vertex-circle-clean fixed-order rows from the reversed-second-block shuffle negative-control packet (short-chord pigeonhole row alone suffices; obtuse plus diameter rows close 15 of 16), plus C29 fixed-order satisfiable negative controls. Fixed selected-row assignments and fixed cyclic orders only; not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.block6_value_rows_closure.v1
+      status: EXACT_FIXED_ORDER_VALUE_ROW_CLOSURE_FOR_REVERSED_BLOCK_VC_CLEAN_ROWS
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      summary.records: 16
+      summary.vertex_circle_clean: 16
+      summary.baseline_sat: 16
+      summary.short_chord_unsat: 16
+      summary.obtuse_diameter_unsat: 15
+      summary.c29_all_sat: true
+      provenance.generator: scripts/check_block6_value_rows_closure.py
+      provenance.command: python scripts/check_block6_value_rows_closure.py --write --assert-expected
+    forbidden_claims:
+      - value rows close all cyclic orders
+      - value rows dominate Kalmanson or Altman certificates
+      - block-6 family is impossible geometrically
+      - minimal counterexamples are ruled out
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: block6_reversed_block_two_stage_closure
     path: data/certificates/block6_reversed_block_two_stage_closure.json
     sha256: 0984d0cccf88e14bdb15f983a6847b6d26ca2ca16d1ecc7e8b1676c456ff8fc3
