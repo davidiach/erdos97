@@ -41,6 +41,14 @@ counterexample are claimed.
   `lean-action` CI step requires, and added the `lean/Erdos97.lean` library
   root importing every module, so the required Lean compilation job can
   build the whole pilot.
+- Made the Lean pilot actually compile under the pinned dependency-free
+  `v4.31.0` toolchain: the first CI compilation revealed the pilot had
+  never been machine-checked (the pre-pin `verify-lean` silently skips
+  when `lake` is absent). Renamed every `lemma` declaration keyword to
+  `theorem` (core Lean 4 has no `lemma`; it is a Mathlib synonym) and
+  repaired three proof bodies that relied on implicit-argument
+  elaboration `lake build` rejects. No theorem or definition statement
+  changed; sketch boundaries are unchanged.
 
 ## 2026-07-09
 

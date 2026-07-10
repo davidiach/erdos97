@@ -16,13 +16,13 @@ structure QuotientClass where
 deriving Repr, BEq
 
 /-- Equal quotient classes have equal names. -/
-lemma QuotientClass.name_eq_of_eq {q r : QuotientClass} (h : q = r) :
+theorem QuotientClass.name_eq_of_eq {q r : QuotientClass} (h : q = r) :
     q.name = r.name := by
   cases h
   rfl
 
 /-- Quotient classes are equal when their names agree. -/
-lemma QuotientClass.eq_of_name_eq {q r : QuotientClass} (h : q.name = r.name) :
+theorem QuotientClass.eq_of_name_eq {q r : QuotientClass} (h : q.name = r.name) :
     q = r := by
   cases q
   cases r
@@ -37,25 +37,25 @@ structure EqualityPath where
 deriving Repr
 
 /-- Equal equality paths have equal starts. -/
-lemma EqualityPath.start_eq_of_eq {path other : EqualityPath}
+theorem EqualityPath.start_eq_of_eq {path other : EqualityPath}
     (h : path = other) : path.start = other.start := by
   cases h
   rfl
 
 /-- Equal equality paths have equal finishes. -/
-lemma EqualityPath.finish_eq_of_eq {path other : EqualityPath}
+theorem EqualityPath.finish_eq_of_eq {path other : EqualityPath}
     (h : path = other) : path.finish = other.finish := by
   cases h
   rfl
 
 /-- Equal equality paths have equal replay-reason lists. -/
-lemma EqualityPath.reasons_eq_of_eq {path other : EqualityPath}
+theorem EqualityPath.reasons_eq_of_eq {path other : EqualityPath}
     (h : path = other) : path.reasons = other.reasons := by
   cases h
   rfl
 
 /-- A same-endpoint equality path has equal endpoints by construction. -/
-lemma EqualityPath.same_endpoint_mk (q : QuotientClass) (reasons : List String) :
+theorem EqualityPath.same_endpoint_mk (q : QuotientClass) (reasons : List String) :
     (EqualityPath.mk q q reasons).start =
       (EqualityPath.mk q q reasons).finish := by
   rfl
@@ -66,14 +66,14 @@ def EqualityPath.RealizedBy (path : EqualityPath) {α : Type u}
   value path.start = value path.finish
 
 /-- Same-endpoint equality paths are realized by every quotient-value map. -/
-lemma EqualityPath.realizedBy_same_endpoint_mk
+theorem EqualityPath.realizedBy_same_endpoint_mk
     (q : QuotientClass) (reasons : List String) {α : Type u}
     (value : QuotientClass -> α) :
     (EqualityPath.mk q q reasons).RealizedBy value := by
   rfl
 
 /-- A strict forward inequality along a realized equality path is impossible. -/
-lemma EqualityPath.no_strict_forward_realization
+theorem EqualityPath.no_strict_forward_realization
     (path : EqualityPath) {α : Type u} [LT α]
     (value : QuotientClass -> α)
     (hirrefl : forall x : α, Not (x > x))
@@ -84,7 +84,7 @@ lemma EqualityPath.no_strict_forward_realization
   exact hirrefl (value path.finish) hstrict
 
 /-- A strict backward inequality along a realized equality path is impossible. -/
-lemma EqualityPath.no_strict_backward_realization
+theorem EqualityPath.no_strict_backward_realization
     (path : EqualityPath) {α : Type u} [LT α]
     (value : QuotientClass -> α)
     (hirrefl : forall x : α, Not (x > x))
@@ -95,7 +95,7 @@ lemma EqualityPath.no_strict_backward_realization
   exact hirrefl (value path.finish) hstrict
 
 /-- Reverse an equality-path endpoint equality. -/
-lemma EqualityPath.finish_eq_start_of_start_eq_finish (path : EqualityPath)
+theorem EqualityPath.finish_eq_start_of_start_eq_finish (path : EqualityPath)
     (h : path.start = path.finish) : path.finish = path.start := by
   exact h.symm
 
@@ -107,7 +107,7 @@ structure SelfEdgeCertificate where
 deriving Repr
 
 /-- If both equality-path endpoints are the certificate class, the path is closed. -/
-lemma SelfEdgeCertificate.path_start_eq_finish_of_endpoints
+theorem SelfEdgeCertificate.path_start_eq_finish_of_endpoints
     (c : SelfEdgeCertificate)
     (hstart : c.equalityPath.start = c.className)
     (hfinish : c.equalityPath.finish = c.className) :
@@ -115,7 +115,7 @@ lemma SelfEdgeCertificate.path_start_eq_finish_of_endpoints
   exact hstart.trans hfinish.symm
 
 /-- The reverse form of `path_start_eq_finish_of_endpoints`. -/
-lemma SelfEdgeCertificate.path_finish_eq_start_of_endpoints
+theorem SelfEdgeCertificate.path_finish_eq_start_of_endpoints
     (c : SelfEdgeCertificate)
     (hstart : c.equalityPath.start = c.className)
     (hfinish : c.equalityPath.finish = c.className) :
@@ -134,7 +134,7 @@ def SelfEdgeCertificate.RealizedBy
     (value cert.equalityPath.start > value cert.equalityPath.finish)
 
 /-- A realized self-edge certificate contradicts irreflexivity of strict order. -/
-lemma SelfEdgeCertificate.no_realization
+theorem SelfEdgeCertificate.no_realization
     (cert : SelfEdgeCertificate) {α : Type u} [LT α]
     (value : QuotientClass -> α)
     (hirrefl : forall x : α, Not (x > x))
@@ -150,25 +150,25 @@ structure StrictEdge where
 deriving Repr
 
 /-- Equal strict edges have equal sources. -/
-lemma StrictEdge.source_eq_of_eq {e f : StrictEdge} (h : e = f) :
+theorem StrictEdge.source_eq_of_eq {e f : StrictEdge} (h : e = f) :
     e.source = f.source := by
   cases h
   rfl
 
 /-- Equal strict edges have equal targets. -/
-lemma StrictEdge.target_eq_of_eq {e f : StrictEdge} (h : e = f) :
+theorem StrictEdge.target_eq_of_eq {e f : StrictEdge} (h : e = f) :
     e.target = f.target := by
   cases h
   rfl
 
 /-- Equal strict edges have equal reasons. -/
-lemma StrictEdge.reason_eq_of_eq {e f : StrictEdge} (h : e = f) :
+theorem StrictEdge.reason_eq_of_eq {e f : StrictEdge} (h : e = f) :
     e.reason = f.reason := by
   cases h
   rfl
 
 /-- If a strict edge source and target are the same class, it is a self-edge. -/
-lemma StrictEdge.source_eq_target_of_eq_class (e : StrictEdge)
+theorem StrictEdge.source_eq_target_of_eq_class (e : StrictEdge)
     {q : QuotientClass} (hsource : e.source = q) (htarget : e.target = q) :
     e.source = e.target := by
   exact hsource.trans htarget.symm
@@ -202,7 +202,7 @@ theorem not_cycle {α : Type u} {gt : α -> α -> Prop}
     {a : α} :
     Not (StrictReach gt a a) := by
   intro h
-  exact hirrefl a (collapse htrans h)
+  exact hirrefl a (collapse (fun hab hbc => htrans hab hbc) h)
 
 /-- Push a strict path through a map that preserves strict edges. -/
 theorem map {α : Type u} {β : Type v} {r : α -> α -> Prop}
@@ -244,7 +244,7 @@ def Sound {α : Type u} (value : QuotientClass -> α)
   gt (value e.source) (value e.target)
 
 /-- `RealizedBy` is `Sound` specialized to the ambient strict order. -/
-lemma realizedBy_iff_sound_gt {α : Type u} [LT α]
+theorem realizedBy_iff_sound_gt {α : Type u} [LT α]
     (value : QuotientClass -> α) (edge : StrictEdge) :
     edge.RealizedBy value ↔ Sound value (fun x y => x > y) edge := by
   rfl
@@ -255,8 +255,9 @@ theorem no_between_equal_values {α : Type u} {value : QuotientClass -> α}
     (hirrefl : forall a : α, Not (gt a a)) {e : StrictEdge}
     (hsound : Sound value gt e)
     (heq : value e.source = value e.target) : False := by
-  rw [heq] at hsound
-  exact hirrefl (value e.target) hsound
+  have hgt : gt (value e.source) (value e.target) := hsound
+  rw [heq] at hgt
+  exact hirrefl (value e.target) hgt
 
 /-- A sound strict edge cannot be a loop. -/
 theorem no_self {α : Type u} {value : QuotientClass -> α}
@@ -267,7 +268,7 @@ theorem no_self {α : Type u} {value : QuotientClass -> α}
   exact no_between_equal_values hirrefl hsound heq
 
 /-- A realized strict loop is impossible under any irreflexive strict order. -/
-lemma no_loop_realization (edge : StrictEdge) {α : Type u} [LT α]
+theorem no_loop_realization (edge : StrictEdge) {α : Type u} [LT α]
     (value : QuotientClass -> α)
     (hirrefl : forall x : α, Not (x > x))
     (hedge : edge.RealizedBy value) (hloop : edge.source = edge.target) :
@@ -277,7 +278,7 @@ lemma no_loop_realization (edge : StrictEdge) {α : Type u} [LT α]
   exact hirrefl (value edge.target) hedge
 
 /-- A realized directed two-cycle is impossible under any asymmetric strict order. -/
-lemma no_two_cycle_realization (edge1 edge2 : StrictEdge) {α : Type u} [LT α]
+theorem no_two_cycle_realization (edge1 edge2 : StrictEdge) {α : Type u} [LT α]
     (value : QuotientClass -> α)
     (hasymm : forall {x y : α}, x > y -> Not (y > x))
     (h1 : edge1.RealizedBy value) (h2 : edge2.RealizedBy value)
@@ -332,8 +333,9 @@ theorem no_cycle {α : Type u} {value : QuotientClass -> α}
     (htrans : forall {a b c : α}, gt a b -> gt b c -> gt a c)
     {c : QuotientClass} :
     Not (StrictReach (StrictQuotientEdge edgeAllowed) c c) := by
-  exact StrictReach.no_mapped_cycle (StrictQuotientEdge.sound hsound)
-    hirrefl htrans
+  exact StrictReach.no_mapped_cycle
+    (fun hedge => StrictQuotientEdge.sound hsound hedge)
+    hirrefl (fun hab hbc => htrans hab hbc)
 
 end StrictQuotientEdge
 
@@ -341,41 +343,41 @@ def StrictCycleCertificate.hasEdges (c : StrictCycleCertificate) : Prop :=
   Not (c.edges = [])
 
 /-- `hasEdges` is exactly non-emptiness of the stored edge list. -/
-lemma StrictCycleCertificate.hasEdges_iff (c : StrictCycleCertificate) :
+theorem StrictCycleCertificate.hasEdges_iff (c : StrictCycleCertificate) :
     c.hasEdges ↔ Not (c.edges = []) := by
   rfl
 
 /-- Package a nonempty edge-list proof as `hasEdges`. -/
-lemma StrictCycleCertificate.hasEdges_of_ne_nil {c : StrictCycleCertificate}
+theorem StrictCycleCertificate.hasEdges_of_ne_nil {c : StrictCycleCertificate}
     (h : Not (c.edges = [])) : c.hasEdges := by
   exact h
 
 /-- Unpackage `hasEdges` as a nonempty edge-list proof. -/
-lemma StrictCycleCertificate.ne_nil_of_hasEdges {c : StrictCycleCertificate}
+theorem StrictCycleCertificate.ne_nil_of_hasEdges {c : StrictCycleCertificate}
     (h : c.hasEdges) : Not (c.edges = []) := by
   exact h
 
 /-- A certificate whose edge list is headed by one edge has edges. -/
-lemma StrictCycleCertificate.hasEdges_cons (edge : StrictEdge)
+theorem StrictCycleCertificate.hasEdges_cons (edge : StrictEdge)
     (edges : List StrictEdge) (cycleReason : String) :
     (StrictCycleCertificate.mk (edge :: edges) cycleReason).hasEdges := by
   intro h
   cases h
 
 /-- The empty strict-cycle certificate shape does not have edges. -/
-lemma StrictCycleCertificate.not_hasEdges_nil (cycleReason : String) :
+theorem StrictCycleCertificate.not_hasEdges_nil (cycleReason : String) :
     Not ((StrictCycleCertificate.mk [] cycleReason).hasEdges) := by
   intro h
   exact h rfl
 
 /-- A certificate with an explicitly empty edge list does not have edges. -/
-lemma StrictCycleCertificate.not_hasEdges_of_edges_eq_nil
+theorem StrictCycleCertificate.not_hasEdges_of_edges_eq_nil
     {c : StrictCycleCertificate} (h : c.edges = []) : Not c.hasEdges := by
   intro hc
   exact hc h
 
 /-- A certificate whose edge list is known to be a cons list satisfies `hasEdges`. -/
-lemma StrictCycleCertificate.hasEdges_of_edges_eq_cons
+theorem StrictCycleCertificate.hasEdges_of_edges_eq_cons
     {c : StrictCycleCertificate} {edge : StrictEdge} {edges : List StrictEdge}
     (h : c.edges = edge :: edges) : c.hasEdges := by
   intro hnil
@@ -383,7 +385,7 @@ lemma StrictCycleCertificate.hasEdges_of_edges_eq_cons
   cases hcons_nil
 
 /-- A singleton strict-cycle edge list is nonempty. -/
-lemma StrictCycleCertificate.hasEdges_singleton (edge : StrictEdge)
+theorem StrictCycleCertificate.hasEdges_singleton (edge : StrictEdge)
     (cycleReason : String) :
     (StrictCycleCertificate.mk [edge] cycleReason).hasEdges := by
   exact StrictCycleCertificate.hasEdges_cons edge [] cycleReason
