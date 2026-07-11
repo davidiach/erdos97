@@ -286,6 +286,9 @@ put detailed reconciliation in the canonical synthesis.
   generated-packet evidence only.
 - [`bootstrap-core-bridge.md`](bootstrap-core-bridge.md): rich-triple closure
   rank, bootstrap cores, private halos, and weighted cyclic capacity.
+- [`bootstrap-core-complement-seeding.md`](bootstrap-core-complement-seeding.md):
+  review-pending linear bootstrap-rank bound, tight source-component
+  structure, and strict-convexity exclusion of equality below `n=15`.
 - [`bootstrap-core-crosswalk.md`](bootstrap-core-crosswalk.md): checked
   singleton-rich bootstrap-core rank/capacity crosswalk for current fixed-row
   frontier motifs.

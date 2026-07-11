@@ -182,6 +182,15 @@ current fixed-row frontier motifs and records that the audited singleton-rich
 cases have rank greater than 3 but still pass the weighted capacity check; see
 `docs/bootstrap-core-crosswalk.md`.
 
+A review-pending complement-seeding lemma now sharpens the size ledger for a
+cardinality-minimum generator `U`: with `O=V\U`, one has
+`2|U| <= 3|O|`. Equality forces the core into equilateral three-vertex source
+components, and a tight source triangle needs at least five distinct outside
+witnesses. Hence a strictly convex equality case has at least `15` vertices.
+This does not eliminate non-tight blockers, repair the conditional
+ear-orderable rank argument, or change the `n=9` or global status. See
+`docs/bootstrap-core-complement-seeding.md`.
+
 The full `n=9` exact-four radius-blocker packet fixes natural order and blocker
 `{0,1,2,3}` and quantifies over all exact four-row choices compatible with that
 blocker. Its 90 incidence survivors are all vertex-circle obstructed (`70`
