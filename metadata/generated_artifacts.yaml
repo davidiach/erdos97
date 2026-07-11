@@ -15,6 +15,8 @@ required_integrity_fields: >
   with an explicit reason.
 
 unmanaged_tracked_artifacts:
+  - path: data/certificates/s12a_parity_two_orbit_frontier.json
+    reason: hand-recorded 2026-07-10 session frontier-lead record (verification transcript embedded); no generator script yet; see docs/s12a-parity-two-orbit-frontier.md
   - path: certificates/best_B12_certificate_template.json
     reason: tracked legacy/manual template retained at its historical top-level certificates path
   - path: data/certificates/2026-05-05/bridge_lemma_check.json
