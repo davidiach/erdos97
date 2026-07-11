@@ -659,6 +659,10 @@ local_repo:
       document: "docs/bootstrap-core-bridge.md"
       verifier: "scripts/check_bootstrap_core_bridge.py"
       claim_scope: "bridge bookkeeping only; not a contradiction, not a counterexample, and not a proof of Erdos #97"
+    - name: "bootstrap_core_complement_seeding"
+      status: "review-pending linear minimum-generator bound and tight-case structure"
+      document: "docs/bootstrap-core-complement-seeding.md"
+      claim_scope: "review-pending bridge lemma only; proves 2|U| <= 3|V\\U| for a cardinality-minimum full-rich generator and derives n >= 15 only in the strictly convex equality case, but does not eliminate non-tight blockers, repair the conditional ear-orderable rank program, prove Erdos #97, or give a counterexample"
   best_numerical_object: "B12_3x4_danzer_lift near-miss; rejected as proof/counterexample."
   main_entry_points:
     - "STATE.md"
@@ -671,6 +675,7 @@ local_repo:
     - "docs/phi4-rectangle-trap.md"
     - "docs/minimal-fragile-cover-bridge.md"
     - "docs/bootstrap-core-bridge.md"
+    - "docs/bootstrap-core-complement-seeding.md"
     - "docs/bootstrap-core-crosswalk.md"
     - "docs/reproduction-log.md"
     - "docs/verification-contract.md"

@@ -99,6 +99,14 @@ example by checking that every 3-seed has proper closure. A larger
 inclusion-minimal generator can coexist with a smaller generator in a general
 closure system.
 
+The review-pending complement-seeding follow-up in
+`docs/bootstrap-core-complement-seeding.md` specializes to a
+cardinality-minimum generator `U`. With `O=V\U`, it proves the linear bound
+`2|U| <= 3|O|`. It also identifies the equality case as a union of equilateral
+three-vertex source components and shows that strict convexity forces at least
+`15` vertices in that tight case. That follow-up is a stronger size ledger,
+not a blocker contradiction or a proof of Erdos Problem #97.
+
 ## Weighted cyclic private-pair capacity
 
 For `u in U` and `C in R(u)`, write

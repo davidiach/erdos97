@@ -787,6 +787,15 @@ condition that the surviving multi-block family does not automatically satisfy:
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.
+- the review-pending complement-seeding refinement in
+  `docs/bootstrap-core-complement-seeding.md`, which gives
+  `2|U| <= 3|V\U|` for a cardinality-minimum generator and forces a strictly
+  convex equality case to have at least `15` vertices. Before theorem-style
+  use, independently check the residual dependency-graph activation argument,
+  the equality chain, and the reflected-apex midpoint obstruction. A useful
+  next strengthening must treat the non-tight case or control outside-witness
+  reuse across distinct tight source triangles; this lemma does not repair the
+  conditional ear-orderable rank program.
 - bootstrap-core crosswalk evidence, as recorded in
   `docs/bootstrap-core-crosswalk.md`, showing that the current singleton-rich
   sparse/frontier motifs have rank greater than 3 but retain positive weighted

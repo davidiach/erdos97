@@ -967,6 +967,36 @@ that the audited cases have rank greater than 3 but still pass weighted
 capacity, so it is negative diagnostic information about the strength of the
 ledger, not a new obstruction theorem.
 
+### Bootstrap-core complement-seeding bound
+
+Status: `LEMMA_DRAFT` / `REVIEW_PENDING`.
+
+Let `U` be a cardinality-minimum generator for full rich-triple closure, and
+put `O=V\U`. Closing `O` first and retaining the residual vertices of `U`
+produces a directed dependency graph with two distinct in-neighbors at every
+vertex. Every source strongly connected component therefore has at least
+three vertices, while one seed from each source component together with `O`
+generates the full vertex set. Cardinality-minimality gives
+
+```text
+2|U| <= 3|O|,
+rho(P) <= 3|V|/5.
+```
+
+In the equality case, `cl(O)=O` and equilateral three-vertex source components
+partition `U`. For a strictly convex polygon, the six outside-witness
+positions of any one tight component use at least five distinct outside
+vertices: a witness shared by two component centers is the reflected third
+apex, and two such reflected apexes for incident edges put the shared source
+vertex at their midpoint. It follows that every strictly convex equality case
+has at least `15` vertices.
+
+This is a size and equality-structure refinement only. It does not eliminate
+non-tight blockers or prove that the fragile cover of a vertex-minimal
+counterexample supplies the chosen component rows. It also does not repair the
+conditional gauge-fixing step in the ear-orderable rank program. See
+`docs/bootstrap-core-complement-seeding.md`.
+
 The companion overlay in `docs/bootstrap-vertex-circle-overlay.md` joins the
 two tight `n=9` non-ear-orderable crosswalk rows to the review-pending
 vertex-circle strict-cycle chain. Both rows land on the `T12/F16` strict-cycle

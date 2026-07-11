@@ -422,6 +422,32 @@ realizability; see `docs/bootstrap-core-crosswalk.md`,
 `scripts/check_bootstrap_core_crosswalk.py`, and
 `data/certificates/bootstrap_core_crosswalk.json`.
 
+### Bootstrap-core complement seeding
+
+Status: `LEMMA_DRAFT` / `REVIEW_PENDING`.
+
+For a cardinality-minimum full-rich generator `U`, put `O=V\U`. A residual
+dependency graph on `U\cl(O)` has two distinct in-neighbors at every vertex,
+so each source strongly connected component has at least three vertices. One
+seed per source component, together with `O`, generates `V`. Minimality then
+gives
+
+```text
+2|U| <= 3|O|,
+rho(P) <= 3|V|/5.
+```
+
+If equality holds, `cl(O)=O` and three-vertex source components partition
+`U`; their chosen rows make every component equilateral. Strict convexity
+forces the six outside-witness positions of one such component to use at
+least five distinct outside vertices. Since equality also forces `|U|` to be
+a multiple of `3` and `|O|` to be even, every strictly convex equality case
+has at least `15` vertices. This is a review-pending bridge lemma only. It
+does not eliminate non-tight blockers or repair the conditional
+ear-orderable rank argument, and it changes neither the global status nor the
+counterexample status. See
+`docs/bootstrap-core-complement-seeding.md`.
+
 The full `n=9` exact-four radius-blocker packet fixes the natural cyclic order
 and blocker `{0,1,2,3}`, then quantifies over every exact four-row compatible
 with that blocker. After the row-pair, witness-pair, indegree, and two-overlap

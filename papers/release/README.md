@@ -3,12 +3,12 @@
 Status: generated reviewer release packet; not mathematical evidence
 by itself.
 
-Generated from source commit `2634a6040470b6579fd94e871b11cb85516bfe6b` (tree
-`4bd355a3df448b47e2af932caac37325a5db1bf0`) in https://github.com/davidiach/erdos97. To rebuild it from that clean
+Generated from source commit `d89c0ae6ec4fb732eb772d2572af16aa5edd44d5` (tree
+`bfcfb62921b65ab826ad26657cea4a50880b73bc`) in https://github.com/davidiach/erdos97. To rebuild it from that clean
 source snapshot:
 
 ```bash
-git checkout 2634a6040470b6579fd94e871b11cb85516bfe6b
+git checkout d89c0ae6ec4fb732eb772d2572af16aa5edd44d5
 python scripts/build_n8_release_packet.py --source-ref HEAD
 ```
 
