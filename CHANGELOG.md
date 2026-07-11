@@ -7,6 +7,74 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-10
+
+- Migrated the three 2026-07-02 all-`m` certificate manifest entries
+  (`two_orbit_window_all_m_smt`, `quarter_cell_mixed_cells_all_m_smt`,
+  `quarter_cell_first_derivative_all_m_dominance`) to the provenance-v2
+  registry format (`trust_class` instead of native `trust`); no claim,
+  trust level, or artifact byte change.
+- Moved the portable float replay comparison into a shared module
+  (`src/erdos97/portable_compare.py`) and applied it to the quarter-cell
+  closure screen artifact, whose `max_min_turn` diagnostic differs in the
+  last ulps across libm implementations. Signs, booleans, counts, and
+  claim-scope fields remain exact comparisons.
+- Reclassified the three-orbit finite-`m` screen bucket counts
+  (`screen_candidates`, `refuted`, `boundary_exclusions`) as
+  platform-variant diagnostics: near the tangency boundary the float64
+  pre-screen admits different candidate sets per platform, all of which the
+  60-digit escalation then refutes or boundary-excludes. Replay comparison
+  now checks the replay-stable fields (system enumeration counts,
+  quarter-cell handoffs, unresolved/survivor lists, `clear`) exactly plus a
+  per-side bucket accounting identity, instead of cross-platform equality
+  of the bucket counts. The screen's evidence grade and claim scope are
+  unchanged.
+- Made release-packet source verification opportunistic: when the recorded
+  source commit is absent from the clone (shallow CI checkout, or history
+  rewritten by a squash-merge), the recorded snapshot digest is verified
+  against the present sources instead of the missing commit. The tests
+  workflow now checks out full history so PR CI takes the strict path, and
+  the packet was rebuilt so the recorded source commit is one that exists
+  in the pushed history (the previous pin referenced a commit that was
+  never pushed).
+- Committed the dependency-free `lake-manifest.json` the pinned
+  `lean-action` CI step requires, and added the `lean/Erdos97.lean` library
+  root importing every module, so the required Lean compilation job can
+  build the whole pilot.
+- Made the Lean pilot actually compile under the pinned dependency-free
+  `v4.31.0` toolchain: the first CI compilation revealed the pilot had
+  never been machine-checked (the pre-pin `verify-lean` silently skips
+  when `lake` is absent). Renamed every `lemma` declaration keyword to
+  `theorem` (core Lean 4 has no `lemma`; it is a Mathlib synonym) and
+  repaired three proof bodies that relied on implicit-argument
+  elaboration `lake build` rejects. No theorem or definition statement
+  changed; sketch boundaries are unchanged.
+
+## 2026-07-09
+
+- Promoted `docs/n8-geometric-proof.md` from draft to `REPO_LOCAL_THEOREM`
+  after two independent line-by-line derivations accepted the base-apex count,
+  octagon equality saturation, equilateral chord formula, length-3 diagonal
+  step, and `C_8` vertex-cover contradiction. The note now states explicitly
+  that an apex cannot lie on its base line and that the two open boundary
+  chains of a strict-convex diagonal lie in opposite open half-planes. The
+  theorem excludes bad strictly convex polygons only for `n <= 8`; external
+  publication review is still encouraged, `n >= 9` remains open, and the
+  official/global status is unchanged.
+- Reclassified the selected-witness `n <= 8` computation as independent
+  machine-checked corroboration of the elementary theorem. Its artifact trust
+  labels and review boundaries remain unchanged.
+- Condensed the README's bootstrap/T12 review-pending narrative into a short
+  route summary pointing to the working state, documentation index, focused
+  bridge notes, and current next-lemma contract. The `n=9` material remains
+  review-pending and the separate `n=10` continuation remains draft-only.
+- Reconciled issue-navigation prose with GitHub state verified on 2026-07-09:
+  issues `#5`, `#81`, `#82`, and `#83` were closed as completed on 2026-05-17,
+  and the repository had no open GitHub issues at verification time. The issue
+  crosswalk is now presented as a historical acceptance record.
+- Documentation navigation cleanup only; no mathematical claim, trust label,
+  or official/global status changed.
+
 ## 2026-07-02
 
 - Added an all-`m` dominance closure of the nine first-derivative

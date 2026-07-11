@@ -5,6 +5,7 @@ from pathlib import Path
 
 from scripts.check_artifact_provenance import (
     TRACKED_ARTIFACT_COVERAGE_GLOBS,
+    archive_inventory_digest,
     command_mentions_path,
     command_outputs_path,
     command_replays_path,
@@ -43,7 +44,10 @@ def replay_manifest(
     artifact = tmp_path / "artifact.json"
     generator = tmp_path / "generator.py"
     checker = tmp_path / "checker.py"
-    artifact.write_text(json.dumps({"status": "GOOD"}) + "\n", encoding="utf-8")
+    artifact.write_text(
+        json.dumps({"status": "GOOD", "trust": "EXACT_OBSTRUCTION"}) + "\n",
+        encoding="utf-8",
+    )
     generator.write_text("print('ok')\n", encoding="utf-8")
     checker.write_text("print('ok')\n", encoding="utf-8")
     entry = {
@@ -55,7 +59,7 @@ def replay_manifest(
         "checker": str(checker),
         "direct_edit_allowed": False,
         "provenance_mode": "manifest_only_legacy",
-        "trust": "EXACT_OBSTRUCTION",
+        "trust_class": "EXACT_OBSTRUCTION",
         "claim_scope": "test artifact only",
         "json_top_level_type": "object",
         "sha256": sha256_file(artifact),
@@ -66,8 +70,13 @@ def replay_manifest(
     if check_command is not None:
         entry["check_command"] = check_command
     return {
-        "schema": "erdos97.generated_artifacts.v1",
+        "schema": "erdos97.generated_artifacts.v2",
         "claim_scope": "test manifest only",
+        "native_trust_policy": {
+            "payload_field": "trust",
+            "mismatch_overrides": {},
+            "missing_overrides": {},
+        },
         "artifacts": [entry],
     }
 
@@ -78,7 +87,7 @@ def test_manifest_rejects_mismatched_expected_json(tmp_path: Path) -> None:
     artifact.write_text(json.dumps({"status": "BAD"}), encoding="utf-8")
     generator.write_text("print('ok')\n", encoding="utf-8")
     manifest = {
-        "schema": "erdos97.generated_artifacts.v1",
+        "schema": "erdos97.generated_artifacts.v2",
         "claim_scope": "test manifest only",
         "artifacts": [
             {
@@ -90,7 +99,7 @@ def test_manifest_rejects_mismatched_expected_json(tmp_path: Path) -> None:
                 "command": f"python {generator}",
                 "direct_edit_allowed": False,
                 "provenance_mode": "manifest_only_legacy",
-                "trust": "EXACT_OBSTRUCTION",
+                "trust_class": "EXACT_OBSTRUCTION",
                 "claim_scope": "test artifact only",
                 "json_top_level_type": "object",
                 "expected_json": {"status": "GOOD"},
@@ -110,7 +119,7 @@ def test_manifest_rejects_ambiguous_review_forbidden_claim(tmp_path: Path) -> No
     artifact.write_text(json.dumps({"status": "GOOD"}), encoding="utf-8")
     generator.write_text("print('ok')\n", encoding="utf-8")
     manifest = {
-        "schema": "erdos97.generated_artifacts.v1",
+        "schema": "erdos97.generated_artifacts.v2",
         "claim_scope": "test manifest only",
         "artifacts": [
             {
@@ -122,7 +131,7 @@ def test_manifest_rejects_ambiguous_review_forbidden_claim(tmp_path: Path) -> No
                 "command": f"python {generator}",
                 "direct_edit_allowed": False,
                 "provenance_mode": "manifest_only_legacy",
-                "trust": "EXACT_OBSTRUCTION",
+                "trust_class": "EXACT_OBSTRUCTION",
                 "claim_scope": "test artifact only",
                 "json_top_level_type": "object",
                 "forbidden_claims": ["independent external review"],
@@ -141,7 +150,7 @@ def test_manifest_rejects_missing_optional_checker(tmp_path: Path) -> None:
     artifact.write_text(json.dumps({"status": "GOOD"}), encoding="utf-8")
     generator.write_text("print('ok')\n", encoding="utf-8")
     manifest = {
-        "schema": "erdos97.generated_artifacts.v1",
+        "schema": "erdos97.generated_artifacts.v2",
         "claim_scope": "test manifest only",
         "artifacts": [
             {
@@ -155,7 +164,7 @@ def test_manifest_rejects_missing_optional_checker(tmp_path: Path) -> None:
                 "check_command": "python missing_checker.py --check",
                 "direct_edit_allowed": False,
                 "provenance_mode": "manifest_only_legacy",
-                "trust": "EXACT_OBSTRUCTION",
+                "trust_class": "EXACT_OBSTRUCTION",
                 "claim_scope": "test artifact only",
                 "json_top_level_type": "object",
                 "forbidden_claims": ["general proof"],
@@ -330,7 +339,7 @@ def test_manifest_accepts_exact_certificate_diagnostic_trust(tmp_path: Path) -> 
     artifact.write_text(json.dumps({"type": "diagnostic"}), encoding="utf-8")
     generator.write_text("print('ok')\n", encoding="utf-8")
     manifest = {
-        "schema": "erdos97.generated_artifacts.v1",
+        "schema": "erdos97.generated_artifacts.v2",
         "claim_scope": "test manifest only",
         "artifacts": [
             {
@@ -342,7 +351,7 @@ def test_manifest_accepts_exact_certificate_diagnostic_trust(tmp_path: Path) -> 
                 "command": f"python {generator}",
                 "direct_edit_allowed": False,
                 "provenance_mode": "manifest_only_legacy",
-                "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+                "trust_class": "EXACT_CERTIFICATE_DIAGNOSTIC",
                 "claim_scope": "test diagnostic only",
                 "json_top_level_type": "object",
                 "expected_json": {"type": "diagnostic"},
@@ -362,7 +371,7 @@ def test_manifest_accepts_matching_file_metadata(tmp_path: Path) -> None:
     artifact.write_text(json.dumps({"status": "GOOD"}) + "\n", encoding="utf-8")
     generator.write_text("print('ok')\n", encoding="utf-8")
     manifest = {
-        "schema": "erdos97.generated_artifacts.v1",
+        "schema": "erdos97.generated_artifacts.v2",
         "claim_scope": "test manifest only",
         "artifacts": [
             {
@@ -373,7 +382,7 @@ def test_manifest_accepts_matching_file_metadata(tmp_path: Path) -> None:
                 "command": f"python {generator}",
                 "direct_edit_allowed": False,
                 "provenance_mode": "manifest_only_legacy",
-                "trust": "EXACT_OBSTRUCTION",
+                "trust_class": "EXACT_OBSTRUCTION",
                 "claim_scope": "test artifact only",
                 "json_top_level_type": "object",
                 "sha256": sha256_file(artifact),
@@ -395,7 +404,7 @@ def test_manifest_rejects_mismatched_file_metadata(tmp_path: Path) -> None:
     artifact.write_text(json.dumps({"status": "GOOD"}) + "\n", encoding="utf-8")
     generator.write_text("print('ok')\n", encoding="utf-8")
     manifest = {
-        "schema": "erdos97.generated_artifacts.v1",
+        "schema": "erdos97.generated_artifacts.v2",
         "claim_scope": "test manifest only",
         "artifacts": [
             {
@@ -406,7 +415,7 @@ def test_manifest_rejects_mismatched_file_metadata(tmp_path: Path) -> None:
                 "command": f"python {generator}",
                 "direct_edit_allowed": False,
                 "provenance_mode": "manifest_only_legacy",
-                "trust": "EXACT_OBSTRUCTION",
+                "trust_class": "EXACT_OBSTRUCTION",
                 "claim_scope": "test artifact only",
                 "json_top_level_type": "object",
                 "sha256": "0" * 64,
@@ -421,3 +430,86 @@ def test_manifest_rejects_mismatched_file_metadata(tmp_path: Path) -> None:
 
     assert any(".sha256 is" in error for error in errors)
     assert any(".size_bytes is" in error for error in errors)
+
+
+def test_archived_artifact_is_digest_pinned_and_cannot_be_cited(tmp_path: Path) -> None:
+    generator = tmp_path / "generator.py"
+    manifest = replay_manifest(
+        tmp_path,
+        command=f"python {generator}",
+        check_command=None,
+    )
+    archived = tmp_path / "archived.json"
+    archived.write_text(json.dumps({"status": "ARCHIVED"}) + "\n", encoding="utf-8")
+    surface = tmp_path / "claims.md"
+    surface.write_text("No archived citation.\n", encoding="utf-8")
+    archive_entry = {
+        "path": str(archived),
+        **artifact_metadata(archived),
+        "json_top_level_type": "object",
+        "reason": "legacy diagnostic only",
+    }
+    manifest["archived_tracked_artifacts"] = [archive_entry]
+    manifest["archive_inventory_sha256"] = archive_inventory_digest([archive_entry])
+    manifest["source_of_truth_surfaces"] = [str(surface)]
+
+    assert validate_manifest(manifest) == []
+
+    surface.write_text(f"Cites {archived}\n", encoding="utf-8")
+    errors = validate_manifest(manifest)
+    assert any("promote it to a managed artifact" in error for error in errors)
+
+    surface.write_text("No archived citation.\n", encoding="utf-8")
+    archived.write_text(json.dumps({"status": "CHANGED"}) + "\n", encoding="utf-8")
+    errors = validate_manifest(manifest)
+    assert any(".sha256 is" in error for error in errors)
+
+
+def test_native_trust_mismatch_requires_exact_explicit_mapping(tmp_path: Path) -> None:
+    generator = tmp_path / "generator.py"
+    manifest = replay_manifest(
+        tmp_path,
+        command=f"python {generator}",
+        check_command=None,
+    )
+    artifact = Path(str(manifest["artifacts"][0]["path"]))
+    artifact.write_text(json.dumps({"trust": "NATIVE_DIAGNOSTIC"}) + "\n", encoding="utf-8")
+    manifest["artifacts"][0].update(artifact_metadata(artifact))
+    manifest["artifacts"][0]["trust_class"] = "REVIEW_PENDING_DIAGNOSTIC"
+    manifest["artifacts"][0].pop("expected_json")
+
+    errors = validate_manifest(manifest)
+    assert any("differs from canonical trust_class" in error for error in errors)
+
+    manifest["native_trust_policy"]["mismatch_overrides"] = {
+        "sample": {
+            "native_value": "NATIVE_DIAGNOSTIC",
+            "trust_class": "REVIEW_PENDING_DIAGNOSTIC",
+            "rationale": "native producer wording maps conservatively",
+        }
+    }
+    assert validate_manifest(manifest) == []
+
+
+def test_missing_native_trust_requires_explicit_mapping(tmp_path: Path) -> None:
+    generator = tmp_path / "generator.py"
+    manifest = replay_manifest(
+        tmp_path,
+        command=f"python {generator}",
+        check_command=None,
+    )
+    artifact = Path(str(manifest["artifacts"][0]["path"]))
+    artifact.write_text(json.dumps({"status": "LEGACY"}) + "\n", encoding="utf-8")
+    manifest["artifacts"][0].update(artifact_metadata(artifact))
+    manifest["artifacts"][0].pop("expected_json")
+
+    errors = validate_manifest(manifest)
+    assert any("has no top-level native trust" in error for error in errors)
+
+    manifest["native_trust_policy"]["missing_overrides"] = {
+        "sample": {
+            "trust_class": "EXACT_OBSTRUCTION",
+            "rationale": "legacy payload omitted a trust field",
+        }
+    }
+    assert validate_manifest(manifest) == []

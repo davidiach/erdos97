@@ -68,6 +68,12 @@ preflight checks, use:
 python scripts/run_artifact_audit.py --list-commands
 ```
 
+For parallel audit replay, add `--shard-count N --shard-index I`, where `I`
+is zero-based. Assignment is `SHA-256(command id) mod N`, so all `N` shards
+are disjoint and exhaustive. The artifact and non-artifact slow/exhaustive
+pytest selections use the same options and stable node-id assignment. A single
+shard is not the complete audit; all indices `0` through `N-1` are required.
+
 The following hand-maintained command excerpt is retained for reviewer
 orientation:
 
@@ -150,12 +156,17 @@ The default pytest configuration excludes tests marked `artifact`, `slow`, or
 `exhaustive`. Use `python -m pytest -q -m ""` when intentionally replaying the
 full marker set.
 
-For a version-matched reproduction run, replace `pip install -e .[dev]` with:
+For the checked CPython 3.12 direct-dependency snapshot, replace
+`pip install -e .[dev]` with:
 
 ```bash
 pip install -r requirements-lock.txt
 pip install -e . --no-deps
 ```
+
+This snapshot pins direct dependencies only; use CPython 3.12 for this path.
+The Python 3.10 and 3.11 compatibility lanes resolve the supported ranges from
+`pyproject.toml`.
 
 ## Expected `n=8` outputs
 

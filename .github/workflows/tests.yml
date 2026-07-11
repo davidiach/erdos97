@@ -20,12 +20,24 @@ jobs:
       matrix:
         python-version: ${{ fromJSON((github.event_name == 'push' || github.event_name == 'pull_request') && '["3.12"]' || '["3.10", "3.11", "3.12"]') }}
     steps:
+      # Full history so the release-packet provenance tests can resolve the
+      # recorded source commit and take their strict verification path.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
-          cache-dependency-path: pyproject.toml
-      - run: python -m pip install --upgrade pip
-      - run: pip install -e .[dev]
+          cache-dependency-path: |
+            pyproject.toml
+            requirements-lock.txt
+      - name: Install dependencies
+        run: |
+          if [ "${{ matrix.python-version }}" = "3.12" ]; then
+            python -m pip install -r requirements-lock.txt
+            python -m pip install --no-deps -e .
+          else
+            python -m pip install -e '.[dev]'
+          fi
       - run: make verify-fast

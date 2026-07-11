@@ -24,7 +24,8 @@ else:
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = REPO_ROOT / "metadata" / "generated_artifacts.yaml"
-SCHEMA = "erdos97.generated_artifacts.v1"
+SCHEMA = "erdos97.generated_artifacts.v2"
+ARCHIVE_DIGEST_SCHEMA = "erdos97.archived_tracked_artifacts.v1"
 SHA256_RE = re.compile(r"^[0-9a-fA-F]{64}$")
 TRACKED_ARTIFACT_COVERAGE_GLOBS = (
     "data/certificates/*.json",
@@ -33,7 +34,7 @@ TRACKED_ARTIFACT_COVERAGE_GLOBS = (
     "certificates/**/*.json",
 )
 
-KNOWN_TRUST = {
+KNOWN_TRUST_CLASSES = {
     "EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN",
     "EXACT_CERTIFICATE_DIAGNOSTIC",
     "EXACT_OBSTRUCTION",
@@ -110,6 +111,31 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def archive_inventory_digest(items: Sequence[dict[str, Any]]) -> str:
+    """Digest the archive inventory independently of YAML formatting/order."""
+
+    digest = hashlib.sha256()
+    digest.update(f"{ARCHIVE_DIGEST_SCHEMA}\n".encode())
+    rows: list[tuple[str, str, int, str]] = []
+    for item in items:
+        raw_path = item.get("path")
+        sha256 = item.get("sha256")
+        size_bytes = item.get("size_bytes")
+        json_type = item.get("json_top_level_type")
+        if (
+            isinstance(raw_path, str)
+            and isinstance(sha256, str)
+            and isinstance(size_bytes, int)
+            and not isinstance(size_bytes, bool)
+            and isinstance(json_type, str)
+        ):
+            rows.append((raw_path, sha256.lower(), size_bytes, json_type))
+    for row in sorted(rows):
+        digest.update("\0".join(map(str, row)).encode())
+        digest.update(b"\n")
+    return digest.hexdigest()
+
+
 def dotted_get(payload: Any, dotted_key: str) -> Any:
     current = payload
     for part in dotted_key.split("."):
@@ -140,9 +166,21 @@ def validate_manifest(payload: dict[str, Any], *, check_tracked_coverage: bool =
             errors.append(f"{label} must be a mapping")
             continue
         errors.extend(validate_artifact(artifact, label, seen_ids, seen_paths))
-    errors.extend(validate_unmanaged_artifacts(payload))
+    if check_tracked_coverage or "native_trust_policy" in payload:
+        errors.extend(validate_native_trust_policy(payload, artifacts))
+    archived_paths: set[str] = set()
+    if check_tracked_coverage or "archived_tracked_artifacts" in payload:
+        archive_errors, archived_paths = validate_archived_artifacts(payload, seen_paths)
+        errors.extend(archive_errors)
+    if check_tracked_coverage or "source_of_truth_surfaces" in payload:
+        errors.extend(validate_source_of_truth_archive_boundary(payload, archived_paths))
+    if "unmanaged_tracked_artifacts" in payload:
+        errors.append(
+            "unmanaged_tracked_artifacts is obsolete; classify entries as managed "
+            "or archived with pinned byte metadata"
+        )
     if check_tracked_coverage:
-        errors.extend(validate_tracked_artifact_coverage(payload, seen_paths))
+        errors.extend(validate_tracked_artifact_coverage(seen_paths, archived_paths))
     return errors
 
 
@@ -153,7 +191,15 @@ def validate_artifact(
     seen_paths: set[str],
 ) -> list[str]:
     errors: list[str] = []
-    required_strings = ("id", "path", "kind", "generator", "command", "claim_scope", "trust")
+    required_strings = (
+        "id",
+        "path",
+        "kind",
+        "generator",
+        "command",
+        "claim_scope",
+        "trust_class",
+    )
     for key in required_strings:
         value = artifact.get(key)
         if not isinstance(value, str) or not value.strip():
@@ -209,9 +255,11 @@ def validate_artifact(
     if provenance_mode not in PROVENANCE_MODES:
         errors.append(f"{label}.provenance_mode must be one of {sorted(PROVENANCE_MODES)}")
 
-    trust = artifact.get("trust")
-    if trust not in KNOWN_TRUST:
-        errors.append(f"{label}.trust {trust!r} is not a known trust value")
+    trust_class = artifact.get("trust_class")
+    if trust_class not in KNOWN_TRUST_CLASSES:
+        errors.append(
+            f"{label}.trust_class {trust_class!r} is not a known canonical trust class"
+        )
 
     forbidden_claims = artifact.get("forbidden_claims")
     if not isinstance(forbidden_claims, list) or not forbidden_claims:
@@ -441,17 +489,137 @@ def validate_json_payload(artifact: dict[str, Any], payload: Any, label: str) ->
     return errors
 
 
-def validate_unmanaged_artifacts(payload: dict[str, Any]) -> list[str]:
+def _validate_override_map(
+    raw: Any,
+    *,
+    label: str,
+) -> tuple[dict[str, dict[str, Any]], list[str]]:
+    if not isinstance(raw, dict):
+        return {}, [f"native_trust_policy.{label} must be a mapping"]
     errors: list[str] = []
-    unmanaged = payload.get("unmanaged_tracked_artifacts", [])
-    if unmanaged is None:
-        unmanaged = []
-    if not isinstance(unmanaged, list):
-        return ["unmanaged_tracked_artifacts must be a list when present"]
+    out: dict[str, dict[str, Any]] = {}
+    for ident, value in raw.items():
+        item_label = f"native_trust_policy.{label}.{ident}"
+        if not isinstance(ident, str) or not ident.strip():
+            errors.append(f"{item_label} key must be a nonempty artifact id")
+            continue
+        if not isinstance(value, dict):
+            errors.append(f"{item_label} must be a mapping")
+            continue
+        rationale = value.get("rationale")
+        trust_class = value.get("trust_class")
+        if not isinstance(rationale, str) or not rationale.strip():
+            errors.append(f"{item_label}.rationale must be a nonempty string")
+        if trust_class not in KNOWN_TRUST_CLASSES:
+            errors.append(f"{item_label}.trust_class is not canonical")
+        out[ident] = value
+    return out, errors
 
+
+def validate_native_trust_policy(
+    manifest: dict[str, Any],
+    artifacts: Sequence[dict[str, Any]],
+) -> list[str]:
+    """Keep canonical trust_class distinct from each JSON's native trust field."""
+
+    policy = manifest.get("native_trust_policy")
+    if not isinstance(policy, dict):
+        return ["native_trust_policy must be a mapping"]
+    errors: list[str] = []
+    if policy.get("payload_field") != "trust":
+        errors.append("native_trust_policy.payload_field must be 'trust'")
+    mismatches, mismatch_errors = _validate_override_map(
+        policy.get("mismatch_overrides"), label="mismatch_overrides"
+    )
+    missing, missing_errors = _validate_override_map(
+        policy.get("missing_overrides"), label="missing_overrides"
+    )
+    errors.extend(mismatch_errors)
+    errors.extend(missing_errors)
+
+    artifact_ids = {
+        item.get("id")
+        for item in artifacts
+        if isinstance(item, dict) and isinstance(item.get("id"), str)
+    }
+    overlap = set(mismatches) & set(missing)
+    for ident in sorted(overlap):
+        errors.append(f"native trust override {ident!r} is both mismatched and missing")
+    for ident in sorted((set(mismatches) | set(missing)) - artifact_ids):
+        errors.append(f"native trust override references unknown artifact id {ident!r}")
+
+    observed_mismatch: set[str] = set()
+    observed_missing: set[str] = set()
+    for artifact in artifacts:
+        if not isinstance(artifact, dict):
+            continue
+        ident = artifact.get("id")
+        raw_path = artifact.get("path")
+        trust_class = artifact.get("trust_class")
+        if not isinstance(ident, str) or not isinstance(raw_path, str):
+            continue
+        try:
+            artifact_payload = load_json(repo_path(raw_path))
+        except (OSError, json.JSONDecodeError):
+            continue
+        native = artifact_payload.get("trust") if isinstance(artifact_payload, dict) else None
+        if native is None:
+            observed_missing.add(ident)
+            override = missing.get(ident)
+            if override is None:
+                errors.append(
+                    f"artifact {ident!r} has no top-level native trust; add an explicit "
+                    "missing_overrides mapping"
+                )
+            elif override.get("trust_class") != trust_class:
+                errors.append(
+                    f"native_trust_policy.missing_overrides.{ident}.trust_class "
+                    f"does not match artifacts trust_class {trust_class!r}"
+                )
+            continue
+        if not isinstance(native, str) or not native.strip():
+            errors.append(f"artifact {ident!r} has a non-string top-level native trust")
+            continue
+        if native == trust_class:
+            continue
+        observed_mismatch.add(ident)
+        override = mismatches.get(ident)
+        if override is None:
+            errors.append(
+                f"artifact {ident!r} native trust {native!r} differs from canonical "
+                f"trust_class {trust_class!r}; add an explicit mismatch_overrides mapping"
+            )
+            continue
+        if override.get("native_value") != native:
+            errors.append(
+                f"native_trust_policy.mismatch_overrides.{ident}.native_value "
+                f"does not match payload value {native!r}"
+            )
+        if override.get("trust_class") != trust_class:
+            errors.append(
+                f"native_trust_policy.mismatch_overrides.{ident}.trust_class "
+                f"does not match artifacts trust_class {trust_class!r}"
+            )
+
+    for ident in sorted(set(mismatches) - observed_mismatch):
+        errors.append(f"native trust mismatch override for {ident!r} is stale")
+    for ident in sorted(set(missing) - observed_missing):
+        errors.append(f"native trust missing override for {ident!r} is stale")
+    return errors
+
+
+def validate_archived_artifacts(
+    payload: dict[str, Any],
+    managed_paths: set[str],
+) -> tuple[list[str], set[str]]:
+    errors: list[str] = []
+    archived = payload.get("archived_tracked_artifacts")
+    if not isinstance(archived, list):
+        return ["archived_tracked_artifacts must be a list"], set()
     seen: set[str] = set()
-    for index, item in enumerate(unmanaged):
-        label = f"unmanaged_tracked_artifacts[{index}]"
+    valid_items: list[dict[str, Any]] = []
+    for index, item in enumerate(archived):
+        label = f"archived_tracked_artifacts[{index}]"
         if not isinstance(item, dict):
             errors.append(f"{label} must be a mapping")
             continue
@@ -462,11 +630,69 @@ def validate_unmanaged_artifacts(payload: dict[str, Any]) -> list[str]:
             continue
         if raw_path in seen:
             errors.append(f"{label}.path {raw_path!r} is duplicated")
+        if raw_path in managed_paths:
+            errors.append(f"{label}.path {raw_path!r} is also managed")
         seen.add(raw_path)
-        if not repo_path(raw_path).exists():
+        path = repo_path(raw_path)
+        if not path.exists():
             errors.append(f"{label}.path does not exist: {raw_path}")
+        else:
+            errors.extend(validate_file_metadata(item, path, label))
+            try:
+                artifact_payload = load_json(path)
+            except json.JSONDecodeError as exc:
+                errors.append(f"{label}.path is not valid JSON: {exc}")
+            else:
+                expected_type = item.get("json_top_level_type")
+                expected_python_type = JSON_TOP_LEVEL_TYPES.get(expected_type)
+                if expected_python_type is None:
+                    errors.append(
+                        f"{label}.json_top_level_type must be one of "
+                        f"{sorted(JSON_TOP_LEVEL_TYPES)}"
+                    )
+                elif not isinstance(artifact_payload, expected_python_type):
+                    errors.append(f"{label}.path top level is not {expected_type}")
         if not isinstance(reason, str) or not reason.strip():
             errors.append(f"{label}.reason must be a nonempty string")
+        valid_items.append(item)
+
+    expected_digest = payload.get("archive_inventory_sha256")
+    if not isinstance(expected_digest, str) or not SHA256_RE.fullmatch(expected_digest):
+        errors.append("archive_inventory_sha256 must be a 64-character hex string")
+    else:
+        actual_digest = archive_inventory_digest(valid_items)
+        if actual_digest != expected_digest.lower():
+            errors.append(
+                f"archive_inventory_sha256 is {actual_digest!r}, expected "
+                f"{expected_digest!r}"
+            )
+    return errors, seen
+
+
+def validate_source_of_truth_archive_boundary(
+    payload: dict[str, Any],
+    archived_paths: set[str],
+) -> list[str]:
+    surfaces = payload.get("source_of_truth_surfaces")
+    if not isinstance(surfaces, list) or not surfaces:
+        return ["source_of_truth_surfaces must be a nonempty list"]
+    errors: list[str] = []
+    for index, raw_surface in enumerate(surfaces):
+        label = f"source_of_truth_surfaces[{index}]"
+        if not isinstance(raw_surface, str) or not raw_surface.strip():
+            errors.append(f"{label} must be a nonempty path string")
+            continue
+        surface = repo_path(raw_surface)
+        if not surface.exists():
+            errors.append(f"{label} does not exist: {raw_surface}")
+            continue
+        text = surface.read_text(encoding="utf-8")
+        for archived_path in sorted(archived_paths):
+            if archived_path in text:
+                errors.append(
+                    f"archived artifact {archived_path!r} is cited by source-of-truth "
+                    f"surface {raw_surface!r}; promote it to a managed artifact"
+                )
     return errors
 
 
@@ -496,20 +722,14 @@ def tracked_files_for_globs(globs: Sequence[str]) -> set[str]:
 
 
 def validate_tracked_artifact_coverage(
-    payload: dict[str, Any],
     managed_paths: set[str],
+    archived_paths: set[str],
 ) -> list[str]:
-    unmanaged = payload.get("unmanaged_tracked_artifacts", [])
-    unmanaged_paths = {
-        str(item.get("path"))
-        for item in unmanaged
-        if isinstance(item, dict) and isinstance(item.get("path"), str)
-    }
-    covered = set(managed_paths) | unmanaged_paths
+    covered = set(managed_paths) | archived_paths
     errors: list[str] = []
     for path in sorted(tracked_files_for_globs(TRACKED_ARTIFACT_COVERAGE_GLOBS)):
         if path not in covered:
-            errors.append(f"tracked artifact is neither managed nor explicitly unmanaged: {path}")
+            errors.append(f"tracked artifact is neither managed nor archived: {path}")
     return errors
 
 

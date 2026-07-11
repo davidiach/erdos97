@@ -11,7 +11,11 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 TEXT_SUFFIXES = {
     ".cff",
+    ".cpp",
+    ".html",
+    ".ini",
     ".json",
+    ".lean",
     ".md",
     ".py",
     ".rs",
@@ -19,6 +23,13 @@ TEXT_SUFFIXES = {
     ".txt",
     ".yaml",
     ".yml",
+}
+
+TEXT_FILENAMES = {
+    ".gitattributes",
+    ".gitignore",
+    "lean-toolchain",
+    "Makefile",
 }
 
 SKIP_DIRS = {
@@ -91,7 +102,7 @@ def tracked_files() -> list[Path]:
 def is_text_target(path: Path) -> bool:
     return (
         path.suffix in TEXT_SUFFIXES
-        or path.name == "Makefile"
+        or path.name in TEXT_FILENAMES
         or path.name.startswith("LICENSE")
     )
 

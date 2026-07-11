@@ -15,17 +15,32 @@ survivor rows from `data/incidence/n8_reconstructed_15_survivors.json` and the
 stored certificate notes from `certificates/n8_exact_analysis.json`.
 
 It then rebuilds the required perpendicular-bisector equations for the three
-classes and verifies the exact substitution chains:
+classes and verifies the exact substitution chains. Audit output schema
+`n8_residual_certificate_audit_v2` includes a Boolean ideal-membership record
+for every substitution used downstream. In all three classes the first-stage
+relations give `p_2=(x2,y2)` and `p_3=(x2,-y2)`, so distinct polygon vertices
+`p_2 != p_3` justify the nonzero branch `y2 != 0`:
 
 - Class `3`: the first PB stage forces `x3=x2`, `y3=-y2`, and
-  `y2*(2*x2-1)=0`; the nondegenerate branch forces `p_7=p_0`, so the class has
+  `y2*(2*x2-1)=0`. The checker now adjoins an inverse variable with
+  `inv_y2*y2-1=0`, rather than cancelling `y2` by hand, and reduces
+  `2*x2-1` to zero in that saturated ideal. A second saturated basis built
+  from the actual first- and second-stage PB equations derives
+  `4*y2^2-3`, `2*x4+1`, and `y4-y2`. Only then are those relations
+  substituted into the final stage, which forces `p_7=p_0` and hence
   duplicate vertices.
 - Class `4`: the shared first PB stage plus the class-specific PB equations
-  force the collinearity determinant for labels `2,3,4`.
-- Class `5`: after the recorded substitutions
-  `x3=x2`, `y3=-y2`, `x6=2*x2-x4`, and `y6=y4`, the recomputed Groebner basis
-  and the stored generating set are checked to define the same ideal, and both
-  contain `y2`, contradicting the nondegenerate gauge branch.
+  force the collinearity determinant for labels `2,3,4`; its first-stage
+  substitutions use the same explicit `y2 != 0` saturation certificate.
+- Class `5`: `PB(01->23)` mechanically derives `x3=x2` and `y3=-y2`.
+  On the `y2 != 0` branch, the actual `PB(23->46)` dot and midpoint equations
+  then derive `y4-y6` and `x4+x6-2*x2`, justifying the remaining recorded
+  substitutions. The recomputed substituted Groebner basis and the stored
+  generating set are still checked to define the same ideal and to contain
+  `y2`. Independently, the checker now computes the Groebner basis of all
+  reconstructed class-`5` PB equations together with `inv_y2*y2-1` and
+  verifies that it is the unit ideal. Thus the contradiction no longer relies
+  on accepting the substitution chain as an unverified preprocessing step.
 
 ## Reproduction
 

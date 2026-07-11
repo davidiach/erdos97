@@ -1,31 +1,30 @@
 # n <= 8 Human-auditable Proof Trail
 
-Status: `REVIEW_PACKET_ONLY`.
+Status: `REPO_LOCAL_THEOREM_REVIEW_TRAIL`.
 
-Claim scope: reviewer map for the repo-local `n <= 8` machine-checked
-selected-witness result and the review-pending human-readable small-case
-routes.
+Claim scope: audit map for the repo-local elementary `n <= 8` theorem and its
+machine-checked and literature-backed corroborating routes.
 
 Source of truth: `README.md`, `STATE.md`, `RESULTS.md`, `docs/claims.md`, and
 `metadata/erdos97.yaml`.
 
-Last assembled: 2026-06-04.
+Last assembled: 2026-07-09.
 
 ## Non-claims
 
 - This trail does not prove Erdos Problem #97.
 - This trail does not claim a counterexample.
 - This trail does not update the official/global status.
-- This trail does not claim that independent external review has happened.
+- This trail records a repository-local line-by-line audit; it does not claim
+  that independent external/publication review has happened.
 - This trail does not promote review-pending `n=9`, draft `n=10`, or
   fixed-pattern artifacts.
 
 ## Purpose
 
-The repository already has two complementary routes for the small cases:
+The repository has two complementary routes for the small cases:
 
-- a compact geometric proof-note route for all bad convex polygons with
-  `n <= 8`;
+- a compact elementary theorem for all bad convex polygons with `n <= 8`;
 - a repo-local machine-checked selected-witness route for the `n <= 8`
   finite cases, with focused audit helpers for the delicate `n=8` survivor
   certificates.
@@ -38,8 +37,13 @@ review outcomes are safe to record.
 
 Primary file: `docs/n8-geometric-proof.md`.
 
-This is the shortest human-readable route. It uses no selected-witness
-enumeration and no algebraic certificates.
+Audit record: `docs/n8-geometric-proof-audit-2026-07-09.md`.
+
+This is the primary and shortest human-readable route. It uses no
+selected-witness enumeration and no algebraic certificates. Two independent
+line-by-line derivations in the 2026-07-09 repository audit accepted it after
+making the on-base midpoint exclusion and diagonal half-plane separation
+explicit.
 
 Proof skeleton:
 
@@ -68,9 +72,9 @@ Review burden:
 - Check the exterior-turn formula for equilateral convex polygons.
 - Check the final 8-cycle vertex-cover contradiction.
 
-Safe outcome if accepted: this route can serve as the main human-readable
-small-case proof note, still with source-of-truth status kept separate from the
-official/global problem.
+Recorded outcome: `accepted_geometric_route`. This route is the repo-local
+small-case theorem, while its status remains separate from the official/global
+problem and from independent external review.
 
 ## Route B: selected-witness finite artifact
 
@@ -81,9 +85,9 @@ Primary files:
 - `docs/n8-exact-survivors.md`
 - `papers/n8-reviewer-packet.md`
 
-This is the current source-of-truth finite-case route in the repository. It
-supports the selected-witness `n <= 8` exclusion in a repo-local,
-machine-checked finite-case sense.
+This is independent machine-checked corroboration of the source-of-truth
+geometric theorem. It supports the selected-witness `n <= 8` exclusion in a
+repo-local finite-case sense.
 
 Artifact skeleton:
 
@@ -164,7 +168,7 @@ any `n=9` result.
 
 | Layer | Covers | Does not cover |
 | --- | --- | --- |
-| `docs/n8-geometric-proof.md` | Human geometric route for `n <= 8` | Independent review, `n >= 9`, source-of-truth status update |
+| `docs/n8-geometric-proof.md` | Repo-local elementary theorem for `n <= 8` | Independent external review, `n >= 9`, global status update |
 | `docs/dumitrescu-isosceles-n8-shortcut.md` | Literature-backed `n <= 8` shortcut | Literature audit, `n >= 9`, selected-witness artifact review |
 | `scripts/enumerate_n8_incidence.py` | Regenerates the 15 `n=8` incidence survivor classes | Exact survivor obstructions, public theorem review |
 | `scripts/independent_check_n8_artifacts.py` | Checks stored survivor, completeness, compatible-order, and exact-analysis artifacts as inputs | Full independent incidence regeneration |
@@ -174,21 +178,21 @@ any `n=9` result.
 
 ## Review outcomes
 
-- `accepted_geometric_route`: the proof note is accepted as a human-readable
-  small-case proof route.
+- `accepted_geometric_route`: recorded 2026-07-09 after two line-by-line
+  derivations and two explicit exposition repairs.
 - `accepted_selected_witness_artifact`: the machine-checked selected-witness
   `n <= 8` artifact is accepted as repo-local finite-case evidence.
 - `accepted_literature_shortcut`: the external Dumitrescu-bound shortcut is
   accepted with its counting convention.
 - `gap_found`: record the exact failed step, affected route, command output if
   applicable, and whether source-of-truth wording needs qualification.
-- `no_status_change`: the safe default for this file; review notes can improve
-  without changing the official/global status.
+- `no_global_status_change`: accepting this small-case theorem does not change
+  the official/global status.
 
 ## Known weak points
 
-- The geometric octagon trap is intentionally short and needs independent
-  line-by-line geometry review before public theorem-style use.
+- The geometric octagon trap is intentionally short. Its repository audit is
+  complete; independent external/publication review is still recommended.
 - The selected-witness artifact is machine-checked and exact, but the aggregate
   `n=8` exclusion remains a repo-local finite-case artifact pending external
   review.

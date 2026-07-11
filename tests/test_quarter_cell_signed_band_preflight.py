@@ -105,3 +105,78 @@ def test_cli_write_check_roundtrip(tmp_path: pathlib.Path) -> None:
         stderr=subprocess.PIPE,
     )
     assert check.returncode == 0, check.stderr
+
+
+def test_portable_comparison_accepts_libm_tail_drift_only() -> None:
+    current = MOD.build_payload((8,), grid=12)
+    stored = json.loads(json.dumps(current))
+    stored["sample_records"][0]["case_records"][0]["max_killer_turn"] += 8e-18
+
+    MOD._assert_portable_payload_equal(stored, current)
+
+
+def test_portable_comparison_rejects_semantic_and_material_changes() -> None:
+    current = MOD.build_payload((8,), grid=12)
+
+    changed_decision = json.loads(json.dumps(current))
+    changed_decision["sampled_fixed_killer_all_negative"] = False
+    with pytest.raises(AssertionError, match="exact value mismatch"):
+        MOD._assert_portable_payload_equal(changed_decision, current)
+
+    changed_sign = json.loads(json.dumps(current))
+    value = changed_sign["sample_records"][0]["case_records"][0]["max_killer_turn"]
+    changed_sign["sample_records"][0]["case_records"][0]["max_killer_turn"] = -value
+    with pytest.raises(AssertionError, match="sign/zero mismatch"):
+        MOD._assert_portable_payload_equal(changed_sign, current)
+
+    changed_float = json.loads(json.dumps(current))
+    changed_float["sample_records"][0]["case_records"][0]["max_killer_turn"] *= 1.01
+    with pytest.raises(AssertionError, match="material float mismatch"):
+        MOD._assert_portable_payload_equal(changed_float, current)
+
+
+def test_assert_expected_rejects_changes_under_python_optimized_mode() -> None:
+    code = """
+import importlib.util
+import sys
+from pathlib import Path
+
+path = Path('scripts/check_quarter_cell_signed_band_preflight.py')
+spec = importlib.util.spec_from_file_location('optimized_quarter_cell_check', path)
+module = importlib.util.module_from_spec(spec)
+sys.modules[spec.name] = module
+spec.loader.exec_module(module)
+payload = module.build_payload((8,), grid=12)
+payload['status'] = 'INVALID_STATUS'
+try:
+    module.assert_expected(payload)
+except AssertionError:
+    raise SystemExit(0)
+raise SystemExit(1)
+"""
+    result = subprocess.run(
+        [sys.executable, "-O", "-c", code],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0, result.stderr
+
+
+def test_cli_default_artifact_check_is_cross_platform_reproducible() -> None:
+    check = subprocess.run(
+        [
+            sys.executable,
+            "scripts/check_quarter_cell_signed_band_preflight.py",
+            "--check",
+            "--assert-expected",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert check.returncode == 0, check.stderr

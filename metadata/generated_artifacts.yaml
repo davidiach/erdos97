@@ -1,4 +1,4 @@
-schema: erdos97.generated_artifacts.v1
+schema: erdos97.generated_artifacts.v2
 claim_scope: >
   Manifest for generated or generator-owned artifacts. This is provenance and
   edit-policy metadata only; it does not prove Erdos Problem #97 and does not
@@ -8,113 +8,540 @@ path_convention: >
   certificates/ directory is legacy/path-stable space for early n=8 artifacts
   and manual templates retained at their historical paths.
 required_integrity_fields: >
-  Every managed artifact entry carries sha256 and size_bytes fields.
-  scripts/check_artifact_provenance.py verifies them against the current
-  file bytes without rerunning the generator. Tracked certificate JSON files
-  outside this managed list must be declared under unmanaged_tracked_artifacts
-  with an explicit reason.
+  Every managed and archived artifact carries sha256 and size_bytes fields.
+  scripts/check_artifact_provenance.py verifies current bytes without rerunning
+  expensive generators. An archived artifact cited by a source-of-truth surface
+  must be promoted to the managed list with claim and replay metadata.
+source_of_truth_surfaces:
+  - README.md
+  - STATE.md
+  - RESULTS.md
+  - docs/claims.md
+  - metadata/erdos97.yaml
+archive_digest_schema: erdos97.archived_tracked_artifacts.v1
+archive_inventory_sha256: e5c6c933a00628ca84d0632521600edc06ed988eb77ca745c255e53d05b0dc6f
 
-unmanaged_tracked_artifacts:
+native_trust_policy:
+  payload_field: trust
+  mismatch_overrides:
+    c19_catalog_prefilter_sweep_288_479:
+      native_value: "EXACT_OBSTRUCTION"
+      trust_class: EXACT_ROUTE_PRUNING_CERTIFICATE
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    c19_row_circle_ptolemy_active_set:
+      native_value: "NUMERICAL_NONLINEAR_DIAGNOSTIC"
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    c25_c29_sparse_frontier_probe:
+      native_value: "FIXED_ORDER_DIAGNOSTIC"
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    n9_incidence_frontier_bounded:
+      native_value: "BOUNDED_INCIDENCE_CSP_DIAGNOSTIC"
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    phi4_frontier_scan:
+      native_value: "FIXED_ORDER_EXACT_FILTER_DIAGNOSTIC"
+      trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    c17_ptolemy_log_fixed_order_certificate:
+      native_value: "EXACT_OBSTRUCTION for the fixed selected pattern/order only"
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    n9_vertex_circle_minimal_cores:
+      native_value: "INDEPENDENT_FINITE_CASE_DIAGNOSTIC_NO_GLOBAL_CLAIM"
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    brp_boundary_vertexization_probe:
+      native_value: "NUMERICAL_GEOMETRIC_DIAGNOSTIC"
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    quarter_cell_derivative_certificate_m8_12_16:
+      native_value: "machine interval arithmetic (mpmath.iv), review recommended"
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+  missing_overrides:
+    legacy_n8_groebner_results:
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    legacy_n9_groebner_results:
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    c13_legacy_fixed_order_kalmanson:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    n9_phi4_rectangle_trap_legacy:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    p18_vertex_circle_order_unsat:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    p24_cyclic_crossing_unsat:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    c19_legacy_fixed_order_kalmanson:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    n8_reconstructed_survivors:
+      trust_class: INCIDENCE_COMPLETENESS
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    n8_incidence_completeness:
+      trust_class: INCIDENCE_COMPLETENESS
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    n8_compatible_orders:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    n8_exact_analysis:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    c19_fixed_order_two_kalmanson:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    c13_fixed_order_two_kalmanson:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    c29_fixed_order_full_kalmanson:
+      trust_class: EXACT_OBSTRUCTION
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    n9_groebner_real_root_decoders:
+      trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    closure_activation_wrong_fourth_negative_control:
+      trust_class: REVIEW_PENDING_PROVENANCE
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    closure_activation_negative_controls:
+      trust_class: REVIEW_PENDING_PROVENANCE
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    bootstrap_t12_anti_activation_negative_control:
+      trust_class: REVIEW_PENDING_PROVENANCE
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    closure_visibility_anti_activation_control:
+      trust_class: REVIEW_PENDING_PROVENANCE
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+    n9_parallel_endpoint_closure:
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Legacy payload has no top-level trust field; the canonical class comes only from manifest claim scope and does not promote native status.
+
+
+archived_tracked_artifacts:
   - path: certificates/best_B12_certificate_template.json
-    reason: tracked legacy/manual template retained at its historical top-level certificates path
+    sha256: 5c8c68e6d70e0f07128416078f94fe0d9500e7e584bda0647606bc695fcf18f7
+    size_bytes: 2172
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/2026-05-05/bridge_lemma_check.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 1c6f8e67ab279670eb0ee82f12f89bfbda53aae772317c36b39bd422ee9d1ad4
+    size_bytes: 4276
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/2026-05-05/n11_partial.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/2026-05-05/n8_groebner_results.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/2026-05-05/n9_groebner_results.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: e543fd7d3e3029929675ea7c0d143b15c790157c9e5d238965a3a0d423c6e9a1
+    size_bytes: 2450
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/2026-05-05/stuck_set_census.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: bd6c673086e8794f438aeb9a3e5a5e4f10a949cd8507e0975ff8173afea0987d
+    size_bytes: 2425324
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/2026-05-06/affine_stretch_search.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: a93f428534494527f6dd9c9356532bac027567b245654878e94d78ebaeb12713
+    size_bytes: 30938
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/2026-05-06/q_l9_filter_results.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 11f617d9f4afe550ad335a540edc5950e8cba17daa6a44533e93b9975b089e71
+    size_bytes: 26456
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/2026-05-06/two_orbit_large_m.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: a950c03687510a09ec494508327f3feed3df2c95d88111ada8593b4dc9d36c85
+    size_bytes: 10275
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/altman_linear_certificate_sweep.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 40662f07b46f0696bb44698c52af3f3b6aa49606d97b6600343373fa28cda439
+    size_bytes: 17010
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c13_kalmanson_bounded_order_pilot.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 1354e22c970d3bcade76465386513797d39d157b42524360a2cf180b8aed6a17
+    size_bytes: 8170
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c13_kalmanson_partial_branch_closures.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 67c27647569fb8dc87d9c13abccd760fa1f21b95e95cd5fd45ec589f53831437
+    size_bytes: 10700
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c13_kalmanson_prefix_branch_pilot.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 53c913368cc3147fdd3b0e4bb9b8b9b450b39dc5f7cfc56ec42442048d6fcf80
+    size_bytes: 12708
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c13_kalmanson_third_pair_refinement.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 916c3288f109f01e582dbede7d5c9a5d3ade2d5b7a35a514d636336878c8a5da
+    size_bytes: 25108
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_branch_pilot.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: eebf32283fda58bc846f0560b1500eb90ad62700667c4ce27f59307681222d4e
+    size_bytes: 19572
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_128_159.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 81dbc881bf16a25e424a4c7639e3daa7c22c5a322a1a65ea754aa0ebc4c249c2
+    size_bytes: 42830
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_160_191.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 076f731967f63989aa33564db2414ef9b7562d92fd806e4482dd73fdd0028e21
+    size_bytes: 48148
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_288_319_prefilter.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: d6c587c313e8b5491e55d883003542a3dd7c3441c88d775bda00ca929b844806
+    size_bytes: 11838
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_320_351_prefilter.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 83205ffc6027e2666ee56ad1dc417c860bc50d414a5fa4fa351842bb3e998d66
+    size_bytes: 51163
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_352_383_prefilter.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: c7c51119fff0ce583ff02f31cebd285a05938f190d5b224a43b6d592cb4fadc8
+    size_bytes: 52932
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_384_415_prefilter.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 32062a3a2ae3f550c7c77ad17892f93f88dadfedc5e9630046e6de0c4a7ca715
+    size_bytes: 57437
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_416_447_prefilter.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: d1e4f56511461cbadc3566300c4f9ab3a720441c34018086db55c82165eadea9
+    size_bytes: 85648
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_448_479_prefilter.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 600c002c119622008d91c6b93ffecb613e2ba83f352afc312292f90d3d715557
+    size_bytes: 73634
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_prefilter_sweep_288_447.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: ea227d34e0137b0765667059f221340bf585d9b6aa74fd8d2126979200746b9b
+    size_bytes: 87085
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_prefilter_sweep_288_479.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 1e0467a28afb7ebc6c5818c712e59ff8ef9a185c3495ec0cf6cbf6059ef263b6
+    size_bytes: 124292
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_223.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 47a16deadc146b37b168f5947e30219504ab81ddc23aaf65da99de4409009f53
+    size_bytes: 37962
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_255.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 954567ec6e37fd68e9c56fca70f433d77aa68a38a786f94a8ec6a21bc3db36e6
+    size_bytes: 50985
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_prefix_window_sweep_128_287.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 94f8757106afeeccd53c3d027c993d7098cb3d8460a257b05851a63b3924e64c
+    size_bytes: 100902
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_sampled_fifth_pair_refinement.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 11464da7decd74bd09ac7669de670b21fc6ab83978b69373637974c62c0366c1
+    size_bytes: 16864
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_kalmanson_sampled_fourth_pair_refinement.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: b76d108c7b5c86ff659a7803194761608a5f4cd2ac9edbbf9265faf4b283e129
+    size_bytes: 43110
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/c19_row_circle_multiplier_reduction.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/c19_row_circle_ptolemy_active_set.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/c25_c29_sparse_frontier_probe.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 6687d39f55e72f717e668ff0bb17a5b909c3dc1bbbfd183123bc5f11c106b5ff
+    size_bytes: 9464
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/metric_order_lp_survivors.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/n9_incidence_frontier_bounded.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 7e48911e096366c56fd28fe4eb45803332711395cd96d3c9ae2ab988af281cfc
+    size_bytes: 2975
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/n9_late_archive_provenance.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/n9_phi4_rectangle_trap.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 3555cfdb21620c64a493adaad31e141d4e45e60a167c638278b96c7d2e27a9c1
+    size_bytes: 4357
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/n9_vertex_circle_local_cores.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/p18_vertex_circle_order_unsat.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/p24_cyclic_crossing_unsat.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/phi4_frontier_scan.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 3cdd129fa5b614bf50b3405c960832f7f20ebab2c24348f391029be4d8e7a043
+    size_bytes: 38836
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/ptolemy_order_nlp_survivors.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: a21fb650401562d5d8f3a9e9a90b72945c0cce6b34359f66759fc56e9dd284fe
+    size_bytes: 2981
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/round2/c17_skew_kalmanson_from_ptolemy_method_note.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/round2/c17_skew_ptolemy_log_certificate.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
-  - path: data/certificates/round2/c19_kalmanson_known_order_unsat.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 5ef5b1247421aa17c7c114ec28893ca51ab1a69bb3a18d96e98846abdd7f5f69
+    size_bytes: 3636
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/row_circle_ptolemy_nlp_sparse_orders.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: e34b2a84fc7b9c380a7e514b66ca76847b0d01edbec92eb571aeeef2a430bafa
+    size_bytes: 3477
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/sparse_order_survivors.json
-    reason: tracked legacy/provenance certificate outside the generated-artifacts edit-policy manifest
+    sha256: 242698f8a83957a9a55ed0af92442cea678315f01fea64cf96de74d9d20ec882
+    size_bytes: 5427
+    json_top_level_type: object
+    reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
 
 artifacts:
+  - id: legacy_n8_groebner_results
+    path: data/certificates/2026-05-05/n8_groebner_results.json
+    sha256: 711f8e825e209892a6662f91102fdb5ba4f388773ac4963bda4460ac59b86e45
+    size_bytes: 12047
+    kind: legacy_algebraic_diagnostic
+    generator: data/runs/2026-05-05/groebner_all.py
+    command: python data/runs/2026-05-05/groebner_all.py
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Historical n=8 Groebner run ledger cited for provenance; timing-bearing list data and not a standalone completeness proof.
+    json_top_level_type: list
+    forbidden_claims: [general proof of Erdos Problem 97, independent n=8 proof]
+
+  - id: legacy_n9_groebner_results
+    path: data/certificates/2026-05-05/n9_groebner_results.json
+    sha256: 24f7e7879dc5154d25ebdee7522fd6f629339949e018f4305a3f24ee939735d4
+    size_bytes: 13771
+    kind: legacy_algebraic_diagnostic
+    generator: data/runs/2026-05-05/groebner_attack.py
+    command: python data/runs/2026-05-05/groebner_attack.py
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Historical n=9 Groebner family ledger retained as input provenance for later decoders; not an n=9 proof.
+    json_top_level_type: list
+    forbidden_claims: [n=9 is proved, general proof of Erdos Problem 97]
+
+  - id: c13_legacy_fixed_order_kalmanson
+    path: data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
+    sha256: 9707fb856a85e29d6366e01ad6c2ae92dd64758e63f2b00273b82aa4806efb91
+    size_bytes: 5731
+    kind: fixed_order_exact_certificate
+    generator: scripts/find_kalmanson_certificate.py
+    command: python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
+    checker: scripts/check_kalmanson_certificate.py
+    check_command: python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_unsat.json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: EXACT_OBSTRUCTION
+    claim_scope: Exact obstruction for the stored C13 selected-witness pattern and one fixed cyclic order only.
+    json_top_level_type: object
+    expected_json:
+      status: EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER
+    forbidden_claims: [all cyclic orders are obstructed by this file, general proof of Erdos Problem 97]
+
+  - id: c19_catalog_prefilter_sweep_288_479
+    path: data/certificates/c19_kalmanson_prefix_window_catalog_prefilter_sweep_288_479.json
+    sha256: f1df1a118181095935933760b331f05185918fb9748ceefe9ce7504804116236
+    size_bytes: 124694
+    kind: exact_route_pruning_ledger
+    generator: scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py
+    command: python scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py --json --assert-expected
+    checker: scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py
+    check_command: python scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py --json --assert-expected
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: EXACT_ROUTE_PRUNING_CERTIFICATE
+    claim_scope: Exact prefix-window catalogue prefilter accounting for the stored C19 index window only; route pruning, not an all-order obstruction.
+    json_top_level_type: object
+    expected_json:
+      type: c19_kalmanson_prefix_window_catalog_prefilter_sweep_v1
+      trust: EXACT_OBSTRUCTION
+    forbidden_claims: [all C19 cyclic orders are obstructed, general proof of Erdos Problem 97]
+
+  - id: c19_row_circle_ptolemy_active_set
+    path: data/certificates/c19_row_circle_ptolemy_active_set.json
+    sha256: c7db41d0ec2acb1dcd2ae735978892476ddc0458cfe4edeaa8fccc04ac15e65b
+    size_bytes: 141282
+    kind: numerical_nonlinear_snapshot
+    generator: scripts/dump_row_circle_ptolemy_snapshot.py
+    command: python scripts/reduce_row_circle_multipliers.py --snapshot data/certificates/c19_row_circle_ptolemy_active_set.json --out /tmp/c19_multiplier_reduction.json --assert-expected
+    checker: scripts/reduce_row_circle_multipliers.py
+    check_command: python scripts/reduce_row_circle_multipliers.py --snapshot data/certificates/c19_row_circle_ptolemy_active_set.json --out /tmp/c19_multiplier_reduction.json --assert-expected
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Numerical C19 row-circle Ptolemy active-set snapshot; optimizer evidence only.
+    json_top_level_type: object
+    expected_json:
+      type: row_circle_ptolemy_nlp_solution_snapshot_v1
+      status: ROW_CIRCLE_PTOLEMY_NLP_NUMERICAL_OBSTRUCTION
+      trust: NUMERICAL_NONLINEAR_DIAGNOSTIC
+    forbidden_claims: [exact obstruction, general proof of Erdos Problem 97]
+
+  - id: c25_c29_sparse_frontier_probe
+    path: data/certificates/c25_c29_sparse_frontier_probe.json
+    sha256: f15f592ad1191482ad86dc7603c76b96fd00b573284ebd354a9d43667a590b9c
+    size_bytes: 5998
+    kind: fixed_order_diagnostic
+    generator: scripts/check_sparse_frontier_kalmanson_escapes.py
+    command: python scripts/check_sparse_frontier_kalmanson_escapes.py --source-artifact data/certificates/c25_c29_sparse_frontier_probe.json --check --assert-expected
+    checker: scripts/check_sparse_frontier_kalmanson_escapes.py
+    check_command: python scripts/check_sparse_frontier_kalmanson_escapes.py --source-artifact data/certificates/c25_c29_sparse_frontier_probe.json --check --assert-expected
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Fixed-order C25/C29 sparse-frontier probe and input provenance for the escape audit; not all-order evidence.
+    json_top_level_type: object
+    expected_json:
+      type: c25_c29_sparse_frontier_probe_v1
+      trust: FIXED_ORDER_DIAGNOSTIC
+    forbidden_claims: [all-order obstruction, counterexample, general proof of Erdos Problem 97]
+
+  - id: n9_incidence_frontier_bounded
+    path: data/certificates/n9_incidence_frontier_bounded.json
+    sha256: ce578434b09304771c93b162936b751f98bf3f80d73823397da0501c4dfd8de7
+    size_bytes: 30449
+    kind: bounded_search_diagnostic
+    generator: scripts/check_n9_incidence_frontier.py
+    command: python scripts/check_n9_incidence_frontier.py --json --assert-expected
+    checker: scripts/check_n9_incidence_frontier.py
+    check_command: python scripts/check_n9_incidence_frontier.py --json --assert-expected
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Bounded n=9 incidence CSP scan that completed its configured search limits; not an unrestricted completeness result.
+    json_top_level_type: object
+    expected_json:
+      type: n9_incidence_frontier_bounded_scan_v1
+      trust: BOUNDED_INCIDENCE_CSP_DIAGNOSTIC
+      search_complete: true
+      truncated: false
+    forbidden_claims: [n=9 is proved, exhaustive incidence classification, general proof of Erdos Problem 97]
+
+  - id: n9_phi4_rectangle_trap_legacy
+    path: data/certificates/n9_phi4_rectangle_trap.json
+    sha256: 900072d28b515e170f51cccc9c47a366a1b61b89b4d3c53fce1502746471b57b
+    size_bytes: 3102
+    kind: fixed_pattern_exact_certificate
+    generator: scripts/check_phi4_rectangle_trap.py
+    command: python scripts/check_phi4_rectangle_trap.py --json --assert-expected
+    checker: scripts/check_phi4_rectangle_trap.py
+    check_command: python scripts/check_phi4_rectangle_trap.py --json --assert-expected
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: EXACT_OBSTRUCTION
+    claim_scope: Exact rectangle-trap obstruction for the single stored n=9 selected-witness assignment and cyclic order.
+    json_top_level_type: object
+    expected_json:
+      trust_label: EXACT_OBSTRUCTION
+      global_claim: No general proof and no counterexample are claimed.
+    forbidden_claims: [n=9 is proved, general proof of Erdos Problem 97]
+
+  - id: p18_vertex_circle_order_unsat
+    path: data/certificates/p18_vertex_circle_order_unsat.json
+    sha256: 80f9f273f74341d0a8df9c77c228b0655bc7db44f9528255b3be9b04d671f1a4
+    size_bytes: 201131
+    kind: fixed_pattern_order_search_certificate
+    generator: scripts/check_vertex_circle_order_filter.py
+    command: python scripts/check_vertex_circle_order_filter.py --pattern P18_parity_balanced --search --assert-obstructed --json
+    checker: scripts/check_vertex_circle_order_filter.py
+    check_command: python scripts/check_vertex_circle_order_filter.py --pattern P18_parity_balanced --search --assert-obstructed --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: EXACT_OBSTRUCTION
+    claim_scope: Exact vertex-circle cyclic-order obstruction for built-in pattern P18_parity_balanced only.
+    json_top_level_type: object
+    expected_json: {type: vertex_circle_order_search_result, result: UNSAT, sat: false}
+    forbidden_claims: [all selected-witness patterns are obstructed, general proof of Erdos Problem 97]
+
+  - id: p24_cyclic_crossing_unsat
+    path: data/certificates/p24_cyclic_crossing_unsat.json
+    sha256: 29e157674ee85d8ae9e39d0a29793abc765f53500a21584d02e6aaca42018aa8
+    size_bytes: 89480
+    kind: fixed_pattern_order_search_certificate
+    generator: scripts/check_cyclic_crossing_csp.py
+    command: python scripts/check_cyclic_crossing_csp.py --pattern P24_parity_balanced --assert-unsat --json
+    checker: scripts/check_cyclic_crossing_csp.py
+    check_command: python scripts/check_cyclic_crossing_csp.py --pattern P24_parity_balanced --assert-unsat --json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: EXACT_OBSTRUCTION
+    claim_scope: Exact cyclic-crossing CSP obstruction for built-in pattern P24_parity_balanced only.
+    json_top_level_type: object
+    expected_json: {result: UNSAT, sat: false}
+    forbidden_claims: [all selected-witness patterns are obstructed, general proof of Erdos Problem 97]
+
+  - id: phi4_frontier_scan
+    path: data/certificates/phi4_frontier_scan.json
+    sha256: bdda0d02effadcda275bf94ba7da8dd820a93e3f8ab513c279c360c108a0c935
+    size_bytes: 13894
+    kind: exact_filter_diagnostic
+    generator: scripts/check_phi4_frontier_scan.py
+    command: python scripts/check_phi4_frontier_scan.py --json --assert-expected
+    checker: scripts/check_phi4_frontier_scan.py
+    check_command: python scripts/check_phi4_frontier_scan.py --json --assert-expected
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: Exact phi4 filter scan over the enumerated stored frontier cases; diagnostic coverage only.
+    json_top_level_type: object
+    expected_json:
+      type: phi4_frontier_scan_v1
+      trust: FIXED_ORDER_EXACT_FILTER_DIAGNOSTIC
+      case_count: 17
+      obstructed_case_count: 1
+    forbidden_claims: [frontier completeness, n=9 is proved, general proof of Erdos Problem 97]
+
+  - id: c17_ptolemy_log_fixed_order_certificate
+    path: data/certificates/round2/c17_skew_ptolemy_log_certificate.json
+    sha256: 95ea16b9352b27347387c7411737a8df9d6f93f359abde9ee079bb7fcea89adb
+    size_bytes: 49930
+    kind: fixed_order_exact_certificate
+    generator: scripts/check_round2_certificates.py
+    command: python scripts/check_round2_certificates.py
+    checker: scripts/check_round2_certificates.py
+    check_command: python scripts/check_round2_certificates.py
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: EXACT_OBSTRUCTION
+    claim_scope: Exact Ptolemy-log zero-sum obstruction for the stored C17 selected pattern and fixed order only.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.round2.ptolemy_log_certificate.v1
+      verified_zero_sum: true
+    forbidden_claims: [all cyclic orders are obstructed, general proof of Erdos Problem 97]
+
+  - id: c19_legacy_fixed_order_kalmanson
+    path: data/certificates/round2/c19_kalmanson_known_order_unsat.json
+    sha256: 4878f41726721a0593b1bc947a579639062e0775a8386d49f1269c26d797f72e
+    size_bytes: 14638
+    kind: fixed_order_exact_certificate
+    generator: scripts/check_kalmanson_certificate.py
+    command: python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_unsat.json
+    checker: scripts/check_kalmanson_certificate.py
+    check_command: python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_unsat.json
+    direct_edit_allowed: false
+    provenance_mode: manifest_only_legacy
+    trust_class: EXACT_OBSTRUCTION
+    claim_scope: Exact legacy Kalmanson/Farkas obstruction for the stored C19 selected pattern and one fixed cyclic order only.
+    json_top_level_type: object
+    expected_json:
+      status: EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER
+    forbidden_claims: [all C19 cyclic orders are obstructed by this file, general proof of Erdos Problem 97]
+
   - id: n8_reconstructed_survivors
     path: data/incidence/n8_reconstructed_15_survivors.json
     sha256: 4568a49be1a3681e897ae2b5d57336349f939614c1b79bdb09035a35873e1586
@@ -124,7 +551,7 @@ artifacts:
     command: python scripts/enumerate_n8_incidence.py --summary
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: INCIDENCE_COMPLETENESS
+    trust_class: INCIDENCE_COMPLETENESS
     claim_scope: Repo-local n=8 selected-witness survivor classes only.
     json_top_level_type: list
     forbidden_claims:
@@ -140,7 +567,7 @@ artifacts:
     command: python scripts/enumerate_n8_incidence.py --summary
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: INCIDENCE_COMPLETENESS
+    trust_class: INCIDENCE_COMPLETENESS
     claim_scope: Repo-local n=8 incidence completeness artifact.
     json_top_level_type: object
     expected_json:
@@ -161,7 +588,7 @@ artifacts:
     command: python scripts/analyze_n8_exact_survivors.py --check --json --check-compatible-orders-data data/incidence/n8_compatible_orders.json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: Repo-local n=8 compatible cyclic-order audit data.
     json_top_level_type: object
     forbidden_claims:
@@ -177,7 +604,7 @@ artifacts:
     command: python scripts/analyze_n8_exact_survivors.py --check --json --check-exact-analysis-data certificates/n8_exact_analysis.json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: Repo-local n=8 exact survivor obstruction artifact pending external review.
     json_top_level_type: object
     forbidden_claims:
@@ -193,7 +620,7 @@ artifacts:
     command: python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: Exact obstruction for one fixed C19_skew cyclic order only.
     json_top_level_type: object
     expected_json:
@@ -216,7 +643,7 @@ artifacts:
     command: python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: SMT_EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN
+    trust_class: SMT_EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN
     claim_scope: All-order obstruction for one fixed abstract C19 selected-witness pattern only.
     json_top_level_type: object
     expected_json:
@@ -241,7 +668,7 @@ artifacts:
     check_command: python scripts/analyze_kalmanson_z3_clauses.py --assert-expected --check-artifact reports/c19_kalmanson_z3_clause_diagnostics.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
     claim_scope: Structural diagnostic for the checked C19_skew all-order Z3 Kalmanson certificate only.
     json_top_level_type: object
     expected_json:
@@ -282,7 +709,7 @@ artifacts:
     check_command: python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
     claim_scope: Z3-independent DIMACS encoding summary for the checked fixed abstract C19_skew Kalmanson order clauses.
     json_top_level_type: object
     expected_json:
@@ -318,7 +745,7 @@ artifacts:
     check_command: python scripts/analyze_kalmanson_certificates.py --c19-compact-vs-legacy --assert-expected --check-artifact reports/c19_kalmanson_compact_vs_legacy.json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
     claim_scope: Fixed-order C19_skew compact-vs-legacy certificate support diagnostic only.
     json_top_level_type: object
     expected_json:
@@ -344,7 +771,7 @@ artifacts:
     command: python scripts/check_kalmanson_certificate.py data/certificates/c13_sidon_order_survivor_kalmanson_two_unsat.json --summary-json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: Exact obstruction for one fixed C13 selected-witness cyclic order only.
     json_top_level_type: object
     expected_json:
@@ -366,7 +793,7 @@ artifacts:
     command: python scripts/check_kalmanson_certificate.py data/certificates/c29_sidon_fixed_order_kalmanson_165_unsat.json --summary-json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: Exact obstruction for one fixed C29 Sidon selected-witness cyclic order only.
     json_top_level_type: object
     expected_json:
@@ -392,7 +819,7 @@ artifacts:
     check_command: python scripts/check_sparse_frontier_kalmanson_escapes.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Fixed-order C25/C29 sparse-frontier negative-control audit; confirms that the stored fixed orders have zero direct two-inequality Kalmanson inverse-pair conflicts under full-row replay, but this is not an all-order obstruction, not geometric realizability, not a counterexample, and not a proof of Erdos Problem #97.
     json_top_level_type: object
     expected_json:
@@ -421,7 +848,7 @@ artifacts:
     command: python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN
+    trust_class: EXACT_ALL_ORDER_OBSTRUCTION_FOR_FIXED_PATTERN
     claim_scope: All-order obstruction for one fixed abstract C13 selected-witness pattern only.
     json_top_level_type: object
     expected_json:
@@ -443,7 +870,7 @@ artifacts:
     command: python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Review-pending n=9 selected-witness finite-case checker output only.
     json_top_level_type: object
     expected_json:
@@ -467,7 +894,7 @@ artifacts:
     check_command: python scripts/n9_vertex_circle_minimal_cores.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Independent implementation-level minimal obstruction-core catalog for the 184 review-pending n=9 vertex-circle frontier systems; finite-case audit evidence only, not a proof of n=9, not a counterexample, not an independent human review, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -506,7 +933,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_compact_brancher.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Compact independent regeneration of the review-pending n=9 selected-witness frontier and vertex-circle quotient obstruction; audit/replay aid only, not completed independent review, not a proof of n=9, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -543,7 +970,7 @@ artifacts:
     check_command: python scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Combined review-pending n=9 selected-witness replay joining localized counting, compact frontier regeneration, and explicit per-assignment vertex-circle obstruction certificates; audit evidence only, not completed independent review, not a proof of n=9, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -584,7 +1011,7 @@ artifacts:
     check_command: python scripts/check_n9_selected_witness_combined_replay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Per-assignment vertex-circle quotient certificates for the review-pending 184 n=9 exact-four frontier assignments; replay data only, not completed independent review, not a proof of n=9, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -616,7 +1043,7 @@ artifacts:
     independent_replay_command: python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Review-pending n=9 selected-witness Kalmanson self-edge certificate replay only.
     json_top_level_type: object
     expected_json:
@@ -648,7 +1075,7 @@ artifacts:
     check_command: python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Self-contained regeneration of the review-pending n=9 selected-witness frontier plus Kalmanson self-edge certificates; corroborating audit evidence only.
     json_top_level_type: object
     expected_json:
@@ -687,7 +1114,7 @@ artifacts:
     check_command: python scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Self-contained regeneration of the review-pending n=9 selected-witness frontier plus Kalmanson three-row core compression; proof-mining evidence only.
     json_top_level_type: object
     expected_json:
@@ -736,7 +1163,7 @@ artifacts:
     check_command: python scripts/analyze_n9_vertex_circle_obstruction_shapes.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Obstruction-shape diagnostic for the 184 n=9 pre-vertex-circle selected-witness assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -767,7 +1194,7 @@ artifacts:
     check_command: python scripts/analyze_n9_vertex_circle_motif_families.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Dihedral motif-family diagnostic for the 184 n=9 pre-vertex-circle selected-witness assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -803,7 +1230,7 @@ artifacts:
     check_command: python scripts/check_n9_inversive_incidence_pilot.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Inversive point-line incidence diagnostic on the 184 regenerated n=9 pre-vertex-circle frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -849,7 +1276,7 @@ artifacts:
     check_command: python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Candidate n=9 selected-witness turn-inequality frontier replay; not a proof of n=9, not an independent review of the exhaustive checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -892,7 +1319,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_local_core_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Compact replay packet for the 16 n=9 vertex-circle local-core motif representatives; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -924,7 +1351,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_closed_descent_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Closed-descent reformulation of the 16 stored n=9 vertex-circle local-core motif representatives; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, not local-lemma completeness, not a bridge proof, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -966,7 +1393,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_core_templates.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Template diagnostic for the 16 n=9 vertex-circle local-core motif representatives; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1003,7 +1430,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_frontier_motif_classification.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Classification of the 184 n=9 pre-vertex-circle selected-witness assignments by dihedral motif family and replay-derived local-core template; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1044,7 +1471,7 @@ artifacts:
     check_command: python scripts/compare_n9_vertex_circle_frontier.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Review-pending comparison of exact n=9 local-core embeddings with recorded P18/C19 frontier vertex-circle behavior; not a proof of n=9, not a counterexample, not a transfer theorem, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1071,7 +1498,7 @@ artifacts:
     check_command: python scripts/check_n9_high_risk_frontier_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: High-risk mutual-edge-triangle slice of the 184 n=9 pre-vertex-circle selected-witness assignments, replayed through fixed-row radius-blocker and vertex-circle diagnostics; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1126,7 +1553,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_self_edge_path_join.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Assignment-level join of the 158 n=9 self-edge frontier assignments to transformed family representative equality paths; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1171,7 +1598,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_self_edge_template_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Template-level packet for the 9 self-edge local-core templates covering 158 n=9 self-edge frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1238,7 +1665,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_strict_cycle_path_join.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Assignment-level join of the 26 n=9 strict-cycle frontier assignments to transformed family representative local-core strict cycles; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1292,7 +1719,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_strict_cycle_template_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Template-level packet for the 3 strict-cycle local-core templates covering 26 n=9 strict-cycle frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1351,7 +1778,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_template_lemma_catalog.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Derived lemma-candidate catalog for the 12 n=9 vertex-circle local-core templates covering 184 frontier assignments; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1418,7 +1845,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_local_lemmas.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Proof-mining scan for reusable n-independent vertex-circle local lemmas; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1454,7 +1881,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_local_lemma_simple_replay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Second-source packet-level audit for aggregate n=9 vertex-circle local-lemma coverage; not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1492,7 +1919,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t01_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T01/F09 self-edge local lemma packet for six n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1561,7 +1988,7 @@ artifacts:
     check_command: python scripts/check_n9_t01_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T01/F09 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1606,7 +2033,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t02_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T02 multi-family self-edge local lemma packet for forty n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1661,7 +2088,7 @@ artifacts:
     check_command: python scripts/check_n9_t02_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T02 multi-family self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1711,7 +2138,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t03_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T03 multi-family self-edge local lemma packet for twenty n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1760,7 +2187,7 @@ artifacts:
     check_command: python scripts/check_n9_t03_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T03 multi-family self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1804,7 +2231,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t04_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T04/F13 self-edge local lemma packet for two n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1850,7 +2277,7 @@ artifacts:
     check_command: python scripts/check_n9_t04_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T04/F13 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1891,7 +2318,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t05_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T05/F10 self-edge local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1937,7 +2364,7 @@ artifacts:
     check_command: python scripts/check_n9_t05_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T05/F10 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -1978,7 +2405,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t06_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T06/F11 self-edge local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2024,7 +2451,7 @@ artifacts:
     check_command: python scripts/check_n9_t06_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T06/F11 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2065,7 +2492,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t07_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T07/F06 self-edge local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2111,7 +2538,7 @@ artifacts:
     check_command: python scripts/check_n9_t07_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T07/F06 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2152,7 +2579,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t08_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T08/F02 self-edge local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2198,7 +2625,7 @@ artifacts:
     check_command: python scripts/check_n9_t08_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T08/F02 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2239,7 +2666,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t09_self_edge_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T09/F03 self-edge local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2285,7 +2712,7 @@ artifacts:
     check_command: python scripts/check_n9_t09_self_edge_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T09/F03 self-edge local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2326,7 +2753,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t10_strict_cycle_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T10/F12 strict-cycle local lemma packet for eighteen n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2378,7 +2805,7 @@ artifacts:
     check_command: python scripts/check_n9_t10_strict_cycle_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T10/F12 strict-cycle local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2420,7 +2847,7 @@ artifacts:
     check_command: python scripts/check_relation_skeleton_catalog.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Sixteen-entry relation-skeleton catalog for focused n=9 vertex-circle selected-distance quotient obstructions; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2473,7 +2900,7 @@ artifacts:
     check_command: python scripts/check_n9_relation_skeleton_closed_descent_crosswalk.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Cross-artifact audit joining the 16 relation-skeleton entries to the closed-descent reformulation of the stored n=9 vertex-circle local-core quotient obstructions; not a proof of n=9, not a counterexample, not local-lemma completeness, not a bridge proof, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2511,7 +2938,7 @@ artifacts:
     check_command: python scripts/check_n9_t10_paired_square_entry.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Paired-square Kalmanson entry audit for the 18 T10/F12 n=9 vertex-circle strict-cycle assignments only; not a proof of n=9, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2549,7 +2976,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t11_strict_cycle_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T11/F07 strict-cycle local lemma packet for six n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2608,7 +3035,7 @@ artifacts:
     check_command: python scripts/check_n9_t11_strict_cycle_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T11/F07 strict-cycle local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2650,7 +3077,7 @@ artifacts:
     check_command: python scripts/check_n9_vertex_circle_t12_strict_cycle_lemma_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused T12/F16 strict-cycle local lemma packet for two n=9 frontier assignments; proof-mining scaffolding only, not a proof of n=9, not a counterexample, not an independent review of the exhaustive checker, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2702,7 +3129,7 @@ artifacts:
     check_command: python scripts/check_n9_t12_strict_cycle_minireplay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Minimal input-data replay of the focused T12/F16 strict-cycle local lemma packet; not a proof of n=9, not an independent review of the full checker, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2742,7 +3169,7 @@ artifacts:
     command: python scripts/decode_n9_groebner_f07_f13.py
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
     claim_scope: Review-pending algebraic decoder audit for the F07/F08/F09/F13 n=9 selected-witness families only.
     json_top_level_type: object
     expected_json:
@@ -2767,7 +3194,7 @@ artifacts:
     check_command: python scripts/check_n9_base_apex_low_excess_ledgers.py --artifact data/certificates/n9_base_apex_low_excess_ledgers.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 base-apex low-excess bookkeeping; not a proof of n=9, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2800,7 +3227,7 @@ artifacts:
     check_command: python scripts/check_n9_base_apex_escape_budget.py --artifact data/certificates/n9_base_apex_escape_budget_report.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 base-apex escape-budget bookkeeping; not a proof of n=9, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2830,7 +3257,7 @@ artifacts:
     check_command: python scripts/check_n9_selected_baseline_escape_budget_overlay.py --artifact data/certificates/n9_selected_baseline_escape_budget_overlay.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 selected-baseline escape-budget overlay bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2870,7 +3297,7 @@ artifacts:
     check_command: python scripts/check_n9_selected_baseline_d3_escape_class_crosswalk.py --artifact data/certificates/n9_selected_baseline_d3_escape_class_crosswalk.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 selected-baseline D=3 escape-class crosswalk bookkeeping; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -2925,7 +3352,7 @@ artifacts:
     check_command: python scripts/check_n9_selected_baseline_d3_vertex_circle_template_join.py --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Selected-baseline D=3 escaping assignment/slot-choice landings joined to n=9 vertex-circle family/template diagnostics; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3007,7 +3434,7 @@ artifacts:
     check_command: python scripts/check_n9_d3_escape_slice.py --artifact data/certificates/n9_base_apex_d3_escape_slice.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 base-apex D=3,r=3 coupled escape-slice bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3047,7 +3474,7 @@ artifacts:
     check_command: python scripts/check_n9_base_apex_d3_escape_frontier_packet.py --artifact data/certificates/n9_base_apex_d3_escape_frontier_packet.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 base-apex D=3,r=3 escape-frontier representative packet bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3088,7 +3515,7 @@ artifacts:
     check_command: python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --artifact data/certificates/n9_base_apex_d3_p19_incidence_capacity_pilot.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 base-apex D=3 P19 incidence-capacity pilot ledger for rows R000..R007; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3152,7 +3579,7 @@ artifacts:
     check_command: python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --artifact data/certificates/n9_base_apex_d3_incidence_capacity_packet.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Full n=9 base-apex D=3 incidence-capacity packet ledger for all 88 D=3 packet rows; not a proof of n=9, not a counterexample, not an incidence-completeness result, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3202,7 +3629,7 @@ artifacts:
     check_command: python scripts/check_n9_base_apex_low_excess_escape_ladder.py --artifact data/certificates/n9_base_apex_low_excess_escape_ladder.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 base-apex low-excess minimal escape-slice ladder bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3242,7 +3669,7 @@ artifacts:
     check_command: python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --artifact data/certificates/n9_base_apex_low_excess_escape_crosswalk.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 base-apex low-excess profile/escape crosswalk bookkeeping; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3275,7 +3702,7 @@ artifacts:
     check_command: python scripts/check_n9_row_ptolemy_product_cancellations.py --artifact data/certificates/n9_row_ptolemy_product_cancellations.json --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Focused n=9 row-Ptolemy product-cancellation bookkeeping for the fixed natural cyclic order; not a proof of n=9, not a counterexample, not a geometric realizability test, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3312,7 +3739,7 @@ artifacts:
     check_command: python scripts/check_n9_row_ptolemy_family_signatures.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Derived n=9 row-Ptolemy per-family certificate-signature diagnostic for the fixed natural cyclic order; not a proof of n=9, not a counterexample, not an orderless abstract-incidence obstruction, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3358,7 +3785,7 @@ artifacts:
     check_command: python scripts/check_n9_row_ptolemy_order_sensitivity.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Derived n=9 row-Ptolemy order-sensitivity diagnostic for three representative hit assignments; not a proof of n=9, not a counterexample, not an all-order obstruction, not an orderless abstract-incidence obstruction, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3396,7 +3823,7 @@ artifacts:
     check_command: python scripts/check_n9_row_ptolemy_order_admissible_census.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Derived n=9 row-Ptolemy admissible-order census for the 26 fixed-order hit assignments; not a proof of n=9, not a counterexample, not an all-order obstruction, not an orderless abstract-incidence obstruction, not a geometric realizability count, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3443,7 +3870,7 @@ artifacts:
     check_command: python scripts/check_n9_row_ptolemy_admissible_gap_replay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Replay of the two zero-certificate n=9 row-Ptolemy admissible assignment-order records; not a proof of n=9, not a counterexample, not an all-order obstruction, not an orderless abstract-incidence obstruction, not a geometric realizability count, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3503,7 +3930,7 @@ artifacts:
     check_command: python scripts/check_n9_row_ptolemy_gap_self_edge_cores.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Compact self-edge core certificates for the two zero-certificate n=9 row-Ptolemy admissible assignment-order records; not a proof of n=9, not a counterexample, not an all-order obstruction, not an orderless abstract-incidence obstruction, not a geometric realizability count, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -3568,7 +3995,7 @@ artifacts:
     check_command: python scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Finite n=8/n=9 ear-orderability and obstruction cross-tab for Bridge Lemma A' proof mining; not a proof of the bridge, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
@@ -3617,7 +4044,7 @@ artifacts:
     check_command: python scripts/check_brp_boundary_probe.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed and the sampled synthetic 15-gon after one A5 insertion; records seed-boundary circle hits versus modeled seed-vertex hits, a signed sampled synthetic A5 edge-pocket stress scan, a Lemma 3.1 role-precondition preflight, one bounded sampled numerical A5 constraint witness, a tiny float64 interval-box check around that witness, explicit sampled-15-gon boundary-support circles, and an exact rational checker-float64 replay splitting the tolerant six-hit buckets into exact-radius siblings. Not a finite extraction, not an exact final 15-gon certificate, not a proof, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
@@ -3678,7 +4105,7 @@ artifacts:
     check_command: python scripts/check_two_parabola_lens_closure_grid.py --artifact data/certificates/two_parabola_lens_grid_search.json --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Bounded rational-grid search for the opposite-chain two-parabola lens closure ansatz only; not a proof and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -3708,7 +4135,7 @@ artifacts:
     check_command: python scripts/check_radius_blocker_vertex_circle_pilot.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Finite exact-four-row radius-blocker packet diagnostic; not a proof of the adaptive blocker bridge, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -3742,7 +4169,7 @@ artifacts:
     check_command: python scripts/check_n9_full_radius_blocker_vertex_circle_packet.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Full exact-four row-option packet for n=9, natural cyclic order, and blocker {0,1,2,3}; all incidence survivors are vertex-circle obstructed, but this is not a proof of Erdos Problem #97 and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -3781,7 +4208,7 @@ artifacts:
     check_command: python scripts/check_n9_radius_blocker_shape_sweep.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Natural-order n=9 exact-four row-option sweep over all 10 dihedral classes of four-vertex blockers; all incidence survivors are vertex-circle obstructed, but this is not a proof of Erdos Problem #97 and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -3819,7 +4246,7 @@ artifacts:
     check_command: python scripts/check_n9_radius_blocker_order_reduction_crosswalk.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Order-reduction crosswalk for the n=9 exact-four radius-blocker shape sweep; arbitrary cyclic-order placements of a four-blocker reduce to the stored natural-order shape sweep, but this is not a proof of Erdos Problem #97 and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -3854,7 +4281,7 @@ artifacts:
     check_command: python scripts/check_n9_radius_blocker_rich_projection_pilot.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Bounded n=9 radius-blocker richer-class projection pilot; one synthetic size-five rich class at every center is expanded to exact four-subset selected-row options and checked by the finite packet replay, but this is not full rich-class quotient replay, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -3894,7 +4321,7 @@ artifacts:
     check_command: python scripts/check_n9_radius_blocker_rich_quotient_pilot.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Full rich-class vertex-circle quotient replay for one bounded n=9 synthetic size-five radius-blocker family; checks the full class equalities and nested-chord inequalities without choosing exact four-subsets, but this is not a proof of Erdos Problem #97 and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -3930,7 +4357,7 @@ artifacts:
     check_command: python scripts/check_n9_radius_blocker_rich_quotient_sweep.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Generated full rich-class quotient replay for 20 synthetic size-five n=9 radius-blocker packets derived from stored shape-sweep obstruction examples; finite packet evidence only, not a proof of Erdos Problem #97 and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -3971,7 +4398,7 @@ artifacts:
     check_command: python scripts/check_n9_radius_blocker_rich_extension_neighborhood.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Bounded n=9 rich-extension neighborhood replay for 5,996 Hamming-distance <= 2 size-five variants around the generated radius-blocker quotient-sweep packets; finite neighborhood evidence only, not a proof of Erdos Problem #97 and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4016,7 +4443,7 @@ artifacts:
     check_command: python scripts/check_n9_radius_blocker_rich_extension_product_pilot.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: One-packet n=9 full rich-extension product replay for the first maximum-size generated radius-blocker packet, checking 196,608 size-five variants; finite packet evidence only, not a proof of Erdos Problem #97 and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4064,7 +4491,7 @@ artifacts:
     check_command: python scripts/check_n9_radius_blocker_rich_extension_product_sweep.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: All-packet n=9 full rich-extension product replay over 20 generated radius-blocker source packets, checking 2,899,968 size-five variants; finite generated-packet evidence only, not a proof of Erdos Problem #97 and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4110,7 +4537,7 @@ artifacts:
     check_command: python scripts/check_n9_all_five_rich_support_obstruction.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Generator-independent n=9 all-five-rich support obstruction under the two-circle row-pair cap and radical-axis crossing filters; finite support subcase only, not mixed exact-four/size-five catalogue coverage, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4163,7 +4590,7 @@ artifacts:
     check_command: python scripts/check_n9_mixed_rich_support_reduction.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Generator-independent n=9 mixed rich-support reduction under row-pair cap, two-overlap crossing, and witness-pair capacity filters; finite support reduction only, not an independent proof of the exact-four vertex-circle exhaustive checker, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4222,7 +4649,7 @@ artifacts:
     check_command: python scripts/check_n9_mixed_rich_frontier_crosswalk.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Crosswalk from the n=9 mixed four/five support reduction to the stored exact-four vertex-circle frontier; support-to-frontier bookkeeping only, not an independent proof of the exact-four vertex-circle exhaustive checker, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4275,7 +4702,7 @@ artifacts:
     check_command: python scripts/check_block6_fragile_vertex_circle_extension.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Two-block block-6 fragile-cover full-extension vertex-circle audit in the natural cyclic order; not a proof of the fragile bridge, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
@@ -4317,7 +4744,7 @@ artifacts:
     check_command: python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Two deterministic block-6 terminal-extension windows checked across crossing-compatible cyclic orders by the vertex-circle quotient filter; sample only, not all-extension or all-order closure, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
@@ -4357,7 +4784,7 @@ artifacts:
     check_command: python scripts/check_block6_terminal_crossing_vertex_circle_sample.py --full-sweep --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Full sweep over all terminal full selected-row extensions generated by the natural-order two-block block-6 fragile audit, checking every crossing-compatible cyclic order each terminal extension admits by the vertex-circle quotient filter; bounded diagnostic only, not row systems outside that natural-order terminal generator, not all-order/all-extension block-6 closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4400,7 +4827,7 @@ artifacts:
     check_command: python scripts/check_block6_fixed_order_vertex_circle_probe.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Four fixed cyclic-order probes for the two-block block-6 fragile rows, including three non-natural orders whose first terminal extensions fail the natural-order crossing rule; each probed fixed order closes under order-specific vertex-circle pruning. Fixed-order diagnostic only, not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4441,7 +4868,7 @@ artifacts:
     check_command: python scripts/check_block6_shuffle_order_vertex_circle_sweep.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: All 462 normalized block-preserving shuffle cyclic orders for the two-block block-6 fragile rows close under order-specific vertex-circle pruning. Bounded fixed-order-family diagnostic only, not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4486,7 +4913,7 @@ artifacts:
     check_command: python scripts/check_block6_reversed_block_shuffle_vertex_circle_escape.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Reversed-second-block shuffle negative-control packet for the two-block block-6 fragile rows. Records 16 vertex-circle-clean fixed-order abstract selected-row extensions; not Euclidean realizability, not a counterexample, not all-order closure, not a fragile-bridge proof, and not a proof of Erdos Problem #97.
     json_top_level_type: object
     expected_json:
@@ -4532,7 +4959,7 @@ artifacts:
     check_command: python scripts/check_block6_reversed_block_clean_kalmanson.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_CERTIFICATE_DIAGNOSTIC
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
     claim_scope: Exact fixed-order Kalmanson quotient-cone certificates for the 16 vertex-circle-clean rows from the reversed-second-block shuffle negative-control packet. Fixed selected-row assignments and fixed cyclic orders only; not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4577,7 +5004,7 @@ artifacts:
     check_command: python scripts/check_block6_reversed_block_two_stage_closure.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Two-stage fixed-order-family crosswalk for the 462 reversed-second-block shuffle orders. Combines 446 vertex-circle quotient closures with 16 exact fixed-order Kalmanson clean-row closures; not all-order closure, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4619,7 +5046,7 @@ artifacts:
     check_command: python scripts/check_block6_forward_block_two_orientation_closure.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Cross-artifact fixed-order-family diagnostic for the 924 first-block-forward block-6 shuffle orders with the second block in either forward or reversed orientation. Combines 462 forward-second-block vertex-circle closures with the 462-order reversed-second-block two-stage packet; not first-block-reversed orientations, not arbitrary cyclic orders, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4666,7 +5093,7 @@ artifacts:
     check_command: python scripts/check_block6_oriented_block_reversal_closure.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Cross-artifact fixed-order-family diagnostic for the 1848 oriented-block block-6 shuffle orders. Uses the first-block-forward two-orientation packet for 924 direct closures and cyclic reversal duality for the 924 first-block-reversed orders; not arbitrary cyclic-order closure, not all selected-row systems, not a fragile-bridge proof, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4713,7 +5140,7 @@ artifacts:
     check_command: python scripts/check_speculative_circulant_frontier_obstructions.py --check --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: Exact cleanup for selected speculative circulant patterns; C45 is killed as a fixed abstract selected-witness incidence pattern, while C41, C43, C49, and R44 are fixed-natural-order diagnostics only.
     json_top_level_type: object
     expected_json:
@@ -4748,7 +5175,7 @@ artifacts:
     check_command: python scripts/check_n10_mixed_rich_support_capacity.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Generator-independent n=10 four/five support-capacity diagnostic under row-pair cap, two-overlap crossing, and witness-pair capacity filters; finite support reduction only, not a proof of n=10, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4804,7 +5231,7 @@ artifacts:
     check_command: python scripts/check_n10_q2_rich_vertex_circle.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Generator-independent n=10 exactly-two-size-five rich-support diagnostic under row-pair cap, two-overlap crossing, witness-pair capacity, and rich vertex-circle quotient filters; finite support-plus-quotient reduction only, not a proof of n=10, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4848,7 +5275,7 @@ artifacts:
     check_command: python scripts/check_n10_q1_rich_vertex_circle.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Generator-independent n=10 exactly-one-size-five rich-support diagnostic under row-pair cap, two-overlap crossing, witness-pair capacity, and rich vertex-circle quotient filters; finite support-plus-quotient reduction only, not a proof of n=10, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -4890,7 +5317,7 @@ artifacts:
     command: python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING
+    trust_class: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING
     claim_scope: Review-pending draft n=10 selected-witness singleton-slice finite-case artifact only.
     json_top_level_type: object
     expected_json:
@@ -4922,7 +5349,7 @@ artifacts:
     check_command: python scripts/check_n10_fast_cpp_singleton_replay.py --check --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING_SECONDARY
+    trust_class: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING_SECONDARY
     claim_scope: Second-source portable C++ replay of all 126 draft n=10 selected-witness singleton slices; compares against the primary artifact and records n=9 calibration only.
     json_top_level_type: object
     expected_json:
@@ -4957,7 +5384,7 @@ artifacts:
     check_command: python scripts/check_n10_turn_row0_pilot.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Bounded n=10 row0-index-0 turn-frontier pilot; not a proof of n=10, not a complete n=10 search, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -4996,7 +5423,7 @@ artifacts:
     check_command: python scripts/check_n10_turn_row0_escape_self_edges.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Derived diagnostic for the four weak-turn SAT escapes in the bounded n=10 row0-index-0 pilot; records only their row0-local vertex-circle self-edge templates, not a proof of n=10, not a complete n=10 search, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5042,7 +5469,7 @@ artifacts:
     check_command: python scripts/check_n10_turn_row0_combined_closure.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: FINITE_BOOKKEEPING_NOT_A_PROOF
+    trust_class: FINITE_BOOKKEEPING_NOT_A_PROOF
     claim_scope: Crosswalk for the bounded n=10 row0-index-0 pilot; stored weak-turn Farkas certificates close 156 assignments and the four weak-turn SAT escapes are exactly the stored row0-local vertex-circle self-edge templates, but this is not a proof of n=10, not a complete n=10 search, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5091,7 +5518,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_core_crosswalk.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Bootstrap-core rank and private-halo capacity crosswalk for selected fixed-row frontier motifs; not a proof of the bridge, not a proof of Erdos Problem #97, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5131,7 +5558,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_vertex_circle_overlay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Overlay of the two non-ear-orderable n=9 bootstrap-core frontier assignments with the review-pending vertex-circle strict-cycle chain; not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5175,7 +5602,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_forcing_targets.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Second-pass T12/F16 forcing-target ledger for the two tight n=9 bootstrap-core rows; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5228,7 +5655,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_activation_requirements.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Role-sensitive T12/F16 activation-support requirement diagnostic for the two tight n=9 bootstrap-core rows; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5282,7 +5709,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_bridge_target_map.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Joined T12/F16 bridge-target map for the two tight n=9 bootstrap-core rows; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5342,7 +5769,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_hard_strict_endpoints.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Hard strict-endpoint diagnostic for the two tight n=9 bootstrap-core rows; not a proof that endpoints or missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5399,7 +5826,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_open_connector_pair.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Open connector-pair diagnostic for the two tight n=9 bootstrap-core rows; not a proof that endpoints or missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5454,7 +5881,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_relation_sufficient_rows.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Relation-sufficient row diagnostic for the two tight n=9 bootstrap-core rows; not a proof that endpoints or missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5516,7 +5943,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_connector_contract.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused 151:6 outside-pair connector contract diagnostic; proves only the local conditional from a genuine rich class at center 6 containing witnesses 0 and 8 to connector [0,6]=[8,6], partitions endpoint-8 supports from the private-halo-only escape, but does not prove support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5609,7 +6036,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_closure_target.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused 81:3 full-row closure target diagnostic; not a proof that the row is forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5680,7 +6107,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_rich_triple_contract.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused 81:3 rich-triple connector contract diagnostic; proves only the local conditional from a genuine rich class at center 3 containing witnesses 0 and 1 to connector [1,3]=[0,3], not rich-class existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5765,7 +6192,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_order_escape.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Focused 81:3 order-resolved fixed-row escape diagnostic; shows only that the current singleton-rich closure from seed [0,1,4] activates center 3 before label 6, later supplies label 6 using center 3, and blocks extra center-6 seed activation only under the fixed-row-preservation same-center disjointness guard. It is not genuine rich-class order, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5903,7 +6330,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_escape_candidates.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Relaxed 81:3 escape-candidate scan preserving the seven source-81 rows outside centers 3 and 6; all 40 one-class replacement candidates fail basic incidence/crossing filters, but this is not genuine rich-class order, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -5983,7 +6410,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_escape_one_row_drop.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: One-row-drop relaxation of the 81:3 escape-candidate scan; all 19600 candidates fail basic incidence/crossing filters, but this is not genuine rich-class order, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6066,7 +6493,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_escape_two_row_drop.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Two-row-drop relaxation of the 81:3 escape-candidate scan; all 4116000 candidates fail basic incidence/crossing filters, but this is not genuine rich-class order, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6150,7 +6577,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_escape_full_neighborhood.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Full-neighborhood CSP relaxation of the 81:3 escape-candidate scan; no complete assignment exists in the implicit 329417200000000-assignment space under basic incidence/crossing filters, but this is not genuine rich-class order, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6234,7 +6661,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_escape_auxiliary_csp.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Auxiliary-rich-class CSP relaxation of the 81:3 escape scan; no complete selected-row assignment exists in the implicit 1317668800000000-assignment space under basic incidence/crossing/same-center-disjointness filters, but this is not genuine rich-class order, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6321,7 +6748,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_trigger_uniqueness.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Same-center disjointness audit for the specified 81:3 supply and connector trigger families; each specified family has maximum pairwise-disjoint subfamily size 1, but this is not genuine rich-class order, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6396,7 +6823,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_escape_rich_support_csp.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Rich-support auxiliary CSP for the 81:3 pre-3 label-6 escape; no complete selected-row assignment exists in the implicit 996734092900000000-assignment space under basic incidence/crossing/same-center-disjointness filters, but this is not support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6493,7 +6920,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_first_supply_chains.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: First-step prefix CSP for the 81:3 pre-3 label-6 escape; it finds exactly three basic-filter first-step prefix survivors, all starting at center 8, and no immediate center-6 label-6 supply extension for those prefixes, but this is not support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6590,7 +7017,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_second_supply_chains.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Second-step prefix CSP for the 81:3 pre-3 label-6 escape; it starts from the three first-step prefix survivors, leaves exactly one second-step prefix survivor and no immediate center-6 label-6 supply extension for that survivor, and is a crosswalk toward the companion distinct-intermediate and post-8 audits, but this is not support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6682,7 +7109,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_second_step_chains.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Distinct-intermediate continuation CSP for the 81:3 pre-3 label-6 escape; starting from the three stored center-8 prefix survivors, no chain of distinct intermediate centers from {2,5,7} followed by one center-6 supply support survives the same basic filters, but this is not support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6764,7 +7191,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_post8_supply_chains.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Post-center-8 raw support-catalogue accounting for the 81:3 pre-3 label-6 escape chain model; starting from the three stored center-8 prefix survivors, every ordered continuation through distinct intermediate centers from {2,5,7} before one center-6 supply support has zero selected-row completions under the same basic filters, but this is not support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6860,7 +7287,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_chain_closure_csp.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Ordered chain-closure CSP for the 81:3 pre-3 label-6 escape; starting from closure [0,1,4], with center 3 held back, every eligible sequential support-chain activation leaves no surviving prefix whose next activated center is 6, but this is not support existence, not row forcing, not genuine rich-class order, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -6947,7 +7374,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_repeated_support_catalogue_audit.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: One-layer repeated-support catalogue audit for the 81:3 pre-3 label-6 escape; starting from the four stored chain-closure prefix survivors, adding one disjoint same-center support at an already activated prefix center, and then adding one center-6 activation support leaves zero selected-row completions, but this is not support existence, not row forcing, not genuine rich-class order, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7022,7 +7449,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_two_repeated_support_catalogue_audit.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Two-repeated-support catalogue audit for the 81:3 pre-3 label-6 escape; starting from the four stored chain-closure prefix survivors, adding two repeated supports at already activated prefix centers, each disjoint from the supports already present at its own center, and then adding one center-6 activation support leaves zero initially compatible supply catalogues and zero selected-row completions, but this is not support existence, not row forcing, not genuine rich-class order, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7100,7 +7527,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_3_repeated_support_saturation_audit.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Repeated-support saturation audit for the 81:3 pre-3 label-6 escape; starting from the four stored chain-closure prefix survivors, the repeated-support model has four base catalogues, five one-repeated-support catalogues, one deduplicated two-repeated-support catalogue, and no three-repeated-support catalogue, but this is not support existence, not row forcing, not genuine rich-class order, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7180,7 +7607,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_8_singleton_support_audit.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-81 row-8 singleton-support activation-row audit; no non-original row-8 activation survivor exists in the fixed source-81 neighborhood or one-row-drop relaxation under basic incidence/crossing filters, but this is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7273,7 +7700,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_8_singleton_support_two_row_drop.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-81 row-8 singleton-support two-row-drop relaxation; only original row-8 and original dropped-row choices survive when any two non-target source-81 rows move under basic incidence/crossing filters, but this is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7354,7 +7781,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_81_8_full_neighborhood_vertex_circle.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-81 row-8 full-neighborhood vertex-circle diagnostic; basic filters leave 34 complete assignments, including 27 with non-original row 8, but vertex-circle quotient replay kills all 34. This is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7438,7 +7865,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_audit.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 outside-pair activation-row audit; no non-original row-6 activation survivor exists in the fixed source-151 neighborhood or one-row-drop relaxation under basic incidence/crossing filters, but this is not outside-pair support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7534,7 +7961,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_two_row_drop.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 outside-pair two-row-drop stress test; only original-neighborhood survivors remain when any two non-target rows move arbitrarily while row 6 ranges over the thirteen outside-pair activation rows. This is not outside-pair support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7621,7 +8048,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_full_neighborhood_vertex_circle.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 outside-pair full-neighborhood vertex-circle diagnostic; basic filters leave 28 complete assignments, including 21 with non-original row 6, but vertex-circle quotient replay kills all 28. This is not outside-pair support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7705,7 +8132,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_outside_pair_escape_partition.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 outside-pair escape-partition crosswalk; private-halo-only connector-avoiding rows have 12 basic-filter survivors and endpoint-8 connector-available rows have 16, but all 28 are vertex-circle obstructed. This is not outside-pair support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7772,7 +8199,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_endpoint8_forcing_preflight.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 endpoint-8 forcing preflight; current connector-contract plus escape-partition evidence does not force endpoint 8 because the private-halo-only pair [3,5] remains a connector-avoiding basic-filter escape. This is not endpoint-8 support existence, not row forcing, not a proof that [3,5] is impossible, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7839,7 +8266,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_private_lane_core_catalog.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] lane minimal-core catalogue; every selected-row diagnostic survivor in the private lane has a three-row strict-cycle core containing row 6 -> [0,3,5,7]. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7909,7 +8336,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_private_lane_strict_core_split.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] lane row-6 strict-core split; all 44 row-6 three-row strict-cycle cores are split into 32 label-8-visible cores and 12 label-8-free cores, with 10 distinct exact label-8-free signatures. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -7980,7 +8407,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label8_free_residual_targets.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-8-free residual target ledger; all 10 distinct exact label-8-free signatures require label 4 as an auxiliary-row witness, 8 signatures have label 4 in both auxiliary rows, and 2 signatures have strict-cycle edges that do not directly mention label 4. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -8066,7 +8493,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_quotient_roles.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 quotient-role ledger; every label-8-free residual strict cycle has a label-4-bearing quotient class, with 8 direct-cycle-edge signatures and 2 quotient-equality-only signatures. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -8145,7 +8572,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_transfer_paths.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 transfer-path ledger; records shortest selected-distance equality paths from label-4 pairs to residual strict-cycle endpoint pairs, with 11 direct endpoint class incidences, 5 one-edge transfer incidences, and 3 two-edge transfer incidences. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -8224,7 +8651,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_transfer_obligations.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 transfer-obligation ledger; splits positive transfer paths into 7 unique row-local equality obligations and 6 path motifs, with every positive transfer starting at row 5 or 7 and every row-6 obligation equal to [5,6]=[0,6] after [4,5]=[5,6]. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -8306,7 +8733,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_transfer_length_components.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 transfer length-component ledger; collapses positive transfer obligations into 6 undirected segment-length components over 9 segments, with the only row-6 route equal to D[0,6]=D[4,5]=D[5,6]. This is not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -8383,7 +8810,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_transfer_component_feasibility.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 transfer component-alone feasibility negative controls; gives a strict cyclic convex 9-gon arc witness for each of the 6 length components considered alone, including a modulus-13 witness for D[0,6]=D[4,5]=D[5,6]. This rejects component-alone impossibility only. It is not simultaneous realization of all six components, not outside-pair support existence, not row forcing, not a proof that [3,5] is impossible, not endpoint-8 forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -8460,7 +8887,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_support_hypothesis_ledger.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 transfer support-hypothesis ledger; refines the 6 length components into 7 centered support requirements, with the only row-6 route requiring center 5 witnesses [4,6] and center 6 witnesses [0,5], while no support requirement is the exact private pair [3,5]. This does not discharge support hypotheses, prove outside-pair support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -8547,7 +8974,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_cascade_row_criticality.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 cascade row-criticality diagnostic; checks that the three cascade signatures with auxiliary center pair 5,8 are strict-cycle obstructed only with the full local row package {5,6,8}, while every nonempty proper row truncation is quotient-clean. This does not prove support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -8633,7 +9060,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_cascade_endpoint8_targets.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 cascade endpoint-8 target diagnostic; for each stored cascade package, checks every center-8 rich class containing [0,4,6] and finds all 93 signature-level rich supersets quotient-obstructed. This identifies a conditional rich-class target only; it does not prove support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -8737,7 +9164,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_rich_triple_preflight.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 private-halo [3,5] label-4 cascade center-8 rich-triple preflight; records that every stored cascade package is conditionally obstructed by a center-8 rich class containing [0,4,6], but the current support ledger has no center-8 support requirement and does not force that rich triple. This is a gate diagnostic only; it does not prove support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -8843,7 +9270,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_source_crosswalk.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 center-8 source crosswalk; records that the existing source-151 row-8 singleton/one-outside packet uses bootstrap core [1,2] and singleton supports [5,7], so its checked row-8 candidates contain no pair and no full triple from the cascade target [0,4,6]. This is a gate diagnostic only; it does not prove support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -8922,7 +9349,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_core_route.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 center-8 core-route diagnostic; records that 8 of 9 center-8 local cores in the private-lane strict-core split contain [0,4,6], but only 4 of the 32 label-8-visible cores are label-8-visible and target-compatible. This is a gate diagnostic only; it does not prove support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9009,7 +9436,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_residual_target_rows.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 center-8 residual target-row diagnostic; records that four of the six residual assignments contain [0,4,6] only as off-center strict-core rows, while assignments 0 and 11 are target-sparse. This is a gate diagnostic only; it does not prove center migration, support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9119,7 +9546,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_migration_preflight.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 center-8 migration preflight; records that five off-center [0,4,6] strict-core row occurrences at centers 2, 5, or 7 would land inside the conditional center-8 endpoint target family if migrated, but current checked support and source-151 row-8 evidence do not prove center migration. This is a gate diagnostic only; it does not prove center migration, support existence, row forcing, endpoint-8 forcing, assignments 0 and 11 impossible, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9250,7 +9677,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_migration_support_crosswalk.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 center-8 migration support crosswalk; records that three of five off-center [0,4,6] residual rows have same-center support backing, including exactly one row-5 [4,6] cascade-support row, while no support requirement is centered at 8 and same-center support backing is not center-8 migration. This is a diagnostic only; it does not prove center migration, support existence, row forcing, endpoint-8 forcing, assignments 0 and 11 impossible, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9368,7 +9795,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_completions.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 center-8 target-sparse one-row completion preflight; records that assignments 0 and 11 have 12 one-row completions of target-pair rows to [0,4,6], and all fail basic filters before vertex-circle replay. This is a diagnostic only; it does not prove assignments 0 and 11 impossible, center migration, support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9463,7 +9890,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_two_row_repairs.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 center-8 target-sparse one-completion plus one-repair preflight; records that all 6624 repair-extension candidates for assignments 0 and 11 fail basic filters before vertex-circle replay. This is a diagnostic only; it does not prove assignments 0 and 11 impossible, center migration, support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9565,7 +9992,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_center8_target_sparse_three_row_repairs.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 center-8 target-sparse one-completion plus two-repair preflight; records that all 1599696 depth-two repair candidates for assignments 0 and 11 fail basic filters before vertex-circle replay. This is a diagnostic only; it does not prove assignments 0 and 11 impossible, center migration, support existence, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9663,7 +10090,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_support_cone.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 target-sparse support-cone diagnostic; records that cascade support equalities alone give no bounded one- or two-row Kalmanson/Altman cone certificate for local target-pair or completion probes, while endpoint-augmented probes are covered in 27 of 30 cases with three assignment-0 endpoint misses. This is a diagnostic only; it does not prove assignments 0 and 11 impossible, support existence, center migration, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9774,7 +10201,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_misses.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 target-sparse full-cone miss diagnostic; records that the three assignment-0 endpoint quotients left uncovered by the bounded support-cone packet have no solver witness in normalized zero-sum or nonpositive LP screens over the current 255 natural-order Kalmanson/Altman strict rows. This stores no exact dual infeasibility certificate and is diagnostic only; it does not prove that no current-row-family certificate exists, assignments 0 and 11 impossible, support existence, center migration, row forcing, endpoint-8 forcing, [3,5] impossibility, n=9, the bridge, a counterexample, or a global status update.
     json_top_level_type: object
     expected_json:
@@ -9846,7 +10273,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_full_cone_dual_certificates.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+    trust_class: EXACT_ROUTE_PRUNING_CERTIFICATE
     claim_scope: Source-151 row-6 label-4 target-sparse full-cone dual-certificate follow-up; stores exact nonnegative integer separating potentials for the three endpoint quotients left uncovered by the full-cone miss screen. This certifies infeasibility of the current normalized zero-sum and coordinatewise-nonpositive screens over the current 255-row family only; it does not prove target-sparse impossibility, n=9, the bridge, Erdos Problem #97, or a counterexample.
     json_top_level_type: object
     expected_json:
@@ -9896,7 +10323,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_alt_order_kalmanson.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+    trust_class: EXACT_ROUTE_PRUNING_CERTIFICATE
     claim_scope: Source-151 row-6 label-4 target-sparse alternate-order Kalmanson follow-up; stores exact positive integer zero-sum certificates for the three endpoint quotients left uncovered by the full-cone miss screen in the single fixed cyclic order [0,1,2,3,4,5,7,8,6]. This certifies only those encoded local quotients in that fixed order; it does not prove an all-order target-sparse obstruction, n=9, the bridge, Erdos Problem #97, or a counterexample.
     json_top_level_type: object
     expected_json:
@@ -9961,7 +10388,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_target_sparse_order_sensitivity_crosswalk.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_ROUTE_PRUNING_CERTIFICATE
+    trust_class: EXACT_ROUTE_PRUNING_CERTIFICATE
     claim_scope: Source-151 row-6 label-4 target-sparse order-sensitivity crosswalk; combines the natural-order dual route-pruning certificates and the alternate-order fixed Kalmanson certificates for the same three endpoint quotients. This records only that the current certificate route is order-sensitive and needs a new ingredient before any all-order target-sparse obstruction claim; it does not prove n=9, the bridge, Erdos Problem #97, or a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10024,7 +10451,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_6_label4_next_lemma_obligations.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 row-6 label-4 next-lemma obligation contract; joins the endpoint-8 forcing preflight, center-8 migration support crosswalk, and target-sparse order-sensitivity crosswalk to pin remaining useful bridge obligations and dead-end guards. This is task-selection infrastructure only; it does not prove support existence, center migration, row forcing, endpoint-8 forcing, pair [3,5] impossibility, assignments 0 or 11 possible or impossible, an all-order obstruction, n=9, the bridge, Erdos Problem #97, or a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10087,7 +10514,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_singleton_support_audit.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 singleton-support activation-row audit for rows 5 and 8; no non-original target-row activation survivor exists in the fixed source-151 neighborhood or one-row-drop relaxation under basic incidence/crossing filters, but this is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -10154,7 +10581,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_singleton_two_row_drop.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 singleton-support two-row-drop stress test for rows 5 and 8; only original source-151 rows survive when exactly two non-target selected rows move under basic incidence/crossing filters, but this is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -10218,7 +10645,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_151_singleton_full_neighborhood_vertex_circle.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Source-151 singleton-support full-neighborhood vertex-circle diagnostic for rows 5 and 8; basic filters leave 50 complete assignments, including 36 with non-original target rows, but vertex-circle quotient replay kills all 50. This is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -10289,7 +10716,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_singleton_full_neighborhood_crosswalk.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Bootstrap/T12 singleton-support full-neighborhood crosswalk for targets 81:8, 151:5, and 151:8; basic filters leave 84 complete assignments including 63 with non-original target rows, but source-packet vertex-circle quotient replay kills all 84. This is not singleton-support existence, not row forcing, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -10345,7 +10772,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_row_pressure.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Row-pressure diagnostic for the two tight n=9 bootstrap/T12 records; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -10399,7 +10826,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_closure_exposed.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Closure-exposed-row packet for the two tight n=9 bootstrap/T12 records; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -10449,7 +10876,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_one_outside.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: One-outside-label packet for the two tight n=9 bootstrap/T12 records; not a proof that the missing rows are forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -10509,7 +10936,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_outside_pair.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Outside-pair packet for the two tight n=9 bootstrap/T12 records; not a proof that the missing row is forced, not a proof of n=9, not a proof of the bridge, not a counterexample, and not a global status update.
     json_top_level_type: object
     expected_json:
@@ -10573,7 +11000,7 @@ artifacts:
     check_command: python scripts/check_closure_activation_wrong_fourth_negative_control.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: REVIEW_PENDING_PROVENANCE
+    trust_class: REVIEW_PENDING_PROVENANCE
     claim_scope: Wrong-fourth closure activation negative control only; not a Euclidean realization, not a proof of row forcing, not a proof of the bootstrap bridge, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10604,7 +11031,7 @@ artifacts:
     check_command: python scripts/check_closure_activation_negative_controls.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: REVIEW_PENDING_PROVENANCE
+    trust_class: REVIEW_PENDING_PROVENANCE
     claim_scope: Abstract rich-class closure activation negative controls only; not a Euclidean realization, not a proof of n=9, not a proof of the bootstrap bridge, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10635,7 +11062,7 @@ artifacts:
     check_command: python scripts/check_bootstrap_t12_anti_activation_negative_control.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: REVIEW_PENDING_PROVENANCE
+    trust_class: REVIEW_PENDING_PROVENANCE
     claim_scope: Full selected-row closure anti-activation negative control only; not a Euclidean realization, not a proof of row forcing, not a proof of the bootstrap bridge, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10666,7 +11093,7 @@ artifacts:
     check_command: python scripts/check_closure_visibility_anti_activation_control.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: REVIEW_PENDING_PROVENANCE
+    trust_class: REVIEW_PENDING_PROVENANCE
     claim_scope: Closure-visibility anti-activation negative control only; not a Euclidean realization, not a proof of row forcing, not a proof of the bootstrap bridge, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10697,7 +11124,7 @@ artifacts:
     check_command: python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: manifest_only_legacy
-    trust: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING_SECONDARY
+    trust_class: MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING_SECONDARY
     claim_scope: Secondary review-pending draft n=10 selected-witness singleton replay for the first five row0 choices only.
     json_top_level_type: object
     expected_json:
@@ -10732,7 +11159,7 @@ artifacts:
     check_command: python scripts/check_three_orbit_window_closure.py --min-m 3 --max-m 8 --audit-samples 10 --assert-clear --check-artifact data/certificates/three_orbit_window_closure_m3_16.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Float64 screen of all four offset branches of the three-orbit (t=3) concentric regular m-gon family for m = 3..16, with 60-digit deterministic re-derivation of every candidate, 240-digit boundary handling, and the m = 0 mod 4 quarter cells recorded as named handoff sub-cases for separate quarter-cell artifacts; screen evidence only, not an all-m lemma, not an exact certificate for screened cells, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10782,7 +11209,7 @@ artifacts:
     check_command: python scripts/check_three_square_m4_closure.py --assert-clear --check-artifact data/certificates/three_square_m4_closure.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: SMT (z3) certificate that no strictly convex three concentric regular 4-gon (n=12) configuration is branch-G 4-bad; all 64 discrete sign/witness combinations of the 4-bad conditions are UNSAT inside the strict-convexity radius window. Exact obstruction for this restricted family only; m=4 half-step branches are screen-grade in the three-orbit artifact; not an all-m result, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10813,7 +11240,7 @@ artifacts:
     check_command: python scripts/check_two_orbit_window_all_m_smt.py --assert-clear --check-artifact data/certificates/two_orbit_window_all_m_smt.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: SMT (z3 NRA) certificate for Step 5 of the review-pending two-orbit circulant obstruction only - for every m >= 3, every a in {1..ceil(m/2)-1}, and every odd p in {1..m-1}, the row equation E_A has no root in the open strict-convexity window (cos h, sec h), proved via a continuous polynomial relaxation containing every integer instance, with the closed-boundary contact pinned uniquely to the m=3 corner x = sec(pi/3). Supersedes the finite m<=400 float64 screen as the machine audit of Step 5; the two-orbit lemma's Steps 1-4 remain review-pending prose. Not a proof of the full two-orbit lemma by itself, not a proof of Erdos Problem #97, and not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10844,7 +11271,7 @@ artifacts:
     check_command: python scripts/check_quarter_cell_closure.py --assert-clear --check-artifact data/certificates/quarter_cell_closure.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Three-orbit (t=3) quarter cells (m=0 mod 4). Exact m-uniform self-tested lemmas - the A-row reduction (the cell closes iff A_0 cannot be 4-bad, uniform in the C-row choice a3) and the boundary-band confinement of the offsets - plus a float grid over m in {4,8,12,16} showing every sampled witness config is strictly non-convex. The locus is tangent to the convexity boundary, so for m>=8 this artifact is evidence of closure, not a certificate; m=4 is closed exactly by SMT elsewhere, and the m=8,12,16 finite-m certificate is recorded separately by quarter_cell_derivative_certificate_m8_12_16. Records that the exact-SMT route does not scale past m=4. Not an all-m lemma, not a proof of Erdos Problem #97, not a counterexample.
     json_top_level_type: object
     expected_json:
@@ -10872,7 +11299,7 @@ artifacts:
     check_command: python scripts/check_quarter_cell_signed_band_preflight.py --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Quarter-cell signed-band turn preflight for the three-orbit (t=3) m=0 mod 4 residual. Records the exact boundary-band case split and the first nonzero negative turn term in each of the 12 signed cells, plus deterministic float stress of those fixed killer turns for m in {8,12,16,20,40,100}. This preflight artifact is not the global sign proof and does not, by itself, certify the m=8,12,16 quarter cells; those finite cells are handled separately by the quarter-cell derivative certificate. This is not an all-m three-orbit obstruction, proof of Erdos Problem #97, counterexample, or official/global status update.
     json_top_level_type: object
     expected_json:
@@ -10907,7 +11334,7 @@ artifacts:
     check_command: python scripts/check_quarter_cell_derivative_certificate.py --artifact data/certificates/quarter_cell_derivative_certificate.json --check --assert-expected --json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: Repo-local interval-derivative certificate for the A-row-reduced three-orbit C_m quarter-cell witness locus at m in {8,12,16}. For each listed m, certifies a fixed non-positive killer turn throughout each of the 12 strict signed boundary-band cells by interval arithmetic over 0<=d,e<=upper(delta_m). Restricted-family finite-m interval certificate only; not an all-m quarter-cell obstruction, not an all-m three-orbit obstruction, not a proof of Erdos Problem #97, not a counterexample, not a formal proof-assistant certificate, and not an official/global status update.
     json_top_level_type: object
     expected_json:
@@ -10942,7 +11369,7 @@ artifacts:
     check_command: python scripts/check_quarter_cell_mixed_cells_all_m_smt.py --assert-clear --check-artifact data/certificates/quarter_cell_mixed_cells_all_m_smt.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: Exact all-m closure of the three mixed-derivative three-orbit quarter-cell signed band cells (LL_y-_z+, LH_y+_z+, HH_y+_z-) for every m >= 8 at once - exact sympy boundary identities F(d,0)=F(0,e)=0 plus one z3 NRA UNSAT decision per cell over a polynomial relaxation containing every T = 2*pi/m in (0, pi/4] and the full closed band square, with double integration giving a negative killer turn throughout each strict cell. Supersedes the finite m=8,12,16 interval certificate for these three cells only; the nine first-derivative cells (outside this artifact's scope; described as finite-m-only in this artifact's frozen embedded scope, which predates the follow-up) are now closed separately by quarter_cell_first_derivative_all_m_dominance. Conditional on the review-pending A-row reduction and band confinement; not a quarter-cell, three-orbit, n=9, or Erdos Problem #97 closure, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
@@ -10968,7 +11395,7 @@ artifacts:
     check_command: python scripts/check_quarter_cell_first_derivative_all_m_dominance.py --assert-clear --check-artifact data/certificates/quarter_cell_first_derivative_all_m_dominance.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: All-m dominance closure of the nine first-derivative three-orbit quarter-cell signed band cells for every m >= 8 at once - exact sympy corner identities F_c(T,0,0) = +/-(sin T + cos T - 1) and vanishing-boundary identities, an outward-rounded interval Lipschitz bound (<= 4) over a box containing every band square, and z3-verified band/dominance inequalities showing 4*delta_bar < A on the whole m >= 8 range, so each derivative component keeps its corner sign and one-variable integration closes each strict cell. Together with quarter_cell_mixed_cells_all_m_smt this closes all twelve signed band cells for every m >= 8; the finite m=8,12,16 interval certificate is retained as an independent cross-check. Conditional on the review-pending A-row reduction and band confinement; not a closure of non-quarter three-orbit branches, n=9, or Erdos Problem #97, not a counterexample, and not an official/global status update.
     json_top_level_type: object
     expected_json:
@@ -10995,7 +11422,7 @@ artifacts:
     check_command: python scripts/check_n8_survivors_smt.py --assert-clear --check-artifact data/certificates/n8_survivors_smt.json
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: EXACT_OBSTRUCTION
+    trust_class: EXACT_OBSTRUCTION
     claim_scope: Independent z3 (NRA) cross-check that none of the 15 n=8 selected-witness survivor classes has a strictly convex octagon realization (equal-distance + perpendicular-bisector constraints plus strict convexity are UNSAT for every class). Independent decision procedure relative to the existing Groebner / cyclic-order arguments; covers all 15 classes including the four Groebner-dependent ones (3,4,5,14) the SymPy-free recheck skips. Repo-local exact-obstruction cross-check pending external review; not a general proof of Erdos Problem #97, not a counterexample, not an official/global status update.
     json_top_level_type: object
     expected_json:
@@ -11039,7 +11466,7 @@ artifacts:
     check_command: python scripts/check_n9_parallel_endpoint_closure.py --check --assert-expected
     direct_edit_allowed: false
     provenance_mode: embedded
-    trust: REVIEW_PENDING_DIAGNOSTIC
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: >
       Lighter combinatorial second-source closure of the review-pending n=9
       pre-vertex-circle frontier: all 184 stored frontier assignments are killed

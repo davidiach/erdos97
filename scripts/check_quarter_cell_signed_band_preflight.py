@@ -40,6 +40,14 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Sequence
 
+SRC = Path(__file__).resolve().parents[1] / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from erdos97.portable_compare import (  # noqa: E402
+    assert_portable_payload_equal as _assert_portable_payload_equal,
+)
+
 
 SCHEMA = "erdos97.quarter_cell_signed_band_preflight.v1"
 STATUS = "QUARTER_CELL_SIGNED_BAND_TURN_PREFLIGHT_ONLY"
@@ -47,6 +55,11 @@ TRUST = "REVIEW_PENDING_DIAGNOSTIC"
 DEFAULT_MS = (8, 12, 16, 20, 40, 100)
 PREFLIGHT_ONLY_TARGET_MS = (8, 12, 16)
 DEFAULT_GRID = 72
+# The sampled turn grid is explicitly diagnostic floating-point evidence.
+# Linux/macOS libm evaluations differ at the tail of these calculations, so
+# compare only those JSON floats through a narrow portability envelope.  All
+# symbolic strings, integer counts, booleans, signs, and claim-scope fields
+# remain exact comparisons.
 
 
 @dataclass(frozen=True)
@@ -357,14 +370,25 @@ def build_payload(ms: Sequence[int], grid: int) -> dict[str, Any]:
 
 
 def assert_expected(payload: dict[str, Any]) -> None:
-    assert payload["schema"] == SCHEMA
-    assert payload["status"] == STATUS
-    assert payload["trust"] == TRUST
-    assert payload["signed_case_count"] == 12
-    assert payload["leading_killer_case_count"] == 12
-    assert payload["leading_sign_ok_for_sample_ms"] is True
-    assert payload["sampled_fixed_killer_all_negative"] is True
-    assert payload["preflight_only_not_certified_m_values"] == list(PREFLIGHT_ONLY_TARGET_MS)
+    """Validate proof-facing decisions even when Python runs with ``-O``."""
+    expected: dict[str, Any] = {
+        "schema": SCHEMA,
+        "status": STATUS,
+        "trust": TRUST,
+        "signed_case_count": 12,
+        "leading_killer_case_count": 12,
+        "leading_sign_ok_for_sample_ms": True,
+        "sampled_fixed_killer_all_negative": True,
+        "preflight_only_not_certified_m_values": list(PREFLIGHT_ONLY_TARGET_MS),
+    }
+    for key, expected_value in expected.items():
+        if key not in payload:
+            raise AssertionError(f"missing expected field: {key}")
+        actual = payload[key]
+        if type(actual) is not type(expected_value) or actual != expected_value:
+            raise AssertionError(
+                f"{key}: expected {expected_value!r}, got {actual!r}"
+            )
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -397,13 +421,19 @@ def main(argv: Sequence[str] | None = None) -> int:
             fh.write(json.dumps(payload, indent=1, sort_keys=True) + "\n")
     if args.check:
         stored = _read_json(artifact_path)
-        if stored != payload:
+        try:
+            # Keep the claim/status and decision assertions exact for the
+            # checked-in object as well as the freshly generated payload.
+            assert_expected(stored)
+            _assert_portable_payload_equal(stored, payload)
+        except AssertionError as exc:
             print(
                 json.dumps(
                     {
                         "schema": SCHEMA,
                         "status": "ARTIFACT_MISMATCH",
                         "artifact": str(artifact_path),
+                        "reason": str(exc),
                     },
                     indent=1,
                     sort_keys=True,

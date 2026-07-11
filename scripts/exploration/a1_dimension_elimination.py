@@ -18,7 +18,7 @@ scripts/verify_p24_metric_linear_nonconvex.py).
 THE OVER-DETERMINATION (Part A) -- exact elimination on a fixed pattern
 ------------------------------------------------------------------------------
 Fix a 4-set S_i per center i. For each center the three equal-distance
-equations |p_i-p_{a}|^2 - |p_i-p_{b}|^2 = 0 (b in S_i\{a}) are imposed, giving
+equations |p_i-p_{a}|^2 - |p_i-p_{b}|^2 = 0 (b in S_i\\{a}) are imposed, giving
 3n polynomials in 2n coordinates. Gauge-fix a rigid motion + scale (here we fix
 p_0=(0,0), p_1=(1,0): 3 of the 4 similarity d.o.f.; the 4th, global rotation,
 is already used by pinning p_1 on the x-axis -- wait, p_1=(1,0) fixes 2 trans +

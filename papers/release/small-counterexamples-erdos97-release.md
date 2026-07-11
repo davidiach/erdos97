@@ -6,20 +6,34 @@ Self-contained reviewer release note. Source-of-truth status remains README.md, 
 
 Erdos Problem #97 asks whether every convex polygon has a vertex with
 no other four vertices equidistant from it. This release note packages
-the repository's small-case result: in the selected-witness formulation
-there is no strictly convex counterexample with n <= 8, in the
-repo-local machine-checked finite-case sense. The official problem
-remains falsifiable/open, and independent review is still requested
-before paper-style or public theorem-style use.
+the repository's small-case theorem: no bad strictly convex polygon
+exists with n <= 8. An elementary geometric proof is independently
+corroborated by the selected-witness machine-checked finite-case
+pipeline. The official problem remains falsifiable/open, and external
+review is still requested before paper-style citation.
 
 ## Status And Scope
 
 Official/global status: falsifiable/open, rechecked at
-https://www.erdosproblems.com/97 on 2026-07-02; the page
+https://www.erdosproblems.com/97 on 2026-07-09; the page
 reports last edited 2025-10-27. This packet does not
 prove Erdos Problem #97, does not claim a counterexample, and does not
-promote any n=9 or n=10 artifact. It isolates the n <= 8 selected-witness
-finite-case evidence for external review.
+promote any n=9 or n=10 artifact. It packages the n <= 8 elementary
+proof and selected-witness finite-case evidence for external review.
+
+## Elementary Geometric Theorem
+
+Theorem. If every vertex of a strictly convex n-gon has four other
+vertices at one common distance, then n >= 9.
+
+Count apex-marked isosceles triangles. Strict convexity permits at most
+one apex on either side of a base line, and no apex on the base itself;
+therefore T <= n(n-2). Badness gives T >= 6n, excluding n <= 7. In an
+octagon equality saturates every base capacity. Length-2 diagonals then
+force equal side lengths, while every length-3 diagonal forces one of
+two adjacent exterior turns to equal 2*pi/3. These marked turns cover
+the 8-cycle, so at least four are required, contradicting total exterior
+turn 2*pi. The full proof is docs/n8-geometric-proof.md.
 
 ## Problem And Selected Witnesses
 
@@ -69,19 +83,17 @@ L10. Independent cross-checks: a SymPy-free rational recheck covers 11
 classes, and an order-free z3 nonlinear-real-arithmetic replay finds
 all 15 classes UNSAT for strictly convex octagon realization.
 
-## Finite-Case Theorem Under Review
+## Machine-Checked Corroboration
 
-Claim under review. In the selected-witness formulation, no strictly
-convex counterexample exists for n <= 8.
-
-Proof sketch. L5 excludes n <= 7. For n=8, L6 reduces the incidence
+The selected-witness pipeline separately excludes n <= 8. L5 handles
+n <= 7. For n=8, L6 reduces the incidence
 layer to regular 4-in/4-out selected-witness systems. L7 exhausts the
 resulting necessary incidence systems and reduces them to 15 canonical
 classes. L8 translates every survivor into exact algebraic and
 cyclic-order constraints. L9 kills all 15 classes with exact checks.
 L10 gives two independent defensive replays. Therefore the repository
-has a machine-checked finite-case artifact for n <= 8, subject to the
-stated review boundary.
+has independent machine-checked finite-case corroboration for n <= 8,
+subject to the stated artifact-review boundary.
 
 ## Reproduction Commands
 
@@ -107,8 +119,9 @@ all 15 survivor classes UNSAT for strictly convex realization.
 
 ## Reviewer Boundary
 
-The reviewer should check the geometric lemmas, the row-0 relabeling
-symmetry break, the exact incidence filters, and the exact certificate
-replays for classes 3, 4, 5, and especially 14. A successful review may
-support paper-style use of the n <= 8 finite-case result. It would not
-update the official/global status and would not settle any case n >= 9.
+The reviewer should check the base-apex and diagonal-chain geometry,
+the row-0 relabeling symmetry break, the exact incidence filters, and
+the exact certificate replays for classes 3, 4, 5, and especially 14.
+A successful external review may support paper-style use of the n <= 8
+theorem and its computational corroboration. It would not update the
+official/global status and would not settle any case n >= 9.

@@ -1,13 +1,13 @@
 # A Short Note on Small Counterexamples to Erdos Problem 97
 
-Draft note for independent review, 2026-04-30.
+Repo-local theorem note, reviewed 2026-07-09.
 
 ## Abstract
 
 Erdos Problem #97 asks whether every convex polygon has a vertex with no four
-other vertices equidistant from it. This proof-note draft presents a proposed
-small-case obstruction: no strictly convex counterexample exists with at most
-eight vertices. The argument is elementary. It counts isosceles triangles by
+other vertices equidistant from it. This note proves the small-case
+obstruction: no strictly convex counterexample exists with at most eight
+vertices. The argument is elementary. It counts isosceles triangles by
 their apexes and by their base pairs, then treats the octagon equality case
 using exterior turn angles.
 
@@ -26,12 +26,12 @@ Fishburn--Reeds constructed a 20-point common-unit-distance 3-neighbor example.
 Both are `k=3` phenomena. The 4-neighbor convex-polygon problem remains open at
 the official problem page as of the 2026-04-30 check.
 
-The purpose of this note is narrower: to give a human-readable proof draft for
-the repo-local small-case exclusion for `n <= 8`.
+The purpose of this note is narrower: to give a human-readable proof of the
+repo-local small-case exclusion for `n <= 8`.
 
 ## 2. Statement under review
 
-Theorem draft. Let `A` be the vertex set of a strictly convex polygon. If every
+Theorem. Let `A` be the vertex set of a strictly convex polygon. If every
 vertex of `A` has four other vertices at a common distance from it, then
 `|A| >= 9`.
 
@@ -67,6 +67,10 @@ p = (s/t) q + ((1 - s/t)/2) a + ((1 - s/t)/2) b.
 Thus `p` lies in the convex hull of `{a,b,q}`, so `p` cannot be an extreme
 vertex of the polygon. This contradicts strict convexity. Hence at most one
 apex lies on each side of `ab`.
+
+There is no apex on the line `ab` itself: the perpendicular bisector meets
+that line only at the midpoint `(a+b)/2`, which cannot be an extreme point of
+`conv(A)`.
 
 If `ab` is a polygon side, all other vertices lie on one side of its supporting
 line, so there is at most one apex. If `ab` is a diagonal, there can be at most
@@ -134,6 +138,11 @@ Second, every base-pair capacity is saturated. Thus every side is the base of
 exactly one isosceles triangle, and every diagonal is the base of exactly two,
 one apex on each side of the diagonal.
 
+For a diagonal of a strictly convex polygon, the vertices on its two open
+boundary chains lie in the two opposite open half-planes bounded by the
+diagonal's line. Thus the intermediate vertices on each chain are exactly the
+polygon vertices on the corresponding side of the line.
+
 Consider the length-2 diagonal `v_i v_{i+2}`. One side of this diagonal contains
 only the intermediate vertex `v_{i+1}`. Since the diagonal must have an apex on
 each side, `v_{i+1}` is the apex on the short side. Hence
@@ -200,15 +209,15 @@ sum_j tau_j >= 4*(2*pi/3) = 8*pi/3 > 2*pi,
 
 contradicting the exterior-turn sum.
 
-Thus no bad octagon exists. Combined with the count for `n <= 7`, this would
-prove the theorem draft.
+Thus no bad octagon exists. Combined with the count for `n <= 7`, this proves
+the theorem.
 
 ## 6. Status and review notes
 
-This is a proof-note draft. It is independent of the repository's incidence
-enumeration and exact survivor scripts, but it should still receive independent
-mathematical review before being used as a public theorem-style claim outside
-the repository.
+This is the repo-local theorem note. It is independent of the repository's
+incidence enumeration and exact survivor scripts. The proof was line-by-line
+rederived twice during the 2026-07-09 repository audit; independent external
+mathematical review is still encouraged and is not claimed.
 
 The argument does not address `n >= 9` and does not claim a proof or
 counterexample for Erdos Problem #97.

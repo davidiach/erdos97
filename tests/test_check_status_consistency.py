@@ -34,6 +34,19 @@ def test_local_n8_status_must_be_in_one_paragraph() -> None:
     assert not checker.has_local_n8_status(bad)
 
 
+def test_local_n8_theorem_must_be_in_one_paragraph() -> None:
+    checker = load_checker()
+
+    good = "A repo-local elementary geometric theorem rules out `n <= 8`."
+    bad = (
+        "The repository has an elementary theorem.\n\n"
+        "A separate artifact discusses `n <= 8`."
+    )
+
+    assert checker.has_local_n8_theorem(good)
+    assert not checker.has_local_n8_theorem(bad)
+
+
 def test_stale_n8_line_requires_archival_context() -> None:
     checker = load_checker()
 

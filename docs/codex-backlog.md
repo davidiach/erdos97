@@ -2,12 +2,12 @@
 
 Status: operational planning guidance only; not mathematical evidence.
 
-Live open issues were rechecked through GitHub on 2026-05-17. The legacy
-issues `#5`, `#81`, `#82`, and `#83` now have an explicit repository crosswalk
-in `docs/open-issue-resolution-crosswalk.md`, checked by
+GitHub issues were rechecked on 2026-07-09: the repository had no open GitHub
+issues. Legacy issues `#5`, `#81`, `#82`, and `#83` were closed with the
+`completed` reason on 2026-05-17. Their historical acceptance-evidence
+crosswalk remains in `docs/open-issue-resolution-crosswalk.md`, checked by
 `python scripts/check_open_issue_resolution_crosswalk.py --assert-expected --json`.
-That crosswalk recommends closing those issues as scoped issue-resolution
-bookkeeping only. This backlog is a Codex-facing companion to
+This backlog is a Codex-facing companion to
 `docs/review-priorities.md`; it does not change the repository claims. No
 general proof and no counterexample are claimed, and the official/global status
 remains falsifiable/open unless manually rechecked and updated from the

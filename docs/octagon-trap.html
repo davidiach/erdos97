@@ -424,7 +424,7 @@
     <header class="topbar">
       <div class="brand">
         <h1>Octagon Trap</h1>
-        <div class="subtitle">An interactive view of a proof-note draft for the small-case obstruction in Erdos Problem #97; independent review is still pending.</div>
+        <div class="subtitle">An interactive view of the repo-local elementary theorem excluding bad strictly convex polygons with at most eight vertices; external review remains welcome.</div>
         <nav class="link-row" aria-label="Reference links">
           <a href="./n8-geometric-proof.md">Proof note</a>
           <a href="https://www.erdosproblems.com/97">Official #97 page</a>
@@ -559,14 +559,14 @@
       payoff: {
         number: "3",
         title: "First payoff",
-        copy: "In the draft proof note, combining the lower count and upper count forces 6n <= n(n-2). Subject to independent review, this rules out every bad polygon with seven or fewer vertices.",
+        copy: "In the theorem, combining the lower count and upper count forces 6n <= n(n-2). This rules out every bad polygon with seven or fewer vertices.",
         formula: "6n <= n(n - 2)",
         formulaCopy: "The inequality starts being possible only at n = 8."
       },
       octagon: {
         number: "4",
         title: "Octagon trap",
-        copy: "At n = 8 the draft proof note says the count is exactly tight. Saturation forces equal side lengths, then length-3 diagonals force a vertex cover of 120 degree exterior turns.",
+        copy: "At n = 8 the count is exactly tight. Saturation forces equal side lengths, then length-3 diagonals force a vertex cover of 120 degree exterior turns.",
         formula: "4 x 120deg = 480deg",
         formulaCopy: "But exterior turns in a convex polygon sum to 360 degrees."
       }
@@ -1045,7 +1045,7 @@
         ],
         payoff: [
           [`For n = ${state.n}: 6n = ${lower}, while n(n-2) = ${upper}.`, canPass ? "" : "red"],
-          [canPass ? "The double count does not rule this n out by itself." : "The draft proof note's double count rules this n out immediately.", canPass ? "orange" : "red"]
+          [canPass ? "The double count does not rule this n out by itself." : "The theorem's double count rules this n out immediately.", canPass ? "orange" : "red"]
         ],
         octagon: [
           ["This step is specific to n = 8; the vertex-count slider is locked while this tab is active.", ""],

@@ -40,6 +40,14 @@ reports that Lean compilation was skipped. Use
 `python scripts/check_lean_files.py --require-lean` when a Lean environment is
 expected.
 
+The repository pins `leanprover/lean4:v4.31.0` in `lean-toolchain`. The
+dedicated `lean` GitHub Actions workflow installs that exact toolchain and
+requires every local `.lean` file to compile. The pilot currently has no
+external Lake dependencies, so there is intentionally no dependency manifest;
+`lakefile.lean` and `lean-toolchain` are the complete toolchain inputs. Any
+future mathlib or Formal Conjectures import must add and commit the resulting
+Lake dependency manifest in the same change.
+
 The remaining upstream bridge is explicit: prove that the Formal Conjectures
 `HasNEquidistantProperty 4` predicate yields the
 `HasFourPointFiberWitnesses` row data in `OfficialBridge.lean`, by unpacking

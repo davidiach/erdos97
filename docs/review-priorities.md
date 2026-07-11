@@ -3,15 +3,15 @@
 Status: planning guidance only; not mathematical evidence.
 
 This file turns current review feedback into concrete work items. It does not
-change the repository claims: no general proof and no counterexample are
-claimed, the official/global status remains falsifiable/open, and the local
-`n <= 8` selected-witness result remains repo-local and machine-checked pending
-independent review.
+change the global claim: no general proof and no counterexample are claimed,
+and the official/global status remains falsifiable/open. The local `n <= 8`
+geometric theorem has passed repository review; its selected-witness
+corroboration remains machine-checked and external review is still welcome.
 
 For a Codex-ready task list with issue links, commands, acceptance criteria,
 trust deltas, and forbidden overclaiming text, see `docs/codex-backlog.md`.
 
-## Priority 1 - review the octagon proof note
+## Priority 1 - external review of the octagon theorem
 
 Target: `docs/n8-geometric-proof.md`.
 
@@ -28,9 +28,10 @@ Ask independent geometry reviewers to check:
 - the length-3 diagonal step forcing a cover of adjacent exterior-turn pairs;
 - the final vertex-cover and total-turn contradiction.
 
-Acceptance standard: a written review should identify every accepted lemma and
-any exact gap. If the note survives review, keep it as the main human-readable
-small-case proof route, with the computational pipeline as an audit appendix.
+Repository audit outcome (2026-07-09): accepted after explicitly adding the
+on-base midpoint exclusion and diagonal half-plane separation. A future
+external review should still identify every accepted lemma and any exact gap;
+the computational pipeline remains independent audit evidence.
 
 ## Priority 2 - audit and extend the n=8 checker
 
