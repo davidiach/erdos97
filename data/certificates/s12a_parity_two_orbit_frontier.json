@@ -1,0 +1,126 @@
+{
+ "schema": "erdos97.s12a_parity_two_orbit_frontier.v2",
+ "status": "INCIDENCE_PATTERN_FRONTIER_LEAD_ALL_ABSTRACT_FILTERS_PASS",
+ "trust": "REVIEW_PENDING_DIAGNOSTIC",
+ "claim_scope": "Abstract selected-witness (pattern, cyclic order) frontier lead: S12A passes every currently implemented necessary abstract filter at the natural order (row caps, witness-pair capacity, two-overlap crossing, vertex-circle quotient, full Kalmanson cone LP screens, value rows). Euclidean realizability is a separate unproved question; the C6-symmetric realizations are excluded by the two-orbit circulant lemma, so any realization must be asymmetric. Not a counterexample to Erdos Problem #97 and no change to the official/global status.",
+ "provenance": {
+  "generator": "scripts/check_s12a_frontier_pattern.py",
+  "command": "python scripts/check_s12a_frontier_pattern.py --write --assert-expected"
+ },
+ "n": 12,
+ "cyclic_order": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
+ "rows": [
+  [
+   1,
+   2,
+   10,
+   11
+  ],
+  [
+   3,
+   6,
+   8,
+   11
+  ],
+  [
+   0,
+   1,
+   3,
+   4
+  ],
+  [
+   1,
+   5,
+   8,
+   10
+  ],
+  [
+   2,
+   3,
+   5,
+   6
+  ],
+  [
+   0,
+   3,
+   7,
+   10
+  ],
+  [
+   4,
+   5,
+   7,
+   8
+  ],
+  [
+   0,
+   2,
+   5,
+   9
+  ],
+  [
+   6,
+   7,
+   9,
+   10
+  ],
+  [
+   2,
+   4,
+   7,
+   11
+  ],
+  [
+   0,
+   8,
+   9,
+   11
+  ],
+  [
+   1,
+   4,
+   6,
+   9
+  ]
+ ],
+ "structure": "circulant with parity: even centers use offsets {1, 2, 10, 11}; odd centers use offsets {2, 5, 7, 10}",
+ "incidence": {
+  "row_pair_intersection_max": 2,
+  "witness_pair_capacity_violations": 0,
+  "two_overlap_crossing_violations": 0
+ },
+ "vertex_circle_obstructed": false,
+ "kalmanson_full_cone_natural_order": {
+  "distance_classes": 32,
+  "distinct_nonzero_strict_rows": 770,
+  "zero_rows": 0,
+  "zero_sum_lp_feasible": false,
+  "nonpositive_lp_feasible": false,
+  "solver": "scipy linprog (HiGHS); solver diagnostic only"
+ },
+ "value_row_layers": {
+  "N": "sat",
+  "S": "sat",
+  "OD": "sat",
+  "ODS": "sat"
+ },
+ "non_claims": [
+  "not a counterexample to Erdos Problem #97",
+  "not a Euclidean realizability claim",
+  "not an all-order classification",
+  "no change to the official/global falsifiable/open status"
+ ]
+}
