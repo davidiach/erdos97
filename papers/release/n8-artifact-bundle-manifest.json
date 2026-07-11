@@ -79,7 +79,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "150d7e3a99ab9fc2375d0b2193fc0dd46fd0f324082289859fbe84ec90482641",
+      "sha256": "d2cc485c3426e214242e75706e1da41e69d9f9f89c3b2aebe26fb185003fc2d2",
       "size_bytes": 2209
     },
     {
@@ -169,8 +169,8 @@
     },
     {
       "path": "metadata/erdos97.yaml",
-      "sha256": "5496113449b52f26b941380a635d0f23a65823817694176133f875eebf60f4f4",
-      "size_bytes": 80823
+      "sha256": "19ce71dda9ee4fa670822a731465262feedc23ae6138c42580472c68cd063492",
+      "size_bytes": 81391
     },
     {
       "path": "papers/n8-reviewer-packet.md",
@@ -290,11 +290,11 @@
       "path": "scripts/build_n8_release_packet.py",
       "sha256": "e08a4f7ce681530f54d74967e0df92d91cce0224a84a7497ea5149d20794fc35"
     },
-    "bundle_source_files_sha256": "7ffb00fddc7b3f8bb59e8abe0cf0620e3d556570f380b75775017a970af8179a",
-    "commit": "2634a6040470b6579fd94e871b11cb85516bfe6b",
-    "commit_url": "https://github.com/davidiach/erdos97/commit/2634a6040470b6579fd94e871b11cb85516bfe6b",
+    "bundle_source_files_sha256": "013433bf83404181401cc597cf2d626017de43bd53e37e08a6d7480fec1e1293",
+    "commit": "d89c0ae6ec4fb732eb772d2572af16aa5edd44d5",
+    "commit_url": "https://github.com/davidiach/erdos97/commit/d89c0ae6ec4fb732eb772d2572af16aa5edd44d5",
     "repository_url": "https://github.com/davidiach/erdos97",
-    "tree": "4bd355a3df448b47e2af932caac37325a5db1bf0",
+    "tree": "bfcfb62921b65ab826ad26657cea4a50880b73bc",
     "worktree": {
       "dirty": false,
       "policy": "Build and check require a clean Git worktree. Generated release outputs are committed after, and are not part of, the named source snapshot."
