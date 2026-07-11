@@ -95,17 +95,14 @@ that enumeration as unverified session evidence until re-run.
 
 ## Replay instructions
 
-All checks are one-command replayable from a python shell with the repo's
-`src` on the path; the artifact JSON embeds the full verification
-transcript, and the vertex-circle / value-row calls are:
+The full diagnostic suite (structure, caps/capacity/crossing,
+vertex-circle, Kalmanson LP screens, value-row layers) is replayed by the
+managed checker:
 
-```python
-from erdos97.vertex_circle_order_filter import vertex_circle_order_obstruction
-rows = [(1,2,10,11),(3,6,8,11),(0,1,3,4),(1,5,8,10),(2,3,5,6),(0,3,7,10),
-        (4,5,7,8),(0,2,5,9),(6,7,9,10),(2,4,7,11),(0,8,9,11),(1,4,6,9)]
-assert not vertex_circle_order_obstruction(rows, list(range(12))).obstructed
-
-import sys; sys.path.insert(0, "scripts")
-from check_block6_value_rows_closure import solve_layers
-assert solve_layers(list(range(12)), rows, "ODS") == "sat"
+```bash
+python scripts/check_s12a_frontier_pattern.py --check --assert-expected --json
 ```
+
+The stored artifact embeds its provenance and expected summary; the same
+command is registered in the artifact audit registry
+(`scripts/run_artifact_audit.py`).

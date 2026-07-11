@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import sys
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Callable, Mapping
 
@@ -50,7 +51,9 @@ from check_n9_relation_skeleton_closed_descent_crosswalk import (  # noqa: E402
 )
 from check_artifact_provenance import (  # noqa: E402
     DEFAULT_MANIFEST as DEFAULT_GENERATED_ARTIFACTS_MANIFEST,
+    SCHEMA as GENERATED_ARTIFACTS_SCHEMA,
     load_manifest as load_generated_artifact_manifest,
+    validate_native_trust_policy,
 )
 from check_relation_skeleton_local_lemma_crosswalk import (  # noqa: E402
     DEFAULT_RELATION_SKELETONS,
@@ -1458,6 +1461,10 @@ def _assert_expected_manifest_metadata_contract(payload: Mapping[str, Any]) -> N
         raise AssertionError("manifest metadata expected records mismatch")
     if contract.get("observed_metadata") != expected:
         raise AssertionError("manifest metadata observed records mismatch")
+    if contract.get("native_trust_policy_status") != "passed":
+        raise AssertionError("manifest native trust policy failed")
+    if contract.get("native_trust_policy_errors") != []:
+        raise AssertionError("manifest native trust policy errors are not empty")
     for key in (
         "missing_manifest_metadata_paths",
         "unexpected_manifest_metadata_paths",
@@ -3126,7 +3133,12 @@ def _manifest_metadata_contract(
     expected_metadata = _expected_manifest_metadata()
     artifacts = input_manifest.get("artifacts", [])
     artifact_records = artifacts if isinstance(artifacts, list) else []
-    observed_metadata, malformed_count, duplicate_generated_paths = (
+    (
+        observed_metadata,
+        malformed_count,
+        duplicate_generated_paths,
+        native_trust_policy_errors,
+    ) = (
         _observed_manifest_metadata(
             artifact_records,
             set(expected_metadata),
@@ -3160,6 +3172,8 @@ def _manifest_metadata_contract(
         errors.append(
             f"generated-artifacts manifest duplicate paths: {duplicate_generated_paths!r}"
         )
+    for policy_error in native_trust_policy_errors:
+        errors.append(f"generated-artifacts native trust policy: {policy_error}")
     if missing:
         errors.append(f"input_manifest metadata contract missing paths: {missing!r}")
     if unexpected:
@@ -3180,6 +3194,7 @@ def _manifest_metadata_contract(
                 malformed_count
                 or duplicate_paths
                 or duplicate_generated_paths
+                or native_trust_policy_errors
                 or missing
                 or unexpected
                 or mismatches
@@ -3197,6 +3212,10 @@ def _manifest_metadata_contract(
         "unexpected_manifest_metadata_paths": unexpected,
         "duplicate_manifest_metadata_paths": duplicate_paths,
         "duplicate_generated_metadata_paths": duplicate_generated_paths,
+        "native_trust_policy_status": (
+            "passed" if not native_trust_policy_errors else "failed"
+        ),
+        "native_trust_policy_errors": native_trust_policy_errors,
         "mismatched_manifest_metadata": mismatches,
         "malformed_manifest_metadata_count": malformed_count,
     }
@@ -3216,7 +3235,7 @@ def _expected_manifest_metadata() -> dict[str, dict[str, Any]]:
         check_command: str | None = None,
         has_checker: bool = True,
         provenance_mode: str = "embedded",
-        trust: str | None = "REVIEW_PENDING_DIAGNOSTIC",
+        trust_class: str | None = "REVIEW_PENDING_DIAGNOSTIC",
     ) -> None:
         key = _artifact_path_key(path)
         metadata[key] = {
@@ -3236,7 +3255,7 @@ def _expected_manifest_metadata() -> dict[str, dict[str, Any]]:
             ),
             "provenance_mode": provenance_mode,
             "direct_edit_allowed": False,
-            "trust": trust,
+            "trust_class": trust_class,
             "size_bytes": digests[key]["size_bytes"],
             "sha256": digests[key]["sha256"],
         }
@@ -3266,7 +3285,7 @@ def _expected_manifest_metadata() -> dict[str, dict[str, Any]]:
         check_command=None,
         has_checker=False,
         provenance_mode="manifest_only_legacy",
-        trust="MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
+        trust_class="MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING",
     )
     add_writer(
         DEFAULT_CLASSIFICATION,
@@ -3302,22 +3321,24 @@ def _observed_manifest_metadata(
     expected_paths: set[str],
     *,
     generated_artifact_metadata_payload: Mapping[str, Any] | None = None,
-) -> tuple[dict[str, dict[str, Any]], int, list[str]]:
+) -> tuple[dict[str, dict[str, Any]], int, list[str], list[str]]:
     metadata_by_path: dict[str, dict[str, Any]] = {}
     malformed_count = 0
     try:
-        metadata_payload = (
-            generated_artifact_metadata_payload
-            if generated_artifact_metadata_payload is not None
-            else load_generated_artifact_manifest(DEFAULT_GENERATED_ARTIFACTS_MANIFEST)
-        )
+        if generated_artifact_metadata_payload is None:
+            metadata_payload, policy_errors = _default_generated_artifact_metadata()
+        else:
+            metadata_payload = generated_artifact_metadata_payload
+            policy_errors = _generated_artifact_native_trust_policy_errors(
+                metadata_payload
+            )
     except (OSError, ValueError):
-        return {}, 1, []
+        return {}, 1, [], ["generated-artifacts manifest could not be loaded"]
     if not isinstance(metadata_payload, Mapping):
-        return {}, 1, []
+        return {}, 1, [], ["generated-artifacts manifest must be an object"]
     generated_artifacts = metadata_payload.get("artifacts")
     if not isinstance(generated_artifacts, list):
-        return {}, 1, []
+        return {}, 1, [], policy_errors
 
     generated_entries: dict[str, Mapping[str, Any]] = {}
     generated_path_list: list[str] = []
@@ -3344,7 +3365,35 @@ def _observed_manifest_metadata(
         if entry is None:
             continue
         metadata_by_path[path] = _manifest_metadata_from_entry(entry)
-    return metadata_by_path, malformed_count, duplicate_generated_paths
+    return (
+        metadata_by_path,
+        malformed_count,
+        duplicate_generated_paths,
+        policy_errors,
+    )
+
+
+@lru_cache(maxsize=1)
+def _default_generated_artifact_metadata() -> tuple[dict[str, Any], list[str]]:
+    payload = load_generated_artifact_manifest(DEFAULT_GENERATED_ARTIFACTS_MANIFEST)
+    return payload, _generated_artifact_native_trust_policy_errors(payload)
+
+
+def _generated_artifact_native_trust_policy_errors(
+    payload: Mapping[str, Any],
+) -> list[str]:
+    errors: list[str] = []
+    if payload.get("schema") != GENERATED_ARTIFACTS_SCHEMA:
+        errors.append(
+            f"schema is {payload.get('schema')!r}, expected "
+            f"{GENERATED_ARTIFACTS_SCHEMA!r}"
+        )
+    artifacts = payload.get("artifacts")
+    if not isinstance(artifacts, list):
+        errors.append("artifacts must be a list")
+        return errors
+    errors.extend(validate_native_trust_policy(dict(payload), artifacts))
+    return errors
 
 
 def _manifest_metadata_from_entry(entry: Mapping[str, Any]) -> dict[str, Any]:
@@ -3357,7 +3406,7 @@ def _manifest_metadata_from_entry(entry: Mapping[str, Any]) -> dict[str, Any]:
         "check_command": _optional_string(entry.get("check_command")),
         "provenance_mode": _optional_string(entry.get("provenance_mode")),
         "direct_edit_allowed": entry.get("direct_edit_allowed"),
-        "trust": _optional_string(entry.get("trust")),
+        "trust_class": _optional_string(entry.get("trust_class")),
         "size_bytes": _optional_int(entry.get("size_bytes")),
         "sha256": _optional_sha256(entry.get("sha256")),
     }
@@ -3388,7 +3437,7 @@ def _manifest_metadata_mismatches(
             "check_command",
             "provenance_mode",
             "direct_edit_allowed",
-            "trust",
+            "trust_class",
             "size_bytes",
             "sha256",
         ):
@@ -3418,7 +3467,7 @@ def _manifest_metadata_records(
             "check_command": metadata_by_path[path]["check_command"],
             "provenance_mode": metadata_by_path[path]["provenance_mode"],
             "direct_edit_allowed": metadata_by_path[path]["direct_edit_allowed"],
-            "trust": metadata_by_path[path]["trust"],
+            "trust_class": metadata_by_path[path]["trust_class"],
             "size_bytes": metadata_by_path[path]["size_bytes"],
             "sha256": metadata_by_path[path]["sha256"],
         }

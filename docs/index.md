@@ -97,7 +97,7 @@ put detailed reconciliation in the canonical synthesis.
   rules out 4-bad convex polygons with `n <= 8`; not a source-of-truth status
   update.
 - [`n8-proof-trail.md`](n8-proof-trail.md): claim-neutral reviewer map joining
-  the geometric octagon trap, selected-witness finite artifact route, and
+  the repo-local geometric theorem, selected-witness finite artifact route, and
   literature-backed shortcut for `n <= 8`.
 - [`diameter-lens-local-lemmas.md`](diameter-lens-local-lemmas.md): local
   diameter-pair lemmas, the seven-point lens-cap negative control, and the
@@ -482,9 +482,13 @@ put detailed reconciliation in the canonical synthesis.
   constraints with strict convexity -- including the four Groebner-dependent
   classes the SymPy-free recheck skips; a different decision procedure, not a
   status change.
-- [`n8-geometric-proof.md`](n8-geometric-proof.md): proof-note draft giving a
-  compact geometric obstruction for bad convex octagons via isosceles-triangle
-  counting and exterior-turn angles.
+- [`n8-geometric-proof.md`](n8-geometric-proof.md): repo-local elementary
+  theorem excluding bad convex polygons with `n <= 8` via isosceles-triangle
+  counting and exterior-turn angles; externally independent review is still
+  encouraged.
+- [`n8-geometric-proof-audit-2026-07-09.md`](n8-geometric-proof-audit-2026-07-09.md):
+  accepted repository-local line-by-line audit of the elementary proof,
+  including the two exposition repairs and external-review boundary.
 - [`n8-proof-trail.md`](n8-proof-trail.md): human-auditable proof trail for
   `n <= 8`, keeping the geometric, selected-witness, and literature-backed
   routes separate.

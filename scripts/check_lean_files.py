@@ -1,4 +1,8 @@
-"""Compile Lean pilot files when Lake is available."""
+"""Compile every Lean pilot file with Lake, optionally requiring the toolchain.
+
+Local ``make verify-lean`` remains usable without Lean installed, while the
+dedicated CI workflow passes ``--require-lean`` and uses ``lean-toolchain``.
+"""
 
 from __future__ import annotations
 

@@ -11,6 +11,16 @@ only (Priority 1 in `docs/review-priorities.md`). The machine pipeline
 (`docs/n8-incidence-enumeration.md`, `docs/n8-exact-survivors.md`) is out of
 scope here and is not affected.
 
+Supersession note (added while merging onto post-#872 main): this review
+was performed against the pre-promotion draft of the note. The 2026-07-09
+repository audit independently rederived the note twice and promoted it to
+`REPO_LOCAL_THEOREM` (merged in #872), and the promoted text already
+contains the repair required below as R1 (no apex on the base line: the
+bisector meets line `ab` only at the midpoint). The two efforts were
+independent and reached the same verdict and the same required repair; this
+record is kept as dated convergent review input. R2-R5 below refer to the
+pre-promotion text and should be read against the current note.
+
 Method: two independent passes inside one session, reconciled afterwards:
 
 - Pass 1 (root reviewer): line-by-line re-derivation of every step from

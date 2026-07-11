@@ -169,8 +169,9 @@ weight of evidence, not proof.
 - scripts/check_block6_value_rows_closure.py (+ audit-registry entry)
 - data/certificates/block6_value_rows_closure.json (+ manifest entry)
 - docs/s12a-parity-two-orbit-frontier.md
-- data/certificates/s12a_parity_two_orbit_frontier.json (+ unmanaged
-  manifest entry)
+- data/certificates/s12a_parity_two_orbit_frontier.json
+  (+ scripts/check_s12a_frontier_pattern.py and managed manifest/registry
+  entries, added when rebasing onto the provenance-v2 manifest)
 - docs/erdos97-attack-2026-07-10.md (this report)
 
 ## Appendix: run-structure negative control (exact construction)

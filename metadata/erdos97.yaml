@@ -9,7 +9,7 @@ problem:
     - distances
     - convex
   official_page_last_edited: "2025-10-27"
-  official_status_last_checked: "2026-04-30"
+  official_status_last_checked: "2026-07-09"
 
 upstream_database:
   repository: "https://github.com/teorth/erdosproblems"
@@ -74,8 +74,9 @@ nearby_literature:
 local_repo:
   repository: "https://github.com/davidiach/erdos97"
   overall_claim: "No general proof and no counterexample are claimed."
-  strongest_result: "No selected-witness counterexample for n <= 8, in the repo-local machine-checked finite-case sense."
-  strongest_result_review_status: "External independent review recommended before public theorem-style claims."
+  strongest_result: "Repo-local elementary geometric theorem: no bad strictly convex polygon exists for n <= 8; selected-witness machine-checked artifacts independently corroborate this repo-local n <= 8 result."
+  strongest_result_proof: "docs/n8-geometric-proof.md"
+  strongest_result_review_status: "Repository audit completed 2026-07-09; independent external review recommended before paper-style citation and not claimed."
   review_pending_finite_case_artifacts:
     - name: "n9_vertex_circle_exhaustive"
       status: "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"

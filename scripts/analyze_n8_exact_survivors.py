@@ -801,21 +801,36 @@ def main() -> int:
         summary["status"] = "exact_obstruction_artifact_archive_identity_verified_pending_independent_review"
 
     if args.check:
-        assert len(survivors) == 15, len(survivors)
-        assert counts == EXPECTED_COMPATIBLE_COUNTS, counts
-        assert set(killed) == CYCLIC_KILLED_IDS, killed
-        assert all(y2_span.values()), y2_span
-        assert set(y2_span) == Y2_SPAN_CLASS_IDS, y2_span
-        assert class3, "class 3 duplicate-vertex certificate failed"
-        assert class4, "class 4 collinearity certificate failed"
-        assert class5, "class 5 Groebner check did not find y2"
-        assert all(class14.values()), f"class 14 certificate mismatch: {class14}"
+        checks = [
+            (len(survivors) == 15, f"expected 15 survivors, got {len(survivors)}"),
+            (counts == EXPECTED_COMPATIBLE_COUNTS, f"unexpected compatible counts: {counts}"),
+            (set(killed) == CYCLIC_KILLED_IDS, f"unexpected cyclic kills: {killed}"),
+            (all(y2_span.values()), f"failed y2-span checks: {y2_span}"),
+            (set(y2_span) == Y2_SPAN_CLASS_IDS, f"unexpected y2-span classes: {y2_span}"),
+            (class3, "class 3 duplicate-vertex certificate failed"),
+            (class4, "class 4 collinearity certificate failed"),
+            (class5, "class 5 Groebner check did not find y2"),
+            (all(class14.values()), f"class 14 certificate mismatch: {class14}"),
+        ]
         if provenance is not None:
-            assert provenance["verified"], provenance
+            checks.append((provenance["verified"], f"provenance mismatch: {provenance}"))
         if compatible_orders_check is not None:
-            assert compatible_orders_check["verified"], compatible_orders_check
+            checks.append(
+                (
+                    compatible_orders_check["verified"],
+                    f"compatible-orders artifact mismatch: {compatible_orders_check}",
+                )
+            )
         if exact_analysis_check is not None:
-            assert exact_analysis_check["verified"], exact_analysis_check
+            checks.append(
+                (
+                    exact_analysis_check["verified"],
+                    f"exact-analysis artifact mismatch: {exact_analysis_check}",
+                )
+            )
+        failures = [message for ok, message in checks if not ok]
+        if failures:
+            raise RuntimeError("n=8 exact-survivor check failed:\n- " + "\n- ".join(failures))
 
     if args.json:
         print(json.dumps(summary, indent=2, sort_keys=True))

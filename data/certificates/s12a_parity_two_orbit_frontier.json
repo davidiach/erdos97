@@ -1,63 +1,122 @@
 {
- "schema": "erdos97.s12a_parity_two_orbit_frontier.v1",
- "type": "INCIDENCE_PATTERN_FRONTIER_LEAD",
- "trust": "SOLVER_DIAGNOSTIC_PLUS_EXACT_FILTER_REPLAYS",
- "claim": "Abstract selected-witness (pattern, cyclic order) pair passing every currently implemented necessary abstract filter in this repository at the natural order. NOT a counterexample to Erdos Problem #97: Euclidean realizability is a separate, unproved question, and the two-orbit circulant lemma draft already excludes its C6-symmetric (two concentric regular hexagon) realizations, so any realization must be asymmetric.",
+ "schema": "erdos97.s12a_parity_two_orbit_frontier.v2",
+ "status": "INCIDENCE_PATTERN_FRONTIER_LEAD_ALL_ABSTRACT_FILTERS_PASS",
+ "trust": "REVIEW_PENDING_DIAGNOSTIC",
+ "claim_scope": "Abstract selected-witness (pattern, cyclic order) frontier lead: S12A passes every currently implemented necessary abstract filter at the natural order (row caps, witness-pair capacity, two-overlap crossing, vertex-circle quotient, full Kalmanson cone LP screens, value rows). Euclidean realizability is a separate unproved question; the C6-symmetric realizations are excluded by the two-orbit circulant lemma, so any realization must be asymmetric. Not a counterexample to Erdos Problem #97 and no change to the official/global status.",
+ "provenance": {
+  "generator": "scripts/check_s12a_frontier_pattern.py",
+  "command": "python scripts/check_s12a_frontier_pattern.py --write --assert-expected"
+ },
  "n": 12,
- "cyclic_order": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+ "cyclic_order": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
  "rows": [
-  [1, 2, 10, 11],
-  [3, 6, 8, 11],
-  [0, 1, 3, 4],
-  [1, 5, 8, 10],
-  [2, 3, 5, 6],
-  [0, 3, 7, 10],
-  [4, 5, 7, 8],
-  [0, 2, 5, 9],
-  [6, 7, 9, 10],
-  [2, 4, 7, 11],
-  [0, 8, 9, 11],
-  [1, 4, 6, 9]
+  [
+   1,
+   2,
+   10,
+   11
+  ],
+  [
+   3,
+   6,
+   8,
+   11
+  ],
+  [
+   0,
+   1,
+   3,
+   4
+  ],
+  [
+   1,
+   5,
+   8,
+   10
+  ],
+  [
+   2,
+   3,
+   5,
+   6
+  ],
+  [
+   0,
+   3,
+   7,
+   10
+  ],
+  [
+   4,
+   5,
+   7,
+   8
+  ],
+  [
+   0,
+   2,
+   5,
+   9
+  ],
+  [
+   6,
+   7,
+   9,
+   10
+  ],
+  [
+   2,
+   4,
+   7,
+   11
+  ],
+  [
+   0,
+   8,
+   9,
+   11
+  ],
+  [
+   1,
+   4,
+   6,
+   9
+  ]
  ],
- "structure": "circulant with parity: even centers use offsets {1, 2, 10, 11} (= +-{1,2}); odd centers use offsets {2, 5, 7, 10} (= +-{2,5})",
- "verification_2026_07_10": {
-  "environment": "fresh container at commit ecf9ea3; python 3.11.15, z3 4.16.0, scipy 1.17.1",
-  "row_pair_intersection_cap": {"max": 2, "ok": true},
-  "witness_pair_capacity": {"violations": 0, "hull_edge_violations": 0, "ok": true},
-  "two_overlap_crossing": {"violations": 0, "ok": true},
-  "vertex_circle_quotient": {
-   "function": "erdos97.vertex_circle_order_filter.vertex_circle_order_obstruction",
-   "obstructed": false,
-   "ok": true
-  },
-  "kalmanson_full_cone_natural_order": {
-   "distance_classes": 32,
-   "distinct_nonzero_strict_rows": 770,
-   "zero_rows": 0,
-   "zero_sum_lp_feasible": false,
-   "nonpositive_lp_feasible": false,
-   "solver": "scipy linprog (HiGHS); solver diagnostic only, no exact dual certificate stored",
-   "ok": true
-  },
-  "squared_distance_value_rows": {
-   "solver": "z3 over reals via scripts/check_block6_value_rows_closure.solve_layers",
-   "layers": {"N": "sat", "S": "sat", "OD": "sat", "ODS": "sat"},
-   "ok": true
-  },
-  "search_provenance": "found by an in-session randomized/structured escape hunt over two-orbit-style parity patterns (agent terminated early by an account spend limit); order enumeration in that session reported 4 label-0-canonical orders passing caps/crossing/vertex-circle, all in the single dihedral class of the natural order",
-  "order_enumeration_status": "session-reported, not independently replayed; treat as unverified until re-enumerated"
+ "structure": "circulant with parity: even centers use offsets {1, 2, 10, 11}; odd centers use offsets {2, 5, 7, 10}",
+ "incidence": {
+  "row_pair_intersection_max": 2,
+  "witness_pair_capacity_violations": 0,
+  "two_overlap_crossing_violations": 0
  },
- "relation_to_known_results": {
-  "registered_dead_patterns": "not among the retired fixed patterns (P18/P24 parity kills are at n=18/24; C9/C13/C16/C17/C19/C20/C25/C29 differ)",
-  "two_orbit_circulant_lemma": "the C6-symmetric realization (two concentric regular hexagons, half-step offset) is excluded by docs/two-orbit-circulant-obstruction.md; the abstract pattern is its symmetry-free shadow and remains live",
-  "b12_filters": "mutual-rhombus midpoint rank 0, no phi-2-cycles, no rectangle-trap 4-cycles at the natural order (session diagnostics)"
+ "vertex_circle_obstructed": false,
+ "kalmanson_full_cone_natural_order": {
+  "distance_classes": 32,
+  "distinct_nonzero_strict_rows": 770,
+  "zero_rows": 0,
+  "zero_sum_lp_feasible": false,
+  "nonpositive_lp_feasible": false,
+  "solver": "scipy linprog (HiGHS); solver diagnostic only"
  },
- "next_steps": [
-  "independent re-enumeration of all cyclic orders passing the abstract filters",
-  "exact dual-certificate search over stronger row families (Altman rows, value rows, order-resolved rows) at the natural order",
-  "numerical realizability probe with the dynamic-witness searcher restricted to this fixed pattern",
-  "if a near-miss appears: exactification per repo standards; if not: record the negative result"
- ],
+ "value_row_layers": {
+  "N": "sat",
+  "S": "sat",
+  "OD": "sat",
+  "ODS": "sat"
+ },
  "non_claims": [
   "not a counterexample to Erdos Problem #97",
   "not a Euclidean realizability claim",

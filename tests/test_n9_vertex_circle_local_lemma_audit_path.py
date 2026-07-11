@@ -279,12 +279,16 @@ def test_local_lemma_audit_path_manifest_metadata_contract() -> None:
     assert contract["unexpected_manifest_metadata_paths"] == []
     assert contract["duplicate_manifest_metadata_paths"] == []
     assert contract["duplicate_generated_metadata_paths"] == []
+    assert contract["native_trust_policy_status"] == "passed"
+    assert contract["native_trust_policy_errors"] == []
     assert contract["mismatched_manifest_metadata"] == []
     assert contract["malformed_manifest_metadata_count"] == 0
     local_metadata = by_path["data/certificates/n9_vertex_circle_local_lemmas.json"]
     assert local_metadata["id"] == "n9_vertex_circle_local_lemmas"
     assert local_metadata["provenance_mode"] == "embedded"
     assert local_metadata["direct_edit_allowed"] is False
+    assert local_metadata["trust_class"] == "REVIEW_PENDING_DIAGNOSTIC"
+    assert "trust" not in local_metadata
     assert local_metadata["checker"] == "scripts/check_n9_vertex_circle_local_lemmas.py"
     assert local_metadata["check_command"] == (
         "python scripts/check_n9_vertex_circle_local_lemmas.py "
@@ -301,6 +305,55 @@ def test_local_lemma_audit_path_manifest_metadata_contract() -> None:
     assert by_path["data/certificates/n9_t12_strict_cycle_minireplay.json"][
         "kind"
     ] == "proof_mining_diagnostic_artifact"
+
+
+def test_local_lemma_audit_path_rejects_native_trust_override_drift() -> None:
+    tampered_metadata = load_generated_artifact_manifest(
+        DEFAULT_GENERATED_ARTIFACTS_MANIFEST
+    )
+    tampered_metadata = json.loads(json.dumps(tampered_metadata))
+    override = tampered_metadata["native_trust_policy"]["mismatch_overrides"][
+        "n9_vertex_circle_minimal_cores"
+    ]
+    override["native_value"] = "WRONG_NATIVE_TRUST"
+
+    tampered_payload = local_lemma_audit_path_payload(
+        generated_artifact_metadata_payload=tampered_metadata,
+    )
+    contract = tampered_payload["manifest_metadata_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["native_trust_policy_status"] == "failed"
+    assert any(
+        "n9_vertex_circle_minimal_cores.native_value" in error
+        and "does not match payload value" in error
+        for error in contract["native_trust_policy_errors"]
+    )
+
+
+def test_local_lemma_audit_path_rejects_missing_native_trust_override() -> None:
+    tampered_metadata = load_generated_artifact_manifest(
+        DEFAULT_GENERATED_ARTIFACTS_MANIFEST
+    )
+    tampered_metadata = json.loads(json.dumps(tampered_metadata))
+    del tampered_metadata["native_trust_policy"]["missing_overrides"][
+        "n8_reconstructed_survivors"
+    ]
+
+    tampered_payload = local_lemma_audit_path_payload(
+        generated_artifact_metadata_payload=tampered_metadata,
+    )
+    contract = tampered_payload["manifest_metadata_contract"]
+
+    assert tampered_payload["validation_status"] == "failed"
+    assert contract["status"] == "failed"
+    assert contract["native_trust_policy_status"] == "failed"
+    assert any(
+        "n8_reconstructed_survivors" in error
+        and "has no top-level native trust" in error
+        for error in contract["native_trust_policy_errors"]
+    )
 
 
 def test_local_lemma_audit_path_manifest_claim_contract() -> None:

@@ -6,12 +6,31 @@ candidate/failed-route docs, not as proofs of equality.
 ## Proof-facing claims
 
 This ledger records local proof-facing claims and their current trust posture.
-It is not a paper-style theorem list. In particular, the `n <= 8`
-selected-witness result is a repo-local machine-checked finite-case artifact
-pending independent review, and the global Erdos #97 problem remains
+It is not a claim about the global problem. The elementary geometric theorem
+below settles the repo-local small cases `n <= 8`; selected-witness computation
+independently corroborates that result. The global Erdos #97 problem remains
 falsifiable/open.
 
-### No selected-witness counterexample for n <= 8
+### Theorem: no bad strictly convex polygon for n <= 8
+
+Status: `REPO_LOCAL_THEOREM` (elementary geometric proof). The proof was
+line-by-line rederived twice in the 2026-07-09 repository audit; independent
+external/publication review remains encouraged and is not claimed.
+
+Let `A` be the vertex set of a strictly convex polygon. If every vertex of
+`A` has four other vertices at one common distance, then `|A| >= 9`.
+
+The proof in `docs/n8-geometric-proof.md` counts apex-marked isosceles
+triangles. Base-pair capacity gives `T(A) <= n(n-2)`, while badness gives
+`T(A) >= 6n`. Equality for `n=8` forces an equilateral octagon and makes every
+length-3 diagonal have an apex on its two-vertex boundary side. Hence every
+adjacent pair of exterior turns contains a turn of size `2*pi/3`; at least
+four such turns are required, contradicting their total `2*pi`.
+
+This theorem says nothing about `n >= 9` and does not change the official
+falsifiable/open status of Erdos Problem #97.
+
+### Machine-checked corroboration for n <= 8
 
 Status: `MACHINE_CHECKED_FINITE_CASE_ARTIFACT` in the repo-local sense;
 independent review is required before paper-style or public theorem-style
@@ -50,14 +69,6 @@ collinearity, or strict-convexity failure. These are machine-checked
 repo-local artifacts, not standalone public proof certificates. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
-### Proof-note draft: geometric no-go for n <= 8
-
-A separate proof-note draft in `docs/n8-geometric-proof.md` gives a compact
-human-readable obstruction for bad convex polygons with `n <= 8`. It uses a
-base-apex lemma to count isosceles triangles and then analyzes the equality
-case for octagons. Independent review is still requested before promoting this
-note beyond the repository's local proof-facing ledger.
-
 ### Literature-backed shortcut: Dumitrescu isosceles count for n <= 8
 
 Status: `LITERATURE_BACKED_PROOF_NOTE` / `REVIEW_PENDING`.
@@ -74,10 +85,10 @@ If a strictly convex `n`-gon were 4-bad, every vertex would contribute at
 least `binom(4,2) = 6` equal-leg pairs, so `Z(P) >= 6n`. Combining the two
 inequalities forces `n >= 90/11 > 8`.
 
-This is a compact human-readable shortcut, not an update to the repository
-source-of-truth status. The checked selected-witness artifacts remain the
-repo-local `n <= 8` source until this literature-backed note receives
-independent review.
+This is a compact literature-backed shortcut, not the basis for the repository
+status. The elementary proof in `docs/n8-geometric-proof.md` is the primary
+repo-local `n <= 8` theorem; the selected-witness artifacts remain independent
+machine-checked corroboration.
 
 ### Edge-sensitive rich-support counting bound
 

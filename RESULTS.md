@@ -8,10 +8,12 @@ long-form canonical synthesis and claim reconciliation, read
 Official/global status: falsifiable/open. This repository claims no general
 proof and no counterexample.
 
-Strongest local finite-case artifact: the selected-witness method rules out
-`n <= 8` in a repo-local, machine-checked finite-case sense. External
-independent review is still recommended before paper-style or public
-theorem-style claims.
+Strongest local result: the elementary geometric theorem in
+`docs/n8-geometric-proof.md` rules out bad strictly convex polygons with
+`n <= 8`. The selected-witness method independently corroborates `n <= 8` in
+a repo-local, machine-checked finite-case sense. The 2026-07-09 repository
+audit rederived the proof; independent external review remains recommended
+before paper-style citation and is not claimed.
 
 ## Certified Results
 
@@ -270,9 +272,11 @@ nor the cyclic-order combinatorics. `EXACT_OBSTRUCTION` (SMT), repo-local
 cross-check pending external review; it strengthens but does not replace the
 existing artifacts. See `data/certificates/n8_survivors_smt.json`.
 
-### Proof-note draft: geometric exclusion of n <= 8
+### Theorem: geometric exclusion of n <= 8
 
-Status: proof-note draft; independent review requested.
+Status: `REPO_LOCAL_THEOREM`; elementary proof rederived twice in the
+2026-07-09 repository audit. Independent external/publication review remains
+encouraged and is not claimed.
 
 A short geometric note in `docs/n8-geometric-proof.md` gives an independent
 human-readable route to the `n <= 8` exclusion: a base-apex lemma bounds the
@@ -281,8 +285,9 @@ saturated octagon case forces an equilateral octagon whose length-3 diagonals
 require at least four exterior turns of size `2*pi/3`, contradicting total
 turn `2*pi`.
 
-This note does not alter the global status of Erdos Problem #97 and does not
-replace the existing machine-checked `n=8` finite-case artifact.
+This theorem is now the primary human-readable small-case route. It does not
+alter the global status of Erdos Problem #97 or remove the independently useful
+machine-checked `n=8` finite-case artifact.
 
 ### Minimal fragile-cover bridge
 

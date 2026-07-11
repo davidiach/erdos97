@@ -8,8 +8,8 @@ claim taxonomy, failed-route reconciliation, and source/hash inventory, read
 proof attempts.
 
 Canonical status metadata is recorded in `metadata/erdos97.yaml`. It separates
-the official/global falsifiable/open status from this repo's local finite-case
-artifacts.
+the official/global falsifiable/open status from this repo's local small-case
+theorem and finite-case artifacts.
 
 ## Target
 
@@ -21,8 +21,16 @@ the directed incidence graph need not be symmetric.[^repo]
 
 ## Strongest proved state
 
-The selected-witness method rules out `n <= 8` in this repo-local,
-machine-checked finite-case sense. The core filters are the
+An elementary geometric theorem rules out bad strictly convex polygons with
+`n <= 8`; see `docs/n8-geometric-proof.md`. It counts apex-marked isosceles
+triangles to exclude `n <= 7`, then shows that a bad octagon would be
+equilateral and would need at least four exterior turns equal to `2*pi/3`,
+contradicting total exterior turn `2*pi`. The proof was independently
+rederived within the repository audit on 2026-07-09. External/publication
+review remains recommended and is not claimed.
+
+The selected-witness method independently corroborates `n <= 8` in a
+repo-local, machine-checked finite-case sense. Its core filters are the
 two-circle cap `|S_a cap S_b| <= 2`, radical-axis crossing/bisection when two
 rows share exactly two witnesses, the sharpened incidence count forcing
 `n >= 8`, and
@@ -35,8 +43,8 @@ selected-witness incidence survivors and reduces them to 15 canonical classes.
 Exact cyclic-order noncrossing kills 1 class, and exact perpendicular-bisector /
 equal-distance algebra kills the other 14. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
-External independent review remains recommended before public theorem-style
-claims.
+External independent review remains recommended before public use of these
+computer-assisted artifacts.
 
 A separate SymPy-free independent recheck covers the cyclic-order counts for
 all 15 `n=8` survivor classes and independently kills 11 of them by

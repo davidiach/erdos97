@@ -17,6 +17,7 @@ from scripts.run_artifact_audit import (
     list_commands_payload,
     run_audit_command,
     run_verify_commands,
+    shard_commands,
     sha256_bytes,
 )
 
@@ -173,7 +174,10 @@ def test_list_commands_payload_is_claim_neutral() -> None:
     assert payload["type"] == "erdos97_artifact_audit_command_list_v1"
     assert payload["preflight_command_count"] == len(AUDIT_PREFLIGHT_COMMANDS)
     assert payload["audit_command_count"] == len(AUDIT_COMMANDS)
+    assert payload["registered_audit_command_count"] == len(AUDIT_COMMANDS)
     assert payload["command_count"] == len(AUDIT_PREFLIGHT_COMMANDS) + len(AUDIT_COMMANDS)
+    assert payload["shard"]["index"] == 0
+    assert payload["shard"]["count"] == 1
     assert "does not run checks" in payload["claim_scope"]
     assert "prove Erdos Problem #97" in payload["claim_scope"]
     assert payload["commands"][0] == {
@@ -207,6 +211,72 @@ def test_run_artifact_audit_cli_lists_commands_without_running() -> None:
     )
     assert payload["commands"][1]["command"] == "python scripts/check_artifact_provenance.py"
     assert "stdout_path" not in payload["commands"][0]
+
+
+def test_audit_command_shards_are_disjoint_complete_and_stable() -> None:
+    shards = [
+        shard_commands(AUDIT_COMMANDS, shard_index=index, shard_count=8)
+        for index in range(8)
+    ]
+    flattened = [command.ident for shard in shards for command in shard]
+
+    assert len(flattened) == len(AUDIT_COMMANDS)
+    assert len(set(flattened)) == len(AUDIT_COMMANDS)
+    assert set(flattened) == {command.ident for command in AUDIT_COMMANDS}
+    assert shards == [
+        shard_commands(AUDIT_COMMANDS, shard_index=index, shard_count=8)
+        for index in range(8)
+    ]
+
+
+def test_run_artifact_audit_cli_lists_only_requested_shard() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/run_artifact_audit.py",
+            "--list-commands",
+            "--shard-count",
+            "8",
+            "--shard-index",
+            "3",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    expected = shard_commands(AUDIT_COMMANDS, shard_index=3, shard_count=8)
+    assert payload["shard"]["index"] == 3
+    assert payload["shard"]["count"] == 8
+    assert payload["registered_audit_command_count"] == len(AUDIT_COMMANDS)
+    assert payload["audit_command_count"] == len(expected)
+    assert [row["id"] for row in payload["commands"][2:]] == [
+        command.ident for command in expected
+    ]
+
+
+def test_run_artifact_audit_cli_rejects_invalid_shard() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/run_artifact_audit.py",
+            "--list-commands",
+            "--shard-count",
+            "4",
+            "--shard-index",
+            "4",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 2
+    assert "0 <= index < 4" in result.stderr
 
 
 def test_audit_commands_include_registered_followup_checkers() -> None:

@@ -94,10 +94,33 @@ def test_c19_catalog_prefilter_window_sweep_small_replay() -> None:
     assert windows[0]["fifth_pair_farkas_fallback_labels"] == []
 
 
+# Certificate supports found by the ordinary Kalmanson/Farkas LP routine are
+# platform-variant (LP pivoting differs across BLAS/CPU builds), so their
+# support-size histograms cannot be compared across platforms. The exact
+# two-row/catalog prefilter histograms stay exact. Each variant histogram must
+# still account exactly for its stage's certified count on each side.
+PLATFORM_VARIANT_SUPPORT_HISTOGRAMS = {
+    "direct_prefix": "direct_prefix_certified_count",
+    "fourth_pair": "fourth_pair_child_certified_count",
+    "fifth_pair_farkas_fallback": "fifth_pair_farkas_fallback_certified_count",
+}
+
+
+def strip_platform_variant_histograms(payload: dict) -> dict:
+    stripped = json.loads(json.dumps(payload))
+    for window in stripped["windows"]:
+        for name, count_key in PLATFORM_VARIANT_SUPPORT_HISTOGRAMS.items():
+            histogram = window["closed_support_size_histograms"].pop(name)
+            assert sum(histogram.values()) == window["branch_accounting"][count_key]
+    return stripped
+
+
 @pytest.mark.artifact
 @pytest.mark.slow
 def test_c19_catalog_prefilter_window_sweep_full_replay_matches_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
 
-    assert artifact == payload
+    assert strip_platform_variant_histograms(artifact) == (
+        strip_platform_variant_histograms(payload)
+    )

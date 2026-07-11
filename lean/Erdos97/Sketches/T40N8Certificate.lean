@@ -102,7 +102,7 @@ checker. (Pure `Bool`, no `sorry`.)
 -/
 theorem cyclic_kill_checks (classId : Nat) :
     (KillCertificate.mk classId KillKind.cyclicNoncrossing 0 false).checks = true := by
-  decide
+  rfl
 
 /--
 A `spanY2Zero` certificate with the ideal-membership flag set passes the
