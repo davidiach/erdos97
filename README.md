@@ -100,6 +100,13 @@ local filters such as crossing-bisector, mutual-rhombus, phi 4-cycle,
 cyclic-crossing CSP, vertex-circle order, Altman, and Kalmanson/Farkas checks.
 These are fixed-pattern or fixed-order results, not a general proof.
 
+The fixed S12A parity two-orbit pattern is now exactly obstructed in its
+natural cyclic order by six forced consecutive equilateral ears: their forced
+exterior turns total `4*pi`, exceeding the polygon total `2*pi`. See
+[`docs/s12a-parity-two-orbit-frontier.md`](docs/s12a-parity-two-orbit-frontier.md).
+This is a fixed-pattern, fixed-order result only; other cyclic orders of the
+abstract S12A pattern are not classified.
+
 Useful entry points:
 
 - [`docs/mutual-rhombus-filter.md`](docs/mutual-rhombus-filter.md)
@@ -109,6 +116,7 @@ Useful entry points:
 - [`docs/round2/round2_merged_report.md`](docs/round2/round2_merged_report.md)
 - [`docs/kalmanson-two-order-search.md`](docs/kalmanson-two-order-search.md)
 - [`docs/sparse-frontier-diagnostic.md`](docs/sparse-frontier-diagnostic.md)
+- [`docs/s12a-parity-two-orbit-frontier.md`](docs/s12a-parity-two-orbit-frontier.md)
 
 The fixed abstract patterns `C19_skew` and `C13_sidon_1_2_4_10` are killed
 across all cyclic orders by exact Kalmanson/Farkas certificate searches. That
@@ -324,6 +332,16 @@ python -m pytest -q -m "(slow or exhaustive) and not artifact" \
 ```
 
 Run every index from `0` through `shard-count - 1` for complete coverage.
+For sharded metadata audits, the two global status/provenance preflights belong
+to shard `0` and therefore run exactly once across the complete shard set.
+
+Pull requests run the fast tier and, when artifact-sensitive files change, the
+artifact-marked pytest shards. The direct artifact-command audit and the
+non-artifact slow/exhaustive pytest shards run after merge to `main`, on the
+weekly schedule, or by manual dispatch. Documentation-only and Lean-only pull
+requests use their dedicated fast/status and Lean workflows instead of
+starting the artifact pytest matrix. Superseded runs on the same branch are
+cancelled automatically.
 
 Useful exploratory commands:
 

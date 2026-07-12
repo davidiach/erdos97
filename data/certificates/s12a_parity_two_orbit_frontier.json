@@ -1,8 +1,8 @@
 {
- "schema": "erdos97.s12a_parity_two_orbit_frontier.v2",
- "status": "INCIDENCE_PATTERN_FRONTIER_LEAD_ALL_ABSTRACT_FILTERS_PASS",
- "trust": "REVIEW_PENDING_DIAGNOSTIC",
- "claim_scope": "Abstract selected-witness (pattern, cyclic order) frontier lead: S12A passes every currently implemented necessary abstract filter at the natural order (row caps, witness-pair capacity, two-overlap crossing, vertex-circle quotient, full Kalmanson cone LP screens, value rows). Euclidean realizability is a separate unproved question; the C6-symmetric realizations are excluded by the two-orbit circulant lemma, so any realization must be asymmetric. Not a counterexample to Erdos Problem #97 and no change to the official/global status.",
+ "schema": "erdos97.s12a_parity_two_orbit_frontier.v3",
+ "status": "SUPERSEDED_FRONTIER_DIAGNOSTIC",
+ "trust": "REVIEW_PENDING_PROVENANCE",
+ "claim_scope": "Superseded abstract selected-witness diagnostic: S12A passed the implemented necessary abstract filters at the natural order (row caps, witness-pair capacity, two-overlap crossing, vertex-circle quotient, full Kalmanson cone LP screens, value rows). The exact equilateral-ear certificate now obstructs this fixed natural order. This retained artifact is provenance only, not a live frontier, an all-order S12A obstruction, a proof of Erdos Problem #97, or a counterexample.",
  "provenance": {
   "generator": "scripts/check_s12a_frontier_pattern.py",
   "command": "python scripts/check_s12a_frontier_pattern.py --write --assert-expected"
@@ -97,6 +97,11 @@
   ]
  ],
  "structure": "circulant with parity: even centers use offsets {1, 2, 10, 11}; odd centers use offsets {2, 5, 7, 10}",
+ "superseded_by": {
+  "artifact": "data/certificates/s12a_equilateral_ear_obstruction.json",
+  "checker": "scripts/check_s12a_equilateral_ears.py",
+  "reason": "six forced equilateral ears exceed the exterior-turn budget"
+ },
  "incidence": {
   "row_pair_intersection_max": 2,
   "witness_pair_capacity_violations": 0,
@@ -121,6 +126,7 @@
   "not a counterexample to Erdos Problem #97",
   "not a Euclidean realizability claim",
   "not an all-order classification",
+  "not a live frontier lead",
   "no change to the official/global falsifiable/open status"
  ]
 }

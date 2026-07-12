@@ -3,9 +3,9 @@
 
 S12A is the n=12 selected-witness pattern with even centers using offsets
 {1, 2, 10, 11} and odd centers using offsets {2, 5, 7, 10}, taken at the
-natural cyclic order. As of 2026-07-10 it passes every implemented
-necessary abstract filter in this repository; see
-``docs/s12a-parity-two-orbit-frontier.md``.
+natural cyclic order. This historical diagnostic records why the pattern was
+once a frontier lead. It is now superseded by the exact equilateral-ear
+obstruction in ``scripts/check_s12a_equilateral_ears.py``.
 
 Replayed checks (all deterministic):
 
@@ -22,12 +22,11 @@ Replayed checks (all deterministic):
   ``scripts/check_block6_value_rows_closure.py``): satisfiable at layers
   N, N+S, N+OD, N+ODS (solver outcomes recorded as controls).
 
-Claim scope: passing necessary abstract filters is NOT a realizability
-claim and NOT a counterexample to Erdos Problem #97. The C6-symmetric
-realizations of this pattern (two concentric regular hexagons) are
-excluded by ``docs/two-orbit-circulant-obstruction.md``, so any
-hypothetical realization must be asymmetric. This artifact does not change
-the official/global falsifiable/open status.
+Claim scope: this is superseded diagnostic provenance only. Passing these
+necessary abstract filters never implied realizability. The later elementary
+certificate excludes S12A in this fixed natural order. Neither artifact proves
+an all-order obstruction for the abstract pattern or changes the
+official/global falsifiable/open status.
 """
 
 from __future__ import annotations
@@ -56,18 +55,18 @@ from erdos97.vertex_circle_order_filter import (  # noqa: E402
 from scripts.check_block6_value_rows_closure import solve_layers  # noqa: E402
 
 OUT = ROOT / "data" / "certificates" / "s12a_parity_two_orbit_frontier.json"
-SCHEMA = "erdos97.s12a_parity_two_orbit_frontier.v2"
-STATUS = "INCIDENCE_PATTERN_FRONTIER_LEAD_ALL_ABSTRACT_FILTERS_PASS"
-TRUST = "REVIEW_PENDING_DIAGNOSTIC"
+SCHEMA = "erdos97.s12a_parity_two_orbit_frontier.v3"
+STATUS = "SUPERSEDED_FRONTIER_DIAGNOSTIC"
+TRUST = "REVIEW_PENDING_PROVENANCE"
 CLAIM_SCOPE = (
-    "Abstract selected-witness (pattern, cyclic order) frontier lead: S12A "
-    "passes every currently implemented necessary abstract filter at the "
+    "Superseded abstract selected-witness diagnostic: S12A passed the "
+    "implemented necessary abstract filters at the "
     "natural order (row caps, witness-pair capacity, two-overlap crossing, "
     "vertex-circle quotient, full Kalmanson cone LP screens, value rows). "
-    "Euclidean realizability is a separate unproved question; the "
-    "C6-symmetric realizations are excluded by the two-orbit circulant "
-    "lemma, so any realization must be asymmetric. Not a counterexample to "
-    "Erdos Problem #97 and no change to the official/global status."
+    "The exact equilateral-ear certificate now obstructs this fixed natural "
+    "order. This retained artifact is provenance only, not a live frontier, "
+    "an all-order S12A obstruction, a proof of Erdos Problem #97, or a "
+    "counterexample."
 )
 PROVENANCE = {
     "generator": "scripts/check_s12a_frontier_pattern.py",
@@ -189,6 +188,13 @@ def build_payload() -> dict[str, Any]:
             "circulant with parity: even centers use offsets {1, 2, 10, 11}; "
             "odd centers use offsets {2, 5, 7, 10}"
         ),
+        "superseded_by": {
+            "artifact": (
+                "data/certificates/s12a_equilateral_ear_obstruction.json"
+            ),
+            "checker": "scripts/check_s12a_equilateral_ears.py",
+            "reason": "six forced equilateral ears exceed the exterior-turn budget",
+        },
         "incidence": incidence_diagnostics(rows),
         "vertex_circle_obstructed": vertex_circle.obstructed,
         "kalmanson_full_cone_natural_order": kalmanson_diagnostics(rows),
@@ -205,6 +211,7 @@ def build_payload() -> dict[str, Any]:
             "not a counterexample to Erdos Problem #97",
             "not a Euclidean realizability claim",
             "not an all-order classification",
+            "not a live frontier lead",
             "no change to the official/global falsifiable/open status",
         ],
     }
@@ -256,7 +263,11 @@ def main(argv: list[str] | None = None) -> int:
     payload = build_payload()
 
     if args.write:
-        OUT.write_text(json.dumps(payload, indent=1) + "\n")
+        OUT.write_text(
+            json.dumps(payload, indent=1) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
         print(f"wrote {OUT.relative_to(ROOT)}")
     if args.check:
         stored = json.loads(OUT.read_text())

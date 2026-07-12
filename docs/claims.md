@@ -240,6 +240,30 @@ natural-order obstruction only; it does not apply to arbitrary cyclic
 relabelings of the same incidence pattern. See
 `docs/altman-diagonal-sums.md`.
 
+### Fixed-order equilateral-ear obstruction for S12A
+
+Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern and one
+fixed cyclic order only.
+
+For the S12A parity two-orbit pattern in natural cyclic order `0,1,...,11`,
+even centers use offsets `{+/-1,+/-2}` and odd centers use
+`{+/-2,+/-5}`. Rows at even centers `c` and `c+2` force the consecutive
+triple `(c,c+1,c+2)` to be equilateral. Consequently the six exterior turns
+at labels `1,3,5,7,9,11` are each `2*pi/3`, for a forced sum of `4*pi`.
+This contradicts the total exterior turn `2*pi` of a strictly convex polygon.
+
+The exact standard-library checker
+`scripts/check_s12a_equilateral_ears.py` replays the selected-distance
+quotient and turn arithmetic against
+`data/certificates/s12a_equilateral_ear_obstruction.json`. The earlier
+`s12a_parity_two_orbit_frontier` artifact is retained as superseded diagnostic
+provenance: passing its necessary abstract filters never implied Euclidean
+realizability.
+
+This does not classify other cyclic orders of the abstract S12A pattern and
+is not a proof of Erdos #97. See
+`docs/s12a-parity-two-orbit-frontier.md`.
+
 ### Fixed-order Kalmanson/Farkas obstruction for C19_skew
 
 Status: `EXACT_OBSTRUCTION` for one fixed selected-witness pattern and one
