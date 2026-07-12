@@ -92,6 +92,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`turn-inequality-lemma.md`](turn-inequality-lemma.md): proof-facing note for
   the candidate exterior-turn inequalities used in the review-pending `n=9`
   turn-frontier replay.
+- [`s12a-parity-two-orbit-frontier.md`](s12a-parity-two-orbit-frontier.md):
+  exact equilateral-ear obstruction for the fixed S12A pattern in the natural
+  cyclic order, with the former frontier diagnostic retained as provenance.
 - [`dumitrescu-isosceles-n8-shortcut.md`](dumitrescu-isosceles-n8-shortcut.md):
   literature-backed review note giving the short apex-isosceles count that
   rules out 4-bad convex polygons with `n <= 8`; not a source-of-truth status
@@ -522,6 +525,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-turn-inequality-frontier.md`](n9-turn-inequality-frontier.md):
   review-pending replay of 184 `n=9` selected-witness assignments killed by
   candidate exterior-turn Farkas certificates; not a proof of `n=9`.
+- [`codex-handoff-triage-2026-07-12.md`](codex-handoff-triage-2026-07-12.md):
+  provenance and import decisions for the July 12 Codex handoff; imports only
+  the S12A fixed-order obstruction and records why the other material was not
+  duplicated.
 - [`inversive-incidence-pilot.md`](inversive-incidence-pilot.md):
   Mobius/inversion-inspired point-line incidence diagnostic on the regenerated
   `n=9` pre-vertex-circle frontier; negative proof-mining information only.

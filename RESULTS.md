@@ -1219,6 +1219,16 @@ Problem #97, or a counterexample. See
 
 Status: `EXACT_OBSTRUCTION`.
 
+The S12A parity two-orbit selected-witness pattern is exactly obstructed in
+the natural cyclic order `0,1,...,11`. For every even `c`, rows `c` and `c+2`
+force `(c,c+1,c+2)` to be equilateral. The six distinct middle vertices
+therefore contribute exterior turn `6*(2*pi/3)=4*pi`, contradicting the
+strictly convex polygon total `2*pi`. The exact standard-library replay and
+managed certificate are `scripts/check_s12a_equilateral_ears.py` and
+`data/certificates/s12a_equilateral_ear_obstruction.json`. This is fixed-order
+only; it is not an all-order S12A obstruction or a proof of Erdos #97. The
+former S12A frontier diagnostic is retained as superseded provenance.
+
 The mutual-rhombus midpoint filter kills the fixed selected patterns
 `B12_3x4_danzer_lift`, `B20_4x5_FR_lift`, `C20_pm_4_9`, `C16_pm_1_6`,
 `C13_pm_3_5`, and `C9_pm_2_4`. The pattern `C17_skew` is killed by an odd

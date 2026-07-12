@@ -745,6 +745,15 @@ abstract-incidence obstruction uses the crossing constraints plus the
 vertex-circle order strict-cycle filter; `P24_parity_balanced` is already
 killed by the finite cyclic crossing CSP.
 
+The S12A parity two-orbit pattern is also exactly killed in the natural cyclic
+order. Rows at each consecutive pair of even centers force six equilateral
+ears with middle vertices `1,3,5,7,9,11`; their exterior turns total `4*pi`,
+contradicting the `2*pi` total of a strictly convex polygon. The standard-
+library checker is `scripts/check_s12a_equilateral_ears.py`. The earlier S12A
+abstract-filter survivor artifact remains only as superseded provenance. This
+does not classify other cyclic orders of the abstract pattern or change the
+global or strongest-local status.
+
 Round two first added an exact Kalmanson/Farkas fixed-order obstruction for the
 registered `C19_skew` selected-witness pattern with offsets `[-8,-3,5,9]` and
 cyclic order `[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]`. The preferred

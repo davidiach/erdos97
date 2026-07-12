@@ -150,6 +150,12 @@ local_repo:
       claim_scope: "second-source C++ replay and primary-artifact comparison for the draft n=10 selected-witness singleton-slice artifact only; does not alter official/global status or the source-of-truth strongest local result"
       review_note: "Use as reviewer-facing second implementation evidence; promote the n=10 draft only after independent review validates the finite encoding, pruning rules, C++ implementation, and primary artifact agreement."
   notable_fixed_order_obstructions:
+    - pattern: "S12A_parity_two_orbit"
+      status: "exact fixed-order equilateral-ear obstruction"
+      cyclic_order: "[0,1,2,3,4,5,6,7,8,9,10,11]"
+      certificate: "data/certificates/s12a_equilateral_ear_obstruction.json"
+      verifier: "scripts/check_s12a_equilateral_ears.py"
+      claim_scope: "fixed selected-witness pattern plus natural cyclic order only; six forced equilateral ears exceed the exterior-turn budget; not an all-order S12A obstruction and not a proof of Erdos #97"
     - pattern: "C19_skew"
       status: "exact fixed-order Kalmanson/Farkas obstruction"
       cyclic_order: "[18,10,7,17,6,3,5,9,14,11,2,13,4,16,12,15,0,8,1]"

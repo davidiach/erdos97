@@ -252,9 +252,37 @@ def test_run_artifact_audit_cli_lists_only_requested_shard() -> None:
     assert payload["shard"]["index"] == 3
     assert payload["shard"]["count"] == 8
     assert payload["registered_audit_command_count"] == len(AUDIT_COMMANDS)
+    assert payload["preflight_command_count"] == 0
     assert payload["audit_command_count"] == len(expected)
-    assert [row["id"] for row in payload["commands"][2:]] == [
+    assert [row["id"] for row in payload["commands"]] == [
         command.ident for command in expected
+    ]
+
+
+def test_run_artifact_audit_cli_assigns_preflights_to_shard_zero() -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/run_artifact_audit.py",
+            "--list-commands",
+            "--shard-count",
+            "8",
+            "--shard-index",
+            "0",
+        ],
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    expected = shard_commands(AUDIT_COMMANDS, shard_index=0, shard_count=8)
+    assert payload["preflight_command_count"] == len(AUDIT_PREFLIGHT_COMMANDS)
+    assert [row["id"] for row in payload["commands"]] == [
+        *(command.ident for command in AUDIT_PREFLIGHT_COMMANDS),
+        *(command.ident for command in expected),
     ]
 
 

@@ -5,7 +5,28 @@ import subprocess
 import sys
 from pathlib import Path
 
+from scripts.reduce_row_circle_multipliers import resolve_output_path
+
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_posix_tmp_output_is_mapped_to_windows_temp() -> None:
+    resolved = resolve_output_path(
+        "/tmp/c19_multiplier_reduction.json",
+        os_name="nt",
+        temp_dir="C:/Users/test/AppData/Local/Temp",
+    )
+
+    assert resolved.as_posix().endswith(
+        "Users/test/AppData/Local/Temp/c19_multiplier_reduction.json"
+    )
+
+
+def test_posix_tmp_output_is_unchanged_on_posix() -> None:
+    assert resolve_output_path(
+        "/tmp/c19_multiplier_reduction.json",
+        os_name="posix",
+    ) == Path("/tmp/c19_multiplier_reduction.json")
 
 
 def test_c19_multiplier_reduction_records_duplicate_cancellations() -> None:

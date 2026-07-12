@@ -73,6 +73,14 @@ is zero-based. Assignment is `SHA-256(command id) mod N`, so all `N` shards
 are disjoint and exhaustive. The artifact and non-artifact slow/exhaustive
 pytest selections use the same options and stable node-id assignment. A single
 shard is not the complete audit; all indices `0` through `N-1` are required.
+The two global status/provenance preflights are assigned to shard `0`, so they
+run exactly once across a complete sharded audit.
+
+On pull requests, artifact-sensitive changes run the artifact-marked pytest
+shards in addition to the fast tier. The direct command audit and the
+non-artifact slow/exhaustive pytest shards run after merge to `main`, on the
+weekly schedule, or by manual dispatch. Documentation-only and Lean-only pull
+requests stay on their dedicated fast/status and Lean workflows.
 
 The following hand-maintained command excerpt is retained for reviewer
 orientation:

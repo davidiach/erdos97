@@ -5,10 +5,27 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
+import tempfile
 from typing import Any
 
 PT_LABELS = ("ac", "bd", "ab", "cd", "bc", "ad")
+
+
+def resolve_output_path(
+    value: str,
+    *,
+    os_name: str = os.name,
+    temp_dir: str | None = None,
+) -> Path:
+    """Map the audit registry's POSIX /tmp path on Windows."""
+
+    normalized = value.replace("\\", "/")
+    if os_name == "nt" and normalized.startswith("/tmp/"):
+        root = Path(temp_dir) if temp_dir is not None else Path(tempfile.gettempdir())
+        return root / normalized.removeprefix("/tmp/")
+    return Path(value)
 
 
 def ptolemy_key(row: dict[str, Any]) -> tuple[tuple[int, int], tuple[tuple[int, int], tuple[int, int]]]:
@@ -117,7 +134,9 @@ def main() -> int:
     payload = reduce_snapshot(snapshot, args.snapshot)
     if args.assert_expected:
         assert_expected(payload)
-    with Path(args.out).open("w", encoding="utf-8", newline="\n") as handle:
+    output_path = resolve_output_path(args.out)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8", newline="\n") as handle:
         handle.write(json.dumps(payload, indent=2, sort_keys=True) + "\n")
     print(
         f"{payload['case']} row-global duplicates={payload['row_global_duplicate_count']} "

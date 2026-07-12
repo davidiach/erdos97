@@ -3626,11 +3626,26 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "--json",
         ),
         claim_scope=(
-            "Abstract frontier-lead replay for the S12A n=12 parity "
-            "two-orbit pattern at the natural order: row caps, capacity, "
-            "crossing, vertex-circle, Kalmanson LP screens, and value-row "
-            "layers. Diagnostics only, not a realizability claim, not a "
-            "counterexample, and not a proof of Erdos Problem #97."
+            "Superseded abstract-filter diagnostic for the S12A n=12 parity "
+            "two-orbit pattern at the natural order. Retained as provenance, "
+            "not a live frontier, realizability claim, counterexample, or "
+            "proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="s12a_equilateral_ear_obstruction",
+        command=(
+            "python",
+            "scripts/check_s12a_equilateral_ears.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ),
+        claim_scope=(
+            "Exact solver-free obstruction for the fixed S12A selected-"
+            "witness pattern in the natural cyclic order only; not an all-"
+            "order S12A obstruction, counterexample, or proof of Erdos "
+            "Problem #97."
         ),
     ),
     AuditCommand(
@@ -4306,6 +4321,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
+    preflight_commands = AUDIT_PREFLIGHT_COMMANDS if args.shard_index == 0 else ()
     commands = shard_commands(
         AUDIT_COMMANDS,
         shard_index=args.shard_index,
@@ -4316,6 +4332,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.dumps(
                 list_commands_payload(
                     commands,
+                    preflight_commands=preflight_commands,
                     registered_audit_command_count=len(AUDIT_COMMANDS),
                     shard_index=args.shard_index,
                     shard_count=args.shard_count,
@@ -4333,7 +4350,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         output_dir = REPO_ROOT / output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    summary = build_summary(output_dir, commands)
+    summary = build_summary(
+        output_dir,
+        commands,
+        preflight_commands=preflight_commands,
+    )
     summary["registered_audit_command_count"] = len(AUDIT_COMMANDS)
     summary["shard"] = {
         "index": args.shard_index,

@@ -97,6 +97,12 @@ any review-pending artifact or changes any source-of-truth status.
    at n = 10..13 produced no other survivor before termination (session
    evidence, coverage logs in the session scratch area, not exhaustive).
 
+   **Superseded 2026-07-12:** a later exact elementary certificate shows that
+   the natural-order S12A rows force six consecutive equilateral ears whose
+   exterior turns total `4*pi`. The pattern is therefore obstructed in this
+   fixed order. The abstract-filter passes above remain historical provenance,
+   not a live frontier or realizability evidence.
+
 ## Proof-mechanism ledger (blocked routes, with exact blocking points)
 
 Recorded so future sessions do not repeat them; each was developed
