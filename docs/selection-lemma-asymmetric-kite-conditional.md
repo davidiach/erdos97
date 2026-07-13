@@ -10,8 +10,10 @@ repo-local `n <= 8` selected-witness artifact.
 
 The intended scope is narrower: if the cyclic-order assumptions below are
 validated, the recorded cross-product identities obstruct the asymmetric-kite
-case of canonical-chord-rule injectivity. The symmetric-kite case and the
-separate noncrossing claim remain outside this memo.
+case of canonical-chord-rule injectivity. The symmetric-kite case remains
+outside this memo. The separate noncrossing claim is now exactly false under
+local bad-center hypotheses for the deterministic canonical rule; see
+`docs/canonical-shortest-chord-crossing-control.md`.
 
 ## Setup
 
@@ -104,6 +106,10 @@ The memo is blocked on these points before any theorem-style use:
   Selection Lemma program;
 - re-audit the canonical-chord tie-breaking assumptions used to define the
   shared chord.
+
+Even a completed injectivity proof would not establish pairwise noncrossing for
+this deterministic selection rule. Any larger Selection Lemma program still
+needs a replacement assignment or an additional global hypothesis.
 
 Until those items close, this branch is an exact-algebra and audit-target
 record only.

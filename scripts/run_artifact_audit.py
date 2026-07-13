@@ -3649,6 +3649,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="canonical_shortest_chord_crossing_control",
+        command=(
+            "python",
+            "scripts/check_canonical_shortest_chord_crossing.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ),
+        claim_scope=(
+            "Exact rational strictly convex decagon with exactly two bad "
+            "centers whose unique canonical shortest witness chords cross; "
+            "a negative control for this deterministic local noncrossing "
+            "rule only, not a refutation of injectivity, proof of Erdos "
+            "Problem #97, or counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="block6_reversed_block_two_stage_closure",
         command=(
             "python",

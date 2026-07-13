@@ -61,6 +61,38 @@ unique distance class of size at least `4` at that center. Thus every minimal
 counterexample also gives a full selected-witness incidence system extending
 the fragile rows.
 
+## Good-deletion closure from every nonempty seed
+
+Minimality has a second consequence that is useful but logically different
+from the fragile-cover rows above. Let `A` be any nonempty proper subset of the
+vertices and regard `A` as already deleted. The remaining vertices form a
+smaller strictly convex polygon, so they cannot form a counterexample. Hence
+there is a surviving vertex `y` that is good in the remaining polygon.
+
+Equivalently, for every rich distance class `C` of the original polygon
+centered at `y`,
+
+```text
+|C \ A| <= 3,
+```
+
+or
+
+```text
+|C cap A| >= |C| - 3.
+```
+
+Add `y` to `A` and repeat. This proves that every nonempty seed extends to an
+ordering that deletes the whole vertex set, with each newly deleted vertex
+good among the vertices that remain at that step.
+
+This **good-deletion closure** is not the rich-triple closure from
+`docs/bootstrap-core-bridge.md`. Rich-triple closure adds a center when one
+rich class already has three active witnesses; the deletion rule here adds a
+center when every rich class has at most three witnesses left outside the
+deleted set. The result therefore does not imply ear-orderability, does not
+select a rich row, and does not close the bootstrap bridge.
+
 ## Immediate Geometric Constraints
 
 Any fragile-cover witness system coming from a minimal counterexample also

@@ -1,0 +1,249 @@
+{
+  "all_other_centers_good": true,
+  "bad_centers": [
+    {
+      "all_other_chords_strictly_longer": true,
+      "center": 0,
+      "distance_class_multiplicities": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "other_chord_squared_lengths": [
+        {
+          "chord": [
+            4,
+            6
+          ],
+          "squared_length": "2016400/22848629"
+        },
+        {
+          "chord": [
+            6,
+            8
+          ],
+          "squared_length": "2025152082/14213828333"
+        },
+        {
+          "chord": [
+            2,
+            6
+          ],
+          "squared_length": "2792699716/10370504033"
+        },
+        {
+          "chord": [
+            4,
+            8
+          ],
+          "squared_length": "8233682/18618433"
+        },
+        {
+          "chord": [
+            2,
+            8
+          ],
+          "squared_length": "6457252082/8450508541"
+        }
+      ],
+      "rich_distance_squared": "1",
+      "shortest_chord_squared": "695556/13584133",
+      "unique_rich_class": true,
+      "unique_shortest_witness_chord": [
+        2,
+        4
+      ],
+      "witnesses": [
+        2,
+        4,
+        6,
+        8
+      ]
+    },
+    {
+      "all_other_chords_strictly_longer": true,
+      "center": 1,
+      "distance_class_multiplicities": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "other_chord_squared_lengths": [
+        {
+          "chord": [
+            5,
+            7
+          ],
+          "squared_length": "12290514443089/142512328593090"
+        },
+        {
+          "chord": [
+            3,
+            7
+          ],
+          "squared_length": "27120337182961/103637550484890"
+        },
+        {
+          "chord": [
+            7,
+            9
+          ],
+          "squared_length": "10690454179876/16138737808965"
+        },
+        {
+          "chord": [
+            5,
+            9
+          ],
+          "squared_length": "874297931521/758483862154"
+        },
+        {
+          "chord": [
+            3,
+            9
+          ],
+          "squared_length": "195393122499481/124106225227650"
+        }
+      ],
+      "rich_distance_squared": "49729/49284",
+      "shortest_chord_squared": "13510836652681/273978475879725",
+      "unique_rich_class": true,
+      "unique_shortest_witness_chord": [
+        3,
+        5
+      ],
+      "witnesses": [
+        3,
+        5,
+        7,
+        9
+      ]
+    }
+  ],
+  "canonical_rule": "smallest radius with at least four witnesses, then unique shortest chord in that rich class",
+  "center_max_distance_multiplicities": [
+    4,
+    4,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "claim_scope": "Exact rational strictly convex decagon with exactly two bad centers; every other center has all nine distances distinct. At each bad center, the unique distance class of size at least four has exactly four witnesses and a unique shortest witness chord; the two canonical chords cross. This refutes noncrossing as a consequence of the local bad-center hypotheses and this deterministic rule only. It does not refute canonical-chord injectivity, impose global badness or minimality, prove Erdos Problem #97, or give a counterexample.",
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "endpoint_alternation": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "erdos97_counterexample": false,
+  "exact_bad_centers": [
+    0,
+    1
+  ],
+  "n": 10,
+  "non_claims": [
+    "not a counterexample to Erdos Problem #97",
+    "does not refute canonical-chord injectivity",
+    "does not address a theorem with extra global badness or minimality hypotheses",
+    "no official/global status update",
+    "no source-of-truth strongest-result update"
+  ],
+  "points": [
+    [
+      "0",
+      "0"
+    ],
+    [
+      "1/800",
+      "-1/76"
+    ],
+    [
+      "78279/78521",
+      "6160/78521"
+    ],
+    [
+      "2205474343/2258450400",
+      "81289047/357587980"
+    ],
+    [
+      "165/173",
+      "52/173"
+    ],
+    [
+      "2794646723/3105602400",
+      "5790831/13289740"
+    ],
+    [
+      "108745/132073",
+      "74952/132073"
+    ],
+    [
+      "716250901/978960800",
+      "188731067/279003828"
+    ],
+    [
+      "59660/107621",
+      "89571/107621"
+    ],
+    [
+      "-13321409/703384800",
+      "110382941/111369260"
+    ]
+  ],
+  "provenance": {
+    "command": "python scripts/check_canonical_shortest_chord_crossing.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_canonical_shortest_chord_crossing.py",
+    "source_attachment_sha256": "205b468cf9dce4af5c20a04d3d5537c2d2e70fd90c8ad97ac4ce9b231f9f1a2c"
+  },
+  "schema": "erdos97.canonical_shortest_chord_crossing_control.v1",
+  "selected_chords": [
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "selected_chords_cross": true,
+  "status": "EXACT_LOCAL_NEGATIVE_CONTROL",
+  "strict_convexity": {
+    "all_positive": true,
+    "half_plane_checks": 80,
+    "minimum_attained_at": {
+      "directed_edge": [
+        3,
+        4
+      ],
+      "point": 5
+    },
+    "minimum_determinant": "4166275382872427/4803025334488832400",
+    "orientation": "counterclockwise"
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "verdict": "local bad-center hypotheses do not force canonical shortest chords to be noncrossing"
+}

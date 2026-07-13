@@ -288,6 +288,27 @@ exactification threshold in `docs/exactification-plan.md`, no standalone exact
 verifier was invoked, and no `COUNTEREXAMPLE_CANDIDATE` is recorded. See
 `docs/fr-cut-homotopy.md`.
 
+## 21. Canonical shortest witness chords are automatically noncrossing
+
+Failure mode: even the deterministic rule "take the smallest rich radius,
+then the unique shortest chord in that class" can select crossing chords at
+exactly two bad centers of one strictly convex polygon.
+
+The exact rational decagon in
+`docs/canonical-shortest-chord-crossing-control.md` has unique rich classes at
+centers `p0` and `p1`, unique shortest chords `p2p4` and `p3p5`, and alternating
+endpoints `p2,p3,p4,p5`. The checker verifies strict convexity, the complete
+distance partitions, every chord comparison, and the crossing in exact
+rational arithmetic:
+
+```bash
+python scripts/check_canonical_shortest_chord_crossing.py --check --assert-expected --summary-json
+```
+
+The negative control does not refute injectivity or a strengthened theorem
+using global all-bad or minimal-counterexample hypotheses. It does show that
+injectivity alone cannot finish this deterministic noncrossing program.
+
 [^lit]: Public consolidation: `public-provenance.md#literature-digest`.
 [^forest]: Public consolidation: `public-provenance.md#forest-lemma-failure`.
 [^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.

@@ -89,6 +89,12 @@ from exact critical 4-ties. This is necessary structure only; the block-6
 abstract family shows that fragile-cover hypergraph constraints alone are too
 weak. See `docs/minimal-fragile-cover-bridge.md`.
 
+Minimality also gives good-deletion closure from every nonempty seed: after
+deleting any nonempty proper set, some surviving vertex is good among the
+remaining vertices and can be deleted next, so the process iterates through
+the whole polygon. This is not the rich-triple closure rule and does not imply
+ear-orderability or force a selected row.
+
 A stored block-6 vertex-circle full-extension audit adds one geometric gate to
 that negative control: in the natural cyclic order, the two-block block-6
 family has no full selected-row extension surviving the vertex-circle quotient

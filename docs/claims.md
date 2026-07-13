@@ -728,6 +728,26 @@ size at least 4 after deletion. Thus `x` lies in a unique critical 4-tie at
 This is structural information about minimal counterexamples; by itself it is
 not a contradiction.
 
+### Good-deletion closure from every nonempty seed
+
+Status: `LEMMA` for a hypothetical vertex-minimal counterexample.
+
+Let `A` be any nonempty proper subset of the vertices of a vertex-minimal
+counterexample. The polygon induced by `V \ A` is smaller and therefore is not
+a counterexample. Some `y in V \ A` is good in that remaining polygon. Thus
+every original rich class `C` centered at `y` satisfies
+
+```text
+|C \ A| <= 3,
+```
+
+and `y` can be added to the deleted set. Iteration deletes all vertices after
+any nonempty initial seed.
+
+This good-deletion rule is different from rich-triple closure and does not
+imply ear-orderability or force a selected row. See
+`docs/minimal-fragile-cover-bridge.md`.
+
 ### Minimal fragile-cover bridge
 
 Every minimal counterexample admits a partial fragile-cover witness system:
@@ -2810,8 +2830,18 @@ vertex forced a low-rank, 3-critical centered 4-tie and strictly convex
 
 ### Noncrossing chord selection
 
-A canonical short-base chord rule might assign distinct noncrossing chords to
-bad vertices, but the needed injectivity statement is not proved.[^syn]
+The deterministic rule "smallest rich radius, then unique shortest witness
+chord" does not force noncrossing from local bad-center hypotheses. An exact
+rational strictly convex decagon has exactly two bad centers whose unique canonical
+chords are `p2p4` and `p3p5`; their endpoints alternate, so the chords cross.
+The exact certificate is replayed by
+`scripts/check_canonical_shortest_chord_crossing.py` and documented in
+`docs/canonical-shortest-chord-crossing-control.md`.
+
+The two chords are distinct, so canonical-chord injectivity remains open but
+is no longer sufficient for this deterministic selection program. A viable
+replacement needs a different assignment rule or an additional global all-bad
+or minimal-counterexample hypothesis.[^syn]
 
 ### Three-cap bridge
 
