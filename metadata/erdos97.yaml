@@ -659,7 +659,7 @@ local_repo:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
       document: "docs/minimal-fragile-cover-bridge.md"
-      claim_scope: "partial bridge theorem only; not a contradiction, not the open ear-orderable bridge, and not a proof of Erdos #97"
+      claim_scope: "partial bridge theorem only; includes fragile-cover rows and good-deletion closure from every nonempty seed, but does not imply rich-triple closure or ear-orderability, is not a contradiction, and is not a proof of Erdos #97"
     - name: "bootstrap_core_bridge"
       status: "proved rich-triple closure rank and weighted private-halo capacity bridge fork"
       document: "docs/bootstrap-core-bridge.md"

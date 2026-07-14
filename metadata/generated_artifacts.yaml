@@ -5103,6 +5103,45 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
 
+  - id: canonical_shortest_chord_crossing_control
+    path: data/certificates/canonical_shortest_chord_crossing_control.json
+    sha256: 0e63207447e2ca80f456e27f678aac3c85273bf7fbd5740b1ed3856074735610
+    size_bytes: 5378
+    kind: exact_local_negative_control_artifact
+    generator: scripts/check_canonical_shortest_chord_crossing.py
+    command: python scripts/check_canonical_shortest_chord_crossing.py --write --assert-expected --summary-json
+    checker: scripts/check_canonical_shortest_chord_crossing.py
+    check_command: python scripts/check_canonical_shortest_chord_crossing.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: Exact rational strictly convex decagon with exactly two bad centers, every other center having all nine distances distinct, whose unique smallest-rich-radius shortest witness chords cross. Refutes a local noncrossing claim for this deterministic rule only; does not refute injectivity, impose global badness or minimality, prove Erdos Problem #97, or give a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.canonical_shortest_chord_crossing_control.v1
+      status: EXACT_LOCAL_NEGATIVE_CONTROL
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      n: 10
+      exact_bad_centers: [0, 1]
+      center_max_distance_multiplicities: [4, 4, 1, 1, 1, 1, 1, 1, 1, 1]
+      all_other_centers_good: true
+      erdos97_counterexample: false
+      strict_convexity.half_plane_checks: 80
+      strict_convexity.all_positive: true
+      strict_convexity.minimum_determinant: 4166275382872427/4803025334488832400
+      selected_chords: [[2, 4], [3, 5]]
+      selected_chords_cross: true
+      provenance.generator: scripts/check_canonical_shortest_chord_crossing.py
+      provenance.source_attachment_sha256: 205b468cf9dce4af5c20a04d3d5537c2d2e70fd90c8ad97ac4ce9b231f9f1a2c
+    forbidden_claims:
+      - all ten centers are bad
+      - canonical-chord injectivity is false
+      - every chord-selection rule fails
+      - official/global status update
+      - source-of-truth strongest result
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+
   - id: block6_reversed_block_two_stage_closure
     path: data/certificates/block6_reversed_block_two_stage_closure.json
     sha256: 0984d0cccf88e14bdb15f983a6847b6d26ca2ca16d1ecc7e8b1676c456ff8fc3

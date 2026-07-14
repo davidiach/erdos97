@@ -95,6 +95,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`s12a-parity-two-orbit-frontier.md`](s12a-parity-two-orbit-frontier.md):
   exact equilateral-ear obstruction for the fixed S12A pattern in the natural
   cyclic order, with the former frontier diagnostic retained as provenance.
+- [`canonical-shortest-chord-crossing-control.md`](canonical-shortest-chord-crossing-control.md):
+  exact rational strictly convex decagon showing that the deterministic
+  smallest-rich-radius/shortest-chord rule can select crossing chords at two
+  locally bad centers; a route negative control, not a counterexample.
 - [`dumitrescu-isosceles-n8-shortcut.md`](dumitrescu-isosceles-n8-shortcut.md):
   literature-backed review note giving the short apex-isosceles count that
   rules out 4-bad convex polygons with `n <= 8`; not a source-of-truth status
@@ -529,6 +533,11 @@ put detailed reconciliation in the canonical synthesis.
   provenance and import decisions for the July 12 Codex handoff; imports only
   the S12A fixed-order obstruction and records why the other material was not
   duplicated.
+- [`codex-handoff-triage-2026-07-13.md`](codex-handoff-triage-2026-07-13.md):
+  provenance and import decisions for the July 13 pasted research handoff;
+  imports the exact canonical-chord crossing control and the good-deletion
+  minimality lemma while retaining the unfinished Danzer double-lift lead only
+  as triage.
 - [`inversive-incidence-pilot.md`](inversive-incidence-pilot.md):
   Mobius/inversion-inspired point-line incidence diagnostic on the regenerated
   `n=9` pre-vertex-circle frontier; negative proof-mining information only.

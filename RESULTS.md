@@ -109,6 +109,25 @@ closest pairs in strictly convex polygons need not be adjacent. See
 `docs/closest-pair-radius-barrier.md` and
 `scripts/check_adjacent_closest_pair_nonagon_barrier.py`.
 
+### Exact local negative control: canonical shortest chords can cross
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` / `EXACT_LOCAL_NEGATIVE_CONTROL`.
+
+An exact rational strictly convex decagon has exactly two bad centers whose unique
+rich distance classes each have a unique shortest witness chord. The selected
+chords are `p2p4` and `p3p5`; their endpoints alternate as `p2,p3,p4,p5`, so
+the chords cross. Every distance at the other eight centers is distinct, so
+the decagon is exactly not a counterexample. All `80` strict-convexity half-plane determinants, both full
+distance partitions, and all twelve witness-chord lengths are checked in
+exact rational arithmetic.
+
+This refutes noncrossing as a consequence of the local bad-center hypotheses
+for the deterministic rule "smallest rich radius, then unique shortest
+chord." It does not refute injectivity, impose global badness or minimality,
+or give a counterexample to Erdos Problem #97. See
+`docs/canonical-shortest-chord-crossing-control.md` and replay with
+`python scripts/check_canonical_shortest_chord_crossing.py --check --assert-expected --summary-json`.
+
 ### Restricted symmetric two-orbit reductions
 
 Status: `EXACT_OBSTRUCTION` for the stated symmetry classes only.
@@ -141,6 +160,16 @@ In a counterexample with the minimum possible number of vertices, every vertex
 `x` is essential to some remaining vertex `y`: deleting `x` makes `y` good, so
 `x` lies in the unique distance class of size exactly 4 at `y`. This is a
 structural condition on minimal counterexamples, not a contradiction by itself.
+
+More generally, after deleting any nonempty proper seed `A`, minimality makes
+the remaining polygon a non-counterexample. Some surviving vertex is therefore
+good among the remaining vertices and can be deleted next. Iterating gives a
+full good-deletion order after every nonempty seed. Equivalently, at each step
+every original rich class `C` at the next center has at most three witnesses
+outside the deleted set.
+
+This is not rich-triple closure and does not imply ear-orderability or select a
+rich row. See `docs/minimal-fragile-cover-bridge.md`.
 
 ### Lemma: selected-path self-edge obstruction
 

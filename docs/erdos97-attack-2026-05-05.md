@@ -210,6 +210,14 @@ review completion, a general proof, or a counterexample.
     `|bad set| ≤ n − 3`.
   Memo: `data/runs/2026-05-05/selection_lemma_progress.md`.
 
+  **Superseded interpretation (2026-07-13):** the `0 / 1935` sample did
+  not establish noncrossing. The exact rational decagon in
+  `docs/canonical-shortest-chord-crossing-control.md` gives exactly two locally
+  bad centers whose deterministic canonical shortest chords cross. The
+  claim that asymmetric-kite injectivity would close the Selection Lemma
+  program outright is withdrawn; injectivity remains a narrower question
+  and is insufficient without a new noncrossing theorem.
+
 ## Combinatorial / algebraic verification matrix
 
 | n  | Selected-witness method | Gröbner basis (this round) | Status |

@@ -58,7 +58,7 @@ through `n <= 8`, in the repo-local machine-checked sense.
 |---|---|---|
 | Lemma 12 / endpoint descent | Endpoint-Control Auxiliary Claim (§5.1) | Reduction proved; descent step open. |
 | Ear-elimination + rigidity | Bridge Lemma A′ / Key Peeling Lemma (§5.2) | Rank theorem proved (mod L7-gauge repair); combinatorial bridge open. |
-| Selection lemma / noncrossing diagonals | Canonical-chord injectivity (§5.3) | Reduction proved; injectivity conjectural. |
+| Selection lemma / noncrossing diagonals | New selection rule or extra global hypothesis (§5.3) | The deterministic canonical shortest-chord rule fails noncrossing locally; injectivity alone is insufficient. |
 | Smallest enclosing circle / 3-cap | Three-cap bridge lemma (§5.4) | Diameter case proved (Moser cap lemma); three-cap case open. |
 | Distance-bound reduction | Both subcases open (§5.5) | Uniform-radius case requires Erdős–Fishburn ($< 2n$), still open. Variable-radius case is the actual content of #97 for $n \ge 8$. |
 
@@ -306,7 +306,18 @@ This is a global "outside-of-$A$" control statement. Three sub-questions:
 - *Minimal apex angle:* two narrow isosceles bases can cross.
 - *L4 uniqueness:* at most 2 centers can share a chord, giving $|\{\phi(i)\}| \ge |B|/2$ — way too weak.
 
-**Open: canonical-chord-rule injectivity** (e.g. smallest $r_i$, then smallest angular gap). Conjecturally injective; unproved.
+**Exact local negative control.** The deterministic rule "take the smallest
+rich radius, then the unique shortest chord in that class" does not force
+noncrossing. The rational strictly convex decagon in
+`canonical-shortest-chord-crossing-control.md` has exactly two bad centers with unique
+canonical chords $p_2p_4$ and $p_3p_5$. Their endpoints alternate in boundary
+order, so the chords cross. The exact replay checks all convexity determinants,
+distance classes, and chord comparisons.
+
+The example does not refute injectivity: its two chords are distinct. It shows
+instead that injectivity alone cannot complete this deterministic program.
+Any salvage needs a different chord assignment or an extra global all-bad or
+minimal-counterexample hypothesis that rules out the local crossing control.
 
 ### §5.4 Smallest enclosing circle / 3-cap
 
@@ -923,7 +934,7 @@ def constraints(p, triples):
 | 2 | **Independently audit the `n=8` finite artifacts** | The current repo-local claim rests on the incidence-completeness checker, the 15 survivor classes, and exact obstruction certificates. Independent reproduction and alternative certificate checkers would make the result safer to cite. | Medium-high. |
 | 3 | **Endpoint Control Auxiliary Claim** (§5.1) | The Lemma 12 program is otherwise complete. Open sub-questions are concrete: asymmetric vs symmetric statement, dependence of $m$ on $n$ ($m \le O(\sqrt n)$ would help), boundary-chain structure. | Medium. |
 | 4 | **Three-Cap Bridge Lemma** (§5.4) | Diameter case is done; this is the remaining geometric case. Possibly tractable using cyclic-order arguments inside the opposite cap alone. | Medium. |
-| 5 | **Canonical-chord injectivity** (§5.3) | Cleanest reduction; conjecture is sharp. For each bad $i$: take the smallest $r_i$ with $|S_i(r_i)| \ge 4$, then the closest pair in $S_i(r_i)$. Conjecturally injective; no obvious counterexample. | Lower (combinatorial geometry, hard). |
+| 5 | **Salvage noncrossing chord selection** (§5.3) | The deterministic smallest-rich-radius/closest-pair rule has an exact local crossing control. Find a different assignment or prove an additional global all-bad/minimality hypothesis excludes every such crossing. | Lower (combinatorial geometry, hard). |
 | 6 | **3-critical 4-tie count $< n$** (§6.3) | Replaces the failed naive count. Two subproblems (Conjecture A: bridge; Conjecture B: count), both unsolved. | Lower-medium. |
 | 7 | **Stuck-set enumeration** | For the §5.2 program, enumerate stuck-set structures up to small $n$. Each stuck set $S$ requires every $v \in S$ to have $\ge 2$ outside witnesses with the L5 multiplicity bound. Counting against convexity / cyclic-order / perpendicular-bisector restrictions might rule out small stuck sets. | Lower-medium. |
 | 8 | **Generalize the orthocenter obstruction** beyond the cube | Could extend §4.1 to more $n = 8$ patterns, eventually all of them. | Lower. |
@@ -999,7 +1010,7 @@ recommended before public theorem-style claims.
 **Five open programs, each with one gap.**
 1. Lemma 12 — Endpoint Control Auxiliary Claim.
 2. Ear-elimination — Bridge Lemma A′ / Key Peeling.
-3. Selection lemma — canonical-chord injectivity.
+3. Selection lemma — new noncrossing assignment or extra global hypothesis; injectivity alone is insufficient.
 4. 3-cap reduction — three-cap bridge lemma.
 5. Distance-bound — both subcases open. Uniform-radius needs Erdős–Fishburn ($< 2n$, open since 1992); variable-radius is the actual problem at $n \ge 8$.
 
@@ -1089,7 +1100,7 @@ Following the four-stage consolidation, top-level claims in this document carry 
 **`CONDITIONAL` (kept as research programs):**
 - Lemma 12 / endpoint descent (§5.1). Conditional on the Endpoint Control Auxiliary Claim.
 - Ear-elimination + rigidity rank (§5.2). Conditional on (a) the L7-based gauge-fixing repair to the rank theorem (§6.5), and (b) Bridge Lemma A′.
-- Selection lemma / noncrossing diagonals (§5.3). Conditional on canonical-chord injectivity.
+- Selection lemma / noncrossing diagonals (§5.3). Conditional on a replacement noncrossing assignment theorem or extra global hypothesis; the deterministic canonical shortest-chord rule has an exact local crossing negative control.
 - Smallest enclosing circle / 3-cap (§5.4). Conditional on the Three-Cap Bridge Lemma; diameter case is `VERIFIED`.
 - Distance-bound reduction (§5.5). Uniform-radius subcase conditional on Erdős–Fishburn ($< 2n$); variable-radius subcase has no current attack.
 - 3-critical 4-tie counting (§6.3). Conditional on Conjectures A (bridge) and B (count $< n$).
