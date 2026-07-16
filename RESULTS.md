@@ -76,6 +76,31 @@ already closed by support saturation; it is not a proof of the full `n=12`
 case. See `docs/n12-rich-support-determinant-obstruction.md` and
 `scripts/check_n12_rich_support_determinant.py`.
 
+A review-pending near-saturation strengthening
+(`LEMMA_DRAFT` / `REVIEW_PENDING`) sharpens the same pair budget by two
+units for every `n >= 8`: pair-capacity slack `0` or `1` still forces the
+equilateral/turn-cover contradiction, with no assumption on the support-size
+profile, so
+
+```text
+sum_i binom(|R_i|, 2) <= n(n - 2) - 2.
+```
+
+The slack-1 case survives one missing capacity unit because the
+side-equality chain is a cycle minus at most one edge and the forced-turn
+set still covers at least `ceil((n-1)/2) >= 4` turn indices. Consequences:
+a hypothetical 4-bad decagon has at least six exact-four centers (raw
+budget: five), a hypothetical 4-bad hendecagon has at least four (raw
+budget: three), and the uniform saturation thresholds
+`n >= binom(k,2) + 3` become direct budget corollaries. The method provably
+stops at slack `1`: two missing gap-2 units can disconnect the
+side-equality chain, and at `n = 8` two missing gap-3 units leave a
+forced-turn cover of size three, which is not a contradiction. This does
+not prove `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
+`docs/near-saturation-support-obstruction.md`,
+`scripts/check_near_saturation_support_obstruction.py`, and
+`data/certificates/near_saturation_support_obstruction.json`.
+
 ### Lemma: crossing-bisector and sharpened count
 
 Status: `EXACT_OBSTRUCTION`.

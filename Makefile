@@ -159,6 +159,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
 	$(PYTHON) scripts/check_rich_support_counting_bound.py --check --json
 	$(PYTHON) scripts/check_support_saturation_obstruction.py --check --json
+	$(PYTHON) scripts/check_near_saturation_support_obstruction.py --check --check-artifact --json
 	$(PYTHON) scripts/check_n12_rich_support_determinant.py --check --json
 	$(PYTHON) scripts/check_localized_rich_support_counting.py --check --json
 	$(PYTHON) scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json

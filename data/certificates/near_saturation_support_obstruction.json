@@ -1,0 +1,1368 @@
+{
+  "case_rows": [
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 4,
+          "forced_turn_units_pi_over_3": 8,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 4,
+          "forced_turn_units_pi_over_3": 8,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 4,
+          "forced_turn_units_pi_over_3": 8,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 8,
+      "raw_pair_budget": 48,
+      "sharpened_pair_budget": 46,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    },
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 5,
+          "forced_turn_units_pi_over_3": 10,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 5,
+          "forced_turn_units_pi_over_3": 10,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 4,
+          "forced_turn_units_pi_over_3": 8,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 9,
+      "raw_pair_budget": 63,
+      "sharpened_pair_budget": 61,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    },
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 5,
+          "forced_turn_units_pi_over_3": 10,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 5,
+          "forced_turn_units_pi_over_3": 10,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 5,
+          "forced_turn_units_pi_over_3": 10,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 10,
+      "raw_pair_budget": 80,
+      "sharpened_pair_budget": 78,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    },
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 6,
+          "forced_turn_units_pi_over_3": 12,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 6,
+          "forced_turn_units_pi_over_3": 12,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 5,
+          "forced_turn_units_pi_over_3": 10,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 11,
+      "raw_pair_budget": 99,
+      "sharpened_pair_budget": 97,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    },
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 6,
+          "forced_turn_units_pi_over_3": 12,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 6,
+          "forced_turn_units_pi_over_3": 12,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 6,
+          "forced_turn_units_pi_over_3": 12,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 12,
+      "raw_pair_budget": 120,
+      "sharpened_pair_budget": 118,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    },
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 7,
+          "forced_turn_units_pi_over_3": 14,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 7,
+          "forced_turn_units_pi_over_3": 14,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 6,
+          "forced_turn_units_pi_over_3": 12,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 13,
+      "raw_pair_budget": 143,
+      "sharpened_pair_budget": 141,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    },
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 7,
+          "forced_turn_units_pi_over_3": 14,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 7,
+          "forced_turn_units_pi_over_3": 14,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 7,
+          "forced_turn_units_pi_over_3": 14,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 14,
+      "raw_pair_budget": 168,
+      "sharpened_pair_budget": 166,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    },
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 8,
+          "forced_turn_units_pi_over_3": 16,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 8,
+          "forced_turn_units_pi_over_3": 16,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 7,
+          "forced_turn_units_pi_over_3": 14,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 15,
+      "raw_pair_budget": 195,
+      "sharpened_pair_budget": 193,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    },
+    {
+      "cases": {
+        "all_capacities_saturated": {
+          "forced_turn_set_cover_lower_bound": 8,
+          "forced_turn_units_pi_over_3": 16,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap2_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 8,
+          "forced_turn_units_pi_over_3": 16,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        },
+        "one_gap3_unit_missing": {
+          "forced_turn_set_cover_lower_bound": 8,
+          "forced_turn_units_pi_over_3": 16,
+          "side_chain_connected": true,
+          "total_turn_units_pi_over_3": 6,
+          "turn_contradiction": true
+        }
+      },
+      "n": 16,
+      "raw_pair_budget": 224,
+      "sharpened_pair_budget": 222,
+      "short_diagonals_distinct": true,
+      "slack_le_1_contradiction_in_every_case": true
+    }
+  ],
+  "claim_scope": "Review-pending near-saturation strengthening of the edge-sensitive rich-support pair budget: for strictly convex n-gons with n >= 8, sum_i binom(|R_i|,2) <= n(n-2) - 2. Discrete bookkeeping checks only; not a realization search, not a proof of n=9, n=10, or n=11, not a proof of Erdos Problem #97, and not a counterexample.",
+  "cover_formulas_brute_force_verified_to_n_12": true,
+  "four_bad_profile_rows": [
+    {
+      "max_q_among_surviving_profiles": 1,
+      "min_exact_four_centers_sharpened": 8,
+      "n": 9,
+      "newly_excluded_profile_count": 2,
+      "newly_excluded_profiles": [
+        {
+          "pair_cost": 63,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            6
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 62,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5
+          ],
+          "raw_slack": 1
+        }
+      ],
+      "raw_budget_q_bound": 2,
+      "raw_feasible_profile_count": 4,
+      "raw_pair_budget": 63,
+      "sharpened_pair_budget": 61,
+      "sharpened_q_bound": 1,
+      "surviving_profile_count": 2
+    },
+    {
+      "max_q_among_surviving_profiles": 4,
+      "min_exact_four_centers_sharpened": 6,
+      "n": 10,
+      "newly_excluded_profile_count": 2,
+      "newly_excluded_profiles": [
+        {
+          "pair_cost": 79,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            7
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 80,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "raw_slack": 0
+        }
+      ],
+      "raw_budget_q_bound": 5,
+      "raw_feasible_profile_count": 12,
+      "raw_pair_budget": 80,
+      "sharpened_pair_budget": 78,
+      "sharpened_q_bound": 4,
+      "surviving_profile_count": 10
+    },
+    {
+      "max_q_among_surviving_profiles": 7,
+      "min_exact_four_centers_sharpened": 4,
+      "n": 11,
+      "newly_excluded_profile_count": 4,
+      "newly_excluded_profiles": [
+        {
+          "pair_cost": 99,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            6,
+            6,
+            7
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 98,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            7
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 99,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 98,
+          "profile": [
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "raw_slack": 1
+        }
+      ],
+      "raw_budget_q_bound": 8,
+      "raw_feasible_profile_count": 37,
+      "raw_pair_budget": 99,
+      "sharpened_pair_budget": 97,
+      "sharpened_q_bound": 7,
+      "surviving_profile_count": 33
+    },
+    {
+      "max_q_among_surviving_profiles": 11,
+      "min_exact_four_centers_sharpened": 1,
+      "n": 12,
+      "newly_excluded_profile_count": 14,
+      "newly_excluded_profiles": [
+        {
+          "pair_cost": 120,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            6,
+            10
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 119,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            10
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 120,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            8,
+            8
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 120,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            6,
+            6,
+            9
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 119,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            9
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 120,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            6,
+            6,
+            7,
+            7
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 120,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            6,
+            8
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 119,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            7,
+            7
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 119,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            6,
+            8
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 120,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            6,
+            6,
+            6,
+            6
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 120,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6,
+            7
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 119,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            6
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 119,
+          "profile": [
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            7
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 120,
+          "profile": [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "raw_slack": 0
+        }
+      ],
+      "raw_budget_q_bound": 12,
+      "raw_feasible_profile_count": 109,
+      "raw_pair_budget": 120,
+      "sharpened_pair_budget": 118,
+      "sharpened_q_bound": 11,
+      "surviving_profile_count": 95
+    },
+    {
+      "max_q_among_surviving_profiles": 13,
+      "min_exact_four_centers_sharpened": 0,
+      "n": 13,
+      "newly_excluded_profile_count": 30,
+      "newly_excluded_profiles": [
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            12
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            7,
+            11
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            8,
+            10
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            9,
+            9
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            6,
+            8,
+            9
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            7,
+            7,
+            9
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            11
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            8,
+            9
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            6,
+            10
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            6,
+            7,
+            7,
+            8
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            7,
+            7,
+            7,
+            7
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            6,
+            6,
+            6,
+            7,
+            8
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            6,
+            10
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            6,
+            8,
+            8
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            7,
+            7,
+            8
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            6,
+            6,
+            9
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            7,
+            9
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            8,
+            8
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            9
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            6,
+            6,
+            6,
+            7,
+            7
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            6,
+            6,
+            6,
+            6,
+            6,
+            7
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            7,
+            7,
+            7
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            6,
+            8
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            7,
+            7
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            7,
+            8
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            8
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            6,
+            6,
+            6
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 143,
+          "profile": [
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            7
+          ],
+          "raw_slack": 0
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6,
+            6,
+            6,
+            6
+          ],
+          "raw_slack": 1
+        },
+        {
+          "pair_cost": 142,
+          "profile": [
+            4,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            6,
+            7
+          ],
+          "raw_slack": 1
+        }
+      ],
+      "raw_budget_q_bound": 13,
+      "raw_feasible_profile_count": 293,
+      "raw_pair_budget": 143,
+      "sharpened_pair_budget": 141,
+      "sharpened_q_bound": 13,
+      "surviving_profile_count": 263
+    }
+  ],
+  "lemma_draft": "For any same-radius supports R_i in a strictly convex n-gon with n >= 8, sum_i binom(|R_i|, 2) <= n(n-2) - 2; equivalently pair-capacity slack 0 and 1 are impossible.",
+  "proof_accounting": {
+    "capacities": "hull-edge witness pairs have capacity 1, diagonal witness pairs capacity 2 with at most one using center per side",
+    "step_1_2": "each saturated gap-2 diagonal forces one side equality; a cycle minus at most one edge stays connected, so all sides are equal",
+    "step_3": "each saturated gap-3 diagonal forces an exterior turn 2*pi/3 at one of the two short-side vertices",
+    "step_4_5": "the forced-turn set covers the n-cycle minus at most one edge, so it has at least 4 members and the total exterior turn would be at least 8*pi/3 > 2*pi"
+  },
+  "provenance": {
+    "command": "python scripts/check_near_saturation_support_obstruction.py --write-artifact",
+    "generator": "scripts/check_near_saturation_support_obstruction.py",
+    "notes": "Deterministic bookkeeping summary for the review-pending near-saturation rich-support obstruction; regenerated, never hand-edited."
+  },
+  "schema": "erdos97.near_saturation_support_obstruction.v1",
+  "slack_two_failure_records": {
+    "claim_scope": "method-boundary records only; no claim about slack-2 realizability",
+    "equilateral_step_failure": {
+      "n": 8,
+      "removed_side_chain_edges": [
+        0,
+        4
+      ],
+      "side_chain_disconnected": true
+    },
+    "turn_count_failure": {
+      "forced_turn_units_pi_over_3": 6,
+      "min_cover_after_two_missing_gap3_units": 3,
+      "n": 8,
+      "total_turn_units_pi_over_3": 6,
+      "turn_contradiction": false
+    }
+  },
+  "status": "REVIEW_PENDING_NEAR_SATURATION_OBSTRUCTION",
+  "trust": "LEMMA_DRAFT_REVIEW_PENDING",
+  "uniform_threshold_consistency": {
+    "all_match": true,
+    "rows": [
+      {
+        "k": 4,
+        "match": true,
+        "min_n_allowed_by_sharpened_budget": 9,
+        "support_saturation_threshold": 9
+      },
+      {
+        "k": 5,
+        "match": true,
+        "min_n_allowed_by_sharpened_budget": 13,
+        "support_saturation_threshold": 13
+      },
+      {
+        "k": 6,
+        "match": true,
+        "min_n_allowed_by_sharpened_budget": 18,
+        "support_saturation_threshold": 18
+      },
+      {
+        "k": 7,
+        "match": true,
+        "min_n_allowed_by_sharpened_budget": 24,
+        "support_saturation_threshold": 24
+      },
+      {
+        "k": 8,
+        "match": true,
+        "min_n_allowed_by_sharpened_budget": 31,
+        "support_saturation_threshold": 31
+      }
+    ]
+  }
+}

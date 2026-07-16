@@ -32,6 +32,10 @@ native_trust_policy:
       native_value: "NUMERICAL_NONLINEAR_DIAGNOSTIC"
       trust_class: REVIEW_PENDING_DIAGNOSTIC
       rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
+    near_saturation_support_obstruction:
+      native_value: "LEMMA_DRAFT_REVIEW_PENDING"
+      trust_class: REVIEW_PENDING_DIAGNOSTIC
+      rationale: Native producer label is preserved verbatim; the canonical class is the conservative repository review category.
     c25_c29_sparse_frontier_probe:
       native_value: "FIXED_ORDER_DIAGNOSTIC"
       trust_class: REVIEW_PENDING_DIAGNOSTIC
@@ -11633,4 +11637,40 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
       - independent proof of the n=9 finite case
+      - official/global status update
+
+  - id: near_saturation_support_obstruction
+    path: data/certificates/near_saturation_support_obstruction.json
+    sha256: d45224f05ff0c6de26c6aa5f2ae748730e662d65b2d709d554af3ab7847527a8
+    size_bytes: 29310
+    kind: counting_lemma_bookkeeping
+    generator: scripts/check_near_saturation_support_obstruction.py
+    command: python scripts/check_near_saturation_support_obstruction.py --write-artifact
+    checker: scripts/check_near_saturation_support_obstruction.py
+    check_command: python scripts/check_near_saturation_support_obstruction.py --check --check-artifact --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: >
+      Deterministic discrete bookkeeping for the review-pending
+      near-saturation rich-support obstruction draft: sharpened pair budget
+      n(n-2)-2 for n >= 8, slack-0/slack-1 case rows, sharpened 4-bad
+      support-size profile exclusions for n = 9..13, uniform-threshold
+      consistency, and the exact slack-2 method-failure records. Counting
+      bookkeeping only; the geometric lemma draft remains review-pending and
+      this is not a proof of n=9, n=10, n=11, or Erdos Problem #97.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.near_saturation_support_obstruction.v1
+      status: REVIEW_PENDING_NEAR_SATURATION_OBSTRUCTION
+      trust: LEMMA_DRAFT_REVIEW_PENDING
+      provenance.command: python scripts/check_near_saturation_support_obstruction.py --write-artifact
+      cover_formulas_brute_force_verified_to_n_12: true
+      uniform_threshold_consistency.all_match: true
+      slack_two_failure_records.turn_count_failure.min_cover_after_two_missing_gap3_units: 3
+      slack_two_failure_records.turn_count_failure.turn_contradiction: false
+    forbidden_claims:
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - proof of the n=9, n=10, or n=11 finite case
       - official/global status update

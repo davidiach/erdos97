@@ -307,6 +307,20 @@ not prove the full dodecagon case. See `docs/rich-support-counting-lemma.md`,
 `docs/n12-rich-support-determinant-obstruction.md`, and
 `docs/localized-rich-support-counting.md`.
 
+A review-pending near-saturation strengthening sharpens that support pair
+budget by two units for every `n >= 8`: pair-capacity slack `0` or `1`
+already forces the equilateral/turn-cover contradiction with no assumption
+on the support-size profile, so `sum_i binom(|R_i|, 2) <= n(n-2) - 2`. This
+raises the counting floors to at least six exact-four centers in a
+hypothetical 4-bad decagon and at least four in a hypothetical 4-bad
+hendecagon, and it recovers the uniform saturation thresholds
+`n >= binom(k,2) + 3` as direct budget corollaries. The draft records why
+the method stops at slack `1`. It does not extend the `n=9` conclusions,
+does not prove `n=9`, `n=10`, or `n=11`, and does not change any
+finite-case or global status. See
+`docs/near-saturation-support-obstruction.md` and
+`data/certificates/near_saturation_support_obstruction.json`.
+
 The follow-up mixed rich-support reduction enumerates every four- or
 five-witness support at every center, for `126^9 =
 8,004,512,848,309,157,376` raw assignments. With the same pair/crossing
