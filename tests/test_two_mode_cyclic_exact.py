@@ -7,6 +7,7 @@ import cmath
 import importlib
 import json
 import math
+import sys
 import unittest
 from pathlib import Path
 
@@ -21,7 +22,11 @@ exact = importlib.import_module("erdos97.two_mode_cyclic_exact")
 
 class ExactTwoModeTests(unittest.TestCase):
     def test_stored_certificate_contract(self) -> None:
-        self.assertIsNone(exact.canonical_toolchain_error())
+        toolchain_error = exact.canonical_toolchain_error()
+        if sys.version_info[:2] == exact.CANONICAL_PYTHON:
+            self.assertIsNone(toolchain_error)
+        else:
+            self.assertIn("pinned to CPython 3.12", toolchain_error)
         repo_root = Path(__file__).resolve().parents[1]
         artifact = json.loads(
             (repo_root / "data/certificates/two_mode_cyclic_exact_n80.json").read_text(
