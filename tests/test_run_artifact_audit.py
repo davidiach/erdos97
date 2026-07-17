@@ -879,6 +879,11 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         in command_texts
     )
     assert (
+        "python scripts/check_near_saturation_support_obstruction.py --check "
+        "--check-artifact --json"
+        in command_texts
+    )
+    assert (
         "python scripts/check_n12_rich_support_determinant.py --check --json"
         in command_texts
     )
@@ -896,6 +901,13 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_support_saturation_obstruction.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_near_saturation_support_obstruction.py --check "
+        "--check-artifact --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_near_saturation_support_obstruction.py --check "
+        "--check-artifact --json"
     ) < ordered_command_texts.index(
         "python scripts/check_n12_rich_support_determinant.py --check --json"
     )

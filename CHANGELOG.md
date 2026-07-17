@@ -7,6 +7,45 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-17
+
+- Corrected the slack-2 method-boundary records of the near-saturation
+  support obstruction draft after an internal adversarial review: the
+  earlier record claiming the turn count fails at `n = 8` was wrong (a
+  strict form of the turn count closes every slack-2 distribution except
+  two distinct unsaturated gap-2 diagonals, which always disconnect the
+  side-equality chain). The lemma-draft statement, proof steps, and all
+  sharpened counting consequences are unchanged; the artifact schema moved
+  to `v2` and the stored artifact was regenerated. Also normalized the
+  artifact's native trust field to the canonical
+  `REVIEW_PENDING_DIAGNOSTIC` class (dropping the one-off
+  `mismatch_overrides` entry), retitled the note's statement heading from
+  "Theorem" to "Lemma draft", fixed a citation that conflated the nonagon
+  profile-deficiency refinement with the localized per-label cap, added
+  the missing `n <= 7` raw-budget step to the uniform-threshold corollary,
+  added the verification-contract fields (known counterexample attempts,
+  3-neighbor survival), moved the RESULTS.md entry into its own
+  status-labeled subsection, queued the draft in
+  `docs/review-priorities.md`, and registered the new checker line in the
+  Makefile-chain and audit-order tests. No claim, scope, or status change
+  beyond the corrected boundary record.
+
+## 2026-07-16
+
+- Added the review-pending near-saturation support obstruction draft
+  (`docs/near-saturation-support-obstruction.md`,
+  `scripts/check_near_saturation_support_obstruction.py`,
+  `data/certificates/near_saturation_support_obstruction.json`): the
+  edge-sensitive rich-support pair budget sharpens to
+  `sum_i binom(|R_i|,2) <= n(n-2) - 2` for strictly convex `n`-gons with
+  `n >= 8`, because pair-capacity slack `0` or `1` forces the
+  equilateral/turn-cover contradiction for arbitrary support-size
+  profiles. New counting floors: at least six exact-four centers in a
+  hypothetical 4-bad decagon (previously five) and at least four in a
+  hypothetical 4-bad hendecagon (previously three). Labeled
+  `LEMMA_DRAFT` / `REVIEW_PENDING`; not a proof of `n=9`, `n=10`,
+  `n=11`, or Erdos Problem #97, and no status change.
+
 ## 2026-07-10
 
 - Migrated the three 2026-07-02 all-`m` certificate manifest entries
