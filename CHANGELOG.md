@@ -7,6 +7,25 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-17
+
+- Added a review-pending exact bounded certificate for the real two-mode cyclic
+  family `z_i = w^i + t w^(k i)` for every `9 <= n <= 80`,
+  `2 <= k <= n-2`, and real `t`. The retained exact replay covers 2,988
+  parameter pairs and 1,865,543 real collision-root occurrences, closed by
+  row-value bands, strict regular-orbit inradius obstructions, or exact
+  duplicate labels, with zero unresolved. Added the generator, focused tests,
+  generated-artifact provenance, pinned SymPy/python-flint/mpmath toolchain,
+  and slow audit registration.
+- Recorded the July 17 packet intake and discarded its duplicate prompts,
+  integration snippets, source-material copy, and self-reported validation
+  transcript. Problem-name spelling in the imported note was normalized to the
+  repository convention.
+- This is an `EXACT_CERTIFICATE_DIAGNOSTIC` for a bounded restricted family,
+  not arbitrary configurations or unbounded `n`; no general proof or
+  counterexample is claimed, the strongest local result remains `n <= 8`,
+  and official/global status remains falsifiable/open.
+
 ## 2026-07-10
 
 - Migrated the three 2026-07-02 all-`m` certificate manifest entries

@@ -1315,6 +1315,23 @@ Forbidden overclaiming text:
   range and certificate type
 - "this proves Erdos #97"
 
+## Task CB-TWO-MODE-EXACT - Externally review the bounded certificate
+
+Issue: none yet.
+
+Status: repository replay completed; independent external review pending.
+
+Review `docs/two-mode-cyclic-exact-n80.md`,
+`src/erdos97/two_mode_cyclic_exact.py`, the focused tests, and the retained
+JSON. The review target is the distance algebra, completeness reduction,
+Arb root isolation, and all three terminal certificates. A passing rerun alone
+does not count as independent mathematical review.
+
+Trust delta: may strengthen confidence in the exact obstruction for real
+`z_i = w^i + t w^(k i)` over `9 <= n <= 80` and
+`2 <= k <= n-2`. It may not generalize beyond this bounded two-mode family,
+prove or refute Erdos Problem #97, or change official/global status.
+
 ## Cross-Cutting Rules
 
 - Run `make verify-fast` or the raw fast tier after code or documentation

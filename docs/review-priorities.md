@@ -1267,6 +1267,31 @@ Acceptance standard: a strengthened bridge should be stated as a necessary
 condition for minimal counterexamples and should reject at least one abstract
 fragile-cover family that passes the current pairwise/crossing checks.
 
+## Priority 8c - external review of the bounded real two-mode certificate
+
+Review the exact certificate for
+`z_i = w^i + t w^(k i)`, real `t`, `9 <= n <= 80`, and
+`2 <= k <= n-2`. The repository replay is complete, but repository review is
+not independent external review.
+
+Review in this order:
+
+1. derive the squared-distance coefficients over
+   `Q(2*cos(2*pi/n))`;
+2. check that row-zero identity classes of size at most two make the
+   enumerated class-pair roots candidate-complete;
+3. audit exact degree/discriminant handling and Arb branch isolation;
+4. verify the row-value band, regular-orbit inradius, and exact-duplicate
+   terminal implications; and
+5. rerun the focused tests and retained full certificate under the pinned
+   CPython 3.12 toolchain.
+
+Acceptance may promote confidence in this bounded restricted-family
+certificate only. It may not extend the result to arbitrary configurations,
+unbounded `n`, complex coefficients, or additional modes, and it may not
+change the local strongest result or official/global status. See
+`docs/two-mode-cyclic-exact-n80.md`.
+
 ## Priority 9 - strengthen only productive filters
 
 The minimum-radius short-chord filter in `docs/minimum-radius-filter.md` is a

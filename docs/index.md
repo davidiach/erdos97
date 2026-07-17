@@ -876,6 +876,14 @@ put detailed reconciliation in the canonical synthesis.
   every `m >= 3` at once, via a continuous polynomial relaxation containing
   every integer instance; supersedes the finite float screen as the machine
   audit of Step 5 only, with Steps 1-4 still review-pending prose.
+- [`two-mode-cyclic-exact-n80.md`](two-mode-cyclic-exact-n80.md):
+  review-pending exact bounded certificate for the real two-mode cyclic family
+  `z_i = w^i + t w^(k i)` over every `9 <= n <= 80` and
+  `2 <= k <= n-2`; restricted family only, not a general proof,
+  counterexample, or official/global status update.
+- [`two-mode-exact-packet-triage-2026-07-17.md`](two-mode-exact-packet-triage-2026-07-17.md):
+  intake record for the July 17 exact packet, including archive and artifact
+  hashes, independent replay result, accepted files, and discarded boilerplate.
 - [`half-step-matching-reduction.md`](half-step-matching-reduction.md):
   review-pending matching lemma for multi-orbit cyclic configurations (no
   aligned orbit pairs; half-step pairs form a partial matching) with the
