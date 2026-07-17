@@ -11688,3 +11688,56 @@ artifacts:
       - counterexample to Erdos Problem #97
       - independent proof of the n=9 finite case
       - official/global status update
+
+  - id: near_saturation_support_obstruction
+    path: data/certificates/near_saturation_support_obstruction.json
+    sha256: 887287400d8395f17c85c5de3b4b9b37fd654b1f8ae05b82c7754822b87295ca
+    size_bytes: 30091
+    kind: counting_lemma_bookkeeping
+    generator: scripts/check_near_saturation_support_obstruction.py
+    command: python scripts/check_near_saturation_support_obstruction.py --write-artifact
+    checker: scripts/check_near_saturation_support_obstruction.py
+    check_command: python scripts/check_near_saturation_support_obstruction.py --check --check-artifact --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: >
+      Deterministic discrete bookkeeping for the review-pending
+      near-saturation rich-support obstruction draft: sharpened pair budget
+      n(n-2)-2 for n >= 8, slack-0/slack-1 case rows, sharpened 4-bad
+      support-size profile exclusions for n = 9..13, uniform-threshold
+      consistency, and the exact slack-2 method-failure records. Counting
+      bookkeeping only; the geometric lemma draft remains review-pending and
+      this is not a proof of n=9, n=10, n=11, or Erdos Problem #97.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.near_saturation_support_obstruction.v2
+      status: REVIEW_PENDING_NEAR_SATURATION_OBSTRUCTION
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      note_status_label: LEMMA_DRAFT / REVIEW_PENDING
+      provenance.command: python scripts/check_near_saturation_support_obstruction.py --write-artifact
+      cover_formulas_brute_force_verified_to_n_12: true
+      uniform_threshold_consistency.all_match: true
+      headline.n9_sharpened_q_bound: 1
+      headline.n10_sharpened_q_bound: 4
+      headline.n11_sharpened_q_bound: 7
+      headline.n12_sharpened_q_bound: 11
+      headline.n10_min_exact_four_centers: 6
+      headline.n11_min_exact_four_centers: 4
+      headline.n12_min_exact_four_centers: 1
+      headline.newly_excluded_profile_counts.9: 2
+      headline.newly_excluded_profile_counts.10: 2
+      headline.newly_excluded_profile_counts.11: 4
+      headline.newly_excluded_profile_counts.12: 14
+      headline.newly_excluded_profile_counts.13: 30
+      slack_two_boundary_records.chain_disconnection_failure.exhibit_side_chain_disconnected: true
+      slack_two_boundary_records.chain_disconnection_failure.cycle_minus_two_distinct_edges_always_disconnected_n8_to_12: true
+      slack_two_boundary_records.strict_turn_closure_of_other_distributions.min_cover_over_all_two_edge_removals: 3
+      slack_two_boundary_records.strict_turn_closure_of_other_distributions.all_le_two_edge_removal_covers_meet_strict_threshold: true
+      slack_two_boundary_records.strict_turn_closure_of_other_distributions.general_bound_ceil_n_minus_2_over_2_verified_n8_to_12: true
+      slack_two_boundary_records.strict_turn_closure_of_other_distributions.nonstrict_test_fails_for_some_two_edge_removals: true
+    forbidden_claims:
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - proof of the n=9, n=10, or n=11 finite case
+      - official/global status update

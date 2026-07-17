@@ -787,6 +787,15 @@ condition that the surviving multi-block family does not automatically satisfy:
 - bootstrap-core/private-halo analysis, as recorded in
   `docs/bootstrap-core-bridge.md`, which adds a `rho > 3` closure-rank witness,
   deletion closures, and weighted cyclic outside-pair capacity.
+- the review-pending near-saturation support obstruction in
+  `docs/near-saturation-support-obstruction.md`, which sharpens the
+  edge-sensitive support pair budget to `n(n-2) - 2` for `n >= 8` and
+  raises the 4-bad decagon/hendecagon exact-four floors to six and four.
+  Before theorem-style use, independently check the one-center-per-side
+  saturation step, the cycle-minus-one-edge equilateral chain, the
+  gap-3/turn conversion, the strict turn count in the boundary section,
+  and the exhaustive profile enumeration in
+  `scripts/check_near_saturation_support_obstruction.py`.
 - the review-pending complement-seeding refinement in
   `docs/bootstrap-core-complement-seeding.md`, which gives
   `2|U| <= 3|V\U|` for a cardinality-minimum generator and forces a strictly

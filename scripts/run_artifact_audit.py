@@ -1989,6 +1989,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="near_saturation_support_obstruction",
+        command=(
+            "python",
+            "scripts/check_near_saturation_support_obstruction.py",
+            "--check",
+            "--check-artifact",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending near-saturation strengthening of the "
+            "edge-sensitive rich-support pair budget to n(n-2)-2 for "
+            "n >= 8, with sharpened 4-bad support-size profile counts for "
+            "n = 9..13; discrete bookkeeping checks only, not a proof of "
+            "n=9, not a proof of n=10, not a proof of n=11, not a proof of "
+            "Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n12_rich_support_determinant",
         command=(
             "python",
