@@ -179,9 +179,13 @@ support-size profile.
 Consequences: a hypothetical 4-bad decagon has at least six exact-four
 centers (raw budget: five), a hypothetical 4-bad hendecagon has at least
 four (raw budget: three), and the uniform thresholds
-`n >= binom(k,2) + 3` follow directly from the sharpened budget. The method
-provably stops at slack `1`. This does not prove the review-pending
-exact-four frontier, `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
+`n >= binom(k,2) + 3` follow directly from the sharpened budget for
+`n >= 8`. The uniform statement stops at slack `1` because two distinct
+gap-2 diagonals each missing one unit always disconnect the side-equality
+chain; a strict form of the turn count closes every other slack-2
+distribution, but that remaining family is a genuine method boundary. This
+does not prove the review-pending exact-four frontier, `n=9`, `n=10`,
+`n=11`, or Erdos Problem #97. See
 `docs/near-saturation-support-obstruction.md` and
 `scripts/check_near_saturation_support_obstruction.py`.
 

@@ -31,9 +31,10 @@ from math import comb
 from pathlib import Path
 from typing import Any
 
-SCHEMA = "erdos97.near_saturation_support_obstruction.v1"
+SCHEMA = "erdos97.near_saturation_support_obstruction.v2"
 STATUS = "REVIEW_PENDING_NEAR_SATURATION_OBSTRUCTION"
-TRUST = "LEMMA_DRAFT_REVIEW_PENDING"
+TRUST = "REVIEW_PENDING_DIAGNOSTIC"
+NOTE_STATUS_LABEL = "LEMMA_DRAFT / REVIEW_PENDING"
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ARTIFACT = REPO_ROOT / "data" / "certificates" / (
@@ -41,6 +42,8 @@ DEFAULT_ARTIFACT = REPO_ROOT / "data" / "certificates" / (
 )
 
 BRUTE_FORCE_MAX_VERTICES = 14
+# Total exterior turn 2*pi is 6 units of pi/3; each forced turn 2*pi/3 is 2.
+TOTAL_TURN_UNITS_PI_OVER_3 = 6
 
 
 def raw_pair_budget(n: int) -> int:
@@ -81,21 +84,24 @@ def short_diagonals_distinct(n: int) -> bool:
     return not ((gap2 | gap3) & hull)
 
 
-def cycle_minus_edges_connected(n: int, removed: tuple[int, ...]) -> bool:
-    """Check connectivity of the n-cycle after removing the listed edges.
-
-    Edge j joins vertices j and j+1 mod n.
-    """
+def cycle_edges(n: int) -> list[tuple[int, int]]:
+    """Edges of the n-cycle in the convention: edge j joins j and j+1 mod n."""
 
     if n < 3:
         raise ValueError("cycle size must be at least 3")
+    return [(j, (j + 1) % n) for j in range(n)]
+
+
+def cycle_minus_edges_connected(n: int, removed: tuple[int, ...]) -> bool:
+    """Check connectivity of the n-cycle after removing the listed edges."""
+
     removed_set = set(removed)
     adjacency: dict[int, set[int]] = {v: set() for v in range(n)}
-    for j in range(n):
+    for j, (a, b) in enumerate(cycle_edges(n)):
         if j in removed_set:
             continue
-        adjacency[j].add((j + 1) % n)
-        adjacency[(j + 1) % n].add(j)
+        adjacency[a].add(b)
+        adjacency[b].add(a)
     seen = {0}
     stack = [0]
     while stack:
@@ -142,33 +148,53 @@ def brute_force_min_cover(n: int, edges: list[tuple[int, int]]) -> int:
     raise AssertionError("unreachable: the full vertex set covers everything")
 
 
+def min_cover_after_removals(n: int, removed: tuple[int, ...]) -> int:
+    """Exact minimum vertex cover of the n-cycle minus the listed edges."""
+
+    removed_set = set(removed)
+    edges = [edge for j, edge in enumerate(cycle_edges(n)) if j not in removed_set]
+    return brute_force_min_cover(n, edges)
+
+
 def cover_formulas_verified(max_n: int = 12) -> bool:
     """Brute-force check of the two cover formulas used in Step 4."""
 
     for n in range(3, max_n + 1):
-        cycle_edges = [(j, (j + 1) % n) for j in range(n)]
-        if brute_force_min_cover(n, cycle_edges) != min_vertex_cover_cycle(n):
+        if min_cover_after_removals(n, ()) != min_vertex_cover_cycle(n):
             return False
         for removed in range(n):
-            path_edges = [edge for j, edge in enumerate(cycle_edges) if j != removed]
-            if brute_force_min_cover(n, path_edges) != min_vertex_cover_path_edges(
+            if min_cover_after_removals(n, (removed,)) != min_vertex_cover_path_edges(
                 n - 1
             ):
                 return False
     return True
 
 
+def forced_turn_units(cover_lower_bound: int) -> int:
+    """Turn units (multiples of pi/3) forced by a turn set of the given size."""
+
+    return 2 * cover_lower_bound
+
+
+def nonstrict_turn_contradiction(cover_lower_bound: int) -> bool:
+    """The proof's Step 5 test: |M| forced turns strictly exceed 2*pi."""
+
+    return forced_turn_units(cover_lower_bound) > TOTAL_TURN_UNITS_PI_OVER_3
+
+
 def slack_one_case_row(n: int) -> dict[str, Any]:
     """Case bookkeeping for one n: the three d <= 1 sub-cases of the proof.
 
-    Turn units are counted in multiples of pi/3; each forced exterior turn
-    2*pi/3 contributes 2 units and the total turn 2*pi is 6 units.
+    The three rows split by where the (at most one) missing capacity unit
+    sits: on no short diagonal at all (this covers d = 0 and a d = 1 unit on
+    a hull edge or a gap >= 4 diagonal), on one gap-2 diagonal, or on one
+    gap-3 diagonal.
     """
 
     if n < 8:
         raise ValueError("the lemma is claimed only for n >= 8")
     cases = {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
             "side_chain_connected": True,
             "cover_lower_bound": min_vertex_cover_cycle(n),
         },
@@ -184,14 +210,16 @@ def slack_one_case_row(n: int) -> dict[str, Any]:
     rows: dict[str, Any] = {}
     all_contradict = True
     for name, data in cases.items():
-        turn_units = 2 * int(data["cover_lower_bound"])
-        contradiction = bool(data["side_chain_connected"]) and turn_units > 6
+        cover = int(data["cover_lower_bound"])
+        contradiction = bool(data["side_chain_connected"]) and (
+            nonstrict_turn_contradiction(cover)
+        )
         all_contradict = all_contradict and contradiction
         rows[name] = {
             "side_chain_connected": data["side_chain_connected"],
-            "forced_turn_set_cover_lower_bound": data["cover_lower_bound"],
-            "forced_turn_units_pi_over_3": turn_units,
-            "total_turn_units_pi_over_3": 6,
+            "forced_turn_set_cover_lower_bound": cover,
+            "forced_turn_units_pi_over_3": forced_turn_units(cover),
+            "total_turn_units_pi_over_3": TOTAL_TURN_UNITS_PI_OVER_3,
             "turn_contradiction": contradiction,
         }
     return {
@@ -206,25 +234,29 @@ def slack_one_case_row(n: int) -> dict[str, Any]:
     }
 
 
-def four_bad_q_bound(n: int) -> int | None:
-    """Sharpened bound on centers with support size >= 5 in a 4-bad n-gon.
+def four_bad_q_bound_for_budget(n: int, budget: int) -> int | None:
+    """Bound on centers with support size >= 5 in a 4-bad n-gon.
 
-    Returns None when the sharpened budget already excludes 4-bad supports.
+    Returns None when the budget already excludes 4-bad supports (the
+    exact-four baseline alone exceeds it, as the sharpened budget does at
+    n = 8).
     """
 
-    budget = sharpened_pair_budget(n)
     if 6 * n > budget:
         return None
-    return min(n, (budget - 6 * n) // 4)
+    return min(n, (budget - 6 * n) // (comb(5, 2) - comb(4, 2)))
+
+
+def four_bad_q_bound(n: int) -> int | None:
+    """Sharpened-budget bound on centers with support size >= 5."""
+
+    return four_bad_q_bound_for_budget(n, sharpened_pair_budget(n))
 
 
 def raw_four_bad_q_bound(n: int) -> int | None:
     """Raw-budget bound on centers with support size >= 5, for comparison."""
 
-    budget = raw_pair_budget(n)
-    if 6 * n > budget:
-        return None
-    return min(n, (budget - 6 * n) // 4)
+    return four_bad_q_bound_for_budget(n, raw_pair_budget(n))
 
 
 def enumerate_profiles(n: int) -> tuple[list[dict[str, Any]], list[tuple[int, ...]]]:
@@ -271,6 +303,7 @@ def profile_row(n: int) -> dict[str, Any]:
     newly_excluded, surviving = enumerate_profiles(n)
     surviving_q = [sum(1 for size in profile if size >= 5) for profile in surviving]
     max_surviving_q = max(surviving_q) if surviving_q else None
+    sharpened_q = four_bad_q_bound(n)
     return {
         "n": n,
         "raw_pair_budget": raw_pair_budget(n),
@@ -281,15 +314,20 @@ def profile_row(n: int) -> dict[str, Any]:
         "surviving_profile_count": len(surviving),
         "max_q_among_surviving_profiles": max_surviving_q,
         "raw_budget_q_bound": raw_four_bad_q_bound(n),
-        "sharpened_q_bound": four_bad_q_bound(n),
+        "sharpened_q_bound": sharpened_q,
         "min_exact_four_centers_sharpened": (
-            None if four_bad_q_bound(n) is None else n - int(four_bad_q_bound(n))
+            None if sharpened_q is None else n - sharpened_q
         ),
     }
 
 
 def uniform_threshold_consistency(min_k: int = 4, max_k: int = 8) -> dict[str, Any]:
-    """Check that the sharpened budget recovers n >= binom(k,2) + 3."""
+    """Check that the sharpened budget recovers n >= binom(k,2) + 3.
+
+    The scan starts at n = 8 because the raw budget already excludes
+    every-center size >= 4 supports for n <= 7 (6n > n(n-2)); the sharpened
+    budget is only claimed for n >= 8.
+    """
 
     rows: list[dict[str, Any]] = []
     all_match = True
@@ -314,43 +352,97 @@ def uniform_threshold_consistency(min_k: int = 4, max_k: int = 8) -> dict[str, A
     return {"rows": rows, "all_match": all_match}
 
 
-def slack_two_failure_records() -> dict[str, Any]:
-    """Record exactly why the method stops at slack 1.
+def slack_two_boundary_records() -> dict[str, Any]:
+    """Record the exact slack-2 boundary of the proof method.
 
-    These are records about the proof method; they claim nothing about the
-    realizability of slack-2 support systems.
+    Two records, both about the proof method rather than realizability:
+
+    1. The genuine failure mode: two DISTINCT gap-2 diagonals each short by
+       one unit remove two side-chain edges, and a cycle minus two distinct
+       edges is always disconnected, so the equilateral step fails and no
+       turn contradiction follows from these steps.
+
+    2. The corrected turn accounting: with the strict form of Step 5 (the
+       forced-turn set M is a proper subset of the n turn indices, so
+       |M| >= 3 already forces total turn > 2*pi for n >= 4), every other
+       slack-2 distribution still contradicts, because the cover of the
+       turn-index cycle loses at most two edges and stays at least
+       ceil((n-2)/2) >= 3 for n >= 8.  The note's headline proof uses the
+       non-strict test (|M| >= 4), which genuinely fails on some two-edge
+       removals (minimum cover exactly 3), so the uniform theorem still
+       stops at slack 1 because of record 1, not because of the turn count.
     """
 
     n = 8
-    # Failure 1: two missing gap-2 units can disconnect the side chain.
+    # Record 1: two missing gap-2 units always disconnect the side chain.
     disconnect_removed = (0, 4)
-    chain_disconnected = not cycle_minus_edges_connected(n, disconnect_removed)
-
-    # Failure 2: two missing gap-3 units can leave a cover of size 3 at n=8,
-    # and 3 forced turns of 2*pi/3 only reach the total turn 2*pi.
-    cycle_edges = [(j, (j + 1) % n) for j in range(n)]
-    min_cover_after_two = min(
-        brute_force_min_cover(
-            n, [edge for j, edge in enumerate(cycle_edges) if j not in removed]
-        )
-        for removed in combinations(range(n), 2)
+    exhibit_disconnected = not cycle_minus_edges_connected(n, disconnect_removed)
+    always_disconnected = all(
+        not cycle_minus_edges_connected(m, pair)
+        for m in range(8, 13)
+        for pair in combinations(range(m), 2)
     )
-    turn_units = 2 * min_cover_after_two
+
+    # Record 2: cover bounds for at most two missing gap-3 units.
+    two_removal_covers = [
+        min_cover_after_removals(n, pair) for pair in combinations(range(n), 2)
+    ]
+    min_cover_two_removals = min(two_removal_covers)
+    min_cover_le_two_removals = min(
+        min_cover_after_removals(n, ()),
+        min(min_cover_after_removals(n, (j,)) for j in range(n)),
+        min_cover_two_removals,
+    )
+    general_bound_holds = all(
+        min_cover_after_removals(m, removed) >= max(3, (m - 2 + 1) // 2)
+        for m in range(8, 13)
+        for count in (0, 1, 2)
+        for removed in combinations(range(m), count)
+    )
     return {
         "claim_scope": (
             "method-boundary records only; no claim about slack-2 realizability"
         ),
-        "equilateral_step_failure": {
+        "chain_disconnection_failure": {
             "n": n,
-            "removed_side_chain_edges": list(disconnect_removed),
-            "side_chain_disconnected": chain_disconnected,
+            "exhibit_removed_side_chain_edges": list(disconnect_removed),
+            "exhibit_side_chain_disconnected": exhibit_disconnected,
+            "cycle_minus_two_distinct_edges_always_disconnected_n8_to_12": (
+                always_disconnected
+            ),
         },
-        "turn_count_failure": {
+        "strict_turn_closure_of_other_distributions": {
             "n": n,
-            "min_cover_after_two_missing_gap3_units": min_cover_after_two,
-            "forced_turn_units_pi_over_3": turn_units,
-            "total_turn_units_pi_over_3": 6,
-            "turn_contradiction": turn_units > 6,
+            "strict_turn_set_threshold": 3,
+            "min_cover_over_all_two_edge_removals": min_cover_two_removals,
+            "min_cover_over_all_le_two_edge_removals": min_cover_le_two_removals,
+            "all_le_two_edge_removal_covers_meet_strict_threshold": (
+                min_cover_le_two_removals >= 3
+            ),
+            "general_bound_ceil_n_minus_2_over_2_verified_n8_to_12": (
+                general_bound_holds
+            ),
+            "nonstrict_test_fails_for_some_two_edge_removals": (
+                not nonstrict_turn_contradiction(min_cover_two_removals)
+            ),
+        },
+    }
+
+
+def headline_counts(profile_rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Compact headline block for provenance pinning and ledger crosswalks."""
+
+    rows = {row["n"]: row for row in profile_rows}
+    return {
+        "n9_sharpened_q_bound": rows[9]["sharpened_q_bound"],
+        "n10_sharpened_q_bound": rows[10]["sharpened_q_bound"],
+        "n11_sharpened_q_bound": rows[11]["sharpened_q_bound"],
+        "n12_sharpened_q_bound": rows[12]["sharpened_q_bound"],
+        "n10_min_exact_four_centers": rows[10]["min_exact_four_centers_sharpened"],
+        "n11_min_exact_four_centers": rows[11]["min_exact_four_centers_sharpened"],
+        "n12_min_exact_four_centers": rows[12]["min_exact_four_centers_sharpened"],
+        "newly_excluded_profile_counts": {
+            str(n): rows[n]["newly_excluded_profile_count"] for n in range(9, 14)
         },
     }
 
@@ -362,10 +454,12 @@ def build_summary(min_n: int = 8, max_n: int = 16) -> dict[str, Any]:
         raise ValueError("min_n must be at least 8")
     if max_n < min_n:
         raise ValueError("max_n must be at least min_n")
+    profile_rows = [profile_row(n) for n in range(9, 14)]
     return {
         "schema": SCHEMA,
         "status": STATUS,
         "trust": TRUST,
+        "note_status_label": NOTE_STATUS_LABEL,
         "claim_scope": (
             "Review-pending near-saturation strengthening of the "
             "edge-sensitive rich-support pair budget: for strictly convex "
@@ -402,8 +496,9 @@ def build_summary(min_n: int = 8, max_n: int = 16) -> dict[str, Any]:
         "cover_formulas_brute_force_verified_to_n_12": cover_formulas_verified(),
         "case_rows": [slack_one_case_row(n) for n in range(min_n, max_n + 1)],
         "uniform_threshold_consistency": uniform_threshold_consistency(),
-        "four_bad_profile_rows": [profile_row(n) for n in range(9, 14)],
-        "slack_two_failure_records": slack_two_failure_records(),
+        "four_bad_profile_rows": profile_rows,
+        "headline": headline_counts(profile_rows),
+        "slack_two_boundary_records": slack_two_boundary_records(),
     }
 
 
@@ -455,7 +550,11 @@ def check_expected(summary: dict[str, Any]) -> None:
         want = (newly, surviving, max_q, q_bound, raw_q, min_exact_four)
         if got != want:
             raise AssertionError(f"n={n}: got {got}, expected {want}")
-        if row["max_q_among_surviving_profiles"] > row["sharpened_q_bound"]:
+        max_q_value = row["max_q_among_surviving_profiles"]
+        q_bound_value = row["sharpened_q_bound"]
+        if max_q_value is None or q_bound_value is None:
+            raise AssertionError(f"n={n}: unexpected empty profile or q bound")
+        if max_q_value > q_bound_value:
             raise AssertionError(f"n={n}: profile enumeration exceeds the q bound")
 
     expected_boundary_profiles = {
@@ -487,14 +586,43 @@ def check_expected(summary: dict[str, Any]) -> None:
                 f"n={n}: newly excluded profiles {got_profiles} != {want_profiles}"
             )
 
-    failures = summary["slack_two_failure_records"]
-    if not failures["equilateral_step_failure"]["side_chain_disconnected"]:
-        raise AssertionError("expected the slack-2 side-chain disconnection record")
-    turn_failure = failures["turn_count_failure"]
-    if turn_failure["min_cover_after_two_missing_gap3_units"] != 3:
-        raise AssertionError("expected a size-3 cover after two missing gap-3 units")
-    if turn_failure["turn_contradiction"]:
-        raise AssertionError("the slack-2 turn record must not be a contradiction")
+    headline = summary["headline"]
+    expected_headline = {
+        "n9_sharpened_q_bound": 1,
+        "n10_sharpened_q_bound": 4,
+        "n11_sharpened_q_bound": 7,
+        "n12_sharpened_q_bound": 11,
+        "n10_min_exact_four_centers": 6,
+        "n11_min_exact_four_centers": 4,
+        "n12_min_exact_four_centers": 1,
+        "newly_excluded_profile_counts": {
+            "9": 2,
+            "10": 2,
+            "11": 4,
+            "12": 14,
+            "13": 30,
+        },
+    }
+    if headline != expected_headline:
+        raise AssertionError(f"unexpected headline block: {headline}")
+
+    boundary = summary["slack_two_boundary_records"]
+    chain = boundary["chain_disconnection_failure"]
+    if not chain["exhibit_side_chain_disconnected"]:
+        raise AssertionError("expected the slack-2 side-chain disconnection exhibit")
+    if not chain["cycle_minus_two_distinct_edges_always_disconnected_n8_to_12"]:
+        raise AssertionError("expected cycle-minus-two-edges disconnection to hold")
+    strict = boundary["strict_turn_closure_of_other_distributions"]
+    if strict["min_cover_over_all_two_edge_removals"] != 3:
+        raise AssertionError("expected minimum two-edge-removal cover exactly 3")
+    if not strict["all_le_two_edge_removal_covers_meet_strict_threshold"]:
+        raise AssertionError("expected all <=2-edge-removal covers to be >= 3")
+    if not strict["general_bound_ceil_n_minus_2_over_2_verified_n8_to_12"]:
+        raise AssertionError("expected the general two-removal cover bound to hold")
+    if not strict["nonstrict_test_fails_for_some_two_edge_removals"]:
+        raise AssertionError(
+            "expected the non-strict turn test to fail at the minimum cover"
+        )
 
 
 def artifact_payload(summary: dict[str, Any]) -> dict[str, Any]:
@@ -519,20 +647,33 @@ def artifact_payload(summary: dict[str, Any]) -> dict[str, Any]:
 def check_artifact(path: Path, summary: dict[str, Any]) -> None:
     """Check the stored artifact against a freshly built summary."""
 
-    stored = json.loads(path.read_text())
+    try:
+        stored_text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        raise SystemExit(
+            f"stored artifact not found: {path}; regenerate it with "
+            "python scripts/check_near_saturation_support_obstruction.py "
+            "--write-artifact"
+        ) from None
+    try:
+        stored = json.loads(stored_text)
+    except json.JSONDecodeError as error:
+        raise SystemExit(
+            f"stored artifact is not valid JSON: {path} ({error}); regenerate "
+            "it with python scripts/check_near_saturation_support_obstruction.py "
+            "--write-artifact"
+        ) from None
     expected = artifact_payload(summary)
     if stored != expected:
-        stored_keys = set(stored) if isinstance(stored, dict) else None
+        stored_keys = sorted(stored) if isinstance(stored, dict) else None
         raise AssertionError(
             "stored artifact does not match the regenerated summary "
-            f"(stored top-level keys: {sorted(stored_keys) if stored_keys else stored_keys})"
+            f"(stored top-level keys: {stored_keys})"
         )
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--min-n", type=int, default=8)
-    parser.add_argument("--max-n", type=int, default=16)
     parser.add_argument(
         "--check",
         action="store_true",
@@ -557,18 +698,15 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    summary = build_summary(args.min_n, args.max_n)
+    summary = build_summary()
     if args.check or args.check_artifact or args.write_artifact:
-        if (args.min_n, args.max_n) != (8, 16):
-            raise SystemExit(
-                "--check/--write-artifact/--check-artifact are only defined "
-                "for the default n range"
-            )
         check_expected(summary)
     if args.write_artifact:
         args.artifact.parent.mkdir(parents=True, exist_ok=True)
         args.artifact.write_text(
-            json.dumps(artifact_payload(summary), indent=2, sort_keys=True) + "\n"
+            json.dumps(artifact_payload(summary), indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
         )
         print(f"wrote {args.artifact}")
     if args.check_artifact:
@@ -578,7 +716,7 @@ def main() -> int:
         print(json.dumps(summary, indent=2, sort_keys=True))
     elif not args.write_artifact:
         print(f"schema: {summary['schema']}")
-        print(f"trust: {summary['trust']}")
+        print(f"trust: {summary['trust']} (note status: {NOTE_STATUS_LABEL})")
         for row in summary["four_bad_profile_rows"]:
             print(
                 f"n={row['n']}: sharpened q bound={row['sharpened_q_bound']} "

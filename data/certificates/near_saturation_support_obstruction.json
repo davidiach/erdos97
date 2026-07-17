@@ -2,7 +2,7 @@
   "case_rows": [
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 4,
           "forced_turn_units_pi_over_3": 8,
           "side_chain_connected": true,
@@ -32,7 +32,7 @@
     },
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 5,
           "forced_turn_units_pi_over_3": 10,
           "side_chain_connected": true,
@@ -62,7 +62,7 @@
     },
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 5,
           "forced_turn_units_pi_over_3": 10,
           "side_chain_connected": true,
@@ -92,7 +92,7 @@
     },
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 6,
           "forced_turn_units_pi_over_3": 12,
           "side_chain_connected": true,
@@ -122,7 +122,7 @@
     },
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 6,
           "forced_turn_units_pi_over_3": 12,
           "side_chain_connected": true,
@@ -152,7 +152,7 @@
     },
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 7,
           "forced_turn_units_pi_over_3": 14,
           "side_chain_connected": true,
@@ -182,7 +182,7 @@
     },
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 7,
           "forced_turn_units_pi_over_3": 14,
           "side_chain_connected": true,
@@ -212,7 +212,7 @@
     },
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 8,
           "forced_turn_units_pi_over_3": 16,
           "side_chain_connected": true,
@@ -242,7 +242,7 @@
     },
     {
       "cases": {
-        "all_capacities_saturated": {
+        "no_short_diagonal_unit_missing": {
           "forced_turn_set_cover_lower_bound": 8,
           "forced_turn_units_pi_over_3": 16,
           "side_chain_connected": true,
@@ -1297,7 +1297,24 @@
       "surviving_profile_count": 263
     }
   ],
+  "headline": {
+    "n10_min_exact_four_centers": 6,
+    "n10_sharpened_q_bound": 4,
+    "n11_min_exact_four_centers": 4,
+    "n11_sharpened_q_bound": 7,
+    "n12_min_exact_four_centers": 1,
+    "n12_sharpened_q_bound": 11,
+    "n9_sharpened_q_bound": 1,
+    "newly_excluded_profile_counts": {
+      "10": 2,
+      "11": 4,
+      "12": 14,
+      "13": 30,
+      "9": 2
+    }
+  },
   "lemma_draft": "For any same-radius supports R_i in a strictly convex n-gon with n >= 8, sum_i binom(|R_i|, 2) <= n(n-2) - 2; equivalently pair-capacity slack 0 and 1 are impossible.",
+  "note_status_label": "LEMMA_DRAFT / REVIEW_PENDING",
   "proof_accounting": {
     "capacities": "hull-edge witness pairs have capacity 1, diagonal witness pairs capacity 2 with at most one using center per side",
     "step_1_2": "each saturated gap-2 diagonal forces one side equality; a cycle minus at most one edge stays connected, so all sides are equal",
@@ -1309,27 +1326,30 @@
     "generator": "scripts/check_near_saturation_support_obstruction.py",
     "notes": "Deterministic bookkeeping summary for the review-pending near-saturation rich-support obstruction; regenerated, never hand-edited."
   },
-  "schema": "erdos97.near_saturation_support_obstruction.v1",
-  "slack_two_failure_records": {
-    "claim_scope": "method-boundary records only; no claim about slack-2 realizability",
-    "equilateral_step_failure": {
-      "n": 8,
-      "removed_side_chain_edges": [
+  "schema": "erdos97.near_saturation_support_obstruction.v2",
+  "slack_two_boundary_records": {
+    "chain_disconnection_failure": {
+      "cycle_minus_two_distinct_edges_always_disconnected_n8_to_12": true,
+      "exhibit_removed_side_chain_edges": [
         0,
         4
       ],
-      "side_chain_disconnected": true
+      "exhibit_side_chain_disconnected": true,
+      "n": 8
     },
-    "turn_count_failure": {
-      "forced_turn_units_pi_over_3": 6,
-      "min_cover_after_two_missing_gap3_units": 3,
+    "claim_scope": "method-boundary records only; no claim about slack-2 realizability",
+    "strict_turn_closure_of_other_distributions": {
+      "all_le_two_edge_removal_covers_meet_strict_threshold": true,
+      "general_bound_ceil_n_minus_2_over_2_verified_n8_to_12": true,
+      "min_cover_over_all_le_two_edge_removals": 3,
+      "min_cover_over_all_two_edge_removals": 3,
       "n": 8,
-      "total_turn_units_pi_over_3": 6,
-      "turn_contradiction": false
+      "nonstrict_test_fails_for_some_two_edge_removals": true,
+      "strict_turn_set_threshold": 3
     }
   },
   "status": "REVIEW_PENDING_NEAR_SATURATION_OBSTRUCTION",
-  "trust": "LEMMA_DRAFT_REVIEW_PENDING",
+  "trust": "REVIEW_PENDING_DIAGNOSTIC",
   "uniform_threshold_consistency": {
     "all_match": true,
     "rows": [

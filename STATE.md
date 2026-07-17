@@ -314,14 +314,17 @@ on the support-size profile, so `sum_i binom(|R_i|, 2) <= n(n-2) - 2`. This
 raises the counting floors to at least six exact-four centers in a
 hypothetical 4-bad decagon and at least four in a hypothetical 4-bad
 hendecagon, and it recovers the uniform saturation thresholds
-`n >= binom(k,2) + 3` as direct budget corollaries. The draft records why
-the method stops at slack `1`. It does not extend the `n=9` conclusions,
-does not prove `n=9`, `n=10`, or `n=11`, and does not change any
-finite-case or global status. See
+`n >= binom(k,2) + 3` as direct budget corollaries. The draft records the
+exact method boundary that keeps the uniform statement at slack `1`: two
+distinct unsaturated gap-2 diagonals disconnect the side-equality chain,
+while a strict turn count closes every other slack-2 distribution. It does
+not extend the `n=9` conclusions, does not prove `n=9`, `n=10`, or `n=11`,
+and does not change any finite-case or global status. See
 `docs/near-saturation-support-obstruction.md` and
 `data/certificates/near_saturation_support_obstruction.json`.
 
-The follow-up mixed rich-support reduction enumerates every four- or
+A follow-up to the sharpened counting lemma above, the mixed rich-support
+reduction, enumerates every four- or
 five-witness support at every center, for `126^9 =
 8,004,512,848,309,157,376` raw assignments. With the same pair/crossing
 filters plus witness-pair capacity, the exact search leaves `184` complete

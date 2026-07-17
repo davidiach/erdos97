@@ -31,8 +31,8 @@ R_i subset V \ {v_i},
 ```
 
 meaning that all members of `R_i` lie on one circle centered at `v_i`. The
-sizes `|R_i|` are arbitrary; no 4-badness hypothesis is used in the theorem
-itself.
+sizes `|R_i|` are arbitrary; no 4-badness hypothesis is used in the lemma
+draft itself.
 
 For an unordered vertex pair `{x,y}`, define its usage
 
@@ -63,7 +63,7 @@ Define the pair-capacity slack
 d = n(n-2) - sum_i binom(|R_i|, 2) = sum_pairs (capacity - usage) >= 0.
 ```
 
-## Theorem (near-saturation obstruction)
+## Lemma draft (near-saturation obstruction)
 
 For every strictly convex `n`-gon with `n >= 8`, and every choice of
 same-radius supports as above,
@@ -143,10 +143,13 @@ of the cycle on turn indices. At most one gap-3 diagonal is unsaturated, so
   edge, which is a path with `n-1` edges, so
   `|M| >= ceil((n-1)/2) >= 4` for `n >= 8`.
 
-Note that when a gap-3 diagonal is the unsaturated pair, all gap-2 diagonals
-are saturated, so Step 2 is unaffected; and when a gap-2 diagonal is the
-unsaturated pair, all gap-3 diagonals are saturated. In every `d <= 1` case
-both Step 2 and the cover bound `|M| >= 4` hold.
+The single missing unit, if any, sits in exactly one of three places: on a
+gap-3 diagonal (then all gap-2 diagonals are saturated, so Step 2 is
+unaffected, and the cover loses one edge); on a gap-2 diagonal (then all
+gap-3 diagonals are saturated, so the cover is the full cycle, and Step 2
+survives by the chain argument); or on a hull edge or a gap `>= 4` diagonal
+(then every short diagonal is saturated and both steps hold with no loss).
+In every `d <= 1` case both Step 2 and the cover bound `|M| >= 4` hold.
 
 ### Step 5: turn contradiction
 
@@ -164,8 +167,11 @@ All consequences below inherit the `REVIEW_PENDING` status of this note.
 
 ### Uniform thresholds are recovered
 
-If every center has `|R_i| >= k >= 4`, then
-`n * binom(k,2) <= n(n-2) - 2` forces `n - 2 - binom(k,2) >= 1`, i.e.
+If every center has `|R_i| >= k >= 4`, then for `n <= 7` the raw budget
+already excludes the support system (`6n > n(n-2)`, recorded in
+`docs/rich-support-counting-lemma.md`), and for `n >= 8` the sharpened
+budget applies: `n * binom(k,2) <= n(n-2) - 2` forces
+`n - 2 - binom(k,2) >= 1`, i.e.
 
 ```text
 n >= binom(k, 2) + 3.
@@ -186,8 +192,10 @@ q <= (n^2 - 8n - 2) / 4.
 ```
 
 ```text
-n = 9:  q <= 1  (raw budget: 2; the localized vertex-deficiency refinement
-                 in docs/localized-rich-support-counting.md already gives 0)
+n = 9:  q <= 1  (raw budget: 2; the nonagon profile-deficiency refinement
+                 in docs/rich-support-counting-lemma.md and the localized
+                 per-label cap in docs/localized-rich-support-counting.md
+                 each already give 0)
 n = 10: q <= 4  (raw budget: 5)  => at least 6 exact-four centers
 n = 11: q <= 7  (raw budget: 8)  => at least 4 exact-four centers
 n = 12: q <= 11 (raw budget: 12) => at least 1 exact-four center
@@ -211,9 +219,9 @@ n = 12: 14 profiles, including the uniform (5)*12
 n = 13: 30 profiles; the surviving maximum q stays at the trivial 13
 ```
 
-The two `n = 9` profiles were already excluded by the localized
-vertex-deficiency refinement, so at `n = 9` this lemma only rederives known
-exclusions. At `n = 12`, the `q <= 11` bound itself was already known,
+The two `n = 9` profiles were already excluded by the nonagon
+profile-deficiency refinement of `docs/rich-support-counting-lemma.md`, so
+at `n = 9` this lemma only rederives known exclusions. At `n = 12`, the `q <= 11` bound itself was already known,
 because the only raw-feasible profile with `q = 12` is the uniform `(5)*12`
 killed by the uniform saturation lemma; the thirteen mixed `n = 12`
 profiles are newly excluded objects but do not move that count. The
@@ -239,22 +247,63 @@ result exists.
 ## Boundary: why slack 2 is out of reach for this method
 
 The argument does not extend to `d = 2` as stated, and this note claims
-nothing about `d = 2`. Two exact failure records:
+nothing about `d = 2`. The method boundary is exactly one failure mode.
 
-1. **Equilateral step fails.** If both missing units sit on two different
-   gap-2 diagonals, the side-equality chain loses two edges of the `n`-cycle
-   and can disconnect into two arcs, so the sides are only forced into at
-   most two length classes. Step 3's conversion of a chord equality into
-   `tau = 2*pi/3` needs both sides at the pivot vertex equal, which can now
-   fail, and no turn contradiction follows from these steps.
+**The genuine failure mode: the equilateral step.** If the two missing
+units sit on two DISTINCT gap-2 diagonals, the side-equality chain loses
+two edges of the `n`-cycle. A cycle minus two distinct edges is always
+disconnected (it has `n` vertices, `n - 2` edges, and no cycle), so the
+sides are only forced into at most two length classes. Step 3's conversion
+of a chord equality into `tau = 2*pi/3` needs all three relevant sides at
+the pivot equal, which can now fail, and no turn contradiction follows from
+these steps.
 
-2. **Turn count fails at n = 8.** Even when the equilateral step survives
-   (both missing units on gap-3 diagonals), `M` only covers the `8`-cycle
-   minus two edges, whose minimum vertex cover is `3`, and
-   `3 * (2*pi/3) = 2*pi` is not a contradiction.
+**Every other slack-2 distribution still contradicts.** Step 5 admits a
+strict sharpening: since every exterior turn is positive and
+`sum_j tau_j = 2*pi` exactly, a forced-turn set `M` with `|M| >= 3` is
+already impossible for `n >= 4`. If `M` is a proper subset of the turn
+indices, the remaining turns add a strictly positive amount to
+`|M| * (2*pi/3) >= 2*pi`; if `M` is everything, the total is
+`n * 2*pi/3 > 2*pi`. Under any slack-2 distribution other than the
+two-distinct-gap-2 case, the side chain loses at most one edge (a single
+gap-2 diagonal short by one or by two units removes only one chain edge),
+so all sides are equal, and the turn-index cycle loses at most two cover
+edges, leaving a vertex cover of size at least `ceil((n-2)/2) >= 3` for
+`n >= 8`. The strict sharpening then closes the case.
 
-These are records about this proof method, not claims that slack-2 support
-systems are realizable.
+The headline proof deliberately uses the non-strict test `|M| >= 4`, which
+genuinely fails on some two-edge removals (for `n = 8`, adjacent-pair
+removals leave a minimum cover of exactly `3`). The uniform statement
+therefore still stops at slack `1` because of the equilateral failure mode
+above, not because of the turn count.
+
+These are records about this proof method, not claims about the
+realizability of the remaining slack-2 support systems.
+
+## Known counterexample attempts
+
+Adversarial checks performed against the statement, with no countermodel
+found:
+
+- the strict-turn re-derivation above, which located and corrected an error
+  in an earlier draft of this note's boundary records but left the lemma
+  statement and Steps 1-5 unchanged;
+- exact brute-force verification of every vertex-cover bound used by Steps
+  4-5 and the boundary records (all cycle-minus-`0`/`1`/`2`-edge covers for
+  `n = 3..12`);
+- exhaustive enumeration of all raw-feasible 4-bad support-size profiles
+  for `n = 9..13`, cross-checked against the sharpened budget;
+- the two-distinct-gap-2 slack-2 family, which is a boundary of the proof
+  method but not a countermodel: it concerns `d = 2`, outside the claim.
+
+## Survival of known 3-neighbor examples
+
+Known `k = 3` constructions (for example the Danzer-style 9-point
+three-neighbor examples recorded as literature risk in
+`docs/public-provenance.md`) give each center a support of size `3`, with
+total pair cost `n * binom(3,2) = 3n`. For every `n >= 8`,
+`3n <= n(n-2) - 2`, so the sharpened budget imposes nothing on
+three-neighbor configurations and is consistent with their existence.
 
 ## What this does not prove
 
@@ -267,8 +316,10 @@ systems are realizable.
 - The 4-bad consequences are support-size profile constraints only; they say
   nothing about which selected-witness systems on the surviving profiles are
   realizable.
-- It does not supersede the localized vertex-deficiency refinement at
-  `n = 9`, which remains stronger there.
+- It does not supersede the nonagon profile-deficiency refinement of
+  `docs/rich-support-counting-lemma.md` or the localized per-label cap of
+  `docs/localized-rich-support-counting.md` at `n = 9`; both remain
+  stronger there.
 
 ## Verification command
 
@@ -281,8 +332,10 @@ The checker verifies the budget arithmetic, the `d <= 1` case bookkeeping
 missing edge, vertex-cover sizes, turn-unit comparison), the sharpened
 small-`n` consequence table, the exact list of newly excluded boundary
 profiles, consistency with the raw-budget and uniform-saturation lemmas, and
-the two slack-2 failure records. It is an arithmetic checker for the proof
-note; it is not a realization search.
+the slack-2 method-boundary records (the chain-disconnection failure mode
+and the cover bounds behind the strict-turn closure of the other
+distributions). It is an arithmetic checker for the proof note; it is not a
+realization search.
 
 The stored artifact
 `data/certificates/near_saturation_support_obstruction.json` is generated by
@@ -294,5 +347,5 @@ python scripts/check_near_saturation_support_obstruction.py --write-artifact
 and replayed by
 
 ```bash
-python scripts/check_near_saturation_support_obstruction.py --check-artifact --json
+python scripts/check_near_saturation_support_obstruction.py --check --check-artifact --json
 ```

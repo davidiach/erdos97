@@ -76,11 +76,14 @@ already closed by support saturation; it is not a proof of the full `n=12`
 case. See `docs/n12-rich-support-determinant-obstruction.md` and
 `scripts/check_n12_rich_support_determinant.py`.
 
-A review-pending near-saturation strengthening
-(`LEMMA_DRAFT` / `REVIEW_PENDING`) sharpens the same pair budget by two
-units for every `n >= 8`: pair-capacity slack `0` or `1` still forces the
-equilateral/turn-cover contradiction, with no assumption on the support-size
-profile, so
+### Near-saturation support obstruction
+
+Status: `LEMMA_DRAFT` / `REVIEW_PENDING`.
+
+A review-pending near-saturation strengthening sharpens the edge-sensitive
+pair budget above by two units for every `n >= 8`: pair-capacity slack `0`
+or `1` still forces the equilateral/turn-cover contradiction, with no
+assumption on the support-size profile, so
 
 ```text
 sum_i binom(|R_i|, 2) <= n(n - 2) - 2.
@@ -92,11 +95,16 @@ set still covers at least `ceil((n-1)/2) >= 4` turn indices. Consequences:
 a hypothetical 4-bad decagon has at least six exact-four centers (raw
 budget: five), a hypothetical 4-bad hendecagon has at least four (raw
 budget: three), and the uniform saturation thresholds
-`n >= binom(k,2) + 3` become direct budget corollaries. The method provably
-stops at slack `1`: two missing gap-2 units can disconnect the
-side-equality chain, and at `n = 8` two missing gap-3 units leave a
-forced-turn cover of size three, which is not a contradiction. This does
-not prove `n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
+`n >= binom(k,2) + 3` become direct budget corollaries for `n >= 8`.
+
+The uniform statement stops at slack `1` because of exactly one method
+boundary: two distinct gap-2 diagonals each missing one unit disconnect the
+side-equality chain (a cycle minus two distinct edges is always
+disconnected), so the equilateral step fails. A strict form of the turn
+count (a proper forced-turn subset of size at least three already exceeds
+total turn `2*pi`) closes every other slack-2 distribution, but that
+remaining family keeps the claim at `n(n-2) - 2`. This does not prove
+`n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
 `docs/near-saturation-support-obstruction.md`,
 `scripts/check_near_saturation_support_obstruction.py`, and
 `data/certificates/near_saturation_support_obstruction.json`.
