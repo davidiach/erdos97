@@ -105,6 +105,23 @@ python scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-ch
 python scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 ```
 
+### Exact bounded real two-mode replay
+
+The retained real two-mode cyclic certificate is pinned to CPython 3.12,
+SymPy 1.14.0, python-flint 0.8.0, and mpmath 1.3.0. Run its focused tests and
+full byte-for-byte replay with:
+
+```bash
+python -m pytest -q tests/test_two_mode_cyclic_exact.py
+python scripts/check_two_mode_cyclic_exact.py \
+  --min-n 9 --max-n 80 --jobs 4 --assert-closed \
+  --check-artifact data/certificates/two_mode_cyclic_exact_n80.json
+```
+
+The second command is a long exact artifact check. It covers only the stated
+real two-mode family and finite range; passing is not a proof or counterexample
+for Erdos Problem #97.
+
 The independent incidence JSON checker validates the 15 stored survivor
 representatives and brute-force canonical forms. It does not prove the
 completeness of the enumeration.

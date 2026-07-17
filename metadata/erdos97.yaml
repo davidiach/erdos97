@@ -655,6 +655,15 @@ local_repo:
       artifact: "data/certificates/quarter_cell_derivative_certificate.json"
       verifier: "scripts/check_quarter_cell_derivative_certificate.py"
       claim_scope: "restricted-family finite-m interval certificate only; for the A-row-reduced three-orbit C_m quarter-cell witness locus at m in {8,12,16}, certifies one fixed non-positive killer turn throughout each of the 12 strict signed boundary-band cells, but does not prove an all-m quarter-cell obstruction, all-m three-orbit obstruction, Erdos #97, a counterexample, a formal proof-assistant certificate, or any official/global status update"
+  notable_restricted_family_obstructions:
+    - id: "real_two_mode_cyclic_n9_80"
+      status: "exact_bounded_restricted_family_obstruction_review_pending"
+      scope: "real t; 9 <= n <= 80; 2 <= k <= n-2"
+      certificate: "data/certificates/two_mode_cyclic_exact_n80.json"
+      verifier: "scripts/check_two_mode_cyclic_exact.py"
+      documentation: "docs/two-mode-cyclic-exact-n80.md"
+      claim_scope: "exact bounded obstruction for the stated real two-mode cyclic family only; not arbitrary configurations, not unbounded n, not complex coefficients or additional modes, not a proof or counterexample for Erdos Problem #97, and not an official/global status update"
+      review_note: "Externally review the distance algebra, candidate completeness, Arb branch isolation, and three terminal certificate types before paper-style citation."
   notable_bridge_lemmas:
     - name: "minimal_fragile_cover_bridge"
       status: "proved necessary structure for a minimal counterexample"
@@ -689,7 +698,7 @@ local_repo:
 reproducibility:
   known_good_dependency_snapshot: "requirements-lock.txt"
   known_good_python: "3.12.2"
-  snapshot_date: "2026-04-29"
+  snapshot_date: "2026-07-17"
   note: "Dependency snapshot records a reproduced local environment only; it is not a mathematical certificate."
 
 trust_policy:

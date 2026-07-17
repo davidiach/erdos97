@@ -1077,6 +1077,21 @@ steps of the two-orbit lemma remain review-pending prose. See
 `scripts/check_two_orbit_window_all_m_smt.py`, and
 `data/certificates/two_orbit_window_all_m_smt.json`.
 
+A separate exact bounded certificate now excludes the real two-mode cyclic
+family
+`z_i = w^i + t w^(k i)` for every real `t`, `9 <= n <= 80`, and
+`2 <= k <= n-2`. The retained replay covers 2,988 parameter pairs and
+1,865,543 real collision-root occurrences; exact row failures, strict
+regular-orbit inradius obstructions, or exact duplicate labels close every
+occurrence, with zero unresolved. This is
+`EXACT_CERTIFICATE_DIAGNOSTIC`, review pending, for that bounded restricted
+family only. It does not cover arbitrary configurations, unbounded `n`,
+complex coefficients, or additional Fourier modes; it does not change the
+strongest local `n <= 8` result or the official/global status. See
+`docs/two-mode-cyclic-exact-n80.md`,
+`scripts/check_two_mode_cyclic_exact.py`, and
+`data/certificates/two_mode_cyclic_exact_n80.json`.
+
 A companion dynamic-witness free-pattern searcher
 (`scripts/search_dynamic_witness.py`) lets every center re-select its best
 witness 4-set at each evaluation, probing all witness patterns reachable by a

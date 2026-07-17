@@ -1786,6 +1786,31 @@ draft. See `docs/two-orbit-window-all-m-smt.md`,
 `scripts/check_two_orbit_window_all_m_smt.py`, and
 `data/certificates/two_orbit_window_all_m_smt.json`.
 
+### Exact bounded real two-mode cyclic obstruction (review pending)
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC`; bounded restricted family only,
+review pending.
+
+For
+`z_i = w^i + t w^(k i)`, `w = exp(2*pi*i/n)`, and real `t`, the exact
+verifier rules out simultaneous distinct labels, strict convex position, and
+a fourfold distance class at every vertex for every `9 <= n <= 80` and
+`2 <= k <= n-2`. It enumerates every row-zero collision candidate over
+`Q(2*cos(2*pi/n))` after proving each identity class has size at most two,
+then uses outward-rounded Arb enclosures to certify a row with no fourfold
+value, a strict regular-orbit inradius obstruction, or an exact duplicate.
+
+The retained certificate contains 2,988 parameter pairs and 1,865,543 real
+pair-root occurrences: 1,469,483 row failures, 395,893 strict inradius
+obstructions, 167 exact duplicates, and zero unresolved. Its case digest is
+`fb546261b6d17eb239ad18fb7ec39c15a5685b96cf7de9a8913d07eca1e2f48f`.
+This does not cover arbitrary point configurations, unbounded `n`, complex
+coefficients, or additional modes. It is not a general proof or
+counterexample, does not update official/global status, and does not replace
+the strongest local `n <= 8` result. See
+`docs/two-mode-cyclic-exact-n80.md` and
+`data/certificates/two_mode_cyclic_exact_n80.json`.
+
 ### Lemma draft (review pending): half-step matching for multi-orbit cyclic configurations
 
 Status: `LEMMA` draft, review pending; structural reduction only.

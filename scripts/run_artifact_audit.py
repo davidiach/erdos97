@@ -3973,6 +3973,29 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="two_mode_cyclic_exact_n80",
+        command=(
+            "python",
+            "scripts/check_two_mode_cyclic_exact.py",
+            "--min-n",
+            "9",
+            "--max-n",
+            "80",
+            "--jobs",
+            "4",
+            "--assert-closed",
+            "--check-artifact",
+            "data/certificates/two_mode_cyclic_exact_n80.json",
+        ),
+        claim_scope=(
+            "Exact replay of the real two-mode cyclic certificate for "
+            "9 <= n <= 80, 2 <= k <= n-2, and real t only; a "
+            "review-pending bounded restricted-family certificate, not a "
+            "proof or counterexample for Erdos Problem #97 and not an "
+            "official/global status update."
+        ),
+    ),
+    AuditCommand(
         ident="three_orbit_quarter_cell_closure",
         command=(
             "python",

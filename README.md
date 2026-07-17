@@ -143,6 +143,17 @@ non-quarter branches stay screen-grade for `m <= 16` and open beyond --
 and it is not a proof of Erdos #97. See
 [`docs/quarter-cell-derivative-certificate.md`](docs/quarter-cell-derivative-certificate.md).
 
+An exact bounded certificate also rules out the real two-mode cyclic family
+`z_i = w^i + t w^(k i)` for every real `t`, `9 <= n <= 80`, and
+`2 <= k <= n-2`. Its deterministic replay covers 2,988 `(n,k)` cases
+and classifies 1,865,543 real collision-root occurrences with zero unresolved,
+using exact number-field arithmetic and outward-rounded Arb intervals. This is
+a review-pending bounded restricted-family certificate diagnostic only: it
+does not cover arbitrary configurations, complex coefficients, additional
+modes, or unbounded `n`, and it does not prove or refute Erdos Problem #97.
+See
+[`docs/two-mode-cyclic-exact-n80.md`](docs/two-mode-cyclic-exact-n80.md).
+
 ### Review-pending frontier artifacts
 
 The repo records an exhaustive `n=9` vertex-circle checker as a candidate

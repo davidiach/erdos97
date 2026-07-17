@@ -2702,6 +2702,29 @@ orbits, four or more exterior-center concentric circles, `n=9`, or Erdos
 Problem #97. See `docs/symmetric-two-orbit-reduction.md` and check with
 `python scripts/check_two_orbit_radius_propagation.py --two-orbit-reduction --k 3 --k-max 12 --assert-two-orbit-reduction`.
 
+### Exact bounded real two-mode cyclic family
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC`, review pending; bounded restricted
+family only.
+
+For the real family
+`z_i = w^i + t w^(k i)` with `w = exp(2*pi*i/n)`, the retained exact
+certificate excludes a configuration with distinct labels, strict convex
+position, and a fourfold distance class at every vertex for all
+`9 <= n <= 80` and `2 <= k <= n-2`. Candidate completeness follows from
+the exact bound two on row-zero polynomial identity classes. Every enumerated
+real collision-root occurrence is closed by a certified row-value band
+partition, a strict regular-orbit inradius inequality, or an exact
+duplicate-label gcd.
+
+The transcript covers 2,988 parameter pairs and 1,865,543 real root
+occurrences with zero unresolved. This claim is only about real `t`, the
+stated finite `n` and `k` ranges, and two Fourier modes. It does not cover
+arbitrary configurations, unbounded `n`, complex coefficients, or extra
+modes; it does not prove or refute Erdos Problem #97, update official/global
+status, or replace the local `n <= 8` theorem. See
+`docs/two-mode-cyclic-exact-n80.md`.
+
 ### Threefold pair-lift obstruction
 
 Status: `LEMMA` / `FAILED_SEARCH_MECHANISM`.
