@@ -146,7 +146,8 @@ Use CPython 3.12 and the pinned exact-backend dependencies:
 
 ```bash
 python3 -m venv .venv-two-mode
-.venv-two-mode/bin/python -m pip install -e .[dev]
+.venv-two-mode/bin/python -m pip install -r requirements-lock.txt
+.venv-two-mode/bin/python -m pip install --no-deps -e .
 .venv-two-mode/bin/python -m pytest -q tests/test_two_mode_cyclic_exact.py
 .venv-two-mode/bin/python scripts/check_two_mode_cyclic_exact.py \
   --min-n 9 --max-n 80 --jobs 4 --assert-closed \
