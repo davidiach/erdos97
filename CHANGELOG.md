@@ -74,6 +74,26 @@ counterexample are claimed.
   mixed row shapes, and remaining half-step rows stay outside these claims;
   the results do not extract a finite counterexample from the
   Barany--Roldan-Pensado boundary 15-gon.
+## 2026-07-19
+
+- Added an exact infinite singleton-rich bridge negative control on
+  `n=6k-1`, `k>=8`. It satisfies the currently isolated fragile-cover,
+  good-deletion, crossing, hinge, and strict-turn conditions, has no
+  Kalmanson self-edge or primitive two-inequality inverse pair, and has
+  shortest vertex-circle quotient cycle exactly `n`. The inverse claim is an
+  exact all-parameter 96-template linear-integer decision; an explicit
+  four-inequality Kalmanson circuit at `k=8` shows that this control does not
+  extend to every bounded Kalmanson certificate. The three-inequality case is
+  not classified. Altman's
+  growing-support diagonal-sum obstruction also rejects the displayed order.
+  This limits bounded-local bridge claims and is not a realization,
+  counterexample, or global status change.
+- Added an algebraically independent exact `n=10` selected-witness replay.
+  The complete C++ search closes all `126` labelled row-zero choices using
+  only necessary incidence filters plus Kalmanson self-edges and primitive
+  scalar-opposite inequality pairs; independent Python code matches three
+  slices exactly. This is finite-case draft review evidence only, with no
+  source-of-truth or global status promotion.
 
 ## 2026-07-17
 

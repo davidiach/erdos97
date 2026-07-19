@@ -324,6 +324,11 @@ put detailed reconciliation in the canonical synthesis.
   negative controls for the minimal/rich-class bridge program.
 - [`adaptive-radius-blocker-bridge.md`](adaptive-radius-blocker-bridge.md):
   adaptive selected-witness peeling versus radius-blocker bridge fork.
+- [`scalable-strict-cycle-bridge-control.md`](scalable-strict-cycle-bridge-control.md):
+  infinite singleton-rich negative control with no Kalmanson self-edge or
+  primitive inverse pair and shortest vertex-circle quotient cycle `n`; an
+  explicit four-inequality Kalmanson circuit records an essential scope
+  limitation, while the three-inequality case remains unclassified.
 - [`radius-blocker-vertex-circle-pilot.md`](radius-blocker-vertex-circle-pilot.md):
   first exact-four-row radius-blocker packet diagnostic using vertex-circle
   quotient replay; bridge tooling only, not a proof.
@@ -784,6 +789,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
   review-pending `n=10` singleton-slice finite-case draft, including the
   portable C++ all-slice replay and secondary first-five replay cross-checks.
+- [`n10-kalmanson-pair-filter.md`](n10-kalmanson-pair-filter.md):
+  independent exact `n=10` selected-row closure using Kalmanson self-edges
+  and exact-negative quotient-vector pairs, with a complete C++ replay and
+  independent Python slice checks; draft review evidence only.
 - [`n10-mixed-rich-support-capacity.md`](n10-mixed-rich-support-capacity.md):
   generator-independent `n=10` four/five support-capacity diagnostic; finite
   support bookkeeping only, not an `n=10` proof.

@@ -593,6 +593,10 @@ vertex-circle filters. Treat this as a draft until an independent audit checks:
   selected-distance equalities;
 - that a second implementation or replayable terminal-conflict certificate
   agrees with all 126 slices, not only the current selected row0 spot-checks.
+- independently audit `docs/n10-kalmanson-pair-filter.md` and the complete
+  C++ replay, which close the same labelled domain through strict Kalmanson
+  self-edges and primitive scalar-opposite quotient rows; its independent
+  Python implementation currently cross-checks slices `0`, `63`, and `125`.
 
 Acceptance standard: a reviewer should either promote the artifact to the same
 review-pending finite-case status as n=9, or identify the exact implementation,
@@ -723,6 +727,13 @@ condition that the surviving multi-block family does not automatically satisfy:
 - exact row-circle constraints on the fragile rows;
 - interaction between fragile-cover rows and stuck-set/ear-orderability
   failures.
+- treat `docs/scalable-strict-cycle-bridge-control.md` as the current
+  unbounded-locality guardrail: the isolated axioms allow no Kalmanson
+  self-edge or primitive two-inequality inverse pair and a first
+  vertex-circle cycle of length `n`, even though Altman globally obstructs the
+  family. A strengthened bridge must use a richer metric certificate (the
+  first member already has a four-inequality Kalmanson circuit), genuinely
+  global information, or growing certificate support.
 - adaptive radius-blocker analysis, as recorded in
   `docs/adaptive-radius-blocker-bridge.md`, which keeps all rich distance
   classes visible instead of fixing one selected row per center.

@@ -857,6 +857,37 @@ rule out radius-blockers using strict convexity, fragile-cover geometry, and
 the current exact obstruction stack, or construct an exact blocker escape
 mechanism. See `docs/adaptive-radius-blocker-bridge.md`.
 
+### Scalable strict-cycle bridge negative control
+
+Status: `EXACT_ABSTRACT_NEGATIVE_CONTROL`.
+
+For every `k >= 8`, put `n=6k-1` and give center `i` the sole abstract rich
+row
+
+```text
+S_i = i + {k+1, 2k+3, 3k+1, 5k} modulo n.
+```
+
+This singleton-rich system has a bijective essential fragile cover, satisfies
+good deletion from every nonempty seed, has a strongly connected selected
+digraph, obeys the row-intersection cap and every two-overlap crossing rule,
+is hinge-free, has no reciprocal selected pair, and strictly satisfies all
+stored turn inequalities under the uniform normalized assignment. Its full
+selected-distance quotient has no strict Kalmanson self-edge, and an exact
+96-template linear-integer replay rules out primitive inverse pairs for every
+`k >= 8`. Nevertheless, the unique cyclic vertex-circle quotient component is
+one simple cycle of length `n`, so no universally bounded vertex-circle
+localization follows from these abstract conditions. The first member has an
+explicit four-inequality Kalmanson circuit, so this negative control does not
+extend to every bounded Kalmanson certificate. The three-inequality case is
+not classified here.
+
+The family is not geometrically realizable in the displayed order: its summed
+row equalities contradict Altman's strict diagonal-sum chain. It therefore is
+not a counterexample and says nothing against growing-support Altman/Farkas,
+Ptolemy, Gram-rank, or other global metric arguments. See
+`docs/scalable-strict-cycle-bridge-control.md`.
+
 ### n=9 all-five-rich support obstruction
 
 Status: `REVIEW_PENDING_DIAGNOSTIC` / generator-independent finite support
@@ -987,6 +1018,34 @@ This is a closure crosswalk for one bounded row0 slice only. It does not prove
 `n=10`, does not complete the `n=10` singleton-slice search, does not promote
 the row0 pilot to a completeness result, and does not provide a counterexample.
 See `docs/n10-turn-row0-combined-closure.md`.
+
+### n=10 Kalmanson self-edge / primitive-inverse replay
+
+Status: `MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING`.
+
+An independent exact search enumerates all `126` four-witness choices at every
+labelled center of a decagon. It uses only the row-intersection cap,
+two-overlap crossing, witness-pair capacity two, the derived selected
+indegree cap six, and two strict Kalmanson quotient obstructions: a zero row
+or two primitive coefficient rows that are exact negatives. Every filter is
+monotone under adding selected-distance equalities.
+
+The complete C++ traversal reports
+
+```text
+clean recursive nodes:       261,511
+self-edge prunes:             360,742
+primitive-inverse prunes:   1,213,492
+full assignments:                   0
+```
+
+All `126` row-zero choices are traversed without symmetry normalization.
+Independent Python replays of row-zero choices `0`, `63`, and `125` reproduce
+their C++ node and prune counts exactly. This is a second exact closure route
+for the labelled selected-witness `n=10` domain, but it remains a finite-case
+draft pending independent mathematical/code review. It does not cover
+`n>10`, settle the global problem, or alter the repository source-of-truth
+small-case result. See `docs/n10-kalmanson-pair-filter.md`.
 
 ### n=9 Kalmanson self-edge replay
 

@@ -158,6 +158,8 @@ verify-n9-review:
 
 verify-bridge-frontier:
 	$(PYTHON) scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
+	$(PYTHON) scripts/check_scalable_strict_cycle_control.py --assert-expected --json
+	$(PYTHON) scripts/check_scalable_kalmanson_inverse_control.py --assert-expected --json
 	$(PYTHON) scripts/check_rich_support_counting_bound.py --check --json
 	$(PYTHON) scripts/check_support_saturation_obstruction.py --check --json
 	$(PYTHON) scripts/check_near_saturation_support_obstruction.py --check --check-artifact --json
@@ -265,6 +267,7 @@ verify-n10-review:
 	$(PYTHON) scripts/check_n10_singleton_input_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 	$(PYTHON) scripts/check_n10_fast_cpp_singleton_replay.py --check --json
+	$(PYTHON) scripts/check_n10_kalmanson_pair_filter.py --run-cpp --assert-expected --json
 	$(PYTHON) scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 
 verify-artifacts:
