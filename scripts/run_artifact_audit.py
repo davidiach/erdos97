@@ -583,6 +583,23 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="kalmanson_equilateral_hinge_crosswalk",
+        command=(
+            "python",
+            "scripts/check_kalmanson_equilateral_hinge_crosswalk.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Arbitrary-n local strict-Kalmanson equilateral-hinge lemma and "
+            "an exact proof-mining crosswalk against the stored review-pending "
+            "n=9 three-row compression. The source frontier is not "
+            "regenerated, no general forcing theorem is claimed, and no n=9 "
+            "or official/global result status is promoted."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_obstruction_shapes",
         command=(
             "python",
