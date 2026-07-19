@@ -53,14 +53,16 @@ def assert_portable_payload_equal(
             if stored != current:
                 raise AssertionError(f"{path}: non-finite float mismatch")
             return
-        if stored == current:
-            return
         # A sign change is a semantic change even if both values are tiny.
         sign_changed = math.copysign(1.0, stored) != math.copysign(1.0, current)
-        if stored == 0.0 or current == 0.0 or sign_changed:
+        stored_zero = stored == 0.0
+        current_zero = current == 0.0
+        if sign_changed or stored_zero != current_zero:
             raise AssertionError(
                 f"{path}: float sign/zero mismatch ({stored!r} != {current!r})"
             )
+        if stored == current:
+            return
         if not math.isclose(
             stored,
             current,
