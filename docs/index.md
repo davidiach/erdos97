@@ -62,6 +62,25 @@ put detailed reconciliation in the canonical synthesis.
 - [`codex-strategy-instructions.md`](codex-strategy-instructions.md):
   Codex task-selection discipline centered on bridge theorems and
   non-overclaiming; planning guidance only, not mathematical evidence.
+- [`external-removable-vertex-frontier-audit-2026-07-18.md`](external-removable-vertex-frontier-audit-2026-07-18.md):
+  pinned source audit of an external removable-vertex formalization, with a
+  cross-repository bridge map, exact negative controls, and a refined
+  source-flexible retained-geometry research target; not mathematical evidence.
+- [`external-exact-five-occurrence-contract-2026-07-18.md`](external-exact-five-occurrence-contract-2026-07-18.md):
+  historical pinned external exact-five theorem contract plus the exact
+  203-partition audit showing that four period-three reverse-pair slots in one
+  complete first-apex radius class force the required co-radial pair; the
+  route is now superseded as the primary target.
+- [`external-exact-six-frontier-audit-2026-07-18.md`](external-exact-six-frontier-audit-2026-07-18.md):
+  historical external exact-six source/artifact frontier, including independent
+  replay of 263 minimized cores and 12,509 weighted cuts, the seven-orbit
+  `UNKNOWN` boundary, and the former aggregate Kalmanson target; superseded for
+  current task selection, and not a proof.
+- [`external-exact-seven-l0-audit-2026-07-19.md`](external-exact-seven-l0-audit-2026-07-19.md):
+  current external frontier audit, pinning and independently reconstructing all
+  1,000 all-fresh exact-seven L0 schemas while recording the missing public
+  Lean normal-form source, omitted merge/L1 coverage, and census integrity
+  requirements; exact schema mechanics only, not a closure result.
 - [`canonical-synthesis.md`](canonical-synthesis.md): long-form canonical
   synthesis, claim taxonomy, failed-route reconciliation, and source/hash
   inventory.

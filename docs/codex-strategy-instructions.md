@@ -107,6 +107,42 @@ Any strengthened condition should be documented as necessary for a minimal
 geometric counterexample and tested against an abstract family that currently
 passes the fragile-cover checks.
 
+### Removable-vertex descent with retained geometry
+
+The audited external removable-vertex program supplies a useful proof spine,
+but its live frontier is not an incidence-only fragile-cover lemma. The current
+source retains global four-equal-distance data, minimum-enclosing-circle cap
+geometry, and one common source-indexed critical-shell system.
+
+Useful work should target the full retained system and allow the critical
+source row to vary. Two weaker targets are recorded negative controls:
+
+- a large cap need not contain an abstractly uncovered vertex; and
+- a prescribed critical row need not contribute two common-cap support
+  points.
+
+Prefer either a direct contradiction from the full retained live data or an
+exact target-faithful countermodel. See
+`external-removable-vertex-frontier-audit-2026-07-18.md` for the pinned source
+snapshot, crosswalk, and acceptance criteria.
+
+The historical four-hit exact-five reduction and exact-six artifact replay
+remain reproducible, but neither is the sharp external target. Upstream closes
+the all-reverse exact-six slice and now labels further literal exact-six CEGAR
+nonconvergent under its optimized engine. Do not resume broad literal-schema
+mining, aggregate cut rounds, anonymous-row adapters, or the equal-radius
+escape argument without a new nonlinear Euclidean/MEC, full-fiber, minimality,
+or global non-`IsM44` ingredient.
+
+The current external target is source-faithful exact-seven role coverage. The
+public L0 enumerator has exactly 1,000 all-fresh schemas, but fresh-role
+coincidence/merge cases and L1 first-apex rows are absent. The cited Lean
+named-interior normal-form source is also not committed publicly. First require
+a reproducible public theorem source, then checked merge/L1 coverage. Any
+source-faithful SAT survivor should move to nonlinear Euclidean, MEC,
+full-fiber, or minimality analysis; it is not a counterexample. See
+`external-exact-seven-l0-audit-2026-07-19.md`.
+
 ### Kalmanson/Farkas template extraction
 
 The C13 and C19 all-order Kalmanson certificates are fixed-pattern results,
