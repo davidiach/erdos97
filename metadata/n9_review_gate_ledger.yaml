@@ -50,6 +50,15 @@ review_outcomes:
     claim_boundary: >
       Would support a follow-up source-of-truth proposal for the repo-local n=9
       finite case only, conditional on the accepted Euclidean turn lemma.
+  - id: accepted_kalmanson_route
+    title: Self-contained Kalmanson route accepted
+    required_gates:
+      - frontier_enumeration
+      - kalmanson_geometry
+      - kalmanson_selfedge_replay
+    claim_boundary: >
+      Would support a follow-up source-of-truth proposal for the repo-local n=9
+      finite case only, not the general Erdos Problem #97 status.
   - id: accepted_corrob_only
     title: Corroborating artifacts accepted only
     required_gates:
@@ -66,7 +75,7 @@ review_outcomes:
 
 review_gates:
   - id: frontier_enumeration
-    title: A6/A7 source frontier enumeration
+    title: Shared source frontier from A6/A7 or D0/D1
     route: shared_source_frontier
     manifest_gate: source_frontier
     status: machine_checked_review_pending
@@ -75,25 +84,34 @@ review_gates:
       - A6
       - A7
       - B0
+      - D0
+      - D1
     review_question: >
-      Do the row filters and brancher enumerate exactly the intended 184
-      selected-witness source-frontier assignments without hidden symmetry
-      quotient assumptions?
+      Does an independently accepted complete path -- the legacy A6/A7
+      brancher or the fresh D0/D1 all-row search -- enumerate exactly the
+      intended 184 labelled source-frontier assignments without hidden
+      symmetry quotient assumptions?
     evidence_commands:
       - n9_vertex_circle_exhaustive
       - n9_vertex_circle_input_audit
       - n9_vertex_circle_incidence_filters
       - n9_vertex_circle_mro_branching_replay
       - n9_vertex_circle_frontier_coverage_crosswalk
+      - n9_kalmanson_selfedge_frontier_replay
     referenced_docs:
       - docs/n9-reduction-chain.md
       - docs/n9-review-packet.md
       - docs/n9-vertex-circle-exhaustive.md
       - docs/n9-vertex-circle-independent-recheck.md
+      - docs/n9-kalmanson-selfedge.md
     blockers:
-      - Independent agreement that A2-A5 match the selected-witness formulation.
-      - Independent agreement that row0 coverage and MRO branching do not hide
-        a symmetry quotient.
+      - For an A6/A7 acceptance, independent agreement that A2-A5 match the
+        legacy selected-witness brancher formulation.
+      - For a D0/D1 acceptance, independent agreement that D0 starts from all
+        70 rows per center, uses only the necessary A2-A4 filters, and that its
+        MRO ordering hides no symmetry quotient.
+      - If both paths are used as cross-checks, independent agreement that they
+        reproduce the same 184 labelled assignments.
 
   - id: vertex_circle_geometry
     title: A8 vertex-circle strict-edge geometry
@@ -205,7 +223,7 @@ review_gates:
       - C4
     review_question: >
       Does the stored-input Kalmanson replay corroborate the same frontier
-      without replacing either primary route?
+      without replacing any primary route?
     evidence_commands:
       - n9_kalmanson_selfedge_independent_replay
     referenced_docs:
@@ -217,6 +235,49 @@ review_gates:
         used beyond corroboration.
       - No standalone claim unless the family reduction and primary route
         dependencies are separately accepted.
+
+  - id: kalmanson_geometry
+    title: D2 strict ordinary-distance Kalmanson geometry
+    route: kalmanson
+    manifest_gate: kalmanson_geometry
+    status: proof_facing_review_pending
+    still_open: true
+    reduction_steps:
+      - D2
+    review_question: >
+      Do the two strict Kalmanson inequalities hold for ordinary Euclidean
+      distances on every cyclically ordered strictly convex quadrilateral?
+    evidence_commands:
+      - n9_kalmanson_selfedge_frontier_replay
+    referenced_docs:
+      - docs/n9-reduction-chain.md
+      - docs/n9-review-packet.md
+      - docs/n9-kalmanson-selfedge.md
+    blockers:
+      - Written independent review of the diagonal-intersection strict triangle
+        inequality proof and the ordinary-distance convention.
+
+  - id: kalmanson_selfedge_replay
+    title: D3/D4 Kalmanson quotient self-edge replay
+    route: kalmanson
+    manifest_gate: kalmanson_selfedge_replay
+    status: machine_checked_review_pending
+    still_open: true
+    reduction_steps:
+      - D3
+      - D4
+    review_question: >
+      Does the fresh replay quotient exactly the selected spoke equalities and
+      find a strict Kalmanson self-edge for all 184 frontier assignments?
+    evidence_commands:
+      - n9_kalmanson_selfedge_frontier_replay
+    referenced_docs:
+      - docs/n9-reduction-chain.md
+      - docs/n9-review-packet.md
+      - docs/n9-kalmanson-selfedge.md
+    blockers:
+      - Independent reproduction of the quotient-component and multiset
+        self-edge criterion over the complete labelled frontier.
 
 infrastructure_gates:
   - id: lean_compilation

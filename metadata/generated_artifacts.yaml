@@ -1066,8 +1066,8 @@ artifacts:
 
   - id: n9_kalmanson_selfedge_frontier_replay
     path: data/certificates/n9_kalmanson_selfedge_frontier_replay.json
-    sha256: 0678dd07d7d2909ca47a67ca87aaf6dcbdcbe0566c24a603eb051d9985c9a040
-    size_bytes: 241675
+    sha256: af8d47c3372a5616700518ff52c869d4bf5bdc1e7dbaf2919be68eedc7cee5a7
+    size_bytes: 241864
     kind: finite_case_artifact
     generator: scripts/check_n9_kalmanson_selfedge_frontier_replay.py
     command: python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --write --assert-expected
@@ -1076,7 +1076,7 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
-    claim_scope: Self-contained regeneration of the review-pending n=9 selected-witness frontier plus Kalmanson self-edge certificates; corroborating audit evidence only.
+    claim_scope: Self-contained regeneration of the review-pending n=9 selected-witness frontier plus Kalmanson self-edge certificates; primary-route review evidence under still-open gates only.
     json_top_level_type: object
     expected_json:
       schema: erdos97.n9_kalmanson_selfedge_frontier_replay.v1
@@ -1094,6 +1094,7 @@ artifacts:
       kalmanson_kind_counts.K2: 34
       distinct_row0_choices_in_frontier: 32
       certificate_sha256: 3e6e208cd4212f9275eba2f0be9e32558da9b77544304d33d09abc953feeee9d
+      frontier_assignment_sha256: dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
       provenance.command: python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --write --assert-expected
     forbidden_claims:
       - n=9 is proved

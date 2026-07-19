@@ -61,6 +61,7 @@ SUMMARY_JSON_REVIEW_COMMAND_PREFIXES = (
     "python scripts/check_turn_inequality_indexing.py",
     "python scripts/check_n9_turn_inequality_frontier.py",
     "python scripts/check_n9_kalmanson_selfedge_independent_replay.py",
+    "python scripts/check_n9_kalmanson_selfedge_frontier_replay.py",
 )
 
 

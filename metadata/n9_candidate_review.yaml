@@ -45,6 +45,7 @@ harness_documents:
   - docs/n9-review-run-bundle.md
   - docs/n9-review-decision-intake.md
   - docs/n9-vertex-circle-route-decision-request.md
+  - docs/n9-kalmanson-selfedge.md
   - docs/n9-reduction-chain.md
   - docs/n9-review-packet.md
   - docs/turn-inequality-lemma.md
@@ -90,6 +91,17 @@ review_gates:
       Review the stored-input Kalmanson replay only as corroborating
       stored-certificate audit support unless the primary route dependencies
       are separately accepted.
+    still_open: true
+  - id: kalmanson_geometry
+    review_requirement: >
+      Review the two strict ordinary-distance Kalmanson inequalities for every
+      cyclic quadrilateral before treating the fresh replay as theorem-grade.
+    still_open: true
+  - id: kalmanson_selfedge_replay
+    review_requirement: >
+      Review the fresh selected-distance quotient and self-edge scan before
+      treating the Kalmanson route as theorem-grade. The all-row frontier
+      enumeration is reviewed separately under source_frontier.
     still_open: true
   - id: lean_compilation
     review_requirement: >
@@ -184,3 +196,14 @@ routes:
     commands:
       - id: n9_kalmanson_selfedge_independent_replay
         command: python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
+
+  - id: kalmanson_primary_route
+    title: Self-contained Kalmanson review path
+    claim_scope: >
+      Regenerates the labelled selected-witness frontier from all 70 rows per
+      center and closes every terminal assignment by a strict ordinary-distance
+      Kalmanson quotient self-edge. This remains review-pending finite-case
+      evidence only.
+    commands:
+      - id: n9_kalmanson_selfedge_frontier_replay
+        command: python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json

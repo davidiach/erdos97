@@ -2,11 +2,13 @@
 """Regenerate the n=9 selected-witness frontier and Kalmanson self-edges.
 
 This checker is intentionally self-contained: it imports no ``erdos97`` package
-modules and does not read the stored n=9 Kalmanson certificate as input. It
-regenerates the fixed-cyclic-order n=9 selected-witness frontier from the exact
-incidence filters, then finds one strict Kalmanson self-edge for every terminal
-assignment. The result is review-pending corroboration only; it is not an n=9
-promotion, a general proof, or a counterexample.
+modules and uses no stored n=9 Kalmanson certificate as generation or search
+input. In ``--check`` mode, it compares the stored artifact only after fresh
+generation. It regenerates the fixed-cyclic-order n=9 selected-witness frontier
+from the exact incidence filters, then finds one strict Kalmanson self-edge for
+every terminal assignment. The result is primary-route review evidence under
+still-open gates; it is not an n=9 promotion, a general proof, or a
+counterexample.
 """
 
 from __future__ import annotations
@@ -39,11 +41,12 @@ TRUST = "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"
 CLAIM_SCOPE = (
     "Self-contained regeneration of the review-pending n=9 selected-witness "
     "frontier plus one strict Kalmanson self-edge certificate for each of the "
-    "184 terminal assignments. It imports no erdos97 package modules and does "
-    "not read the stored Kalmanson certificate as input. This is corroborating "
-    "audit evidence only: it does not complete independent review, does not "
-    "promote n=9 to a theorem, does not prove Erdos Problem #97, does not "
-    "produce a counterexample, and does not update the official/global status "
+    "184 terminal assignments. It imports no erdos97 package modules and uses "
+    "no stored Kalmanson certificate as generation or search input; --check "
+    "compares the artifact only after fresh generation. This is primary-route "
+    "review evidence under still-open gates: it does not complete independent "
+    "review, does not promote n=9 to a theorem, does not prove Erdos Problem "
+    "#97, produce a counterexample, or update the official/global status "
     "or the repo source-of-truth strongest local result."
 )
 PROVENANCE = {
@@ -64,6 +67,9 @@ EXPECTED_KALMANSON_KILLS = 184
 EXPECTED_UNKILLED = 0
 EXPECTED_CERTIFICATE_SHA256 = (
     "3e6e208cd4212f9275eba2f0be9e32558da9b77544304d33d09abc953feeee9d"
+)
+EXPECTED_FRONTIER_ASSIGNMENT_SHA256 = (
+    "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55"
 )
 EXPECTED_KALMANSON_KIND_COUNTS = {"K1": 150, "K2": 34}
 EXPECTED_DISTINCT_ROW0_CHOICES = 32
@@ -328,6 +334,7 @@ def build_result(n: int, *, include_certificates: bool = True) -> dict[str, Any]
 
     certificate_payload = {"n": n, "records": records}
     certificate_sha256 = hashlib.sha256(canonical_json(certificate_payload)).hexdigest()
+    frontier_assignment_sha256 = hashlib.sha256(canonical_json(sorted(terminals))).hexdigest()
     raw_options_per_center = math.comb(n - 1, 4)
     result: dict[str, Any] = {
         "schema": SCHEMA,
@@ -350,6 +357,7 @@ def build_result(n: int, *, include_certificates: bool = True) -> dict[str, Any]
         "nodes_visited": search_stats["nodes_visited"],
         "dead_by_depth": search_stats["dead_by_depth"],
         "distinct_row0_choices_in_frontier": len(row0_counts),
+        "frontier_assignment_sha256": frontier_assignment_sha256,
         "row0_histogram_top10": [
             {"row0": list(row), "count": count} for row, count in row0_counts.most_common(10)
         ],
@@ -361,7 +369,7 @@ def build_result(n: int, *, include_certificates: bool = True) -> dict[str, Any]
             "uses_python_standard_library_only": True,
         },
         "interpretation_warnings": [
-            "This is review-pending finite-case corroboration only.",
+            "This is primary-route finite-case evidence under still-open review gates.",
             "It relies on the standard selected-witness necessary filters and strict Kalmanson inequality convention.",
             "It does not prove n=9, prove Erdos Problem #97, produce a counterexample, or update official/global status.",
         ],
@@ -407,6 +415,7 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
         "nodes_visited": EXPECTED_NODES_VISITED,
         "distinct_row0_choices_in_frontier": EXPECTED_DISTINCT_ROW0_CHOICES,
         "certificate_sha256": EXPECTED_CERTIFICATE_SHA256,
+        "frontier_assignment_sha256": EXPECTED_FRONTIER_ASSIGNMENT_SHA256,
     }
     for key, expected in expected_scalars.items():
         if payload.get(key) != expected:

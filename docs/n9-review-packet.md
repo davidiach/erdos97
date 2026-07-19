@@ -43,6 +43,7 @@ It would not prove the general problem for larger polygons.
 - `docs/n9-vertex-circle-quotient-soundness-audit.md`
 - `docs/n9-vertex-circle-local-lemmas.md`
 - `docs/n9-vertex-circle-local-lemma-review-packet.md`
+- `docs/n9-kalmanson-selfedge.md`
 - `docs/relation-skeleton-catalog.md`
 - `docs/turn-inequality-lemma.md`
 - `docs/turn-packing-bridge.md`
@@ -54,7 +55,7 @@ review worksheet for that map, not a replacement for it.
 The compact promotion-review harness is
 `docs/n9-candidate-promotion-harness.md`. It provides a single command surface
 for the Lean pilot guardrails, the vertex-circle route, the turn-packing route,
-and the stored-input Kalmanson replay:
+the stored-input Kalmanson replay, and the self-contained Kalmanson route:
 
 ```bash
 make verify-n9-candidate
@@ -72,8 +73,9 @@ review gates synchronized.
 The machine-readable gate ledger is `metadata/n9_review_gate_ledger.yaml`,
 checked by
 `python scripts/check_n9_review_gate_ledger.py --check --summary-json`. It maps
-the compact harness commands to the open A6/A7, A8, A10, B1/B3, and
-corroborating Kalmanson review gates plus the acceptance outcomes below.
+the compact harness commands to the open A6/A7 or D0-D1 shared frontier, A8,
+A10, B1/B3, D2/D3-D4, and corroborating Kalmanson review gates plus the
+acceptance outcomes below.
 
 The machine-readable evidence matrix is
 `metadata/n9_review_evidence_matrix.yaml`, checked by
@@ -154,6 +156,25 @@ dihedral-family reduction and Groebner/real-root decoder artifacts to close the
 same frontier. A reviewer should not treat it as standalone unless the family
 reduction and decoder replay are independently audited.
 
+### Route D: self-contained Kalmanson closure
+
+This is a third primary review-pending route with a different obstruction
+rule from Routes A and B.
+
+1. Generate all 70 selected four-witness rows at every labelled center.
+2. Enumerate without symmetry quotient using only necessary row-intersection,
+   two-overlap crossing, and witness-pair-cap filters.
+3. Regenerate exactly `184` labelled terminal assignments.
+4. Quotient ordinary distance pairs by the selected spoke equalities.
+5. For every cyclic quadruple, test the two strict ordinary-distance
+   Kalmanson inequalities.
+6. Find one quotient self-edge for each assignment (`K1 = 150`, `K2 = 34`).
+
+Live review burden: the shared frontier coverage, the strict quadrilateral
+inequalities, and the exact quotient-component multiset replay. The fresh
+checker uses neither a stored frontier nor Kalmanson certificate as generation
+or search input; `--check` compares its artifact only afterward.
+
 ## Minimal reproduction commands
 
 Run these first. They are the shortest current command set that exercises the
@@ -187,6 +208,8 @@ python scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-exp
 python scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
 python scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
 python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
+python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
+python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
 ```
 
 Optional corroborating commands:
@@ -310,18 +333,31 @@ The turn-packing replay should confirm:
 - Check that real-root decoder conclusions imply degeneracy or
   non-strict-convexity, not merely numerical failure.
 
+### Kalmanson route
+
+- Check that `D` denotes ordinary Euclidean distance throughout the replay.
+- Check both strict inequalities for every cyclically ordered convex
+  quadrilateral from the diagonal-intersection triangle proof.
+- Check that selected rows generate exactly the spoke equalities placed in the
+  distance quotient.
+- Check that equal two-term quotient-component multisets force `L < L`.
+- Independently reproduce the `184` labelled frontier and `150 + 34` self-edge
+  split without reading the generated Kalmanson certificate.
+
 ## Acceptance standard
 
 A successful review should identify which of these outcomes applies:
 
 - `accepted_vertex_circle_route`: A6/A7, A8, and A10 survive review.
 - `accepted_turn_route`: A6/A7, B1, and B3 survive review.
+- `accepted_kalmanson_route`: the shared frontier plus D2-D4 survive
+  review.
 - `accepted_corrob_only`: the artifacts reproduce but at least one proof-facing
   route dependency remains unreviewed.
 - `gap_found`: the review identifies a precise mathematical or implementation
   gap.
 
-Only the first two outcomes would justify a follow-up PR proposing
+Only the three primary-route outcomes would justify a follow-up PR proposing
 source-of-truth status changes for the repo-local `n=9` finite-case claim. That
 follow-up PR must update `README.md`, `STATE.md`, `RESULTS.md`,
 `metadata/erdos97.yaml`, and `docs/claims.md` together, and must preserve the
@@ -334,6 +370,9 @@ claimed.
   geometry and quotient obstruction interpretation.
 - The turn-packing route is attractive because its final certificates are
   short, but the exterior-turn lemma and indexing are the hinge.
+- The self-contained Kalmanson route has elementary final geometry, but its
+  strict ordinary-distance convention and quotient replay still need written
+  independent acceptance.
 - The algebraic route is strong corroboration only after the family reduction
   and decoder replay are independently audited.
 - None of the `n=9` routes supplies a bridge from arbitrary larger

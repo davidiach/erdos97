@@ -163,9 +163,11 @@ minimal/rich-class hypotheses.
    The fresh-frontier replay
    `python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
    regenerates the same 184 terminal selected-witness assignments without
-   importing the repo package or reading the stored Kalmanson certificate, then
-   finds one strict Kalmanson self-edge for each. Treat it as corroborating
-   audit evidence only.
+   importing the repo package or using the stored Kalmanson certificate as
+   generation or search input, then finds one strict Kalmanson self-edge for
+   each; `--check` compares the artifact only afterward. Treat it as
+   primary-route review evidence under still-open gates, not as completed
+   review or a status promotion.
    The three-row compression replay
    `python scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json`
    regenerates the same frontier and records that every terminal assignment

@@ -11,8 +11,9 @@ mathematical review remains required before any theorem-style use.
 ## Purpose
 
 The repository now has several independent-looking `n=9` obstruction routes:
-the vertex-circle quotient route, the turn-packing route, and algebraic /
-Kalmanson corroboration. The useful promotion-grade surface is not the full
+the vertex-circle quotient route, the turn-packing route, the self-contained
+Kalmanson route, and algebraic / stored-input corroboration. The useful
+promotion-grade surface is not the full
 artifact audit, which is intentionally broad. It is the shortest command chain
 that exercises the current finite-case review bottlenecks and the
 formalization-facing turn-packing contract.
@@ -35,8 +36,9 @@ The route contract points to the review-gate ledger
 python scripts/check_n9_review_gate_ledger.py --check --summary-json
 ```
 
-That checker maps the compact harness to the A6/A7, A8, A10, B1/B3, and
-corroborating Kalmanson review gates, then checks those gates against
+That checker maps the compact harness to the A6/A7 or D0-D1 shared frontier,
+A8, A10, B1/B3, D2/D3-D4, and corroborating Kalmanson review gates, then
+checks those gates against
 `docs/n9-reduction-chain.md`, `docs/n9-review-packet.md`, and the route
 manifest. It is review bookkeeping only, not mathematical evidence.
 
@@ -202,14 +204,18 @@ dual certificates for all `184` regenerated frontier assignments. They still
 depend on independent review of the geometric turn lemma in
 `docs/turn-inequality-lemma.md`.
 
-Finally, the target runs the stored-input Kalmanson replay:
+Finally, the target runs both Kalmanson surfaces:
 
 ```bash
 python scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
+python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
 ```
 
-This is corroborating stored-certificate audit support. It does not replace
-the vertex-circle or turn-packing review routes.
+The first command remains corroborating stored-certificate audit support. The
+second regenerates the labelled frontier from all 70 rows per center and finds
+a strict ordinary-distance Kalmanson quotient self-edge for all `184`
+assignments. It is now a primary review route, but its geometry, replay, and
+written-review gates all remain open.
 
 ## Promotion Boundary
 

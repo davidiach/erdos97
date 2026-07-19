@@ -17666,7 +17666,7 @@
       ]
     }
   ],
-  "claim_scope": "Self-contained regeneration of the review-pending n=9 selected-witness frontier plus one strict Kalmanson self-edge certificate for each of the 184 terminal assignments. It imports no erdos97 package modules and does not read the stored Kalmanson certificate as input. This is corroborating audit evidence only: it does not complete independent review, does not promote n=9 to a theorem, does not prove Erdos Problem #97, does not produce a counterexample, and does not update the official/global status or the repo source-of-truth strongest local result.",
+  "claim_scope": "Self-contained regeneration of the review-pending n=9 selected-witness frontier plus one strict Kalmanson self-edge certificate for each of the 184 terminal assignments. It imports no erdos97 package modules and uses no stored Kalmanson certificate as generation or search input; --check compares the artifact only after fresh generation. This is primary-route review evidence under still-open gates: it does not complete independent review, does not promote n=9 to a theorem, does not prove Erdos Problem #97, produce a counterexample, or update the official/global status or the repo source-of-truth strongest local result.",
   "dead_by_depth": {
     "2": 201,
     "3": 2578,
@@ -17677,8 +17677,9 @@
     "8": 1967
   },
   "distinct_row0_choices_in_frontier": 32,
+  "frontier_assignment_sha256": "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55",
   "interpretation_warnings": [
-    "This is review-pending finite-case corroboration only.",
+    "This is primary-route finite-case evidence under still-open review gates.",
     "It relies on the standard selected-witness necessary filters and strict Kalmanson inequality convention.",
     "It does not prove n=9, prove Erdos Problem #97, produce a counterexample, or update official/global status."
   ],

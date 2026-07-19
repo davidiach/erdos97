@@ -73,7 +73,8 @@ The matrix covers all commands in `make verify-n9-candidate`:
 - Lean sketch and optional Lean compilation guardrails;
 - the compact vertex-circle route commands;
 - the compact turn-packing route commands;
-- the stored-input Kalmanson corroboration command.
+- the stored-input Kalmanson corroboration command;
+- the self-contained Kalmanson frontier and quotient-self-edge replay.
 
 The matrix also checks that every evidence command named by
 `metadata/n9_review_gate_ledger.yaml` has a linked matrix record. Metadata-only
@@ -89,5 +90,7 @@ outputs match the expected reviewer-facing invariants. It does not mean:
 - the vertex-circle strict-edge geometry has been accepted;
 - the quotient replay has been accepted as theorem-grade;
 - the exterior-turn lemma has been proved;
+- the strict ordinary-distance Kalmanson geometry or self-edge replay has been
+  accepted;
 - the Lean pilot has been compile-checked on this machine when Lake is absent;
 - any source-of-truth claim or official/global status should change.

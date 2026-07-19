@@ -31,6 +31,7 @@ required_documents:
   - docs/n9-review-run-bundle.md
   - docs/n9-review-decision-intake.md
   - docs/n9-vertex-circle-route-decision-request.md
+  - docs/n9-kalmanson-selfedge.md
   - docs/n9-reduction-chain.md
 
 sections:
@@ -52,6 +53,7 @@ sections:
       - vertex_circle_route
       - turn_packing_route
       - kalmanson_corroboration
+      - kalmanson_primary_route
   - id: review_gates
     title: Open Review Gates
     source: review_gate_ledger.review_gates
@@ -62,6 +64,8 @@ sections:
       - turn_geometry
       - turn_arithmetic_replay
       - kalmanson_corroboration
+      - kalmanson_geometry
+      - kalmanson_selfedge_replay
   - id: infrastructure_gates
     title: Infrastructure Gates
     source: review_gate_ledger.infrastructure_gates
@@ -93,20 +97,23 @@ sections:
       - turn_inequality_indexing
       - n9_turn_inequality_frontier
       - n9_kalmanson_selfedge_independent_replay
+      - n9_kalmanson_selfedge_frontier_replay
   - id: acceptance_outcomes
     title: Acceptance Outcomes
     source: review_gate_ledger.review_outcomes
     required_ids:
       - accepted_vertex_circle_route
       - accepted_turn_route
+      - accepted_kalmanson_route
       - accepted_corrob_only
       - gap_found
 
 review_questions:
   - gate_id: frontier_enumeration
     worksheet_prompt: >
-      Does the reviewer accept that A2-A5 are the intended selected-witness
-      filters and that the 184 frontier has no hidden symmetry quotient?
+      Does the reviewer accept the shared 184-labelled frontier through a
+      complete legacy A6/A7 path using A2-A5 or fresh D0/D1 all-70-row path
+      using necessary A2-A4 filters, with no hidden symmetry quotient?
   - gate_id: vertex_circle_geometry
     worksheet_prompt: >
       Does the reviewer accept the vertex-circle nested-chord strict-edge
@@ -127,6 +134,14 @@ review_questions:
     worksheet_prompt: >
       Does the reviewer accept the stored-input Kalmanson replay as
       corroboration only, without treating it as a primary route?
+  - gate_id: kalmanson_geometry
+    worksheet_prompt: >
+      Does the reviewer accept both strict ordinary-distance Kalmanson
+      inequalities from the diagonal-intersection triangle proof?
+  - gate_id: kalmanson_selfedge_replay
+    worksheet_prompt: >
+      Does the reviewer accept the fresh selected-distance quotient and one
+      strict Kalmanson self-edge for every labelled frontier assignment?
 
 decision_fields:
   - reviewer_name

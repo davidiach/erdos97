@@ -42,6 +42,8 @@ def _base_final_decision() -> dict[str, object]:
             "quotient_obstruction_replay",
             "turn_geometry",
             "turn_arithmetic_replay",
+            "kalmanson_geometry",
+            "kalmanson_selfedge_replay",
             "kalmanson_corroboration",
             "lean_compilation",
             "independent_review",
@@ -70,10 +72,10 @@ def test_n9_review_decision_intake_payload_contains_expected_layers() -> None:
 
     intake = build_intake_payload(payload)
 
-    assert len(intake["gate_ids"]) == 8
-    assert len(intake["review_outcome_ids"]) == 4
-    assert len(intake["outcome_rules"]) == 4
-    assert len(intake["decision_template"]["not_reviewed_gates"]) == 8
+    assert len(intake["gate_ids"]) == 10
+    assert len(intake["review_outcome_ids"]) == 5
+    assert len(intake["outcome_rules"]) == 5
+    assert len(intake["decision_template"]["not_reviewed_gates"]) == 10
 
 
 def test_n9_review_decision_intake_rejects_missing_acknowledgement() -> None:
@@ -108,6 +110,8 @@ def test_n9_review_decision_record_rejects_missing_route_gate() -> None:
         "vertex_circle_geometry",
         "turn_geometry",
         "turn_arithmetic_replay",
+        "kalmanson_geometry",
+        "kalmanson_selfedge_replay",
         "kalmanson_corroboration",
         "lean_compilation",
     ]
@@ -133,6 +137,34 @@ def test_n9_review_decision_record_accepts_vertex_circle_route_decision() -> Non
     ]
     decision["rejected_gates"] = []
     decision["not_reviewed_gates"] = [
+        "turn_geometry",
+        "turn_arithmetic_replay",
+        "kalmanson_geometry",
+        "kalmanson_selfedge_replay",
+        "kalmanson_corroboration",
+        "lean_compilation",
+    ]
+    decision["precise_gaps"] = []
+
+    errors = validate_decision_record(decision, payload)
+
+    assert errors == []
+
+
+def test_n9_review_decision_record_accepts_kalmanson_route_decision() -> None:
+    payload = load_intake(INTAKE)
+    decision = _base_final_decision()
+    decision["recommended_outcome"] = "accepted_kalmanson_route"
+    decision["accepted_gates"] = [
+        "frontier_enumeration",
+        "kalmanson_geometry",
+        "kalmanson_selfedge_replay",
+        "independent_review",
+    ]
+    decision["rejected_gates"] = []
+    decision["not_reviewed_gates"] = [
+        "vertex_circle_geometry",
+        "quotient_obstruction_replay",
         "turn_geometry",
         "turn_arithmetic_replay",
         "kalmanson_corroboration",

@@ -47,7 +47,7 @@ def test_n9_vertex_circle_route_decision_request_summary() -> None:
     assert summary["validation_status"] == "passed"
     assert summary["requested_outcome"] == ACCEPTED_VERTEX_CIRCLE_ROUTE
     assert summary["requested_accepted_gate_count"] == 4
-    assert summary["requested_not_reviewed_gate_count"] == 4
+    assert summary["requested_not_reviewed_gate_count"] == 6
     assert summary["internal_review_note_count"] == 3
 
 

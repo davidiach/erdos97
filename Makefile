@@ -61,6 +61,7 @@ verify-n9-candidate:
 	$(PYTHON) scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
 
 verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json

@@ -20,8 +20,8 @@ record an `accepted_vertex_circle_route` decision that accepts exactly:
 - `quotient_obstruction_replay`;
 - `independent_review`.
 
-The turn-packing, Kalmanson corroboration, and Lean compilation gates remain
-outside this request.
+The turn-packing, Kalmanson primary-route, Kalmanson corroboration, and Lean
+compilation gates remain outside this request.
 
 ## Checked Request
 

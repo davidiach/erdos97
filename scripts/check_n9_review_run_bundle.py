@@ -92,6 +92,7 @@ REQUIRED_ROUTE_IDS = {
     "vertex_circle_route",
     "turn_packing_route",
     "kalmanson_corroboration",
+    "kalmanson_primary_route",
 }
 
 

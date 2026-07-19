@@ -28,10 +28,10 @@ def test_n9_review_dossier_payload_contains_expected_layers() -> None:
 
     dossier = build_dossier_payload(payload)
 
-    assert len(dossier["routes"]) == 5
-    assert len(dossier["review_gates"]) == 6
+    assert len(dossier["routes"]) == 6
+    assert len(dossier["review_gates"]) == 8
     assert len(dossier["infrastructure_gates"]) == 2
-    assert len(dossier["evidence_records"]) == 21
+    assert len(dossier["evidence_records"]) == 22
 
 
 def test_n9_review_dossier_rejects_missing_section_id() -> None:
@@ -49,7 +49,7 @@ def test_n9_review_dossier_rejects_missing_review_question() -> None:
 
     errors = validate_dossier(payload)
 
-    assert "review_questions missing gate 'kalmanson_corroboration'" in errors
+    assert "review_questions missing gate 'kalmanson_selfedge_replay'" in errors
 
 
 def test_n9_review_dossier_rejects_missing_decision_field() -> None:

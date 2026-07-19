@@ -972,8 +972,10 @@ Check the certificate replay with
 The fresh-frontier replay
 `python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
 regenerates the 184 terminal selected-witness assignments without importing
-the repo package or reading the stored Kalmanson certificate, then finds one
-strict Kalmanson self-edge for each. It is corroborating audit evidence only.
+the repo package or using the stored Kalmanson certificate as generation or
+search input, then finds one strict Kalmanson self-edge for each. In `--check`
+mode it compares the artifact only afterward. It is primary-route review
+evidence under still-open gates, not a completed review or status promotion.
 The three-row compression checker
 `python scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json`
 regenerates the same frontier, searches all strict Kalmanson inequalities and

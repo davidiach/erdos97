@@ -77,6 +77,28 @@ The algebraic route is valuable as a second source, but a reviewer should not
 treat it as a standalone `n=9` proof unless the 184-to-16 family reduction and
 decoder replay are independently audited.
 
+## Chain D: Self-contained Kalmanson Route
+
+This route regenerates the labelled frontier and closes it with elementary
+strict inequalities for ordinary distances. Unlike the stored-input
+corroboration, it uses no prior frontier or Kalmanson certificate as generation
+or search input; `--check` compares the stored artifact only after fresh
+generation.
+
+| Step | Assertion | Evidence | Status |
+| --- | --- | --- | --- |
+| D0 | Start with all `binom(8,4) = 70` selected rows at each of the nine labelled centers and retain only the necessary A2-A4 pair/crossing/count conditions. | `scripts/check_n9_kalmanson_selfedge_frontier_replay.py` uses dynamic minimum-remaining-options branching but no symmetry quotient. | machine-checked review-pending |
+| D1 | The fresh search reaches exactly the same `184` labelled terminal assignments as the shared source frontier. | The replay visits `100818` nodes and pins the sorted row-set digest `dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55`. | machine-checked review-pending |
+| D2 | For every cyclic quadruple `a < b < c < d`, ordinary distances satisfy `D_ab + D_cd < D_ac + D_bd` and `D_ad + D_bc < D_ac + D_bd`. | Apply strict triangle inequalities at the intersection of diagonals `ac` and `bd`; see `docs/n9-kalmanson-selfedge.md`. | proof-facing review-pending |
+| D3 | Selected rows quotient ordinary spoke distances by exactly the equalities they force. | Dependency-free union-find replay in the fresh checker. | machine-checked review-pending |
+| D4 | Every one of the `184` assignments makes one D2 inequality have the same quotient-component multiset on both sides, hence `L < L`. | Fresh result: `K1 = 150`, `K2 = 34`, zero un-killed assignments. | machine-checked review-pending |
+| D5 | Therefore no true bad nonagon exists, assuming D0-D4 survive independent review. | Follows from the chain above. | review-pending conditional |
+
+The proof-facing burden is deliberately split: `kalmanson_geometry` covers D2,
+while `kalmanson_selfedge_replay` covers D3-D4. The shared
+`frontier_enumeration` gate covers D0-D1. Passing the checker does not accept
+any of those gates.
+
 ## Current Bottlenecks
 
 The strongest honest reading is:
@@ -96,6 +118,8 @@ The most important finite-case review targets are:
 - independent agreement that the 184 frontier is the intended pre-obstruction
   source frontier;
 - for the turn route, the exterior-turn lemma and interval indexing.
+- for the Kalmanson route, the strict ordinary-distance convention and an
+  independent quotient self-edge reproduction.
 
 The machine-readable review-gate ledger
 `metadata/n9_review_gate_ledger.yaml`, checked by
@@ -141,8 +165,8 @@ Thus none of these artifacts proves Erdos Problem #97.
 ## Minimal Review Command Set
 
 The compact promotion-review harness runs the Lean pilot guardrails, the
-vertex-circle review path, the turn-packing route, and the stored-input
-Kalmanson replay:
+vertex-circle and turn-packing review paths, the stored-input Kalmanson replay,
+and the self-contained Kalmanson route:
 
 ```bash
 make verify-n9-candidate
@@ -173,6 +197,12 @@ For the algebraic cross-audit:
 
 ```bash
 python scripts/decode_n9_groebner_f07_f13.py --check
+```
+
+For the self-contained Kalmanson route:
+
+```bash
+python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
 ```
 
 These commands are review aids. Passing them does not, by itself, complete

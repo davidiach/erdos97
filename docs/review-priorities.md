@@ -262,11 +262,12 @@ Fresh-frontier Kalmanson replay:
 python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
 ```
 
-This command imports no `erdos97` package modules and does not read the stored
-Kalmanson certificate. It regenerates the same 184 terminal selected-witness
-assignments and finds one strict Kalmanson self-edge for each. It is
-corroborating audit evidence only, not a change to the review gate or a
-promotion of `n=9`.
+This command imports no `erdos97` package modules and uses no stored Kalmanson
+certificate as generation or search input. It regenerates the same 184
+terminal selected-witness assignments and finds one strict Kalmanson self-edge
+for each; `--check` compares the artifact only afterward. It is primary-route
+review evidence under still-open frontier, geometry, quotient-replay, and
+written-review gates, not a promotion of `n=9`.
 
 Current Kalmanson three-row core compression:
 

@@ -559,9 +559,10 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         claim_scope=(
             "Self-contained regeneration of the review-pending n=9 "
             "selected-witness frontier plus Kalmanson self-edge certificates; "
-            "corroborating audit evidence only, not a proof of n=9, "
-            "independent review completion, a counterexample, or an "
-            "official/global status update."
+            "primary-route review evidence under still-open gates, not a proof "
+            "of n=9, independent review completion, a counterexample, or an "
+            "official/global status update. It uses no stored certificate as "
+            "generation or search input; --check compares only afterward."
         ),
     ),
     AuditCommand(

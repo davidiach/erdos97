@@ -48,6 +48,8 @@ REQUIRED_REVIEW_GATES = {
     "turn_geometry",
     "turn_arithmetic_replay",
     "kalmanson_corroboration",
+    "kalmanson_geometry",
+    "kalmanson_selfedge_replay",
 }
 REQUIRED_INFRASTRUCTURE_GATES = {
     "lean_compilation",
@@ -64,6 +66,11 @@ REQUIRED_OUTCOMES = {
         "turn_geometry",
         "turn_arithmetic_replay",
     },
+    "accepted_kalmanson_route": {
+        "frontier_enumeration",
+        "kalmanson_geometry",
+        "kalmanson_selfedge_replay",
+    },
     "accepted_corrob_only": {"kalmanson_corroboration"},
     "gap_found": set(),
 }
@@ -72,6 +79,7 @@ ALLOWED_ROUTES = {
     "vertex_circle",
     "turn_packing",
     "corroboration",
+    "kalmanson",
 }
 ALLOWED_STATUSES = {
     "machine_checked_review_pending",
@@ -155,7 +163,7 @@ def _reduction_chain_step_ids() -> set[str]:
     )
     step_ids: set[str] = set()
     for line in text.splitlines():
-        match = re.match(r"\| (A\d+|B\d+|C\d+) \|", line)
+        match = re.match(r"\| ([ABCD]\d+) \|", line)
         if match:
             step_ids.add(match.group(1))
     return step_ids

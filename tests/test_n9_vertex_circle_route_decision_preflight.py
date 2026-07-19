@@ -81,6 +81,8 @@ def test_n9_vertex_circle_route_preflight_builds_accepted_route_template() -> No
     assert template["not_reviewed_gates"] == [
         "turn_geometry",
         "turn_arithmetic_replay",
+        "kalmanson_geometry",
+        "kalmanson_selfedge_replay",
         "kalmanson_corroboration",
         "lean_compilation",
     ]
