@@ -80,34 +80,26 @@ case. See `docs/n12-rich-support-determinant-obstruction.md` and
 
 Status: `LEMMA_DRAFT` / `REVIEW_PENDING`.
 
-A review-pending near-saturation strengthening sharpens the edge-sensitive
-pair budget above by two units for every `n >= 8`: pair-capacity slack `0`
-or `1` still forces the equilateral/turn-cover contradiction, with no
-assumption on the support-size profile, so
+A review-pending linear-slack strengthening sharpens the edge-sensitive pair
+budget above by a growing number of units for every `n >= 8`:
 
 ```text
-sum_i binom(|R_i|, 2) <= n(n - 2) - 2.
+sum_i binom(|R_i|, 2) <= n(n - 2) - ceil((n - 4)/2).
 ```
 
-The slack-1 case survives one missing capacity unit because the
-side-equality chain is a cycle minus at most one edge and the forced-turn
-set still covers at least `ceil((n-1)/2) >= 4` turn indices. Consequences:
-a hypothetical 4-bad decagon has at least six exact-four centers (raw
-budget: five), a hypothetical 4-bad hendecagon has at least four (raw
-budget: three), and the uniform saturation thresholds
-`n >= binom(k,2) + 3` become direct budget corollaries for `n >= 8`.
-
-The uniform statement stops at slack `1` because of exactly one method
-boundary: two distinct gap-2 diagonals each missing one unit disconnect the
-side-equality chain (a cycle minus two distinct edges is always
-disconnected), so the equilateral step fails. A strict form of the turn
-count (a proper forced-turn subset of size at least three already exceeds
-total turn `2*pi`) closes every other slack-2 distribution, but that
-remaining family keeps the claim at `n(n-2) - 2`. This does not prove
-`n=9`, `n=10`, `n=11`, or Erdos Problem #97. See
-`docs/near-saturation-support-obstruction.md`,
-`scripts/check_near_saturation_support_obstruction.py`, and
-`data/certificates/near_saturation_support_obstruction.json`.
+If `B` and `G` are the unsaturated gap-2 and gap-3 index sets, then at least
+`n-(2|B|+|G|)` local equal-side turn clauses remain. At most two exterior
+turns can equal `2*pi/3`, so those clauses occupy at most four turn-cycle
+edges. Since `|B|+|G|` is at most the total pair-capacity slack `d`, this gives
+`2d >= n-4`. The older two-unit argument is the `n=8` endpoint of this bound.
+Consequences still include at least six exact-four centers in a hypothetical
+4-bad decagon and at least four in a hypothetical 4-bad hendecagon; integer
+rounding keeps those headline floors unchanged while the mixed-profile budget
+is stronger. This does not prove `n=9`, `n=10`, `n=11`, or Erdos Problem #97.
+See `docs/linear-slack-support-obstruction.md` and
+`scripts/check_linear_slack_support_obstruction.py`; the earlier proof and
+artifact remain independently replayable through
+`scripts/check_near_saturation_support_obstruction.py`.
 
 ### Lemma: crossing-bisector and sharpened count
 

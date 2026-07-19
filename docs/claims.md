@@ -161,33 +161,32 @@ with `scripts/check_n12_rich_support_determinant.py`.
 Status: `LEMMA_DRAFT` / `REVIEW_PENDING`.
 
 For any same-radius supports `R_i` in a strictly convex `n`-gon with
-`n >= 8`, the edge-sensitive pair budget sharpens by two units:
+`n >= 8`, let `d` be the unused edge-sensitive pair capacity. The original
+near-saturation argument proves `d >= 2`. A follow-up local argument gives the
+stronger general bound
 
 ```text
-sum_i binom(|R_i|, 2) <= n(n - 2) - 2.
+d >= ceil((n-4)/2),
+sum_i binom(|R_i|, 2) <= n(n-2)-ceil((n-4)/2).
 ```
 
-Pair-capacity slack `0` or `1` leaves at most one capacity unit missing, so
-at least `n-1` gap-2 diagonals stay saturated and force all sides equal
-through a connected side-equality chain, while at least `n-1` gap-3
-diagonals stay saturated and force exterior turns of `2*pi/3` on a set
-covering the `n`-cycle minus at most one edge. That cover has at least four
-members, so the total exterior turn would be at least `8*pi/3 > 2*pi`.
-Unlike the equality-wall saturation lemma, no assumption is made on the
-support-size profile.
+If `B` and `G` are the unsaturated gap-2 and gap-3 index sets, at least
+`n-(2|B|+|G|)` local three-equal-side turn clauses remain. At most two
+exterior turns can equal `2*pi/3`, so they meet at most four clause edges.
+Together with `|B|+|G| <= d`, this gives `2d >= n-4`. Unlike the original
+proof, this does not require the side-equality chain to remain globally
+connected, and no assumption is made on the support-size profile.
 
 Consequences: a hypothetical 4-bad decagon has at least six exact-four
 centers (raw budget: five), a hypothetical 4-bad hendecagon has at least
 four (raw budget: three), and the uniform thresholds
 `n >= binom(k,2) + 3` follow directly from the sharpened budget for
-`n >= 8`. The uniform statement stops at slack `1` because two distinct
-gap-2 diagonals each missing one unit always disconnect the side-equality
-chain; a strict form of the turn count closes every other slack-2
-distribution, but that remaining family is a genuine method boundary. This
-does not prove the review-pending exact-four frontier, `n=9`, `n=10`,
-`n=11`, or Erdos Problem #97. See
-`docs/near-saturation-support-obstruction.md` and
-`scripts/check_near_saturation_support_obstruction.py`.
+`n >= 8`. This does not prove the review-pending exact-four frontier, `n=9`,
+`n=10`, `n=11`, or Erdos Problem #97. See
+`docs/near-saturation-support-obstruction.md`,
+`docs/linear-slack-support-obstruction.md`,
+`scripts/check_near_saturation_support_obstruction.py`, and
+`scripts/check_linear_slack_support_obstruction.py`.
 
 ### Selected-path self-edge obstruction
 

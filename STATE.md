@@ -307,20 +307,18 @@ not prove the full dodecagon case. See `docs/rich-support-counting-lemma.md`,
 `docs/n12-rich-support-determinant-obstruction.md`, and
 `docs/localized-rich-support-counting.md`.
 
-A review-pending near-saturation strengthening sharpens that support pair
-budget by two units for every `n >= 8`: pair-capacity slack `0` or `1`
-already forces the equilateral/turn-cover contradiction with no assumption
-on the support-size profile, so `sum_i binom(|R_i|, 2) <= n(n-2) - 2`. This
-raises the counting floors to at least six exact-four centers in a
-hypothetical 4-bad decagon and at least four in a hypothetical 4-bad
-hendecagon, and it recovers the uniform saturation thresholds
-`n >= binom(k,2) + 3` as direct budget corollaries. The draft records the
-exact method boundary that keeps the uniform statement at slack `1`: two
-distinct unsaturated gap-2 diagonals disconnect the side-equality chain,
-while a strict turn count closes every other slack-2 distribution. It does
-not extend the `n=9` conclusions, does not prove `n=9`, `n=10`, or `n=11`,
-and does not change any finite-case or global status. See
-`docs/near-saturation-support-obstruction.md` and
+A review-pending linear-slack strengthening now sharpens that support pair
+budget by `ceil((n-4)/2)` units for every `n >= 8`:
+`sum_i binom(|R_i|,2) <= n(n-2)-ceil((n-4)/2)`. It keeps the original
+gap-2/gap-3 saturation argument local, so two gap-2 deficits may disconnect
+the global side-equality chain without destroying all three-equal-side turn
+clauses. This retains the previously recorded floors of at least six
+exact-four centers in a hypothetical 4-bad decagon and four in a hypothetical
+4-bad hendecagon while strengthening the underlying mixed-profile budget. It
+does not extend the `n=9` conclusions, prove `n=9`, `n=10`, or `n=11`, or
+change any finite-case or global status. See
+`docs/linear-slack-support-obstruction.md`; the earlier two-unit proof and its
+artifact remain in `docs/near-saturation-support-obstruction.md` and
 `data/certificates/near_saturation_support_obstruction.json`.
 
 A follow-up to the sharpened counting lemma above, the mixed rich-support

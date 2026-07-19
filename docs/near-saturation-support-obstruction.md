@@ -244,10 +244,22 @@ search's `q <= 2`), but it is a proof-facing budget statement with no
 enumeration, and it is the first improvement at `n = 11`, where no search
 result exists.
 
-## Boundary: why slack 2 is out of reach for this method
+## Former boundary: the global-equilateral proof at slack 2
 
-The argument does not extend to `d = 2` as stated, and this note claims
-nothing about `d = 2`. The method boundary is exactly one failure mode.
+The general-n follow-up in `docs/linear-slack-support-obstruction.md` bypasses
+the boundary below by using only local triples of equal consecutive sides. It
+proves the stronger review-pending bound
+
+```text
+d >= ceil((n-4)/2).
+```
+
+Thus slack `2` is closed for `n >= 9`, even though the global side-equality
+chain can disconnect. The discussion below records the exact limitation of
+the original all-sides-equal argument and remains the live boundary at `n=8`.
+
+The original argument does not extend to `d = 2` as stated. Its method
+boundary is exactly one failure mode.
 
 **The genuine failure mode: the equilateral step.** If the two missing
 units sit on two DISTINCT gap-2 diagonals, the side-equality chain loses
@@ -273,12 +285,14 @@ edges, leaving a vertex cover of size at least `ceil((n-2)/2) >= 3` for
 
 The headline proof deliberately uses the non-strict test `|M| >= 4`, which
 genuinely fails on some two-edge removals (for `n = 8`, adjacent-pair
-removals leave a minimum cover of exactly `3`). The uniform statement
-therefore still stops at slack `1` because of the equilateral failure mode
-above, not because of the turn count.
+removals leave a minimum cover of exactly `3`). The original global-equilateral
+statement therefore stopped at slack `1` because of the equilateral failure
+mode above, not because of the turn count.
 
-These are records about this proof method, not claims about the
-realizability of the remaining slack-2 support systems.
+These are records about the original proof method, not claims about the
+realizability of slack-2 support systems. The linear follow-up shows that the
+remaining family cannot occur when `n >= 9`; it leaves `d=2` open only at the
+level of this support-pair lemma when `n=8`.
 
 ## Known counterexample attempts
 
