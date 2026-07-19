@@ -177,7 +177,7 @@ result remains explicitly review pending.
 
 This result says nothing about arbitrary point configurations, unbounded
 `n`, complex coefficients, or additional Fourier modes.  It converts the
-+
+previous floating-point `n <= 80` scan into an exact obstruction for precisely
 the real two-mode family and finite range stated above.  Erdos Problem 97
 remains open beyond the exact small-`n` and restricted-family results recorded
 by the repository.
