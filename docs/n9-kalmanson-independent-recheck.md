@@ -23,8 +23,9 @@ rows must satisfy three elementary necessary conditions:
 1. Two rows share at most two witnesses, because two distinct centered circles
    meet in at most two points.
 2. If rows at centers `i,j` share witnesses `x,y`, then `ij` is the
-   perpendicular bisector of `xy`, while `xy` is the perpendicular bisector
-   of `ij`. The two chords cross at their common midpoint.
+   perpendicular bisector of `xy`. Strict convexity forces the midpoint of
+   `xy` to lie in the interior of the segment `ij`, so the two chords cross
+   there.
 3. A witness pair occurs in at most two rows, because every corresponding
    center lies on one perpendicular-bisector line and a strictly convex vertex
    set has no three collinear vertices.
