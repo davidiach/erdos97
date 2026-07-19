@@ -146,6 +146,10 @@ put detailed reconciliation in the canonical synthesis.
   `n(n-2)-2` for `n >= 8` (slack `0` and `1` both impossible), raising the
   4-bad decagon/hendecagon exact-four floors to six and four; not an `n=9`,
   `n=10`, `n=11`, or global proof.
+- [`linear-slack-support-obstruction.md`](linear-slack-support-obstruction.md):
+  review-pending general-n strengthening of the same budget to
+  `n(n-2)-ceil((n-4)/2)` by retaining local three-side equalities after the
+  global equilateral chain disconnects; not a finite-case or global proof.
 - [`n12-rich-support-determinant-obstruction.md`](n12-rich-support-determinant-obstruction.md):
   independent determinant obstruction for the all-five-rich `n=12`
   support-count equality wall; not a proof of the full `n=12` case.

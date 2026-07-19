@@ -93,11 +93,12 @@ n = 12: no exact-four center is forced by these two budgets alone
 For `n = 5, 6, 7`, the edge-sensitive global pair budget already rules out
 4-bad supports.
 
-A review-pending near-saturation strengthening of the global pair budget
-(`docs/near-saturation-support-obstruction.md`) sharpens the `n = 10` and
-`n = 11` floors in this table to six and four exact-four centers and forces
-one exact-four center at `n = 12` from the budget alone; the rows above
-record only what the raw budgets prove.
+A review-pending linear-slack strengthening of the global pair budget
+(`docs/linear-slack-support-obstruction.md`) replaces the constant two-unit
+improvement by `ceil((n-4)/2)`. It sharpens the `n = 10` and `n = 11` floors
+in this table to six and four exact-four centers and forces one exact-four
+center at `n = 12` from the budget alone; the rows above record only what the
+raw budgets prove.
 
 The support-saturation obstruction in `docs/support-saturation-obstruction.md`
 adds a separate equality-wall count: all centers having support size at least
