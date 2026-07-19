@@ -1,0 +1,2302 @@
+{
+  "claim_scope": "Arbitrary-n local strict-Kalmanson equilateral-hinge lemma and a deterministic crosswalk against the stored review-pending n=9 three-row compression; the source frontier is not regenerated and no result status is promoted.",
+  "crosswalk_sha256": "41390dbac0177ace8615e393fe4826dd5a7d325ccdc46370e07d315caa2f2a8d",
+  "interpretation_warnings": [
+    "The local hinge lemma is arbitrary-n, but this crosswalk only audits the stored n=9 compression records.",
+    "The source frontier remains review-pending and is not independently regenerated here.",
+    "No theorem forces an equilateral hinge in every hypothetical counterexample yet."
+  ],
+  "lemma": {
+    "contradiction": "the three spoke equalities make both sides equal",
+    "name": "Kalmanson equilateral hinge",
+    "oriented_vertices": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "required_centers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "required_pairs": [
+      [
+        "B",
+        "C"
+      ],
+      [
+        "A",
+        "C"
+      ],
+      [
+        "A",
+        "B"
+      ]
+    ],
+    "scope": "any four cyclically ordered vertices in any strictly convex polygon",
+    "strict_inequality": "D_AD + D_BC < D_AC + D_BD"
+  },
+  "not_claimed": [
+    "general proof of Erdos Problem #97",
+    "counterexample to Erdos Problem #97",
+    "n=9 is proved",
+    "n=9 external review complete",
+    "source frontier independently regenerated",
+    "official/global status update"
+  ],
+  "provenance": {
+    "command": "python scripts/check_kalmanson_equilateral_hinge_crosswalk.py --write --assert-expected",
+    "generator": "scripts/check_kalmanson_equilateral_hinge_crosswalk.py",
+    "source_artifact": "data/certificates/n9_kalmanson_three_row_core_compression.json"
+  },
+  "records": [
+    {
+      "assignment_index": 0,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e0ebd2ae30246240",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        7,
+        0
+      ]
+    },
+    {
+      "assignment_index": 1,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "96321bddd4c82353",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "assignment_index": 2,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e63feae238f5f321",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        3,
+        8
+      ]
+    },
+    {
+      "assignment_index": 3,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "2729ec6dd7fe0285",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 4,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e25cd6a0e96d15e3",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_index": 5,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "assignment_index": 6,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "e5b997af3dfb3ec1",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 7,
+      "full_assignment_hinge_count": 3,
+      "source_best_dihedral_core_signature16": "040f6df80220fd98",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "assignment_index": 8,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "7a94ebb2d2eaaa93",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 9,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "87d47d8059a21fc5",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        6,
+        0
+      ]
+    },
+    {
+      "assignment_index": 10,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "40ea654a69e7dbd0",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 11,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "d4cd9861ffade07d",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        4,
+        7,
+        0
+      ]
+    },
+    {
+      "assignment_index": 12,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "93426ac2cbc64ef4",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 13,
+      "full_assignment_hinge_count": 3,
+      "source_best_dihedral_core_signature16": "040f6df80220fd98",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        2,
+        4,
+        6,
+        0
+      ]
+    },
+    {
+      "assignment_index": 14,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        2,
+        4,
+        7,
+        0
+      ]
+    },
+    {
+      "assignment_index": 15,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3cea97d2db3e26c4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        8,
+        5,
+        4
+      ]
+    },
+    {
+      "assignment_index": 16,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "668753b1f76000ac",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        7
+      ]
+    },
+    {
+      "assignment_index": 17,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "80acdfb9df06d964",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 18,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "f4988be101f71900",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 19,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "3d622cc603c67502",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_index": 20,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "b238003ea32f3be9",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_index": 21,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        2,
+        0,
+        7,
+        5
+      ]
+    },
+    {
+      "assignment_index": 22,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "fb604589d071cde6",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 23,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "fb604589d071cde6",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 24,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        8,
+        6,
+        3,
+        1
+      ]
+    },
+    {
+      "assignment_index": 25,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3cea97d2db3e26c4",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "assignment_index": 26,
+      "full_assignment_hinge_count": 3,
+      "source_best_dihedral_core_signature16": "040f6df80220fd98",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        2,
+        0,
+        7,
+        4
+      ]
+    },
+    {
+      "assignment_index": 27,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "93426ac2cbc64ef4",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "assignment_index": 28,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "668753b1f76000ac",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assignment_index": 29,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "93426ac2cbc64ef4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 30,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "e678a5cdd95ae4a6",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        2,
+        0,
+        7,
+        4
+      ]
+    },
+    {
+      "assignment_index": 31,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "0aedce7bb3ecf935",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_index": 32,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e63feae238f5f321",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        4,
+        0
+      ]
+    },
+    {
+      "assignment_index": 33,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e8bcc99a2d283e25",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "assignment_index": 34,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "616602fcf4f72e27",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 35,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "assignment_index": 36,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "assignment_index": 37,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        2,
+        5,
+        7
+      ]
+    },
+    {
+      "assignment_index": 38,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "616602fcf4f72e27",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        4,
+        3,
+        2,
+        5
+      ]
+    },
+    {
+      "assignment_index": 39,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "f4988be101f71900",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 40,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "60691f39b2cff736",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        7
+      ]
+    },
+    {
+      "assignment_index": 41,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "02119280d8c1b2c0",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        7
+      ]
+    },
+    {
+      "assignment_index": 42,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "de6f58c9fbdde5d7",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        5,
+        7
+      ]
+    },
+    {
+      "assignment_index": 43,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "9b2ff91a99a949ad",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        5,
+        6,
+        0
+      ]
+    },
+    {
+      "assignment_index": 44,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3403d6ad4608db4c",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 45,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "f4988be101f71900",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "assignment_index": 46,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "60691f39b2cff736",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assignment_index": 47,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "02119280d8c1b2c0",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assignment_index": 48,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3cea97d2db3e26c4",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        2,
+        0,
+        6,
+        5
+      ]
+    },
+    {
+      "assignment_index": 49,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "ede764598621e10e",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        5,
+        0
+      ]
+    },
+    {
+      "assignment_index": 50,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "2142b326af378c7a",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 51,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        2,
+        0,
+        6,
+        4
+      ]
+    },
+    {
+      "assignment_index": 52,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        5,
+        3,
+        1,
+        8
+      ]
+    },
+    {
+      "assignment_index": 53,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "40ea654a69e7dbd0",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "assignment_index": 54,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "616602fcf4f72e27",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "assignment_index": 55,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "577bbafb71f7eff2",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "assignment_index": 56,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        0,
+        1,
+        7
+      ]
+    },
+    {
+      "assignment_index": 57,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "b596ddeddfeef065",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 58,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        8,
+        7,
+        6,
+        0
+      ]
+    },
+    {
+      "assignment_index": 59,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e8bcc99a2d283e25",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 60,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 61,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 62,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "e5b997af3dfb3ec1",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 63,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "assignment_index": 64,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "75f4f3c8a869d7ad",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        6
+      ]
+    },
+    {
+      "assignment_index": 65,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        8,
+        6,
+        4
+      ]
+    },
+    {
+      "assignment_index": 66,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "269ae67c267a8c23",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "assignment_index": 67,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "dd60f1d1dc53eb5f",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "assignment_index": 68,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "0aedce7bb3ecf935",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        7,
+        8
+      ]
+    },
+    {
+      "assignment_index": 69,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        2,
+        1,
+        0,
+        3
+      ]
+    },
+    {
+      "assignment_index": 70,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e63feae238f5f321",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        7,
+        2
+      ]
+    },
+    {
+      "assignment_index": 71,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "fb604589d071cde6",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        2,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "assignment_index": 72,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "c32bc797cfe15c60",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        7,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_index": 73,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "616602fcf4f72e27",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 74,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "40ea654a69e7dbd0",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 75,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "577bbafb71f7eff2",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        7
+      ]
+    },
+    {
+      "assignment_index": 76,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "b238003ea32f3be9",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "assignment_index": 77,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e0ebd2ae30246240",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        0,
+        5,
+        7
+      ]
+    },
+    {
+      "assignment_index": 78,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "3d622cc603c67502",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        7,
+        8
+      ]
+    },
+    {
+      "assignment_index": 79,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "b238003ea32f3be9",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        7,
+        8
+      ]
+    },
+    {
+      "assignment_index": 80,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "ede764598621e10e",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        6,
+        2
+      ]
+    },
+    {
+      "assignment_index": 81,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "96321bddd4c82353",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        7,
+        3
+      ]
+    },
+    {
+      "assignment_index": 82,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "3c6348ed81fc32d4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        3,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "assignment_index": 83,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "2249b08e52a52bd0",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        7,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_index": 84,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "3c6348ed81fc32d4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        7,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_index": 85,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "f73b8f0867784aec",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "assignment_index": 86,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e0ebd2ae30246240",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        6,
+        8
+      ]
+    },
+    {
+      "assignment_index": 87,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        1,
+        4,
+        6
+      ]
+    },
+    {
+      "assignment_index": 88,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "616602fcf4f72e27",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        3,
+        2,
+        1,
+        4
+      ]
+    },
+    {
+      "assignment_index": 89,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        4,
+        2,
+        0,
+        7
+      ]
+    },
+    {
+      "assignment_index": 90,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        8,
+        5,
+        3
+      ]
+    },
+    {
+      "assignment_index": 91,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "80acdfb9df06d964",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 92,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "3d622cc603c67502",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "assignment_index": 93,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "0aedce7bb3ecf935",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "assignment_index": 94,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "e4243a182417f295",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        6,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "assignment_index": 95,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "c32bc797cfe15c60",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        3,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "assignment_index": 96,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "0aedce7bb3ecf935",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        0,
+        6,
+        7
+      ]
+    },
+    {
+      "assignment_index": 97,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "616602fcf4f72e27",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        2,
+        1,
+        0,
+        3
+      ]
+    },
+    {
+      "assignment_index": 98,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "2142b326af378c7a",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 99,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 100,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 101,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "616602fcf4f72e27",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        1
+      ]
+    },
+    {
+      "assignment_index": 102,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "2729ec6dd7fe0285",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 103,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e25cd6a0e96d15e3",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "assignment_index": 104,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        7,
+        0,
+        3,
+        5
+      ]
+    },
+    {
+      "assignment_index": 105,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "e4243a182417f295",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        3,
+        0,
+        8,
+        6
+      ]
+    },
+    {
+      "assignment_index": 106,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3cea97d2db3e26c4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        7,
+        0,
+        3,
+        4
+      ]
+    },
+    {
+      "assignment_index": 107,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "87d47d8059a21fc5",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        5,
+        2
+      ]
+    },
+    {
+      "assignment_index": 108,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "de6f58c9fbdde5d7",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        5,
+        3
+      ]
+    },
+    {
+      "assignment_index": 109,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e25cd6a0e96d15e3",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        1,
+        7,
+        8
+      ]
+    },
+    {
+      "assignment_index": 110,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "9b3b16262524a7d0",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        6,
+        4,
+        2,
+        0
+      ]
+    },
+    {
+      "assignment_index": 111,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "f13d5c65e31fdcf7",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        7,
+        8,
+        0
+      ]
+    },
+    {
+      "assignment_index": 112,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        6,
+        4,
+        2,
+        0
+      ]
+    },
+    {
+      "assignment_index": 113,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e0ebd2ae30246240",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        4,
+        2
+      ]
+    },
+    {
+      "assignment_index": 114,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "40ea654a69e7dbd0",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        0,
+        1,
+        7
+      ]
+    },
+    {
+      "assignment_index": 115,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "89c41c50e947eb89",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        1,
+        6,
+        7,
+        0
+      ]
+    },
+    {
+      "assignment_index": 116,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "b238003ea32f3be9",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        0,
+        6,
+        7
+      ]
+    },
+    {
+      "assignment_index": 117,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "fb604589d071cde6",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 118,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "fb604589d071cde6",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 119,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "44403b12e9841fe3",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        1
+      ]
+    },
+    {
+      "assignment_index": 120,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e8bcc99a2d283e25",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 121,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "269ae67c267a8c23",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        7,
+        3
+      ]
+    },
+    {
+      "assignment_index": 122,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "9aecfd1a682ee4db",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        3
+      ]
+    },
+    {
+      "assignment_index": 123,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "60691f39b2cff736",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "assignment_index": 124,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "616602fcf4f72e27",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        8,
+        7,
+        6,
+        0
+      ]
+    },
+    {
+      "assignment_index": 125,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "02119280d8c1b2c0",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "assignment_index": 126,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        3,
+        1,
+        8,
+        6
+      ]
+    },
+    {
+      "assignment_index": 127,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        7,
+        4,
+        2
+      ]
+    },
+    {
+      "assignment_index": 128,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "9b2ff91a99a949ad",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        4,
+        0,
+        8,
+        5
+      ]
+    },
+    {
+      "assignment_index": 129,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "a5d163acbe845adb",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        7,
+        4,
+        2
+      ]
+    },
+    {
+      "assignment_index": 130,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "dd60f1d1dc53eb5f",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        6,
+        4
+      ]
+    },
+    {
+      "assignment_index": 131,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "269ae67c267a8c23",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        6,
+        2
+      ]
+    },
+    {
+      "assignment_index": 132,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        7,
+        5,
+        2,
+        0
+      ]
+    },
+    {
+      "assignment_index": 133,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "61fd761373739ec5",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        4
+      ]
+    },
+    {
+      "assignment_index": 134,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3cea97d2db3e26c4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        1,
+        4,
+        5
+      ]
+    },
+    {
+      "assignment_index": 135,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "7a94ebb2d2eaaa93",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 136,
+      "full_assignment_hinge_count": 3,
+      "source_best_dihedral_core_signature16": "040f6df80220fd98",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        7,
+        5,
+        3,
+        0
+      ]
+    },
+    {
+      "assignment_index": 137,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "b596ddeddfeef065",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 138,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "668753b1f76000ac",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        8,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "assignment_index": 139,
+      "full_assignment_hinge_count": 3,
+      "source_best_dihedral_core_signature16": "040f6df80220fd98",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        7,
+        5,
+        2
+      ]
+    },
+    {
+      "assignment_index": 140,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "6ab66ac4718d17a6",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        7,
+        5,
+        2
+      ]
+    },
+    {
+      "assignment_index": 141,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "9aecfd1a682ee4db",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        2
+      ]
+    },
+    {
+      "assignment_index": 142,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "f73b8f0867784aec",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        7,
+        5
+      ]
+    },
+    {
+      "assignment_index": 143,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "676bb266831fc23f",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        5
+      ]
+    },
+    {
+      "assignment_index": 144,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3403d6ad4608db4c",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        0,
+        8,
+        2
+      ]
+    },
+    {
+      "assignment_index": 145,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "9b3b16262524a7d0",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        3,
+        5,
+        7,
+        0
+      ]
+    },
+    {
+      "assignment_index": 146,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "3c6348ed81fc32d4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_index": 147,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e25cd6a0e96d15e3",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_index": 148,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "de6f58c9fbdde5d7",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        2,
+        3,
+        7,
+        0
+      ]
+    },
+    {
+      "assignment_index": 149,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "96321bddd4c82353",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        2,
+        3,
+        5,
+        0
+      ]
+    },
+    {
+      "assignment_index": 150,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "62f85872fdceee58",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        6,
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "assignment_index": 151,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "2249b08e52a52bd0",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_index": 152,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "c32bc797cfe15c60",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_index": 153,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "3d622cc603c67502",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_index": 154,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "b238003ea32f3be9",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_index": 155,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "b31d2c0274086e62",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        7,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index": 156,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "f13d5c65e31fdcf7",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_index": 157,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "f4988be101f71900",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        1
+      ]
+    },
+    {
+      "assignment_index": 158,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "f73b8f0867784aec",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        4,
+        5,
+        7,
+        0
+      ]
+    },
+    {
+      "assignment_index": 159,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "676bb266831fc23f",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        4,
+        5,
+        6,
+        0
+      ]
+    },
+    {
+      "assignment_index": 160,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3cea97d2db3e26c4",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        6,
+        4,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index": 161,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        3,
+        1,
+        7,
+        5
+      ]
+    },
+    {
+      "assignment_index": 162,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "e0ebd2ae30246240",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        2,
+        1,
+        5,
+        3
+      ]
+    },
+    {
+      "assignment_index": 163,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "c32bc797cfe15c60",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        8,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index": 164,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "0aedce7bb3ecf935",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        2,
+        1
+      ]
+    },
+    {
+      "assignment_index": 165,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "1acc1fb419410e54",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "assignment_index": 166,
+      "full_assignment_hinge_count": 3,
+      "source_best_dihedral_core_signature16": "040f6df80220fd98",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        7,
+        0,
+        2,
+        5
+      ]
+    },
+    {
+      "assignment_index": 167,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "9b3b16262524a7d0",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        0,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "assignment_index": 168,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3cea97d2db3e26c4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        7,
+        4,
+        3
+      ]
+    },
+    {
+      "assignment_index": 169,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "30d42efee3faff0d",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        1,
+        3,
+        6,
+        8
+      ]
+    },
+    {
+      "assignment_index": 170,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        7,
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "assignment_index": 171,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "668753b1f76000ac",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        6
+      ]
+    },
+    {
+      "assignment_index": 172,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "75f4f3c8a869d7ad",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        5
+      ]
+    },
+    {
+      "assignment_index": 173,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "e678a5cdd95ae4a6",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        2,
+        4,
+        6,
+        0
+      ]
+    },
+    {
+      "assignment_index": 174,
+      "full_assignment_hinge_count": 9,
+      "source_best_dihedral_core_signature16": "93426ac2cbc64ef4",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        1
+      ]
+    },
+    {
+      "assignment_index": 175,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "e5b997af3dfb3ec1",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        1
+      ]
+    },
+    {
+      "assignment_index": 176,
+      "full_assignment_hinge_count": 2,
+      "source_best_dihedral_core_signature16": "9c58cf6af77b9084",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        7,
+        5,
+        3
+      ]
+    },
+    {
+      "assignment_index": 177,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "c8a6c9e680a1c8bf",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        2,
+        0,
+        5,
+        4
+      ]
+    },
+    {
+      "assignment_index": 178,
+      "full_assignment_hinge_count": 5,
+      "source_best_dihedral_core_signature16": "a5d163acbe845adb",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        7,
+        0,
+        3,
+        5
+      ]
+    },
+    {
+      "assignment_index": 179,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "6a021c3b95dd263f",
+      "source_best_kalmanson_kind": "K2",
+      "unique_hinge_orientation": [
+        7,
+        4,
+        1,
+        0
+      ]
+    },
+    {
+      "assignment_index": 180,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "89c41c50e947eb89",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        4,
+        3,
+        1
+      ]
+    },
+    {
+      "assignment_index": 181,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "3403d6ad4608db4c",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        1
+      ]
+    },
+    {
+      "assignment_index": 182,
+      "full_assignment_hinge_count": 6,
+      "source_best_dihedral_core_signature16": "b31d2c0274086e62",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        5,
+        3,
+        2
+      ]
+    },
+    {
+      "assignment_index": 183,
+      "full_assignment_hinge_count": 8,
+      "source_best_dihedral_core_signature16": "b596ddeddfeef065",
+      "source_best_kalmanson_kind": "K1",
+      "unique_hinge_orientation": [
+        0,
+        8,
+        7,
+        1
+      ]
+    }
+  ],
+  "schema": "erdos97.kalmanson_equilateral_hinge_crosswalk.v1",
+  "source_artifact": {
+    "compressed_certificate_sha256": "55edb73475517dcc4e8413cdb84082957bc8426d2d67bd25cc28502ef3c124c0",
+    "frontier_regenerated_by_this_checker": false,
+    "path": "data/certificates/n9_kalmanson_three_row_core_compression.json",
+    "schema": "erdos97.n9_kalmanson_three_row_core_compression.v1",
+    "sha256": "a5387ef8575ace0cd16d55a0a29bbc45f72ca88caa7233be4c80041924fd703a",
+    "status": "REVIEW_PENDING_N9_KALMANSON_THREE_ROW_CORE_COMPRESSION",
+    "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"
+  },
+  "status": "REVIEW_PENDING_KALMANSON_EQUILATERAL_HINGE_CROSSWALK",
+  "summary": {
+    "ambiguous_source_records": 0,
+    "core_hinge_match_count_histogram": {
+      "1": 184
+    },
+    "covered_source_records": 184,
+    "full_assignment_hinge_count_histogram": {
+      "2": 36,
+      "3": 6,
+      "5": 18,
+      "6": 54,
+      "8": 54,
+      "9": 16
+    },
+    "generic_pair_membership_template_orbits": 1,
+    "generic_template_signatures16": [
+      "6d152657c0091e18"
+    ],
+    "source_best_kalmanson_kind_counts": {
+      "K1": 95,
+      "K2": 89
+    },
+    "source_distinct_dihedral_core_signatures16": 56,
+    "source_record_count": 184,
+    "total_full_assignment_hinge_instances": 1080,
+    "unmatched_source_records": 0
+  },
+  "trust": "REVIEW_PENDING_DIAGNOSTIC"
+}

@@ -1153,6 +1153,52 @@ artifacts:
       - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: kalmanson_equilateral_hinge_crosswalk
+    path: data/certificates/kalmanson_equilateral_hinge_crosswalk.json
+    sha256: cd5c188445d523cfab18e5b473030305971661ad870fa8666aef3c60ddc26e9c
+    size_bytes: 54597
+    kind: proof_mining_crosswalk_artifact
+    generator: scripts/check_kalmanson_equilateral_hinge_crosswalk.py
+    command: python scripts/check_kalmanson_equilateral_hinge_crosswalk.py --write --assert-expected
+    checker: scripts/check_kalmanson_equilateral_hinge_crosswalk.py
+    check_command: python scripts/check_kalmanson_equilateral_hinge_crosswalk.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: Arbitrary-n local strict-Kalmanson equilateral-hinge lemma plus an exact crosswalk against the review-pending n=9 three-row compression; no n=9 or global status promotion.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.kalmanson_equilateral_hinge_crosswalk.v1
+      status: REVIEW_PENDING_KALMANSON_EQUILATERAL_HINGE_CROSSWALK
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      source_artifact.sha256: a5387ef8575ace0cd16d55a0a29bbc45f72ca88caa7233be4c80041924fd703a
+      source_artifact.frontier_regenerated_by_this_checker: false
+      summary.source_record_count: 184
+      summary.covered_source_records: 184
+      summary.unmatched_source_records: 0
+      summary.ambiguous_source_records: 0
+      summary.core_hinge_match_count_histogram.1: 184
+      summary.source_best_kalmanson_kind_counts.K1: 95
+      summary.source_best_kalmanson_kind_counts.K2: 89
+      summary.source_distinct_dihedral_core_signatures16: 56
+      summary.generic_pair_membership_template_orbits: 1
+      summary.full_assignment_hinge_count_histogram.2: 36
+      summary.full_assignment_hinge_count_histogram.3: 6
+      summary.full_assignment_hinge_count_histogram.5: 18
+      summary.full_assignment_hinge_count_histogram.6: 54
+      summary.full_assignment_hinge_count_histogram.8: 54
+      summary.full_assignment_hinge_count_histogram.9: 16
+      summary.total_full_assignment_hinge_instances: 1080
+      crosswalk_sha256: 41390dbac0177ace8615e393fe4826dd5a7d325ccdc46370e07d315caa2f2a8d
+      provenance.command: python scripts/check_kalmanson_equilateral_hinge_crosswalk.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - n=9 external review complete
+      - source frontier independently regenerated
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_obstruction_shapes
     path: data/certificates/n9_vertex_circle_obstruction_shapes.json
     sha256: c10ead3203b87e72c96af7eef98b656d6b33788994b8fad6577cb59b99df78c6

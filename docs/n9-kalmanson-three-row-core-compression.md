@@ -91,7 +91,10 @@ witness-pair capacity filter, and the strict Kalmanson inequality convention.
 It should be reviewed as a compression layer on top of the existing
 review-pending `n=9` Kalmanson route, not as a source-of-truth theorem claim.
 
-The next proof-facing step is to classify the 56 cyclic-dihedral three-row
-signatures into reusable human-readable local lemmas, then look for bridge
-hypotheses that force one of those local cores without enumerating the whole
-`n=9` frontier.
+That classification is now carried out in
+`docs/kalmanson-equilateral-hinge.md`: after unused row witnesses are forgotten,
+all 56 cyclic-dihedral signatures contain the same three-rich-class
+equilateral-hinge subtemplate, and all 184 stored best cores match exactly one
+dihedral orientation.  The remaining proof-facing step is to find genuine
+minimality or full-rich-class hypotheses that force this hinge without
+enumerating the whole `n=9` frontier.
