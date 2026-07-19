@@ -112,25 +112,29 @@ python scripts/check_n9_kalmanson_selfedge_frontier_replay.py \
 
 This third replay was imported from the 2026-06-19 GPT packet triage and then
 reshaped into repo-native `--check`/`--write` form. Unlike the stored-input
-replay, it imports no `erdos97` package modules and does not read
-`data/certificates/n9_kalmanson_selfedge.json`. It regenerates the
-fixed-cyclic-order selected-witness frontier directly, reaches `100818` search
-nodes and `184` terminal assignments, and finds one strict Kalmanson self-edge
-for each terminal assignment:
+replay, it imports no `erdos97` package modules and uses no stored Kalmanson
+certificate as generation or search input; `--check` compares its artifact
+only after fresh generation. It regenerates the fixed-cyclic-order
+selected-witness frontier directly, reaches `100818` search nodes and `184`
+terminal assignments, and finds one strict Kalmanson self-edge for each
+terminal assignment:
 
 ```text
 terminal assignments after filters: 184
 killed by Kalmanson self-edge: 184
 unkilled: 0
 Kalmanson split: K1 = 150, K2 = 34
+frontier_assignment_sha256:
+  dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
 certificate_sha256:
   3e6e208cd4212f9275eba2f0be9e32558da9b77544304d33d09abc953feeee9d
 ```
 
 The generated artifact is
 `data/certificates/n9_kalmanson_selfedge_frontier_replay.json`. It is
-corroborating audit evidence only, not an independent review completion or a
-status promotion.
+self-contained primary-route review evidence under still-open
+`kalmanson_geometry` and `kalmanson_selfedge_replay` gates. It is not an
+independent review completion or a status promotion.
 
 Three-row core compression:
 
@@ -156,9 +160,12 @@ archive variants with one uniform certificate type: every terminal `n=9`
 selected-witness assignment has a single strict Kalmanson self-edge after
 selected-distance quotienting.
 
-It still needs independent review before any theorem-style use. In particular,
-reviewers should check the two-overlap crossing predicate, the witness-pair
-capacity filter, the absence of hidden symmetry quotients, the selected-distance
-quotient construction, and the strict Kalmanson inequality convention. Even if
-accepted, this is only a finite `n=9` selected-witness obstruction and does not
-settle Erdos Problem #97 for larger `n`.
+It still needs independent review before any theorem-style use. The primary
+route in `metadata/n9_review_gate_ledger.yaml` deliberately separates the
+shared frontier, strict ordinary-distance geometry, quotient self-edge replay,
+and written-review requirements. Reviewers should check the two-overlap
+crossing predicate, the witness-pair capacity filter, the absence of hidden
+symmetry quotients, the selected-distance quotient construction, and the
+strict Kalmanson inequality convention. Even if accepted, this is only a
+finite `n=9` selected-witness obstruction and does not settle Erdos Problem #97
+for larger `n`.

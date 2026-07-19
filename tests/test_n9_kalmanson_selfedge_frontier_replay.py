@@ -35,6 +35,10 @@ def test_n9_kalmanson_selfedge_frontier_replay_expected_payload(payload):
     assert result["terminal_assignments_after_filters"] == 184
     assert result["terminal_assignments_killed_by_kalmanson_self_edge"] == 184
     assert result["unkilled_terminal_assignments"] == 0
+    assert (
+        result["frontier_assignment_sha256"]
+        == "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55"
+    )
     assert result["review_independence"]["regenerates_frontier"] is True
 
 

@@ -96,6 +96,21 @@ outcome_rules:
       finite case, conditional on the accepted Euclidean turn lemma. It does
       not prove the general problem and does not update the official/global
       status.
+  - id: accepted_kalmanson_route
+    required_accepted_gates:
+      - frontier_enumeration
+      - kalmanson_geometry
+      - kalmanson_selfedge_replay
+      - independent_review
+    blocks_if_rejected_or_unreviewed:
+      - frontier_enumeration
+      - kalmanson_geometry
+      - kalmanson_selfedge_replay
+      - independent_review
+    follow_up_boundary: >
+      Allows only a separate source-of-truth proposal for the repo-local n=9
+      finite case. It does not prove the general problem and does not update
+      the official/global status.
   - id: accepted_corrob_only
     required_accepted_gates:
       - kalmanson_corroboration
@@ -131,6 +146,8 @@ decision_template:
     - quotient_obstruction_replay
     - turn_geometry
     - turn_arithmetic_replay
+    - kalmanson_geometry
+    - kalmanson_selfedge_replay
     - kalmanson_corroboration
     - lean_compilation
     - independent_review

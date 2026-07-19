@@ -544,7 +544,8 @@ put detailed reconciliation in the canonical synthesis.
   frontier and replaying vertex-circle quotient obstructions.
 - [`n9-reduction-chain.md`](n9-reduction-chain.md): review-pending dependency
   map from a hypothetical bad nonagon to selected rows, the 184 frontier, and
-  the vertex-circle, turn-packing, and algebraic obstruction routes.
+  the vertex-circle, turn-packing, self-contained Kalmanson, and algebraic
+  obstruction routes.
 - [`n9-kalmanson-selfedge.md`](n9-kalmanson-selfedge.md):
   compact review-pending replay showing that all 184 `n=9`
   pre-vertex-circle frontier assignments have a strict Kalmanson self-edge,

@@ -67,15 +67,18 @@ The dossier can make a review easier to run, but it cannot replace the review.
 In particular, the worksheet keeps all of these open until a human reviewer
 accepts or rejects them in writing:
 
-- A6/A7 source-frontier enumeration;
+- A6/A7 or D0/D1 shared-frontier enumeration;
 - A8 vertex-circle strict-edge geometry;
 - A10 quotient obstruction replay;
 - B1/B2 exterior-turn geometry;
 - B3/B4 turn-packing arithmetic replay;
 - stored-input Kalmanson corroboration;
+- D2 strict ordinary-distance Kalmanson geometry;
+- D3/D4 Kalmanson quotient self-edge replay;
 - Lean compilation on a machine with Lake installed;
 - independent review itself.
 
-Only `accepted_vertex_circle_route` or `accepted_turn_route`, recorded in a
-separate source-of-truth PR after review, could support a repo-local finite-case
-`n=9` status update. Neither outcome would prove the general problem.
+Only `accepted_vertex_circle_route`, `accepted_turn_route`, or
+`accepted_kalmanson_route`, recorded in a separate source-of-truth PR after
+review, could support a repo-local finite-case `n=9` status update. None of
+those outcomes would prove the general problem.

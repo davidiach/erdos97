@@ -34,6 +34,7 @@ required_documents:
   - docs/n9-review-run-bundle.md
   - docs/n9-review-decision-intake.md
   - docs/n9-vertex-circle-route-decision-request.md
+  - docs/n9-kalmanson-selfedge.md
   - docs/n9-reduction-chain.md
 
 expected_route_ids:
@@ -42,6 +43,7 @@ expected_route_ids:
   - vertex_circle_route
   - turn_packing_route
   - kalmanson_corroboration
+  - kalmanson_primary_route
 
 output_modes:
   - summary-json

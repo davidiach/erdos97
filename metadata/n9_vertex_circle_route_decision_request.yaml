@@ -70,6 +70,8 @@ requested_rejected_gates: []
 requested_not_reviewed_gates:
   - turn_geometry
   - turn_arithmetic_replay
+  - kalmanson_geometry
+  - kalmanson_selfedge_replay
   - kalmanson_corroboration
   - lean_compilation
 

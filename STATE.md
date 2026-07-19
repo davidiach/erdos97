@@ -857,10 +857,12 @@ coverage or a promotion of `n=9`. Use `--json` when the first stored self-edge
 example record is needed.
 The fresh-frontier Kalmanson replay
 `scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
-imports no `erdos97` package modules, does not read the stored Kalmanson
-certificate, regenerates the same `184` terminal assignments, and finds one
-strict Kalmanson self-edge for each. It is corroborating audit evidence only,
-not independent review completion or an `n=9` promotion.
+imports no `erdos97` package modules, uses no stored Kalmanson certificate as
+generation or search input, regenerates the same `184` terminal assignments,
+and finds one strict Kalmanson self-edge for each. In `--check` mode the stored
+artifact is compared only afterward. This is primary-route review evidence
+under still-open gates, not independent review completion or an `n=9`
+promotion.
 The three-row compression replay
 `scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json`
 uses the same self-contained frontier regeneration and records that every

@@ -69,11 +69,13 @@ that checkout and matched the output invariants known to the evidence matrix.
 It does not accept any review gate. In particular, all of these remain open
 until a written independent review accepts or rejects them:
 
-- A6/A7 source-frontier enumeration;
+- A6/A7 or D0/D1 shared-frontier enumeration;
 - A8 vertex-circle strict-edge geometry;
 - A10 quotient obstruction replay;
 - B1/B2 exterior-turn geometry;
 - B3/B4 turn-packing arithmetic replay;
 - stored-input Kalmanson corroboration;
+- D2 strict ordinary-distance Kalmanson geometry;
+- D3/D4 Kalmanson quotient self-edge replay;
 - Lean compilation on a machine with Lake installed;
 - independent review itself.

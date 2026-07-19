@@ -31,16 +31,18 @@ and still leave a proof-facing gate open.
 
 ## Gate Families
 
-The ledger tracks six mathematical review gates:
+The ledger tracks eight mathematical review gates:
 
 | Gate | Reduction steps | Route | Status |
 | --- | --- | --- | --- |
-| `frontier_enumeration` | A6, A7, B0 | shared source frontier | machine-checked review-pending |
+| `frontier_enumeration` | A6, A7, B0, D0, D1 | shared source frontier | machine-checked review-pending |
 | `vertex_circle_geometry` | A8 | vertex-circle | proof-facing review-pending |
 | `quotient_obstruction_replay` | A9, A10 | vertex-circle | machine-checked review-pending |
 | `turn_geometry` | B1, B2 | turn-packing | proof-facing review-pending |
 | `turn_arithmetic_replay` | B3, B4 | turn-packing | machine-checked review-pending |
 | `kalmanson_corroboration` | C0, C4 | corroboration | machine-checked review-pending |
+| `kalmanson_geometry` | D2 | Kalmanson | proof-facing review-pending |
+| `kalmanson_selfedge_replay` | D3, D4 | Kalmanson | machine-checked review-pending |
 
 It also tracks two infrastructure gates:
 
@@ -59,13 +61,15 @@ The ledger mirrors the acceptance standard in `docs/n9-review-packet.md`:
   `vertex_circle_geometry`, and `quotient_obstruction_replay`.
 - `accepted_turn_route` requires `frontier_enumeration`, `turn_geometry`, and
   `turn_arithmetic_replay`.
+- `accepted_kalmanson_route` requires `frontier_enumeration`,
+  `kalmanson_geometry`, and `kalmanson_selfedge_replay`.
 - `accepted_corrob_only` requires only the corroborating Kalmanson gate and
   does not justify status promotion.
 - `gap_found` records a precise mathematical or implementation gap.
 
-Only the first two outcomes would justify a separate source-of-truth PR
-proposing a repo-local `n=9` finite-case status change. Neither outcome would
-prove the general problem for larger polygons.
+Only the three primary-route outcomes would justify a separate source-of-truth
+PR proposing a repo-local `n=9` finite-case status change. None of those
+outcomes would prove the general problem for larger polygons.
 
 ## Checker Contract
 

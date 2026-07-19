@@ -31,9 +31,9 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: command_count
-        equals: 21
+        equals: 22
       - path: review_gate_count
-        equals: 8
+        equals: 10
       - path: review_gate_ledger
         equals: metadata/n9_review_gate_ledger.yaml
       - path: review_evidence_matrix
@@ -48,11 +48,11 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: review_gate_count
-        equals: 6
+        equals: 8
       - path: infrastructure_gate_count
         equals: 2
       - path: review_outcome_count
-        equals: 4
+        equals: 5
 
   - id: n9_review_evidence_matrix
     route_id: manifest_contract
@@ -63,7 +63,7 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: evidence_record_count
-        equals: 21
+        equals: 22
       - path: live_replay_enabled
         equals: false
 
@@ -78,11 +78,11 @@ evidence_records:
       - path: section_count
         equals: 6
       - path: review_gate_count
-        equals: 6
+        equals: 8
       - path: evidence_record_count
-        equals: 21
+        equals: 22
       - path: review_question_count
-        equals: 6
+        equals: 8
 
   - id: n9_review_run_bundle
     route_id: manifest_contract
@@ -93,11 +93,11 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: route_count
-        equals: 5
+        equals: 6
       - path: command_count
-        equals: 21
+        equals: 22
       - path: evidence_record_count
-        equals: 21
+        equals: 22
       - path: run_capture_enabled
         equals: false
 
@@ -110,11 +110,11 @@ evidence_records:
       - path: validation_status
         equals: passed
       - path: gate_count
-        equals: 8
+        equals: 10
       - path: review_outcome_count
-        equals: 4
+        equals: 5
       - path: outcome_rule_count
-        equals: 4
+        equals: 5
       - path: decision_loaded
         equals: false
 
@@ -154,7 +154,7 @@ evidence_records:
       - path: requested_accepted_gate_count
         equals: 4
       - path: requested_not_reviewed_gate_count
-        equals: 4
+        equals: 6
       - path: internal_review_note_count
         equals: 3
       - path: preflight_validation_status
@@ -392,3 +392,41 @@ evidence_records:
         equals: true
       - path: self_edge_failures
         equals: 0
+
+  - id: n9_kalmanson_selfedge_frontier_replay
+    route_id: kalmanson_primary_route
+    command_id: n9_kalmanson_selfedge_frontier_replay
+    output_format: json
+    ledger_gate_ids:
+      - frontier_enumeration
+      - kalmanson_geometry
+      - kalmanson_selfedge_replay
+    expectations:
+      - path: status
+        equals: REVIEW_PENDING_N9_KALMANSON_SELFEDGE_FRONTIER_REPLAY
+      - path: trust
+        equals: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      - path: raw_assignment_count
+        equals: 40353607000000000
+      - path: terminal_assignments_after_filters
+        equals: 184
+      - path: terminal_assignments_killed_by_kalmanson_self_edge
+        equals: 184
+      - path: unkilled_terminal_assignments
+        equals: 0
+      - path: kalmanson_kind_counts.K1
+        equals: 150
+      - path: kalmanson_kind_counts.K2
+        equals: 34
+      - path: certificate_sha256
+        equals: 3e6e208cd4212f9275eba2f0be9e32558da9b77544304d33d09abc953feeee9d
+      - path: frontier_assignment_sha256
+        equals: dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
+      - path: review_independence.regenerates_frontier
+        equals: true
+      - path: review_independence.imports_erdos97_package_modules
+        equals: false
+      - path: review_independence.reads_stored_kalmanson_certificate
+        equals: false
+      - path: review_independence.uses_python_standard_library_only
+        equals: true

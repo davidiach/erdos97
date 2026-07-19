@@ -75,7 +75,8 @@ decision record and not a status update.
 ## Boundary
 
 Even a valid final decision record is only intake validation. An accepted
-primary route can support a separate source-of-truth proposal for the repo-local
+vertex-circle, turn-packing, or self-contained Kalmanson route can support a
+separate source-of-truth proposal for the repo-local
 `n=9` finite case, but the decision file itself does not update `README.md`,
 `STATE.md`, `RESULTS.md`, `metadata/erdos97.yaml`, the official/global status,
 or any public theorem-style claim.

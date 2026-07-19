@@ -79,6 +79,10 @@ def test_verify_n9_candidate_is_compact_promotion_review_harness() -> None:
             "python scripts/check_n9_kalmanson_selfedge_independent_replay.py "
             "--check --assert-expected --summary-json"
         ),
+        (
+            "python scripts/check_n9_kalmanson_selfedge_frontier_replay.py "
+            "--check --assert-expected --summary-json"
+        ),
     ]
 
     assert commands == expected_chain

@@ -29,6 +29,20 @@ def test_n9_review_gate_ledger_rejects_outcome_drift() -> None:
     assert any("accepted_vertex_circle_route" in error for error in errors)
 
 
+def test_n9_review_gate_ledger_pins_kalmanson_primary_route() -> None:
+    payload = deepcopy(load_ledger(LEDGER))
+    outcome = next(
+        item
+        for item in payload["review_outcomes"]
+        if item["id"] == "accepted_kalmanson_route"
+    )
+    outcome["required_gates"].remove("kalmanson_geometry")
+
+    errors = validate_ledger(payload)
+
+    assert any("accepted_kalmanson_route" in error for error in errors)
+
+
 def test_n9_review_gate_ledger_rejects_unknown_reduction_step() -> None:
     payload = deepcopy(load_ledger(LEDGER))
     payload["review_gates"][0]["reduction_steps"].append("A12")

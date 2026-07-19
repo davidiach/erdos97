@@ -1454,10 +1454,11 @@ the first stored self-edge example record is needed.
 The fresh-frontier replay
 `scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json`
 then regenerates the `184` selected-witness terminal assignments without
-importing the repo package or reading the stored Kalmanson certificate, and
-finds one strict Kalmanson self-edge for each assignment. This is
-corroborating audit evidence only, not independent review completion or an
-`n=9` proof.
+importing the repo package or using the stored Kalmanson certificate as
+generation or search input, and finds one strict Kalmanson self-edge for each
+assignment. In `--check` mode the artifact is compared only after fresh
+generation. This is primary-route review evidence under still-open gates, not
+independent review completion or an `n=9` proof.
 The three-row compression replay
 `scripts/check_n9_kalmanson_three_row_core_compression.py --check --assert-expected --summary-json`
 then searches all strict Kalmanson inequalities and all selected-row subsets
