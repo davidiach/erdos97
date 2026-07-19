@@ -14,6 +14,9 @@ Independence choices versus the existing checker:
   ``frozenset`` objects; there are no integer bitmasks.
 * The cyclic crossing test, the union-find, and the strict-cycle detector
   (Kahn topological peeling) are all reimplemented here.
+* The same independently generated frontier is also closed with a direct
+  strict-Kalmanson scan.  It uses graph-component representatives for selected
+  ordinary-distance equalities and reads no Kalmanson certificate artifact.
 * A separate geometric consistency stress test samples random *strictly convex*
   9-gons and checks the two facts the vertex-circle lemma relies on:
     (S1) from every vertex the angular order of the other vertices equals the
@@ -32,6 +35,7 @@ claimed. This is a finite-case independent recheck only.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import itertools
 import json
 import math
@@ -43,6 +47,10 @@ N = 9
 ROW_SIZE = 4
 PAIR_CAP = 2  # |S_a cap S_b| <= 2, and each witness pair in <= 2 rows
 MAX_INDEGREE = (2 * (N - 1)) // (ROW_SIZE - 1)  # = 5
+EXPECTED_FRONTIER_SHA256 = (
+    "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55"
+)
+EXPECTED_KALMANSON_KIND_COUNTS = {"K1": 150, "K2": 34}
 
 # ---------------------------------------------------------------------------
 # Cyclic-order primitives (order is the identity 0,1,...,N-1, WLOG by relabel).
@@ -305,6 +313,60 @@ def vertex_circle_status(rows: dict[int, frozenset[int]]) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Independent strict-Kalmanson quotient obstruction.
+# ---------------------------------------------------------------------------
+
+
+def distance_pair(left: int, right: int) -> frozenset[int]:
+    """Return an unordered ordinary-distance variable."""
+    if left == right:
+        raise ValueError("ordinary-distance pair has repeated endpoint")
+    return frozenset((left, right))
+
+
+def kalmanson_self_edge_kind(
+    rows: dict[int, frozenset[int]],
+) -> str | None:
+    """Return K1/K2 when selected equalities collapse a strict inequality.
+
+    For cyclically ordered ``a < b < c < d``, ordinary distances in a strictly
+    convex quadrilateral obey
+
+    ``D_ab + D_cd < D_ac + D_bd`` (K1) and
+    ``D_ad + D_bc < D_ac + D_bd`` (K2).
+
+    The strictness follows by applying strict triangle inequalities at the
+    intersection of diagonals ``ac`` and ``bd``.  A selected row unions only
+    the spoke distances that are forced equal.  Equal quotient-component
+    multisets on the two sides therefore make the strict inequality ``L < L``.
+    """
+    uf = UF()
+    for center, witnesses in rows.items():
+        spokes = [distance_pair(center, witness) for witness in sorted(witnesses)]
+        for spoke in spokes[1:]:
+            uf.union(spokes[0], spoke)
+
+    for a, b, c, d in itertools.combinations(range(N), 4):
+        right = (distance_pair(a, c), distance_pair(b, d))
+        candidates = (
+            (
+                "K1",
+                (distance_pair(a, b), distance_pair(c, d)),
+            ),
+            (
+                "K2",
+                (distance_pair(a, d), distance_pair(b, c)),
+            ),
+        )
+        right_classes = sorted(tuple(sorted(uf.find(pair))) for pair in right)
+        for kind, left in candidates:
+            left_classes = sorted(tuple(sorted(uf.find(pair))) for pair in left)
+            if left_classes == right_classes:
+                return kind
+    return None
+
+
+# ---------------------------------------------------------------------------
 # Geometric consistency stress test on random strictly convex polygons.
 # ---------------------------------------------------------------------------
 
@@ -399,8 +461,7 @@ def soundness_stress_test(samples: int, rng: random.Random) -> dict[str, object]
                             ):
                                 outer = abs(theta[quad[j]] - theta[quad[i]])
                                 inner = abs(
-                                    theta[quad[inner_end]]
-                                    - theta[quad[inner_start]]
+                                    theta[quad[inner_end]] - theta[quad[inner_start]]
                                 )
                                 chord_outer = 2 * math.sin(outer / 2)
                                 chord_inner = 2 * math.sin(inner / 2)
@@ -424,6 +485,18 @@ def soundness_stress_test(samples: int, rng: random.Random) -> dict[str, object]
 
 def canon_assignment(rows: dict[int, frozenset[int]]) -> tuple:
     return tuple(tuple(sorted(rows[c])) for c in range(N))
+
+
+def frontier_digest(rows: list[dict[int, frozenset[int]]]) -> str:
+    """Hash the sorted labelled row systems in the repo's canonical format."""
+    assignments = sorted(
+        [
+            [list(sorted(assignment[center])) for center in range(N)]
+            for assignment in rows
+        ]
+    )
+    encoded = json.dumps(assignments, separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
 
 
 def load_stored_frontier(path: str):
@@ -452,7 +525,10 @@ def main() -> int:
         help="random convex polygons for the geometric consistency stress test",
     )
     ap.add_argument("--seed", type=int, default=20260528)
-    ap.add_argument("--frontier", default="data/certificates/n9_vertex_circle_frontier_motif_classification.json")
+    ap.add_argument(
+        "--frontier",
+        default="data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+    )
     ap.add_argument("--json", action="store_true", help="emit a JSON report to stdout")
     args = ap.parse_args()
 
@@ -464,6 +540,7 @@ def main() -> int:
     # 2. Independent enumeration of the incidence-surviving frontier.
     frontier = enumerate_frontier()
     my_keys = {canon_assignment(r): vertex_circle_status(r) for r in frontier}
+    assignment_sha256 = frontier_digest(frontier)
 
     status_split: dict[str, int] = defaultdict(int)
     survivors_after_vc = 0
@@ -472,7 +549,19 @@ def main() -> int:
         if st == "ok":
             survivors_after_vc += 1
 
-    # 3. Compare to the stored frontier.
+    # 3. Independently close the same generated frontier with strict ordinary-
+    # distance Kalmanson inequalities.  This does not read either Kalmanson
+    # certificate artifact or import either Kalmanson checker.
+    kalmanson_kind_counts: dict[str, int] = defaultdict(int)
+    kalmanson_survivors = 0
+    for rows in frontier:
+        kind = kalmanson_self_edge_kind(rows)
+        if kind is None:
+            kalmanson_survivors += 1
+        else:
+            kalmanson_kind_counts[kind] += 1
+
+    # 4. Compare to the stored vertex-circle frontier.
     compare = None
     if os.path.exists(args.frontier):
         stored, stored_status, cyclic = load_stored_frontier(args.frontier)
@@ -491,7 +580,7 @@ def main() -> int:
         }
 
     report = {
-        "type": "independent_n9_vertex_circle_recheck_v1",
+        "type": "independent_n9_vertex_circle_recheck_v2",
         "trust": "INDEPENDENT_FINITE_CASE_RECHECK_NO_GLOBAL_CLAIM",
         "n": N,
         "row_size": ROW_SIZE,
@@ -500,16 +589,31 @@ def main() -> int:
         "geometric_consistency_stress_test": sound,
         "frontier": {
             "incidence_survivors": len(my_keys),
+            "assignment_digest_sha256": assignment_sha256,
             "vertex_circle_status_counts": dict(status_split),
             "survivors_after_vertex_circle_pruning": survivors_after_vc,
+        },
+        "kalmanson": {
+            "distance_kind": "ordinary Euclidean distance",
+            "strict_inequalities": [
+                "D_ab + D_cd < D_ac + D_bd",
+                "D_ad + D_bc < D_ac + D_bd",
+            ],
+            "self_edge_kind_counts": dict(sorted(kalmanson_kind_counts.items())),
+            "self_edge_kills": sum(kalmanson_kind_counts.values()),
+            "survivors": kalmanson_survivors,
+            "reads_stored_kalmanson_certificate": False,
+            "imports_kalmanson_checker": False,
         },
         "comparison_to_stored": compare,
         "conclusion": (
             "Independently reproduces 184 incidence survivors, all killed by the "
-            "vertex-circle obstruction (0 survive), matching the stored frontier "
-            "set and status labels; the vertex-circle geometric consistency "
-            "stress test passes on all sampled strictly convex polygons. No "
-            "general proof or counterexample is claimed."
+            "vertex-circle obstruction and, separately, by strict ordinary-distance "
+            "Kalmanson quotient self-edges (0 survive either route), matching the "
+            "stored frontier set and status labels; the vertex-circle geometric "
+            "consistency stress test passes on all sampled strictly convex polygons. "
+            "This is independent finite-case evidence, not completed external review, "
+            "a general proof, or a counterexample."
         ),
     }
 
@@ -521,9 +625,16 @@ def main() -> int:
         print(f"Incidence survivors (independent fixed-order search): {len(my_keys)}")
         print(f"Vertex-circle status split: {dict(status_split)}")
         print(f"Survivors after vertex-circle pruning: {survivors_after_vc}")
+        print(f"Frontier assignment digest: {assignment_sha256}")
+        print(f"Kalmanson self-edge split: {dict(kalmanson_kind_counts)}")
+        print(f"Survivors after Kalmanson replay: {kalmanson_survivors}")
         if compare:
-            print(f"Frontier sets identical to stored: {compare['frontier_sets_identical']}")
-            print(f"Status labels agree with stored:   {compare['status_labels_agree']}")
+            print(
+                f"Frontier sets identical to stored: {compare['frontier_sets_identical']}"
+            )
+            print(
+                f"Status labels agree with stored:   {compare['status_labels_agree']}"
+            )
             print(f"Stored status counts: {compare['stored_status_counts']}")
 
     ok = (
@@ -531,6 +642,9 @@ def main() -> int:
         and survivors_after_vc == 0
         and status_split.get("self_edge") == 158
         and status_split.get("strict_cycle") == 26
+        and assignment_sha256 == EXPECTED_FRONTIER_SHA256
+        and dict(kalmanson_kind_counts) == EXPECTED_KALMANSON_KIND_COUNTS
+        and kalmanson_survivors == 0
         and sound["sound"]
         and (
             compare is None
