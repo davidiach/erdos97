@@ -55,6 +55,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n9-vertex-circle-route-decision-request.md`](n9-vertex-circle-route-decision-request.md):
   checked request packet spelling out the vertex-circle route gate partition
   and reviewer commands without accepting any gate.
+- [`n9-kalmanson-independent-recheck.md`](n9-kalmanson-independent-recheck.md):
+  fixed-order, `frozenset`-based regeneration of the 184 labelled systems and
+  an independent strict ordinary-distance Kalmanson self-edge scan; review
+  evidence only, not a status promotion.
 - [`gpt55-solver-brief.md`](gpt55-solver-brief.md): front-loaded LLM
   solver-steering brief with anti-loop guardrails, hard status boundaries, and
   live frontier output contracts; prompt context only, not mathematical
