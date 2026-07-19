@@ -95,6 +95,8 @@ That classification is now carried out in
 `docs/kalmanson-equilateral-hinge.md`: after unused row witnesses are forgotten,
 all 56 cyclic-dihedral signatures contain the same three-rich-class
 equilateral-hinge subtemplate, and all 184 stored best cores match exactly one
-dihedral orientation.  The remaining proof-facing step is to find genuine
-minimality or full-rich-class hypotheses that force this hinge without
-enumerating the whole `n=9` frontier.
+dihedral orientation. The direct follow-up in `docs/n9-hinge-forcing.md`
+forces this hinge in the exact nine-label row domain from only the
+row-intersection cap and two-overlap proper-crossing rule. That compression
+remains a machine-checked finite-case artifact pending independent review; it
+is not an arbitrary-size forcing theorem.

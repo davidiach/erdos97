@@ -1,0 +1,639 @@
+{
+  "assumption_drop_witnesses": {
+    "row_intersection_cap_2": {
+      "diagnostics": {
+        "hinge_instance_count": 0,
+        "indegrees": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "maximum_row_intersection": 3,
+        "maximum_witness_pair_multiplicity": 4,
+        "row_intersection_size_histogram": {
+          "0": 7,
+          "1": 14,
+          "2": 5,
+          "3": 10
+        },
+        "two_overlap_crossing_violations": 0
+      },
+      "dropped_assumption": "row_intersection_cap_2",
+      "kept_constraints_validated": true,
+      "restored_assumption_rejected": true,
+      "restored_rejection": "row-intersection axiom fails at (0, 3)",
+      "witness": [
+        [
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          3,
+          5,
+          6
+        ],
+        [
+          0,
+          3,
+          7,
+          8
+        ],
+        [
+          0,
+          5,
+          7,
+          8
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          6
+        ]
+      ],
+      "witness_sha256": "bf9d97b24acb4a6a51ea1912dd3badb3210cca7be5859b68270afdf1e5fa060d"
+    },
+    "two_overlap_chord_crossing": {
+      "diagnostics": {
+        "hinge_instance_count": 0,
+        "indegrees": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "maximum_row_intersection": 2,
+        "maximum_witness_pair_multiplicity": 2,
+        "row_intersection_size_histogram": {
+          "0": 2,
+          "1": 14,
+          "2": 20
+        },
+        "two_overlap_crossing_violations": 12
+      },
+      "dropped_assumption": "two_overlap_chord_crossing",
+      "kept_constraints_validated": true,
+      "restored_assumption_rejected": true,
+      "restored_rejection": "two-overlap crossing axiom fails at (0, 1)",
+      "witness": [
+        [
+          2,
+          4,
+          5,
+          7
+        ],
+        [
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          4,
+          6,
+          8
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          0,
+          3,
+          5,
+          6
+        ]
+      ],
+      "witness_sha256": "a67a47c0450d3c298ab71a5fe3502ea82dea81f7dd4c5f00d5a3156bfc833bfc"
+    }
+  },
+  "claim_scope": "Exact labelled n=9 finite search showing that self-excluding selected four-witness rows satisfying the row-intersection cap and two-overlap proper-crossing rule contain a Kalmanson equilateral hinge; review-pending audit evidence only, not a proof of n=9 or Erdos Problem #97 and not completed independent review.",
+  "derived_consequences": {
+    "finite_crosscheck": {
+      "derived_filter_frontier": {
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dropped_axioms": [
+          "indegree_exact_4",
+          "witness_pair_capacity_2",
+          "kalmanson_equilateral_hinge_free"
+        ],
+        "enforced_axioms": [
+          "row_intersection_cap_2",
+          "two_overlap_chord_crossing"
+        ],
+        "indegree_balance": {
+          "derived_from_other_enforced_axioms": true,
+          "explicitly_enforced": false
+        },
+        "n": 9,
+        "result_sha256": "94737399b7b657a6c97bf76481c43050a5a8f20a9f3bfcfca09cd45bc129fd9a",
+        "row_size": 4,
+        "satisfiable": true,
+        "schema": "erdos97.n9_hinge_forcing.search_result.v1",
+        "search_complete": true,
+        "stats": {
+          "extensions_visited": 100817,
+          "maximum_depth": 9,
+          "nodes_visited": 100818,
+          "rejection_counts": {
+            "indegree_exact_4": 0,
+            "kalmanson_equilateral_hinge_free": 0,
+            "row_intersection_cap_2": 9049699,
+            "two_overlap_chord_crossing": 10948145,
+            "witness_pair_capacity_2": 0
+          },
+          "row_options_examined": 21391020,
+          "terminal_assignment_sha256": "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55",
+          "terminal_assignments": 184
+        },
+        "stop_after_first": false,
+        "witness": [
+          [
+            1,
+            2,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            4,
+            6,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            3,
+            4,
+            6,
+            7
+          ],
+          [
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            5
+          ]
+        ],
+        "witness_pair_capacity": {
+          "derived_from_other_enforced_axioms": true,
+          "explicitly_enforced": false
+        }
+      },
+      "explicit_filter_frontier": {
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dropped_axioms": [
+          "kalmanson_equilateral_hinge_free"
+        ],
+        "enforced_axioms": [
+          "indegree_exact_4",
+          "row_intersection_cap_2",
+          "two_overlap_chord_crossing",
+          "witness_pair_capacity_2"
+        ],
+        "indegree_balance": {
+          "derived_from_other_enforced_axioms": true,
+          "explicitly_enforced": true
+        },
+        "n": 9,
+        "result_sha256": "5dfe8f667c5ab22c99b8f20eba08a8ba3d037d79d5f30b8bf2738f6ebf6e9fe9",
+        "row_size": 4,
+        "satisfiable": true,
+        "schema": "erdos97.n9_hinge_forcing.search_result.v1",
+        "search_complete": true,
+        "stats": {
+          "extensions_visited": 100817,
+          "maximum_depth": 9,
+          "nodes_visited": 100818,
+          "rejection_counts": {
+            "indegree_exact_4": 0,
+            "kalmanson_equilateral_hinge_free": 0,
+            "row_intersection_cap_2": 9049699,
+            "two_overlap_chord_crossing": 10948145,
+            "witness_pair_capacity_2": 0
+          },
+          "row_options_examined": 21391020,
+          "terminal_assignment_sha256": "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55",
+          "terminal_assignments": 184
+        },
+        "stop_after_first": false,
+        "witness": [
+          [
+            1,
+            2,
+            3,
+            8
+          ],
+          [
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            4,
+            6,
+            8
+          ],
+          [
+            0,
+            2,
+            5,
+            6
+          ],
+          [
+            3,
+            4,
+            6,
+            7
+          ],
+          [
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            0,
+            1,
+            4,
+            5
+          ]
+        ],
+        "witness_pair_capacity": {
+          "derived_from_other_enforced_axioms": true,
+          "explicitly_enforced": true
+        }
+      },
+      "terminal_count_agreement": true
+    },
+    "indegree_exact_4": {
+      "explicit_filter_used_by_baseline": false,
+      "proof": [
+        "For fixed x, each row containing x contributes three witness pairs, so 3*d_x = sum_{y != x} m_xy.",
+        "For each hull neighbor y of x, m_xy <= 1 because all possible centers lie in the same open arc and their chord cannot properly cross the hull edge xy.",
+        "For the other six labels, the derived witness-pair capacity gives m_xy <= 2; hence 3*d_x <= 2*1 + 6*2 = 14 and d_x <= 4.",
+        "The nine four-witness rows have total indegree 36, so all nine upper bounds are equalities: d_x = 4."
+      ],
+      "statement": "every witness label has selected indegree exactly 4"
+    },
+    "witness_pair_capacity_2": {
+      "explicit_filter_used_by_baseline": false,
+      "proof": [
+        "Rows containing {x,y} have centers in the two open cyclic arcs cut by x and y.",
+        "The intersection cap and crossing rule require every two such centers to lie in opposite arcs.",
+        "Three centers cannot be pairwise separated by a two-part partition, so the multiplicity is at most two."
+      ],
+      "statement": "every witness pair occurs together in at most two rows"
+    }
+  },
+  "domain": {
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "n": 9,
+    "one_self_excluding_selected_row_per_center": true,
+    "row_is_selected_subset_of_one_rich_class": true,
+    "row_size": 4,
+    "selected_row_size_four_is_fixed_domain": true,
+    "stored_frontier_used_as_search_input": false,
+    "symmetry_quotient_used": false,
+    "underlying_rich_classes_may_be_larger": true
+  },
+  "finite_implication": {
+    "assumptions": [
+      "row_intersection_cap_2",
+      "two_overlap_chord_crossing"
+    ],
+    "complement_constraint": "kalmanson_equilateral_hinge_free",
+    "conclusion": "at least one Kalmanson equilateral hinge",
+    "explicit_indegree_exact_4_assumed": false,
+    "explicit_witness_pair_capacity_2_assumed": false,
+    "proper_crossing_semantics": "relative-interior chord intersection, equivalently alternating endpoints for four distinct cyclic labels"
+  },
+  "hinge_compiler_audit": {
+    "compiler_sha256": "2346b023f8a99f7c45772bb29c19612d0062630e23eeee69d3e1475407df3b03",
+    "public_exact_match_count": 1008,
+    "requirement_count": 1008,
+    "satisfaction_table_entry_count": 45360
+  },
+  "hinge_free_complement": {
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "dropped_axioms": [
+      "indegree_exact_4",
+      "witness_pair_capacity_2"
+    ],
+    "enforced_axioms": [
+      "row_intersection_cap_2",
+      "two_overlap_chord_crossing",
+      "kalmanson_equilateral_hinge_free"
+    ],
+    "indegree_balance": {
+      "derived_from_other_enforced_axioms": true,
+      "explicitly_enforced": false
+    },
+    "n": 9,
+    "result_sha256": "3cc536f266fc0c6f563881a63aafdc80a731d1031091054d737334744dcf5b20",
+    "row_size": 4,
+    "satisfiable": false,
+    "schema": "erdos97.n9_hinge_forcing.search_result.v1",
+    "search_complete": true,
+    "stats": {
+      "extensions_visited": 26745,
+      "maximum_depth": 8,
+      "nodes_visited": 26746,
+      "rejection_counts": {
+        "indegree_exact_4": 0,
+        "kalmanson_equilateral_hinge_free": 206905,
+        "row_intersection_cap_2": 2588395,
+        "two_overlap_chord_crossing": 3359793,
+        "witness_pair_capacity_2": 0
+      },
+      "row_options_examined": 6710620,
+      "terminal_assignment_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "terminal_assignments": 0
+    },
+    "stop_after_first": false,
+    "witness": null,
+    "witness_pair_capacity": {
+      "derived_from_other_enforced_axioms": true,
+      "explicitly_enforced": false
+    }
+  },
+  "interpretation_warnings": [
+    "This is a finite labelled row-system implication under two necessary incidence filters.",
+    "The checker does not prove that an arbitrary larger counterexample reduces to nine vertices.",
+    "The n=9 geometric reduction and the Kalmanson lemma remain subject to the repository's external-review gates."
+  ],
+  "not_claimed": [
+    "general proof of Erdos Problem #97",
+    "counterexample to Erdos Problem #97",
+    "n=9 is proved",
+    "n=9 external review complete",
+    "bridge from arbitrary larger counterexamples to n=9",
+    "official/global status update"
+  ],
+  "positive_control": {
+    "dropped_constraint": "kalmanson_equilateral_hinge_free",
+    "interpretation": "Removing the negated conclusion reaches 184 terminal row systems; every terminal satisfies the derived pair-capacity and balance lemmas.",
+    "search": {
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "dropped_axioms": [
+        "indegree_exact_4",
+        "witness_pair_capacity_2",
+        "kalmanson_equilateral_hinge_free"
+      ],
+      "enforced_axioms": [
+        "row_intersection_cap_2",
+        "two_overlap_chord_crossing"
+      ],
+      "indegree_balance": {
+        "derived_from_other_enforced_axioms": true,
+        "explicitly_enforced": false
+      },
+      "n": 9,
+      "result_sha256": "94737399b7b657a6c97bf76481c43050a5a8f20a9f3bfcfca09cd45bc129fd9a",
+      "row_size": 4,
+      "satisfiable": true,
+      "schema": "erdos97.n9_hinge_forcing.search_result.v1",
+      "search_complete": true,
+      "stats": {
+        "extensions_visited": 100817,
+        "maximum_depth": 9,
+        "nodes_visited": 100818,
+        "rejection_counts": {
+          "indegree_exact_4": 0,
+          "kalmanson_equilateral_hinge_free": 0,
+          "row_intersection_cap_2": 9049699,
+          "two_overlap_chord_crossing": 10948145,
+          "witness_pair_capacity_2": 0
+        },
+        "row_options_examined": 21391020,
+        "terminal_assignment_sha256": "dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55",
+        "terminal_assignments": 184
+      },
+      "stop_after_first": false,
+      "witness": [
+        [
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          0,
+          3,
+          6,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          5
+        ]
+      ],
+      "witness_pair_capacity": {
+        "derived_from_other_enforced_axioms": true,
+        "explicitly_enforced": false
+      }
+    }
+  },
+  "provenance": {
+    "command": "python scripts/check_n9_hinge_forcing.py --write --assert-expected",
+    "generator": "scripts/check_n9_hinge_forcing.py"
+  },
+  "schema": "erdos97.n9_hinge_forcing.v1",
+  "status": "REVIEW_PENDING_N9_EQUILATERAL_HINGE_FORCING",
+  "trust": "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"
+}

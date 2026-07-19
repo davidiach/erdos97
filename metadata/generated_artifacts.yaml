@@ -1199,6 +1199,67 @@ artifacts:
       - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: n9_hinge_forcing
+    path: data/certificates/n9_hinge_forcing.json
+    sha256: bf2f4233ae3918913f1a27aeedba2957a0fa2e542c44afbf013fd3d32d4721d6
+    size_bytes: 15467
+    kind: finite_case_artifact
+    generator: scripts/check_n9_hinge_forcing.py
+    command: python scripts/check_n9_hinge_forcing.py --write --assert-expected
+    checker: scripts/check_n9_hinge_forcing.py
+    check_command: python scripts/check_n9_hinge_forcing.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Direct labelled n=9 finite complement search showing that the row-intersection cap and two-overlap proper-crossing rule force a Kalmanson equilateral hinge; pair capacity and balance are derived, but the artifact remains review-pending and does not promote n=9 or any global result.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_hinge_forcing.v1
+      status: REVIEW_PENDING_N9_EQUILATERAL_HINGE_FORCING
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      domain.n: 9
+      domain.row_size: 4
+      domain.one_self_excluding_selected_row_per_center: true
+      domain.row_is_selected_subset_of_one_rich_class: true
+      domain.underlying_rich_classes_may_be_larger: true
+      domain.symmetry_quotient_used: false
+      domain.stored_frontier_used_as_search_input: false
+      finite_implication.assumptions:
+        - row_intersection_cap_2
+        - two_overlap_chord_crossing
+      finite_implication.explicit_indegree_exact_4_assumed: false
+      finite_implication.explicit_witness_pair_capacity_2_assumed: false
+      hinge_compiler_audit.requirement_count: 1008
+      hinge_compiler_audit.public_exact_match_count: 1008
+      hinge_compiler_audit.satisfaction_table_entry_count: 45360
+      hinge_compiler_audit.compiler_sha256: 2346b023f8a99f7c45772bb29c19612d0062630e23eeee69d3e1475407df3b03
+      hinge_free_complement.search_complete: true
+      hinge_free_complement.satisfiable: false
+      hinge_free_complement.stats.nodes_visited: 26746
+      hinge_free_complement.stats.terminal_assignments: 0
+      hinge_free_complement.stats.terminal_assignment_sha256: 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+      hinge_free_complement.result_sha256: 3cc536f266fc0c6f563881a63aafdc80a731d1031091054d737334744dcf5b20
+      derived_consequences.finite_crosscheck.derived_filter_frontier.stats.terminal_assignments: 184
+      derived_consequences.finite_crosscheck.derived_filter_frontier.stats.terminal_assignment_sha256: dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
+      derived_consequences.finite_crosscheck.explicit_filter_frontier.stats.terminal_assignments: 184
+      derived_consequences.finite_crosscheck.explicit_filter_frontier.stats.terminal_assignment_sha256: dc28b32d93e721838a592d1f010f92720869191594dbcc40df2a00f96f213d55
+      assumption_drop_witnesses.row_intersection_cap_2.diagnostics.maximum_row_intersection: 3
+      assumption_drop_witnesses.row_intersection_cap_2.diagnostics.two_overlap_crossing_violations: 0
+      assumption_drop_witnesses.row_intersection_cap_2.diagnostics.hinge_instance_count: 0
+      assumption_drop_witnesses.two_overlap_chord_crossing.diagnostics.maximum_row_intersection: 2
+      assumption_drop_witnesses.two_overlap_chord_crossing.diagnostics.two_overlap_crossing_violations: 12
+      assumption_drop_witnesses.two_overlap_chord_crossing.diagnostics.hinge_instance_count: 0
+      provenance.command: python scripts/check_n9_hinge_forcing.py --write --assert-expected
+    forbidden_claims:
+      - n=9 is proved
+      - n=9 external review complete
+      - arbitrary-size hinge forcing theorem
+      - bridge from arbitrary larger counterexamples to n=9
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_obstruction_shapes
     path: data/certificates/n9_vertex_circle_obstruction_shapes.json
     sha256: c10ead3203b87e72c96af7eef98b656d6b33788994b8fad6577cb59b99df78c6
