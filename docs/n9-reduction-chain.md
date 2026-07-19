@@ -99,6 +99,26 @@ while `kalmanson_selfedge_replay` covers D3-D4. The shared
 `frontier_enumeration` gate covers D0-D1. Passing the checker does not accept
 any of those gates.
 
+## Chain E: Equilateral-hinge Compression
+
+This route compresses the finite endgame of Chain D to one forbidden local
+template. It searches the hinge-free complement directly rather than reading
+or classifying the 184 stored frontier assignments.
+
+| Step | Assertion | Evidence | Status |
+| --- | --- | --- | --- |
+| E0 | At each center of a hypothetical bad nonagon, choose any four witnesses from one rich distance class; impose the row-intersection cap and two-overlap proper-crossing rule on these selected subsets. | This is the direct selected-witness handoff A1-A3. The full rich classes may be larger than four. | proved |
+| E1 | Every such row system automatically satisfies witness-pair capacity and is balanced: each label has selected indegree four. | Three centers using one witness pair cannot be pairwise separated by the two open arcs cut by its chord. Then, for fixed `x`, `3 d_x = sum_y m_xy <= 2 * 1 + 6 * 2 = 14`; total indegree is 36. | proved |
+| E2 | Every row system satisfying E0 contains an equilateral hinge. | `scripts/check_n9_hinge_forcing.py --check --assert-expected --summary-json` exhausts the labelled hinge-free complement with no symmetry quotient and finds zero terminals. | machine-checked review-pending |
+| E3 | An equilateral hinge is incompatible with strict convex-polygon distances. | The three row-pair equalities turn one strict Kalmanson inequality into `L < L`; see `docs/kalmanson-equilateral-hinge.md`. | direct lemma, theorem-style use review-pending |
+| E4 | Therefore no true bad nonagon exists, assuming the selected-row handoff, two geometric filters, E2, and E3 survive independent review. | Follows from E0-E3. | review-pending conditional |
+
+The generated hinge-forcing artifact also enumerates the frontier with and
+without explicit witness-pair-capacity and indegree-four filters, obtaining
+184 terminals in both runs, and supplies a validated countermodel when either
+E0 assumption is dropped. Those are finite audit controls, not a promotion of
+the `n=9` claim.
+
 ## Current Bottlenecks
 
 The strongest honest reading is:
@@ -120,6 +140,8 @@ The most important finite-case review targets are:
 - for the turn route, the exterior-turn lemma and interval indexing.
 - for the Kalmanson route, the strict ordinary-distance convention and an
   independent quotient self-edge reproduction.
+- for the hinge-compression route, independent reproduction of the direct
+  hinge-free complement enumeration and review of the local hinge lemma.
 
 The machine-readable review-gate ledger
 `metadata/n9_review_gate_ledger.yaml`, checked by
@@ -204,6 +226,16 @@ For the self-contained Kalmanson route:
 ```bash
 python scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
 ```
+
+For the direct hinge-compression route:
+
+```bash
+python scripts/check_n9_hinge_forcing.py --check --assert-expected --summary-json
+```
+
+Chain E is registered in the generated-artifact audit but is not yet added to
+`make verify-n9-candidate` or the external-review gate ledger. Those review
+intake contracts should change only with an explicit review decision.
 
 These commands are review aids. Passing them does not, by itself, complete
 independent mathematical review.

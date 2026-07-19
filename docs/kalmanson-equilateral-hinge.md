@@ -92,6 +92,20 @@ gain: the next bridge target is no longer a classification of 56 full
 signatures, but a theorem forcing three co-radial witness pairs in one hinge
 orientation.
 
+## Direct `n=9` forcing compression
+
+The follow-up checker in `scripts/check_n9_hinge_forcing.py` attacks that
+target directly. For one self-excluding four-witness row at each of nine cyclic
+centers, it assumes only the two-circle row-intersection cap and the proper
+crossing rule for two-overlaps. Witness-pair capacity and selected indegree
+four follow by elementary cyclic counting. A labelled, symmetry-free search of
+the hinge-free complement has zero terminals.
+
+That result is recorded separately in `docs/n9-hinge-forcing.md` with status
+`MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING`. It is a finite
+compression of the same `n=9` route, not an arbitrary-size forcing theorem and
+not completed independent review.
+
 ## Commands
 
 ```bash
@@ -109,6 +123,7 @@ artifact.  It does not independently regenerate the `n=9` frontier, satisfy
 the external-review gate, promote the repo-local `n=9` result, prove the
 arbitrary-size problem, or produce a counterexample.
 
-The checker also does not establish that weak incidence, fragile-cover, or
-bootstrap hypotheses force a hinge.  A future forcing argument needs genuine
-minimality or full-rich-class geometry beyond the audited finite crosswalk.
+The crosswalk checker alone also does not establish that weak incidence,
+fragile-cover, or bootstrap hypotheses force a hinge. The direct `n=9`
+checker now supplies a forcing implication in its exact nine-label domain, but
+no corresponding arbitrary-size forcing or reduction theorem is claimed.

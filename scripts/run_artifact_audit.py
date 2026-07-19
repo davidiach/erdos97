@@ -600,6 +600,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="n9_hinge_forcing",
+        command=(
+            "python",
+            "scripts/check_n9_hinge_forcing.py",
+            "--check",
+            "--assert-expected",
+            "--summary-json",
+        ),
+        claim_scope=(
+            "Direct labelled n=9 finite complement search showing that the "
+            "row-intersection cap and two-overlap proper-crossing rule force "
+            "a Kalmanson equilateral hinge. Witness-pair capacity and balance "
+            "are derived, but the result remains a review-pending finite-case "
+            "artifact, not completed independent review, a proof of n=9, a "
+            "proof of Erdos Problem #97, or a counterexample."
+        ),
+    ),
+    AuditCommand(
         ident="n9_vertex_circle_obstruction_shapes",
         command=(
             "python",
