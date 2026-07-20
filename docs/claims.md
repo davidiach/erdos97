@@ -2842,6 +2842,41 @@ This is a restricted exact obstruction only. It does not cover cubic samples
 that use both sides of the inflection, general parametric cubic curves, or
 arbitrary strictly convex polygons.
 
+### Quartic equally-spaced marked-root model case
+
+Status: `EXACT_OBSTRUCTION` / `FAILED_SEARCH_FAMILY`.
+
+Let
+
+```text
+gamma(t) = (t, a1*t + a2*t^2 + a3*t^3 + a4*t^4),  a4 != 0,
+T = {-4,-3,-2,-1,0,1,2,3,4}.
+```
+
+There is no real coefficient vector for which every center in `T` has four
+other parameters in `T` at one common Euclidean distance. In particular, no
+strictly convex sample in this fixed family is a counterexample to Erdos
+Problem #97.
+
+The exact checker lifts the coefficients to the ten entries of
+`A=a*a^T`. Each marked witness quartet gives three affine equations in `A`.
+For anchor centers `0,3,4`, the two-circle overlap cap leaves `202080` of the
+`70^3=343000` marked triples. Of these, `199349` have affine rank nine and
+their exact rank-one roots are negative semidefinite, so they fail the planar
+PSD gate. The remaining `2731` rank-eight
+triples deduplicate to `2729` affine states. Appending every one of the 70
+marked rows at center `-4` gives `191030` consistent state-row branches but
+only 315 canonical affine lines; their rank-one roots are again negative
+semidefinite. No affine state, quartic Gram, or unresolved algebraic branch
+remains. See
+`docs/quartic-marked-root-gram-pilot.md` and
+`data/certificates/quartic_marked_root_gram.json`.
+
+This is an exact obstruction for one fixed equally-spaced polynomial-graph family,
+not for irregular parameter sets, general parametric quartics, multi-arc
+constructions, or arbitrary strictly convex polygons. It is not a global
+bridge and does not prove Erdos Problem #97.
+
 ### Hyperbola branch model case
 
 Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.

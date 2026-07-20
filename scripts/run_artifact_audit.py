@@ -442,6 +442,21 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="quartic_marked_root_gram",
+        command=(
+            "python",
+            "scripts/check_quartic_marked_root_gram.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact obstruction for degree-exactly-four polynomial graph "
+            "samples on T={-4,-3,...,4}; not a general quartic obstruction, "
+            "n=9 proof, counterexample, or proof of Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
         ident="two_parabola_lens_grid_search",
         command=(
             "python",

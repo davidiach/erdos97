@@ -4202,6 +4202,43 @@ artifacts:
       - exact or interval certificate for boundary intersections
       - official/global status update
 
+  - id: quartic_marked_root_gram
+    path: data/certificates/quartic_marked_root_gram.json
+    sha256: 8db203b4d897f2ceba018db1d39e705093700fca930f117520b05c49e834bc3f
+    size_bytes: 13295
+    kind: exact_restricted_family_obstruction
+    generator: scripts/check_quartic_marked_root_gram.py
+    command: python scripts/check_quartic_marked_root_gram.py --write-artifact --check --assert-expected --json
+    checker: scripts/check_quartic_marked_root_gram.py
+    check_command: python scripts/check_quartic_marked_root_gram.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_OBSTRUCTION
+    claim_scope: Exact obstruction to four-rich closure for degree-exactly-four polynomial graph samples on the fixed parameter set T={-4,-3,...,4}; not a general quartic obstruction, n=9 proof, or global result.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.quartic_marked_root_gram.v1
+      status: NO_STRICTLY_CONVEX_DEGREE_FOUR_CLOSURE_ON_FIXED_GRID
+      trust: EXACT_OBSTRUCTION
+      anchor_scan.raw_marked_triples: 343000
+      anchor_scan.overlap_admissible_marked_triples: 202080
+      anchor_scan.rank_counts.8: 2731
+      anchor_scan.rank_counts.9: 199349
+      anchor_scan.rank_nine_negative_semidefinite_rank_one_roots: 199349
+      anchor_scan.exceptional_affine_states: 2729
+      outcome.unresolved_affine_states: 0
+      outcome.rank_one_quartic_grams: 0
+      outcome.all_row_quartic_grams: 0
+      outcome.strict_finite_full_closures: 0
+    forbidden_claims:
+      - arbitrary real parameter sets are obstructed
+      - general polynomial quartic graph samples are obstructed
+      - parametric or implicit quartic curves are obstructed
+      - the n=9 finite case is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - official/global status update
+
   - id: two_parabola_lens_grid_search
     path: data/certificates/two_parabola_lens_grid_search.json
     sha256: b514282e4d5a6ebc096551e6e61ab354d6fc90fda592f1f8e494993fb03e5c18

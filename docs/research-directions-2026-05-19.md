@@ -462,6 +462,12 @@ four exact same-radius arc intersections, certified by Sturm counts. Thus a
 one-arc marked-root continuation should start with quartic degree or with a
 cubic sample that genuinely uses both sides of its inflection. The quartic
 example is one rich row only, not finite closure or counterexample evidence.
+The exact follow-up in `docs/quartic-marked-root-gram-pilot.md` tests the
+degree-exactly-four graph family on the fixed grid `T={-4,-3,...,4}`. It lifts
+marked rows to affine equations in `A=a*a^T`, enforces the planar rank-one
+gate, and continues every exceptional affine state through the unused centers.
+Its conclusion is confined to that one parameter grid and does not address
+irregular samples or arbitrary quartic arcs.
 
 ## 4. Reciprocal-Radial Global Budget
 

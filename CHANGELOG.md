@@ -15,6 +15,16 @@ counterexample are claimed.
   a portability and reproducibility repair only; it changes no mathematical
   claim or repository status.
 
+- Added an exact marked-root Gram obstruction for degree-exactly-four
+  polynomial graph samples at nine equally spaced parameters. Three anchor
+  rows leave `199349` rank-nine systems and `2729` canonical rank-eight
+  exceptional states; exact rank-one-minor checks kill the former, and adding
+  all 70 marked rows at one further center collapses the latter to 315 affine
+  lines, none with a rank-one PSD degree-four Gram. The retained artifact has
+  no unresolved state or full closure. This is a failed equally-spaced
+  polynomial-graph family only, not an obstruction for irregular parameters,
+  general quartic arcs, or arbitrary strictly convex polygons. No global or
+  local source-of-truth status changes.
 - Added the cubic-graph half-branch model-case lemma. A marked-root
   factorization of the degree-six distance fiber shows that any finite sample
   on one closed side of a polynomial cubic graph's inflection has an outer
