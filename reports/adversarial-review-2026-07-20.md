@@ -1,8 +1,9 @@
 # Adversarial review — merge wave PRs #877–#884
 
 Date: 2026-07-20
-Reviewer: adversarial review pass (read-only; no repo files were modified)
-Scope: commit range `14ffc19..9aa67a5` (PRs #877–#884, merged 2026-07-13 to
+Reviewer: Claude Code adversarial review pass (read-only; no source files were
+modified during the review)
+Scope: commit range `14ffc19..9aa67a5` (PRs #877–#884, merged 2026-07-17 to
 2026-07-19): near-saturation and linear-slack support obstructions, exact
 bounded two-mode cyclic certificate, signed-zero portable-compare fix,
 external frontier audits, Kalmanson primary-route registration and independent
@@ -14,6 +15,12 @@ verification, and flag overclaims; every HIGH and load-bearing MEDIUM finding
 was then independently re-reproduced by the coordinating reviewer before
 inclusion here. Predecessor report: `reports/deep-review-2026-06-28.md`
 (covers the tree as of 2026-06-28).
+
+This report is AI-generated. The parallel lanes and coordinating replay are
+internal cross-checks from one Claude Code review session; they do not
+constitute independent external review, satisfy any repository review gate, or
+promote any mathematical claim. The finding counts below describe the pinned
+snapshot at `9aa67a5`, not the state of later `main`.
 
 ---
 
@@ -50,8 +57,9 @@ The mathematics of this wave survived adversarial attack. In particular:
   `ruff`, default pytest: 1604 passed, 0 failures), and the release-packet
   SHA256SUMS, manifest, and dependency pins are internally consistent.
 
-The findings that remain are reproducibility, review-contract, and
-verification-theater defects, not mathematical ones. The single HIGH finding
+At the reviewed snapshot, the remaining findings were reproducibility,
+review-contract, and verification-theater defects, not mathematical ones. The
+single HIGH finding
 is that the two 2026-07-18 external audits pin CRLF-rendered SHA-256 hashes,
 so their documented `--assert-expected` reproduction fails on any standard
 POSIX checkout of the pinned commit — the failure is fail-closed (false
@@ -199,6 +207,9 @@ repo-authored statement overclaims a proof or counterexample.
   non-inflated.
 
 #### M6 — Corrupted claim-scope prose retained in the two-mode notes
+
+Post-review disposition: **resolved after the reviewed snapshot by PR #885**.
+The finding and snapshot count are retained here as historical review evidence.
 
 - Location: `docs/two-mode-cyclic-exact-n80.md:179-181` ("Scope boundary": the
   sentence "It converts the" is followed by a stray literal `+` line, then
