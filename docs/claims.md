@@ -2802,6 +2802,46 @@ quartic, impossible. See `docs/parabola-model-case.md`.
 This is a restricted exact obstruction only. It does not imply that arbitrary
 strictly convex polygons reduce to parabolic configurations.
 
+### Cubic-graph half-branch model case
+
+Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
+
+Let
+
+```text
+f(x) = A*x^3 + B*x^2 + C*x + D,  A != 0,
+```
+
+and let `xi=-B/(3*A)` be its inflection abscissa. No finite sample of the
+graph whose parameters all lie in `[xi,+infinity)` or all lie in
+`(-infinity,xi]` can be a counterexample to Erdos Problem #97. More strongly,
+the sampled parameter farthest from `xi` has at most three other sampled
+points at any one Euclidean distance.
+
+After translating the inflection to the origin and, if needed, applying a
+180-degree rotation, write
+
+```text
+gamma(t) = (t, a*t^3 + b*t),  a != 0,  t >= 0.
+```
+
+If four parameters `qk<s=max T` gave one distance from `gamma(s)`, their
+monic quartic `Q(t)` would divide the monic degree-six distance fiber `P(t)`.
+Writing `P=Q*(t^2+e1*t+nu)`, evaluation at `s` forces `nu<0`. The `t^2`
+coefficient comparison gives
+
+```text
+(b/a)^2 + 1/a^2 = nu*e2 - e1*e3 + e4.
+```
+
+The left side is positive, while four distinct nonnegative roots give
+`e2>0`, `e1*e3>e4`, and hence a negative right side. See
+`docs/cubic-graph-half-branch-model-case.md`.
+
+This is a restricted exact obstruction only. It does not cover cubic samples
+that use both sides of the inflection, general parametric cubic curves, or
+arbitrary strictly convex polygons.
+
 ### Hyperbola branch model case
 
 Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
