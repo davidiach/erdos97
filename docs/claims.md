@@ -780,6 +780,41 @@ This good-deletion rule is different from rich-triple closure and does not
 imply ear-orderability or force a selected row. See
 `docs/minimal-fragile-cover-bridge.md`.
 
+### Two-deletion profile and all-rich-class budget
+
+Status: `LEMMA` for a hypothetical vertex-minimal counterexample.
+
+For every deletion pair `A={x,z}`, some surviving good center has complete
+original rich profile exactly `T4`, `T5`, or `T44`: one size-four class hit
+by `A`; one size-five class containing both seeds; or two disjoint size-four
+classes hit one seed each.  The exact pair capacities are `4n-14`, `10`, and
+`16`.  Exclusive mutual fragile-cover pairs have no `T4` certifier and obey
+the matching charge `e<=2b+4c` to `T5` and `T44` centers.  Their `2e`
+endpoints are themselves distinct `T4` centers, and every endpoint class
+contains its mate plus three nonendpoints.
+
+The perpendicular-bisector pair count applies simultaneously to every rich
+class, not only one chosen support per center:
+
+```text
+sum_y sum_{C rich at y} binom(|C|,2) <= n(n-2),
+sum_y sum_{C rich at y, x in C} (|C|-1) <= 2n-4.
+```
+
+Thus complete `T5` and `T44` profile counts satisfy
+`4b+6c<=n(n-8)`.  The localized class-incidence bound forces every `n=9`
+center to be `T4`, hence `e=0`.  For general `n`, endpoint/nonendpoint
+incidence and pair capacities imply
+
+```text
+e <= floor(4n/9),
+e <= floor((n+1-sqrt(3n+1))/2).
+```
+
+These statements still do not force `e>0` or a contradiction.  See
+`docs/minimal-two-deletion-profile.md` and
+`docs/all-rich-class-pair-budget.md`.
+
 ### Minimal fragile-cover bridge
 
 Every minimal counterexample admits a partial fragile-cover witness system:
@@ -2748,6 +2783,32 @@ radius, impossible in a finite directed cycle. See
 
 This is a narrow mechanism obstruction, not a general exclusion of 3-fold
 symmetric configurations and not a proof of Erdos #97.
+
+### Four- and five-orbit `C3` obstructions
+
+Status: `LEMMA_DRAFT_REVIEW_PENDING` / exact algebra replay for the restricted
+symmetry classes.
+
+For four distinct concentric equilateral-triangle orbits with neither aligned
+nor half-step phases, own-pair rich rows force eight supplier arcs on four
+labels.  A reciprocal supplier pair is unavoidable, and its two exact row
+equations force equal radii and aligned phases, hence coincident orbits.  The
+own-pair plus half-step-partner-pair row is also impossible because the forced
+radius ratio makes the center vertex the midpoint of the partner witnesses.
+
+For five generic orbits, the reciprocal-free own-pair supplier graph is the
+regular tournament.  Exact circle-product lemmas force each adjacent product
+to have modulus greater than one while their total product has modulus one.
+If instead all five rows use four cross-orbit singletons and all ten mutual
+gain-pairs are nonreciprocal, the directed pair equations make five nonzero
+vectors pairwise orthogonal in a four-dimensional form of signature `(2,2)`.
+The isotropic cases force an aligned or half-step pair, again a contradiction.
+
+These claims leave reciprocal all-cross gains, mixed row shapes, other
+half-step branches, partial orbits, and arbitrary polygons open.  See
+`docs/four-c3-generic-orbit-obstruction.md`,
+`docs/five-c3-tournament-obstruction.md`, and
+`docs/five-c3-all-cross-nonreciprocal-obstruction.md`.
 
 ### Cyclic polygon subcase
 

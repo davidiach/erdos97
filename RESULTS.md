@@ -177,6 +177,42 @@ noncentral orbits, four or more exterior-center concentric circles, `n=9`, or
 Erdos Problem #97. See `docs/symmetric-two-orbit-reduction.md` and
 `scripts/check_two_orbit_radius_propagation.py`.
 
+### Restricted four- and five-`C3`-orbit obstructions
+
+Status: `LEMMA_DRAFT_REVIEW_PENDING` / exact algebra replay for the stated
+symmetry classes only.
+
+For four distinct concentric equilateral-triangle orbits with no half-step
+phase pair, every own-pair rich row needs two singleton supplier orbits.  The
+eight supplier arcs on four labels force a reciprocal pair.  The two exact
+row equations then reduce to `(rho^2-1)^2=0`, forcing equal radii and aligned
+phases, hence coincident orbits.  An own-pair plus half-step-partner-pair row
+is also impossible: its radius ratio is `2`, making the center vertex the
+midpoint of the partner witnesses.
+
+For five generic orbits, a reciprocal-free own-pair supplier graph is the
+regular tournament.  After normalizing step-one gains, its factors lie on
+`C={x:|1-x|^2=3}`.  Exact zero- and primitive-gain product lemmas make every
+adjacent product have modulus greater than one, while the product of all five
+has modulus one.  This contradiction covers all gain assignments at once.
+
+For the strongest all-cross continuation, suppose every one of the five rows
+uses one singleton from each other orbit and all ten mutual gain sums are
+nonzero modulo three.  Eliminating the two directed pair equations gives
+pairwise orthogonality of five nonzero vectors in a fixed four-dimensional
+form of signature `(2,2)`.  Its isotropic alternatives force two orbits to
+have the same radius and row radius; the resulting pair is either aligned or
+half-step, contradicting the generic distinct-orbit assumptions.  This closes
+all `2^10` nonreciprocal mutual-gain patterns at once.
+
+These lemmas do not cover an all-cross system with a reciprocal gain-pair,
+mixed own-pair/all-cross rows, the remaining half-step branches, partial
+orbits, or arbitrary polygons.  They also do not turn the
+Barany--Roldan-Pensado edge-intersection 15-gon into a finite vertex
+counterexample.  See `docs/four-c3-generic-orbit-obstruction.md`,
+`docs/five-c3-tournament-obstruction.md`, and
+`docs/five-c3-all-cross-nonreciprocal-obstruction.md`.
+
 ### Lemma: minimal-counterexample critical tie
 
 Status: proved.
@@ -195,6 +231,41 @@ outside the deleted set.
 
 This is not rich-triple closure and does not imply ear-orderability or select a
 rich row. See `docs/minimal-fragile-cover-bridge.md`.
+
+### Lemma: two-deletion profiles and the all-rich-class pair budget
+
+Status: proved counting lemmas.
+
+In a vertex-minimal counterexample, delete any pair `A={x,z}` and choose a
+surviving good center.  Its complete original rich profile is exactly one
+size-four class hit by `A` (`T4`), one size-five class containing `A` (`T5`),
+or two disjoint size-four classes hit one seed each (`T44`).  Their exact
+deletion-pair capacities are `4n-14`, `10`, and `16`.  If `x,z` cover only
+each other through fragile `T4` centers, their deletion requires a `T5` or
+`T44` certifier; such exclusive mutual pairs satisfy `e<=2b+4c`.
+
+Quantifying the perpendicular-bisector count over **all** rich classes gives
+
+```text
+sum_y sum_{C rich at y} binom(|C|,2) <= n(n-2),
+sum_y sum_{C rich at y, x in C} (|C|-1) <= 2n-4.
+```
+
+For complete profile counts `b=T5`, `c=T44`, this implies
+`4b+6c<=n(n-8)`.  If `e` is the number of exclusive mutual pairs, their
+endpoints force `2e` distinct `T4` centers and each endpoint row contains its
+mate plus three nonendpoints.  Localized incidence and edge-sensitive pair
+capacity then give `e=0` at `n=9`, `e<=2` at `n=10`, and the universal bounds
+
+```text
+e <= floor(4n/9),
+e <= floor((n+1-sqrt(3n+1))/2).
+```
+
+These bounds do not force `e>0`, so they strengthen the bridge without giving
+a contradiction.  See
+`docs/minimal-two-deletion-profile.md` and
+`docs/all-rich-class-pair-budget.md`.
 
 ### Lemma: selected-path self-edge obstruction
 

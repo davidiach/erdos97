@@ -143,6 +143,18 @@ non-quarter branches stay screen-grade for `m <= 16` and open beyond --
 and it is not a proof of Erdos #97. See
 [`docs/quarter-cell-derivative-certificate.md`](docs/quarter-cell-derivative-certificate.md).
 
+For concentric equilateral-triangle orbits, review-pending exact reciprocal and
+circle-product obstruction drafts exclude the natural four- and five-orbit
+own-pair constructions.  A four-dimensional orthogonality argument also
+excludes the generic all-five four-cross-singleton system when every mutual
+gain-pair is nonreciprocal.  Reciprocal all-cross gains, mixed row shapes, and
+uncovered half-step shapes remain, so this is a restricted obstruction rather
+than a global result; see
+[`docs/four-c3-generic-orbit-obstruction.md`](docs/four-c3-generic-orbit-obstruction.md),
+[`docs/five-c3-tournament-obstruction.md`](docs/five-c3-tournament-obstruction.md),
+and
+[`docs/five-c3-all-cross-nonreciprocal-obstruction.md`](docs/five-c3-all-cross-nonreciprocal-obstruction.md).
+
 An exact bounded certificate also rules out the real two-mode cyclic family
 `z_i = w^i + t w^(k i)` for every real `t`, `9 <= n <= 80`, and
 `2 <= k <= n-2`. Its deterministic replay covers 2,988 `(n,k)` cases
@@ -196,6 +208,8 @@ Use [`STATE.md`](STATE.md) for the working frontier and
 [`docs/index.md`](docs/index.md) for the complete packet inventory. The focused
 proof-facing route is summarized in
 [`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md),
+[`docs/minimal-two-deletion-profile.md`](docs/minimal-two-deletion-profile.md),
+[`docs/all-rich-class-pair-budget.md`](docs/all-rich-class-pair-budget.md),
 [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md),
 [`docs/bootstrap-t12-bridge-target-map.md`](docs/bootstrap-t12-bridge-target-map.md),
 and the current

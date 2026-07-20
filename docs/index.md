@@ -248,6 +248,16 @@ put detailed reconciliation in the canonical synthesis.
 - [`threefold-pair-lift-obstruction.md`](threefold-pair-lift-obstruction.md):
   narrow Danzer-style 3-fold lift obstruction for rows using same-orbit mates
   plus one other orbit-pair.
+- [`four-c3-generic-orbit-obstruction.md`](four-c3-generic-orbit-obstruction.md):
+  review-pending exact reciprocal-supplier obstruction draft for four generic concentric
+  equilateral-triangle orbits, plus one half-step midpoint degeneration.
+- [`five-c3-tournament-obstruction.md`](five-c3-tournament-obstruction.md):
+  review-pending exact circle-product obstruction draft for the five-orbit
+  reciprocal-free regular tournament with own-pair rows.
+- [`five-c3-all-cross-nonreciprocal-obstruction.md`](five-c3-all-cross-nonreciprocal-obstruction.md):
+  review-pending exact signature-`(2,2)` obstruction draft when all five rows
+  use four cross-orbit singletons and all ten mutual gain-pairs are
+  nonreciprocal.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
   minimum-radius short-chord filter; records why it does not kill `C19_skew`
   by itself.
@@ -260,6 +270,12 @@ put detailed reconciliation in the canonical synthesis.
   partial bridge theorem showing that every minimal counterexample admits a
   fragile-cover witness system; also records why this is not sufficient,
   including endpoint-control survivor row-circle and Kalmanson audits.
+- [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
+  `T4`/`T5`/`T44` classification for centers made good by deleting two
+  vertices, with pair capacities and the exclusive-mutual-pair corollary.
+- [`all-rich-class-pair-budget.md`](all-rich-class-pair-budget.md): global and
+  localized perpendicular-bisector budgets quantified simultaneously over
+  every rich distance class, plus the two-deletion profile excess ledger.
 - [`block6-fragile-vertex-circle-extension-audit.md`](block6-fragile-vertex-circle-extension-audit.md):
   bounded audit showing that the two-block block-6 fragile-cover obstruction
   closes once full selected-row extension is combined with vertex-circle

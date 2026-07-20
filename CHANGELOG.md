@@ -21,6 +21,26 @@ counterexample are claimed.
   convex polygons remain outside their scope. No general proof or
   counterexample is claimed, and the official and local source-of-truth
   statuses are unchanged.
+- Strengthened minimal-counterexample structure from one deletion to two.
+  Every center made good by deleting a pair has complete rich profile exactly
+  `T4`, `T5`, or `T44`, with exact deletion-pair capacities `4n-14`, `10`,
+  and `16`.  An all-rich-class version of the perpendicular-bisector budget
+  simultaneously proves global mass at most `n(n-2)` and localized mass at
+  most `2n-4`.  Exclusive mutual-pair endpoints force additional `T4` rows;
+  endpoint/nonendpoint incidence and pair capacities give exact upper bounds,
+  including `e=0` at `n=9` and `e<=2` at `n=10`.  These proved bridge lemmas
+  still do not force an exclusive pair or solve the global problem.
+- Added review-pending exact restricted obstruction drafts for four and five
+  concentric equilateral-triangle (`C3`) orbits.  Four generic orbits force a
+  reciprocal supplier pair and hence coincident orbits.  Five generic own-pair rows are
+  killed either by the same reciprocal lemma or by a circle-product modulus
+  contradiction for the regular tournament.  A signature-`(2,2)`
+  orthogonality argument also excludes the all-five four-cross-singleton
+  system when all ten mutual gain-pairs are nonreciprocal.  One half-step row
+  shape is excluded by a midpoint degeneration.  Reciprocal all-cross gains,
+  mixed row shapes, and remaining half-step rows stay outside these claims;
+  the results do not extract a finite counterexample from the
+  Barany--Roldan-Pensado boundary 15-gon.
 
 ## 2026-07-17
 

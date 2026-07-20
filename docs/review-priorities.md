@@ -698,7 +698,9 @@ benchmarks for the larger frontier:
 
 ## Priority 8b - strengthen the fragile-cover bridge
 
-Target: `docs/minimal-fragile-cover-bridge.md` and
+Target: `docs/minimal-fragile-cover-bridge.md`,
+`docs/minimal-two-deletion-profile.md`,
+`docs/all-rich-class-pair-budget.md`, and
 `src/erdos97/fragile_hypergraph.py`.
 
 Bridge target map: `docs/lemma-driven-bridge-targets.md` summarizes the
@@ -713,6 +715,9 @@ extension diagnostic: it rejects the single six-vertex block but still permits
 two disjoint blocks. The next useful bridge work is to add a geometric
 condition that the surviving multi-block family does not automatically satisfy:
 
+- control overlap among `T4` pair-cover sets strongly enough to force an
+  exclusive mutual pair, or use the proved exclusive-endpoint triple capacity
+  to obtain a geometric contradiction;
 - dependency-cycle restrictions for the witness map `pi`;
 - critical-radius ordering or deletion-dependency inequalities;
 - exact row-circle constraints on the fragile rows;
