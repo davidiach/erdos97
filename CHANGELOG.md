@@ -9,6 +9,12 @@ counterexample are claimed.
 
 ## 2026-07-20
 
+- Corrected the two legacy external-source audits to hash LF-normalized
+  bytes, repinned all six affected digests to the canonical Git blobs, and
+  added CRLF fixture coverage through both public audit entry points. This is
+  a portability and reproducibility repair only; it changes no mathematical
+  claim or repository status.
+
 - Added the cubic-graph half-branch model-case lemma. A marked-root
   factorization of the degree-six distance fiber shows that any finite sample
   on one closed side of a polynomial cubic graph's inflection has an outer

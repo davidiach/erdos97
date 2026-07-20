@@ -14,9 +14,12 @@ Repository:
 ```text
 commit  5e43baeb6fb5f5c51745e05696a7f1b29bf52b0a
 source  lean/Erdos9796Proof/P97/U1LargeCapRouteBTail.lean
-SHA256  d2aaf3c9d51360143769c60312c1e3d8c18e8c166d4c757eb7b6ab68de5573ad
-README  9601dfa1e09df058bfcfa6673141559b884c495876d40344989bbcfe3fdc265d
+LF-SHA256  03478c4ba4bd2b5019ea047b96748c333408d487857bdcc227ba5ae534227e48
+README LF-SHA256  6625641332bdb1d18ba11459158ee77951e7d50fc7a575c735a94974a8a10004
 ```
+
+The digests are computed after normalizing checkout CRLF line endings to LF,
+matching the canonical Git blob bytes on both Windows and POSIX checkouts.
 
 Run:
 

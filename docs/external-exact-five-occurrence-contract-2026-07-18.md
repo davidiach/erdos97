@@ -24,17 +24,20 @@ Repository:
 commit  5e43baeb6fb5f5c51745e05696a7f1b29bf52b0a
 
 LargeOppositeCapsBiApexSurface.lean
-SHA256  40dffe39fa980b23baeca91809d32f5f2ae3d6faa7fded1a1a9c1f096f8d331b
+LF-SHA256  f6ad84e10773d6298b775858889a07ebbbf63029306b7d45200cd982d38c593f
 
 FirstApexShellRole.lean
-SHA256  b2ac9b20c6ef1db57c3dcdcea9289cf1b3a6074eb325297c398c411d555fff03
+LF-SHA256  ac0212e83499063557c9ccba0de6d33f794f49058cec927a4c2183581df455d6
 
 LargeCapUniqueFivePhysicalOmissionTransitionGlobal.lean
-SHA256  7651c4312bda034174a461960da50b25270abe1509931f33822c11e50b12babc
+LF-SHA256  d8f855b54355e49766bb11e5ff0864786cdd0770b3adcbfdad713f2f46fbd362
 
 ParentExactFiveAssembler.lean
-SHA256  0082e83a319af8b5e8484967c1a88eadf63bc4a0a7876e571855b60762c683ff
+LF-SHA256  3e7d8bcdebd8a5c4f19cb49db3223eb17b9c3eb3970be544e2db2ba04cf00122
 ```
+
+All four digests normalize checkout CRLF line endings to LF before hashing,
+so the documented replay matches canonical Git blob bytes across platforms.
 
 Reproduce the source audit with:
 

@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
 
-from erdos97.external_frontier_audit import _git_commit
+from erdos97.external_frontier_audit import _git_commit, _lf_bytes
 
 
 EXPECTED_COMMIT = "5e43baeb6fb5f5c51745e05696a7f1b29bf52b0a"
@@ -31,16 +31,16 @@ ASSEMBLER_SOURCE = Path(
 
 EXPECTED_SOURCE_SHA256 = {
     PARENT_SOURCE: (
-        "40dffe39fa980b23baeca91809d32f5f2ae3d6faa7fded1a1a9c1f096f8d331b"
+        "f6ad84e10773d6298b775858889a07ebbbf63029306b7d45200cd982d38c593f"
     ),
     ROLE_SOURCE: (
-        "b2ac9b20c6ef1db57c3dcdcea9289cf1b3a6074eb325297c398c411d555fff03"
+        "ac0212e83499063557c9ccba0de6d33f794f49058cec927a4c2183581df455d6"
     ),
     TRANSITION_SOURCE: (
-        "7651c4312bda034174a461960da50b25270abe1509931f33822c11e50b12babc"
+        "d8f855b54355e49766bb11e5ff0864786cdd0770b3adcbfdad713f2f46fbd362"
     ),
     ASSEMBLER_SOURCE: (
-        "0082e83a319af8b5e8484967c1a88eadf63bc4a0a7876e571855b60762c683ff"
+        "3e7d8bcdebd8a5c4f19cb49db3223eb17b9c3eb3970be544e2db2ba04cf00122"
     ),
 }
 
@@ -148,7 +148,7 @@ def audit_external_exact_five_contract(
             raise FileNotFoundError(
                 f"missing external contract source: {source_path}"
             )
-        source_bytes = source_path.read_bytes()
+        source_bytes = _lf_bytes(source_path.read_bytes())
         source = source_bytes.decode("utf-8")
         path_key = relative_path.as_posix()
         source_hashes[path_key] = sha256(source_bytes).hexdigest()

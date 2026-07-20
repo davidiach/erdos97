@@ -84,6 +84,9 @@ repo-authored statement overclaims a proof or counterexample.
 
 #### H1 — The 2026-07-18 external audits pin CRLF hashes; their documented reproduction fails on any standard checkout
 
+Post-review disposition: **resolved after the reviewed snapshot by PR #890**.
+The finding and snapshot count are retained here as historical review evidence.
+
 - Location: `src/erdos97/external_frontier_audit.py:18-23`
   (`EXPECTED_SOURCE_SHA256`, `EXPECTED_README_SHA256`),
   `src/erdos97/external_exact_five_contract.py:16,32-45`;
