@@ -175,6 +175,12 @@ put detailed reconciliation in the canonical synthesis.
 - [`parabola-model-case.md`](parabola-model-case.md): restricted exact lemma
   showing that finite point sets on a nondegenerate affine parabola cannot be
   counterexamples; a failed search family, not a global bridge.
+- [`cubic-graph-half-branch-model-case.md`](cubic-graph-half-branch-model-case.md):
+  marked-cofactor lemma showing that a finite sample on one closed half-branch
+  of a nondegenerate polynomial cubic graph cannot be a counterexample; a
+  failed search family, plus an exact globally convex quartic one-rich-row
+  negative control; not a claim about samples straddling the inflection or a
+  finite quartic closure.
 - [`hyperbola-branch-model-case.md`](hyperbola-branch-model-case.md):
   restricted exact lemma showing that finite point sets on one branch of a
   Euclidean hyperbola cannot be counterexamples; a failed search family, not a

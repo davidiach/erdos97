@@ -454,6 +454,15 @@ should not be duplicated here. The convex-body discretization route is only
 interesting if it uses multi-arc closure in a way the one-parabola endpoint
 argument cannot see.
 
+A second exact boundary is now recorded in
+`docs/cubic-graph-half-branch-model-case.md`: a finite sample on one closed
+half-branch of a polynomial cubic graph always has a good outer endpoint. The
+same note gives a globally strictly convex quartic graph with one endpoint and
+four exact same-radius arc intersections, certified by Sturm counts. Thus a
+one-arc marked-root continuation should start with quartic degree or with a
+cubic sample that genuinely uses both sides of its inflection. The quartic
+example is one rich row only, not finite closure or counterexample evidence.
+
 ## 4. Reciprocal-Radial Global Budget
 
 Trust label: `RESEARCH_PACKET`.

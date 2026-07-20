@@ -7,6 +7,21 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-20
+
+- Added the cubic-graph half-branch model-case lemma. A marked-root
+  factorization of the degree-six distance fiber shows that any finite sample
+  on one closed side of a polynomial cubic graph's inflection has an outer
+  endpoint with no four-point distance class. The same note records an exact
+  Sturm-certified globally convex quartic negative control with four
+  same-radius arc intersections from one endpoint, showing where this cubic
+  obstruction stops. These are a restricted failed-family lemma and a
+  one-rich-row search control only: samples straddling the cubic inflection,
+  finite quartic closure, general parametric cubics, and arbitrary strictly
+  convex polygons remain outside their scope. No general proof or
+  counterexample is claimed, and the official and local source-of-truth
+  statuses are unchanged.
+
 ## 2026-07-17
 
 - Added a review-pending exact bounded certificate for the real two-mode cyclic
