@@ -16,10 +16,10 @@ import subprocess
 TAIL_SOURCE = Path("lean/Erdos9796Proof/P97/U1LargeCapRouteBTail.lean")
 EXPECTED_COMMIT = "5e43baeb6fb5f5c51745e05696a7f1b29bf52b0a"
 EXPECTED_SOURCE_SHA256 = (
-    "d2aaf3c9d51360143769c60312c1e3d8c18e8c166d4c757eb7b6ab68de5573ad"
+    "03478c4ba4bd2b5019ea047b96748c333408d487857bdcc227ba5ae534227e48"
 )
 EXPECTED_README_SHA256 = (
-    "9601dfa1e09df058bfcfa6673141559b884c495876d40344989bbcfe3fdc265d"
+    "6625641332bdb1d18ba11459158ee77951e7d50fc7a575c735a94974a8a10004"
 )
 
 EXPECTED_OPEN_DECLARATIONS = frozenset(
@@ -39,6 +39,11 @@ EXPECTED_OPEN_DECLARATIONS = frozenset(
     }
 )
 EXPECTED_TEXTUAL_HOLES = 32
+
+
+def _lf_bytes(data: bytes) -> bytes:
+    """Normalize checkout line endings to the committed LF convention."""
+    return data.replace(b"\r\n", b"\n")
 
 
 @dataclass(frozen=True)
@@ -213,8 +218,8 @@ def audit_external_frontier(checkout: Path) -> ExternalFrontierAudit:
     if not readme_path.is_file():
         raise FileNotFoundError(f"missing external README: {readme_path}")
 
-    source_bytes = source_path.read_bytes()
-    readme_bytes = readme_path.read_bytes()
+    source_bytes = _lf_bytes(source_path.read_bytes())
+    readme_bytes = _lf_bytes(readme_path.read_bytes())
     source = source_bytes.decode("utf-8")
     readme = readme_bytes.decode("utf-8")
     hole_lines, textual_holes = _open_declarations(source)
