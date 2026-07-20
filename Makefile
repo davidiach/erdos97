@@ -160,6 +160,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
 	$(PYTHON) scripts/check_scalable_strict_cycle_control.py --assert-expected --json
 	$(PYTHON) scripts/check_scalable_kalmanson_inverse_control.py --assert-expected --json
+	$(PYTHON) scripts/check_scalable_kalmanson_three_control.py --assert-expected --json
 	$(PYTHON) scripts/check_rich_support_counting_bound.py --check --json
 	$(PYTHON) scripts/check_support_saturation_obstruction.py --check --json
 	$(PYTHON) scripts/check_near_saturation_support_obstruction.py --check --check-artifact --json

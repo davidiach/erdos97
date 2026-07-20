@@ -326,9 +326,9 @@ put detailed reconciliation in the canonical synthesis.
   adaptive selected-witness peeling versus radius-blocker bridge fork.
 - [`scalable-strict-cycle-bridge-control.md`](scalable-strict-cycle-bridge-control.md):
   infinite singleton-rich negative control with no Kalmanson self-edge or
-  primitive inverse pair and shortest vertex-circle quotient cycle `n`; an
-  explicit four-inequality Kalmanson circuit records an essential scope
-  limitation, while the three-inequality case remains unclassified.
+  positive Kalmanson circuit using at most three inequalities and shortest
+  vertex-circle quotient cycle `n`; an explicit support-minimal
+  four-inequality circuit records the essential scope limitation.
 - [`radius-blocker-vertex-circle-pilot.md`](radius-blocker-vertex-circle-pilot.md):
   first exact-four-row radius-blocker packet diagnostic using vertex-circle
   quotient replay; bridge tooling only, not a proof.

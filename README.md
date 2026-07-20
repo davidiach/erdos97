@@ -218,10 +218,9 @@ These diagnostics do not promote the review-pending `n=9` candidate.
 The complementary
 [`scalable strict-cycle control`](docs/scalable-strict-cycle-bridge-control.md)
 shows why these abstract bridge axioms alone cannot force a bounded
-vertex-circle certificate, Kalmanson self-edge, or primitive inverse pair.
-Its explicit four-inequality Kalmanson circuit shows that this control does
-not extend to every bounded Kalmanson certificate; the three-inequality case
-is not classified here.
+vertex-circle certificate or a Kalmanson circuit using at most three
+inequalities. Its explicit support-minimal four-inequality Kalmanson circuit
+shows that this control does not extend to every bounded Kalmanson certificate.
 
 An incoming `n=10` singleton-slice continuation is recorded as a finite-case
 draft review target only; see

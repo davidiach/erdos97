@@ -877,10 +877,11 @@ selected-distance quotient has no strict Kalmanson self-edge, and an exact
 96-template linear-integer replay rules out primitive inverse pairs for every
 `k >= 8`. Nevertheless, the unique cyclic vertex-circle quotient component is
 one simple cycle of length `n`, so no universally bounded vertex-circle
-localization follows from these abstract conditions. The first member has an
-explicit four-inequality Kalmanson circuit, so this negative control does not
-extend to every bounded Kalmanson certificate. The three-inequality case is
-not classified here.
+localization follows from these abstract conditions. A second exact
+all-parameter matching/Presburger replay rules out every three-inequality
+positive circuit. The first member's explicit four-inequality Kalmanson
+circuit is therefore support-minimal, so this negative control does not extend
+to every bounded Kalmanson certificate.
 
 The family is not geometrically realizable in the displayed order: its summed
 row equalities contradict Altman's strict diagonal-sum chain. It therefore is

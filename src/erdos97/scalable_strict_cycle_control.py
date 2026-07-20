@@ -657,6 +657,218 @@ def assert_expected_symbolic_inverse_classification(
         raise AssertionError("symbolic inverse per-kind classification changed")
 
 
+def symbolic_three_circuit_classification(
+    *,
+    timeout_ms: int = 120_000,
+) -> dict[str, object]:
+    """Decide the all-``k`` three-row Kalmanson circuit question.
+
+    Every nonzero reduced row in this family has coefficients in
+    ``{-1, 0, 1}``.  If three such vectors have a minimal positive linear
+    dependence, a rank-two minor argument restricts its primitive weights to
+    ``(1, 1, 1)`` or a permutation of ``(2, 1, 1)``.  The doubled row is put
+    first in the latter case.  Equal-weight rows may be permuted, leaving ten
+    weight/kind cases up to symmetry.
+
+    For each case, weighted positive and negative pair occurrences cancel in
+    the quotient exactly when they admit a perfect matching by quotient
+    class.  The matching and the disjoint-star class equality are encoded in
+    quantifier-free linear integer arithmetic.
+
+    The import is deliberately lazy because z3 is a development dependency.
+    """
+    import itertools
+
+    import z3
+
+    k = z3.Int("scalable_three_k")
+    n = 6 * k - 1
+    b, c, d, e, f, g, h, p, q, r, s = z3.Ints(
+        "scalable_three_b scalable_three_c scalable_three_d "
+        "scalable_three_e scalable_three_f scalable_three_g "
+        "scalable_three_h scalable_three_p scalable_three_q "
+        "scalable_three_r scalable_three_s"
+    )
+    offsets = (k + 1, 2 * k + 3, 3 * k + 1, 5 * k)
+
+    def selected(center, witness):
+        return z3.Or(
+            *(
+                z3.Or(witness - center == offset, witness - center == offset - n)
+                for offset in offsets
+            )
+        )
+
+    def same_class(first, second):
+        left, right = first
+        other_left, other_right = second
+        return z3.Or(
+            z3.And(left == other_left, right == other_right),
+            z3.And(left == other_right, right == other_left),
+            z3.And(
+                left == other_left,
+                selected(left, right),
+                selected(left, other_right),
+            ),
+            z3.And(
+                left == other_right,
+                selected(left, right),
+                selected(left, other_left),
+            ),
+            z3.And(
+                right == other_left,
+                selected(right, left),
+                selected(right, other_right),
+            ),
+            z3.And(
+                right == other_right,
+                selected(right, left),
+                selected(right, other_left),
+            ),
+        )
+
+    def signed_pairs(quadruple, kind):
+        a0, b0, c0, d0 = quadruple
+        positive = ((a0, c0), (b0, d0))
+        if kind == 1:
+            negative = ((a0, b0), (c0, d0))
+        else:
+            negative = ((a0, d0), (b0, c0))
+        return positive, negative
+
+    quadruples = (
+        (z3.IntVal(0), b, c, d),
+        (e, f, g, h),
+        (p, q, r, s),
+    )
+    order_constraints = (
+        0 < b,
+        b < c,
+        c < d,
+        d < n,
+        0 <= e,
+        e < f,
+        f < g,
+        g < h,
+        h < n,
+        0 <= p,
+        p < q,
+        q < r,
+        r < s,
+        s < n,
+    )
+
+    unit_kind_cases = tuple(itertools.combinations_with_replacement((1, 2), 3))
+    doubled_kind_cases = tuple(
+        (first_kind, second_kind, third_kind)
+        for first_kind in (1, 2)
+        for second_kind, third_kind in itertools.combinations_with_replacement(
+            (1, 2), 2
+        )
+    )
+    cases = tuple(
+        [((1, 1, 1), kinds) for kinds in unit_kind_cases]
+        + [((2, 1, 1), kinds) for kinds in doubled_kind_cases]
+    )
+
+    def decide(domain_constraint, weights, kinds) -> str:
+        positive: list[tuple[object, object]] = []
+        negative: list[tuple[object, object]] = []
+        for quadruple, kind, weight in zip(quadruples, kinds, weights):
+            row_positive, row_negative = signed_pairs(quadruple, kind)
+            positive.extend(row_positive * weight)
+            negative.extend(row_negative * weight)
+
+        size = len(positive)
+        case_name = "_".join(map(str, (*weights, *kinds)))
+        matching = [
+            z3.Int(f"scalable_three_match_{case_name}_{index}")
+            for index in range(size)
+        ]
+        solver = z3.Solver()
+        solver.set("timeout", timeout_ms)
+        solver.add(*order_constraints, domain_constraint)
+        solver.add(z3.Distinct(*matching))
+        for index, target in enumerate(matching):
+            solver.add(
+                z3.Or(
+                    *(
+                        z3.And(
+                            target == other_index,
+                            same_class(positive[index], negative[other_index]),
+                        )
+                        for other_index in range(size)
+                    )
+                )
+            )
+        return str(solver.check())
+
+    def case_key(weights, kinds) -> str:
+        return (
+            f"weights={','.join(map(str, weights))};"
+            f"kinds={','.join(map(str, kinds))}"
+        )
+
+    case_decisions = {
+        case_key(weights, kinds): decide(k >= 8, weights, kinds)
+        for weights, kinds in cases
+    }
+    values = set(case_decisions.values())
+    if "sat" in values:
+        all_k_decision = "sat"
+    elif "unknown" in values:
+        all_k_decision = "unknown"
+    else:
+        all_k_decision = "unsat"
+
+    controls = {
+        "k_6_unit_K1_control": decide(k == 6, (1, 1, 1), (1, 1, 1)),
+        "k_7_unit_K1_control": decide(k == 7, (1, 1, 1), (1, 1, 1)),
+    }
+    return {
+        "schema": "erdos97.scalable_kalmanson_three_control.v1",
+        "solver": f"z3-{z3.get_version_string()}",
+        "logic": "quantifier-free linear integer arithmetic",
+        "primitive_weight_patterns": [[1, 1, 1], [2, 1, 1]],
+        "raw_weight_kind_case_count": 16,
+        "symmetry_reduced_case_count": len(cases),
+        "matching_sizes": {"weights_1_1_1": 6, "weights_2_1_1": 8},
+        "decisions": {
+            "all_k_at_least_8": all_k_decision,
+            **controls,
+        },
+        "case_decisions": case_decisions,
+    }
+
+
+def assert_expected_symbolic_three_circuit_classification(
+    summary: dict[str, object],
+) -> None:
+    """Assert the all-parameter three-row exclusion and exception controls."""
+    expected_decisions = {
+        "all_k_at_least_8": "unsat",
+        "k_6_unit_K1_control": "sat",
+        "k_7_unit_K1_control": "sat",
+    }
+    if summary.get("decisions") != expected_decisions:
+        raise AssertionError(
+            f"symbolic three-row decisions changed: {summary.get('decisions')!r}"
+        )
+    if summary.get("primitive_weight_patterns") != [[1, 1, 1], [2, 1, 1]]:
+        raise AssertionError("primitive three-row weight classification changed")
+    if summary.get("raw_weight_kind_case_count") != 16:
+        raise AssertionError("expected sixteen raw weight/kind cases")
+    if summary.get("symmetry_reduced_case_count") != 10:
+        raise AssertionError("expected ten weight/kind cases up to row symmetry")
+    case_decisions = summary.get("case_decisions")
+    if not isinstance(case_decisions, dict) or len(case_decisions) != 10:
+        raise AssertionError("symbolic three-row case table is incomplete")
+    if set(case_decisions.values()) != {"unsat"}:
+        raise AssertionError(
+            f"symbolic three-row case decisions changed: {case_decisions!r}"
+        )
+
+
 def _adjacency(
     edges: tuple[StrictInequality, ...],
 ) -> dict[Pair, set[Pair]]:

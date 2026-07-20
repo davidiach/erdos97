@@ -729,11 +729,11 @@ condition that the surviving multi-block family does not automatically satisfy:
   failures.
 - treat `docs/scalable-strict-cycle-bridge-control.md` as the current
   unbounded-locality guardrail: the isolated axioms allow no Kalmanson
-  self-edge or primitive two-inequality inverse pair and a first
-  vertex-circle cycle of length `n`, even though Altman globally obstructs the
-  family. A strengthened bridge must use a richer metric certificate (the
-  first member already has a four-inequality Kalmanson circuit), genuinely
-  global information, or growing certificate support.
+  positive circuit using at most three inequalities and a first vertex-circle
+  cycle of length `n`, even though Altman globally obstructs the family. A
+  strengthened bridge must use at least four Kalmanson inequalities (the first
+  member has a support-minimal four-inequality circuit), genuinely global
+  information, or growing certificate support.
 - adaptive radius-blocker analysis, as recorded in
   `docs/adaptive-radius-blocker-bridge.md`, which keeps all rich distance
   classes visible instead of fixing one selected row per center.

@@ -4,9 +4,11 @@ from erdos97.scalable_strict_cycle_control import (
     EXPECTED_SYMBOLIC_INVERSE_CLASSIFICATION_BY_KIND,
     assert_expected_structure,
     assert_expected_symbolic_inverse_classification,
+    assert_expected_symbolic_three_circuit_classification,
     build_report,
     family_parameters,
     symbolic_inverse_classification,
+    symbolic_three_circuit_classification,
 )
 
 
@@ -44,3 +46,13 @@ def test_all_k_primitive_inverse_pair_exclusion() -> None:
         summary["template_classification_by_kind"]
         == EXPECTED_SYMBOLIC_INVERSE_CLASSIFICATION_BY_KIND
     )
+
+
+@pytest.mark.slow
+def test_all_k_three_row_kalmanson_circuit_exclusion() -> None:
+    summary = symbolic_three_circuit_classification()
+    assert_expected_symbolic_three_circuit_classification(summary)
+
+    assert summary["primitive_weight_patterns"] == [[1, 1, 1], [2, 1, 1]]
+    assert summary["raw_weight_kind_case_count"] == 16
+    assert summary["symmetry_reduced_case_count"] == 10

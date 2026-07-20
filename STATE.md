@@ -122,9 +122,11 @@ abstract consequences. For `k >= 8`, the `6k-1` circulant rows with offsets
 `{k+1,2k+3,3k+1,5k}` satisfy the fragile-cover, good-deletion, crossing,
 hinge, and strict-turn conditions and have no Kalmanson self-edge or primitive
 inverse pair, but their shortest vertex-circle quotient cycle has length
-`6k-1`. An explicit four-inequality Kalmanson circuit at `k=8` shows that the
-control does not extend to all bounded Kalmanson certificates; the
-three-inequality case remains unclassified. Altman's global
+`6k-1`. An exact all-parameter matching/Presburger decision now rules out
+positive Kalmanson circuits using three inequalities as well. The explicit
+four-inequality Kalmanson circuit at `k=8` is therefore support-minimal and
+shows that the control does not extend to all bounded Kalmanson certificates.
+Altman's global
 diagonal-sum chain also kills the displayed order. Thus bounded vertex-circle
 localization needs an additional metric ingredient; the family is not a
 realization or counterexample. See

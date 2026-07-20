@@ -443,17 +443,21 @@ S_i=i+{k+1,2k+3,3k+1,5k}
 satisfies the isolated fragile-cover, good-deletion, incidence/crossing,
 hinge, and strict-turn conditions and has no reciprocal selected pair or
 Kalmanson self-edge. An exact 96-template Presburger replay also rules out a
-primitive two-inequality inverse pair for every `k>=8`. Its selected-distance
-vertex-circle quotient has one cyclic component, a simple cycle of length
-exactly `n`; hence the current abstract bridge conditions cannot force a
-universally bounded local vertex-circle certificate. The `k=8` member does
-have an explicit four-inequality Kalmanson circuit, and the displayed order is
-also globally impossible by Altman's diagonal-sum chain. This is a
+primitive two-inequality inverse pair for every `k>=8`, and an exact
+matching/Presburger replay rules out every three-inequality positive circuit.
+Its selected-distance vertex-circle quotient has one cyclic component, a
+simple cycle of length exactly `n`; hence the current abstract bridge
+conditions cannot force a universally bounded local vertex-circle
+certificate. The `k=8` member's explicit four-inequality Kalmanson circuit is
+therefore support-minimal, and the displayed order is also globally impossible
+by Altman's diagonal-sum chain. This is a
 bridge-method negative control, not a Euclidean realization, counterexample,
 or proof. See
 `docs/scalable-strict-cycle-bridge-control.md` and
 `scripts/check_scalable_strict_cycle_control.py`, with the all-parameter
-inverse replay in `scripts/check_scalable_kalmanson_inverse_control.py`.
+inverse and three-row replays in
+`scripts/check_scalable_kalmanson_inverse_control.py` and
+`scripts/check_scalable_kalmanson_three_control.py`.
 
 The stored block-6 vertex-circle full-extension audit adds a stronger geometric
 gate for that same two-block negative control in the natural cyclic order: all

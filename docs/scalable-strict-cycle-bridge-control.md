@@ -5,8 +5,9 @@ Status: `EXACT_ABSTRACT_NEGATIVE_CONTROL`.
 This note gives an infinite family of singleton-rich selected-row systems
 satisfying the currently isolated incidence, fragile-cover, good-deletion,
 hinge, and turn conditions.  It has no Kalmanson self-edge, while its shortest
-vertex-circle strict cycle has unbounded length.  The family is not a
-Euclidean realization and is not a counterexample to Erdos Problem #97.
+vertex-circle strict cycle has unbounded length.  It also has no positive
+Kalmanson quotient circuit using at most three inequalities.  The family is
+not a Euclidean realization and is not a counterexample to Erdos Problem #97.
 
 ## Family
 
@@ -225,6 +226,77 @@ primitive quotient vectors modulo translation.  It finds `7,580` vector
 orbits and zero inverse-orbit pairs at `k=8`, and `11,040` vector orbits and
 zero inverse-orbit pairs at `k=9`.
 
+## No positive circuit of three inequalities
+
+The previously open three-inequality case also has an exact all-parameter
+answer: for every `k >= 8`, no three reduced strict Kalmanson rows have a
+positive linear combination equal to zero.
+
+There are two reductions behind the finite Presburger decision.
+
+First, every nonzero reduced row has coefficients in `{-1,0,1}`.  Suppose
+three such column vectors `v1,v2,v3` form a minimal positive dependence.  The
+absence of inverse pairs makes their rank exactly two.  Choose two coordinate
+rows that witness rank two.  The primitive null vector is given by their
+three `2x2` minors, and every such minor of a `{-1,0,1}` matrix has absolute
+value at most two.  Thus every primitive positive coefficient is `1` or `2`.
+The pattern `(2,2,1)` is impossible by parity: in
+
+```text
+2 v1 + 2 v2 + v3 = 0,
+```
+
+every coordinate of `v3` would be even, forcing the nonzero `{-1,0,1}` vector
+`v3` to vanish.  After dividing a common factor and permuting rows, the only
+possibilities are therefore
+
+```text
+(1,1,1) or (2,1,1).
+```
+
+Second, expand each strict row before quotienting into its two positive and
+two negative pair occurrences.  For weights `(1,1,1)` there are six
+occurrences on each side; for `(2,1,1)` there are eight, because the first row
+is duplicated.  Their reduced vector sum is zero if and only if the positive
+and negative occurrence multisets have the same count in every quotient
+class.  Equivalently, there is a perfect matching from positive occurrences
+to negative occurrences in which matched pairs name the same quotient class.
+This equivalence is exact even when a row cancels internally.
+
+For `k >= 8`, selected radius classes are disjoint stars.  Two pair
+occurrences name the same quotient class exactly when they are the same
+unordered pair, or they are two selected spokes with the same center.  This
+has the quantifier-free linear integer encoding used for the inverse-pair
+control.
+
+By translation, the first quadruple may start at zero.  Equal-weight rows may
+be permuted; in the `(2,1,1)` case the doubled row is chosen first and the two
+unit-weight rows may be exchanged.  Translating through zero can swap `K1`
+and `K2` for a wrapped secondary quadruple, but the replay enumerates both
+kinds after reordering it.  The `16` raw weight/kind choices therefore reduce
+to `10` cases.  The exact matching-plus-arithmetic replay returns `UNSAT` for
+every case over `k >= 8`, with no unknown result.
+
+The nearby exception controls are positive.  At `k=6`, three `K1` rows are
+
+```text
+K1(0,19,20,31),
+K1(4,20,24,31),
+K1(0,16,19,31).
+```
+
+Their reduced vectors sum to zero.  At `k=7`, the same is true of
+
+```text
+K1(0,6,17,23),
+K1(0,8,24,32),
+K1(15,23,32,40).
+```
+
+The solver finds both controls as `SAT`.  Together with the explicit
+four-inequality circuit below, the all-`k` exclusion proves that the known
+`k=8` certificate has minimum support exactly four.
+
 ## Strict turn feasibility
 
 Use the uniform normalized exterior-turn assignment
@@ -355,6 +427,15 @@ python scripts/check_scalable_kalmanson_inverse_control.py \
   --json
 ```
 
+Replay the all-parameter three-inequality decision, its primitive-weight
+classification, and the `k=6,7` controls:
+
+```bash
+python scripts/check_scalable_kalmanson_three_control.py \
+  --assert-expected \
+  --json
+```
+
 or choose parameters explicitly:
 
 ```bash
@@ -374,17 +455,16 @@ python -m pytest -q -o addopts= tests/test_scalable_strict_cycle_control.py
 ## Consequence and scope boundary
 
 The family disproves any implication from the listed abstract axioms to a
-Kalmanson self-edge, a primitive two-inequality Kalmanson inverse pair, a
-vertex-circle cycle of universally bounded length, or a proper row-closed
-`9`/`10`-label localization.  Any such bridge needs either a different
-bounded multi-row pattern, global support that may grow with `n`, or an
+Kalmanson self-edge, a positive Kalmanson circuit using at most three
+inequalities, a vertex-circle cycle of universally bounded length, or a proper
+row-closed `9`/`10`-label localization.  Any such bridge needs at least four
+Kalmanson inequalities, global support that may grow with `n`, or an
 additional metric ingredient.
 
 This statement is deliberately narrower than a claim about the full
 Kalmanson cone.  The construction and replay do **not** rule out bounded
-positive circuits using three or more Kalmanson inequalities; in particular,
-the three-inequality case is unclassified. In fact the first member, `k=8`,
-has the exact four-inequality circuit
+positive circuits using four or more Kalmanson inequalities.  In fact the
+first member, `k=8`, has the exact support-minimal four-inequality circuit
 
 ```text
 d(1,16) > d(16,27) > d(16,37) > d(1,37) > d(1,16).
