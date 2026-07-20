@@ -34,7 +34,7 @@ unresolved occurrences. The artifact SHA-256 is
 
 ## Rewritten rather than copied
 
-+
+The packet contained a repository-shaped overlay and semantic integration
 snippets written for a generic target tree. The mathematical proof note was
 cleaned semantically, and source-of-truth updates were adapted to the live
 repository. No damaged prose was retained verbatim.
