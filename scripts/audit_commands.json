@@ -331,6 +331,17 @@
       "claim_scope": "Exact cleanup for selected speculative circulant patterns: C45 is killed as a fixed abstract selected-witness incidence pattern by the two-circle cap, while C41, C43, C49, and R44 are fixed-natural-order diagnostics only. No general proof of Erdos Problem #97 and no counterexample are claimed."
     },
     {
+      "id": "quartic_marked_root_gram",
+      "command": [
+        "python",
+        "scripts/check_quartic_marked_root_gram.py",
+        "--check",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Exact obstruction for pairwise-distinct planar polynomial parametrizations of coordinate degree at most four sampled on a nine-term arithmetic progression: one of the four normalized centers -4,0,3,4 is not four-rich. Not an irregular-parameter quartic obstruction, n=9 proof, counterexample, or proof of Erdos Problem #97."
+    },
+    {
       "id": "two_parabola_lens_grid_search",
       "command": [
         "python",
@@ -1418,6 +1429,36 @@
       "claim_scope": "Finite n=8/n=9 ear-orderability and obstruction cross-tab for Bridge Lemma A' proof mining; not a proof of the bridge, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update."
     },
     {
+      "id": "scalable_strict_cycle_control",
+      "command": [
+        "python",
+        "scripts/check_scalable_strict_cycle_control.py",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Exact abstract negative-control replay of the scalable strict-cycle bridge-control family; no Euclidean realization is claimed and it is not a proof of or counterexample to Erdos Problem #97."
+    },
+    {
+      "id": "scalable_kalmanson_inverse_control",
+      "command": [
+        "python",
+        "scripts/check_scalable_kalmanson_inverse_control.py",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Exact all-k primitive Kalmanson inverse-pair exclusion for the scalable abstract bridge-control family only; not a general Kalmanson result and not a proof of Erdos Problem #97."
+    },
+    {
+      "id": "scalable_kalmanson_three_control",
+      "command": [
+        "python",
+        "scripts/check_scalable_kalmanson_three_control.py",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Exact all-k three-row Kalmanson circuit exclusion for the scalable abstract bridge-control family only; longer certificates are not excluded and Erdos Problem #97 is not proved."
+    },
+    {
       "id": "brp_boundary_vertexization_probe",
       "command": [
         "python",
@@ -1427,6 +1468,36 @@
         "--json"
       ],
       "claim_scope": "Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed before A5 insertion with a signed synthetic A5 edge-pocket stress scan; not a finite extraction from the body, not the final 15-gon, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update."
+    },
+    {
+      "id": "four_c3_generic_orbit_obstruction",
+      "command": [
+        "python",
+        "scripts/check_four_c3_generic_orbit_obstruction.py",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Review-pending exact reciprocal-supplier replay for four generic concentric C3 orbits plus one half-step midpoint row; restricted family only, not a proof or counterexample for Erdos Problem #97."
+    },
+    {
+      "id": "five_c3_tournament_obstruction",
+      "command": [
+        "python",
+        "scripts/check_five_c3_tournament_obstruction.py",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Review-pending exact circle-product replay for five generic C3 own-pair rows; restricted family only, not a proof or counterexample for Erdos Problem #97."
+    },
+    {
+      "id": "five_c3_all_cross_nonreciprocal_obstruction",
+      "command": [
+        "python",
+        "scripts/check_five_c3_all_cross_nonreciprocal_obstruction.py",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Review-pending exact signature-(2,2) replay for five generic C3 all-cross rows with every mutual gain-pair nonreciprocal; restricted family only, not a proof or counterexample for Erdos Problem #97."
     },
     {
       "id": "rich_support_counting_bound",
@@ -1478,6 +1549,26 @@
         "--json"
       ],
       "claim_scope": "Proof-facing localized rich-support occurrence-counting lemma and small-n consequences; reduces hypothetical 4-bad nonagons to all-exact-four support systems but is not a proof of n=9, not a proof of Erdos Problem #97, and not a counterexample."
+    },
+    {
+      "id": "minimal_two_deletion_profile",
+      "command": [
+        "python",
+        "scripts/check_minimal_two_deletion_profile.py",
+        "--check",
+        "--json"
+      ],
+      "claim_scope": "Exact combinatorial replay for the minimal two-deletion profile lemma and exclusive-pair charging; necessary bridge structure only, not a proof or counterexample for Erdos Problem #97."
+    },
+    {
+      "id": "all_rich_class_pair_budget",
+      "command": [
+        "python",
+        "scripts/check_all_rich_class_pair_budget.py",
+        "--check",
+        "--json"
+      ],
+      "claim_scope": "Exact arithmetic replay for all-rich-class global/local budgets and exclusive endpoint aggregate bounds; necessary bridge structure only, not an incidence realization, proof, or counterexample for Erdos Problem #97."
     },
     {
       "id": "adjacent_closest_pair_nonagon_barrier",
@@ -2692,6 +2783,17 @@
       "claim_scope": "Second-source portable C++ replay artifact comparing all 126 draft n=10 singleton slices with the primary artifact; not a proof of n=10, a source-of-truth finite-case result, a counterexample, or an official/global status update."
     },
     {
+      "id": "n10_kalmanson_pair_filter_replay",
+      "command": [
+        "python",
+        "scripts/check_n10_kalmanson_pair_filter.py",
+        "--run-cpp",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Review-pending draft n=10 Kalmanson pair-filter replay with the portable C++ probe; finite-case draft evidence only, not an n=10 proof or an official/global status update."
+    },
+    {
       "id": "n10_singleton_input_audit",
       "command": [
         "python",
@@ -2951,13 +3053,21 @@
     ],
     "verify-bridge-frontier": [
       "bridge_lemma_frontier",
+      "scalable_strict_cycle_control",
+      "scalable_kalmanson_inverse_control",
+      "scalable_kalmanson_three_control",
       "rich_support_counting_bound",
       "support_saturation_obstruction",
       "near_saturation_support_obstruction",
       "n12_rich_support_determinant",
       "localized_rich_support_counting",
+      "minimal_two_deletion_profile",
+      "all_rich_class_pair_budget",
       "adjacent_closest_pair_nonagon_barrier",
       "brp_boundary_vertexization_probe",
+      "four_c3_generic_orbit_obstruction",
+      "five_c3_tournament_obstruction",
+      "five_c3_all_cross_nonreciprocal_obstruction",
       "three_orbit_quarter_cell_derivative_certificate_m8_12_16",
       "bootstrap_core_crosswalk",
       "bootstrap_vertex_circle_overlay",
@@ -3053,6 +3163,7 @@
       "n10_singleton_input_audit",
       "n10_vertex_circle_singleton_draft",
       "n10_fast_cpp_singleton_replay",
+      "n10_kalmanson_pair_filter_replay",
       "n10_secondary_singleton_replay"
     ]
   }

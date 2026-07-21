@@ -7,6 +7,22 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-21
+
+- Added a post-hoc full-Gram reclassification of the quartic marked-root
+  pilot. Writing `B=E11+A=C^T*C` makes every marked row homogeneous and shows
+  that the repeatedly reported negative-semidefinite root `A*=-E11` is the
+  zero Gram `B=0`. The corrected extension accounting is 315 canonical affine
+  solution states, comprising 314 lines and one singleton, rather than 315
+  lines. Exact rank and inertia checks, together with the two degenerate
+  rank-two PSD anchor rays, give a restricted lemma: a pairwise-distinct
+  planar degree-at-most-four polynomial sample at nine equally-spaced
+  parameters has a non-four-rich center among positions `-4,0,3,4`. Convexity
+  is not used. This post-hoc upgrade does not cover irregular parameters,
+  higher-dimensional samples, implicit quartics, higher degree, or arbitrary
+  strictly convex polygons, and it changes no global or source-of-truth
+  status.
+
 ## 2026-07-20
 
 - Corrected the two legacy external-source audits to hash LF-normalized
@@ -15,6 +31,17 @@ counterexample are claimed.
   a portability and reproducibility repair only; it changes no mathematical
   claim or repository status.
 
+- Added an exact marked-root Gram obstruction for degree-exactly-four
+  polynomial graph samples at nine equally spaced parameters. Three anchor
+  rows leave `199349` rank-nine systems and `2729` canonical rank-eight
+  exceptional states; exact rank-one-minor checks kill the former, and adding
+  all 70 marked rows at one further center collapses the latter to 315 affine
+  solution states (314 lines and one singleton), none with a rank-one PSD
+  degree-four graph Gram. The retained artifact has no unresolved state or
+  full closure. This is a failed equally-spaced
+  polynomial-graph family only, not an obstruction for irregular parameters,
+  general quartic arcs, or arbitrary strictly convex polygons. No global or
+  local source-of-truth status changes.
 - Added the cubic-graph half-branch model-case lemma. A marked-root
   factorization of the degree-six distance fiber shows that any finite sample
   on one closed side of a polynomial cubic graph's inflection has an outer
@@ -27,6 +54,48 @@ counterexample are claimed.
   convex polygons remain outside their scope. No general proof or
   counterexample is claimed, and the official and local source-of-truth
   statuses are unchanged.
+- Strengthened minimal-counterexample structure from one deletion to two.
+  Every center made good by deleting a pair has complete rich profile exactly
+  `T4`, `T5`, or `T44`, with exact deletion-pair capacities `4n-14`, `10`,
+  and `16`.  An all-rich-class version of the perpendicular-bisector budget
+  simultaneously proves global mass at most `n(n-2)` and localized mass at
+  most `2n-4`.  Exclusive mutual-pair endpoints force additional `T4` rows;
+  endpoint/nonendpoint incidence and pair capacities give exact upper bounds,
+  including `e=0` at `n=9` and `e<=2` at `n=10`.  These proved bridge lemmas
+  still do not force an exclusive pair or solve the global problem.
+- Added review-pending exact restricted obstruction drafts for four and five
+  concentric equilateral-triangle (`C3`) orbits.  Four generic orbits force a
+  reciprocal supplier pair and hence coincident orbits.  Five generic own-pair rows are
+  killed either by the same reciprocal lemma or by a circle-product modulus
+  contradiction for the regular tournament.  A signature-`(2,2)`
+  orthogonality argument also excludes the all-five four-cross-singleton
+  system when all ten mutual gain-pairs are nonreciprocal.  One half-step row
+  shape is excluded by a midpoint degeneration.  Reciprocal all-cross gains,
+  mixed row shapes, and remaining half-step rows stay outside these claims;
+  the results do not extract a finite counterexample from the
+  Barany--Roldan-Pensado boundary 15-gon.
+
+## 2026-07-19
+
+- Added an exact infinite singleton-rich bridge negative control on
+  `n=6k-1`, `k>=8`. It satisfies the currently isolated fragile-cover,
+  good-deletion, crossing, hinge, and strict-turn conditions, has no
+  Kalmanson self-edge or primitive two-inequality inverse pair, and has
+  shortest vertex-circle quotient cycle exactly `n`. The inverse claim is an
+  exact all-parameter 96-template linear-integer decision; an explicit
+  all-parameter matching/Presburger decision also rules out three-inequality
+  positive circuits. The four-inequality Kalmanson circuit at `k=8` is
+  therefore support-minimal and shows that this control does not extend to
+  every bounded Kalmanson certificate. Altman's
+  growing-support diagonal-sum obstruction also rejects the displayed order.
+  This limits bounded-local bridge claims and is not a realization,
+  counterexample, or global status change.
+- Added an algebraically independent exact `n=10` selected-witness replay.
+  The complete C++ search closes all `126` labelled row-zero choices using
+  only necessary incidence filters plus Kalmanson self-edges and primitive
+  scalar-opposite inequality pairs; independent Python code matches three
+  slices exactly. This is finite-case draft review evidence only, with no
+  source-of-truth or global status promotion.
 
 ## 2026-07-17
 

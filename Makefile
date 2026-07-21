@@ -141,13 +141,21 @@ verify-n9-review:
 
 verify-bridge-frontier:
 	$(PYTHON) scripts/check_bridge_lemma_frontier.py --check --assert-expected --json
+	$(PYTHON) scripts/check_scalable_strict_cycle_control.py --assert-expected --json
+	$(PYTHON) scripts/check_scalable_kalmanson_inverse_control.py --assert-expected --json
+	$(PYTHON) scripts/check_scalable_kalmanson_three_control.py --assert-expected --json
 	$(PYTHON) scripts/check_rich_support_counting_bound.py --check --json
 	$(PYTHON) scripts/check_support_saturation_obstruction.py --check --json
 	$(PYTHON) scripts/check_near_saturation_support_obstruction.py --check --check-artifact --json
 	$(PYTHON) scripts/check_n12_rich_support_determinant.py --check --json
 	$(PYTHON) scripts/check_localized_rich_support_counting.py --check --json
+	$(PYTHON) scripts/check_minimal_two_deletion_profile.py --check --json
+	$(PYTHON) scripts/check_all_rich_class_pair_budget.py --check --json
 	$(PYTHON) scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json
 	$(PYTHON) scripts/check_brp_boundary_probe.py --check --assert-expected --json
+	$(PYTHON) scripts/check_four_c3_generic_orbit_obstruction.py --assert-expected --json
+	$(PYTHON) scripts/check_five_c3_tournament_obstruction.py --assert-expected --json
+	$(PYTHON) scripts/check_five_c3_all_cross_nonreciprocal_obstruction.py --assert-expected --json
 	$(PYTHON) scripts/check_quarter_cell_derivative_certificate.py --artifact data/certificates/quarter_cell_derivative_certificate.json --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_core_crosswalk.py --check --assert-expected --json
 	$(PYTHON) scripts/check_bootstrap_vertex_circle_overlay.py --check --assert-expected --json
@@ -243,6 +251,7 @@ verify-n10-review:
 	$(PYTHON) scripts/check_n10_singleton_input_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 	$(PYTHON) scripts/check_n10_fast_cpp_singleton_replay.py --check --json
+	$(PYTHON) scripts/check_n10_kalmanson_pair_filter.py --run-cpp --assert-expected --json
 	$(PYTHON) scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
 
 # END GENERATED VERIFY TARGETS

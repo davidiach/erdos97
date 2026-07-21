@@ -883,6 +883,8 @@ Read first:
 
 - `docs/codex-strategy-instructions.md`
 - `docs/minimal-fragile-cover-bridge.md`
+- `docs/minimal-two-deletion-profile.md`
+- `docs/all-rich-class-pair-budget.md`
 - `src/erdos97/fragile_hypergraph.py`
 - `scripts/check_fragile_hypergraph.py`
 - `docs/stuck-set-miner.md`
@@ -894,6 +896,8 @@ Commands:
 ```bash
 python scripts/check_fragile_hypergraph.py --json
 python scripts/check_fragile_hypergraph.py --blocks 2 --assert-ok --json
+python scripts/check_minimal_two_deletion_profile.py --check --json
+python scripts/check_all_rich_class_pair_budget.py --check --json
 python scripts/check_bootstrap_core_bridge.py --assert-expected
 python -m pytest tests/test_fragile_hypergraph.py -q
 ```
@@ -901,6 +905,8 @@ python -m pytest tests/test_fragile_hypergraph.py -q
 Expected artifacts:
 
 - one documented geometric necessary condition for minimal counterexamples;
+- or one proved `T4`-overlap condition that forces an exclusive mutual pair or
+  strengthens the endpoint-triple capacity obstruction;
 - checker support that can be run against the block-6 family, two disjoint
   block-6 families, and any current full-row extension survivors;
 - a short report explaining which abstract family is newly rejected and why the

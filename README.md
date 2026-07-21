@@ -143,6 +143,18 @@ non-quarter branches stay screen-grade for `m <= 16` and open beyond --
 and it is not a proof of Erdos #97. See
 [`docs/quarter-cell-derivative-certificate.md`](docs/quarter-cell-derivative-certificate.md).
 
+For concentric equilateral-triangle orbits, review-pending exact reciprocal and
+circle-product obstruction drafts exclude the natural four- and five-orbit
+own-pair constructions.  A four-dimensional orthogonality argument also
+excludes the generic all-five four-cross-singleton system when every mutual
+gain-pair is nonreciprocal.  Reciprocal all-cross gains, mixed row shapes, and
+uncovered half-step shapes remain, so this is a restricted obstruction rather
+than a global result; see
+[`docs/four-c3-generic-orbit-obstruction.md`](docs/four-c3-generic-orbit-obstruction.md),
+[`docs/five-c3-tournament-obstruction.md`](docs/five-c3-tournament-obstruction.md),
+and
+[`docs/five-c3-all-cross-nonreciprocal-obstruction.md`](docs/five-c3-all-cross-nonreciprocal-obstruction.md).
+
 An exact bounded certificate also rules out the real two-mode cyclic family
 `z_i = w^i + t w^(k i)` for every real `t`, `9 <= n <= 80`, and
 `2 <= k <= n-2`. Its deterministic replay covers 2,988 `(n,k)` cases
@@ -196,17 +208,30 @@ Use [`STATE.md`](STATE.md) for the working frontier and
 [`docs/index.md`](docs/index.md) for the complete packet inventory. The focused
 proof-facing route is summarized in
 [`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md),
+[`docs/minimal-two-deletion-profile.md`](docs/minimal-two-deletion-profile.md),
+[`docs/all-rich-class-pair-budget.md`](docs/all-rich-class-pair-budget.md),
 [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md),
 [`docs/bootstrap-t12-bridge-target-map.md`](docs/bootstrap-t12-bridge-target-map.md),
 and the current
 [`next-lemma obligation contract`](docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md).
 These diagnostics do not promote the review-pending `n=9` candidate.
+The complementary
+[`scalable strict-cycle control`](docs/scalable-strict-cycle-bridge-control.md)
+shows why these abstract bridge axioms alone cannot force a bounded
+vertex-circle certificate or a Kalmanson circuit using at most three
+inequalities. Its explicit support-minimal four-inequality Kalmanson circuit
+shows that this control does not extend to every bounded Kalmanson certificate.
 
 An incoming `n=10` singleton-slice continuation is recorded as a finite-case
 draft review target only; see
 [`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
 It now has a portable C++ second-source replay that matches all 126 stored
 singleton rows, still as review evidence only and not an `n=10` proof.
+A separate complete
+[`Kalmanson pair-filter replay`](docs/n10-kalmanson-pair-filter.md) reaches the
+same zero-assignment conclusion by an algebraically different exact search,
+with independent Python slice checks. It remains draft review evidence and
+does not change the source-of-truth or global status.
 
 ### Numerical near-misses
 

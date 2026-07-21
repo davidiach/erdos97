@@ -1,0 +1,891 @@
+{
+  "anchor_scan": {
+    "exceptional_affine_states": 2729,
+    "overlap_admissible_marked_triples": 202080,
+    "overlap_filtered_marked_triples": 140920,
+    "pair_inconsistent_pruned_triples": 0,
+    "quartets_per_center": 70,
+    "rank_counts": {
+      "8": 2731,
+      "9": 199349
+    },
+    "rank_nine_irrational_components": 0,
+    "rank_nine_lower_degree_rank_one_psd_roots": 0,
+    "rank_nine_marked_triples": 199349,
+    "rank_nine_negative_semidefinite_rank_one_roots": 199349,
+    "rank_nine_rational_quartic_grams": 0,
+    "rank_nine_whole_rank_at_most_one_lines": 0,
+    "rank_nine_without_real_rank_at_most_one": 0,
+    "rank_nine_zero_matrix_roots": 0,
+    "raw_marked_triples": 343000,
+    "sample_survivors": [
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-4",
+            "-1",
+            "0",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-4",
+            "0",
+            "1",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-4",
+            "0",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-3",
+            "-2",
+            "0",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-3",
+            "-1",
+            "0",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-3",
+            "0",
+            "1",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-3",
+            "0",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-2",
+            "-1",
+            "0",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-2",
+            "0",
+            "1",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-2",
+            "0",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-1",
+            "0",
+            "1",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "-1",
+            "0",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "4"
+          ],
+          [
+            "0",
+            "1",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-1",
+            "0",
+            "4"
+          ],
+          [
+            "-4",
+            "-2",
+            "0",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-1",
+            "0",
+            "4"
+          ],
+          [
+            "-4",
+            "0",
+            "1",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-1",
+            "0",
+            "4"
+          ],
+          [
+            "-4",
+            "0",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-1",
+            "0",
+            "4"
+          ],
+          [
+            "-3",
+            "-2",
+            "0",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-1",
+            "0",
+            "4"
+          ],
+          [
+            "-3",
+            "-1",
+            "0",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-1",
+            "0",
+            "4"
+          ],
+          [
+            "-3",
+            "0",
+            "1",
+            "3"
+          ]
+        ]
+      },
+      {
+        "dimension": 2,
+        "kind": "UNRESOLVED_AFFINE_FAMILY",
+        "rank": 8,
+        "witnesses": [
+          [
+            "-4",
+            "-3",
+            "3",
+            "4"
+          ],
+          [
+            "-4",
+            "-1",
+            "0",
+            "4"
+          ],
+          [
+            "-3",
+            "0",
+            "2",
+            "3"
+          ]
+        ]
+      }
+    ],
+    "third_row_inconsistent_triples": 0
+  },
+  "claim_scope": {
+    "ambient_dimension": 2,
+    "convexity_used": false,
+    "maximum_coordinate_degree": 4,
+    "pairwise_distinctness_required": true,
+    "parameter_sets": "NINE_TERM_REAL_ARITHMETIC_PROGRESSIONS",
+    "sample_size": 9,
+    "statement": "For every real planar polynomial map gamma of degree at most four, sampled at nine equally spaced parameters, if the nine sample points are pairwise distinct then at least one of the four positions corresponding after affine reparameterization to -4,0,3,4 is not four-rich within the sample.",
+    "test_center_set_guaranteed_to_contain_a_non_rich_position_after_normalization": [
+      "-4",
+      "0",
+      "3",
+      "4"
+    ]
+  },
+  "controls": {
+    "higher_rank_psd_relaxation_trap": {
+      "extra_direction": [
+        "-15180",
+        "1553",
+        "-66",
+        "1"
+      ],
+      "marked_equations_hold": true,
+      "positive_semidefinite": true,
+      "rank_one": false,
+      "rejected_as_planar_quartic_graph": true
+    },
+    "positive_one_rich_row": {
+      "center": "0",
+      "claim_boundary": "ONE_RICH_ROW_ONLY_NOT_FINITE_CLOSURE",
+      "coefficients": [
+        "-51017/6552",
+        "337469/393120",
+        "-2503/65520",
+        "253/393120"
+      ],
+      "independent_divisibility_holds": true,
+      "marked_equations_hold": true,
+      "rank_one_psd_degree_four": true,
+      "squared_radius": "625",
+      "strictly_convex_on_0_24": true,
+      "witnesses": [
+        "7",
+        "15",
+        "20",
+        "24"
+      ]
+    }
+  },
+  "decisive_test_card": {
+    "classification": "PREDECLARED_ORIGINAL_GRAPH_TEST",
+    "hypotheses": {
+      "fixed_grid_closure": "one rank-one PSD degree-four Gram survives every center and the finite strict-convexity gate",
+      "local_only": "anchor affine systems fail the planar rank-one gate or their exceptional states die under further rows"
+    },
+    "predeclared_stopping_rule": "Report an exact fixed-grid obstruction only when the exceptional affine frontier is empty; otherwise preserve unresolved states.",
+    "question": "Can the one-rich-row quartic flexibility close all nine rows on the smallest equally spaced parameter grid not already covered by n<=8?",
+    "result_status": "NO_STRICTLY_CONVEX_DEGREE_FOUR_CLOSURE_ON_FIXED_GRID"
+  },
+  "does_not_check": [
+    "arbitrary or irregular real parameter sets",
+    "polynomial parametrizations of degree greater than four",
+    "higher-dimensional Euclidean samples",
+    "implicit or general algebraic quartic curves not given by one polynomial parametrization",
+    "multi-arc constructions",
+    "general strictly convex polygons",
+    "a proof or counterexample for Erdos Problem #97"
+  ],
+  "extension_steps": [
+    {
+      "center": "-4",
+      "deduplicated_affine_states_out": 0,
+      "deduplicated_consistent_affine_states": 315,
+      "higher_dimensional_states_retained": 0,
+      "input_affine_states": 2729,
+      "irrational_or_rank_one_line_states_retained": 0,
+      "linearly_consistent_branches": 191030,
+      "linearly_inconsistent_branches": 0,
+      "lower_degree_rank_one_psd_roots": 0,
+      "negative_semidefinite_rank_one_roots": 315,
+      "rational_line_rank_one_quartic_grams": 0,
+      "raw_state_row_branches": 191030,
+      "row_options_per_state": 70,
+      "specified_non_rank_one_grams": 0,
+      "states_without_real_rank_at_most_one": 0,
+      "unique_rank_one_quartic_gram_states": 0,
+      "zero_matrix_roots": 0
+    }
+  ],
+  "model": {
+    "anchor_centers": [
+      "0",
+      "3",
+      "4"
+    ],
+    "extension_centers": [
+      "-4",
+      "-3",
+      "-2",
+      "-1",
+      "1",
+      "2"
+    ],
+    "full_gram_upgrade": {
+      "B_variable_order": [
+        "B11",
+        "B12",
+        "B13",
+        "B14",
+        "B22",
+        "B23",
+        "B24",
+        "B33",
+        "B34",
+        "B44"
+      ],
+      "E11_upper": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "constant_coefficients": "OMITTED_BECAUSE_TRANSLATIONS_PRESERVE_DISTANCES",
+      "identity": "B=A+E11",
+      "planar_gate": "B=C^T*C, B nonzero PSD, rank(B)<=2",
+      "translated_marked_rows": "HOMOGENEOUS_LINEAR_EQUATIONS_IN_B"
+    },
+    "gram_variable_order": [
+      "A11",
+      "A12",
+      "A13",
+      "A14",
+      "A22",
+      "A23",
+      "A24",
+      "A33",
+      "A34",
+      "A44"
+    ],
+    "parameters": [
+      "-4",
+      "-3",
+      "-2",
+      "-1",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "planar_gate": "A=a*a^T, rank one, positive semidefinite, A44>0",
+    "row_equations_per_marked_quartet": 3
+  },
+  "outcome": {
+    "all_row_quartic_grams": 0,
+    "continuous_convex_full_closures": 0,
+    "continuously_convex_rank_one_quartic_grams": 0,
+    "rank_one_quartic_grams": 0,
+    "sample_candidates": [],
+    "strict_finite_full_closures": 0,
+    "unresolved_affine_states": 0
+  },
+  "post_hoc_full_gram_upgrade": {
+    "anchor_kernel_census": {
+      "determinant_negative": 101793,
+      "determinant_positive": 97186,
+      "determinant_zero": 370,
+      "inertia_1_1_2": 277,
+      "inertia_1_2_1": 5,
+      "inertia_1_3_0": 7051,
+      "inertia_2_0_2": 2,
+      "inertia_2_1_1": 86,
+      "inertia_2_2_0": 95884,
+      "inertia_3_1_0": 94742,
+      "inertia_4_0_0": 1302,
+      "other_rank_one_roots": 0,
+      "phantom_roots": 199349,
+      "planar_kernel_lines": 2,
+      "rank_2": 279,
+      "rank_3": 91,
+      "rank_4": 198979,
+      "unique_kernel_lines": 190895
+    },
+    "anchor_planar_rank_two_psd_candidates": [
+      {
+        "center_multiplicities": [
+          2,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "collision_pairs": [
+          [
+            "-3",
+            "4"
+          ],
+          [
+            "-2",
+            "3"
+          ],
+          [
+            "-1",
+            "2"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "full_gram_upper": [
+          "292",
+          "-248",
+          "-88",
+          "44",
+          "211",
+          "74",
+          "-37",
+          "28",
+          "-14",
+          "7"
+        ],
+        "pairwise_distinct": false,
+        "rank": 2,
+        "strictly_convex_sample": false
+      },
+      {
+        "center_multiplicities": [
+          2,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "collision_pairs": [
+          [
+            "-3",
+            "4"
+          ],
+          [
+            "-2",
+            "-1"
+          ],
+          [
+            "2",
+            "3"
+          ]
+        ],
+        "full_gram_upper": [
+          "2308",
+          "108",
+          "-232",
+          "24",
+          "183",
+          "18",
+          "-21",
+          "28",
+          "-6",
+          "3"
+        ],
+        "pairwise_distinct": false,
+        "rank": 2,
+        "strictly_convex_sample": false
+      }
+    ],
+    "classification": "POST_HOC_FULL_GRAM_STRUCTURAL_UPGRADE",
+    "extension_kernel_census": {
+      "affine_rank_10_states": 1,
+      "affine_rank_9_states": 314,
+      "determinant_negative": 231,
+      "determinant_positive": 72,
+      "determinant_zero": 11,
+      "inertia_1_1_2": 11,
+      "inertia_1_2_1": 0,
+      "inertia_1_3_0": 99,
+      "inertia_2_0_2": 0,
+      "inertia_2_1_1": 0,
+      "inertia_2_2_0": 6,
+      "inertia_3_1_0": 132,
+      "inertia_4_0_0": 66,
+      "kernel_rank_2": 11,
+      "kernel_rank_3": 0,
+      "kernel_rank_4": 303,
+      "other_rank_one_roots": 0,
+      "phantom_line_roots": 314,
+      "phantom_singletons": 1,
+      "planar_kernel_lines": 0,
+      "raw_affine_rank_10_branches": 190710,
+      "raw_affine_rank_9_branches": 320
+    },
+    "homogeneous_identity": {
+      "every_marked_row_contains_phantom": true,
+      "every_translated_marked_row_is_homogeneous": true,
+      "formula": "B=A+E11",
+      "phantom_full_gram_upper": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "phantom_interpretation": "A*=-E11 is the zero full Gram B=0, not a realizable nonzero planar coefficient Gram.",
+      "universal_graph_gram_phantom_upper": [
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "outcome": {
+      "affine_reparameterization_scope": "ALL_NINE_TERM_REAL_ARITHMETIC_PROGRESSIONS",
+      "pairwise_distinct_planar_candidates_rich_at_all_four_test_centers": 0,
+      "specific_center_set_forced_to_contain_non_rich_position": [
+        "-4",
+        "0",
+        "3",
+        "4"
+      ],
+      "strictly_convex_planar_candidates_rich_at_all_four_test_centers": 0,
+      "unresolved_affine_states_after_four_test_centers": 0
+    }
+  },
+  "post_hoc_structural_upgrade_card": {
+    "classification": "POST_HOC_FULL_GRAM_STRUCTURAL_UPGRADE",
+    "derivation": "Translate A to the homogeneous full coefficient Gram B=A+E11, classify every one-dimensional kernel by exact rank and inertia, and check pairwise distinctness of the only two planar anchor rays.",
+    "predeclared": false,
+    "stronger_than_original_graph_test": "Covers arbitrary planar polynomial parametrizations of degree at most four on every nine-term arithmetic progression and does not use convexity."
+  },
+  "provenance": {
+    "arithmetic": "fractions.Fraction exact rational elimination plus primitive integer symmetric-matrix rank and inertia",
+    "check_command": "python scripts/check_quartic_marked_root_gram.py --check --assert-expected --json",
+    "command": "python scripts/check_quartic_marked_root_gram.py --write-artifact --check --assert-expected --json",
+    "full_gram_upgrade_phase": "POST_HOC",
+    "generator": "scripts/check_quartic_marked_root_gram.py",
+    "original_test_phase": "PREDECLARED",
+    "summary_type": "QuarticClosurePilotSummary"
+  },
+  "schema": "erdos97.quartic_marked_root_gram.v2",
+  "status": "NO_PAIRWISE_DISTINCT_PLANAR_DEGREE_AT_MOST_FOUR_SAMPLE_RICH_AT_ALL_FOUR_TEST_CENTERS_ON_NINE_TERM_ARITHMETIC_PROGRESSION",
+  "trust": "EXACT_OBSTRUCTION"
+}

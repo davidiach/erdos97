@@ -8,7 +8,7 @@ counterexamples to currently checked local obstruction packets.
 Source of truth: `README.md`, `STATE.md`, `RESULTS.md`, `docs/claims.md`, and
 `metadata/erdos97.yaml`.
 
-Last assembled: 2026-06-09.
+Last assembled: 2026-07-20.
 
 ## Non-claims
 
@@ -30,6 +30,12 @@ controls each candidate must survive.
 
 - Minimality gives exact critical 4-ties: every minimal counterexample admits
   a fragile-cover witness system. See `docs/minimal-fragile-cover-bridge.md`.
+- Two-vertex deletion classifies every certifying center's complete rich
+  profile as `T4`, `T5`, or `T44`.  Counting every rich class simultaneously
+  gives global, localized, and exclusive-endpoint capacity bounds, including
+  exact restrictions on the three-nonendpoint blocks of exclusive endpoint
+  rows.  See `docs/minimal-two-deletion-profile.md` and
+  `docs/all-rich-class-pair-budget.md`.
 - Adaptive peeling gives the ear-orderable/radius-blocker fork. A non-ear
   counterexample contains a radius-blocker. See
   `docs/adaptive-radius-blocker-bridge.md`.
@@ -56,6 +62,7 @@ force one of the stored local templates by themselves.
 | source `151`, row `6` | `docs/bootstrap-t12-151-6-outside-pair-connector-contract.md` splits endpoint-`8` supports from private-halo-only pair `[3,5]`; `docs/bootstrap-t12-151-6-outside-pair-escape-partition.md` shows the private-halo-only lane has `12` basic survivors before vertex-circle replay; `docs/bootstrap-t12-151-6-endpoint8-forcing-preflight.md` records that endpoint-`8` forcing is not ready from current evidence; `docs/bootstrap-t12-151-6-private-lane-core-catalog.md` shows every private-lane survivor has a row-`6` three-row strict-cycle core; `docs/bootstrap-t12-151-6-private-lane-strict-core-split.md` splits the `44` row-`6` three-row strict-cycle cores into `32` label-`8`-visible and `12` label-`8`-free occurrences; `docs/bootstrap-t12-151-6-label8-free-residual-targets.md` shows every label-`8`-free exact signature requires auxiliary witness label `4`; `docs/bootstrap-t12-151-6-label4-quotient-roles.md` shows label `4` reaches every residual strict cycle quotient class directly or through selected-distance equalities; `docs/bootstrap-t12-151-6-label4-transfer-paths.md` pins shortest selected-distance transfer paths from label-`4` pairs to cycle endpoint pairs; `docs/bootstrap-t12-151-6-label4-transfer-obligations.md` splits positive transfers into row-local equality obligations; `docs/bootstrap-t12-151-6-label4-transfer-length-components.md` collapses those obligations into six equal-length segment components, including the unique row-`6` cascade `D[0,6]=D[4,5]=D[5,6]`; `docs/bootstrap-t12-151-6-label4-transfer-component-feasibility.md` rejects component-alone impossibility by giving a strict cyclic arc witness for each component considered alone; `docs/bootstrap-t12-151-6-label4-support-hypothesis-ledger.md` pins the seven centered support requirements and shows the cascade needs center `5` with `[4,6]` plus center `6` with `[0,5]`, while no transfer requirement is exact pair `[3,5]`; `docs/bootstrap-t12-151-6-label4-cascade-row-criticality.md` shows the auxiliary-center-`5,8` cascade signatures need the full local row package `{5,6,8}` for the strict cycle; `docs/bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md` shows any center-`8` rich class containing `[0,4,6]` keeps those cascade packages quotient-obstructed; `docs/bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md` records that current support evidence has no center-`8` support requirement and does not force that rich triple; `docs/bootstrap-t12-151-6-label4-center8-source-crosswalk.md` records that the existing source-`151` row-`8` singleton packet does not supply any pair from `[0,4,6]`; `docs/bootstrap-t12-151-6-label4-center8-core-route.md` shows `8` of `9` center-`8` cores are target-compatible, but only `4` of `32` label-`8`-visible cores are visible and target-compatible, with `6` assignments still lacking a center-`8` target core; `docs/bootstrap-t12-151-6-label4-center8-residual-target-rows.md` splits those six assignments into four off-center `[0,4,6]` row cases and two target-sparse cases; `docs/bootstrap-t12-151-6-label4-center8-migration-support-crosswalk.md` shows `3` of `5` off-center rows have same-center support backing, but none supplies center-`8` migration | Force endpoint-`8` outside-pair support, prove center migration for support-backed off-center `[0,4,6]` rows, obstruct target-sparse assignments `0` and `11`, or add a genuine geometric source for the center-`8` rich triple plus the row-`5`/row-`6` cascade equalities |
 | source `151`, rows `7` and `8` | `docs/bootstrap-t12-hard-strict-endpoints.md` isolates missing strict-edge endpoint sets | Supply the hard endpoint labels from genuine closure/support geometry, not fixed-row bookkeeping |
 | block-6 fragile family | `docs/block6-fragile-vertex-circle-extension-audit.md` and `docs/bridge-negative-controls.md` record exact negative controls | A minimal/rich-class condition that rejects the family beyond fixed natural/block-preserving order slices |
+| exclusive mutual-pair endpoint triples | `docs/minimal-two-deletion-profile.md` and `docs/all-rich-class-pair-budget.md` bound their centers, incidences, and nonendpoint witness-pair capacity | Force an exclusive pair, control overlap among the endpoint triples, or extract a geometric contradiction from their two equal-radius endpoint circles |
 
 For the source-`151`, row-`6` center-`8` lane, the migration preflight in
 `docs/bootstrap-t12-151-6-label4-center8-migration-preflight.md` is the

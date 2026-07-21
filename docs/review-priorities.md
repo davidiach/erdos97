@@ -593,6 +593,10 @@ vertex-circle filters. Treat this as a draft until an independent audit checks:
   selected-distance equalities;
 - that a second implementation or replayable terminal-conflict certificate
   agrees with all 126 slices, not only the current selected row0 spot-checks.
+- independently audit `docs/n10-kalmanson-pair-filter.md` and the complete
+  C++ replay, which close the same labelled domain through strict Kalmanson
+  self-edges and primitive scalar-opposite quotient rows; its independent
+  Python implementation currently cross-checks slices `0`, `63`, and `125`.
 
 Acceptance standard: a reviewer should either promote the artifact to the same
 review-pending finite-case status as n=9, or identify the exact implementation,
@@ -698,7 +702,9 @@ benchmarks for the larger frontier:
 
 ## Priority 8b - strengthen the fragile-cover bridge
 
-Target: `docs/minimal-fragile-cover-bridge.md` and
+Target: `docs/minimal-fragile-cover-bridge.md`,
+`docs/minimal-two-deletion-profile.md`,
+`docs/all-rich-class-pair-budget.md`, and
 `src/erdos97/fragile_hypergraph.py`.
 
 Bridge target map: `docs/lemma-driven-bridge-targets.md` summarizes the
@@ -713,11 +719,21 @@ extension diagnostic: it rejects the single six-vertex block but still permits
 two disjoint blocks. The next useful bridge work is to add a geometric
 condition that the surviving multi-block family does not automatically satisfy:
 
+- control overlap among `T4` pair-cover sets strongly enough to force an
+  exclusive mutual pair, or use the proved exclusive-endpoint triple capacity
+  to obtain a geometric contradiction;
 - dependency-cycle restrictions for the witness map `pi`;
 - critical-radius ordering or deletion-dependency inequalities;
 - exact row-circle constraints on the fragile rows;
 - interaction between fragile-cover rows and stuck-set/ear-orderability
   failures.
+- treat `docs/scalable-strict-cycle-bridge-control.md` as the current
+  unbounded-locality guardrail: the isolated axioms allow no Kalmanson
+  positive circuit using at most three inequalities and a first vertex-circle
+  cycle of length `n`, even though Altman globally obstructs the family. A
+  strengthened bridge must use at least four Kalmanson inequalities (the first
+  member has a support-minimal four-inequality circuit), genuinely global
+  information, or growing certificate support.
 - adaptive radius-blocker analysis, as recorded in
   `docs/adaptive-radius-blocker-bridge.md`, which keeps all rich distance
   classes visible instead of fixing one selected row per center.

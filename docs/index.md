@@ -181,6 +181,16 @@ put detailed reconciliation in the canonical synthesis.
   failed search family, plus an exact globally convex quartic one-rich-row
   negative control; not a claim about samples straddling the inflection or a
   finite quartic closure.
+- [`quartic-marked-root-gram-pilot.md`](quartic-marked-root-gram-pilot.md):
+  exact fixed-grid continuation of that degree-four boundary using affine Gram
+  row equations, rank-one minors, and calibrated controls; the full exceptional
+  frontier closes after one further center, with no degree-four graph Gram or
+  unresolved state. A post-hoc full-Gram reclassification also rules out
+  pairwise-distinct planar degree-at-most-four polynomial samples at nine
+  equally-spaced parameters with four-rich rows at all four centers
+  `-4,0,3,4`, without using convexity. This remains a restricted
+  equally-spaced parametrized family, not a general quartic obstruction or a
+  global result.
 - [`hyperbola-branch-model-case.md`](hyperbola-branch-model-case.md):
   restricted exact lemma showing that finite point sets on one branch of a
   Euclidean hyperbola cannot be counterexamples; a failed search family, not a
@@ -248,6 +258,16 @@ put detailed reconciliation in the canonical synthesis.
 - [`threefold-pair-lift-obstruction.md`](threefold-pair-lift-obstruction.md):
   narrow Danzer-style 3-fold lift obstruction for rows using same-orbit mates
   plus one other orbit-pair.
+- [`four-c3-generic-orbit-obstruction.md`](four-c3-generic-orbit-obstruction.md):
+  review-pending exact reciprocal-supplier obstruction draft for four generic concentric
+  equilateral-triangle orbits, plus one half-step midpoint degeneration.
+- [`five-c3-tournament-obstruction.md`](five-c3-tournament-obstruction.md):
+  review-pending exact circle-product obstruction draft for the five-orbit
+  reciprocal-free regular tournament with own-pair rows.
+- [`five-c3-all-cross-nonreciprocal-obstruction.md`](five-c3-all-cross-nonreciprocal-obstruction.md):
+  review-pending exact signature-`(2,2)` obstruction draft when all five rows
+  use four cross-orbit singletons and all ten mutual gain-pairs are
+  nonreciprocal.
 - [`minimum-radius-filter.md`](minimum-radius-filter.md): weak exact
   minimum-radius short-chord filter; records why it does not kill `C19_skew`
   by itself.
@@ -260,6 +280,12 @@ put detailed reconciliation in the canonical synthesis.
   partial bridge theorem showing that every minimal counterexample admits a
   fragile-cover witness system; also records why this is not sufficient,
   including endpoint-control survivor row-circle and Kalmanson audits.
+- [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
+  `T4`/`T5`/`T44` classification for centers made good by deleting two
+  vertices, with pair capacities and the exclusive-mutual-pair corollary.
+- [`all-rich-class-pair-budget.md`](all-rich-class-pair-budget.md): global and
+  localized perpendicular-bisector budgets quantified simultaneously over
+  every rich distance class, plus the two-deletion profile excess ledger.
 - [`block6-fragile-vertex-circle-extension-audit.md`](block6-fragile-vertex-circle-extension-audit.md):
   bounded audit showing that the two-block block-6 fragile-cover obstruction
   closes once full selected-row extension is combined with vertex-circle
@@ -298,6 +324,11 @@ put detailed reconciliation in the canonical synthesis.
   negative controls for the minimal/rich-class bridge program.
 - [`adaptive-radius-blocker-bridge.md`](adaptive-radius-blocker-bridge.md):
   adaptive selected-witness peeling versus radius-blocker bridge fork.
+- [`scalable-strict-cycle-bridge-control.md`](scalable-strict-cycle-bridge-control.md):
+  infinite singleton-rich negative control with no Kalmanson self-edge or
+  positive Kalmanson circuit using at most three inequalities and shortest
+  vertex-circle quotient cycle `n`; an explicit support-minimal
+  four-inequality circuit records the essential scope limitation.
 - [`radius-blocker-vertex-circle-pilot.md`](radius-blocker-vertex-circle-pilot.md):
   first exact-four-row radius-blocker packet diagnostic using vertex-circle
   quotient replay; bridge tooling only, not a proof.
@@ -758,6 +789,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`n10-vertex-circle-singleton-slices.md`](n10-vertex-circle-singleton-slices.md):
   review-pending `n=10` singleton-slice finite-case draft, including the
   portable C++ all-slice replay and secondary first-five replay cross-checks.
+- [`n10-kalmanson-pair-filter.md`](n10-kalmanson-pair-filter.md):
+  independent exact `n=10` selected-row closure using Kalmanson self-edges
+  and exact-negative quotient-vector pairs, with a complete C++ replay and
+  independent Python slice checks; draft review evidence only.
 - [`n10-mixed-rich-support-capacity.md`](n10-mixed-rich-support-capacity.md):
   generator-independent `n=10` four/five support-capacity diagnostic; finite
   support bookkeeping only, not an `n=10` proof.

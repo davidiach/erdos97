@@ -780,6 +780,41 @@ This good-deletion rule is different from rich-triple closure and does not
 imply ear-orderability or force a selected row. See
 `docs/minimal-fragile-cover-bridge.md`.
 
+### Two-deletion profile and all-rich-class budget
+
+Status: `LEMMA` for a hypothetical vertex-minimal counterexample.
+
+For every deletion pair `A={x,z}`, some surviving good center has complete
+original rich profile exactly `T4`, `T5`, or `T44`: one size-four class hit
+by `A`; one size-five class containing both seeds; or two disjoint size-four
+classes hit one seed each.  The exact pair capacities are `4n-14`, `10`, and
+`16`.  Exclusive mutual fragile-cover pairs have no `T4` certifier and obey
+the matching charge `e<=2b+4c` to `T5` and `T44` centers.  Their `2e`
+endpoints are themselves distinct `T4` centers, and every endpoint class
+contains its mate plus three nonendpoints.
+
+The perpendicular-bisector pair count applies simultaneously to every rich
+class, not only one chosen support per center:
+
+```text
+sum_y sum_{C rich at y} binom(|C|,2) <= n(n-2),
+sum_y sum_{C rich at y, x in C} (|C|-1) <= 2n-4.
+```
+
+Thus complete `T5` and `T44` profile counts satisfy
+`4b+6c<=n(n-8)`.  The localized class-incidence bound forces every `n=9`
+center to be `T4`, hence `e=0`.  For general `n`, endpoint/nonendpoint
+incidence and pair capacities imply
+
+```text
+e <= floor(4n/9),
+e <= floor((n+1-sqrt(3n+1))/2).
+```
+
+These statements still do not force `e>0` or a contradiction.  See
+`docs/minimal-two-deletion-profile.md` and
+`docs/all-rich-class-pair-budget.md`.
+
 ### Minimal fragile-cover bridge
 
 Every minimal counterexample admits a partial fragile-cover witness system:
@@ -821,6 +856,38 @@ This is not a proof of Erdos Problem #97. It isolates the next bridge target:
 rule out radius-blockers using strict convexity, fragile-cover geometry, and
 the current exact obstruction stack, or construct an exact blocker escape
 mechanism. See `docs/adaptive-radius-blocker-bridge.md`.
+
+### Scalable strict-cycle bridge negative control
+
+Status: `EXACT_ABSTRACT_NEGATIVE_CONTROL`.
+
+For every `k >= 8`, put `n=6k-1` and give center `i` the sole abstract rich
+row
+
+```text
+S_i = i + {k+1, 2k+3, 3k+1, 5k} modulo n.
+```
+
+This singleton-rich system has a bijective essential fragile cover, satisfies
+good deletion from every nonempty seed, has a strongly connected selected
+digraph, obeys the row-intersection cap and every two-overlap crossing rule,
+is hinge-free, has no reciprocal selected pair, and strictly satisfies all
+stored turn inequalities under the uniform normalized assignment. Its full
+selected-distance quotient has no strict Kalmanson self-edge, and an exact
+96-template linear-integer replay rules out primitive inverse pairs for every
+`k >= 8`. Nevertheless, the unique cyclic vertex-circle quotient component is
+one simple cycle of length `n`, so no universally bounded vertex-circle
+localization follows from these abstract conditions. A second exact
+all-parameter matching/Presburger replay rules out every three-inequality
+positive circuit. The first member's explicit four-inequality Kalmanson
+circuit is therefore support-minimal, so this negative control does not extend
+to every bounded Kalmanson certificate.
+
+The family is not geometrically realizable in the displayed order: its summed
+row equalities contradict Altman's strict diagonal-sum chain. It therefore is
+not a counterexample and says nothing against growing-support Altman/Farkas,
+Ptolemy, Gram-rank, or other global metric arguments. See
+`docs/scalable-strict-cycle-bridge-control.md`.
 
 ### n=9 all-five-rich support obstruction
 
@@ -952,6 +1019,34 @@ This is a closure crosswalk for one bounded row0 slice only. It does not prove
 `n=10`, does not complete the `n=10` singleton-slice search, does not promote
 the row0 pilot to a completeness result, and does not provide a counterexample.
 See `docs/n10-turn-row0-combined-closure.md`.
+
+### n=10 Kalmanson self-edge / primitive-inverse replay
+
+Status: `MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING`.
+
+An independent exact search enumerates all `126` four-witness choices at every
+labelled center of a decagon. It uses only the row-intersection cap,
+two-overlap crossing, witness-pair capacity two, the derived selected
+indegree cap six, and two strict Kalmanson quotient obstructions: a zero row
+or two primitive coefficient rows that are exact negatives. Every filter is
+monotone under adding selected-distance equalities.
+
+The complete C++ traversal reports
+
+```text
+clean recursive nodes:       261,511
+self-edge prunes:             360,742
+primitive-inverse prunes:   1,213,492
+full assignments:                   0
+```
+
+All `126` row-zero choices are traversed without symmetry normalization.
+Independent Python replays of row-zero choices `0`, `63`, and `125` reproduce
+their C++ node and prune counts exactly. This is a second exact closure route
+for the labelled selected-witness `n=10` domain, but it remains a finite-case
+draft pending independent mathematical/code review. It does not cover
+`n>10`, settle the global problem, or alter the repository source-of-truth
+small-case result. See `docs/n10-kalmanson-pair-filter.md`.
 
 ### n=9 Kalmanson self-edge replay
 
@@ -2749,6 +2844,32 @@ radius, impossible in a finite directed cycle. See
 This is a narrow mechanism obstruction, not a general exclusion of 3-fold
 symmetric configurations and not a proof of Erdos #97.
 
+### Four- and five-orbit `C3` obstructions
+
+Status: `LEMMA_DRAFT_REVIEW_PENDING` / exact algebra replay for the restricted
+symmetry classes.
+
+For four distinct concentric equilateral-triangle orbits with neither aligned
+nor half-step phases, own-pair rich rows force eight supplier arcs on four
+labels.  A reciprocal supplier pair is unavoidable, and its two exact row
+equations force equal radii and aligned phases, hence coincident orbits.  The
+own-pair plus half-step-partner-pair row is also impossible because the forced
+radius ratio makes the center vertex the midpoint of the partner witnesses.
+
+For five generic orbits, the reciprocal-free own-pair supplier graph is the
+regular tournament.  Exact circle-product lemmas force each adjacent product
+to have modulus greater than one while their total product has modulus one.
+If instead all five rows use four cross-orbit singletons and all ten mutual
+gain-pairs are nonreciprocal, the directed pair equations make five nonzero
+vectors pairwise orthogonal in a four-dimensional form of signature `(2,2)`.
+The isotropic cases force an aligned or half-step pair, again a contradiction.
+
+These claims leave reciprocal all-cross gains, mixed row shapes, other
+half-step branches, partial orbits, and arbitrary polygons open.  See
+`docs/four-c3-generic-orbit-obstruction.md`,
+`docs/five-c3-tournament-obstruction.md`, and
+`docs/five-c3-all-cross-nonreciprocal-obstruction.md`.
+
 ### Cyclic polygon subcase
 
 If all vertices lie on one circle, then no vertex has more than two other
@@ -2841,6 +2962,77 @@ The left side is positive, while four distinct nonnegative roots give
 This is a restricted exact obstruction only. It does not cover cubic samples
 that use both sides of the inflection, general parametric cubic curves, or
 arbitrary strictly convex polygons.
+
+### Quartic equally-spaced marked-root model case
+
+Status: `EXACT_OBSTRUCTION` / `FAILED_SEARCH_FAMILY`.
+
+Let
+
+```text
+gamma(t) = (t, a1*t + a2*t^2 + a3*t^3 + a4*t^4),  a4 != 0,
+T = {-4,-3,-2,-1,0,1,2,3,4}.
+```
+
+There is no real coefficient vector for which every center in `T` has four
+other parameters in `T` at one common Euclidean distance. In particular, no
+strictly convex sample in this fixed family is a counterexample to Erdos
+Problem #97.
+
+The exact checker lifts the coefficients to the ten entries of
+`A=a*a^T`. Each marked witness quartet gives three affine equations in `A`.
+For anchor centers `0,3,4`, the two-circle overlap cap leaves `202080` of the
+`70^3=343000` marked triples. Of these, `199349` have affine rank nine and
+their exact rank-one root is the universal matrix `A*=-E11`, so they fail the
+planar PSD graph gate. The remaining `2731` rank-eight
+triples deduplicate to `2729` affine states. Appending every one of the 70
+marked rows at center `-4` gives `191030` consistent state-row branches but
+only 315 canonical affine solution states: 314 affine lines and the singleton
+`{A*}`. Their only rank-at-most-one matrix is again `A*`. No affine state,
+quartic graph Gram, or unresolved algebraic branch remains. See
+`docs/quartic-marked-root-gram-pilot.md` and
+`data/certificates/quartic_marked_root_gram.json`.
+
+A post-hoc exact strengthening homogenizes the same equations with the full
+coefficient Gram. For
+
+```text
+gamma(t) = C*(t,t^2,t^3,t^4)^T,
+B = C^T*C,
+```
+
+the marked equations are homogeneous in `B`, and the graph substitution is
+`B=E11+A`. Hence `A*` corresponds exactly to the zero Gram `B=0`. A
+one-dimensional kernel can represent a planar polynomial map only if its
+generator is semidefinite of rank at most two.
+
+The 315 extension states consist of one zero kernel and 314 lines. Their exact
+inertias are 231 nonsingular Lorentzian, 6 nonsingular `(2,2)`, 66 definite
+rank four, and 11 singular `(1,1,2)`. None contains a nonzero planar Gram.
+The only two PSD rank-two rays in the rigid rank-nine anchor stratum are
+
+```text
+(2308,108,-232,24,183,18,-21,28,-6,3),
+(292,-248,-88,44,211,74,-37,28,-14,7).
+```
+
+Both have positive-radius row multiplicities `(2,4,4,4,4,4,4,4,4)` across
+centers `-4,-3,...,4`, but both identify several parameter pairs and therefore
+fail pairwise distinctness; neither is four-rich at `-4`.
+
+It follows, post hoc, that a pairwise-distinct planar sample of a real
+degree-at-most-four polynomial parametrization at nine equally spaced
+parameters has a non-four-rich center among the four positions corresponding
+to `-4,0,3,4`. This uses no convexity hypothesis and extends by affine
+reparameterization to every nine-term arithmetic progression.
+
+The predeclared result remains an exact obstruction for one fixed
+equally-spaced polynomial-graph family. The post-hoc upgrade covers planar
+polynomial parametrizations of degree at most four on equally-spaced samples,
+but not irregular parameter sets, higher-dimensional samples, implicit or
+general algebraic quartics, multi-arc constructions, or arbitrary strictly
+convex polygons. It is not a global bridge and does not prove Erdos Problem
+#97.
 
 ### Hyperbola branch model case
 

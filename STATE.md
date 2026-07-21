@@ -95,6 +95,43 @@ remaining vertices and can be deleted next, so the process iterates through
 the whole polygon. This is not the rich-triple closure rule and does not imply
 ear-orderability or force a selected row.
 
+Deleting two vertices gives a sharper complete-profile lemma: a certifying
+center is exactly `T4`, `T5`, or `T44`.  The all-rich-class pair count now
+applies simultaneously to every rich class and gives global mass `<=n(n-2)`
+and localized mass `<=2n-4`.  Exclusive-pair endpoint rows sharpen this to
+`e=0` at `n=9`, `e<=2` at `n=10`, and explicit universal upper bounds for
+larger `n`.  The bounds still do not force `e>0`, so every `n>=9` remains open.
+See
+`docs/minimal-two-deletion-profile.md` and
+`docs/all-rich-class-pair-budget.md`.
+
+The five-orbit `C3` lane also has a review-pending exact boundary draft:
+generic four-orbit own-pair rows force coincident reciprocal suppliers, and
+generic five-orbit
+own-pair rows are impossible by a circle-product modulus contradiction.  The
+all-five four-cross-singleton system is also impossible when all ten mutual
+gain-pairs are nonreciprocal.  Reciprocal all-cross gains, mixed rows, and
+uncovered half-step shapes remain.  This is restricted-family progress, not a
+counterexample or global proof.  See
+`docs/four-c3-generic-orbit-obstruction.md`,
+`docs/five-c3-tournament-obstruction.md`, and
+`docs/five-c3-all-cross-nonreciprocal-obstruction.md`.
+
+An infinite singleton-rich negative control now pins the limit of those
+abstract consequences. For `k >= 8`, the `6k-1` circulant rows with offsets
+`{k+1,2k+3,3k+1,5k}` satisfy the fragile-cover, good-deletion, crossing,
+hinge, and strict-turn conditions and have no Kalmanson self-edge or primitive
+inverse pair, but their shortest vertex-circle quotient cycle has length
+`6k-1`. An exact all-parameter matching/Presburger decision now rules out
+positive Kalmanson circuits using three inequalities as well. The explicit
+four-inequality Kalmanson circuit at `k=8` is therefore support-minimal and
+shows that the control does not extend to all bounded Kalmanson certificates.
+Altman's global
+diagonal-sum chain also kills the displayed order. Thus bounded vertex-circle
+localization needs an additional metric ingredient; the family is not a
+realization or counterexample. See
+`docs/scalable-strict-cycle-bridge-control.md`.
+
 A stored block-6 vertex-circle full-extension audit adds one geometric gate to
 that negative control: in the natural cyclic order, the two-block block-6
 family has no full selected-row extension surviving the vertex-circle quotient
@@ -1016,6 +1053,16 @@ n=10 package is an audit target only and is not promoted to the source-of-truth
 finite-case result. A portable C++ second-source replay now matches all 126
 stored singleton rows and records the same n=9 calibration counts; it is
 reviewer-facing evidence, not a written independent review or status promotion.
+
+A separate exact Kalmanson pair-filter search now independently closes the
+same labelled `n=10` selected-witness domain. Its complete C++ traversal visits
+`261,511` clean recursive nodes, prunes `360,742` partial states by a strict
+self-edge and `1,213,492` by a primitive scalar-opposite inequality pair, and
+reaches zero full assignments. Independent Python implementations match
+row-zero slices `0`, `63`, and `125` exactly. This strengthens the audit trail
+but remains `MACHINE_CHECKED_FINITE_CASE_DRAFT_REVIEW_PENDING`; it is not a
+global proof or source-of-truth promotion. See
+`docs/n10-kalmanson-pair-filter.md`.
 
 The bounded `n=10` row0-index-0 turn pilot remains finite bookkeeping only:
 turn inequalities kill 156 of 160 raw assignments, while the four weak-turn SAT
