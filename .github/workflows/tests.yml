@@ -41,3 +41,7 @@ jobs:
             python -m pip install -e '.[dev]'
           fi
       - run: make verify-fast
+        env:
+          # Parallelize the fast pytest tier across all runner cores; the
+          # lint scripts ahead of it are unaffected.
+          PYTEST_ADDOPTS: -n auto
