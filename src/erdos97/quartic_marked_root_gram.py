@@ -1,6 +1,6 @@
-"""Exact marked-root Gram helpers for polynomial quartic graph samples.
+"""Exact marked-root Gram helpers for degree-at-most-four plane samples.
 
-The lifted variable is the symmetric Gram matrix ``A = a a^T`` for
+For a polynomial graph, the lifted variable is ``A = a a^T`` for
 
     f_a(t) = a_1 t + a_2 t^2 + a_3 t^3 + a_4 t^4.
 
@@ -8,6 +8,12 @@ For fixed rational parameters, each prescribed four-witness row gives three
 affine equations in the ten upper-triangular entries of ``A``.  Linear
 feasibility is only a relaxation: a planar quartic graph additionally needs
 ``A`` to be nonzero, positive semidefinite, and rank one.
+
+After translating by the horizontal contribution, ``B = E11 + A``, the same
+rows are homogeneous.  More generally, a polynomial plane parametrization
+has ``B = C^T C`` for its two nonconstant coordinate-coefficient rows, so a
+nonconstant planar realization needs a nonzero PSD kernel matrix of rank at
+most two.
 """
 
 from __future__ import annotations
@@ -15,11 +21,11 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from fractions import Fraction
 from itertools import combinations
-from math import isqrt
+from math import gcd, isqrt, lcm
 from typing import Iterable, Sequence
 
 
-SCHEMA = "erdos97.quartic_marked_root_gram.v1"
+SCHEMA = "erdos97.quartic_marked_root_gram.v2"
 
 GRAM_PAIRS: tuple[tuple[int, int], ...] = tuple(
     (left, right)
@@ -28,6 +34,17 @@ GRAM_PAIRS: tuple[tuple[int, int], ...] = tuple(
 )
 PAIR_INDEX = {pair: index for index, pair in enumerate(GRAM_PAIRS)}
 VARIABLE_COUNT = len(GRAM_PAIRS)
+
+# The fixed horizontal coordinate of a polynomial graph contributes
+# ``E11 = e_1 e_1^T`` to its full coefficient Gram matrix.  Its negative is a
+# universal affine solution of every marked-row graph-Gram system: at that
+# value the horizontal and lifted vertical squared distances cancel exactly.
+E11_UPPER: tuple[Fraction, ...] = (Fraction(1),) + (Fraction(0),) * (
+    VARIABLE_COUNT - 1
+)
+UNIVERSAL_PHANTOM_UPPER: tuple[Fraction, ...] = tuple(
+    -value for value in E11_UPPER
+)
 
 Equation = tuple[Fraction, ...]
 Rref = tuple[Equation, ...]
@@ -76,6 +93,22 @@ class LineRankOneResult:
 
 
 @dataclass(frozen=True)
+class FullGramKernelDirectionCheck:
+    """Exact planar feasibility data for a one-dimensional full-Gram kernel.
+
+    A nonzero real scalar multiple of a symmetric direction is a Gram matrix
+    of vectors in the plane exactly when one of the two signs is positive
+    semidefinite and the direction has rank at most two.
+    """
+
+    nonzero: bool
+    rank: int
+    positive_semidefinite: bool
+    negative_semidefinite: bool
+    admits_nonzero_planar_full_gram: bool
+
+
+@dataclass(frozen=True)
 class AnchorTripleSummary:
     """Exact accounting for one three-center marked-row scan."""
 
@@ -94,6 +127,8 @@ class AnchorTripleSummary:
     line_rational_quartic_gram_count: int
     line_irrational_rank_at_most_one_component_count: int
     line_all_rank_at_most_one_count: int
+    full_gram_kernel_census: tuple[tuple[str, int], ...]
+    full_gram_planar_candidates: tuple[dict[str, object], ...]
     exceptional_affine_state_count: int
     sample_survivors: tuple[dict[str, object], ...]
     exceptional_rrefs: tuple[Rref, ...] = field(repr=False, compare=False)
@@ -102,15 +137,29 @@ class AnchorTripleSummary:
         repr=False,
         compare=False,
     )
+    full_gram_planar_grams: tuple[tuple[Fraction, ...], ...] = field(
+        repr=False,
+        compare=False,
+    )
 
 
 @dataclass(frozen=True)
 class QuarticClosurePilotSummary:
-    """Full fixed-grid continuation from anchors through every other center."""
+    """Full fixed-grid continuation from anchors through every other center.
+
+    The two full-Gram candidate counts use the centers in the proved kernel
+    obstruction: the three anchors and the first requested extension center.
+    They do not require richness at every parameter after that four-center
+    subsystem has already closed.
+    """
 
     anchor: AnchorTripleSummary
     extension_centers: tuple[Fraction, ...]
     extension_steps: tuple[dict[str, int | str], ...]
+    full_gram_extension_census: tuple[tuple[str, int], ...]
+    full_gram_four_center_unresolved_state_count: int
+    full_gram_pairwise_distinct_candidate_count: int
+    full_gram_strictly_convex_candidate_count: int
     unresolved_affine_state_count: int
     rank_one_quartic_candidate_count: int
     convex_rank_one_candidate_count: int
@@ -163,6 +212,84 @@ def gram_matrix(upper: Sequence[int | Fraction]) -> tuple[tuple[Fraction, ...], 
         rows[left - 1][right - 1] = value
         rows[right - 1][left - 1] = value
     return tuple(tuple(row) for row in rows)
+
+
+def full_gram_from_graph_gram(
+    upper: Sequence[int | Fraction],
+) -> tuple[Fraction, ...]:
+    """Translate the vertical graph Gram ``A`` to ``B = E11 + A``."""
+
+    if len(upper) != VARIABLE_COUNT:
+        raise ValueError(f"expected {VARIABLE_COUNT} upper-triangular entries")
+    values = tuple(_as_fraction(value) for value in upper)
+    return tuple(
+        value + horizontal
+        for value, horizontal in zip(values, E11_UPPER, strict=True)
+    )
+
+
+def graph_gram_from_full_gram(
+    upper: Sequence[int | Fraction],
+) -> tuple[Fraction, ...]:
+    """Translate a full graph Gram ``B`` back to ``A = B - E11``."""
+
+    if len(upper) != VARIABLE_COUNT:
+        raise ValueError(f"expected {VARIABLE_COUNT} upper-triangular entries")
+    values = tuple(_as_fraction(value) for value in upper)
+    return tuple(
+        value - horizontal
+        for value, horizontal in zip(values, E11_UPPER, strict=True)
+    )
+
+
+def full_gram_upper_from_coordinate_coefficients(
+    coordinate_coefficients: Sequence[Sequence[int | Fraction]],
+) -> tuple[Fraction, ...]:
+    """Return ``C^T C`` for nonconstant polynomial coordinate coefficients.
+
+    Every coordinate row contains the coefficients of ``t,t^2,t^3,t^4``.
+    Constant terms are deliberately absent because Euclidean translation does
+    not affect pairwise distances.
+    """
+
+    if not coordinate_coefficients:
+        raise ValueError("at least one coordinate coefficient row is required")
+    rows: list[tuple[Fraction, ...]] = []
+    for raw_row in coordinate_coefficients:
+        if len(raw_row) != 4:
+            raise ValueError("each coordinate coefficient row must have length four")
+        rows.append(tuple(_as_fraction(value) for value in raw_row))
+    return tuple(
+        sum(
+            (row[left - 1] * row[right - 1] for row in rows),
+            Fraction(0),
+        )
+        for left, right in GRAM_PAIRS
+    )
+
+
+def full_gram_squared_distance(
+    upper: Sequence[int | Fraction],
+    center: int | Fraction,
+    witness: int | Fraction,
+) -> Fraction:
+    """Evaluate ``(v(q)-v(s))^T B (v(q)-v(s))`` exactly."""
+
+    values = tuple(_as_fraction(value) for value in upper)
+    if len(values) != VARIABLE_COUNT:
+        raise ValueError(f"expected {VARIABLE_COUNT} upper-triangular entries")
+    s = _as_fraction(center)
+    q = _as_fraction(witness)
+    total = Fraction(0)
+    for value, (left, right) in zip(values, GRAM_PAIRS, strict=True):
+        multiplier = 1 if left == right else 2
+        total += (
+            multiplier
+            * value
+            * (q**left - s**left)
+            * (q**right - s**right)
+        )
+    return total
 
 
 def polynomial_value(
@@ -249,6 +376,38 @@ def marked_row_equations(
         horizontal_difference = (witness - s) ** 2 - (reference - s) ** 2
         rows.append(tuple(coefficients) + (-horizontal_difference,))
     return rows[0], rows[1], rows[2]
+
+
+def translate_affine_equations_to_full_gram(
+    equations: Iterable[Sequence[int | Fraction]],
+) -> tuple[Equation, ...]:
+    """Translate equations in ``A`` coordinates to ``B = E11 + A``.
+
+    An augmented row ``c*A = b`` becomes ``c*B = b + c*E11``.  In
+    particular, every row returned by :func:`marked_row_equations` becomes
+    homogeneous because it contains the universal solution ``A=-E11``.
+    """
+
+    translated: list[Equation] = []
+    for raw_row in equations:
+        if len(raw_row) != VARIABLE_COUNT + 1:
+            raise ValueError(
+                f"each augmented row must have {VARIABLE_COUNT + 1} entries"
+            )
+        row = tuple(_as_fraction(value) for value in raw_row)
+        translated_rhs = row[-1] + sum(
+            (
+                coefficient * horizontal
+                for coefficient, horizontal in zip(
+                    row[:-1],
+                    E11_UPPER,
+                    strict=True,
+                )
+            ),
+            Fraction(0),
+        )
+        translated.append(row[:-1] + (translated_rhs,))
+    return tuple(translated)
 
 
 def distance_fiber_coefficients(
@@ -396,6 +555,384 @@ def solve_affine(equations: Iterable[Sequence[int | Fraction]]) -> AffineSolutio
     )
 
 
+def symmetric_matrix_rank(upper: Sequence[int | Fraction]) -> int:
+    """Return the exact rank of a symmetric matrix in upper-triangular form."""
+
+    rows = [list(row) for row in gram_matrix(upper)]
+    rank = 0
+    for column in range(4):
+        pivot = next(
+            (row for row in range(rank, 4) if rows[row][column]),
+            None,
+        )
+        if pivot is None:
+            continue
+        rows[rank], rows[pivot] = rows[pivot], rows[rank]
+        pivot_value = rows[rank][column]
+        for row in range(4):
+            if row == rank or not rows[row][column]:
+                continue
+            multiplier = rows[row][column] / pivot_value
+            for index in range(column, 4):
+                rows[row][index] -= multiplier * rows[rank][index]
+        rank += 1
+        if rank == 4:
+            break
+    return rank
+
+
+def is_positive_semidefinite(upper: Sequence[int | Fraction]) -> bool:
+    """Check positive semidefiniteness by all exact principal minors."""
+
+    matrix = gram_matrix(upper)
+    return all(
+        _determinant(
+            tuple(
+                tuple(matrix[row][column] for column in indices)
+                for row in indices
+            )
+        )
+        >= 0
+        for size in range(1, 5)
+        for indices in combinations(range(4), size)
+    )
+
+
+def classify_full_gram_kernel_direction(
+    upper: Sequence[int | Fraction],
+) -> FullGramKernelDirectionCheck:
+    """Classify whether a kernel line contains a nonzero planar Gram matrix."""
+
+    values = tuple(_as_fraction(value) for value in upper)
+    if len(values) != VARIABLE_COUNT:
+        raise ValueError(f"expected {VARIABLE_COUNT} upper-triangular entries")
+    rank = symmetric_matrix_rank(values)
+    positive_semidefinite = is_positive_semidefinite(values)
+    negative_semidefinite = is_positive_semidefinite(
+        tuple(-value for value in values)
+    )
+    nonzero = rank > 0
+    return FullGramKernelDirectionCheck(
+        nonzero=nonzero,
+        rank=rank,
+        positive_semidefinite=positive_semidefinite,
+        negative_semidefinite=negative_semidefinite,
+        admits_nonzero_planar_full_gram=(
+            nonzero
+            and rank <= 2
+            and (positive_semidefinite or negative_semidefinite)
+        ),
+    )
+
+
+def canonical_primitive_upper(
+    upper: Sequence[int | Fraction],
+) -> tuple[int, ...]:
+    """Return the sign-normalized primitive integer ray representative."""
+
+    values = tuple(_as_fraction(value) for value in upper)
+    if len(values) != VARIABLE_COUNT:
+        raise ValueError(f"expected {VARIABLE_COUNT} upper-triangular entries")
+    if not any(values):
+        raise ValueError("cannot normalize the zero matrix as a kernel ray")
+    common_denominator = lcm(*(value.denominator for value in values))
+    integers = [
+        value.numerator * (common_denominator // value.denominator)
+        for value in values
+    ]
+    common_divisor = 0
+    for value in integers:
+        common_divisor = gcd(common_divisor, abs(value))
+    primitive = [value // common_divisor for value in integers]
+    first_nonzero = next(value for value in primitive if value)
+    if first_nonzero < 0:
+        primitive = [-value for value in primitive]
+    return tuple(primitive)
+
+
+def symmetric_matrix_inertia(
+    upper: Sequence[int | Fraction],
+) -> tuple[int, int, int]:
+    """Return exact ``(positive, negative, zero)`` inertia by congruence."""
+
+    def recurse(
+        matrix: tuple[tuple[Fraction, ...], ...],
+    ) -> tuple[int, int, int]:
+        size = len(matrix)
+        if not size:
+            return 0, 0, 0
+
+        diagonal_pivot = next(
+            (index for index in range(size) if matrix[index][index]),
+            None,
+        )
+        if diagonal_pivot is not None:
+            order = (diagonal_pivot,) + tuple(
+                index for index in range(size) if index != diagonal_pivot
+            )
+            permuted = tuple(
+                tuple(matrix[row][column] for column in order)
+                for row in order
+            )
+            pivot = permuted[0][0]
+            schur = tuple(
+                tuple(
+                    permuted[row][column]
+                    - permuted[row][0] * permuted[0][column] / pivot
+                    for column in range(1, size)
+                )
+                for row in range(1, size)
+            )
+            positive, negative, zero = recurse(schur)
+            if pivot > 0:
+                positive += 1
+            else:
+                negative += 1
+            return positive, negative, zero
+
+        off_diagonal_pivot = next(
+            (
+                (row, column)
+                for row in range(size)
+                for column in range(row + 1, size)
+                if matrix[row][column]
+            ),
+            None,
+        )
+        if off_diagonal_pivot is None:
+            return 0, 0, size
+        first, second = off_diagonal_pivot
+        order = (first, second) + tuple(
+            index for index in range(size) if index not in {first, second}
+        )
+        permuted = tuple(
+            tuple(matrix[row][column] for column in order)
+            for row in order
+        )
+        pivot = permuted[0][1]
+        schur = tuple(
+            tuple(
+                permuted[row][column]
+                - (
+                    permuted[row][0] * permuted[1][column]
+                    + permuted[row][1] * permuted[0][column]
+                )
+                / pivot
+                for column in range(2, size)
+            )
+            for row in range(2, size)
+        )
+        positive, negative, zero = recurse(schur)
+        return positive + 1, negative + 1, zero
+
+    return recurse(gram_matrix(upper))
+
+
+def _full_gram_center_multiplicities(
+    upper: Sequence[int | Fraction],
+    parameters: Sequence[int | Fraction],
+) -> tuple[int, ...]:
+    ts = validate_parameters(parameters)
+    multiplicities: list[int] = []
+    for center in ts:
+        counts: dict[Fraction, int] = {}
+        for witness in ts:
+            if witness == center:
+                continue
+            distance = full_gram_squared_distance(upper, center, witness)
+            if distance < 0:
+                raise AssertionError("a PSD full Gram produced a negative distance")
+            if distance == 0:
+                continue
+            counts[distance] = counts.get(distance, 0) + 1
+        multiplicities.append(max(counts.values(), default=0))
+    return tuple(multiplicities)
+
+
+def _full_gram_collision_pairs(
+    upper: Sequence[int | Fraction],
+    parameters: Sequence[int | Fraction],
+) -> tuple[tuple[Fraction, Fraction], ...]:
+    ts = validate_parameters(parameters)
+    return tuple(
+        (left, right)
+        for left, right in combinations(ts, 2)
+        if full_gram_squared_distance(upper, left, right) == 0
+    )
+
+
+def _full_gram_rational_sample_coordinates(
+    upper: Sequence[int | Fraction],
+    parameters: Sequence[int | Fraction],
+) -> tuple[tuple[Fraction, Fraction], ...] | None:
+    """Recover exact coordinates up to an invertible affine plane map."""
+
+    matrix = gram_matrix(upper)
+    basis = next(
+        (
+            (left, right)
+            for left, right in combinations(range(4), 2)
+            if matrix[left][left] * matrix[right][right]
+            - matrix[left][right] ** 2
+            > 0
+        ),
+        None,
+    )
+    if basis is None:
+        return None
+    left, right = basis
+    determinant = (
+        matrix[left][left] * matrix[right][right]
+        - matrix[left][right] ** 2
+    )
+    coefficient_coordinates: list[tuple[Fraction, Fraction]] = []
+    for column in range(4):
+        left_inner = matrix[left][column]
+        right_inner = matrix[right][column]
+        alpha = (
+            matrix[right][right] * left_inner
+            - matrix[left][right] * right_inner
+        ) / determinant
+        beta = (
+            matrix[left][left] * right_inner
+            - matrix[left][right] * left_inner
+        ) / determinant
+        coefficient_coordinates.append((alpha, beta))
+
+    ts = validate_parameters(parameters)
+    return tuple(
+        (
+            sum(
+                (
+                    coefficient_coordinates[degree - 1][0] * parameter**degree
+                    for degree in range(1, 5)
+                ),
+                Fraction(0),
+            ),
+            sum(
+                (
+                    coefficient_coordinates[degree - 1][1] * parameter**degree
+                    for degree in range(1, 5)
+                ),
+                Fraction(0),
+            ),
+        )
+        for parameter in ts
+    )
+
+
+def _strictly_convex_full_gram_sample(
+    upper: Sequence[int | Fraction],
+    parameters: Sequence[int | Fraction],
+) -> bool:
+    points = _full_gram_rational_sample_coordinates(upper, parameters)
+    if points is None or len(set(points)) != len(points):
+        return False
+
+    def cross(
+        origin: tuple[Fraction, Fraction],
+        left: tuple[Fraction, Fraction],
+        right: tuple[Fraction, Fraction],
+    ) -> Fraction:
+        return (left[0] - origin[0]) * (right[1] - origin[1]) - (
+            left[1] - origin[1]
+        ) * (right[0] - origin[0])
+
+    if any(
+        cross(points[first], points[second], points[third]) == 0
+        for first, second, third in combinations(range(len(points)), 3)
+    ):
+        return False
+
+    ordered = sorted(points)
+    lower: list[tuple[Fraction, Fraction]] = []
+    for point in ordered:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], point) <= 0:
+            lower.pop()
+        lower.append(point)
+    upper_hull: list[tuple[Fraction, Fraction]] = []
+    for point in reversed(ordered):
+        while (
+            len(upper_hull) >= 2
+            and cross(upper_hull[-2], upper_hull[-1], point) <= 0
+        ):
+            upper_hull.pop()
+        upper_hull.append(point)
+    hull = lower[:-1] + upper_hull[:-1]
+    return len(hull) == len(points)
+
+
+def _full_gram_candidate_record(
+    upper: Sequence[int | Fraction],
+    parameters: Sequence[int | Fraction],
+) -> dict[str, object]:
+    primitive = canonical_primitive_upper(upper)
+    values = tuple(Fraction(value) for value in primitive)
+    check = classify_full_gram_kernel_direction(values)
+    if not check.positive_semidefinite:
+        if not check.negative_semidefinite:
+            raise ValueError("candidate kernel ray is not semidefinite")
+        values = tuple(-value for value in values)
+    collisions = _full_gram_collision_pairs(values, parameters)
+    return {
+        "full_gram_upper": tuple(_fraction_text(value) for value in values),
+        "rank": symmetric_matrix_rank(values),
+        "center_multiplicities": _full_gram_center_multiplicities(
+            values,
+            parameters,
+        ),
+        "collision_pairs": tuple(
+            (_fraction_text(left), _fraction_text(right))
+            for left, right in collisions
+        ),
+        "pairwise_distinct": not collisions,
+        "strictly_convex_sample": _strictly_convex_full_gram_sample(
+            values,
+            parameters,
+        ),
+    }
+
+
+def _record_full_gram_kernel_direction(
+    census: dict[str, int],
+    upper: Sequence[int | Fraction],
+    *,
+    rank_key_prefix: str = "rank_",
+) -> tuple[tuple[int, ...], FullGramKernelDirectionCheck]:
+    primitive = canonical_primitive_upper(upper)
+    positive, negative, zero = symmetric_matrix_inertia(primitive)
+    rank = positive + negative
+    check = FullGramKernelDirectionCheck(
+        nonzero=rank > 0,
+        rank=rank,
+        positive_semidefinite=negative == 0,
+        negative_semidefinite=positive == 0,
+        admits_nonzero_planar_full_gram=(
+            rank > 0 and rank <= 2 and (positive == 0 or negative == 0)
+        ),
+    )
+    rank_key = f"{rank_key_prefix}{check.rank}"
+    census[rank_key] = census.get(rank_key, 0) + 1
+    census[f"inertia_{positive}_{negative}_{zero}"] = (
+        census.get(f"inertia_{positive}_{negative}_{zero}", 0) + 1
+    )
+    if check.rank < 4:
+        census["determinant_zero"] = census.get("determinant_zero", 0) + 1
+    elif negative % 2:
+        census["determinant_negative"] = (
+            census.get("determinant_negative", 0) + 1
+        )
+    else:
+        census["determinant_positive"] = (
+            census.get("determinant_positive", 0) + 1
+        )
+    if check.admits_nonzero_planar_full_gram:
+        census["planar_kernel_lines"] = (
+            census.get("planar_kernel_lines", 0) + 1
+        )
+    return primitive, check
+
+
 def rank_one_psd_check(upper: Sequence[int | Fraction]) -> RankOneCheck:
     """Check exact rank-one, PSD, and degree-four conditions."""
 
@@ -410,17 +947,7 @@ def rank_one_psd_check(upper: Sequence[int | Fraction]) -> RankOneCheck:
     diagonal = tuple(matrix[index][index] for index in range(4))
     nonzero = any(any(value for value in row) for row in matrix)
     rank_one = nonzero and all_minors_zero
-    positive_semidefinite = all(
-        _determinant(
-            tuple(
-                tuple(matrix[row][column] for column in indices)
-                for row in indices
-            )
-        )
-        >= 0
-        for size in range(1, 5)
-        for indices in combinations(range(4), size)
-    )
+    positive_semidefinite = is_positive_semidefinite(upper)
     pivot_index = next((index for index, value in enumerate(diagonal) if value > 0), None)
     degree_four = matrix[3][3] > 0
     return RankOneCheck(
@@ -791,6 +1318,29 @@ def anchor_triple_scan(
     line_rational_quartic_gram_count = 0
     line_irrational_rank_at_most_one_component_count = 0
     line_all_rank_at_most_one_count = 0
+    full_gram_census_keys = (
+        "rank_2",
+        "rank_3",
+        "rank_4",
+        "determinant_negative",
+        "determinant_positive",
+        "determinant_zero",
+        "inertia_1_1_2",
+        "inertia_2_0_2",
+        "inertia_1_2_1",
+        "inertia_2_1_1",
+        "inertia_1_3_0",
+        "inertia_3_1_0",
+        "inertia_2_2_0",
+        "inertia_4_0_0",
+        "planar_kernel_lines",
+        "unique_kernel_lines",
+        "phantom_roots",
+        "other_rank_one_roots",
+    )
+    full_gram_census = {key: 0 for key in full_gram_census_keys}
+    full_gram_primitive_kernels: set[tuple[int, ...]] = set()
+    full_gram_planar_grams: set[tuple[Fraction, ...]] = set()
     exceptional_rrefs: set[Rref] = set()
     unresolved_line_rrefs: set[Rref] = set()
     rank_one_quartic_grams: set[tuple[Fraction, ...]] = set()
@@ -829,6 +1379,20 @@ def anchor_triple_scan(
                     raise AssertionError("nine anchor equations cannot have rank ten")
 
                 if solution.dimension == 1:
+                    primitive_kernel, kernel_check = (
+                        _record_full_gram_kernel_direction(
+                            full_gram_census,
+                            solution.nullspace[0],
+                        )
+                    )
+                    full_gram_primitive_kernels.add(primitive_kernel)
+                    if kernel_check.admits_nonzero_planar_full_gram:
+                        planar_gram = tuple(
+                            Fraction(value) for value in primitive_kernel
+                        )
+                        if not kernel_check.positive_semidefinite:
+                            planar_gram = tuple(-value for value in planar_gram)
+                        full_gram_planar_grams.add(planar_gram)
                     line_result = rank_one_intersection_on_line(
                         solution.particular,
                         solution.nullspace[0],
@@ -845,6 +1409,10 @@ def anchor_triple_scan(
                                 parameter,
                             )
                             root_check = rank_one_psd_check(upper_at_root)
+                            if upper_at_root == UNIVERSAL_PHANTOM_UPPER:
+                                full_gram_census["phantom_roots"] += 1
+                            elif root_check.rank_one:
+                                full_gram_census["other_rank_one_roots"] += 1
                             if root_check.quartic_gram:
                                 viable_parameters.append(parameter)
                                 rank_one_quartic_grams.add(upper_at_root)
@@ -907,6 +1475,12 @@ def anchor_triple_scan(
                         }
                     )
 
+    full_gram_census["unique_kernel_lines"] = len(full_gram_primitive_kernels)
+    full_gram_candidate_records = tuple(
+        _full_gram_candidate_record(candidate, ts)
+        for candidate in sorted(full_gram_planar_grams)
+    )
+
     return AnchorTripleSummary(
         parameters=ts,
         centers=(center_values[0], center_values[1], center_values[2]),
@@ -929,11 +1503,16 @@ def anchor_triple_scan(
             line_irrational_rank_at_most_one_component_count
         ),
         line_all_rank_at_most_one_count=line_all_rank_at_most_one_count,
+        full_gram_kernel_census=tuple(
+            (key, full_gram_census[key]) for key in full_gram_census_keys
+        ),
+        full_gram_planar_candidates=full_gram_candidate_records,
         exceptional_affine_state_count=len(exceptional_rrefs),
         sample_survivors=tuple(samples),
         exceptional_rrefs=tuple(sorted(exceptional_rrefs)),
         unresolved_line_rrefs=tuple(sorted(unresolved_line_rrefs)),
         rank_one_quartic_grams=tuple(sorted(rank_one_quartic_grams)),
+        full_gram_planar_grams=tuple(sorted(full_gram_planar_grams)),
     )
 
 
@@ -970,9 +1549,38 @@ def quartic_closure_pilot(
 
     states = set(anchor_summary.exceptional_rrefs) | set(anchor_summary.unresolved_line_rrefs)
     rank_one_candidates = set(anchor_summary.rank_one_quartic_grams)
+    full_gram_candidates = set(anchor_summary.full_gram_planar_grams)
     extension_steps: list[dict[str, int | str]] = []
+    full_gram_extension_census_keys = (
+        "raw_affine_rank_9_branches",
+        "raw_affine_rank_10_branches",
+        "affine_rank_9_states",
+        "affine_rank_10_states",
+        "kernel_rank_2",
+        "kernel_rank_3",
+        "kernel_rank_4",
+        "determinant_negative",
+        "determinant_positive",
+        "determinant_zero",
+        "inertia_1_1_2",
+        "inertia_2_0_2",
+        "inertia_1_2_1",
+        "inertia_2_1_1",
+        "inertia_1_3_0",
+        "inertia_3_1_0",
+        "inertia_2_2_0",
+        "inertia_4_0_0",
+        "planar_kernel_lines",
+        "phantom_line_roots",
+        "phantom_singletons",
+        "other_rank_one_roots",
+    )
+    full_gram_extension_census = {
+        key: 0 for key in full_gram_extension_census_keys
+    }
+    full_gram_four_center_unresolved_state_count = 0
 
-    for center in extension_values:
+    for extension_index, center in enumerate(extension_values):
         witness_values = tuple(value for value in ts if value != center)
         row_options = tuple(
             marked_row_equations(center, quartet)
@@ -991,6 +1599,10 @@ def quartic_closure_pilot(
                     linearly_inconsistent_count += 1
                     continue
                 consistent_branch_count += 1
+                raw_rank_key = f"raw_affine_rank_{solution.rank}_branches"
+                full_gram_extension_census[raw_rank_key] = (
+                    full_gram_extension_census.get(raw_rank_key, 0) + 1
+                )
                 consistent_states.add(solution.rref)
 
         states_without_real_rank_at_most_one = 0
@@ -1008,11 +1620,29 @@ def quartic_closure_pilot(
             solution = solve_affine(state)
             if solution is None:
                 raise AssertionError("stored RREF state became inconsistent")
+            state_rank_key = f"affine_rank_{solution.rank}_states"
+            full_gram_extension_census[state_rank_key] = (
+                full_gram_extension_census.get(state_rank_key, 0) + 1
+            )
             if solution.dimension >= 2:
                 next_states.add(solution.rref)
                 higher_dimensional_state_count += 1
                 continue
             if solution.dimension == 1:
+                primitive_kernel, kernel_check = (
+                    _record_full_gram_kernel_direction(
+                        full_gram_extension_census,
+                        solution.nullspace[0],
+                        rank_key_prefix="kernel_rank_",
+                    )
+                )
+                if kernel_check.admits_nonzero_planar_full_gram:
+                    planar_gram = tuple(
+                        Fraction(value) for value in primitive_kernel
+                    )
+                    if not kernel_check.positive_semidefinite:
+                        planar_gram = tuple(-value for value in planar_gram)
+                    full_gram_candidates.add(planar_gram)
                 result = rank_one_intersection_on_line(
                     solution.particular,
                     solution.nullspace[0],
@@ -1029,6 +1659,14 @@ def quartic_closure_pilot(
                             parameter,
                         )
                         candidate_check = rank_one_psd_check(candidate)
+                        if candidate == UNIVERSAL_PHANTOM_UPPER:
+                            full_gram_extension_census[
+                                "phantom_line_roots"
+                            ] += 1
+                        elif candidate_check.rank_one:
+                            full_gram_extension_census[
+                                "other_rank_one_roots"
+                            ] += 1
                         if candidate_check.quartic_gram:
                             rank_one_candidates.add(candidate)
                             viable += 1
@@ -1050,6 +1688,10 @@ def quartic_closure_pilot(
                 raise AssertionError(f"unhandled line classification: {result.kind}")
 
             check = rank_one_psd_check(solution.particular)
+            if solution.particular == UNIVERSAL_PHANTOM_UPPER:
+                full_gram_extension_census["phantom_singletons"] += 1
+            elif check.rank_one:
+                full_gram_extension_census["other_rank_one_roots"] += 1
             if check.quartic_gram:
                 rank_one_candidates.add(solution.particular)
                 unique_quartic_gram_state_count += 1
@@ -1060,6 +1702,10 @@ def quartic_closure_pilot(
             else:
                 lower_degree_rank_one_psd_root_count += 1
 
+        if extension_index == 0:
+            full_gram_four_center_unresolved_state_count = (
+                higher_dimensional_state_count
+            )
         states = next_states
         extension_steps.append(
             {
@@ -1122,10 +1768,58 @@ def quartic_closure_pilot(
                 }
             )
 
+    full_gram_obstruction_centers = set(anchors)
+    if extension_values:
+        full_gram_obstruction_centers.add(extension_values[0])
+
+    def rich_at_full_gram_obstruction_centers(
+        candidate: tuple[Fraction, ...],
+    ) -> bool:
+        multiplicities = dict(
+            zip(
+                ts,
+                _full_gram_center_multiplicities(candidate, ts),
+                strict=True,
+            )
+        )
+        return all(
+            multiplicities[center] >= 4
+            for center in full_gram_obstruction_centers
+        )
+
+    full_gram_checked_center_candidates = {
+        candidate
+        for candidate in full_gram_candidates
+        if rich_at_full_gram_obstruction_centers(candidate)
+    }
+    full_gram_pairwise_distinct_candidates = {
+        candidate
+        for candidate in full_gram_checked_center_candidates
+        if not _full_gram_collision_pairs(candidate, ts)
+    }
+    full_gram_strictly_convex_candidates = {
+        candidate
+        for candidate in full_gram_pairwise_distinct_candidates
+        if _strictly_convex_full_gram_sample(candidate, ts)
+    }
+
     return QuarticClosurePilotSummary(
         anchor=anchor_summary,
         extension_centers=extension_values,
         extension_steps=tuple(extension_steps),
+        full_gram_extension_census=tuple(
+            (key, full_gram_extension_census[key])
+            for key in full_gram_extension_census_keys
+        ),
+        full_gram_four_center_unresolved_state_count=(
+            full_gram_four_center_unresolved_state_count
+        ),
+        full_gram_pairwise_distinct_candidate_count=len(
+            full_gram_pairwise_distinct_candidates
+        ),
+        full_gram_strictly_convex_candidate_count=len(
+            full_gram_strictly_convex_candidates
+        ),
         unresolved_affine_state_count=len(states),
         rank_one_quartic_candidate_count=len(rank_one_candidates),
         convex_rank_one_candidate_count=len(convex_candidates),

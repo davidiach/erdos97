@@ -451,9 +451,12 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "--json",
         ),
         claim_scope=(
-            "Exact obstruction for degree-exactly-four polynomial graph "
-            "samples on T={-4,-3,...,4}; not a general quartic obstruction, "
-            "n=9 proof, counterexample, or proof of Erdos Problem #97."
+            "Exact obstruction for pairwise-distinct planar polynomial "
+            "parametrizations of coordinate degree at most four sampled on "
+            "a nine-term arithmetic progression: one of the four normalized "
+            "centers -4,0,3,4 is not four-rich. Not an irregular-parameter "
+            "quartic obstruction, n=9 proof, counterexample, or proof of "
+            "Erdos Problem #97."
         ),
     ),
     AuditCommand(

@@ -7,6 +7,22 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-21
+
+- Added a post-hoc full-Gram reclassification of the quartic marked-root
+  pilot. Writing `B=E11+A=C^T*C` makes every marked row homogeneous and shows
+  that the repeatedly reported negative-semidefinite root `A*=-E11` is the
+  zero Gram `B=0`. The corrected extension accounting is 315 canonical affine
+  solution states, comprising 314 lines and one singleton, rather than 315
+  lines. Exact rank and inertia checks, together with the two degenerate
+  rank-two PSD anchor rays, give a restricted lemma: a pairwise-distinct
+  planar degree-at-most-four polynomial sample at nine equally-spaced
+  parameters has a non-four-rich center among positions `-4,0,3,4`. Convexity
+  is not used. This post-hoc upgrade does not cover irregular parameters,
+  higher-dimensional samples, implicit quartics, higher degree, or arbitrary
+  strictly convex polygons, and it changes no global or source-of-truth
+  status.
+
 ## 2026-07-20
 
 - Corrected the two legacy external-source audits to hash LF-normalized
@@ -20,8 +36,9 @@ counterexample are claimed.
   rows leave `199349` rank-nine systems and `2729` canonical rank-eight
   exceptional states; exact rank-one-minor checks kill the former, and adding
   all 70 marked rows at one further center collapses the latter to 315 affine
-  lines, none with a rank-one PSD degree-four Gram. The retained artifact has
-  no unresolved state or full closure. This is a failed equally-spaced
+  solution states (314 lines and one singleton), none with a rank-one PSD
+  degree-four graph Gram. The retained artifact has no unresolved state or
+  full closure. This is a failed equally-spaced
   polynomial-graph family only, not an obstruction for irregular parameters,
   general quartic arcs, or arbitrary strictly convex polygons. No global or
   local source-of-truth status changes.

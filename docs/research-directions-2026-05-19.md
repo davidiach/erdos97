@@ -466,8 +466,17 @@ The exact follow-up in `docs/quartic-marked-root-gram-pilot.md` tests the
 degree-exactly-four graph family on the fixed grid `T={-4,-3,...,4}`. It lifts
 marked rows to affine equations in `A=a*a^T`, enforces the planar rank-one
 gate, and continues every exceptional affine state through the unused centers.
-Its conclusion is confined to that one parameter grid and does not address
-irregular samples or arbitrary quartic arcs.
+The predeclared graph conclusion is confined to that fixed grid. A post-hoc
+homogenization writes `B=E11+A=C^T*C` and reclassifies the same row kernels by
+exact rank and inertia. It upgrades the boundary to pairwise-distinct planar
+degree-at-most-four polynomial parametrizations sampled at any nine-term
+arithmetic progression: one of the four positions corresponding to
+`-4,0,3,4` is not four-rich. Convexity is not used. The only two rigid
+rank-nine PSD rank-two anchor rays are degenerate labelled controls with
+several coincident parameter pairs, and each has maximum multiplicities
+`(2,4,4,4,4,4,4,4,4)` across `-4,-3,...,4`. This still does not address
+irregular samples, higher-dimensional samples, implicit quartics, or arbitrary
+quartic arcs.
 
 ## 4. Reciprocal-Radial Global Budget
 

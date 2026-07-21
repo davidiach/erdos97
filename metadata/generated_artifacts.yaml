@@ -4204,8 +4204,8 @@ artifacts:
 
   - id: quartic_marked_root_gram
     path: data/certificates/quartic_marked_root_gram.json
-    sha256: 8db203b4d897f2ceba018db1d39e705093700fca930f117520b05c49e834bc3f
-    size_bytes: 13295
+    sha256: bd4bb0b3621cacfcdca3724c39adaefae44b60a455b607db60c83c38edb08e33
+    size_bytes: 19389
     kind: exact_restricted_family_obstruction
     generator: scripts/check_quartic_marked_root_gram.py
     command: python scripts/check_quartic_marked_root_gram.py --write-artifact --check --assert-expected --json
@@ -4214,11 +4214,11 @@ artifacts:
     direct_edit_allowed: false
     provenance_mode: embedded
     trust_class: EXACT_OBSTRUCTION
-    claim_scope: Exact obstruction to four-rich closure for degree-exactly-four polynomial graph samples on the fixed parameter set T={-4,-3,...,4}; not a general quartic obstruction, n=9 proof, or global result.
+    claim_scope: Exact obstruction for pairwise-distinct planar degree-at-most-four polynomial parametrizations sampled at nine equally-spaced parameters; one of the normalized centers -4,0,3,4 is not four-rich. Not an irregular-parameter quartic obstruction, n=9 proof, or global result.
     json_top_level_type: object
     expected_json:
-      schema: erdos97.quartic_marked_root_gram.v1
-      status: NO_STRICTLY_CONVEX_DEGREE_FOUR_CLOSURE_ON_FIXED_GRID
+      schema: erdos97.quartic_marked_root_gram.v2
+      status: NO_PAIRWISE_DISTINCT_PLANAR_DEGREE_AT_MOST_FOUR_SAMPLE_RICH_AT_ALL_FOUR_TEST_CENTERS_ON_NINE_TERM_ARITHMETIC_PROGRESSION
       trust: EXACT_OBSTRUCTION
       anchor_scan.raw_marked_triples: 343000
       anchor_scan.overlap_admissible_marked_triples: 202080
@@ -4226,14 +4226,23 @@ artifacts:
       anchor_scan.rank_counts.9: 199349
       anchor_scan.rank_nine_negative_semidefinite_rank_one_roots: 199349
       anchor_scan.exceptional_affine_states: 2729
+      post_hoc_full_gram_upgrade.anchor_kernel_census.planar_kernel_lines: 2
+      post_hoc_full_gram_upgrade.anchor_kernel_census.unique_kernel_lines: 190895
+      post_hoc_full_gram_upgrade.anchor_kernel_census.phantom_roots: 199349
+      post_hoc_full_gram_upgrade.extension_kernel_census.affine_rank_9_states: 314
+      post_hoc_full_gram_upgrade.extension_kernel_census.affine_rank_10_states: 1
+      post_hoc_full_gram_upgrade.extension_kernel_census.planar_kernel_lines: 0
+      post_hoc_full_gram_upgrade.outcome.unresolved_affine_states_after_four_test_centers: 0
+      post_hoc_full_gram_upgrade.outcome.pairwise_distinct_planar_candidates_rich_at_all_four_test_centers: 0
       outcome.unresolved_affine_states: 0
       outcome.rank_one_quartic_grams: 0
       outcome.all_row_quartic_grams: 0
       outcome.strict_finite_full_closures: 0
     forbidden_claims:
       - arbitrary real parameter sets are obstructed
-      - general polynomial quartic graph samples are obstructed
-      - parametric or implicit quartic curves are obstructed
+      - irregularly parameterized polynomial quartic samples are obstructed
+      - implicit or general algebraic quartic curves are obstructed
+      - higher-dimensional polynomial samples are obstructed
       - the n=9 finite case is proved
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97

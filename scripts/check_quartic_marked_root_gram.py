@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate and replay the exact fixed-grid quartic marked-root Gram pilot."""
+"""Generate and replay the exact quartic marked-root Gram obstruction."""
 
 from __future__ import annotations
 
@@ -17,7 +17,9 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from erdos97.quartic_marked_root_gram import (  # noqa: E402
+    E11_UPPER,
     SCHEMA,
+    UNIVERSAL_PHANTOM_UPPER,
     equations_hold,
     gram_upper_from_coefficients,
     lifted_squared_distance,
@@ -40,6 +42,103 @@ POSITIVE_COEFFICIENTS = (
 )
 POSITIVE_WITNESSES = (7, 15, 20, 24)
 HIGH_RANK_DIRECTION = (-15180, 1553, -66, 1)
+EXPECTED_SCHEMA = "erdos97.quartic_marked_root_gram.v2"
+EXPECTED_STATUS = (
+    "NO_PAIRWISE_DISTINCT_PLANAR_DEGREE_AT_MOST_FOUR_SAMPLE_RICH_AT_ALL_"
+    "FOUR_TEST_CENTERS_ON_NINE_TERM_ARITHMETIC_PROGRESSION"
+)
+
+EXPECTED_ANCHOR_FULL_GRAM_CENSUS = {
+    "rank_2": 279,
+    "rank_3": 91,
+    "rank_4": 198979,
+    "determinant_negative": 101793,
+    "determinant_positive": 97186,
+    "determinant_zero": 370,
+    "inertia_1_1_2": 277,
+    "inertia_2_0_2": 2,
+    "inertia_1_2_1": 5,
+    "inertia_2_1_1": 86,
+    "inertia_1_3_0": 7051,
+    "inertia_3_1_0": 94742,
+    "inertia_2_2_0": 95884,
+    "inertia_4_0_0": 1302,
+    "planar_kernel_lines": 2,
+    "unique_kernel_lines": 190895,
+    "phantom_roots": 199349,
+    "other_rank_one_roots": 0,
+}
+
+EXPECTED_EXTENSION_FULL_GRAM_CENSUS = {
+    "raw_affine_rank_9_branches": 320,
+    "raw_affine_rank_10_branches": 190710,
+    "affine_rank_9_states": 314,
+    "affine_rank_10_states": 1,
+    "kernel_rank_2": 11,
+    "kernel_rank_3": 0,
+    "kernel_rank_4": 303,
+    "determinant_negative": 231,
+    "determinant_positive": 72,
+    "determinant_zero": 11,
+    "inertia_1_1_2": 11,
+    "inertia_2_0_2": 0,
+    "inertia_1_2_1": 0,
+    "inertia_2_1_1": 0,
+    "inertia_1_3_0": 99,
+    "inertia_3_1_0": 132,
+    "inertia_2_2_0": 6,
+    "inertia_4_0_0": 66,
+    "planar_kernel_lines": 0,
+    "phantom_line_roots": 314,
+    "phantom_singletons": 1,
+    "other_rank_one_roots": 0,
+}
+
+EXPECTED_PLANAR_ANCHOR_CANDIDATES = [
+    {
+        "full_gram_upper": [
+            "2308",
+            "108",
+            "-232",
+            "24",
+            "183",
+            "18",
+            "-21",
+            "28",
+            "-6",
+            "3",
+        ],
+        "rank": 2,
+        "center_multiplicities": [2, 4, 4, 4, 4, 4, 4, 4, 4],
+        "collision_pairs": [["-3", "4"], ["-2", "-1"], ["2", "3"]],
+        "pairwise_distinct": False,
+        "strictly_convex_sample": False,
+    },
+    {
+        "full_gram_upper": [
+            "292",
+            "-248",
+            "-88",
+            "44",
+            "211",
+            "74",
+            "-37",
+            "28",
+            "-14",
+            "7",
+        ],
+        "rank": 2,
+        "center_multiplicities": [2, 4, 4, 4, 4, 4, 4, 4, 4],
+        "collision_pairs": [
+            ["-3", "4"],
+            ["-2", "3"],
+            ["-1", "2"],
+            ["0", "1"],
+        ],
+        "pairwise_distinct": False,
+        "strictly_convex_sample": False,
+    },
+]
 
 
 def fraction_text(value: Fraction | int) -> str:
@@ -63,6 +162,17 @@ def load_json(path: Path) -> dict[str, Any]:
     if not isinstance(payload, dict):
         raise TypeError(f"{path} must contain one JSON object")
     return payload
+
+
+def required_summary_attribute(summary: object, name: str) -> Any:
+    """Read one schema-v2 summary field without silently accepting v1 data."""
+
+    if not hasattr(summary, name):
+        raise AssertionError(
+            f"schema-v2 generator requires summary field {name!r}; "
+            "the exact full-Gram implementation is incomplete"
+        )
+    return getattr(summary, name)
 
 
 def control_summary() -> dict[str, Any]:
@@ -118,39 +228,90 @@ def control_summary() -> dict[str, Any]:
 
 
 def build_payload() -> dict[str, Any]:
+    if SCHEMA != EXPECTED_SCHEMA:
+        raise AssertionError(f"source schema {SCHEMA!r} != {EXPECTED_SCHEMA!r}")
     summary = quartic_closure_pilot(
         parameters=PARAMETERS,
         anchor_centers=ANCHOR_CENTERS,
     )
     anchor = summary.anchor
+    anchor_full_gram_census = dict(
+        required_summary_attribute(anchor, "full_gram_kernel_census")
+    )
+    anchor_planar_candidates = list(
+        required_summary_attribute(anchor, "full_gram_planar_candidates")
+    )
+    extension_full_gram_census = dict(
+        required_summary_attribute(summary, "full_gram_extension_census")
+    )
+    four_center_unresolved_states = required_summary_attribute(
+        summary,
+        "full_gram_four_center_unresolved_state_count",
+    )
+    pairwise_distinct_full_gram_candidates = required_summary_attribute(
+        summary,
+        "full_gram_pairwise_distinct_candidate_count",
+    )
+    strictly_convex_full_gram_candidates = required_summary_attribute(
+        summary,
+        "full_gram_strictly_convex_candidate_count",
+    )
+
     if summary.strict_finite_full_closure_candidate_count:
-        status = "EXACT_FIXED_GRID_CLOSURE_CANDIDATE"
-        trust = "EXACT_CERTIFICATE_DIAGNOSTIC"
+        original_graph_status = "EXACT_FIXED_GRID_CLOSURE_CANDIDATE"
     elif summary.unresolved_affine_state_count:
-        status = "INCONCLUSIVE_FIXED_GRID_WITH_UNRESOLVED_AFFINE_STATES"
+        original_graph_status = "INCONCLUSIVE_FIXED_GRID_WITH_UNRESOLVED_AFFINE_STATES"
+    else:
+        original_graph_status = "NO_STRICTLY_CONVEX_DEGREE_FOUR_CLOSURE_ON_FIXED_GRID"
+
+    if pairwise_distinct_full_gram_candidates:
+        status = (
+            "PAIRWISE_DISTINCT_PLANAR_DEGREE_AT_MOST_FOUR_"
+            "FOUR_TEST_CENTER_CANDIDATE"
+        )
+        trust = "EXACT_CERTIFICATE_DIAGNOSTIC"
+    elif four_center_unresolved_states:
+        status = "INCONCLUSIVE_FULL_GRAM_WITH_UNRESOLVED_AFFINE_STATES"
         trust = "EXACT_CERTIFICATE_DIAGNOSTIC"
     else:
-        status = "NO_STRICTLY_CONVEX_DEGREE_FOUR_CLOSURE_ON_FIXED_GRID"
+        status = EXPECTED_STATUS
         trust = "EXACT_OBSTRUCTION"
 
     payload: dict[str, Any] = {
         "schema": SCHEMA,
         "status": status,
         "trust": trust,
-        "claim_scope": (
-            "Exact fixed-parameter obstruction or survivor accounting for graph samples "
-            "gamma(t)=(t,sum_{k=1}^4 a_k t^k) on T={-4,-3,...,4}."
-        ),
+        "claim_scope": {
+            "statement": (
+                "For every real planar polynomial map gamma of degree at most four, "
+                "sampled at nine equally spaced parameters, if the nine sample points "
+                "are pairwise distinct then at least one of the four positions "
+                "corresponding after affine reparameterization to -4,0,3,4 is not "
+                "four-rich within the sample."
+            ),
+            "ambient_dimension": 2,
+            "maximum_coordinate_degree": 4,
+            "sample_size": 9,
+            "parameter_sets": "NINE_TERM_REAL_ARITHMETIC_PROGRESSIONS",
+            "pairwise_distinctness_required": True,
+            "convexity_used": False,
+            "test_center_set_guaranteed_to_contain_a_non_rich_position_"
+            "after_normalization": ["-4", "0", "3", "4"],
+        },
         "does_not_check": [
             "arbitrary or irregular real parameter sets",
-            "other nine-point x-coordinate grids",
-            "polynomial graphs of degree greater than four",
-            "parametric or implicit quartic curves",
+            "polynomial parametrizations of degree greater than four",
+            "higher-dimensional Euclidean samples",
+            (
+                "implicit or general algebraic quartic curves not given by one "
+                "polynomial parametrization"
+            ),
             "multi-arc constructions",
             "general strictly convex polygons",
             "a proof or counterexample for Erdos Problem #97",
         ],
         "decisive_test_card": {
+            "classification": "PREDECLARED_ORIGINAL_GRAPH_TEST",
             "question": (
                 "Can the one-rich-row quartic flexibility close all nine rows on the "
                 "smallest equally spaced parameter grid not already covered by n<=8?"
@@ -168,6 +329,20 @@ def build_payload() -> dict[str, Any]:
             "predeclared_stopping_rule": (
                 "Report an exact fixed-grid obstruction only when the exceptional affine "
                 "frontier is empty; otherwise preserve unresolved states."
+            ),
+            "result_status": original_graph_status,
+        },
+        "post_hoc_structural_upgrade_card": {
+            "classification": "POST_HOC_FULL_GRAM_STRUCTURAL_UPGRADE",
+            "predeclared": False,
+            "derivation": (
+                "Translate A to the homogeneous full coefficient Gram B=A+E11, "
+                "classify every one-dimensional kernel by exact rank and inertia, "
+                "and check pairwise distinctness of the only two planar anchor rays."
+            ),
+            "stronger_than_original_graph_test": (
+                "Covers arbitrary planar polynomial parametrizations of degree at most "
+                "four on every nine-term arithmetic progression and does not use convexity."
             ),
         },
         "model": {
@@ -188,6 +363,25 @@ def build_payload() -> dict[str, Any]:
             ],
             "row_equations_per_marked_quartet": 3,
             "planar_gate": "A=a*a^T, rank one, positive semidefinite, A44>0",
+            "full_gram_upgrade": {
+                "identity": "B=A+E11",
+                "E11_upper": [fraction_text(value) for value in E11_UPPER],
+                "B_variable_order": [
+                    "B11",
+                    "B12",
+                    "B13",
+                    "B14",
+                    "B22",
+                    "B23",
+                    "B24",
+                    "B33",
+                    "B34",
+                    "B44",
+                ],
+                "translated_marked_rows": "HOMOGENEOUS_LINEAR_EQUATIONS_IN_B",
+                "planar_gate": "B=C^T*C, B nonzero PSD, rank(B)<=2",
+                "constant_coefficients": "OMITTED_BECAUSE_TRANSLATIONS_PRESERVE_DISTANCES",
+            },
         },
         "controls": control_summary(),
         "anchor_scan": {
@@ -224,6 +418,45 @@ def build_payload() -> dict[str, Any]:
             "sample_survivors": list(anchor.sample_survivors),
         },
         "extension_steps": list(summary.extension_steps),
+        "post_hoc_full_gram_upgrade": {
+            "classification": "POST_HOC_FULL_GRAM_STRUCTURAL_UPGRADE",
+            "homogeneous_identity": {
+                "formula": "B=A+E11",
+                "universal_graph_gram_phantom_upper": [
+                    fraction_text(value) for value in UNIVERSAL_PHANTOM_UPPER
+                ],
+                "phantom_full_gram_upper": ["0"] * 10,
+                "phantom_interpretation": (
+                    "A*=-E11 is the zero full Gram B=0, not a realizable "
+                    "nonzero planar coefficient Gram."
+                ),
+                "every_marked_row_contains_phantom": True,
+                "every_translated_marked_row_is_homogeneous": True,
+            },
+            "anchor_kernel_census": anchor_full_gram_census,
+            "anchor_planar_rank_two_psd_candidates": anchor_planar_candidates,
+            "extension_kernel_census": extension_full_gram_census,
+            "outcome": {
+                "unresolved_affine_states_after_four_test_centers": (
+                    four_center_unresolved_states
+                ),
+                "pairwise_distinct_planar_candidates_rich_at_all_four_test_centers": (
+                    pairwise_distinct_full_gram_candidates
+                ),
+                "strictly_convex_planar_candidates_rich_at_all_four_test_centers": (
+                    strictly_convex_full_gram_candidates
+                ),
+                "specific_center_set_forced_to_contain_non_rich_position": [
+                    "-4",
+                    "0",
+                    "3",
+                    "4",
+                ],
+                "affine_reparameterization_scope": (
+                    "ALL_NINE_TERM_REAL_ARITHMETIC_PROGRESSIONS"
+                ),
+            },
+        },
         "outcome": {
             "unresolved_affine_states": summary.unresolved_affine_state_count,
             "rank_one_quartic_grams": summary.rank_one_quartic_candidate_count,
@@ -249,25 +482,72 @@ def build_payload() -> dict[str, Any]:
                 "python scripts/check_quartic_marked_root_gram.py "
                 "--check --assert-expected --json"
             ),
-            "arithmetic": "fractions.Fraction exact rational elimination",
+            "arithmetic": (
+                "fractions.Fraction exact rational elimination plus primitive "
+                "integer symmetric-matrix rank and inertia"
+            ),
             "summary_type": type(summary).__name__,
+            "original_test_phase": "PREDECLARED",
+            "full_gram_upgrade_phase": "POST_HOC",
         },
     }
     return normalize_payload(payload)
 
 
 def check_payload(payload: dict[str, Any], *, assert_expected: bool) -> None:
-    if payload.get("schema") != SCHEMA:
+    if payload.get("schema") != EXPECTED_SCHEMA or SCHEMA != EXPECTED_SCHEMA:
         raise AssertionError(f"unexpected schema: {payload.get('schema')!r}")
     if payload.get("trust") not in {"EXACT_OBSTRUCTION", "EXACT_CERTIFICATE_DIAGNOSTIC"}:
         raise AssertionError(f"unexpected trust label: {payload.get('trust')!r}")
     anchor = payload.get("anchor_scan")
     outcome = payload.get("outcome")
     controls = payload.get("controls")
+    decisive_card = payload.get("decisive_test_card")
+    structural_card = payload.get("post_hoc_structural_upgrade_card")
+    full_gram = payload.get("post_hoc_full_gram_upgrade")
     if not isinstance(anchor, dict) or not isinstance(outcome, dict):
         raise AssertionError("artifact is missing anchor_scan or outcome")
     if not isinstance(controls, dict):
         raise AssertionError("artifact is missing controls")
+    if not isinstance(decisive_card, dict) or (
+        decisive_card.get("classification") != "PREDECLARED_ORIGINAL_GRAPH_TEST"
+    ):
+        raise AssertionError("artifact must preserve the predeclared graph test")
+    if not isinstance(structural_card, dict) or (
+        structural_card.get("classification")
+        != "POST_HOC_FULL_GRAM_STRUCTURAL_UPGRADE"
+    ):
+        raise AssertionError("artifact must label the full-Gram upgrade as post hoc")
+    if not isinstance(full_gram, dict):
+        raise AssertionError("artifact is missing post_hoc_full_gram_upgrade")
+
+    homogeneous = full_gram.get("homogeneous_identity")
+    anchor_full_gram = full_gram.get("anchor_kernel_census")
+    extension_full_gram = full_gram.get("extension_kernel_census")
+    planar_candidates = full_gram.get("anchor_planar_rank_two_psd_candidates")
+    full_gram_outcome = full_gram.get("outcome")
+    if not all(
+        isinstance(value, dict)
+        for value in (
+            homogeneous,
+            anchor_full_gram,
+            extension_full_gram,
+            full_gram_outcome,
+        )
+    ) or not isinstance(planar_candidates, list):
+        raise AssertionError("artifact has malformed full-Gram structural data")
+    if homogeneous.get("formula") != "B=A+E11":
+        raise AssertionError("artifact lost the full-Gram homogenization identity")
+    if homogeneous.get("universal_graph_gram_phantom_upper") != ["-1"] + ["0"] * 9:
+        raise AssertionError("artifact lost the universal phantom A*=-E11")
+    if homogeneous.get("phantom_full_gram_upper") != ["0"] * 10:
+        raise AssertionError("universal phantom must translate to B=0")
+    if payload.get("trust") == "EXACT_OBSTRUCTION" and full_gram_outcome.get(
+        "unresolved_affine_states_after_four_test_centers"
+    ):
+        raise AssertionError(
+            "an exact full-Gram obstruction cannot retain a four-center state"
+        )
     if anchor.get("raw_marked_triples") != 343000:
         raise AssertionError("expected 70^3 raw anchor triples")
     if anchor.get("raw_marked_triples") != (
@@ -275,11 +555,43 @@ def check_payload(payload: dict[str, Any], *, assert_expected: bool) -> None:
         + anchor.get("overlap_filtered_marked_triples", 0)
     ):
         raise AssertionError("anchor overlap accounting does not reconcile")
+    if (
+        anchor_full_gram.get("rank_2", 0)
+        + anchor_full_gram.get("rank_3", 0)
+        + anchor_full_gram.get("rank_4", 0)
+        != anchor.get("rank_nine_marked_triples")
+    ):
+        raise AssertionError("anchor full-Gram rank census does not reconcile")
+    if (
+        anchor_full_gram.get("determinant_negative", 0)
+        + anchor_full_gram.get("determinant_positive", 0)
+        + anchor_full_gram.get("determinant_zero", 0)
+        != anchor.get("rank_nine_marked_triples")
+    ):
+        raise AssertionError("anchor full-Gram determinant census does not reconcile")
+    if (
+        extension_full_gram.get("affine_rank_9_states", 0)
+        + extension_full_gram.get("affine_rank_10_states", 0)
+        != 315
+    ):
+        raise AssertionError("extension affine-rank census does not reconcile")
+    if (
+        extension_full_gram.get("kernel_rank_2", 0)
+        + extension_full_gram.get("kernel_rank_3", 0)
+        + extension_full_gram.get("kernel_rank_4", 0)
+        != extension_full_gram.get("affine_rank_9_states")
+    ):
+        raise AssertionError("extension kernel-rank census does not reconcile")
     if assert_expected:
-        if payload.get("status") != "NO_STRICTLY_CONVEX_DEGREE_FOUR_CLOSURE_ON_FIXED_GRID":
+        if payload.get("status") != EXPECTED_STATUS:
             raise AssertionError(f"unexpected default status: {payload.get('status')!r}")
         if payload.get("trust") != "EXACT_OBSTRUCTION":
             raise AssertionError(f"unexpected default trust: {payload.get('trust')!r}")
+        if (
+            decisive_card.get("result_status")
+            != "NO_STRICTLY_CONVEX_DEGREE_FOUR_CLOSURE_ON_FIXED_GRID"
+        ):
+            raise AssertionError("unexpected original predeclared graph result")
         expected_anchor = {
             "quartets_per_center": 70,
             "raw_marked_triples": 343000,
@@ -342,6 +654,80 @@ def check_payload(payload: dict[str, Any], *, assert_expected: bool) -> None:
         if outcome != expected_outcome:
             raise AssertionError(f"unexpected default outcome: {outcome!r}")
 
+        if anchor_full_gram != EXPECTED_ANCHOR_FULL_GRAM_CENSUS:
+            raise AssertionError(
+                f"unexpected anchor full-Gram census: {anchor_full_gram!r}"
+            )
+        if extension_full_gram != EXPECTED_EXTENSION_FULL_GRAM_CENSUS:
+            raise AssertionError(
+                f"unexpected extension full-Gram census: {extension_full_gram!r}"
+            )
+        normalized_candidates = sorted(
+            planar_candidates,
+            key=lambda candidate: tuple(candidate.get("full_gram_upper", ())),
+        )
+        expected_candidates = sorted(
+            EXPECTED_PLANAR_ANCHOR_CANDIDATES,
+            key=lambda candidate: tuple(candidate["full_gram_upper"]),
+        )
+        if normalized_candidates != expected_candidates:
+            raise AssertionError(
+                f"unexpected planar anchor candidates: {planar_candidates!r}"
+            )
+        expected_full_gram_outcome = {
+            "unresolved_affine_states_after_four_test_centers": 0,
+            "pairwise_distinct_planar_candidates_rich_at_all_four_test_centers": 0,
+            "strictly_convex_planar_candidates_rich_at_all_four_test_centers": 0,
+            "specific_center_set_forced_to_contain_non_rich_position": [
+                "-4",
+                "0",
+                "3",
+                "4",
+            ],
+            "affine_reparameterization_scope": (
+                "ALL_NINE_TERM_REAL_ARITHMETIC_PROGRESSIONS"
+            ),
+        }
+        if full_gram_outcome != expected_full_gram_outcome:
+            raise AssertionError(
+                f"unexpected full-Gram outcome: {full_gram_outcome!r}"
+            )
+
+        claim_scope = payload.get("claim_scope")
+        if not isinstance(claim_scope, dict):
+            raise AssertionError("schema-v2 claim_scope must be structured")
+        expected_scope_fields = {
+            "ambient_dimension": 2,
+            "maximum_coordinate_degree": 4,
+            "sample_size": 9,
+            "parameter_sets": "NINE_TERM_REAL_ARITHMETIC_PROGRESSIONS",
+            "pairwise_distinctness_required": True,
+            "convexity_used": False,
+            "test_center_set_guaranteed_to_contain_a_non_rich_position_"
+            "after_normalization": [
+                "-4",
+                "0",
+                "3",
+                "4",
+            ],
+        }
+        for key, expected in expected_scope_fields.items():
+            if claim_scope.get(key) != expected:
+                raise AssertionError(
+                    f"unexpected claim-scope field {key}: "
+                    f"{claim_scope.get(key)!r} != {expected!r}"
+                )
+        exclusions = payload.get("does_not_check")
+        required_exclusions = {
+            "arbitrary or irregular real parameter sets",
+            "polynomial parametrizations of degree greater than four",
+            "higher-dimensional Euclidean samples",
+            "general strictly convex polygons",
+            "a proof or counterexample for Erdos Problem #97",
+        }
+        if not isinstance(exclusions, list) or not required_exclusions.issubset(exclusions):
+            raise AssertionError("schema-v2 strict claim exclusions are incomplete")
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -374,10 +760,13 @@ def main() -> int:
     if args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
-        outcome = payload["outcome"]
+        full_gram_outcome = payload["post_hoc_full_gram_upgrade"]["outcome"]
+        candidate_count = full_gram_outcome[
+            "pairwise_distinct_planar_candidates_rich_at_all_four_test_centers"
+        ]
         print(
-            f"{payload['status']} unresolved={outcome['unresolved_affine_states']} "
-            f"closures={outcome['strict_finite_full_closures']}"
+            f"{payload['status']} pairwise_distinct_planar_candidates="
+            f"{candidate_count}"
         )
     return 0
 
