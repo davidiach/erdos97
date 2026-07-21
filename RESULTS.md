@@ -429,6 +429,36 @@ block-6 fragile cover but still permits two disjoint blocks, so this is a
 necessary structural bridge only, not a contradiction and not the open
 ear-orderable bridge. See `docs/minimal-fragile-cover-bridge.md`.
 
+### Scalable strict-cycle bridge negative control
+
+Status: `EXACT_ABSTRACT_NEGATIVE_CONTROL`.
+
+The circulant singleton-rich family
+
+```text
+n=6k-1,  k>=8,
+S_i=i+{k+1,2k+3,3k+1,5k}
+```
+
+satisfies the isolated fragile-cover, good-deletion, incidence/crossing,
+hinge, and strict-turn conditions and has no reciprocal selected pair or
+Kalmanson self-edge. An exact 96-template Presburger replay also rules out a
+primitive two-inequality inverse pair for every `k>=8`, and an exact
+matching/Presburger replay rules out every three-inequality positive circuit.
+Its selected-distance vertex-circle quotient has one cyclic component, a
+simple cycle of length exactly `n`; hence the current abstract bridge
+conditions cannot force a universally bounded local vertex-circle
+certificate. The `k=8` member's explicit four-inequality Kalmanson circuit is
+therefore support-minimal, and the displayed order is also globally impossible
+by Altman's diagonal-sum chain. This is a
+bridge-method negative control, not a Euclidean realization, counterexample,
+or proof. See
+`docs/scalable-strict-cycle-bridge-control.md` and
+`scripts/check_scalable_strict_cycle_control.py`, with the all-parameter
+inverse and three-row replays in
+`scripts/check_scalable_kalmanson_inverse_control.py` and
+`scripts/check_scalable_kalmanson_three_control.py`.
+
 The stored block-6 vertex-circle full-extension audit adds a stronger geometric
 gate for that same two-block negative control in the natural cyclic order: all
 full selected-row extensions are closed by vertex-circle quotient self-edge or
@@ -1710,6 +1740,17 @@ rows and records the same n=9 calibration counts. The full n=10 draft still
 needs independent implementation review before any public theorem-style use.
 It is not promoted to the source-of-truth strongest result. See
 `docs/n10-vertex-circle-singleton-slices.md`.
+
+An algebraically separate Kalmanson pair-filter replay gives a second complete
+closure of the same labelled `n=10` selected-witness domain. It checks all
+`126` row-zero choices without symmetry normalization and uses only necessary
+incidence/crossing/count filters plus strict Kalmanson self-edges and primitive
+scalar-opposite row pairs. The complete C++ search reports `261,511` clean
+recursive nodes, `360,742` self-edge prunes, `1,213,492` primitive-inverse
+prunes, and zero full assignments. Independent Python code matches slices
+`0`, `63`, and `125` exactly. This remains draft review evidence, not an
+`n=10` status promotion or global proof. See
+`docs/n10-kalmanson-pair-filter.md`.
 
 The bounded `n=10` row0-index-0 turn pilot in
 `data/certificates/n10_turn_row0_pilot.json` is finite bookkeeping only. It

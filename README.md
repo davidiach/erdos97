@@ -215,12 +215,23 @@ proof-facing route is summarized in
 and the current
 [`next-lemma obligation contract`](docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md).
 These diagnostics do not promote the review-pending `n=9` candidate.
+The complementary
+[`scalable strict-cycle control`](docs/scalable-strict-cycle-bridge-control.md)
+shows why these abstract bridge axioms alone cannot force a bounded
+vertex-circle certificate or a Kalmanson circuit using at most three
+inequalities. Its explicit support-minimal four-inequality Kalmanson circuit
+shows that this control does not extend to every bounded Kalmanson certificate.
 
 An incoming `n=10` singleton-slice continuation is recorded as a finite-case
 draft review target only; see
 [`docs/n10-vertex-circle-singleton-slices.md`](docs/n10-vertex-circle-singleton-slices.md).
 It now has a portable C++ second-source replay that matches all 126 stored
 singleton rows, still as review evidence only and not an `n=10` proof.
+A separate complete
+[`Kalmanson pair-filter replay`](docs/n10-kalmanson-pair-filter.md) reaches the
+same zero-assignment conclusion by an algebraically different exact search,
+with independent Python slice checks. It remains draft review evidence and
+does not change the source-of-truth or global status.
 
 ### Numerical near-misses
 
