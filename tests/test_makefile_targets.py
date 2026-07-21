@@ -225,11 +225,25 @@ def test_verify_bridge_frontier_includes_bootstrap_audits() -> None:
         ),
         "python scripts/check_n12_rich_support_determinant.py --check --json",
         "python scripts/check_localized_rich_support_counting.py --check --json",
+        "python scripts/check_minimal_two_deletion_profile.py --check --json",
+        "python scripts/check_all_rich_class_pair_budget.py --check --json",
         (
             "python scripts/check_adjacent_closest_pair_nonagon_barrier.py "
             "--check --summary-json"
         ),
         "python scripts/check_brp_boundary_probe.py --check --assert-expected --json",
+        (
+            "python scripts/check_four_c3_generic_orbit_obstruction.py "
+            "--assert-expected --json"
+        ),
+        (
+            "python scripts/check_five_c3_tournament_obstruction.py "
+            "--assert-expected --json"
+        ),
+        (
+            "python scripts/check_five_c3_all_cross_nonreciprocal_obstruction.py "
+            "--assert-expected --json"
+        ),
         (
             "python scripts/check_bootstrap_core_crosswalk.py "
             "--check --assert-expected --json"

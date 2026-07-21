@@ -870,6 +870,24 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
         "python scripts/check_localized_rich_support_counting.py --check --json"
         in command_texts
     )
+    new_proof_commands = (
+        "python scripts/check_minimal_two_deletion_profile.py --check --json",
+        "python scripts/check_all_rich_class_pair_budget.py --check --json",
+        (
+            "python scripts/check_four_c3_generic_orbit_obstruction.py "
+            "--assert-expected --json"
+        ),
+        (
+            "python scripts/check_five_c3_tournament_obstruction.py "
+            "--assert-expected --json"
+        ),
+        (
+            "python scripts/check_five_c3_all_cross_nonreciprocal_obstruction.py "
+            "--assert-expected --json"
+        ),
+    )
+    for command in new_proof_commands:
+        assert command in command_texts
     assert (
         "python scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json"
         in command_texts
@@ -918,6 +936,16 @@ def test_audit_commands_include_registered_followup_checkers() -> None:
     )
     assert ordered_command_texts.index(
         "python scripts/check_localized_rich_support_counting.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_minimal_two_deletion_profile.py --check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_minimal_two_deletion_profile.py --check --json"
+    ) < ordered_command_texts.index(
+        "python scripts/check_all_rich_class_pair_budget.py --check --json"
+    )
+    assert ordered_command_texts.index(
+        "python scripts/check_all_rich_class_pair_budget.py --check --json"
     ) < ordered_command_texts.index(
         "python scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json"
     )

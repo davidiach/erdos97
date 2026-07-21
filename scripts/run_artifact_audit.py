@@ -1993,6 +1993,49 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="four_c3_generic_orbit_obstruction",
+        command=(
+            "python",
+            "scripts/check_four_c3_generic_orbit_obstruction.py",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending exact reciprocal-supplier replay for four generic "
+            "concentric C3 orbits plus one half-step midpoint row; restricted "
+            "family only, not a proof or counterexample for Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="five_c3_tournament_obstruction",
+        command=(
+            "python",
+            "scripts/check_five_c3_tournament_obstruction.py",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending exact circle-product replay for five generic C3 "
+            "own-pair rows; restricted family only, not a proof or "
+            "counterexample for Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="five_c3_all_cross_nonreciprocal_obstruction",
+        command=(
+            "python",
+            "scripts/check_five_c3_all_cross_nonreciprocal_obstruction.py",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Review-pending exact signature-(2,2) replay for five generic C3 "
+            "all-cross rows with every mutual gain-pair nonreciprocal; "
+            "restricted family only, not a proof or counterexample for Erdos "
+            "Problem #97."
+        ),
+    ),
+    AuditCommand(
         ident="rich_support_counting_bound",
         command=(
             "python",
@@ -2070,6 +2113,35 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
             "and small-n consequences; reduces hypothetical 4-bad nonagons "
             "to all-exact-four support systems but is not a proof of n=9, "
             "not a proof of Erdos Problem #97, and not a counterexample."
+        ),
+    ),
+    AuditCommand(
+        ident="minimal_two_deletion_profile",
+        command=(
+            "python",
+            "scripts/check_minimal_two_deletion_profile.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact combinatorial replay for the minimal two-deletion profile "
+            "lemma and exclusive-pair charging; necessary bridge structure "
+            "only, not a proof or counterexample for Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
+        ident="all_rich_class_pair_budget",
+        command=(
+            "python",
+            "scripts/check_all_rich_class_pair_budget.py",
+            "--check",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact arithmetic replay for all-rich-class global/local budgets "
+            "and exclusive endpoint aggregate bounds; necessary bridge "
+            "structure only, not an incidence realization, proof, or "
+            "counterexample for Erdos Problem #97."
         ),
     ),
     AuditCommand(

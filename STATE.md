@@ -95,6 +95,28 @@ remaining vertices and can be deleted next, so the process iterates through
 the whole polygon. This is not the rich-triple closure rule and does not imply
 ear-orderability or force a selected row.
 
+Deleting two vertices gives a sharper complete-profile lemma: a certifying
+center is exactly `T4`, `T5`, or `T44`.  The all-rich-class pair count now
+applies simultaneously to every rich class and gives global mass `<=n(n-2)`
+and localized mass `<=2n-4`.  Exclusive-pair endpoint rows sharpen this to
+`e=0` at `n=9`, `e<=2` at `n=10`, and explicit universal upper bounds for
+larger `n`.  The bounds still do not force `e>0`, so every `n>=9` remains open.
+See
+`docs/minimal-two-deletion-profile.md` and
+`docs/all-rich-class-pair-budget.md`.
+
+The five-orbit `C3` lane also has a review-pending exact boundary draft:
+generic four-orbit own-pair rows force coincident reciprocal suppliers, and
+generic five-orbit
+own-pair rows are impossible by a circle-product modulus contradiction.  The
+all-five four-cross-singleton system is also impossible when all ten mutual
+gain-pairs are nonreciprocal.  Reciprocal all-cross gains, mixed rows, and
+uncovered half-step shapes remain.  This is restricted-family progress, not a
+counterexample or global proof.  See
+`docs/four-c3-generic-orbit-obstruction.md`,
+`docs/five-c3-tournament-obstruction.md`, and
+`docs/five-c3-all-cross-nonreciprocal-obstruction.md`.
+
 A stored block-6 vertex-circle full-extension audit adds one geometric gate to
 that negative control: in the natural cyclic order, the two-block block-6
 family has no full selected-row extension surviving the vertex-circle quotient
