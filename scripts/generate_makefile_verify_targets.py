@@ -84,7 +84,11 @@ def write_makefile() -> bool:
     expected = generated_block()
     if block == expected:
         return False
-    MAKEFILE_PATH.write_text(before + expected + after, encoding="utf-8")
+    MAKEFILE_PATH.write_text(
+        before + expected + after,
+        encoding="utf-8",
+        newline="\n",
+    )
     return True
 
 
