@@ -13,8 +13,6 @@ import sys
 from pathlib import Path
 from typing import Any, Sequence
 
-from erdos97.json_io import load_json
-
 try:
     import yaml
 except ImportError:  # pragma: no cover - exercised only without dev dependencies.
@@ -99,6 +97,13 @@ def load_manifest(path: Path) -> dict[str, Any]:
     if not isinstance(payload, dict):
         raise ValueError("manifest top level must be a mapping")
     return payload
+
+
+# This fast-tier preflight is deliberately self-contained: keep the local
+# load_json instead of erdos97.json_io so the script runs in a fresh checkout
+# before the erdos97 package is installed.
+def load_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def sha256_file(path: Path) -> str:
