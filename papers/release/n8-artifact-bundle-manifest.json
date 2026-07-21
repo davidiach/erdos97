@@ -19,6 +19,10 @@
         "version": "9.0.3"
       },
       {
+        "name": "pytest-xdist",
+        "version": "3.8.0"
+      },
+      {
         "name": "python-flint",
         "version": "0.8.0"
       },
@@ -45,7 +49,7 @@
     ],
     "lockfile": {
       "path": "requirements-lock.txt",
-      "sha256": "ff8ba72a57151896a4ba388840366bc54a95a5c109adf109f80864e48cb348e9"
+      "sha256": "fff3a556f518ed50c70ddf0687b919b626d5300232a65dfffc5920592941d368"
     },
     "platform": {
       "archive_compression": "stored",
@@ -87,7 +91,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "9c8ca42684ba126ee6597dac5ae7b17136b7614bb11b2e40fa717a3d9454a4c1",
+      "sha256": "4520484ccdbcfdd1ce6c2f6d1b0330b78e9ef8cecf09d113eab778182b634e7d",
       "size_bytes": 2209
     },
     {
@@ -212,13 +216,13 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "185babbb6b03119b7526821d03650b3518180a69371e6467132ab7ca56d4c81e",
-      "size_bytes": 766
+      "sha256": "f9624c58215668f283cf45cbffea9c95e44c6ac2331aa0cfa8b4f06cbac7aa75",
+      "size_bytes": 789
     },
     {
       "path": "requirements-lock.txt",
-      "sha256": "ff8ba72a57151896a4ba388840366bc54a95a5c109adf109f80864e48cb348e9",
-      "size_bytes": 585
+      "sha256": "fff3a556f518ed50c70ddf0687b919b626d5300232a65dfffc5920592941d368",
+      "size_bytes": 605
     },
     {
       "path": "scripts/analyze_n8_exact_survivors.py",
@@ -247,8 +251,8 @@
     },
     {
       "path": "scripts/enumerate_n8_incidence.py",
-      "sha256": "465dbc4a57470203a2164e825abbecff70a4d61ac9caace33bce9ffcb93a3c75",
-      "size_bytes": 2874
+      "sha256": "0ecd0db759ffa561938b56dc762c2add2898647592d9caeb8a0a4decb4251cad",
+      "size_bytes": 3045
     },
     {
       "path": "scripts/independent_check_n8_artifacts.py",
@@ -298,11 +302,11 @@
       "path": "scripts/build_n8_release_packet.py",
       "sha256": "e08a4f7ce681530f54d74967e0df92d91cce0224a84a7497ea5149d20794fc35"
     },
-    "bundle_source_files_sha256": "27b42eaa237df5fc87eccb8a21e9cc60eb24f5fa2a19d8c8dad8fa43802811e0",
-    "commit": "3fae8c0c0187666c5fa83986427744319810f2dc",
-    "commit_url": "https://github.com/davidiach/erdos97/commit/3fae8c0c0187666c5fa83986427744319810f2dc",
+    "bundle_source_files_sha256": "690ce4dfc2fb340d394ebf713be4b085b5c36305b3f6539a5d9e9fa7d82644b6",
+    "commit": "357b2463121ffb94564acea93967aa039eaa0da8",
+    "commit_url": "https://github.com/davidiach/erdos97/commit/357b2463121ffb94564acea93967aa039eaa0da8",
     "repository_url": "https://github.com/davidiach/erdos97",
-    "tree": "50dabb3bd54fbee99c1cc1113b09e6f202942e2d",
+    "tree": "95523b87817ef966acba9fd35bf86a70267352c0",
     "worktree": {
       "dirty": false,
       "policy": "Build and check require a clean Git worktree. Generated release outputs are committed after, and are not part of, the named source snapshot."
