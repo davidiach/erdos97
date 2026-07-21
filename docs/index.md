@@ -181,6 +181,16 @@ put detailed reconciliation in the canonical synthesis.
   failed search family, plus an exact globally convex quartic one-rich-row
   negative control; not a claim about samples straddling the inflection or a
   finite quartic closure.
+- [`quartic-marked-root-gram-pilot.md`](quartic-marked-root-gram-pilot.md):
+  exact fixed-grid continuation of that degree-four boundary using affine Gram
+  row equations, rank-one minors, and calibrated controls; the full exceptional
+  frontier closes after one further center, with no degree-four graph Gram or
+  unresolved state. A post-hoc full-Gram reclassification also rules out
+  pairwise-distinct planar degree-at-most-four polynomial samples at nine
+  equally-spaced parameters with four-rich rows at all four centers
+  `-4,0,3,4`, without using convexity. This remains a restricted
+  equally-spaced parametrized family, not a general quartic obstruction or a
+  global result.
 - [`hyperbola-branch-model-case.md`](hyperbola-branch-model-case.md):
   restricted exact lemma showing that finite point sets on one branch of a
   Euclidean hyperbola cannot be counterexamples; a failed search family, not a

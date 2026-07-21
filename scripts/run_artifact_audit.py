@@ -442,6 +442,24 @@ AUDIT_COMMANDS: tuple[AuditCommand, ...] = (
         ),
     ),
     AuditCommand(
+        ident="quartic_marked_root_gram",
+        command=(
+            "python",
+            "scripts/check_quartic_marked_root_gram.py",
+            "--check",
+            "--assert-expected",
+            "--json",
+        ),
+        claim_scope=(
+            "Exact obstruction for pairwise-distinct planar polynomial "
+            "parametrizations of coordinate degree at most four sampled on "
+            "a nine-term arithmetic progression: one of the four normalized "
+            "centers -4,0,3,4 is not four-rich. Not an irregular-parameter "
+            "quartic obstruction, n=9 proof, counterexample, or proof of "
+            "Erdos Problem #97."
+        ),
+    ),
+    AuditCommand(
         ident="two_parabola_lens_grid_search",
         command=(
             "python",

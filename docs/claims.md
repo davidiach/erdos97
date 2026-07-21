@@ -2903,6 +2903,77 @@ This is a restricted exact obstruction only. It does not cover cubic samples
 that use both sides of the inflection, general parametric cubic curves, or
 arbitrary strictly convex polygons.
 
+### Quartic equally-spaced marked-root model case
+
+Status: `EXACT_OBSTRUCTION` / `FAILED_SEARCH_FAMILY`.
+
+Let
+
+```text
+gamma(t) = (t, a1*t + a2*t^2 + a3*t^3 + a4*t^4),  a4 != 0,
+T = {-4,-3,-2,-1,0,1,2,3,4}.
+```
+
+There is no real coefficient vector for which every center in `T` has four
+other parameters in `T` at one common Euclidean distance. In particular, no
+strictly convex sample in this fixed family is a counterexample to Erdos
+Problem #97.
+
+The exact checker lifts the coefficients to the ten entries of
+`A=a*a^T`. Each marked witness quartet gives three affine equations in `A`.
+For anchor centers `0,3,4`, the two-circle overlap cap leaves `202080` of the
+`70^3=343000` marked triples. Of these, `199349` have affine rank nine and
+their exact rank-one root is the universal matrix `A*=-E11`, so they fail the
+planar PSD graph gate. The remaining `2731` rank-eight
+triples deduplicate to `2729` affine states. Appending every one of the 70
+marked rows at center `-4` gives `191030` consistent state-row branches but
+only 315 canonical affine solution states: 314 affine lines and the singleton
+`{A*}`. Their only rank-at-most-one matrix is again `A*`. No affine state,
+quartic graph Gram, or unresolved algebraic branch remains. See
+`docs/quartic-marked-root-gram-pilot.md` and
+`data/certificates/quartic_marked_root_gram.json`.
+
+A post-hoc exact strengthening homogenizes the same equations with the full
+coefficient Gram. For
+
+```text
+gamma(t) = C*(t,t^2,t^3,t^4)^T,
+B = C^T*C,
+```
+
+the marked equations are homogeneous in `B`, and the graph substitution is
+`B=E11+A`. Hence `A*` corresponds exactly to the zero Gram `B=0`. A
+one-dimensional kernel can represent a planar polynomial map only if its
+generator is semidefinite of rank at most two.
+
+The 315 extension states consist of one zero kernel and 314 lines. Their exact
+inertias are 231 nonsingular Lorentzian, 6 nonsingular `(2,2)`, 66 definite
+rank four, and 11 singular `(1,1,2)`. None contains a nonzero planar Gram.
+The only two PSD rank-two rays in the rigid rank-nine anchor stratum are
+
+```text
+(2308,108,-232,24,183,18,-21,28,-6,3),
+(292,-248,-88,44,211,74,-37,28,-14,7).
+```
+
+Both have positive-radius row multiplicities `(2,4,4,4,4,4,4,4,4)` across
+centers `-4,-3,...,4`, but both identify several parameter pairs and therefore
+fail pairwise distinctness; neither is four-rich at `-4`.
+
+It follows, post hoc, that a pairwise-distinct planar sample of a real
+degree-at-most-four polynomial parametrization at nine equally spaced
+parameters has a non-four-rich center among the four positions corresponding
+to `-4,0,3,4`. This uses no convexity hypothesis and extends by affine
+reparameterization to every nine-term arithmetic progression.
+
+The predeclared result remains an exact obstruction for one fixed
+equally-spaced polynomial-graph family. The post-hoc upgrade covers planar
+polynomial parametrizations of degree at most four on equally-spaced samples,
+but not irregular parameter sets, higher-dimensional samples, implicit or
+general algebraic quartics, multi-arc constructions, or arbitrary strictly
+convex polygons. It is not a global bridge and does not prove Erdos Problem
+#97.
+
 ### Hyperbola branch model case
 
 Status: `LEMMA` / `FAILED_SEARCH_FAMILY`.
