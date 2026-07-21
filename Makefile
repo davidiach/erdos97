@@ -6,6 +6,7 @@ verify-lint:
 	$(PYTHON) scripts/check_text_clean.py
 	$(PYTHON) scripts/check_status_consistency.py
 	$(PYTHON) scripts/check_artifact_provenance.py
+	$(PYTHON) scripts/generate_makefile_verify_targets.py --check
 	git diff --check
 	$(PYTHON) -m ruff check .
 
@@ -22,6 +23,12 @@ verify-pytest-artifacts:
 verify-pytest-all:
 	$(PYTHON) -m pytest -q -o addopts=
 
+# The targets between the GENERATED markers are derived from the
+# make_targets section of scripts/audit_commands.json. Do not edit them
+# here: edit the registry and run
+#     python scripts/generate_makefile_verify_targets.py --write
+# make verify-lint checks this alignment.
+# BEGIN GENERATED VERIFY TARGETS (from scripts/audit_commands.json)
 verify-n8:
 	$(PYTHON) scripts/independent_check_n8_artifacts.py --check --json
 	$(PYTHON) scripts/enumerate_n8_incidence.py --summary
@@ -38,30 +45,6 @@ verify-kalmanson:
 	$(PYTHON) scripts/probe_c19_proof_tooling.py --check-c19-cnf-summary --json
 	$(PYTHON) scripts/analyze_kalmanson_inverse_pair_templates.py --assert-expected --json
 	$(PYTHON) scripts/analyze_kalmanson_sparse_frontier_templates.py --assert-expected --json
-
-verify-n9-candidate:
-	$(PYTHON) scripts/check_n9_candidate_review_manifest.py --check --summary-json
-	$(PYTHON) scripts/check_n9_review_gate_ledger.py --check --summary-json
-	$(PYTHON) scripts/check_n9_review_evidence_matrix.py --check --summary-json
-	$(PYTHON) scripts/check_n9_review_dossier.py --check --summary-json
-	$(PYTHON) scripts/check_n9_review_run_bundle.py --check --summary-json
-	$(PYTHON) scripts/check_n9_review_decision_intake.py --check --summary-json
-	$(PYTHON) scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
-	$(PYTHON) scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json
-	$(PYTHON) scripts/check_lean_sketch_integrity.py
-	$(PYTHON) scripts/check_lean_files.py
-	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
-	$(PYTHON) scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
-	$(PYTHON) scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
 
 verify-n9-review:
 	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
@@ -261,6 +244,35 @@ verify-n10-review:
 	$(PYTHON) scripts/check_n10_vertex_circle_singletons.py --assert-expected --spot-check-row0 0 --spot-check-row0 63 --spot-check-row0 125
 	$(PYTHON) scripts/check_n10_fast_cpp_singleton_replay.py --check --json
 	$(PYTHON) scripts/check_n10_secondary_singleton_replay.py --check --assert-expected --json
+
+# END GENERATED VERIFY TARGETS
+
+# verify-n9-candidate is a curated compact review surface; its command list
+# is mirrored in metadata/n9_candidate_review.yaml and checked by
+# scripts/check_n9_candidate_review_manifest.py, so it is not generated.
+verify-n9-candidate:
+	$(PYTHON) scripts/check_n9_candidate_review_manifest.py --check --summary-json
+	$(PYTHON) scripts/check_n9_review_gate_ledger.py --check --summary-json
+	$(PYTHON) scripts/check_n9_review_evidence_matrix.py --check --summary-json
+	$(PYTHON) scripts/check_n9_review_dossier.py --check --summary-json
+	$(PYTHON) scripts/check_n9_review_run_bundle.py --check --summary-json
+	$(PYTHON) scripts/check_n9_review_decision_intake.py --check --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_route_decision_request.py --check --summary-json
+	$(PYTHON) scripts/check_lean_sketch_integrity.py
+	$(PYTHON) scripts/check_lean_files.py
+	$(PYTHON) scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
+	$(PYTHON) scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_mro_branching_replay.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_frontier_coverage_crosswalk.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_strict_edge_geometry.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_quotient_soundness.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_vertex_circle_local_lemma_audit_path.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_kalmanson_selfedge_independent_replay.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_kalmanson_selfedge_frontier_replay.py --check --assert-expected --summary-json
 
 verify-artifacts:
 	$(PYTHON) scripts/run_artifact_audit.py --verify-only

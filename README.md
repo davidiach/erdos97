@@ -288,13 +288,19 @@ If `make` is not available, run the fast tier directly:
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
 python scripts/check_artifact_provenance.py
+python scripts/generate_makefile_verify_targets.py --check
 git diff --check
 python -m ruff check .
 python -m pytest -q
 ```
 
 `make verify-lint` runs the sub-minute text/status/provenance/ruff tier without
-pytest. The default pytest configuration excludes tests marked `artifact`,
+pytest. The registry-backed Makefile verify targets (`verify-n8`,
+`verify-kalmanson`, `verify-n9-review`, `verify-bridge-frontier`,
+`verify-n10-review`) are generated from
+[`scripts/audit_commands.json`](scripts/audit_commands.json); edit that file
+and run `python scripts/generate_makefile_verify_targets.py --write` instead
+of editing the Makefile block by hand. The default pytest configuration excludes tests marked `artifact`,
 `slow`, or `exhaustive`; run `python -m pytest -q -m ""` only when you
 intentionally want the full marker set.
 
@@ -326,8 +332,10 @@ For CI-style metadata capture, run:
 make audit-artifacts
 ```
 
-Both targets use the command registry in
-[`scripts/run_artifact_audit.py`](scripts/run_artifact_audit.py): `verify-artifacts`
+Both targets use the command registry data file
+[`scripts/audit_commands.json`](scripts/audit_commands.json), loaded and
+validated by [`scripts/run_artifact_audit.py`](scripts/run_artifact_audit.py):
+`verify-artifacts`
 runs the registry without metadata capture, while `audit-artifacts` records
 per-command stdout/stderr and environment metadata. If `make` is unavailable,
 use `python scripts/run_artifact_audit.py --verify-only` for the same raw

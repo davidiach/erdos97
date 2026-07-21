@@ -53,7 +53,8 @@ For CI-style audit metadata, run:
 make audit-artifacts
 ```
 
-Both artifact targets use the command registry in
+Both artifact targets use the command registry data file
+`scripts/audit_commands.json`, loaded and validated by
 `scripts/run_artifact_audit.py`: `verify-artifacts` runs the registered
 artifact commands without metadata capture, while `audit-artifacts` also runs
 the two audit preflights and records per-command stdout/stderr plus environment
