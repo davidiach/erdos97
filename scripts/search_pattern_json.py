@@ -5,22 +5,15 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.pattern_io import load_pattern_json  # noqa: E402
-from erdos97.search import (  # noqa: E402
+from erdos97.pattern_io import load_pattern_json
+from erdos97.search import (
     PatternInfo,
     result_to_json,
     search_pattern,
     write_certificate_template,
 )
-
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)

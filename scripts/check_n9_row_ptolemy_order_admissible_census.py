@@ -13,12 +13,9 @@ from pathlib import Path
 from typing import Any, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
 SCRIPTS = ROOT / "scripts"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
@@ -27,6 +24,7 @@ from erdos97.incidence_filters import (  # noqa: E402
     normalize_chord,
     phi_map,
 )
+from erdos97.json_io import write_json  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
     parse_selected_rows,
@@ -178,17 +176,6 @@ class NormalizedOrder:
     order: tuple[int, ...]
     positions: tuple[int, ...]
     edges: frozenset[tuple[int, int]]
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def expect_equal(errors: list[str], label: str, actual: Any, expected: Any) -> None:

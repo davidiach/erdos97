@@ -5,22 +5,18 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from time import perf_counter
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_kalmanson_selfedge import (  # noqa: E402
+from erdos97.n9_kalmanson_selfedge import (
     assert_expected_summary,
     run,
     summary_payload,
     verify_certificate_payload,
 )
-from erdos97.path_display import display_path  # noqa: E402
+from erdos97.path_display import display_path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_kalmanson_selfedge.json"
 

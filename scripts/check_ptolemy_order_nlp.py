@@ -5,19 +5,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.ptolemy_order_nlp import (  # noqa: E402
+from erdos97.ptolemy_order_nlp import (
     ptolemy_order_nlp_diagnostic,
     result_to_json,
 )
-from erdos97.search import PatternInfo, built_in_patterns  # noqa: E402
+from erdos97.search import PatternInfo, built_in_patterns
 
 REGISTERED_ORDERS: dict[str, dict[str, list[int]]] = {
     "C13_sidon_1_2_4_10": {

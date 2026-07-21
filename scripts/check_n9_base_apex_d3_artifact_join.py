@@ -9,12 +9,7 @@ import sys
 from pathlib import Path
 from typing import Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_base_apex_d3_artifact_join import (  # noqa: E402
+from erdos97.n9_base_apex_d3_artifact_join import (
     DEFAULT_ARTIFACT_PATHS,
     EXPECTED_CLAIM_SCOPE,
     load_artifacts,
@@ -23,6 +18,7 @@ from erdos97.n9_base_apex_d3_artifact_join import (  # noqa: E402
     validate_artifact_stack,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)

@@ -9,14 +9,11 @@ import sys
 from pathlib import Path
 from typing import Any, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_selected_baseline_d3_escape_class_crosswalk import (  # noqa: E402
+from erdos97.n9_selected_baseline_d3_escape_class_crosswalk import (
     selected_baseline_d3_escape_class_crosswalk_report,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = (
     ROOT / "data" / "certificates" / "n9_selected_baseline_d3_escape_class_crosswalk.json"

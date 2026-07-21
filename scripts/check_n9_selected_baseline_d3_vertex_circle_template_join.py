@@ -9,15 +9,11 @@ import sys
 from pathlib import Path
 from typing import Any, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_selected_baseline_d3_escape_class_crosswalk import (  # noqa: E402
+from erdos97.json_io import write_json
+from erdos97.n9_selected_baseline_d3_escape_class_crosswalk import (
     assert_expected_crosswalk_counts,
 )
-from erdos97.n9_selected_baseline_d3_vertex_circle_template_join import (  # noqa: E402
+from erdos97.n9_selected_baseline_d3_vertex_circle_template_join import (
     CLAIM_SCOPE,
     EXPECTED_ESCAPE_LANDING_COUNTS,
     EXPECTED_ESCAPING_LANDING_COUNT,
@@ -33,13 +29,15 @@ from erdos97.n9_selected_baseline_d3_vertex_circle_template_join import (  # noq
     assert_expected_template_join_counts,
     selected_baseline_d3_vertex_circle_template_join_payload,
 )
-from erdos97.n9_vertex_circle_frontier_motif_classification import (  # noqa: E402
+from erdos97.n9_vertex_circle_frontier_motif_classification import (
     assert_expected_classification_counts,
 )
-from erdos97.n9_vertex_circle_template_lemma_catalog import (  # noqa: E402
+from erdos97.n9_vertex_circle_template_lemma_catalog import (
     assert_expected_template_lemma_catalog_counts,
 )
-from erdos97.path_display import display_path  # noqa: E402
+from erdos97.path_display import display_path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = (
     ROOT
@@ -102,17 +100,6 @@ def load_artifact(path: Path) -> Any:
     """Load a JSON artifact."""
 
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def expect_equal(errors: list[str], label: str, actual: Any, expected: Any) -> None:

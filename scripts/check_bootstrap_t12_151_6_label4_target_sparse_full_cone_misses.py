@@ -12,11 +12,8 @@ from typing import Any, Mapping, Sequence
 from scipy.optimize import linprog
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 
 from erdos97.path_display import display_path  # noqa: E402
 from erdos97.quotient_cone import StrictRow  # noqa: E402

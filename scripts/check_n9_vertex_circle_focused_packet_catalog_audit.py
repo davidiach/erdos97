@@ -10,12 +10,10 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from erdos97.json_io import load_json
+from erdos97.path_display import display_path
 
-from erdos97.path_display import display_path  # noqa: E402
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_TEMPLATE_CATALOG = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_template_lemma_catalog.json"
@@ -93,12 +91,6 @@ ALLOWED_SOURCE_TEMPLATE_OMISSIONS["T01"].update(
 EXPECTED_ALLOWED_SOURCE_TEMPLATE_OMISSION_COUNT = sum(
     len(fields) for fields in ALLOWED_SOURCE_TEMPLATE_OMISSIONS.values()
 )
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def focused_packet_catalog_audit_payload(

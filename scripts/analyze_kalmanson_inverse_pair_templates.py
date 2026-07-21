@@ -23,6 +23,7 @@ from check_kalmanson_two_order_search import (  # noqa: E402
     assert_c13_expected,
 )
 from check_kalmanson_two_order_z3 import verify_certificate  # noqa: E402
+from erdos97.json_io import load_json  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 
 SCHEMA = "erdos97.kalmanson_inverse_pair_templates.v1"
@@ -46,10 +47,6 @@ PROVENANCE = {
 
 DEFAULT_C13 = ROOT / "data" / "certificates" / "c13_sidon_all_orders_kalmanson_two_search.json"
 DEFAULT_C19 = ROOT / "data" / "certificates" / "c19_skew_all_orders_kalmanson_z3.json"
-
-
-def load_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def diagnostic_payload(

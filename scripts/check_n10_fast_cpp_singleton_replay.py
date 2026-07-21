@@ -13,6 +13,8 @@ import tempfile
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from erdos97.json_io import load_json, write_json
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "n10_fast_cpp_singleton_replay.json"
 DEFAULT_PRIMARY_ARTIFACT = (
@@ -63,15 +65,6 @@ EXPECTED_N10 = {
 EXPECTED_N10_ROW_DIGEST = (
     "64ebe12406c8777bcc7d7e2c5f1db3adb7703cbdba3898bb069bf964091b2fbb"
 )
-
-
-def load_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: Mapping[str, Any], path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def sha256_file(path: Path) -> str:

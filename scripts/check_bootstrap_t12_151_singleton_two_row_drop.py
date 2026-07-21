@@ -5,15 +5,9 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.bootstrap_t12_151_singleton_two_row_drop import (  # noqa: E402
+from erdos97.bootstrap_t12_151_singleton_two_row_drop import (
     DEFAULT_ARTIFACT,
     DEFAULT_SOURCE_ARTIFACT,
     assert_expected_payload,
@@ -21,6 +15,7 @@ from erdos97.bootstrap_t12_151_singleton_two_row_drop import (  # noqa: E402
     load_artifact,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 def write_artifact(path: Path, payload: dict[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)

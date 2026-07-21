@@ -6,16 +6,10 @@ from __future__ import annotations
 import argparse
 import dataclasses
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.altman_diagonal_sums import altman_order_linear_certificate  # noqa: E402
-from erdos97.search import PatternInfo, built_in_patterns  # noqa: E402
+from erdos97.altman_diagonal_sums import altman_order_linear_certificate
+from erdos97.search import PatternInfo, built_in_patterns
 
 KNOWN_ABSTRACT_ORDERS: dict[str, dict[str, list[int]]] = {
     "C19_skew": {

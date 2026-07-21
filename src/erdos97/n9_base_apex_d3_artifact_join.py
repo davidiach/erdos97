@@ -12,6 +12,8 @@ import json
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from erdos97.json_io import load_json
+
 N = 9
 TOTAL_PROFILE_EXCESS = 6
 CAPACITY_DEFICIT = 3
@@ -238,12 +240,6 @@ def resolve_artifact_paths(
         path = overrides.get(key, default_path)
         out[key] = path if path.is_absolute() else root / path
     return out
-
-
-def load_json(path: Path) -> Any:
-    """Load one JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def load_artifacts(paths: Mapping[str, Path]) -> tuple[dict[str, Any], list[str]]:

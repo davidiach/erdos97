@@ -5,15 +5,9 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.incidence_filters import (  # noqa: E402
+from erdos97.incidence_filters import (
     adjacent_two_overlap_violations,
     crossing_bisector_violations,
     forced_equal_classes_from_matrix,
@@ -22,6 +16,8 @@ from erdos97.incidence_filters import (  # noqa: E402
     phi4_rectangle_trap_certificates,
     phi_directed_4_cycles,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 PATTERN_NAME = "N9_phi4_rectangle_trap_selected_witness_pattern"
 CERT_PATH = ROOT / "data" / "certificates" / "n9_phi4_rectangle_trap.json"

@@ -11,6 +11,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Sequence
 
+from erdos97.json_io import load_json, write_json
+
 ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_CLASSIFICATION = (
@@ -67,23 +69,6 @@ def pair(left: int, right: int) -> Pair:
     if left == right:
         raise ValueError("degenerate pair")
     return (left, right) if left < right else (right, left)
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON file."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def digest_json(payload: object) -> str:

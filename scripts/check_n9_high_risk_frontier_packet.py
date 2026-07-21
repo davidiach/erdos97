@@ -5,16 +5,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_high_risk_frontier_packet import (  # noqa: E402
+from erdos97.json_io import write_json
+from erdos97.n9_high_risk_frontier_packet import (
     CLAIM_SCOPE,
     PROVENANCE,
     SCHEMA,
@@ -23,6 +18,8 @@ from erdos97.n9_high_risk_frontier_packet import (  # noqa: E402
     assert_expected_payload,
     build_payload,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "n9_high_risk_frontier_packet.json"
 EXPECTED_TOP_LEVEL_KEYS = {
@@ -47,17 +44,6 @@ def load_artifact(path: Path) -> Any:
     """Load a JSON artifact."""
 
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def _expect_equal(errors: list[str], label: str, actual: Any, expected: Any) -> None:

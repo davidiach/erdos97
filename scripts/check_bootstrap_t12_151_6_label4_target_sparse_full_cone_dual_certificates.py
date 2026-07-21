@@ -23,6 +23,8 @@ from itertools import combinations
 from pathlib import Path
 from typing import Any, Iterable, Mapping, MutableMapping, Sequence
 
+from erdos97.json_io import write_json
+
 SCHEMA = (
     "erdos97.bootstrap_t12_151_6_label4_target_sparse_full_cone_"
     "dual_certificates.v1"
@@ -589,11 +591,6 @@ def _validate_source_misses(source_misses_path: Path, errors: list[str]) -> None
     ]
     if source_identities != list(EXPECTED_MISSES):
         errors.append("source miss artifact identities changed")
-
-
-def write_json(payload: object, path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 def resolve_repo_path(path: Path) -> Path:

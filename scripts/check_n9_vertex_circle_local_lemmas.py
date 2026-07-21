@@ -9,12 +9,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_vertex_circle_local_lemmas import (  # noqa: E402
+from erdos97.n9_vertex_circle_local_lemmas import (
     CLAIM_SCOPE,
     PROVENANCE,
     SCHEMA,
@@ -23,7 +18,9 @@ from erdos97.n9_vertex_circle_local_lemmas import (  # noqa: E402
     assert_expected_local_lemma_scan,
     local_lemma_scan_payload,
 )
-from erdos97.path_display import display_path  # noqa: E402
+from erdos97.path_display import display_path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_SELF_EDGE_PACKET = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_self_edge_template_packet.json"

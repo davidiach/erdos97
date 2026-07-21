@@ -8,6 +8,9 @@ import json
 import sys
 from pathlib import Path
 
+# This script ships in the standalone n8 release bundle; keep the local
+# sys.path bootstrap so it runs from an extracted bundle without installing
+# the erdos97 package.
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 if str(SRC) not in sys.path:

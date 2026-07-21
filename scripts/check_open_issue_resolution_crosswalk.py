@@ -9,16 +9,12 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from erdos97.interval_verify import verify_interval_json
 
-from erdos97.interval_verify import verify_interval_json  # noqa: E402
+ROOT = Path(__file__).resolve().parents[1]
 
 SCHEMA = "erdos97.open_issue_resolution_crosswalk.v1"
 STATUS = "ISSUE_ACCEPTANCE_CROSSWALK_ONLY"

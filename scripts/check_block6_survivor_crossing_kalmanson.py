@@ -5,21 +5,14 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
-from pathlib import Path
 from typing import Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.fragile_benchmarks import (  # noqa: E402
+from erdos97.fragile_benchmarks import (
     block6_two_block_survivor_extension_3_rows,
 )
-from erdos97.incidence_filters import Chord, chords_cross_in_order, phi_map  # noqa: E402
-from erdos97.quotient_cone import check_quotient_cone_certificate  # noqa: E402
-from erdos97.sparse_frontier import normalize_cyclic_order  # noqa: E402
+from erdos97.incidence_filters import Chord, chords_cross_in_order, phi_map
+from erdos97.quotient_cone import check_quotient_cone_certificate
+from erdos97.sparse_frontier import normalize_cyclic_order
 
 Constraint = tuple[Chord, Chord]
 

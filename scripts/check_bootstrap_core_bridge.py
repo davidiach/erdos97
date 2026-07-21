@@ -5,27 +5,20 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from dataclasses import asdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.bootstrap_cores import (  # noqa: E402
+from erdos97.bootstrap_cores import (
     audit_bootstrap_core,
     cyclic_capacity_from_runs,
     cyclic_capacity_sum,
     outside_runs,
     search_generating_seed,
 )
-from erdos97.bridge_negative_controls import c13_sidon_rows  # noqa: E402
-from erdos97.adaptive_blockers import (  # noqa: E402
+from erdos97.bridge_negative_controls import c13_sidon_rows
+from erdos97.adaptive_blockers import (
     singleton_rich_classes_from_pattern,
 )
-
 
 def complete_five_packet() -> dict[str, object]:
     rich_classes = tuple(

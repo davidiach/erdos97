@@ -5,15 +5,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.affine_circuit_certificates import (  # noqa: E402
+from erdos97.affine_circuit_certificates import (
     affine_circuit_matrix,
     analysis_to_json,
     golden_decagon_example,
@@ -27,7 +20,6 @@ from erdos97.affine_circuit_certificates import (  # noqa: E402
     valid_lifted_bases,
     weighted_two_core,
 )
-
 
 EXAMPLES = {
     "golden-decagon": golden_decagon_example,

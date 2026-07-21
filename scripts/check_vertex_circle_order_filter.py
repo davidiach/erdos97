@@ -5,22 +5,15 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.search import built_in_patterns  # noqa: E402
-from erdos97.vertex_circle_order_filter import (  # noqa: E402
+from erdos97.search import built_in_patterns
+from erdos97.vertex_circle_order_filter import (
     find_cyclic_order_with_vertex_circle_filter,
     order_result_to_json,
     search_result_to_json,
     vertex_circle_order_obstruction,
 )
-
 
 def parse_order(raw: str) -> list[int]:
     try:

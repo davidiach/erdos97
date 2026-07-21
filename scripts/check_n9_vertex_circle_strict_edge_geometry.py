@@ -7,16 +7,10 @@ import argparse
 import json
 import sys
 from collections import Counter
-from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97 import n9_vertex_circle_exhaustive as n9  # noqa: E402
-from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
+from erdos97 import n9_vertex_circle_exhaustive as n9
+from erdos97.vertex_circle_quotient_replay import (
     SelectedRow,
     pair,
     replay_vertex_circle_quotient,

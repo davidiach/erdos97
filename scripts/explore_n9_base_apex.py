@@ -6,15 +6,9 @@ from __future__ import annotations
 import argparse
 import dataclasses
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_base_apex import (  # noqa: E402
+from erdos97.n9_base_apex import (
     distance_profiles,
     deficit_placement_classes,
     escape_budget_report,
@@ -28,6 +22,7 @@ from erdos97.n9_base_apex import (  # noqa: E402
     turn_cover_diagnostic,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 def emit_json(payload: object, out: Path | None = None) -> None:
     """Print or write a stable JSON payload."""

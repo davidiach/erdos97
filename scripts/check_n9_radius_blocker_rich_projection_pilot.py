@@ -10,16 +10,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import sys
 from pathlib import Path
 from typing import Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.radius_blocker_packets import (  # noqa: E402
+from erdos97.radius_blocker_packets import (
     TRUST,
     PacketConfig,
     analyze_radius_blocker_projection_packet,
@@ -27,6 +21,8 @@ from erdos97.radius_blocker_packets import (  # noqa: E402
     four_subset_options_from_rich_classes,
     result_to_packet_json,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 SCHEMA = "erdos97.n9_radius_blocker_rich_projection_pilot.v1"
 STATUS = "N9_RADIUS_BLOCKER_RICH_PROJECTION_PILOT_ONLY"

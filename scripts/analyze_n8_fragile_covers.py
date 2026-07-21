@@ -5,19 +5,15 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.fragile_hypergraph import (  # noqa: E402
+from erdos97.fragile_hypergraph import (
     covering_subsets,
     rows_from_zero_one_matrix,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 EXPECTED_MIN_COVER_DISTRIBUTION = {"2": 6, "3": 9}
 

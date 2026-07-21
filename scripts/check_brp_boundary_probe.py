@@ -6,23 +6,18 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.brp_boundary_probe import (  # noqa: E402
+from erdos97.brp_boundary_probe import (
     JSON_FLOAT_DIGITS,
     ROOT_TOL,
     SAMPLED_A5_BOUNDARY_ROOT_TOL,
     assert_expected_counts,
     build_payload,
 )
-from erdos97.path_display import display_path  # noqa: E402
+from erdos97.path_display import display_path
 
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "brp_boundary_vertexization_probe.json"
 JSON_ROUNDED_FLOAT_TOL = 5 * 10 ** (-JSON_FLOAT_DIGITS)

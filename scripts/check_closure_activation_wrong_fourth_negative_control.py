@@ -9,18 +9,14 @@ import sys
 from pathlib import Path
 from typing import Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.closure_activation_negative_controls import (  # noqa: E402
+from erdos97.closure_activation_negative_controls import (
     assert_wrong_fourth_expected,
     certificate_summary,
     validate_wrong_fourth_certificate,
     wrong_fourth_negative_control_certificate,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_CERTIFICATE = (
     ROOT / "data" / "certificates" / "closure_activation_wrong_fourth_negative_control.json"

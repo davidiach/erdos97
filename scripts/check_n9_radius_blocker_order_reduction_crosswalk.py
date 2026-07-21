@@ -10,22 +10,18 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import sys
 from itertools import combinations
 from pathlib import Path
 from typing import Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.radius_blocker_packets import (  # noqa: E402
+from erdos97.radius_blocker_packets import (
     TRUST,
     canonical_dihedral_subset,
     dihedral_subset_images,
     subset_positions_in_order,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 SCHEMA = "erdos97.n9_radius_blocker_order_reduction_crosswalk.v1"
 STATUS = "N9_RADIUS_BLOCKER_ORDER_REDUCTION_DIAGNOSTIC_ONLY"

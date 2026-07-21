@@ -19,6 +19,7 @@ from analyze_kalmanson_inverse_pair_templates import (  # noqa: E402
     cross_pattern_summary,
     pattern_template_summary,
 )
+from erdos97.json_io import load_json  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 
 SCHEMA = "erdos97.kalmanson_sparse_frontier_templates.v1"
@@ -53,10 +54,6 @@ CHECKED_PILOT_TEMPLATE_SET = [
     "one_class_equals_one_class",
     "two_classes_equal_two_classes",
 ]
-
-
-def load_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def catalog_entries(catalog_path: Path) -> dict[str, Mapping[str, Any]]:

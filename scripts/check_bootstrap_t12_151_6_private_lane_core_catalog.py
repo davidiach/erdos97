@@ -6,23 +6,19 @@ from __future__ import annotations
 import argparse
 import itertools
 import json
-import sys
 from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.path_display import display_path  # noqa: E402
-from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
+from erdos97.json_io import write_json
+from erdos97.path_display import display_path
+from erdos97.vertex_circle_quotient_replay import (
     SelectedRow,
     replay_vertex_circle_quotient,
     result_to_json,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 SCHEMA = "erdos97.bootstrap_t12_151_6_private_lane_core_catalog.v1"
 STATUS = "BOOTSTRAP_T12_151_6_PRIVATE_LANE_CORE_CATALOG_DIAGNOSTIC_ONLY"
@@ -126,17 +122,6 @@ def load_artifact(path: Path) -> Any:
     """Load a JSON artifact."""
 
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def build_private_lane_core_catalog_payload(

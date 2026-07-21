@@ -5,21 +5,14 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
+from erdos97.vertex_circle_quotient_replay import (
     local_core_bundle_to_json,
     replay_local_core_bundle,
     replay_payload,
     result_to_json,
 )
-
 
 def load_payload(path: str) -> dict[str, object]:
     with Path(path).open(encoding="utf-8") as handle:
