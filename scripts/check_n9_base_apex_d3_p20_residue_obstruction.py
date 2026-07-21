@@ -15,6 +15,8 @@ import sys
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from erdos97.json_io import load_json
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PACKET = (
     ROOT / "data" / "certificates" / "n9_base_apex_d3_incidence_capacity_packet.json"
@@ -50,12 +52,6 @@ EXPECTED_COMBINED_CLOSED_ROWS = 16
 EXPECTED_REMAINING_AFTER_THIS_CHECKER_ONLY = 80
 EXPECTED_REMAINING_AFTER_P19_P20 = 72
 PROFILE_MAX_RESIDUE_TWO_VERTICES = 2
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON value from ``path``."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def deficient_degrees(row: Mapping[str, Any]) -> list[int]:

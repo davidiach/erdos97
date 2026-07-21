@@ -9,15 +9,13 @@ import sys
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_vertex_circle_local_lemma_simple_replay import (  # noqa: E402
+from erdos97.json_io import write_json
+from erdos97.n9_vertex_circle_local_lemma_simple_replay import (
     assert_expected_simple_packet_replay,
     simple_packet_replay_payload,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_SELF_EDGE_PACKET = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_self_edge_template_packet.json"
@@ -33,17 +31,6 @@ DEFAULT_ARTIFACT = (
 def load_artifact(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def _resolve(path: Path) -> Path:

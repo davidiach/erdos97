@@ -5,21 +5,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from itertools import combinations
-from pathlib import Path
 from typing import Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.fragile_hypergraph import _selected_pair_ok, block6_family  # noqa: E402
-from erdos97.incidence_filters import (  # noqa: E402
+from erdos97.fragile_hypergraph import _selected_pair_ok, block6_family
+from erdos97.incidence_filters import (
     row_ptolemy_product_cancellation_certificates,
 )
-
 
 def _full_extensions(
     n: int,

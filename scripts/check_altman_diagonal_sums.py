@@ -6,21 +6,17 @@ from __future__ import annotations
 import argparse
 import dataclasses
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.altman_diagonal_sums import (  # noqa: E402
+from erdos97.altman_diagonal_sums import (
     altman_order_linear_certificate,
     altman_order_lp_diagnostic,
     altman_order_obstruction,
     check_altman,
 )
-from erdos97.search import built_in_patterns  # noqa: E402
+from erdos97.search import built_in_patterns
+
+ROOT = Path(__file__).resolve().parents[1]
 
 PATTERN_LEDGER = ROOT / "data" / "patterns" / "candidate_patterns.json"
 

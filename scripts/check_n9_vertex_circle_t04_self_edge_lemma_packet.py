@@ -10,9 +10,7 @@ from pathlib import Path
 from typing import Any, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+
 SCRIPTS = ROOT / "scripts"
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
@@ -25,6 +23,7 @@ from check_n9_vertex_circle_template_lemma_catalog import (  # noqa: E402
     DEFAULT_ARTIFACT as DEFAULT_TEMPLATE_CATALOG,
     validate_payload as validate_template_catalog,
 )
+from erdos97.json_io import write_json  # noqa: E402
 from erdos97.n9_vertex_circle_t04_self_edge_lemma_packet import (  # noqa: E402
     CLAIM_SCOPE,
     EXPECTED_ASSIGNMENT_IDS,
@@ -101,17 +100,6 @@ def load_artifact(path: Path) -> Any:
     """Load a JSON artifact."""
 
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def expect_equal(errors: list[str], label: str, actual: Any, expected: Any) -> None:

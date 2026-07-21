@@ -11,12 +11,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from erdos97.json_io import load_json
+from erdos97.path_display import display_path
 
-from erdos97.path_display import display_path  # noqa: E402
+ROOT = Path(__file__).resolve().parents[1]
 
 N = 9
 ROW_SIZE = 4
@@ -114,12 +112,6 @@ class UnionFind:
         if root_second < root_first:
             root_first, root_second = root_second, root_first
         self.parent[root_second] = root_first
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def local_core_subset_audit_payload(

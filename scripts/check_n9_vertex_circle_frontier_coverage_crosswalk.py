@@ -11,13 +11,11 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from erdos97 import n9_vertex_circle_exhaustive as n9
+from erdos97.json_io import load_json
+from erdos97.path_display import display_path
 
-from erdos97 import n9_vertex_circle_exhaustive as n9  # noqa: E402
-from erdos97.path_display import display_path  # noqa: E402
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_FRONTIER_CLASSIFICATION = (
     ROOT
@@ -87,12 +85,6 @@ EXPECTED_SORTED_ROWS_SHA256 = "dc28b32d93e721838a592d1f010f92720869191594dbcc40d
 EXPECTED_SEQUENCE_ROWS_SHA256 = "d7807b69b9de27da17fa851b3325b1e26cfa0b6d86277abeda4bc4e3454b8e01"
 
 Rows = tuple[tuple[int, ...], ...]
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def frontier_coverage_crosswalk_payload(

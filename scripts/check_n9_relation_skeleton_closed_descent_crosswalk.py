@@ -20,6 +20,7 @@ for path in (SRC, SCRIPT_DIR):
 from check_n9_vertex_circle_closed_descent_packet import (  # noqa: E402
     assert_expected_closed_descent_packet_counts,
 )
+from erdos97.json_io import write_json  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 from erdos97.relation_skeleton_catalog import (  # noqa: E402
     assert_expected_relation_skeleton_catalog,
@@ -108,17 +109,6 @@ def load_artifact(path: Path) -> Any:
     """Load a JSON artifact."""
 
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def _json_counter(counter: Counter[int] | Counter[str]) -> dict[str, int]:

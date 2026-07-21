@@ -11,12 +11,10 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 
+from erdos97.json_io import write_json  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 
 from scripts.check_bootstrap_t12_151_6_label4_transfer_component_feasibility import (  # noqa: E402
@@ -198,17 +196,6 @@ EXPECTED_SUMMARY = {
     "source_obligation_status": SOURCE_OBLIGATION_STATUS,
     "ledger_status": LEDGER_STATUS,
 }
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def build_support_hypothesis_ledger_payload(

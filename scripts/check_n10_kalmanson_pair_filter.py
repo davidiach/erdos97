@@ -8,16 +8,11 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
-import sys
 import tempfile
 
+from erdos97.n10_kalmanson_pair_filter import N10KalmansonPairSearch
+
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n10_kalmanson_pair_filter import N10KalmansonPairSearch  # noqa: E402
-
 
 EXPECTED_CPP = {
     "n": 10,

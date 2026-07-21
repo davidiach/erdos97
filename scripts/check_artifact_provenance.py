@@ -99,6 +99,9 @@ def load_manifest(path: Path) -> dict[str, Any]:
     return payload
 
 
+# This fast-tier preflight is deliberately self-contained: keep the local
+# load_json instead of erdos97.json_io so the script runs in a fresh checkout
+# before the erdos97 package is installed.
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 

@@ -20,6 +20,7 @@ for candidate in (ROOT, SRC):
     if str(candidate) not in sys.path:
         sys.path.insert(0, str(candidate))
 
+from erdos97.json_io import load_json  # noqa: E402
 from erdos97.n9_base_apex_d3_artifact_join import (  # noqa: E402
     DEFAULT_ARTIFACT_PATHS as D3_DEFAULT_ARTIFACT_PATHS,
     EXPECTED_INCIDENCE_STATE,
@@ -116,12 +117,6 @@ def resolve_artifact_paths(
         path = overrides.get(key, default)
         paths[key] = path if path.is_absolute() else root / path
     return paths
-
-
-def load_json(path: Path) -> Any:
-    """Load one JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def load_artifacts(paths: Mapping[str, Path]) -> tuple[dict[str, Any], list[str]]:

@@ -5,22 +5,17 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Mapping
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.bootstrap_t12_81_3_post8_supply_chains import (  # noqa: E402
+from erdos97.bootstrap_t12_81_3_post8_supply_chains import (
     DEFAULT_ARTIFACT,
     assert_expected_payload,
     build_t12_81_3_post8_supply_chains_payload,
     load_artifact,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 def write_artifact(path: Path, payload: Mapping[str, object]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)

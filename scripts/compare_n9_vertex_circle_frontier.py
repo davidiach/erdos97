@@ -9,16 +9,13 @@ import sys
 from pathlib import Path
 from typing import Any, Mapping
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_vertex_circle_frontier_comparison import (  # noqa: E402
+from erdos97.n9_vertex_circle_frontier_comparison import (
     assert_expected_frontier_comparison,
     frontier_comparison_summary,
 )
-from erdos97.path_display import display_path  # noqa: E402
+from erdos97.path_display import display_path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_OUT = ROOT / "data" / "certificates" / "n9_vertex_circle_frontier_comparison.json"
 DEFAULT_ARTIFACT = DEFAULT_OUT

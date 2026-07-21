@@ -11,16 +11,14 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97 import n9_vertex_circle_exhaustive as n9  # noqa: E402
-from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
+from erdos97 import n9_vertex_circle_exhaustive as n9
+from erdos97.json_io import load_json
+from erdos97.vertex_circle_quotient_replay import (
     parse_selected_rows,
     replay_vertex_circle_quotient,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_FRONTIER_CLASSIFICATION = (
     ROOT
@@ -88,12 +86,6 @@ EXPECTED_PREFIX_STATUS_COUNTS = {
     "self_edge": 758,
     "strict_cycle": 328,
 }
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def partial_pruning_payload(

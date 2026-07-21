@@ -25,11 +25,22 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: lean-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   compile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # lean-action caches .lake build outputs itself; this cache covers the
+      # elan toolchain download, which dominates a cold run.
+      - name: Cache elan toolchain
+        uses: actions/cache@v4
+        with:
+          path: ~/.elan
+          key: elan-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}
       - name: Install pinned Lean toolchain and build
         uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
       - name: Check sketch boundaries

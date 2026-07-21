@@ -5,19 +5,11 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
-import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.period_three_radius_partition import (  # noqa: E402
+from erdos97.period_three_radius_partition import (
     audit_three_reverse_pair_radius_partitions,
     matches_expected,
 )
-
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)

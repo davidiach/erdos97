@@ -9,16 +9,10 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.radius_blocker_packets import (  # noqa: E402
+from erdos97.radius_blocker_packets import (
     SCHEMA,
     STATUS,
     TRUST,
@@ -27,6 +21,8 @@ from erdos97.radius_blocker_packets import (  # noqa: E402
     full_exact_four_radius_blocker_rich_classes,
     result_to_packet_json,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_OUT = (
     ROOT / "data" / "certificates" / "n9_full_radius_blocker_vertex_circle_packet.json"

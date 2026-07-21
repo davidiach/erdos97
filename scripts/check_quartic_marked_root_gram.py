@@ -5,18 +5,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from fractions import Fraction
 from pathlib import Path
 from typing import Any
 
-
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.quartic_marked_root_gram import (  # noqa: E402
+from erdos97.quartic_marked_root_gram import (
     E11_UPPER,
     SCHEMA,
     UNIVERSAL_PHANTOM_UPPER,
@@ -30,6 +23,7 @@ from erdos97.quartic_marked_root_gram import (  # noqa: E402
     second_derivative_has_constant_sign,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "quartic_marked_root_gram.json"
 PARAMETERS = tuple(range(-4, 5))

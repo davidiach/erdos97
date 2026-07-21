@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from collections import Counter
 from dataclasses import dataclass
 from itertools import combinations
@@ -17,16 +16,13 @@ from math import prod
 from pathlib import Path
 from typing import Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.incidence_filters import (  # noqa: E402
+from erdos97.incidence_filters import (
     chords_cross_in_order,
     normalize_chord,
 )
-from erdos97.radius_blocker_packets import TRUST  # noqa: E402
+from erdos97.radius_blocker_packets import TRUST
+
+ROOT = Path(__file__).resolve().parents[1]
 
 SCHEMA = "erdos97.n9_all_five_rich_support_obstruction.v1"
 STATUS = "N9_ALL_FIVE_RICH_SUPPORT_OBSTRUCTION_ONLY"

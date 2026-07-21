@@ -11,6 +11,8 @@ from itertools import combinations
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from erdos97.json_io import load_json
+
 ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_FRONTIER_CLASSIFICATION = (
@@ -91,12 +93,6 @@ EXPECTED_ASSIGNMENT_WITNESS_PAIR_PROFILES = {
 
 Pair = tuple[int, int]
 CompactRows = dict[int, tuple[int, ...]]
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def frontier_assignment_audit_payload(

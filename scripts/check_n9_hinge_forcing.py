@@ -16,15 +16,9 @@ import hashlib
 from itertools import combinations
 import json
 from pathlib import Path
-import sys
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_hinge_forcing import (  # noqa: E402
+from erdos97.n9_hinge_forcing import (
     EXPECTED_HINGE_COMPILER_REQUIREMENTS,
     EXPECTED_HINGE_COMPILER_SATISFACTION_ENTRIES,
     EXPECTED_HINGE_COMPILER_SHA256,
@@ -42,6 +36,7 @@ from erdos97.n9_hinge_forcing import (  # noqa: E402
     validate_terminal,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "n9_hinge_forcing.json"
 

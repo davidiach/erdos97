@@ -5,16 +5,9 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.edge_event_packet import edge_event_report  # noqa: E402
-
+from erdos97.edge_event_packet import edge_event_report
 
 def _parse_selected_rows(raw: object) -> dict[int, list[int]]:
     if raw is None:

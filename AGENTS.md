@@ -36,10 +36,16 @@ Run the fast tier after documentation or code changes:
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
 python scripts/check_artifact_provenance.py
+python scripts/generate_makefile_verify_targets.py --check
 git diff --check
 python -m ruff check .
 python -m pytest -q
 ```
+
+The registry-backed Makefile verify targets are generated from
+`scripts/audit_commands.json`; edit that file and run
+`python scripts/generate_makefile_verify_targets.py --write` instead of
+editing the generated Makefile block directly.
 
 The same fast tier is available as:
 

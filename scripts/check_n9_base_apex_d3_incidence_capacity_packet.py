@@ -13,6 +13,8 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
+from erdos97.json_io import load_json
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ARTIFACT = (
     ROOT
@@ -309,12 +311,6 @@ def source_artifact_path(source_key: str) -> Path:
     """Return the expected path for one source artifact."""
 
     return ROOT / EXPECTED_SOURCE_ARTIFACTS[source_key]
-
-
-def load_json(path: Path) -> Any:
-    """Load JSON from a path."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def load_source_artifact(path: Path, label: str, errors: list[str]) -> Any | None:

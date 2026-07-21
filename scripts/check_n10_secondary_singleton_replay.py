@@ -9,12 +9,7 @@ import sys
 from pathlib import Path
 from typing import Any, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n10_secondary_singleton_replay import (  # noqa: E402
+from erdos97.n10_secondary_singleton_replay import (
     CHECK_SCOPE,
     ROW0_CHOICES_COVERED,
     TOTAL_FULL,
@@ -25,7 +20,9 @@ from erdos97.n10_secondary_singleton_replay import (  # noqa: E402
     primary_prefix_match,
     validate_secondary_payload,
 )
-from erdos97.path_display import display_path  # noqa: E402
+from erdos97.path_display import display_path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "2026-05-05" / "n10_secondary.json"
 DEFAULT_PRIMARY_ARTIFACT = ROOT / "data" / "certificates" / "n10_vertex_circle_singleton_slices.json"

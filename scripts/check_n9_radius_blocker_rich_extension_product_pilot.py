@@ -10,16 +10,12 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import sys
 from collections import Counter
 from itertools import product
 from pathlib import Path
 from typing import Iterable, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 
 from check_n9_radius_blocker_rich_extension_neighborhood import (  # noqa: E402
     extension_catalog,

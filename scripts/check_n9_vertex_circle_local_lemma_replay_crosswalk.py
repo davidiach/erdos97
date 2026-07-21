@@ -9,15 +9,10 @@ import sys
 from pathlib import Path
 from typing import Any, Mapping
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_vertex_circle_local_lemma_simple_replay import (  # noqa: E402
+from erdos97.n9_vertex_circle_local_lemma_simple_replay import (
     assert_expected_simple_packet_replay,
 )
-from erdos97.n9_vertex_circle_local_lemmas import (  # noqa: E402
+from erdos97.n9_vertex_circle_local_lemmas import (
     NESTED_SPOKE_LEMMA,
     SHARED_ENDPOINT_LEMMA,
     T03_SELECTED_PATH_SELF_EDGE,
@@ -27,7 +22,9 @@ from erdos97.n9_vertex_circle_local_lemmas import (  # noqa: E402
     T12_STRICT_CYCLE_LEMMA,
     assert_expected_local_lemma_scan,
 )
-from erdos97.path_display import display_path  # noqa: E402
+from erdos97.path_display import display_path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 SCHEMA = "erdos97.n9_vertex_circle_local_lemma_replay_crosswalk.v1"
 STATUS = "REVIEW_PENDING_PACKET_AUDIT"

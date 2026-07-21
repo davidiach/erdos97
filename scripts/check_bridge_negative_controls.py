@@ -5,21 +5,14 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.bridge_negative_controls import (  # noqa: E402
+from erdos97.bridge_negative_controls import (
     block6_geometric_atom_certificate,
     c13_sidon_negative_control,
     false_output8_correction_certificate,
     output7_two_block_negative_control,
 )
-
 
 def all_certificates() -> dict[str, object]:
     return {

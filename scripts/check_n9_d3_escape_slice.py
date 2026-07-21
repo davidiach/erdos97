@@ -9,12 +9,9 @@ import sys
 from pathlib import Path
 from typing import Any, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from erdos97.n9_d3_escape_slice import d3_escape_slice_report
 
-from erdos97.n9_d3_escape_slice import d3_escape_slice_report  # noqa: E402
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "n9_base_apex_d3_escape_slice.json"
 EXPECTED_TOP_LEVEL_KEYS = {

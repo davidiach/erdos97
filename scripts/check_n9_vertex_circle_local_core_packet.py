@@ -10,12 +10,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_vertex_circle_obstruction_shapes import (  # noqa: E402
+from erdos97.json_io import write_json
+from erdos97.n9_vertex_circle_obstruction_shapes import (
     LOCAL_CORE_PACKET_CLAIM_SCOPE,
     LOCAL_CORE_PACKET_PROVENANCE,
     LOCAL_CORE_PACKET_SCHEMA,
@@ -24,10 +20,12 @@ from erdos97.n9_vertex_circle_obstruction_shapes import (  # noqa: E402
     assert_expected_local_core_packet_counts,
     local_core_packet_summary,
 )
-from erdos97.path_display import display_path  # noqa: E402
-from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
+from erdos97.path_display import display_path
+from erdos97.vertex_circle_quotient_replay import (
     replay_local_core_bundle,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_local_core_packet.json"
@@ -56,17 +54,6 @@ def load_artifact(path: Path) -> Any:
     """Load a JSON artifact."""
 
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def expect_equal(errors: list[str], label: str, actual: Any, expected: Any) -> None:

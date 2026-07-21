@@ -11,17 +11,15 @@ from pathlib import Path
 from typing import Any, Iterator, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 
 from erdos97.incidence_filters import (  # noqa: E402
     Chord,
     chords_cross_in_order,
     phi_map,
 )
+from erdos97.json_io import load_json, write_json  # noqa: E402
 from erdos97.sparse_frontier import normalize_cyclic_order  # noqa: E402
 from erdos97.vertex_circle_order_filter import (  # noqa: E402
     vertex_circle_order_obstruction,
@@ -591,19 +589,6 @@ def assert_expected_full_sweep(payload: Mapping[str, Any]) -> None:
 
 def _resolve_repo_path(path: Path) -> Path:
     return path if path.is_absolute() else ROOT / path
-
-
-def load_json(path: Path) -> object:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: Mapping[str, Any], path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def compare_artifact(payload: Mapping[str, Any], path: Path) -> None:

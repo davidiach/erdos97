@@ -22,6 +22,8 @@ from math import comb
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from erdos97.json_io import load_json
+
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
@@ -753,12 +755,6 @@ def assert_expected_certificates(payload: Mapping[str, Any]) -> None:
         selected_rows = item.get("selected_rows")
         if not isinstance(selected_rows, list) or len(selected_rows) != N:
             raise AssertionError(f"selected_rows malformed at {index}")
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def write_json(path: Path, payload: Any) -> None:

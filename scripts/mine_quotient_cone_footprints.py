@@ -11,17 +11,12 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Sequence
 
+from erdos97.quotient_cone import footprint_summary
+
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.quotient_cone import footprint_summary  # noqa: E402
-
 
 C29_CERTIFICATE = (
     ROOT / "data" / "certificates" / "c29_sidon_fixed_order_kalmanson_165_unsat.json"

@@ -5,23 +5,19 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.phi4_frontier import (  # noqa: E402
+from erdos97.phi4_frontier import (
     built_in_natural_order_cases,
     n9_rectangle_trap_case,
     scan_cases,
     scan_payload,
     sparse_order_cases_from_payload,
 )
-from erdos97.path_display import display_path  # noqa: E402
-from erdos97.search import built_in_patterns  # noqa: E402
+from erdos97.path_display import display_path
+from erdos97.search import built_in_patterns
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_SPARSE_ORDERS = ROOT / "data" / "certificates" / "sparse_order_survivors.json"
 DEFAULT_OUT = ROOT / "data" / "certificates" / "phi4_frontier_scan.json"

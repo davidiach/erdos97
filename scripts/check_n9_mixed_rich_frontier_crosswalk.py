@@ -17,13 +17,11 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
 SCRIPTS = ROOT / "scripts"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
+from erdos97.json_io import load_json  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 
 import check_n9_mixed_rich_support_reduction as mixed  # noqa: E402
@@ -98,12 +96,6 @@ class CollectedMixedFrontier:
     dead_end_count: int
     center_choice_counts: Mapping[int, int]
     node_depth_counts: Mapping[int, int]
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def mixed_frontier_crosswalk_payload(

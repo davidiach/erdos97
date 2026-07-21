@@ -5,15 +5,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.two_orbit_radius_propagation import (  # noqa: E402
+from erdos97.two_orbit_radius_propagation import (
     alternating_decagon_crossing_search,
     alternating_turns,
     alternating_two_radius_family_summary,
@@ -33,7 +26,6 @@ from erdos97.two_orbit_radius_propagation import (  # noqa: E402
     symmetric_two_orbit_reduction_to_json,
     two_orbit_summary,
 )
-
 
 def _is_zero(value: object) -> bool:
     import sympy as sp

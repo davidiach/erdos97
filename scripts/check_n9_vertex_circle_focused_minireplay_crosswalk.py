@@ -10,12 +10,10 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from erdos97.json_io import load_json
+from erdos97.path_display import display_path
 
-from erdos97.path_display import display_path  # noqa: E402
+ROOT = Path(__file__).resolve().parents[1]
 
 EXPECTED_TEMPLATE_IDS = [f"T{index:02d}" for index in range(1, 13)]
 SELF_EDGE_TEMPLATE_IDS = [f"T{index:02d}" for index in range(1, 10)]
@@ -101,12 +99,6 @@ EXPECTED_SOURCE_ONLY_ASSIGNMENT_COUNT = 0
 EXPECTED_SOURCE_ONLY_TEMPLATES: list[str] = []
 EXPECTED_SELF_EDGE_PATH_LENGTH_COUNTS = {"3": 9, "4": 2, "5": 1, "6": 1}
 EXPECTED_STRICT_CYCLE_LENGTH_COUNTS = {"2": 1, "3": 2}
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def focused_minireplay_crosswalk_payload(

@@ -46,20 +46,16 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import sys
 from itertools import combinations
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.vertex_circle_order_filter import (  # noqa: E402
+from erdos97.vertex_circle_order_filter import (
     angular_witness_order,
     vertex_circle_order_obstruction,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 SOURCE = (
     ROOT / "data" / "certificates"

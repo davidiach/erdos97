@@ -9,18 +9,14 @@ import sys
 from pathlib import Path
 from typing import Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.closure_activation_negative_controls import (  # noqa: E402
+from erdos97.closure_activation_negative_controls import (
     assert_full_row_anti_activation_expected,
     full_row_anti_activation_control_certificate,
     full_row_anti_activation_summary,
     validate_full_row_anti_activation_certificate,
 )
 
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = (
     ROOT / "data" / "certificates" / "bootstrap_t12_anti_activation_negative_control.json"

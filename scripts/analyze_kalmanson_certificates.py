@@ -23,6 +23,8 @@ from check_kalmanson_certificate import (
     row_witnesses,
 )
 
+from erdos97.json_io import load_json
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CERTIFICATES = (
     ROOT / "data" / "certificates" / "c13_sidon_order_survivor_kalmanson_unsat.json",
@@ -42,10 +44,6 @@ def _relative_path(path: Path) -> str:
         return path.resolve().relative_to(ROOT.resolve()).as_posix()
     except ValueError:
         return str(path)
-
-
-def load_json(path: Path) -> object:
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def check_artifact(path: Path, payload: Mapping[str, object]) -> None:

@@ -10,23 +10,19 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import sys
 from collections import Counter
 from pathlib import Path
 from typing import Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.adaptive_blockers import is_radius_blocker  # noqa: E402
-from erdos97.radius_blocker_packets import TRUST  # noqa: E402
-from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
+from erdos97.adaptive_blockers import is_radius_blocker
+from erdos97.radius_blocker_packets import TRUST
+from erdos97.vertex_circle_quotient_replay import (
     RichClassRow,
     StrictInequality,
     replay_vertex_circle_rich_quotient,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 SCHEMA = "erdos97.n9_radius_blocker_rich_quotient_sweep.v1"
 STATUS = "N9_RADIUS_BLOCKER_RICH_QUOTIENT_SWEEP_ONLY"

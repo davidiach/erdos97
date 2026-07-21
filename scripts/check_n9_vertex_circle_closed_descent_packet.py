@@ -10,24 +10,22 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n9_vertex_circle_obstruction_shapes import (  # noqa: E402
+from erdos97.json_io import write_json
+from erdos97.n9_vertex_circle_obstruction_shapes import (
     assert_expected_local_core_packet_counts,
 )
-from erdos97.path_display import display_path  # noqa: E402
-from erdos97.vertex_circle_closed_descent import (  # noqa: E402
+from erdos97.path_display import display_path
+from erdos97.vertex_circle_closed_descent import (
     closed_descent_cycle_to_json,
 )
-from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
+from erdos97.vertex_circle_quotient_replay import (
     parse_selected_rows,
     replay_vertex_circle_quotient,
     strict_quotient_edges,
     validate_closed_descent_region,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 SCHEMA = "erdos97.n9_vertex_circle_closed_descent_packet.v1"
 STATUS = "REVIEW_PENDING_DIAGNOSTIC_ONLY"
@@ -78,17 +76,6 @@ def load_artifact(path: Path) -> Any:
     """Load a JSON artifact."""
 
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def write_json(payload: object, path: Path) -> None:
-    """Write stable LF-terminated JSON."""
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def _json_counter(counter: Counter[int] | Counter[str]) -> dict[str, int]:

@@ -19,6 +19,8 @@ from itertools import combinations
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from erdos97.json_io import load_json
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ARTIFACT = (
     ROOT
@@ -528,12 +530,6 @@ def assert_expected_payload(payload: Mapping[str, Any]) -> None:
     for key, value in expected.items():
         if brancher.get(key) != value:
             raise AssertionError(f"{key} mismatch: {brancher.get(key)!r} != {value!r}")
-
-
-def load_json(path: Path) -> Any:
-    """Load JSON from a path."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def write_json(path: Path, payload: Mapping[str, Any]) -> None:

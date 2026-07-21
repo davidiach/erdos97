@@ -5,22 +5,18 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.n10_vertex_circle_singletons import (  # noqa: E402
+from erdos97.n10_vertex_circle_singletons import (
     artifact_payload,
     assert_expected_payload,
     assert_generic_spot_check,
     load_artifact,
     rows_from_archive_jsonl,
 )
-from erdos97.path_display import display_path  # noqa: E402
+from erdos97.path_display import display_path
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "n10_vertex_circle_singleton_slices.json"
 

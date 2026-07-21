@@ -14,19 +14,15 @@ from collections import Counter
 import hashlib
 import json
 from pathlib import Path
-import sys
 from typing import Any
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97.kalmanson_equilateral_hinge import (  # noqa: E402
+from erdos97.kalmanson_equilateral_hinge import (
     HingeInstance,
     find_core_hinge_instances,
     find_hinge_instances,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_SOURCE = (
     ROOT / "data" / "certificates" / "n9_kalmanson_three_row_core_compression.json"

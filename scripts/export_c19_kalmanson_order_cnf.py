@@ -32,6 +32,7 @@ if str(SCRIPTS) not in sys.path:
     sys.path.insert(0, str(SCRIPTS))
 
 from check_kalmanson_two_order_search import _prepare_vector_tables  # noqa: E402
+from erdos97.json_io import load_json  # noqa: E402
 from erdos97.path_display import display_path  # noqa: E402
 
 
@@ -58,10 +59,6 @@ DEFAULT_COMMAND = (
     "python scripts/export_c19_kalmanson_order_cnf.py --assert-expected "
     "--out reports/c19_kalmanson_order_cnf_summary.json"
 )
-
-
-def load_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def _clause_key(left: Quad, right: Quad) -> Clause:

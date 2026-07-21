@@ -11,17 +11,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
-
-from erdos97 import n9_vertex_circle_exhaustive as n9  # noqa: E402
-from erdos97.vertex_circle_quotient_replay import (  # noqa: E402
+from erdos97 import n9_vertex_circle_exhaustive as n9
+from erdos97.json_io import load_json
+from erdos97.vertex_circle_quotient_replay import (
     SelectedRow,
     parse_selected_rows,
     replay_vertex_circle_quotient,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_LOCAL_CORE_PACKET = (
     ROOT / "data" / "certificates" / "n9_vertex_circle_local_core_packet.json"
@@ -143,12 +141,6 @@ class UnionFind:
         if root_b < root_a:
             root_a, root_b = root_b, root_a
         self.parent[root_b] = root_a
-
-
-def load_json(path: Path) -> Any:
-    """Load a JSON artifact."""
-
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def direct_quotient_result(

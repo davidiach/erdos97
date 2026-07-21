@@ -16,7 +16,9 @@ import json
 import sys
 from collections import Counter
 from pathlib import Path
-from typing import Any, Mapping, Sequence
+from typing import Mapping, Sequence
+
+from erdos97.json_io import load_json
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
@@ -52,10 +54,6 @@ def relative_path(path: Path) -> str:
         return path.resolve().relative_to(ROOT.resolve()).as_posix()
     except ValueError:
         return str(path)
-
-
-def load_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def quad_steps(quad: Quad, n: int) -> tuple[int, int, int, int]:

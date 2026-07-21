@@ -10,14 +10,10 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Mapping, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 
 import analyze_n8_exact_survivors as n8_exact  # noqa: E402
 from erdos97.bridge_lemma_frontier import (  # noqa: E402
@@ -26,13 +22,10 @@ from erdos97.bridge_lemma_frontier import (  # noqa: E402
     assert_expected_payload,
     build_payload,
 )
+from erdos97.json_io import load_json  # noqa: E402
 
 
 DEFAULT_OUT = ROOT / "data" / "certificates" / "bridge_lemma_frontier.json"
-
-
-def load_json(path: Path) -> object:
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def n8_exact_obstruction_map(root: Path) -> dict[int, list[dict[str, object]]]:
