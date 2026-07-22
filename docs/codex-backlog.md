@@ -670,6 +670,14 @@ minimal/rich-class hypotheses.
 5. Extend the Kalmanson template diagnostics toward order-search coverage:
    C13/C19 template records and C25/C29 availability records now exist, but
    they are not cyclic-order coverage or obstructions for the larger frontier.
+   The guarded free-Cartesian preflight in
+   `docs/free-cartesian-sparse-preflight.md` adds 24 exact sampled fixed-order
+   certificates (12 each for C25 and C29) and deliberately makes no coordinate
+   attempt on those obstructed orders. Use their recurring high-support cores
+   to design an all-order forbidden-template/SMT search, or first find an order
+   that escapes the full Kalmanson cone before spending more coordinate-search
+   budget. The 24-order artifact is bounded negative-control evidence, not
+   all-order coverage.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

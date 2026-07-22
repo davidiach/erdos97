@@ -933,6 +933,14 @@ put detailed reconciliation in the canonical synthesis.
   free-pattern numerical searcher where every center re-selects its best
   witness 4-set per evaluation, with anti-cluster floors and a recorded
   equivariant sweep; `NUMERICAL_EVIDENCE` only, no candidate found.
+- [`complex-cyclic-construction-screens.md`](complex-cyclic-construction-screens.md):
+  complex two-mode floating candidate enumeration for `9 <= n <= 30` and
+  complex three-mode seeded construction search for `12 <= n <= 18`, including
+  the exact doubled-hexagon degeneration identity; no candidate or obstruction.
+- [`free-cartesian-sparse-preflight.md`](free-cartesian-sparse-preflight.md):
+  analytic free-Cartesian fixed-order solver guarded by exact filters, with 24
+  stored C25/C29 fixed-order Kalmanson certificates; bounded negative controls
+  only, not all-order coverage, a counterexample, or a general obstruction.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.
