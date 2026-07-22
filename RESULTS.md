@@ -2075,6 +2075,33 @@ closure of non-quarter three-orbit branches, `n = 9`, or Erdos #97. See
 
 ## Numerical Attempts
 
+### Doubled-Danzer 18-gon equivariant continuation (2026-07-22)
+
+Status: `NUMERICAL_EVIDENCE` census + `FAILED_APPROACH` route closure at one
+base family; no candidate found.
+
+The `C3`-equivariant doubling of the verified `k=3` Danzer-type nonagon
+into an 18-gon was given its deferred first-order corank census and the
+decisive nonlinear continuation test. The `15^6` collision census
+reproduces the external counts exactly (ranks `9/8/7/6`:
+`11,206,584 / 182,540 / 1,497 / 4`); the bisector-cycle assignment
+`(5,5,5,5,5,5)` has zero excess corank (negative first-order resolution of
+the 2026-07-13 pending question); exactly 8 assignments (chiral period-2
+family) have kernels splitting all three copy pairs, so the externally
+circulated 19-survivor filter list is not reproducible as described (the
+discrepancy is documented). All 19 supplied survivors fail continuation:
+528/528 deterministic LM runs collapse back to the collided manifold with
+zero acceptance-criteria candidates, the 8 chiral survivors are blocked by
+a second-order obstruction `1.552627` (mpmath dps=50, bounded below by
+`1.5518` along the scanned family), and no enlarged-pool family point
+exists (the family degenerates to a triple-covered equilateral triangle).
+Genuine single-orbit-split branches were found and stored to 40 digits as
+non-equivariant follow-up seeds. See
+`docs/reports/danzer18-continuation-run-2026-07-22.md`,
+`docs/danzer18-doubling-census.md`,
+`docs/danzer18-doubling-failed-approach.md`, and
+`data/certificates/danzer18_{collision_rank_census,survivor_continuation,family_coincidence_scan}.json`.
+
 ### Dynamic-witness free-pattern sweep (2026-06-09)
 
 Status: `NUMERICAL_EVIDENCE`; no candidate found.

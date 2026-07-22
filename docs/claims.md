@@ -2870,6 +2870,32 @@ half-step branches, partial orbits, and arbitrary polygons open.  See
 `docs/five-c3-tournament-obstruction.md`, and
 `docs/five-c3-all-cross-nonreciprocal-obstruction.md`.
 
+### Doubled-Danzer 18-gon equivariant route
+
+Status: `FAILED_APPROACH` at the 2026-07 base family, supported by
+`NUMERICAL_EVIDENCE` artifacts; the non-equivariant follow-up remains open.
+
+Doubling the verified `k=3` Danzer-type `C3` nonagon into an 18-gon and
+searching for a `C3`-equivariant copy-splitting deformation fails at this
+base family. The `15^6` collision rank census is reproduced exactly
+(ranks `9/8/7/6`: `11,206,584 / 182,540 / 1,497 / 4`; mpmath dps=40
+spot-checks); the bisector-cycle assignment `(5,5,5,5,5,5)` has zero
+excess corank; exactly 8 assignments (the chiral period-2 family) have
+first-order kernels splitting all three copy pairs, and each is killed at
+second order by a Lyapunov-Schmidt obstruction `1.552627` (mpmath dps=50)
+bounded below by `1.5518` along the scanned collided family. All 528
+deterministic continuation runs on the 19 externally supplied survivors
+collapse back to the collided manifold; the externally described
+19-survivor first-order filter is not reproducible (11 of 19 fail the
+stated criterion under census-pinned conventions; discrepancy recorded).
+The enlarged-pool escape does not exist on this family (degenerate
+triple-triangle endpoint). Genuine single-orbit-split branches (one orbit
+pair split about `0.14`, other pairs collided; residual `2.3e-40` at
+dps=40) are stored as seeds for the open non-equivariant 36-dof test. See
+`docs/danzer18-doubling-failed-approach.md`,
+`docs/danzer18-doubling-census.md`, and
+`docs/reports/danzer18-continuation-run-2026-07-22.md`.
+
 ### Cyclic polygon subcase
 
 If all vertices lie on one circle, then no vertex has more than two other

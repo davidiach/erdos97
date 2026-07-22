@@ -1,0 +1,108 @@
+{
+ "schema": "erdos97.danzer18_family_coincidence_scan.v1",
+ "status": "NO_NONDEGENERATE_ENLARGED_POOL_POINT",
+ "trust": "REVIEW_PENDING_DIAGNOSTIC",
+ "provenance": {
+  "command": "python scripts/check_danzer18_family_coincidences.py --write-artifact"
+ },
+ "claim_scope": "Float64 scan of the 1-parameter Danzer-type nonagon base family (flex-step window [-0.8, 0.8], Newton-reprojected) for pool-enlarging distance coincidences. Every detected root lies at the degenerate triple-triangle family endpoint; no nondegenerate enlarged-pool census point exists on the scanned branch. Numerical scan only, not a proof for other windows or families and not a counterexample claim for Erdos Problem #97.",
+ "window": [
+  -0.8,
+  0.8
+ ],
+ "samples": 161,
+ "collapse_profile": [
+  {
+   "t": 0.0,
+   "min_pair_distance": 0.04711230098718995,
+   "convexity_margin": 0.3956524030678139,
+   "d2_v0_v4_minus_3": -0.0022195689043069677
+  },
+  {
+   "t": 0.1,
+   "min_pair_distance": 0.025926609373424035,
+   "convexity_margin": 0.4322531685566561,
+   "d2_v0_v4_minus_3": -0.0006721890736036684
+  },
+  {
+   "t": 0.2,
+   "min_pair_distance": 0.011036470221059696,
+   "convexity_margin": 0.466397199606119,
+   "d2_v0_v4_minus_3": -0.00012180367493996869
+  },
+  {
+   "t": 0.3,
+   "min_pair_distance": 0.0025156883343350465,
+   "convexity_margin": 0.4974420857648433,
+   "d2_v0_v4_minus_3": -6.328687795154053e-06
+  },
+  {
+   "t": 0.35,
+   "min_pair_distance": 0.0005441641827079436,
+   "convexity_margin": 0.5117005609478135,
+   "d2_v0_v4_minus_3": -2.961146572388884e-07
+  },
+  {
+   "t": 0.38,
+   "min_pair_distance": 5.655621954948654e-05,
+   "convexity_margin": 0.5198141282460694,
+   "d2_v0_v4_minus_3": -3.1986076010070974e-09
+  },
+  {
+   "t": 0.39,
+   "min_pair_distance": 5.26178237741158e-06,
+   "convexity_margin": 0.5224495694213764,
+   "d2_v0_v4_minus_3": -2.7685853609682454e-11
+  },
+  {
+   "t": 0.394,
+   "min_pair_distance": 4.4247379898301884e-08,
+   "convexity_margin": 0.5234935811317306,
+   "d2_v0_v4_minus_3": -8.881784197001252e-16
+  }
+ ],
+ "coincidence_roots": [
+  {
+   "t": 0.3944042139051008,
+   "center_orbit": 0,
+   "gained_vertex": 8,
+   "min_pair_distance_at_root": 4.996003610813204e-16
+  },
+  {
+   "t": 0.3944042146107264,
+   "center_orbit": 1,
+   "gained_vertex": 6,
+   "min_pair_distance_at_root": 0.0
+  },
+  {
+   "t": 0.3944042153640867,
+   "center_orbit": 2,
+   "gained_vertex": 2,
+   "min_pair_distance_at_root": 0.0
+  },
+  {
+   "t": 0.394404215165824,
+   "center_orbit": 2,
+   "gained_vertex": 4,
+   "min_pair_distance_at_root": 6.804947902818907e-16
+  }
+ ],
+ "degenerate_endpoint": {
+  "t_approx": 0.3944042146,
+  "r": [
+   1.0,
+   1.0000000000000002,
+   0.9999999993734384
+  ],
+  "phi": [
+   0.0,
+   2.0943951023931966,
+   1.0852376092251807e-09
+  ],
+  "min_pair_distance": 6.804947902818907e-16,
+  "is_triple_triangle": true
+ },
+ "all_roots_at_degenerate_endpoint": true,
+ "near_coincidence_stays_negative_on_profile": true,
+ "all_checks_pass": true
+}
