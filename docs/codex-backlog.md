@@ -678,6 +678,14 @@ minimal/rich-class hypotheses.
    that escapes the full Kalmanson cone before spending more coordinate-search
    budget. The 24-order artifact is bounded negative-control evidence, not
    all-order coverage.
+   The follow-up full-cone CEGAR pilot in
+   `docs/sparse-full-cone-order-cegar.md` now turns each exact high-support
+   certificate into one exact ordered-quadrilateral family-blocking clause.
+   Its first bounded packet learns three such clauses per pattern and records
+   four models that also escape vertex-circle and Altman filters. The next PR
+   should minimize those 188--306-quad supports or extract shared smaller
+   positive zero dependencies before extending the CEGAR budget; the current
+   six clauses are not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external
