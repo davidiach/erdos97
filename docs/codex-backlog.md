@@ -682,10 +682,14 @@ minimal/rich-class hypotheses.
    `docs/sparse-full-cone-order-cegar.md` now turns each exact high-support
    certificate into one exact ordered-quadrilateral family-blocking clause.
    Its first bounded packet learns three such clauses per pattern and records
-   four models that also escape vertex-circle and Altman filters. The next PR
-   should minimize those 188--306-quad supports or extract shared smaller
-   positive zero dependencies before extending the CEGAR budget; the current
-   six clauses are not an all-order obstruction.
+   four models that also escape vertex-circle and Altman filters. The bounded
+   compression follow-up in
+   `docs/sparse-full-cone-certificate-compression.md` replaces those four
+   strong 205--306-quad supports with exact 100--213-quad circuits; one
+   compressed C29 clause covers two strong source models. The next PR should
+   seed a longer CEGAR run with these clauses and record clause hit counts,
+   then mine translation/automorphism orbits if cross-model reuse persists.
+   The current clauses are not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

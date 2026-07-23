@@ -48,14 +48,16 @@ such models.
 
 ## What remains
 
-The run stopped at a certificate limit, not UNSAT. It therefore supplies no
-all-order conclusion. The next useful target is clause compression: minimize
-the ordered-quad supports while preserving an exact positive zero dependency,
-then measure how many subsequent inverse-pair-escape models each compressed
-clause blocks. If compression produces reusable small supports, those clauses
-can be fed back into a longer exact CEGAR run. If a model has no exact
-full-cone certificate, it becomes the first legitimate input to the guarded
-free-Cartesian solver.
+The run stopped at a certificate limit, not UNSAT, so it supplies no all-order
+conclusion. The first compression follow-up is now recorded in
+`docs/sparse-full-cone-certificate-compression.md`: alternative exact circuits
+reduce the strong C25 clause from 205 to 100 ordered quads and the three strong
+C29 clauses from 302--306 to 204--213. One compressed C29 clause covers two
+source models.
+
+The next target is to seed a longer exact CEGAR run with those compressed
+clauses and record hit counts. If a model has no exact full-cone certificate,
+it becomes the first legitimate input to the guarded free-Cartesian solver.
 
 Replay:
 

@@ -945,6 +945,10 @@ put detailed reconciliation in the canonical synthesis.
   bounded exact-clause C25/C29 cyclic-order pilot that feeds full
   Kalmanson/Farkas certificates back into Z3 as order-family blockers; six
   fixed-order certificates, not an all-order conclusion or counterexample.
+- [`sparse-full-cone-certificate-compression.md`](sparse-full-cone-certificate-compression.md):
+  randomized alternative-circuit search with four exact compressed C25/C29
+  certificates, including one C29 clause covering two strong source models;
+  bounded fixed-order evidence, not all-order coverage.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.
