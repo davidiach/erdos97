@@ -11895,3 +11895,112 @@ artifacts:
       - counterexample to Erdos Problem #97
       - proof of the n=9, n=10, or n=11 finite case
       - official/global status update
+
+  - id: danzer18_collision_rank_census
+    path: data/certificates/danzer18_collision_rank_census.json
+    sha256: e051266e246ffa47df00fc57f353090cf1ce1873d3da6290b0e4f609167a316c
+    size_bytes: 89060
+    kind: numerical_rank_census
+    generator: scripts/check_danzer18_collision_census.py
+    command: python scripts/check_danzer18_collision_census.py --full --write-artifact
+    checker: scripts/check_danzer18_collision_census.py
+    check_command: python scripts/check_danzer18_collision_census.py --check --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: >
+      First-order Jacobian rank census of the doubled-Danzer 18-gon C3 slice
+      at the collision point of the 2026-07 base nonagon: 15^6 witness
+      assignments, rank counts 11206584/182540/1497/4 for ranks 9/8/7/6,
+      split-support classification of the 184041 excess-corank kernels with
+      exactly 8 all-three-split assignments, and mpmath dps=40 rank
+      spot-checks. Float64 SVD census evidence only; it proves no branch
+      existence and is not a counterexample claim for Erdos Problem #97.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.danzer18_collision_rank_census.v1
+      status: NEGATIVE_FIRST_ORDER_CENSUS
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      landmarks.rank_5x6: 9
+      landmarks.rank_0x6: 6
+      landmarks.expected_rank6_all_rank6: true
+      landmarks.external_survivors_with_all_three_splits: 8
+      census.excess_total: 184041
+      census.rank_counts_match_expected: true
+      census.rank7_count: 1497
+      all_checks_pass: true
+    forbidden_claims:
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - branch existence or nonexistence proof
+      - official/global status update
+  - id: danzer18_survivor_continuation
+    path: data/certificates/danzer18_survivor_continuation.json
+    sha256: d199e77f78deb70d356102df332e4f61915fcc7555722d325e8c5e3893a4a509
+    size_bytes: 63403
+    kind: numerical_continuation_negative_result
+    generator: scripts/check_danzer18_survivor_continuation.py
+    command: python scripts/check_danzer18_survivor_continuation.py --write-artifact
+    checker: scripts/check_danzer18_survivor_continuation.py
+    check_command: python scripts/check_danzer18_survivor_continuation.py --quick --check
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: >
+      Deterministic Levenberg-Marquardt continuation on the 19 externally
+      supplied doubled-Danzer survivor assignments (528 runs, all collapsing
+      back to the collided manifold, zero acceptance-criteria candidates),
+      pinned-split residual floors, the second-order Lyapunov-Schmidt
+      obstruction 1.552627 for the 8 chiral all-split survivors at the base
+      point (mpmath dps=50), a 25-point collided-family scan with sampled
+      minimum 1.5518, and one mpmath-polished single-orbit-split partial
+      branch point.
+      Numerical negative evidence for the C3-equivariant route at this base
+      family only; not a proof, not a counterexample, and silent on
+      non-equivariant perturbations.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.danzer18_survivor_continuation.v1
+      status: NEGATIVE_CONTINUATION_ALL_19_SURVIVORS
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      n_candidates_total: 0
+      all_checks_pass: true
+    forbidden_claims:
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - counterexample candidate
+      - official/global status update
+  - id: danzer18_family_coincidence_scan
+    path: data/certificates/danzer18_family_coincidence_scan.json
+    sha256: 15693462db5c91bd4e9cda4f9039b25fb5d31987672959a533bc9befae1ab1c5
+    size_bytes: 3310
+    kind: numerical_family_scan
+    generator: scripts/check_danzer18_family_coincidences.py
+    command: python scripts/check_danzer18_family_coincidences.py --write-artifact
+    checker: scripts/check_danzer18_family_coincidences.py
+    check_command: python scripts/check_danzer18_family_coincidences.py --check
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: >
+      Float64 scan of the Danzer-type nonagon flex-seeded family
+      reprojections on [-0.8, 0.8]. The 161-point sign-change scan detected
+      no nondegenerate pool-enlarging root; its four detected roots approach
+      a degenerate triple-triangle configuration near t = 0.3944, and
+      d^2(v0,v4) - 3 is negative at eight recorded profile points. A finite
+      sign-change grid can miss tangential roots, and the reprojections are
+      not a certified parameterization of the full branch. Numerical scan
+      evidence only; not a nonexistence proof, a counterexample, or an
+      official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.danzer18_family_coincidence_scan.v1
+      status: NO_NONDEGENERATE_SIGN_CHANGE_ROOT_DETECTED
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      all_detected_sign_change_roots_at_degenerate_endpoint: true
+      near_coincidence_negative_on_profile: true
+      all_checks_pass: true
+    forbidden_claims:
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - official/global status update

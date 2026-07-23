@@ -7,6 +7,28 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-22
+
+- Ran the deferred doubled-Danzer 18-gon tests from the 2026-07-13 handoff
+  triage: exact reproduction of the `15^6` collision rank census
+  (NUMERICAL_EVIDENCE), negative first-order resolution of the
+  bisector-cycle `(5,5,5,5,5,5)` question (rank 9, zero excess), and the
+  decisive nonlinear continuation on the 19 externally supplied survivor
+  assignments - all negative (FAILED_APPROACH for the `C3`-equivariant
+  route at this base family, with a second-order obstruction `1.552627`
+  for the only first-order-eligible chiral family). Recorded a
+  reproducibility discrepancy: only 8 of the circulated 19 survivors
+  satisfy the stated all-three-split filter under the census-pinned
+  conventions. A bounded sign-change scan detected no nondegenerate
+  enlarged-pool coincidence while approaching a degenerate triple-triangle
+  configuration, but does not exclude tangential roots or certify full
+  branch coverage. Also stored 40-digit single-orbit-split branch points as
+  non-equivariant follow-up
+  seeds. New scripts `scripts/check_danzer18_*.py`, module
+  `src/erdos97/danzer18_doubling.py`, three managed
+  `data/certificates/danzer18_*.json` artifacts, and
+  `docs/reports/danzer18-continuation-run-2026-07-22.md`.
+
 ## 2026-07-21
 
 - Added a post-hoc full-Gram reclassification of the quartic marked-root

@@ -2940,6 +2940,35 @@
       "claim_scope": "Independent z3 (NRA) second source for the n=8 exact-survivor obstruction: all 15 survivor classes are UNSAT under equal-distance + perpendicular-bisector constraints with strict convexity, covering the four Groebner-dependent classes the SymPy-free recheck skips. Different decision procedure, same problem statement; repo-local cross-check pending external review, not a general proof of Erdos Problem #97, not a counterexample, not an official/global status update."
     },
     {
+      "id": "danzer18_collision_rank_census",
+      "command": [
+        "python",
+        "scripts/check_danzer18_collision_census.py",
+        "--check",
+        "--json"
+      ],
+      "claim_scope": "Landmark recheck of the doubled-Danzer 18-gon collision rank census: uniform-assignment ranks, the four recorded rank-6 assignments, the 19 externally supplied survivor kernels with exactly 8 all-three-split assignments, and mpmath dps=40 rank spot-checks. Float64/mpmath numerical census evidence only; not a branch-existence proof, not a counterexample, not an official/global status update."
+    },
+    {
+      "id": "danzer18_survivor_continuation",
+      "command": [
+        "python",
+        "scripts/check_danzer18_survivor_continuation.py",
+        "--quick",
+        "--check"
+      ],
+      "claim_scope": "Reduced deterministic replay of the doubled-Danzer survivor continuation: LM runs from collision-kernel seeds for all 19 externally supplied assignments must produce zero acceptance-criteria candidates (all runs collapse to the collided manifold). Numerical negative evidence for the C3-equivariant route at this base family only; not a proof, not a counterexample, not an official/global status update."
+    },
+    {
+      "id": "danzer18_family_coincidence_scan",
+      "command": [
+        "python",
+        "scripts/check_danzer18_family_coincidences.py",
+        "--check"
+      ],
+      "claim_scope": "Recheck of the Danzer-type nonagon flex-seeded family reprojections: a finite sign-change grid detected no nondegenerate pool-enlarging root; the four detected roots approach a degenerate triple-triangle configuration and d^2(v0,v4)-3 is negative at eight recorded profile points. The grid can miss tangential roots and does not certify full branch coverage. Numerical scan evidence only; not a nonexistence proof, not a counterexample, not an official/global status update."
+    },
+    {
       "id": "sparse_free_cartesian_fixed_order_certificates",
       "command": [
         "python",
