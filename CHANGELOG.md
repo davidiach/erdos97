@@ -7,6 +7,30 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-07-23
+
+- Added a generated `n=9` fragile/turn/inversion-pivot crosswalk over the
+  existing 184-assignment frontier. Exact enumeration finds 82,720
+  row-to-witness perfect matchings and 27,704 single-9-cycle matchings; every
+  assignment has a Hamiltonian matching compatible with a pivot-to-halo turn
+  certificate. Minimum inversion row-pivot cover size is two for 182 stored
+  certificates and three exactly for the two `F15/T03` orientations.
+  Exhaustive binary replay shows all 72 exceptional two-pivot weak-turn
+  restrictions feasible, while full vertex-circle replay gives 27 self-edge
+  conflicts per orientation. This is review-pending finite `n=9` proof-mining
+  evidence only, not a turn-lemma review, `n=9` promotion, or general
+  three-pivot reduction.
+
+- Added an exact abstract `Z/16` bridge guardrail with rows
+  `S_i=i+{2,9,10,13}`. It passes the currently isolated fragile-cover,
+  pair/crossing, good-deletion, hinge-free, weak-turn, and vertex-circle
+  conditions and admits a marked three-cycle matching with three-witness
+  halos. The exact Kalmanson inverse pair
+  `K1(0,3,7,9)+K2(0,3,9,13)=0` rejects the fixed natural order. The object is
+  therefore a fixed-order nonrealizable negative control showing that stronger
+  convex metric input is needed; it is not a construction or counterexample
+  and changes no global or source-of-truth status.
+
 ## 2026-07-21
 
 - Added a post-hoc full-Gram reclassification of the quartic marked-root

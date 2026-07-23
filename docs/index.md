@@ -280,6 +280,10 @@ put detailed reconciliation in the canonical synthesis.
   partial bridge theorem showing that every minimal counterexample admits a
   fragile-cover witness system; also records why this is not sufficient,
   including endpoint-control survivor row-circle and Kalmanson audits.
+- [`fragile-turn-pivot-bridge-audit.md`](fragile-turn-pivot-bridge-audit.md):
+  exact `n=9` witness-matching/inversion-pivot crosswalk together with the
+  abstract `n=16` guardrail showing why the same marked-three-cycle argument
+  does not generalize without stronger convex metric information.
 - [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
   `T4`/`T5`/`T44` classification for centers made good by deleting two
   vertices, with pair capacities and the exclusive-mutual-pair corollary.
