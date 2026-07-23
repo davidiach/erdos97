@@ -305,7 +305,7 @@ def main() -> int:
     text = json.dumps(payload, indent=2, sort_keys=True) + "\n"
     if args.out is not None:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(text, encoding="utf-8")
+        args.out.write_text(text, encoding="utf-8", newline="\n")
     if args.json or args.out is None:
         print(text, end="")
     else:

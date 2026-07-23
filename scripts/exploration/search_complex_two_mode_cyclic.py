@@ -484,7 +484,9 @@ def main() -> int:
     if args.out is not None:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(
-            json.dumps(payload, indent=1, sort_keys=True) + "\n", encoding="utf-8"
+            json.dumps(payload, indent=1, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
         )
         print(f"wrote {args.out}")
     if args.json:

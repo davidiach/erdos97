@@ -44,5 +44,5 @@ numerical candidates.
 SHA-256 of `summary.json`:
 
 ```text
-b76b25d8a6fc8a5d4bf441e3c3bb5fb66e38e07c675a685221f07935e3b6c62e
+84ce3b8d358ae57b00dd8f87e0b6f19bd0d8cbb7c7df75fac090aef6f73ab908
 ```

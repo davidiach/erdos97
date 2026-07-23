@@ -2938,6 +2938,46 @@
         "data/certificates/n8_survivors_smt.json"
       ],
       "claim_scope": "Independent z3 (NRA) second source for the n=8 exact-survivor obstruction: all 15 survivor classes are UNSAT under equal-distance + perpendicular-bisector constraints with strict convexity, covering the four Groebner-dependent classes the SymPy-free recheck skips. Different decision procedure, same problem statement; repo-local cross-check pending external review, not a general proof of Erdos Problem #97, not a counterexample, not an official/global status update."
+    },
+    {
+      "id": "sparse_free_cartesian_fixed_order_certificates",
+      "command": [
+        "python",
+        "scripts/exploration/search_free_cartesian_sparse.py",
+        "--check",
+        "data/runs/free_cartesian_sparse_2026-07-22/summary.json"
+      ],
+      "claim_scope": "Replay 24 exact Kalmanson/Farkas certificates for deterministic sampled fixed cyclic orders of the C25_sidon_2_5_9_14 and C29_sidon_1_3_7_15 selected-witness patterns. Fixed-pattern, fixed-order sample only; not all-order coverage, not a geometric realizability result, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_order_cegar_certificates",
+      "command": [
+        "python",
+        "scripts/exploration/pilot_sparse_full_cone_order_cegar.py",
+        "--check",
+        "data/runs/sparse_full_cone_cegar_2026-07-22/summary.json"
+      ],
+      "claim_scope": "Replay six inverse-pair escape orders and six exact full-Kalmanson-cone certificates from a bounded fixed-pattern C25/C29 cyclic-order CEGAR pilot. The run stopped at a certificate limit, not UNSAT; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_compressed_certificates",
+      "command": [
+        "python",
+        "scripts/exploration/compress_sparse_full_cone_certificates.py",
+        "--check",
+        "data/runs/sparse_full_cone_compression_2026-07-23/summary.json"
+      ],
+      "claim_scope": "Replay four exact compressed positive-circuit certificates and their bounded source-packet coverage matrix for fixed C25/C29 patterns and fixed cyclic orders. Randomized compression is not exhaustive; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_seeded_cegar_certificates",
+      "command": [
+        "python",
+        "scripts/exploration/run_sparse_full_cone_seeded_cegar.py",
+        "--check",
+        "data/runs/sparse_full_cone_seeded_cegar_2026-07-23/summary.json"
+      ],
+      "claim_scope": "Replay 32 counterfactual inverse-pair escape orders, 16 new exact full-cone certificates, and 544 exact quotient-preserving affine certificate images from bounded fixed-pattern C25/C29 seeded CEGAR runs. Both runs stopped at certificate limits, not UNSAT; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {

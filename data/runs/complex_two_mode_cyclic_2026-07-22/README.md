@@ -65,7 +65,7 @@ The equality spread is machine-small, but the configuration is a doubled
 hexagon rather than a strictly convex 12-gon.
 
 `summary.json` has SHA-256
-`f576986042d026dccded4f25c4e6529fbc6a67f47e7f9e098a731029f914762a`.
+`bb81f9030782b09428fe70ac2c459889f3b357c02695144bed343f613acbf908`.
 
 This is a tolerance-controlled floating enumeration, not an exact
 classification of the complex two-mode family. Zero hits are not an

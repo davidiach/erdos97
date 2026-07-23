@@ -29,7 +29,7 @@ relative spread `0.0198748713248327`, normalized side margin
 `0.00267608633453876`, and normalized pair separation `0.128455903709775`.
 
 `summary.json` has SHA-256
-`091ac1d92c23010e261e629fc585017b1db1d8b3e05a076ac8dec9b6a57f8cdd`.
+`80dfbaa02768fb53bbc7673b0b1ac50c8fec3881e15ed839d53ee21e7c200585`.
 It retains every cell's best coefficients, selected witness windows, geometry
 margins, restart index, and timing.
 
