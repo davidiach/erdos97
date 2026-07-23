@@ -949,6 +949,10 @@ put detailed reconciliation in the canonical synthesis.
   randomized alternative-circuit search with four exact compressed C25/C29
   certificates, including one C29 clause covering two strong source models;
   bounded fixed-order evidence, not all-order coverage.
+- [`sparse-full-cone-seeded-cegar.md`](sparse-full-cone-seeded-cegar.md):
+  longer exact C25/C29 CEGAR seeded by all quotient-preserving translations of
+  the compressed clauses; 32 fresh probe orders have zero seed hits, while 16
+  new exact certificate orbits are learned before bounded limits.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.

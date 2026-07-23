@@ -686,10 +686,14 @@ minimal/rich-class hypotheses.
    compression follow-up in
    `docs/sparse-full-cone-certificate-compression.md` replaces those four
    strong 205--306-quad supports with exact 100--213-quad circuits; one
-   compressed C29 clause covers two strong source models. The next PR should
-   seed a longer CEGAR run with these clauses and record clause hit counts,
-   then mine translation/automorphism orbits if cross-model reuse persists.
-   The current clauses are not an all-order obstruction.
+   compressed C29 clause covers two strong source models. The seeded affine
+   follow-up in `docs/sparse-full-cone-seeded-cegar.md` expands only exact
+   quotient-preserving translations: reflection is invalid for both
+   quotients. None of 32 fresh strong inverse-pair escape orders hits a seed
+   orbit. Separate seeded searches learn eight new exact certificate orbits
+   per pattern before bounded limits. The next target is to compress those 16
+   certificates and test shared small circuits across all 48 fresh stored
+   orders. The current clauses are not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

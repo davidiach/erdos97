@@ -55,9 +55,12 @@ reduce the strong C25 clause from 205 to 100 ordered quads and the three strong
 C29 clauses from 302--306 to 204--213. One compressed C29 clause covers two
 source models.
 
-The next target is to seed a longer exact CEGAR run with those compressed
-clauses and record hit counts. If a model has no exact full-cone certificate,
-it becomes the first legitimate input to the guarded free-Cartesian solver.
+That target is now completed in
+`docs/sparse-full-cone-seeded-cegar.md`. Across 32 fresh counterfactual probe
+orders, the exact translation orbits of the compressed seeds recorded zero
+hits. The separate seeded searches learned eight new exact certificate orbits
+per pattern and stopped at their configured limits. No model escaped the full
+cone in this packet.
 
 Replay:
 

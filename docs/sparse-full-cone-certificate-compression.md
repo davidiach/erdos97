@@ -49,14 +49,15 @@ one exact compressed dependency blocks two independently discovered
 inverse-pair/vertex-circle/Altman escape orders. Four models are far too few to
 infer general coverage.
 
-## Next target
+## Seeded follow-up
 
-Seed the full-cone CEGAR solver with these compressed clauses and extend the
-model budget. Record clause hit counts before generating a new certificate.
-If the reusable C29 clause continues to block multiple models, mine its
-translation/automorphism orbit and shared quotient-vector structure. If a
-model escapes the full cone entirely, hand it to the guarded free-Cartesian
-solver.
+The seeded longer run is recorded in
+`docs/sparse-full-cone-seeded-cegar.md`. Exact quotient-automorphism mining
+found translation orbits of size `25` and `29`, but no valid reflection.
+None of the translated compressed seeds covered any of 32 fresh inverse-pair
+escape orders, so the earlier C29 cross-model reuse did not persist in that
+bounded stream. The seeded solvers learned eight new exact certificate orbits
+per pattern and again stopped at a certificate limit.
 
 Replay:
 
