@@ -1,5 +1,8 @@
 """Fast landmark tests for the doubled-Danzer 18-gon slice model."""
 
+import json
+from pathlib import Path
+
 import numpy as np
 import pytest
 
@@ -86,3 +89,17 @@ def test_mp_base_polish_reaches_1e50():
 
     _, residuals = mp_base(dps=60)
     assert max(abs(r) for r in residuals) < mpf("1e-50")
+
+
+def test_family_scan_records_its_numerical_limitations():
+    artifact = (
+        Path(__file__).parents[1]
+        / "data/certificates/danzer18_family_coincidence_scan.json"
+    )
+    payload = json.loads(artifact.read_text(encoding="utf-8"))
+    assert payload["status"] == "NO_NONDEGENERATE_SIGN_CHANGE_ROOT_DETECTED"
+    assert payload["all_detected_sign_change_roots_at_degenerate_endpoint"]
+    assert payload["near_coincidence_negative_on_profile"]
+    limitations = " ".join(payload["scan_limitations"]).lower()
+    assert "tangential" in limitations
+    assert "certified full-branch parameterization" in limitations

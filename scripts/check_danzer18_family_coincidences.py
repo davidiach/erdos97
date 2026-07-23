@@ -14,11 +14,12 @@ Newton-reprojected) and records:
   point collapses onto a triply covered equilateral triangle
   (r -> (1,1,1), phi -> (0, 2pi/3, 0)) and every coincidence trivializes.
 
-Outcome at this base family: the near-coincidence d^2(v0, v4) - 3 stays
-strictly negative at every nondegenerate family point and reaches zero only
-in the degenerate triple-triangle limit, so there is no valid enlarged-pool
-census point on the scanned family branch.  Numerical scan only; not a proof
-about other families and not a counterexample claim.
+Outcome at this base family: the scan detects no nondegenerate sign-changing
+coincidence root, and the near-coincidence d^2(v0, v4) - 3 is negative at the
+eight reported profile samples.  The finite grid can miss tangential roots,
+and flex-seeded reprojection is not a certified parameterization of the full
+family branch.  This is numerical scan evidence only, not a nonexistence proof
+and not a counterexample claim.
 """
 
 from __future__ import annotations
@@ -174,35 +175,42 @@ def run() -> dict:
         ),
     }
 
-    all_roots_degenerate = all(
+    all_detected_roots_degenerate = all(
         r["min_pair_distance_at_root"] < 1e-6 for r in roots
     )
-    near_coincidence_stays_negative = all(
+    near_coincidence_negative_on_profile = all(
         p["d2_v0_v4_minus_3"] < 0 for p in profile
     )
 
     return {
         "schema": SCHEMA,
-        "status": "NO_NONDEGENERATE_ENLARGED_POOL_POINT",
+        "status": "NO_NONDEGENERATE_SIGN_CHANGE_ROOT_DETECTED",
         "trust": TRUST,
         "provenance": {"command": GENERATOR_COMMAND},
         "claim_scope": (
-            "Float64 scan of the 1-parameter Danzer-type nonagon base family "
-            "(flex-step window [-0.8, 0.8], Newton-reprojected) for "
-            "pool-enlarging distance coincidences. Every detected root lies "
-            "at the degenerate triple-triangle family endpoint; no "
-            "nondegenerate enlarged-pool census point exists on the scanned "
-            "branch. Numerical scan only, not a proof for other windows or "
-            "families and not a counterexample claim for Erdos Problem #97."
+            "Float64 sign-change scan of flex-seeded, Newton-reprojected "
+            "samples in [-0.8, 0.8] for pool-enlarging distance coincidences "
+            "on the Danzer-type nonagon base family. Every detected "
+            "sign-changing root lies at the degenerate triple-triangle "
+            "endpoint, and d^2(v0,v4)-3 is negative at eight recorded profile "
+            "samples. The finite grid can miss tangential roots and is not a "
+            "certified parameterization of the full branch, so this does not "
+            "prove that a nondegenerate enlarged-pool point is absent. Not a "
+            "counterexample claim for Erdos Problem #97."
         ),
         "window": list(T_WINDOW),
         "samples": T_SAMPLES,
         "collapse_profile": profile,
-        "coincidence_roots": roots,
+        "detected_sign_change_roots": roots,
         "degenerate_endpoint": endpoint,
-        "all_roots_at_degenerate_endpoint": all_roots_degenerate,
-        "near_coincidence_stays_negative_on_profile":
-            near_coincidence_stays_negative,
+        "all_detected_sign_change_roots_at_degenerate_endpoint":
+            all_detected_roots_degenerate,
+        "near_coincidence_negative_on_profile":
+            near_coincidence_negative_on_profile,
+        "scan_limitations": [
+            "finite sign-change grid can miss tangential or even-multiplicity roots",
+            "flex-seeded reprojection is not a certified full-branch parameterization",
+        ],
     }
 
 
@@ -216,15 +224,15 @@ def main() -> int:
 
     result = run()
     ok = (
-        result["all_roots_at_degenerate_endpoint"]
-        and result["near_coincidence_stays_negative_on_profile"]
+        result["all_detected_sign_change_roots_at_degenerate_endpoint"]
+        and result["near_coincidence_negative_on_profile"]
         and result["degenerate_endpoint"]["is_triple_triangle"]
     )
     result["all_checks_pass"] = ok
 
     if args.write_artifact:
         args.artifact.parent.mkdir(parents=True, exist_ok=True)
-        with args.artifact.open("w") as fh:
+        with args.artifact.open("w", encoding="utf-8", newline="\n") as fh:
             json.dump(result, fh, indent=1)
             fh.write("\n")
         print(f"wrote {args.artifact}", file=sys.stderr)
@@ -237,9 +245,9 @@ def main() -> int:
             print(f"t={p['t']:.3f} min-pair {p['min_pair_distance']:.6f} "
                   f"margin {p['convexity_margin']:+.4f} "
                   f"d2(v0,v4)-3 {p['d2_v0_v4_minus_3']:+.3e}")
-        print("roots:", len(result["coincidence_roots"]),
+        print("detected sign-change roots:", len(result["detected_sign_change_roots"]),
               " all at degenerate endpoint:",
-              result["all_roots_at_degenerate_endpoint"])
+              result["all_detected_sign_change_roots_at_degenerate_endpoint"])
         print("degenerate endpoint is triple triangle:",
               result["degenerate_endpoint"]["is_triple_triangle"])
         print("all_checks_pass:", ok)

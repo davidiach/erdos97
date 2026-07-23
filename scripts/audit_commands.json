@@ -2966,7 +2966,7 @@
         "scripts/check_danzer18_family_coincidences.py",
         "--check"
       ],
-      "claim_scope": "Recheck of the Danzer-type nonagon base-family coincidence scan: every pool-enlarging coincidence root lies at the degenerate triple-triangle family endpoint and the d^2(v0,v4)-3 near-coincidence stays strictly negative at nondegenerate family points. Numerical scan evidence only; not a proof for other families, not a counterexample, not an official/global status update."
+      "claim_scope": "Recheck of the Danzer-type nonagon flex-seeded family reprojections: a finite sign-change grid detected no nondegenerate pool-enlarging root; the four detected roots approach a degenerate triple-triangle configuration and d^2(v0,v4)-3 is negative at eight recorded profile points. The grid can miss tangential roots and does not certify full branch coverage. Numerical scan evidence only; not a nonexistence proof, not a counterexample, not an official/global status update."
     }
   ],
   "make_targets": {

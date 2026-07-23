@@ -19,9 +19,11 @@ counterexample are claimed.
   for the only first-order-eligible chiral family). Recorded a
   reproducibility discrepancy: only 8 of the circulated 19 survivors
   satisfy the stated all-three-split filter under the census-pinned
-  conventions. Also recorded that the enlarged-pool family escape point
-  does not exist (degenerate triple-triangle family endpoint), and stored
-  40-digit single-orbit-split branch points as non-equivariant follow-up
+  conventions. A bounded sign-change scan detected no nondegenerate
+  enlarged-pool coincidence while approaching a degenerate triple-triangle
+  configuration, but does not exclude tangential roots or certify full
+  branch coverage. Also stored 40-digit single-orbit-split branch points as
+  non-equivariant follow-up
   seeds. New scripts `scripts/check_danzer18_*.py`, module
   `src/erdos97/danzer18_doubling.py`, three managed
   `data/certificates/danzer18_*.json` artifacts, and

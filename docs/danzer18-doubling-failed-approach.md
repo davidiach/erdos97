@@ -41,20 +41,22 @@ equidistant other vertices. Model, pools, and conventions:
   onto the collided manifold (zero runs meet the acceptance criteria
   residual `< 1e-12` with all three copy-pair separations `> 1e-4`).
 - Only 8 of the `15^6` assignments (the chiral period-2 family) have
-  first-order kernels that split all three copy pairs, and each of them is
-  killed at second order: the Lyapunov-Schmidt obstruction
-  `|P_coker d^2F[v,v]| = 1.552627` at the base point (mpmath dps=50), and
-  stays above `1.5518` at every scanned collided family point
+  first-order kernels that split all three copy pairs. Their
+  Lyapunov-Schmidt obstruction is
+  `|P_coker d^2F[v,v]| = 1.552627` at the base point (mpmath dps=50), with
+  minimum `1.5518` across 25 sampled collided-family points in
   `t in [-0.6, 0.6]`. Pinned-split residual floors scale as
-  `0.33 * eps^2` - a clean quadratic wall, not a solver failure.
+  `0.33 * eps^2` at the base point, consistent with a quadratic wall.
+  The 25-point scan is not a continuous lower bound.
 - 150,370 of the 184,041 excess-corank assignments have kernels with no
   split component at all; 33,663 more split at most two orbits, and probes
   of those found only single-orbit-split nonlinear branches.
-- The one enlarged-pool escape (making the near-coincidence
-  `d^2(v0, v4) = 3` exact along the family) does not exist: the family
-  terminates in a degenerate triple-covered equilateral triangle at
-  `t* ~ 0.3944` and the coincidence becomes exact only in that collapse
-  limit.
+- A bounded sign-change scan for the enlarged-pool coincidence
+  `d^2(v0, v4) = 3` detected no nondegenerate sign-changing root while its
+  flex-seeded reprojections approached a degenerate triple-covered
+  equilateral configuration near `t ~ 0.3944`. The finite grid can miss
+  tangential roots, and the reprojection procedure is not a certified
+  parameterization of the full branch.
 
 ## What survives the failure
 
@@ -69,9 +71,10 @@ further splitting.
 
 ## Claim boundary
 
-This certificate closes only the `C3`-equivariant doubled-Danzer route at
-the 2026-07 base family (the scanned strictly convex family window),
-against the tested witness-pool structure. Not covered: non-equivariant
+The `FAILED_APPROACH` decision applies only to the tested `C3`-equivariant
+doubled-Danzer continuation at the 2026-07 base point and sampled family
+values, against the tested witness-pool structure. The numerical scans do
+not prove nonexistence between samples. Not covered: non-equivariant
 perturbations of the doubled configuration, other Danzer-type base
 families or cross structures, other doubling patterns, and Erdos Problem
 #97 itself, whose official status remains falsifiable/open. Evidence grade

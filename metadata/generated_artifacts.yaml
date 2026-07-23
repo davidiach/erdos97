@@ -11951,9 +11951,10 @@ artifacts:
       supplied doubled-Danzer survivor assignments (528 runs, all collapsing
       back to the collided manifold, zero acceptance-criteria candidates),
       pinned-split residual floors, the second-order Lyapunov-Schmidt
-      obstruction 1.552627 for the 8 chiral all-split survivors (mpmath
-      dps=50), a collided-family obstruction scan bounded below by 1.5518,
-      and one mpmath-polished single-orbit-split partial branch point.
+      obstruction 1.552627 for the 8 chiral all-split survivors at the base
+      point (mpmath dps=50), a 25-point collided-family scan with sampled
+      minimum 1.5518, and one mpmath-polished single-orbit-split partial
+      branch point.
       Numerical negative evidence for the C3-equivariant route at this base
       family only; not a proof, not a counterexample, and silent on
       non-equivariant perturbations.
@@ -11971,8 +11972,8 @@ artifacts:
       - official/global status update
   - id: danzer18_family_coincidence_scan
     path: data/certificates/danzer18_family_coincidence_scan.json
-    sha256: 28659316168d2f91978e4c8c9303b08ed77ab8ddb3a585fadcb29cbdad9037ae
-    size_bytes: 2970
+    sha256: 15693462db5c91bd4e9cda4f9039b25fb5d31987672959a533bc9befae1ab1c5
+    size_bytes: 3310
     kind: numerical_family_scan
     generator: scripts/check_danzer18_family_coincidences.py
     command: python scripts/check_danzer18_family_coincidences.py --write-artifact
@@ -11982,21 +11983,22 @@ artifacts:
     provenance_mode: embedded
     trust_class: REVIEW_PENDING_DIAGNOSTIC
     claim_scope: >
-      Float64 scan of the Danzer-type nonagon 1-parameter base family for
-      pool-enlarging distance coincidences on the flex-step window
-      [-0.8, 0.8]. Every coincidence root lies at the degenerate
-      triple-triangle family endpoint near t = 0.3944, and the recorded
-      near-coincidence d^2(v0,v4) - 3 stays strictly negative at every
-      nondegenerate family point, so no enlarged-pool census point exists on
-      the scanned branch. Numerical scan evidence only; not a proof for
-      other windows or families and not a counterexample claim.
+      Float64 scan of the Danzer-type nonagon flex-seeded family
+      reprojections on [-0.8, 0.8]. The 161-point sign-change scan detected
+      no nondegenerate pool-enlarging root; its four detected roots approach
+      a degenerate triple-triangle configuration near t = 0.3944, and
+      d^2(v0,v4) - 3 is negative at eight recorded profile points. A finite
+      sign-change grid can miss tangential roots, and the reprojections are
+      not a certified parameterization of the full branch. Numerical scan
+      evidence only; not a nonexistence proof, a counterexample, or an
+      official/global status update.
     json_top_level_type: object
     expected_json:
       schema: erdos97.danzer18_family_coincidence_scan.v1
-      status: NO_NONDEGENERATE_ENLARGED_POOL_POINT
+      status: NO_NONDEGENERATE_SIGN_CHANGE_ROOT_DETECTED
       trust: REVIEW_PENDING_DIAGNOSTIC
-      all_roots_at_degenerate_endpoint: true
-      near_coincidence_stays_negative_on_profile: true
+      all_detected_sign_change_roots_at_degenerate_endpoint: true
+      near_coincidence_negative_on_profile: true
       all_checks_pass: true
     forbidden_claims:
       - general proof of Erdos Problem #97

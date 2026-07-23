@@ -2092,9 +2092,12 @@ circulated 19-survivor filter list is not reproducible as described (the
 discrepancy is documented). All 19 supplied survivors fail continuation:
 528/528 deterministic LM runs collapse back to the collided manifold with
 zero acceptance-criteria candidates, the 8 chiral survivors are blocked by
-a second-order obstruction `1.552627` (mpmath dps=50, bounded below by
-`1.5518` along the scanned family), and no enlarged-pool family point
-exists (the family degenerates to a triple-covered equilateral triangle).
+a second-order obstruction `1.552627` at the base point (mpmath dps=50;
+minimum `1.5518` across 25 sampled collided-family points), and a bounded
+sign-change scan detected no nondegenerate enlarged-pool coincidence while
+approaching a triple-covered equilateral degeneration. The finite scans do
+not certify intervals between samples, exclude tangential roots, or certify
+full branch coverage.
 Genuine single-orbit-split branches were found and stored to 40 digits as
 non-equivariant follow-up seeds. See
 `docs/reports/danzer18-continuation-run-2026-07-22.md`,

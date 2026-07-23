@@ -463,7 +463,7 @@ def main() -> int:
 
     if args.write_artifact:
         args.artifact.parent.mkdir(parents=True, exist_ok=True)
-        with args.artifact.open("w") as fh:
+        with args.artifact.open("w", encoding="utf-8", newline="\n") as fh:
             json.dump(result, fh, indent=1)
             fh.write("\n")
         print(f"wrote {args.artifact}", file=sys.stderr)

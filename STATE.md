@@ -1247,14 +1247,16 @@ externally circulated 19-survivor filter output is not reproducible as
 described (11 of the 19 fail the stated criterion under the documented,
 census-pinned conventions). Continuation is negative on all 19: 528
 deterministic LM runs all collapse back to the collided manifold, the 8
-chiral survivors are killed by a second-order Lyapunov-Schmidt obstruction
-`1.552627` (mpmath dps=50) that stays above `1.5518` along the scanned
-collided family, and the enlarged-pool escape point does not exist (the
-family terminates in a degenerate triple-covered equilateral triangle where
-the `d^2(v0,v4) -> 3` near-coincidence becomes exact only in the collapse
-limit). Genuine single-orbit-split branches exist and are stored to 40
-digits as seed material for a future non-equivariant (36-dof) test, which
-remains open. This closes only the `C3`-equivariant doubled-Danzer route at
+chiral survivors have a nonzero second-order Lyapunov-Schmidt obstruction
+`1.552627` at the base point (mpmath dps=50), with minimum `1.5518` across
+25 sampled collided-family points. A separate bounded sign-change scan
+detected no nondegenerate enlarged-pool coincidence while approaching a
+degenerate triple-covered equilateral configuration. Those finite scans do
+not certify intervals between samples, exclude tangential roots, or certify
+full branch coverage. Genuine single-orbit-split branches exist and are
+stored to 40 digits as seed material for a future non-equivariant (36-dof)
+test, which remains open. This closes only the tested `C3`-equivariant
+doubled-Danzer continuation route at
 this base family; it is not a claim about other base families, other
 doubling structures, or Erdos #97. See
 `docs/danzer18-doubling-failed-approach.md`,

@@ -152,12 +152,12 @@ Three independent diagnostics in the continuation artifact:
    branch tangent to v requires this projection to vanish; it is bounded
    away from zero by 1.55.
 
-3. Family scan. The same obstruction, recomputed at 25 collided family
-   points `t in [-0.6, 0.6]` (the strictly convex part of the scanned
-   window; the family degenerates at `t ~ 0.394`, see below), stays in
-   `[1.5518, 1.72]` for all 8 chiral survivors and attains its minimum
-   near `t = -0.05`. No sign change and no approach to zero: no all-split
-   branch bifurcates anywhere along the scanned family.
+3. Family scan. At 25 sampled collided-family points
+   `t in [-0.6, 0.6]`, the same obstruction is in `[1.5518, 1.72]` for
+   all 8 chiral survivors and attains its sampled minimum near `t = -0.05`.
+   No sampled value approaches zero. This finite grid does not supply a
+   continuous lower bound or exclude a zero or bifurcation between sampled
+   points.
 
 For the 11 non-chiral survivors the pinned floors scale linearly
 (first-order obstruction, `kappa`-equivalents up to `3e+3`), consistent
@@ -183,21 +183,21 @@ A bounded probe of the 588 two-orbit-support census assignments (8 fixed
 samples) found no two-orbit-split branch: every machine-zero floor again
 had exactly one orbit split.
 
-## Extension a: no valid enlarged-pool family point exists
+## Extension a: bounded enlarged-pool sign-change scan
 
 `python scripts/check_danzer18_family_coincidences.py --write-artifact`:
-sliding along the 1-parameter family, the minimum vertex distance shrinks
-monotonically (0.047 at t=0, 5e-6 at t=0.39) and the family terminates at
-a degenerate endpoint `t* ~ 0.3944042` where the polished configuration is
-a triply covered equilateral triangle (`r -> (1,1,1)`,
-`phi -> (0, 2pi/3, 0)`). The recorded near-coincidence
-`d^2(v0, v4) - 3 = -2.2e-3` at the base point tends to zero only in this
-collapse limit and stays strictly negative at every nondegenerate family
-point; all four sign-change roots found in the scan window lie at the
-degenerate endpoint (minimum vertex distance below 1e-6 at each root).
-Consequently there is no nondegenerate family point where the witness
-pools enlarge, and the planned enlarged-pool census has no valid base
-point on this family branch.
+at eight recorded profile points, the minimum vertex distance decreases
+from 0.047 at t=0 to 5e-6 at t=0.39. Flex-seeded reprojection approaches a
+triply covered equilateral configuration near `t ~ 0.3944042`
+(`r -> (1,1,1)`, `phi -> (0, 2pi/3, 0)`). All four roots found by the
+161-point sign-change scan are associated with that degenerate
+configuration, and the recorded near-coincidence `d^2(v0, v4) - 3` is
+negative at the eight profile points.
+
+This supports only the statement that the bounded scan detected no
+nondegenerate sign-changing root. A finite sign-change grid can miss
+tangential roots, and the flex-seeded reprojections are not a certified
+parameterization of the full family branch; this is not a nonexistence proof.
 
 ## Verdict
 
@@ -206,11 +206,13 @@ Danzer 18-gon route at this base family:
 
 - 0 of 19 survivors produce an acceptance-criteria candidate;
 - the only first-order-eligible survivors (the 8 chiral period-2
-  assignments) are killed by a second-order obstruction bounded below by
-  1.55 across the entire strictly convex part of the scanned base family;
+  assignments) have a nonzero second-order obstruction at the base point;
+  its minimum across 25 sampled family points is above 1.55, without a
+  certified continuous lower bound;
 - the remaining 11 survivors fail already at first order under the
   documented conventions (filter discrepancy documented above);
-- the enlarged-pool escape (extension a) does not exist on this family;
+- the bounded enlarged-pool scan (extension a) detected no nondegenerate
+  sign-changing root, but is not a nonexistence proof;
 - the surviving interesting structure - genuine one-orbit-split branches -
   is recorded with 40-digit coordinates for the non-equivariant follow-up.
 
