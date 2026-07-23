@@ -309,6 +309,81 @@ The negative control does not refute injectivity or a strengthened theorem
 using global all-bad or minimal-counterexample hypotheses. It does show that
 injectivity alone cannot finish this deterministic noncrossing program.
 
+## 22. Complex two- and three-mode cyclic construction screens
+
+Trust label: `FAILED_APPROACH` / `NUMERICAL_EVIDENCE`.
+
+Two-mode branch: the complex family `z_i=w^i+c w^(ki)` was reduced to affine
+four-distance equations in `(|c|^2,Re(c),Im(c))`. A floating enumeration over
+all 363 `(n,k)` cells for `9 <= n <= 30` generated 128,434 deduplicated
+candidate coefficients and found zero strictly convex hits. It separately
+recorded 1,617 exact-looking invalid coefficients. The strongest strictly
+convex coefficient still had relative spread `0.0273661273589857`.
+
+The most deceptive exact-looking branch is understood algebraically: for
+`n=12`, `k=7`, and `c=i(2+sqrt(3))`, the twelve indices collapse into six
+coincident pairs. This is an exact doubled hexagon, not a counterexample.
+See `docs/complex-cyclic-construction-screens.md` for the identity and branch
+counts.
+
+Three-mode branch: the cyclic Fourier family
+
+```text
+z_i = w^i + c w^(k i) + d w^(ell i),  w = exp(2 pi i/n),  c,d complex,
+```
+
+was screened with dynamically reselected four-distance windows. For fixed
+`(n,k,ell)`, squared distances are linear in the nine lifted quantities
+`1`, `|c|^2`, `|d|^2`, `Re(c)`, `Im(c)`, `Re(d)`, `Im(d)`,
+`Re(c conjugate(d))`, and `Im(c conjugate(d))`. Alternating least-squares
+refinement enforced the selected equalities together with normalized
+distinctness and strict-convexity guards.
+
+The 2026-07-22 run covered all 560 unordered mode pairs for `12 <= n <= 18`,
+with 12 deterministic starts and at most 8 witness-selection cycles per cell.
+It found zero cells below the `1e-10` relative-spread candidate gate. The
+strongest robust cell was `n=15`, modes `(10,13)`, with maximum relative
+spread `0.0198748713248327`, normalized side margin
+`0.00267608633453876`, and normalized pair separation `0.128455903709775`.
+This is far outside the exactification regime.
+
+Failure mode: the four real coefficients do not provide an evident interior
+route to the simultaneous per-center equalities. The best robust residuals
+remain macroscopic; lower residual branches seen during development were
+geometry collapses and were rejected by the margin guards.
+
+Scope caveat: the two-mode run is tolerance-controlled floating enumeration,
+not an exact complex-coefficient classification. The three-mode run is a
+finite, seeded nonlinear construction search, not exhaustive coefficient-space
+coverage. Neither is an obstruction for its family. See the two artifact
+READMEs under `data/runs/complex_two_mode_cyclic_2026-07-22/` and
+`data/runs/complex_three_mode_cyclic_2026-07-22/`.
+
+## 23. Free-Cartesian optimization of unvetted C25/C29 orders
+
+Trust label: `FAILED_APPROACH` for the naive route;
+`EXACT_FIXED_ORDER_NEGATIVE_CONTROLS` for the checked replacements.
+
+Failure mode: the attractive sparse-frontier orders are not legitimate inputs
+to an unrestricted coordinate continuation. The stored C25 step-7 order is
+already exactly obstructed by vertex-circle and Altman filters, while the
+stored C29 order has an exact 165-inequality full Kalmanson/Farkas obstruction.
+No coordinate optimizer can realize either as a strictly convex configuration.
+
+The guarded replacement sampled 12 new orders for each pattern. All 24 passed
+the lightweight filters, but all 24 have exact stored full-cone certificates:
+C25 support sizes are 177--207 and C29 support sizes are 263--288. The
+free-Cartesian stage therefore made zero attempts, by design. A wider
+development-only LP smoke test also found dual supports for 200/200 C25 and
+50/50 C29 orders, but that broader observation is numerical rather than a
+stored exact certificate family.
+
+Scope caveat: this is not all-order coverage for either abstract pattern and
+does not exclude a full-cone-escaping order. The implemented analytic-Jacobian
+coordinate solver remains useful if such an order is found. See
+`docs/free-cartesian-sparse-preflight.md` and the artifact README under
+`data/runs/free_cartesian_sparse_2026-07-22/`.
+
 [^lit]: Public consolidation: `public-provenance.md#literature-digest`.
 [^forest]: Public consolidation: `public-provenance.md#forest-lemma-failure`.
 [^rank]: Public consolidation: `public-provenance.md#rank-and-bridge-status`.

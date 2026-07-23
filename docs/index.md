@@ -937,6 +937,26 @@ put detailed reconciliation in the canonical synthesis.
   free-pattern numerical searcher where every center re-selects its best
   witness 4-set per evaluation, with anti-cluster floors and a recorded
   equivariant sweep; `NUMERICAL_EVIDENCE` only, no candidate found.
+- [`complex-cyclic-construction-screens.md`](complex-cyclic-construction-screens.md):
+  complex two-mode floating candidate enumeration for `9 <= n <= 30` and
+  complex three-mode seeded construction search for `12 <= n <= 18`, including
+  the exact doubled-hexagon degeneration identity; no candidate or obstruction.
+- [`free-cartesian-sparse-preflight.md`](free-cartesian-sparse-preflight.md):
+  analytic free-Cartesian fixed-order solver guarded by exact filters, with 24
+  stored C25/C29 fixed-order Kalmanson certificates; bounded negative controls
+  only, not all-order coverage, a counterexample, or a general obstruction.
+- [`sparse-full-cone-order-cegar.md`](sparse-full-cone-order-cegar.md):
+  bounded exact-clause C25/C29 cyclic-order pilot that feeds full
+  Kalmanson/Farkas certificates back into Z3 as order-family blockers; six
+  fixed-order certificates, not an all-order conclusion or counterexample.
+- [`sparse-full-cone-certificate-compression.md`](sparse-full-cone-certificate-compression.md):
+  randomized alternative-circuit search with four exact compressed C25/C29
+  certificates, including one C29 clause covering two strong source models;
+  bounded fixed-order evidence, not all-order coverage.
+- [`sparse-full-cone-seeded-cegar.md`](sparse-full-cone-seeded-cegar.md):
+  longer exact C25/C29 CEGAR seeded by all quotient-preserving translations of
+  the compressed clauses; 32 fresh probe orders have zero seed hits, while 16
+  new exact certificate orbits are learned before bounded limits.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.

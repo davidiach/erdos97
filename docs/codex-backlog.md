@@ -680,6 +680,30 @@ and must not assume that the finite `n=9` pivot census generalizes.
 5. Extend the Kalmanson template diagnostics toward order-search coverage:
    C13/C19 template records and C25/C29 availability records now exist, but
    they are not cyclic-order coverage or obstructions for the larger frontier.
+   The guarded free-Cartesian preflight in
+   `docs/free-cartesian-sparse-preflight.md` adds 24 exact sampled fixed-order
+   certificates (12 each for C25 and C29) and deliberately makes no coordinate
+   attempt on those obstructed orders. Use their recurring high-support cores
+   to design an all-order forbidden-template/SMT search, or first find an order
+   that escapes the full Kalmanson cone before spending more coordinate-search
+   budget. The 24-order artifact is bounded negative-control evidence, not
+   all-order coverage.
+   The follow-up full-cone CEGAR pilot in
+   `docs/sparse-full-cone-order-cegar.md` now turns each exact high-support
+   certificate into one exact ordered-quadrilateral family-blocking clause.
+   Its first bounded packet learns three such clauses per pattern and records
+   four models that also escape vertex-circle and Altman filters. The bounded
+   compression follow-up in
+   `docs/sparse-full-cone-certificate-compression.md` replaces those four
+   strong 205--306-quad supports with exact 100--213-quad circuits; one
+   compressed C29 clause covers two strong source models. The seeded affine
+   follow-up in `docs/sparse-full-cone-seeded-cegar.md` expands only exact
+   quotient-preserving translations: reflection is invalid for both
+   quotients. None of 32 fresh strong inverse-pair escape orders hits a seed
+   orbit. Separate seeded searches learn eight new exact certificate orbits
+   per pattern before bounded limits. The next target is to compress those 16
+   certificates and test shared small circuits across all 48 fresh stored
+   orders. The current clauses are not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

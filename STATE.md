@@ -1245,6 +1245,39 @@ This is still not a closure of any non-quarter branch (screen-grade for
 `scripts/check_quarter_cell_first_derivative_all_m_dominance.py`, and
 `data/certificates/quarter_cell_first_derivative_all_m_dominance.json`.
 
+## Doubled-Danzer 18-gon equivariant route (closed at this base family)
+
+The 2026-07-13 handoff's Danzer double-lift lead has now had its deferred
+symmetric Jacobian corank test and the follow-up nonlinear continuation run
+(2026-07-22). The `k=3` Danzer-type `C3` nonagon was rebuilt and verified at
+dps=60 (residuals below `4e-61`, strictly convex, 1-parameter family), and
+the full `15^6` collision rank census of the doubled 18-gon slice was
+reproduced exactly (`11,206,584 / 182,540 / 1,497 / 4` for projected ranks
+`9/8/7/6`, with mpmath spot-checks). The naive bisector-cycle assignment
+`(5,5,5,5,5,5)` has zero excess corank, resolving the 2026-07-13 pending
+question negatively at first order. Only 8 assignments (a chiral period-2
+family) have first-order kernels splitting all three copy pairs; the
+externally circulated 19-survivor filter output is not reproducible as
+described (11 of the 19 fail the stated criterion under the documented,
+census-pinned conventions). Continuation is negative on all 19: 528
+deterministic LM runs all collapse back to the collided manifold, the 8
+chiral survivors have a nonzero second-order Lyapunov-Schmidt obstruction
+`1.552627` at the base point (mpmath dps=50), with minimum `1.5518` across
+25 sampled collided-family points. A separate bounded sign-change scan
+detected no nondegenerate enlarged-pool coincidence while approaching a
+degenerate triple-covered equilateral configuration. Those finite scans do
+not certify intervals between samples, exclude tangential roots, or certify
+full branch coverage. Genuine single-orbit-split branches exist and are
+stored to 40 digits as seed material for a future non-equivariant (36-dof)
+test, which remains open. This closes only the tested `C3`-equivariant
+doubled-Danzer continuation route at
+this base family; it is not a claim about other base families, other
+doubling structures, or Erdos #97. See
+`docs/danzer18-doubling-failed-approach.md`,
+`docs/danzer18-doubling-census.md`,
+`docs/reports/danzer18-continuation-run-2026-07-22.md`, and the three
+`data/certificates/danzer18_*.json` artifacts.
+
 ## Best saved near-miss
 
 The best saved near-miss is still the historical `B12_3x4_danzer_lift`
