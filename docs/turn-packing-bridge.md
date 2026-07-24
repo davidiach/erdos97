@@ -84,3 +84,37 @@ This is review-pending finite-case evidence only. It does not promote the
 repo source-of-truth status, and it does not imply a general theorem without a
 bridge proving that arbitrary counterexamples reduce to turn-packing-obstructed
 selected systems.
+
+## Pivot crosswalk and exact boundary
+
+The generated crosswalk
+
+```bash
+python scripts/check_n9_fragile_turn_pivot_crosswalk.py \
+  --check --assert-expected --summary-json
+```
+
+shows that every one of the 184 frontier assignments has a Hamiltonian
+row-to-witness matching compatible with a pivot-to-halo turn certificate.
+For the separate inversion row-pivot notion, 182 stored certificates have
+minimum cover size two. The two orientations of family `F15` have minimum
+cover size three; every two-pivot restriction of their full weak-turn systems
+is exactly feasible, while the full rows are vertex-circle obstructed.
+
+This finite split is not a general three-pivot bridge. The exact abstract
+guardrail
+
+```bash
+python scripts/check_fragile_turn_pivot_guardrail.py \
+  --check --assert-expected --summary-json
+```
+
+has a marked three-cycle matching with three-witness halos and satisfies every
+current weak turn inequality strictly, as well as the fragile-cover,
+crossing, good-deletion, hinge-free, and vertex-circle conditions. An exact
+two-row Kalmanson inverse rejects its fixed natural order. See
+`docs/fragile-turn-pivot-bridge-audit.md`.
+
+Thus the missing step is stronger convex metric information. Merely marking a
+deletion witness as a pivot does not add a turn constraint, and that marked
+witness need not be an endpoint of either inclusion-minimal turn interval.

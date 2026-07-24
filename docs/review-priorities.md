@@ -703,6 +703,7 @@ benchmarks for the larger frontier:
 ## Priority 8b - strengthen the fragile-cover bridge
 
 Target: `docs/minimal-fragile-cover-bridge.md`,
+`docs/fragile-turn-pivot-bridge-audit.md`,
 `docs/minimal-two-deletion-profile.md`,
 `docs/all-rich-class-pair-budget.md`, and
 `src/erdos97/fragile_hypergraph.py`.
@@ -727,6 +728,14 @@ condition that the surviving multi-block family does not automatically satisfy:
 - exact row-circle constraints on the fragile rows;
 - interaction between fragile-cover rows and stuck-set/ear-orderability
   failures.
+- use the exact fragile/turn/pivot audit as the current pivot guardrail. Its
+  finite `n=9` side has a two-pivot/`F15` split, but the abstract
+  `S_i=i+{2,9,10,13}` system on `Z/16` has a marked three-cycle matching and
+  survives the current fragile, weak-turn, and vertex-circle conditions. An
+  exact two-row Kalmanson inverse rejects that fixed order. The next useful
+  lemma should extract similarly strong ordinary-distance convex information
+  from a fragile matching cycle or its halos, rather than assert a general
+  three-pivot contradiction from the existing abstractions.
 - treat `docs/scalable-strict-cycle-bridge-control.md` as the current
   unbounded-locality guardrail: the isolated axioms allow no Kalmanson
   positive circuit using at most three inequalities and a first vertex-circle

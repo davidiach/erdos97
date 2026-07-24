@@ -877,6 +877,20 @@ all 184 regenerated pair/crossing/count frontier assignments. It is
 review-pending finite-case evidence only: the geometric turn lemma and
 indexing conventions remain the review bottleneck, and this does not promote
 `n=9`. Use `--json` instead when the full certificate rows are needed.
+The fragile/turn/pivot crosswalk
+`scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json`
+adds exact finite structure: every frontier assignment has a Hamiltonian
+row-to-witness matching compatible with a pivot-to-halo turn certificate;
+`182` stored certificates have two-vertex inversion row-pivot covers, while
+the two `F15` orientations require three and are separately obstructed by
+self-edges in the review-pending vertex-circle replay. The companion abstract
+guardrail
+`scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json`
+shows why this does not generalize from the current bridge axioms: a
+`Z/16` marked-three-cycle system passes fragile, crossing, good-deletion,
+weak-turn, and vertex-circle checks but is rejected by an exact two-row
+Kalmanson inverse. These are proof-mining diagnostics only and do not promote
+`n=9` or change any source-of-truth status.
 The compact Kalmanson self-edge replay
 `scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json`
 checks a stored certificate with one strict Kalmanson self-edge for each of the

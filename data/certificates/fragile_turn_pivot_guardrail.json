@@ -1,0 +1,638 @@
+{
+  "circulant_offsets": [
+    2,
+    9,
+    10,
+    13
+  ],
+  "claim_scope": "Exact abstract n=16 negative control for a proposed general fragile-matching/three-pivot bridge: it passes the currently isolated fragile-cover, pair/crossing, good-deletion, hinge-free, weak-turn, and vertex-circle conditions but is rejected by an exact Kalmanson inverse pair; not a Euclidean realization, not a counterexample, not a proof or disproof of Erdos Problem #97, and not a source-of-truth or official/global status update.",
+  "conclusion": "The current abstract fragile-cover, incidence/crossing, good-deletion, hinge-free, weak-turn, and vertex-circle conditions do not by themselves force a contradiction from a surjective fragile matching with a marked three-cycle and three-witness halos. The exact Kalmanson inverse pair shows that stronger convex metric information rejects this fixed-order negative control.",
+  "cyclic_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "essential_matching": {
+    "all_halo_sizes": [
+      3
+    ],
+    "all_matching_edges_in_rows": true,
+    "center_to_witness": [
+      9,
+      10,
+      11,
+      0,
+      6,
+      14,
+      8,
+      4,
+      2,
+      3,
+      12,
+      13,
+      5,
+      15,
+      7,
+      1
+    ],
+    "cycle_type": [
+      3,
+      13
+    ],
+    "cycles": [
+      [
+        0,
+        9,
+        3
+      ],
+      [
+        1,
+        10,
+        12,
+        5,
+        14,
+        7,
+        4,
+        6,
+        8,
+        2,
+        11,
+        13,
+        15
+      ]
+    ],
+    "halos": [
+      {
+        "deleted_vertex": 9,
+        "fragile_center": 0,
+        "halo": [
+          2,
+          10,
+          13
+        ]
+      },
+      {
+        "deleted_vertex": 10,
+        "fragile_center": 1,
+        "halo": [
+          3,
+          11,
+          14
+        ]
+      },
+      {
+        "deleted_vertex": 11,
+        "fragile_center": 2,
+        "halo": [
+          4,
+          12,
+          15
+        ]
+      },
+      {
+        "deleted_vertex": 0,
+        "fragile_center": 3,
+        "halo": [
+          5,
+          12,
+          13
+        ]
+      },
+      {
+        "deleted_vertex": 6,
+        "fragile_center": 4,
+        "halo": [
+          1,
+          13,
+          14
+        ]
+      },
+      {
+        "deleted_vertex": 14,
+        "fragile_center": 5,
+        "halo": [
+          2,
+          7,
+          15
+        ]
+      },
+      {
+        "deleted_vertex": 8,
+        "fragile_center": 6,
+        "halo": [
+          0,
+          3,
+          15
+        ]
+      },
+      {
+        "deleted_vertex": 4,
+        "fragile_center": 7,
+        "halo": [
+          0,
+          1,
+          9
+        ]
+      },
+      {
+        "deleted_vertex": 2,
+        "fragile_center": 8,
+        "halo": [
+          1,
+          5,
+          10
+        ]
+      },
+      {
+        "deleted_vertex": 3,
+        "fragile_center": 9,
+        "halo": [
+          2,
+          6,
+          11
+        ]
+      },
+      {
+        "deleted_vertex": 12,
+        "fragile_center": 10,
+        "halo": [
+          3,
+          4,
+          7
+        ]
+      },
+      {
+        "deleted_vertex": 13,
+        "fragile_center": 11,
+        "halo": [
+          4,
+          5,
+          8
+        ]
+      },
+      {
+        "deleted_vertex": 5,
+        "fragile_center": 12,
+        "halo": [
+          6,
+          9,
+          14
+        ]
+      },
+      {
+        "deleted_vertex": 15,
+        "fragile_center": 13,
+        "halo": [
+          6,
+          7,
+          10
+        ]
+      },
+      {
+        "deleted_vertex": 7,
+        "fragile_center": 14,
+        "halo": [
+          0,
+          8,
+          11
+        ]
+      },
+      {
+        "deleted_vertex": 1,
+        "fragile_center": 15,
+        "halo": [
+          8,
+          9,
+          12
+        ]
+      }
+    ],
+    "marked_three_cycle": [
+      0,
+      9,
+      3
+    ],
+    "witness_to_center": [
+      3,
+      15,
+      8,
+      9,
+      7,
+      12,
+      4,
+      14,
+      6,
+      0,
+      1,
+      2,
+      10,
+      11,
+      5,
+      13
+    ]
+  },
+  "fragile_hypergraph": {
+    "cover_missing": [],
+    "cover_ok": true,
+    "crossing_ok": true,
+    "crossing_violations": [],
+    "essential_cover_ok": true,
+    "essential_matching": {
+      "0": 9,
+      "1": 11,
+      "10": 3,
+      "11": 8,
+      "12": 6,
+      "13": 10,
+      "14": 7,
+      "15": 1,
+      "2": 4,
+      "3": 12,
+      "4": 13,
+      "5": 14,
+      "6": 15,
+      "7": 0,
+      "8": 5,
+      "9": 2
+    },
+    "essential_matching_unmatched_centers": [],
+    "fragile_centers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "n": 16,
+    "ok": true,
+    "pairwise_intersection_ok": true,
+    "pairwise_intersection_violations": [],
+    "self_exclusion_ok": true,
+    "self_exclusion_violations": [],
+    "type": "fragile_hypergraph_check",
+    "uniformity_ok": true,
+    "uniformity_violations": [],
+    "witness_map_ok": true,
+    "witness_map_violations": []
+  },
+  "good_deletion": {
+    "all_seeds_have_good_survivor": true,
+    "eligible_center_count_histogram": {
+      "1": 16,
+      "10": 4352,
+      "11": 240,
+      "2": 120,
+      "3": 560,
+      "4": 1852,
+      "5": 4528,
+      "6": 8792,
+      "7": 13824,
+      "8": 17394,
+      "9": 13856
+    },
+    "generator_proof": "If a surviving set Q contains S_i for every i in Q, then Q is invariant under +2 and +9. Since 9 - 4*2 = 1 modulo 16, Q is empty or all of Z/16.",
+    "nonempty_proper_seed_count": 65534,
+    "violating_seeds": []
+  },
+  "hinge_guardrail": {
+    "negative_offsets": [
+      3,
+      6,
+      7,
+      14
+    ],
+    "offsets": [
+      2,
+      9,
+      10,
+      13
+    ],
+    "reciprocal_selected_pair_count": 0,
+    "reciprocal_selected_pairs": []
+  },
+  "kalmanson_inverse": {
+    "combined_nonzero_coefficient_count": 0,
+    "distance_class_count": 72,
+    "interpretation": "The two strict Kalmanson left-minus-right expressions sum to zero in the selected-distance quotient, so this fixed cyclic order is not realizable by a strictly convex polygon.",
+    "rows": [
+      {
+        "kind": "K1_diag_gt_sides",
+        "quad": [
+          0,
+          3,
+          7,
+          9
+        ],
+        "terms": [
+          [
+            [
+              0,
+              7
+            ],
+            1
+          ],
+          [
+            [
+              3,
+              9
+            ],
+            1
+          ],
+          [
+            [
+              0,
+              3
+            ],
+            -1
+          ],
+          [
+            [
+              7,
+              9
+            ],
+            -1
+          ]
+        ]
+      },
+      {
+        "kind": "K2_diag_gt_other",
+        "quad": [
+          0,
+          3,
+          9,
+          13
+        ],
+        "terms": [
+          [
+            [
+              0,
+              9
+            ],
+            1
+          ],
+          [
+            [
+              3,
+              13
+            ],
+            1
+          ],
+          [
+            [
+              0,
+              13
+            ],
+            -1
+          ],
+          [
+            [
+              3,
+              9
+            ],
+            -1
+          ]
+        ]
+      }
+    ],
+    "selected_equality_cancellation": [
+      "d(0,7)=d(7,9) from row 7",
+      "d(0,9)=d(0,13) from row 0",
+      "d(3,13)=d(0,3) from row 3"
+    ],
+    "strict_row_count": 2,
+    "zero_sum_verified": true
+  },
+  "limitations": [
+    "This is abstract selected-row data, not point coordinates.",
+    "Passing necessary incidence, turn, and vertex-circle checks is not a realization certificate.",
+    "The exact Kalmanson inverse pair rejects the fixed natural cyclic order.",
+    "The restricted circulant scan that found this model does not establish global minimality.",
+    "No proof, disproof, or counterexample for Erdos Problem #97 is claimed."
+  ],
+  "n": 16,
+  "pair_multiplicity_histogram": {
+    "1": 80,
+    "2": 8
+  },
+  "provenance": {
+    "command": "python scripts/check_fragile_turn_pivot_guardrail.py --assert-expected --write",
+    "generator": "scripts/check_fragile_turn_pivot_guardrail.py"
+  },
+  "review_requirements": [
+    "Review the distinction between abstract selected-row data and Euclidean realization.",
+    "Review the good-deletion condition when the displayed rows are the only rich classes.",
+    "Review the canonical weak-turn interval indexing and strict uniform witness.",
+    "Review the vertex-circle quotient replay and the exact Kalmanson inverse pair.",
+    "Do not call the restricted-search discovery globally minimal."
+  ],
+  "row_intersection_size_histogram": {
+    "0": 32,
+    "1": 80,
+    "2": 8
+  },
+  "schema": "erdos97.fragile_turn_pivot_guardrail.v1",
+  "selected_rows": [
+    [
+      2,
+      9,
+      10,
+      13
+    ],
+    [
+      3,
+      10,
+      11,
+      14
+    ],
+    [
+      4,
+      11,
+      12,
+      15
+    ],
+    [
+      0,
+      5,
+      12,
+      13
+    ],
+    [
+      1,
+      6,
+      13,
+      14
+    ],
+    [
+      2,
+      7,
+      14,
+      15
+    ],
+    [
+      0,
+      3,
+      8,
+      15
+    ],
+    [
+      0,
+      1,
+      4,
+      9
+    ],
+    [
+      1,
+      2,
+      5,
+      10
+    ],
+    [
+      2,
+      3,
+      6,
+      11
+    ],
+    [
+      3,
+      4,
+      7,
+      12
+    ],
+    [
+      4,
+      5,
+      8,
+      13
+    ],
+    [
+      5,
+      6,
+      9,
+      14
+    ],
+    [
+      6,
+      7,
+      10,
+      15
+    ],
+    [
+      0,
+      7,
+      8,
+      11
+    ],
+    [
+      1,
+      8,
+      9,
+      12
+    ]
+  ],
+  "status": "MACHINE_CHECKED_ABSTRACT_BRIDGE_NEGATIVE_CONTROL",
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "vertex_circle_replay": {
+    "hand_potential": {
+      "claim": "Every strict quotient edge increases the displayed level.",
+      "level_0": [
+        "cyclic gap 5"
+      ],
+      "level_1": [
+        "cyclic gap 4",
+        "cyclic gap 8"
+      ],
+      "level_2": [
+        "cyclic gap 1",
+        "each selected radius class R_i"
+      ]
+    },
+    "selected_row_count": 16,
+    "self_edge_conflict_count": 0,
+    "status": "ok",
+    "strict_cycle_edge_count": 0,
+    "strict_edge_count": 144
+  },
+  "weak_turn_replay": {
+    "all_weak_terms_strictly_satisfied": true,
+    "essential_support_sums": [
+      "5/4",
+      "8/4"
+    ],
+    "minimum_support_sum": "5/4",
+    "row0_inclusion_minimal_support_sizes": [
+      5,
+      8
+    ],
+    "row0_inclusion_minimal_supports": [
+      [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    ],
+    "sum_constraint": "16*(1/4)=4",
+    "support_size_histogram": {
+      "12": 48,
+      "13": 48,
+      "5": 16,
+      "6": 32,
+      "8": 16,
+      "9": 32
+    },
+    "term_count": 192,
+    "uniform_turn_vector": [
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4"
+    ]
+  }
+}
