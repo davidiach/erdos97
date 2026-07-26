@@ -69,6 +69,41 @@ collinearity, or strict-convexity failure. These are machine-checked
 repo-local artifacts, not standalone public proof certificates. See
 `docs/n8-incidence-enumeration.md` and `docs/n8-exact-survivors.md`.
 
+### Theorem: no bad strictly convex equilateral nonagon
+
+Status: `REPO_LOCAL_THEOREM` for the equilateral sub-case of `n = 9`
+(elementary reduction plus an exact finite certificate). Independent external
+review is not claimed.
+
+Let `A` be the vertex set of a strictly convex equilateral nonagon. Then some
+vertex of `A` has no four other vertices at one common distance.
+
+The proof in `docs/n9-equilateral-chord-obstruction.md` starts from the ledger
+`E + D = 9`, where `E` is the total profile excess and `D` the unused
+base-apex capacity. Turns equal to `2*pi/3` number at most two, and a length-3
+diagonal has an apex on its two-vertex side only if one of the two turns it
+spans is `2*pi/3`, so `D >= 9 - 2*|M|` and `E <= 2*|M| <= 4`. In an
+equilateral polygon both neighbours of a vertex lie on its side-length circle,
+so a vertex whose unit-distance degree is not `4` pays profile excess; with the
+budget `E <= 4` and the parity of a degree sum, every degree of the
+unit-distance chord graph `H` is `0` or `2`, and the number of `H`-isolated
+vertices is at most twice the number of step-`2` chords.
+
+Each of the resulting `8097` chord graphs contradicts the chord/turn
+dictionary for equilateral polygons: a step-`2` chord of side length pins one
+normalized turn to `1/3`, a step-`3` chord pins two consecutive ones to sum to
+`1/2`, and a step-`4` chord forces three consecutive ones to sum to at least
+`2*arccos(1/4)/(2*pi)`. The contradictions are certified by explicit integer
+multipliers in `data/certificates/n9_equilateral_chord_obstruction.json`,
+replayed by `scripts/check_n9_equilateral_chord_obstruction.py`. The checker
+also certifies the rational step-`4` lower bound exactly, using Machin's
+identity for a rational upper bound on `pi` and an alternating degree-`10`
+cosine lower bound; no floating-point comparison supports the theorem claim.
+
+This says nothing about non-equilateral nonagons: unlike `n = 8`, the ledger at
+`n = 9` does not force equal sides. It does not close `n = 9` and does not
+change the official falsifiable/open status of Erdos Problem #97.
+
 ### Literature-backed shortcut: Dumitrescu isosceles count for n <= 8
 
 Status: `LITERATURE_BACKED_PROOF_NOTE` / `REVIEW_PENDING`.

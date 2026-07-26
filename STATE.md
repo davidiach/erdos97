@@ -29,6 +29,15 @@ contradicting total exterior turn `2*pi`. The proof was independently
 rederived within the repository audit on 2026-07-09. External/publication
 review remains recommended and is not claimed.
 
+One sub-case of the first open size is now also closed: there is no bad
+strictly convex *equilateral* nonagon. The base-apex ledger `E + D = 9` and the
+length-3 short sides give `E <= 2*|M|` for the set `M` of turns equal to
+`2*pi/3`, which forces every degree of the unit-distance chord graph to be `0`
+or `2`; the resulting `8097` chord graphs are each refuted by an exact integer
+multiplier certificate against the chord/turn dictionary. Unlike `n = 8`, a bad
+nonagon is not forced to be equilateral, so this does not close `n = 9`. See
+`docs/n9-equilateral-chord-obstruction.md`.
+
 The selected-witness method independently corroborates `n <= 8` in a
 repo-local, machine-checked finite-case sense. Its core filters are the
 two-circle cap `|S_a cap S_b| <= 2`, radical-axis crossing/bisection when two
