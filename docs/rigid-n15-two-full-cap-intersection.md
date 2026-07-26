@@ -101,8 +101,8 @@ contradicts convex independence.  ∎
 
 The same proof covers endpoint intersections by a limiting argument, or by
 using closed cones throughout.  A carrier center equal to an apex is excluded
-explicitly in the statement; in the tri-apex residual the Moser apices are
-also deletion-robust and therefore are not unique-four centers.
+explicitly in the statement, so apex-centered cover rows must be accounted for
+separately below.
 
 ## 3. Exact-four consequence
 
@@ -129,11 +129,14 @@ At rigid `n=15`, two adjacent full caps have union size
 |C_A union C_B| = 6+6-1 = 11.
 ```
 
-Consequently any minimal unique-four cover needs at least four distinct
-unique-four centers merely to cover this eleven-point union.
+Centers `A` and `B` already have six-point rich classes and hence are not
+unique-four.  The only apex-centered cover row not controlled by (1) is a
+possible row at `C`, with capacity at most four.  Three cover rows therefore
+cover at most `4+3+3=10` points of the union.  Consequently any minimal
+unique-four cover needs at least four distinct centers merely to cover it.
 
 This matches, rather than exceeds, the global lower bound
-`ceil(15/4)=4`; hence (1) is a real geometric strengthening but not yet a
+`ceil(15/4)=4`; hence the lemma is a real geometric strengthening but not yet a
 terminal contradiction.
 
 ## 4. Next coupling target

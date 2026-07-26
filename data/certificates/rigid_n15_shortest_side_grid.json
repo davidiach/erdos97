@@ -87,8 +87,10 @@
       ]
     }
   ],
+  "claim_scope": "Exact finite branch-count and strict-Kalmanson coefficient arithmetic under the stated rigid-grid hypotheses; not a check of those geometric hypotheses, a realizability test, a proof, or a counterexample for Erdos Problem #97.",
   "endpoint_cases": [
     {
+      "capacity_slack": -1,
       "cross_hits": 2,
       "grid_cells": 1,
       "k_A": 1,
@@ -96,6 +98,7 @@
       "status": "count_contradiction"
     },
     {
+      "capacity_slack": -1,
       "cross_hits": 3,
       "grid_cells": 2,
       "k_A": 1,
@@ -103,6 +106,7 @@
       "status": "count_contradiction"
     },
     {
+      "capacity_slack": -1,
       "cross_hits": 3,
       "grid_cells": 2,
       "k_A": 2,
@@ -110,6 +114,7 @@
       "status": "count_contradiction"
     },
     {
+      "capacity_slack": 0,
       "cross_hits": 4,
       "grid_cells": 4,
       "k_A": 2,
@@ -120,14 +125,23 @@
   "non_claims": [
     "not a proof of Erd\u0151s Problem 97",
     "not a Euclidean realizability test",
-    "the geometric rigid-n=15 hypotheses are proved separately in prose"
+    "not a check of the geometric rigid-n=15 hypotheses"
   ],
-  "schema": "rigid_n15_shortest_side_grid_v1",
+  "provenance": {
+    "command": "python scripts/check_rigid_n15_shortest_side_grid.py --assert-expected --write data/certificates/rigid_n15_shortest_side_grid.json",
+    "generator": "scripts/check_rigid_n15_shortest_side_grid.py",
+    "source_documents": [
+      "docs/rigid-n15-moser-geometry.md",
+      "docs/rigid-n15-two-full-cap-intersection.md"
+    ]
+  },
+  "schema": "erdos97.rigid_n15_shortest_side_grid.v1",
+  "status": "EXACT_GRID_ARITHMETIC_REPLAY",
   "summary": {
     "checkerboard_count": 1,
     "checkerboard_orbit_count": 2,
     "count_contradiction_count": 3,
     "endpoint_case_count": 4
   },
-  "trust": "EXACT_FINITE_ALGEBRA"
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
 }

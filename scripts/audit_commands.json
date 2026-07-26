@@ -1593,6 +1593,19 @@
       "claim_scope": "Exact arithmetic replay for all-rich-class global/local budgets and exclusive endpoint aggregate bounds; necessary bridge structure only, not an incidence realization, proof, or counterexample for Erdos Problem #97."
     },
     {
+      "id": "rigid_n15_shortest_side_grid",
+      "command": [
+        "python",
+        "scripts/check_rigid_n15_shortest_side_grid.py",
+        "--artifact",
+        "data/certificates/rigid_n15_shortest_side_grid.json",
+        "--check",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Exact finite branch-count and strict-Kalmanson coefficient arithmetic under the stated rigid-n=15 grid hypotheses; not a check of the geometric hypotheses, a realizability test, proof, or counterexample for Erdos Problem #97."
+    },
+    {
       "id": "adjacent_closest_pair_nonagon_barrier",
       "command": [
         "python",
@@ -3166,6 +3179,7 @@
       "localized_rich_support_counting",
       "minimal_two_deletion_profile",
       "all_rich_class_pair_budget",
+      "rigid_n15_shortest_side_grid",
       "n9_fragile_turn_pivot_crosswalk",
       "fragile_turn_pivot_guardrail",
       "adjacent_closest_pair_nonagon_barrier",

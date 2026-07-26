@@ -19,7 +19,16 @@ import argparse
 import json
 from itertools import permutations, product
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Sequence
+
+SCHEMA = "erdos97.rigid_n15_shortest_side_grid.v1"
+STATUS = "EXACT_GRID_ARITHMETIC_REPLAY"
+TRUST = "EXACT_CERTIFICATE_DIAGNOSTIC"
+DEFAULT_ARTIFACT = Path("data/certificates/rigid_n15_shortest_side_grid.json")
+GENERATION_COMMAND = (
+    "python scripts/check_rigid_n15_shortest_side_grid.py --assert-expected "
+    "--write data/certificates/rigid_n15_shortest_side_grid.json"
+)
 
 EXPECTED = {
     "checkerboard_orbit_count": 2,
@@ -67,18 +76,18 @@ def checkerboard_records() -> list[dict[str, object]]:
         # the two cells having the same A-radius index.  The A-terms cancel,
         # and the two resulting strict B-radius inequalities are opposites.
         strict_vectors = tuple(
-            sub(h_vector(matching[i]), h_vector(complement[i]))
-            for i in (0, 1)
+            sub(h_vector(matching[i]), h_vector(complement[i])) for i in (0, 1)
         )
         assert strict_vectors[0] == neg(strict_vectors[1])
-        assert add(strict_vectors[0], strict_vectors[1]) == (0, 0, 0, 0)
+        vector_sum = add(strict_vectors[0], strict_vectors[1])
+        assert vector_sum == (0, 0, 0, 0)
 
         records.append(
             {
                 "matching": [list(cell) for cell in matching],
                 "complement": [list(cell) for cell in complement],
                 "strict_vectors": [list(v) for v in strict_vectors],
-                "sum": [0, 0, 0, 0],
+                "sum": list(vector_sum),
                 "interpretation": "two strict K2 rows sum to 0 > 0",
             }
         )
@@ -90,11 +99,11 @@ def endpoint_count_records() -> list[dict[str, object]]:
     for k_a, k_b in product((1, 2), repeat=2):
         cross_hits = k_a + k_b
         grid_cells = k_a * k_b
-        assert cross_hits >= grid_cells
-        if cross_hits > grid_cells:
+        capacity_slack = grid_cells - cross_hits
+        if capacity_slack < 0:
             status = "count_contradiction"
         else:
-            assert (k_a, k_b) == (2, 2)
+            assert capacity_slack == 0 and (k_a, k_b) == (2, 2)
             status = "checkerboard"
         records.append(
             {
@@ -103,6 +112,7 @@ def endpoint_count_records() -> list[dict[str, object]]:
                 "cross_hits": cross_hits,
                 "grid_cells": grid_cells,
                 "status": status,
+                "capacity_slack": capacity_slack,
             }
         )
     return records
@@ -121,32 +131,67 @@ def build_report() -> dict[str, object]:
     }
     assert summary == EXPECTED
     return {
-        "schema": "rigid_n15_shortest_side_grid_v1",
-        "trust": "EXACT_FINITE_ALGEBRA",
+        "schema": SCHEMA,
+        "status": STATUS,
+        "trust": TRUST,
+        "claim_scope": "Exact finite branch-count and strict-Kalmanson coefficient arithmetic under the stated rigid-grid hypotheses; not a check of those geometric hypotheses, a realizability test, a proof, or a counterexample for Erdos Problem #97.",
         "summary": summary,
         "endpoint_cases": endpoint,
         "checkerboard_orbits": checkerboard,
         "non_claims": [
             "not a proof of Erdős Problem 97",
             "not a Euclidean realizability test",
-            "the geometric rigid-n=15 hypotheses are proved separately in prose",
+            "not a check of the geometric rigid-n=15 hypotheses",
         ],
+        "provenance": {
+            "generator": "scripts/check_rigid_n15_shortest_side_grid.py",
+            "command": GENERATION_COMMAND,
+            "source_documents": [
+                "docs/rigid-n15-moser-geometry.md",
+                "docs/rigid-n15-two-full-cap-intersection.md",
+            ],
+        },
     }
+
+
+def check_artifact(report: dict[str, object], artifact: Path) -> None:
+    """Require the stored artifact to equal the deterministic report."""
+
+    stored = json.loads(artifact.read_text(encoding="utf-8"))
+    if stored != report:
+        raise AssertionError(
+            f"stored artifact does not match deterministic report: {artifact}"
+        )
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="print the complete report")
     parser.add_argument("--assert-expected", action="store_true")
-    parser.add_argument("--write", type=Path, help="write the deterministic JSON report")
+    parser.add_argument(
+        "--write", type=Path, help="write the deterministic JSON report"
+    )
+    parser.add_argument(
+        "--artifact",
+        type=Path,
+        default=DEFAULT_ARTIFACT,
+        help="stored artifact used by --check",
+    )
+    parser.add_argument("--check", action="store_true", help="check stored artifact")
     args = parser.parse_args()
 
     report = build_report()
     if args.assert_expected:
         assert report["summary"] == EXPECTED
+    if args.check:
+        check_artifact(report, args.artifact)
     if args.write is not None:
         args.write.parent.mkdir(parents=True, exist_ok=True)
-        args.write.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+        args.write.write_text(
+            json.dumps(report, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
     if args.json:
         print(json.dumps(report, indent=2, sort_keys=True))
     else:

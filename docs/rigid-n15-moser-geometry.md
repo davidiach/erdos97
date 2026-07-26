@@ -1,9 +1,10 @@
 # Rigid `n=15` Moser geometry
 
-Status: `REVIEW_PENDING_LEMMA_PACKET`.
+Status: `CONDITIONAL_LEMMA_PACKET`.
 
-This note records two exact consequences of the current all-large-caps
-tri-apex residual at its rigid equality boundary `|A| = 15`:
+This note records two exact deductions conditional on the all-large-caps
+tri-apex hypotheses below at their rigid equality boundary `|A| = 15`.  Those
+geometric hypotheses are not independently established by this packet:
 
 1. the Moser triangle cannot have a uniquely shortest side;
 2. the fully symmetric three-full-cap case is impossible, because it places the
@@ -14,17 +15,13 @@ Neither result proves Erdős Problem 97, treats `|A| > 15`, or closes the other
 active unique-radius terminal.  The purpose is to remove two genuine geometric
 branches and expose the remaining mixed one-/two-radius configurations.
 
-The finite algebra in the shortest-side proof is independently replayed by
+The stored finite-algebra report is regenerated and checked by
 
 ```bash
-python scripts/check_rigid_n15_shortest_side_grid.py --assert-expected --json
+python scripts/check_rigid_n15_shortest_side_grid.py --artifact data/certificates/rigid_n15_shortest_side_grid.json --check --assert-expected --json
 ```
 
-against
-
-```text
-data/certificates/rigid_n15_shortest_side_grid.json
-```
+This checks only branch counts and integer Kalmanson coefficient cancellation.
 
 ## 1. Rigid tri-apex hypotheses
 
@@ -39,15 +36,16 @@ C_C = {A,B} union I_C,
 |I_A| = |I_B| = |I_C| = 4.
 ```
 
-At every apex `X`, the current formal reduction supplies one of two alternatives:
+The remainder of the packet assumes that every apex `X` satisfies one of two
+alternatives, together with the exact cap-contribution shapes derived below:
 
 ```text
 one-class branch: some radius class has at least 6 points;
 two-radius branch: two distinct radii each have at least 4 points.
 ```
 
-The general class-versus-cap bound and the sharp cap-interior contribution
-bound make these alternatives exact at `n=15`.
+Assume the general class-versus-cap bound and the sharp one-hit contribution
+bound for adjacent caps.  They make these alternatives exact at `n=15`.
 
 ### Rigid one-class shape
 
@@ -79,7 +77,10 @@ k_X = 2 in the two-radius branch.
 
 ## 2. Two geometric inputs
 
-The proof below uses two already-proved MEC facts.
+The proof below also takes the following two MEC statements as inputs.  The
+finite checker does not verify either statement.  The adjacent-cap ceiling has
+the direct disk-segment justification recorded below; shortest-side pair
+injectivity remains a separate geometric proof obligation for this packet.
 
 ### Shortest-side pair injectivity
 
@@ -157,7 +158,7 @@ two strict vectors sum to zero, giving `0>0`.  ∎
 
 ## 4. No uniquely shortest side at `n=15`
 
-### Theorem
+### Conditional theorem
 
 Under the rigid tri-apex hypotheses, the Moser triangle has no uniquely shortest
 side.
@@ -222,13 +223,13 @@ Assume
 |AB| = |AC| < |BC|.
 ```
 
-The common apex `A` has one rich class containing both `B` and `C`.
-
-For the shortest side `AB`, the theorem above says that at least one endpoint
-has a class through `C`.  It cannot be `B`, because the adjacent-cap ceiling
-would give `|BC|<=|BA|`.  Hence it is `A`.  Applying the same argument to side
-`AC` shows that `A` also has a class through `B`.  Since `|AB|=|AC|`, the two
-apices belong to the same full distance class at `A`.
+For any shortest side, if neither endpoint has a selected rich class through
+the third apex, the cross-hit count starts at the second paragraph of Section
+4 and gives the same count/checkerboard contradiction.  Applied to `AB`, at
+least one endpoint therefore has a selected class through `C`.  It cannot be
+`B`, because the adjacent-cap ceiling would give `|BC|<=|BA|`.  Hence `A` has
+a selected class through `C`; since `|AB|=|AC|`, that full distance class also
+contains `B`.
 
 Therefore:
 
@@ -258,7 +259,7 @@ cap interior points.
 
 ## 7. Fully Reuleaux subcase
 
-### Theorem
+### Conditional theorem
 
 Suppose the rigid Moser triangle is equilateral and all three opposite caps are
 the full six-point side-length classes centered at their opposite apices.  Then
@@ -300,9 +301,13 @@ v < r <= 1  : at most one hit on each adjacent arc;
 r > 1       : no boundary hit.
 ```
 
-Endpoint equalities only identify the shared apex and do not increase the
-number of distinct hits.  Every positive radius therefore contains at most two
-other boundary points.
+At `r=u`, the adjacent-`AB` hit is the already-counted endpoint `B`; the own
+arc has at most one further hit.  If `u<v`, then at `r=v` the own arc has only
+the endpoint `C`, the adjacent-`CA` hit is the same point, and the `AB` arc has
+at most one further hit.  If `u=v`, the own-arc hits are exactly the two
+endpoints and both adjacent contributions duplicate them.  Thus every positive
+radius contains at most two other boundary points, including at the omitted
+equalities.
 
 For completeness, the adjacent-arc monotonicity is immediate in the displayed
 coordinates.  Parameterize
@@ -320,8 +325,9 @@ d/dphi |p-q|^2
      -(sqrt(3)/2+sin(theta)) cos(phi)] >= 0,
 ```
 
-because both coefficients in the final nonnegative form are nonnegative on the
-stated intervals.  The other adjacent arc is symmetric.  Strictness holds away
+because `1/2+cos(theta)>=0` while `sqrt(3)/2+sin(theta)<=0` on the stated
+intervals, so both displayed terms are nonnegative.  The other adjacent arc is
+symmetric.  Strictness holds away
 from shared endpoints.
 
 So every non-apex carrier point is not 4-rich, contradicting the counterexample
@@ -329,7 +335,7 @@ hypothesis.  ∎
 
 ## 8. What remains
 
-At rigid `n=15`, only mixed configurations remain:
+Under the packet hypotheses, the only remaining rigid `n=15` branches are:
 
 * the non-equilateral isosceles case where the common apex uses its two-radius
   branch, or uses one full cap while the other two apices have mixed structure;
@@ -346,7 +352,10 @@ configuration in cap order is the next nonlinear obstruction target.
 
 ## 9. Scope boundary
 
-This packet establishes exact conditional lemmas only at the rigid equality
-boundary `|A|=15`.  It does not provide a descent from `|A|>15` to `15`, does not
-show that a full cap occurs in every remaining branch, and does not close the
-active tri-apex or unique-radius theorem in the external Lean formalization.
+This packet establishes deductions only conditional on the rigid cap shapes,
+the adjacent-cap one-hit bound, and shortest-side pair injectivity.  The stored
+checker verifies none of those geometric inputs.  The packet does not provide
+a descent from `|A|>15` to `15`, show that a full cap occurs in every remaining
+branch, or close the active tri-apex or unique-radius theorem in the external
+Lean formalization.  No general proof or counterexample for Erdos Problem #97
+is claimed.
