@@ -1583,6 +1583,16 @@
       "claim_scope": "Exact combinatorial replay for the minimal two-deletion profile lemma and exclusive-pair charging; necessary bridge structure only, not a proof or counterexample for Erdos Problem #97."
     },
     {
+      "id": "maximal_blocker_fiber_hierarchy",
+      "command": [
+        "python",
+        "scripts/check_maximal_blocker_fiber_hierarchy.py",
+        "--check",
+        "--json"
+      ],
+      "claim_scope": "Exact arithmetic replay of the maximal blocker-fiber hierarchy and H-pair-capacity upper bounds; not an assignment existence proof, Euclidean realizability checker, proof, or counterexample for Erdos Problem #97."
+    },
+    {
       "id": "all_rich_class_pair_budget",
       "command": [
         "python",
@@ -3178,6 +3188,7 @@
       "n12_rich_support_determinant",
       "localized_rich_support_counting",
       "minimal_two_deletion_profile",
+      "maximal_blocker_fiber_hierarchy",
       "all_rich_class_pair_budget",
       "rigid_n15_shortest_side_grid",
       "n9_fragile_turn_pivot_crosswalk",

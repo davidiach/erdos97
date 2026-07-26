@@ -163,6 +163,10 @@ put detailed reconciliation in the canonical synthesis.
   review-pending two-full-cap arc-intersection lemma and its four-center cover
   consequence under the rigid equilateral setting; not a global proof or
   counterexample.
+- [`maximal-blocker-fiber-hierarchy.md`](maximal-blocker-fiber-hierarchy.md):
+  proof-facing extremal blocker-selector lemma and exact pair-capacity upper
+  bounds; necessary bridge structure only, not an existence, attainability,
+  global-proof, or counterexample claim.
 - [`k4e-kalmanson-stretch-audit.md`](k4e-kalmanson-stretch-audit.md): exact
   fixed-pattern audit extracting `K4-e` stretch relations and combining them
   with Kalmanson inequalities; kills only the displayed `n=10` quotient-level
