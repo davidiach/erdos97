@@ -414,6 +414,27 @@ This theorem is now the primary human-readable small-case route. It does not
 alter the global status of Erdos Problem #97 or remove the independently useful
 machine-checked `n=8` finite-case artifact.
 
+### Theorem: no bad equilateral nonagon
+
+Status: `REPO_LOCAL_THEOREM` for the equilateral sub-case of `n = 9`;
+elementary reduction plus an exact finite certificate. Independent external
+review is not claimed.
+
+`docs/n9-equilateral-chord-obstruction.md` rules out bad strictly convex
+nonagons with all sides equal. The base-apex ledger `E + D = 9`, the bound
+`|M| <= 2` on turns equal to `2*pi/3`, and the unsaturated length-3 short sides
+give `E <= 2*|M|`; a profile-excess count on the unit-distance chord graph then
+forces every one of its degrees to be `0` or `2`. The remaining `8097`
+admissible chord graphs are each refuted by an integer multiplier certificate
+against the chord/turn dictionary (`step 2` pins one normalized turn to `1/3`,
+`step 3` pins two to `1/2`, `step 4` forces three to sum past
+`2*arccos(1/4)/(2*pi)`). See
+`data/certificates/n9_equilateral_chord_obstruction.json`.
+
+This does not close `n = 9`. Unlike `n = 8`, a bad nonagon is not forced to be
+equilateral, and the reduction above collapses as soon as two sides at a vertex
+differ.
+
 ### Minimal fragile-cover bridge
 
 Status: `LEMMA` / partial bridge theorem.

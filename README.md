@@ -13,6 +13,10 @@ repository.
 - Strongest local result: an elementary geometric theorem rules out bad
   strictly convex polygons with `n <= 8`; the selected-witness pipeline gives
   independent repo-local, machine-checked finite-case corroboration.
+- Additional restricted local theorem: an exact rational certificate rules
+  out bad strictly convex **equilateral** nonagons. This is only an
+  equilateral sub-case and does not close general `n=9`; see
+  [`docs/n9-equilateral-chord-obstruction.md`](docs/n9-equilateral-chord-obstruction.md).
 - The geometric proof was line-by-line rederived in the 2026-07-09 repository
   audit. Independent external review is still recommended before paper-style
   citation, and is not claimed here.
@@ -87,6 +91,11 @@ in the repo-local, machine-checked finite-case sense.
   equal-distance checks leave no strictly convex realization. See
   [`docs/n8-incidence-enumeration.md`](docs/n8-incidence-enumeration.md) and
   [`docs/n8-exact-survivors.md`](docs/n8-exact-survivors.md).
+
+- Equilateral `n=9` sub-case: the base-apex ledger and an exact rational
+  exterior-turn certificate rule out bad strictly convex equilateral
+  nonagons. The result says nothing about non-equilateral nonagons and does
+  not promote the review-pending general `n=9` artifacts.
 
 An interactive visualization of the octagon endgame is available at
 [`docs/octagon-trap.html`](docs/octagon-trap.html). External mathematical

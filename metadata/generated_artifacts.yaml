@@ -410,6 +410,43 @@ artifacts:
       trust: FIXED_ORDER_DIAGNOSTIC
     forbidden_claims: [all-order obstruction, counterexample, general proof of Erdos Problem 97]
 
+  - id: n9_equilateral_chord_obstruction
+    path: data/certificates/n9_equilateral_chord_obstruction.json
+    sha256: 8e0e156f4b326e59752088caed410d0011d759ff26b4ed25066d48b191a14dcd
+    size_bytes: 440210
+    kind: exact_restricted_family_obstruction
+    generator: scripts/check_n9_equilateral_chord_obstruction.py
+    command: python scripts/check_n9_equilateral_chord_obstruction.py --assert-expected --write
+    checker: scripts/check_n9_equilateral_chord_obstruction.py
+    check_command: python scripts/check_n9_equilateral_chord_obstruction.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_OBSTRUCTION
+    claim_scope: Exact obstruction for bad strictly convex *equilateral* nonagons only; every admissible unit-distance chord graph is refuted by an integer multiplier certificate on the exterior-turn constraints. Not a proof of Erdos Problem #97, not a result about non-equilateral nonagons, and not a counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_equilateral_chord_obstruction.v1
+      status: NO_BAD_STRICTLY_CONVEX_EQUILATERAL_NONAGON
+      trust: EXACT_OBSTRUCTION
+      n: 9
+      turn_bounds.step_2_equals: 1/3
+      turn_bounds.step_3_equals: 1/2
+      turn_bounds.step_4_at_least: 839/2000
+      counts.degree_admissible_graphs: 8712
+      counts.ledger_admissible_graphs: 8097
+      counts.dihedral_classes: 534
+      counts.refuted_classes: 534
+      counts.strict_certificates: 141
+      counts.surviving_graphs: 0
+      provenance.command: python scripts/check_n9_equilateral_chord_obstruction.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - non-equilateral nonagon obstruction
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: n9_incidence_frontier_bounded
     path: data/certificates/n9_incidence_frontier_bounded.json
     sha256: ce578434b09304771c93b162936b751f98bf3f80d73823397da0501c4dfd8de7
