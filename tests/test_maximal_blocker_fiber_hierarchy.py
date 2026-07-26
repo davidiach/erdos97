@@ -17,7 +17,7 @@ from check_maximal_blocker_fiber_hierarchy import (  # noqa: E402
     admissible_high_profiles,
     build_summary,
     check_expected,
-    closed_form_maximum_cardinality,
+    closed_form_cardinality_upper_bound,
     maximizing_profile,
     minimum_zero_fibers,
     profile_data,
@@ -42,9 +42,9 @@ def test_first_fiber_profiles_and_exact_maxima() -> None:
             row.three_fibers,
             row.four_fibers,
             row.high_sources,
-            row.maximum_cardinality,
+            row.cardinality_upper_bound,
         ) == target
-        assert row.maximum_cardinality == closed_form_maximum_cardinality(z)
+        assert row.cardinality_upper_bound == closed_form_cardinality_upper_bound(z)
 
 
 def test_pair_capacity_is_replayed_exactly() -> None:
@@ -54,9 +54,14 @@ def test_pair_capacity_is_replayed_exactly() -> None:
             assert 6 * row.high_centers + 3 * row.maximum_singleton_fibers <= (
                 row.high_sources * (row.high_sources - 1)
             )
-            assert row.maximum_cardinality == (
+            assert row.cardinality_upper_bound == (
                 row.high_sources + row.maximum_singleton_fibers
             )
+
+
+def test_profile_counts_must_be_nonnegative() -> None:
+    with pytest.raises(ValueError, match="nonnegative"):
+        profile_data(3, (-2, 1, 1))
 
 
 def test_cardinality_thresholds() -> None:
@@ -93,5 +98,5 @@ def test_summary_and_cli() -> None:
     payload = json.loads(result.stdout)
     assert payload["schema"] == SCHEMA
     assert payload["rows"][0]["zero_fibers"] == 3
-    assert payload["rows"][2]["maximum_cardinality"] == 20
+    assert payload["rows"][2]["cardinality_upper_bound"] == 20
     assert "not an assignment existence proof" in payload["claim_scope"]

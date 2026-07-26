@@ -28,7 +28,7 @@ class HighFiberProfile:
     high_centers: int
     high_sources: int
     maximum_singleton_fibers: int
-    maximum_cardinality: int
+    cardinality_upper_bound: int
 
 
 def admissible_high_profiles(zero_fibers: int) -> list[tuple[int, int, int]]:
@@ -46,15 +46,19 @@ def admissible_high_profiles(zero_fibers: int) -> list[tuple[int, int, int]]:
 
 
 def profile_data(zero_fibers: int, profile: tuple[int, int, int]) -> HighFiberProfile:
-    """Return the sharp singleton/cardinality allowance from H-pair capacity."""
+    """Return the singleton/cardinality upper bounds from H-pair capacity."""
 
     n2, n3, n4 = profile
+    if min(n2, n3, n4) < 0:
+        raise ValueError("fiber counts must be nonnegative")
     if n4 < 1 or n2 + 2 * n3 + 3 * n4 != zero_fibers:
         raise ValueError("profile does not have the requested fiber excess")
     high_centers = n2 + n3 + n4
     high_sources = 2 * n2 + 3 * n3 + 4 * n4
     remaining_pair_capacity = high_sources * (high_sources - 1) - 6 * high_centers
-    maximum_singletons = max(0, remaining_pair_capacity // 3)
+    if remaining_pair_capacity < 0:
+        raise ValueError("profile already exceeds H-pair capacity")
+    maximum_singletons = remaining_pair_capacity // 3
     return HighFiberProfile(
         zero_fibers=zero_fibers,
         two_fibers=n2,
@@ -63,12 +67,12 @@ def profile_data(zero_fibers: int, profile: tuple[int, int, int]) -> HighFiberPr
         high_centers=high_centers,
         high_sources=high_sources,
         maximum_singleton_fibers=maximum_singletons,
-        maximum_cardinality=high_sources + maximum_singletons,
+        cardinality_upper_bound=high_sources + maximum_singletons,
     )
 
 
 def maximizing_profile(zero_fibers: int) -> HighFiberProfile:
-    """Profile allowing the largest carrier under the pair-capacity inequality."""
+    """Profile with the largest cardinality upper bound from pair capacity."""
 
     profiles = admissible_high_profiles(zero_fibers)
     if not profiles:
@@ -76,14 +80,14 @@ def maximizing_profile(zero_fibers: int) -> HighFiberProfile:
     return max(
         (profile_data(zero_fibers, profile) for profile in profiles),
         key=lambda item: (
-            item.maximum_cardinality,
+            item.cardinality_upper_bound,
             item.high_sources,
             item.two_fibers,
         ),
     )
 
 
-def closed_form_maximum_cardinality(zero_fibers: int) -> int:
+def closed_form_cardinality_upper_bound(zero_fibers: int) -> int:
     """The floor of ``(4z^2-10z+12)/3`` from the proof note."""
 
     if zero_fibers < 3:
@@ -97,7 +101,7 @@ def minimum_zero_fibers(cardinality: int) -> int:
     if cardinality < 1:
         raise ValueError("cardinality must be positive")
     z = 3
-    while closed_form_maximum_cardinality(z) < cardinality:
+    while closed_form_cardinality_upper_bound(z) < cardinality:
         z += 1
     return z
 
@@ -111,7 +115,9 @@ def build_summary() -> dict[str, object]:
         rows.append(
             {
                 **asdict(best),
-                "closed_form_maximum_cardinality": closed_form_maximum_cardinality(z),
+                "closed_form_cardinality_upper_bound": (
+                    closed_form_cardinality_upper_bound(z)
+                ),
                 "all_high_profiles": [
                     asdict(profile_data(z, profile))
                     for profile in admissible_high_profiles(z)
@@ -144,7 +150,9 @@ def check_expected(summary: dict[str, object]) -> None:
         if not isinstance(row, dict):
             raise AssertionError("malformed profile row")
         z = int(row["zero_fibers"])
-        if int(row["maximum_cardinality"]) != closed_form_maximum_cardinality(z):
+        if int(row["cardinality_upper_bound"]) != (
+            closed_form_cardinality_upper_bound(z)
+        ):
             raise AssertionError(f"z={z}: closed form does not match enumeration")
         n2 = int(row["two_fibers"])
         n3 = int(row["three_fibers"])
@@ -156,6 +164,15 @@ def check_expected(summary: dict[str, object]) -> None:
         ell = int(row["maximum_singleton_fibers"])
         if 6 * m + 3 * ell > h * (h - 1):
             raise AssertionError(f"z={z}: pair capacity exceeded")
+        all_profiles = row.get("all_high_profiles")
+        if not isinstance(all_profiles, list) or not all_profiles:
+            raise AssertionError(f"z={z}: missing high-fiber profiles")
+        if any(
+            int(candidate["cardinality_upper_bound"])
+            > int(row["cardinality_upper_bound"])
+            for candidate in all_profiles
+        ):
+            raise AssertionError(f"z={z}: selected profile is not maximizing")
 
     expected_first = {
         3: (0, 0, 1, 4, 6),
@@ -171,7 +188,7 @@ def check_expected(summary: dict[str, object]) -> None:
             int(row["three_fibers"]),
             int(row["four_fibers"]),
             int(row["high_sources"]),
-            int(row["maximum_cardinality"]),
+            int(row["cardinality_upper_bound"]),
         )
         if actual != (n2, n3, n4, h, nmax):
             raise AssertionError(f"z={z}: unexpected maximizing profile {actual}")
@@ -206,7 +223,7 @@ def main() -> None:
         print(
             "maximal blocker-fiber ledger: "
             f"z=5 profile=(n2={row.two_fibers}, n3={row.three_fibers}, "
-            f"n4={row.four_fibers}), max n={row.maximum_cardinality}"
+            f"n4={row.four_fibers}), n upper bound={row.cardinality_upper_bound}"
         )
 
 

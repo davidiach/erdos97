@@ -30,8 +30,9 @@ For every carrier point `p`, put
 k_p = |f^{-1}(p)|.
 ```
 
-A point which is not used as a blocker has `k_p=0`.  Since
-`f^{-1}(p) subset K_p`, every fiber has size at most four.
+A point which is not used as a blocker has `k_p=0`; it need not itself be a
+unique-four center, and no `K_p` is invoked for such a point.  For every used
+center, `f^{-1}(p) subset K_p`, so every fiber has size at most four.
 
 Among all blocker assignments, choose `f` maximizing
 
@@ -242,9 +243,12 @@ This is stronger than the generic two-omission conclusion “two nontrivial
 fibers or one fiber of size at least three.”  It also retains one complete
 four-source shell exactly equal to its fiber.
 
-## 7. Exact low-`z` profiles
+## 7. Exact low-`z` profile bounds
 
-The proof identifies the first two omitted-value profiles completely.
+The proof identifies the first two omitted-value profiles completely.  The
+cardinality values obtained from pair capacity are upper bounds; this note
+does not claim that an abstract blocker assignment or Euclidean carrier
+attains them.
 
 ### `z=3`
 
