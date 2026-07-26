@@ -156,6 +156,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`localized-rich-support-counting.md`](localized-rich-support-counting.md):
   proof-facing per-label rich-support occurrence cap reducing hypothetical
   4-bad nonagons to all-exact-four support systems by counting alone.
+- [`maximal-blocker-fiber-hierarchy.md`](maximal-blocker-fiber-hierarchy.md):
+  proof-facing extremal blocker-selector lemma and exact pair-capacity upper
+  bounds; necessary bridge structure only, not an existence, attainability,
+  global-proof, or counterexample claim.
 - [`k4e-kalmanson-stretch-audit.md`](k4e-kalmanson-stretch-audit.md): exact
   fixed-pattern audit extracting `K4-e` stretch relations and combining them
   with Kalmanson inequalities; kills only the displayed `n=10` quotient-level
