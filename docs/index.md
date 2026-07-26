@@ -156,6 +156,13 @@ put detailed reconciliation in the canonical synthesis.
 - [`localized-rich-support-counting.md`](localized-rich-support-counting.md):
   proof-facing per-label rich-support occurrence cap reducing hypothetical
   4-bad nonagons to all-exact-four support systems by counting alone.
+- [`rigid-n15-moser-geometry.md`](rigid-n15-moser-geometry.md): conditional
+  rigid-`n=15` cap-shape deductions, including the exact shortest-side grid
+  arithmetic replay; the geometric inputs remain separate proof obligations.
+- [`rigid-n15-two-full-cap-intersection.md`](rigid-n15-two-full-cap-intersection.md):
+  review-pending two-full-cap arc-intersection lemma and its four-center cover
+  consequence under the rigid equilateral setting; not a global proof or
+  counterexample.
 - [`maximal-blocker-fiber-hierarchy.md`](maximal-blocker-fiber-hierarchy.md):
   proof-facing extremal blocker-selector lemma and exact pair-capacity upper
   bounds; necessary bridge structure only, not an existence, attainability,

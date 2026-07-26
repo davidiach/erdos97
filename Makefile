@@ -153,6 +153,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_minimal_two_deletion_profile.py --check --json
 	$(PYTHON) scripts/check_maximal_blocker_fiber_hierarchy.py --check --json
 	$(PYTHON) scripts/check_all_rich_class_pair_budget.py --check --json
+	$(PYTHON) scripts/check_rigid_n15_shortest_side_grid.py --artifact data/certificates/rigid_n15_shortest_side_grid.json --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json
