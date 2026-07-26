@@ -185,6 +185,15 @@ gates; it is not an `n=9` proof or status promotion. A follow-up compression
 checker records that an optimally chosen Kalmanson self-edge core uses exactly
 three selected rows in all 184 assignments; that compression remains
 proof-mining evidence only.
+The fragile/turn/pivot crosswalk further separates two pivot notions: every
+frontier assignment has a Hamiltonian row-to-witness matching compatible with
+a pivot-to-halo turn certificate, while minimum inversion row-pivot cover size
+is two in 182 cases and three only for the two `F15` orientations. The
+companion abstract `Z/16` guardrail survives the current fragile, turn, and
+vertex-circle abstractions, but its fixed natural order is killed by an exact
+Kalmanson inverse pair. Together they identify missing convex metric input
+without promoting `n=9`; see
+[`docs/fragile-turn-pivot-bridge-audit.md`](docs/fragile-turn-pivot-bridge-audit.md).
 
 A companion closed-descent packet reformulates the 16 compact local-core
 quotient obstructions as finite descent regions and extracted strict cycles.
@@ -208,6 +217,7 @@ Use [`STATE.md`](STATE.md) for the working frontier and
 [`docs/index.md`](docs/index.md) for the complete packet inventory. The focused
 proof-facing route is summarized in
 [`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md),
+[`docs/fragile-turn-pivot-bridge-audit.md`](docs/fragile-turn-pivot-bridge-audit.md),
 [`docs/minimal-two-deletion-profile.md`](docs/minimal-two-deletion-profile.md),
 [`docs/all-rich-class-pair-budget.md`](docs/all-rich-class-pair-budget.md),
 [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md),

@@ -1529,6 +1529,27 @@ all 184 regenerated pair/crossing/count frontier assignments. It records all
 184 weak systems as arithmetically infeasible, but the geometric turn lemma and
 indexing conventions remain review-pending, so this does not promote `n=9`.
 Use `--json` instead when the full certificate rows are needed.
+The exact fragile/turn/pivot crosswalk
+`scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json`
+finds `82,720` row-to-witness perfect matchings and `27,704` Hamiltonian
+matchings across the same frontier. Every assignment has a Hamiltonian
+matching compatible with a pivot-to-halo turn certificate. Minimum inversion
+row-pivot cover size is two for `182` stored certificates and three exactly
+for `A068/A131`, the two `F15/T03` orientations. All `72` exceptional
+two-pivot weak-turn restrictions remain binary feasible in the nonnegative
+relaxation; the witnesses may have zero turns and are not geometric turn
+vectors. Both full row systems have `27` self-edge conflicts in the
+review-pending vertex-circle replay.
+
+This split is finite `n=9` evidence, not a general bridge. The exact abstract
+guardrail
+`scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json`
+uses `S_i=i+{2,9,10,13}` on `Z/16`. It passes the current fragile-cover,
+pair/crossing, good-deletion, hinge-free, weak-turn, and vertex-circle
+conditions and has a marked three-cycle matching. An exact
+`K1(0,3,7,9)+K2(0,3,9,13)=0` certificate rejects its fixed natural order.
+Thus stronger convex metric information is needed; no Euclidean realization,
+counterexample, `n=9` promotion, or global theorem is claimed.
 The compact Kalmanson self-edge replay
 `scripts/check_n9_kalmanson_selfedge.py --verify-certificate data/certificates/n9_kalmanson_selfedge.json --assert-expected --summary-json`
 checks a separate certificate in which each of those 184 terminal assignments

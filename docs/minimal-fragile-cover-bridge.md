@@ -595,6 +595,15 @@ make the block a counterexample: the other four centers are not bad. Its role
 is only to show that even exact local fragile-row geometry is not enough by
 itself.
 
+The later fragile/turn/pivot audit supplies a different exact guardrail. On
+`Z/16`, the rows `S_i=i+{2,9,10,13}` have a surjective fragile matching with a
+marked three-cycle and three-witness halos, pass the current pair/crossing and
+good-deletion checks, satisfy all weak turn inequalities strictly, and remain
+clean under vertex-circle quotient replay. An exact two-row Kalmanson inverse
+rejects the fixed natural order. Thus adding matching-cycle, turn, and
+vertex-circle bookkeeping still does not produce a general three-pivot
+contradiction; see `docs/fragile-turn-pivot-bridge-audit.md`.
+
 ## Research Use
 
 This bridge is still useful because it gives a necessary finite object for any
@@ -606,7 +615,8 @@ minimal counterexample:
    a witness map `pi`, not only as full fixed-row patterns.
 3. The next bridge target is to add a genuinely geometric constraint to the
    fragile cover: for example, dependency-cycle restrictions, critical-radius
-   ordering, or row-circle exact constraints on the fragile rows.
+   ordering, row-circle exact constraints, or a bounded ordinary-distance
+   Kalmanson consequence of a fragile matching cycle and its halos.
 
 This is a foothold toward a bridge theorem, not the central ear-orderable
 bridge itself.

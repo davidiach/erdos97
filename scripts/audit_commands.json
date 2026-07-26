@@ -520,6 +520,28 @@
       "claim_scope": "Review-pending n=9 turn-inequality frontier replay with stored integer dual certificates; not a proof of n=9, counterexample, geometric lemma review, or official/global status update."
     },
     {
+      "id": "n9_fragile_turn_pivot_crosswalk",
+      "command": [
+        "python",
+        "scripts/check_n9_fragile_turn_pivot_crosswalk.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Finite n=9 crosswalk between exact-four incidence, witness-perfect-matchings, weak-turn certificates, inversion row-pivot covers, and the F15 vertex-circle exception; not a proof of n=9, a general three-pivot bridge, a counterexample, or an official/global status update."
+    },
+    {
+      "id": "fragile_turn_pivot_guardrail",
+      "command": [
+        "python",
+        "scripts/check_fragile_turn_pivot_guardrail.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact abstract n=16 negative control for the proposed fragile-matching/three-pivot bridge; the fixed order is Kalmanson-obstructed, so this is not a Euclidean realization, counterexample, proof, or official/global status update."
+    },
+    {
       "id": "n9_vertex_circle_input_audit",
       "command": [
         "python",
@@ -3036,6 +3058,7 @@
       "n9_inversive_incidence_pilot",
       "turn_inequality_indexing",
       "n9_turn_inequality_frontier",
+      "n9_fragile_turn_pivot_crosswalk",
       "n9_vertex_circle_input_audit",
       "n9_vertex_circle_incidence_filters",
       "n9_vertex_circle_branch_options",
@@ -3132,6 +3155,8 @@
       "localized_rich_support_counting",
       "minimal_two_deletion_profile",
       "all_rich_class_pair_budget",
+      "n9_fragile_turn_pivot_crosswalk",
+      "fragile_turn_pivot_guardrail",
       "adjacent_closest_pair_nonagon_barrier",
       "brp_boundary_vertexization_probe",
       "four_c3_generic_orbit_obstruction",

@@ -2697,6 +2697,69 @@ global status update, and not a proof of Erdos Problem #97. Check it with
 `python scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json`;
 use `--json` instead when the full certificate rows are needed.
 
+### n=9 fragile/turn/inversion-pivot crosswalk
+
+Status:
+`REVIEW_PENDING_N9_FRAGILE_TURN_PIVOT_CROSSWALK`.
+
+The artifact
+`data/certificates/n9_fragile_turn_pivot_crosswalk.json` aligns the `184`
+exact-four frontier assignments with the stored weak-turn certificates and
+the vertex-circle motif classification.
+
+Every assignment has 4-regular row/witness incidence. Exact enumeration gives
+`82,720` row-to-witness perfect matchings and `27,704` single-9-cycle
+matchings. For every assignment, the artifact stores one Hamiltonian matching
+and a pivot-to-halo Farkas certificate in which each chosen selected equality
+pair contains the matched witness. The lambda histogram remains `180` at one
+and `4` at two.
+
+For the separate inversion row-pivot definition, `182` stored turn
+certificates have a minimum two-vertex cover. Exactly `A068` and `A131`
+require three vertices. They are the two orientations of family `F15`,
+template `T03`. Every one of their `72` assignment/pivot-pair weak-turn
+subsystems has an exact binary weight-four feasible witness, while full
+vertex-circle replay gives `27` self-edge conflicts in each orientation.
+Those binary vectors may have zero coordinates and certify only the
+nonnegative weak-turn relaxation, not a geometric strictly convex turn vector.
+Different covered rows may also use different inversion charts; a two-pivot
+cover does not put all supporting circles into one common inverted plane.
+
+This is finite `n=9` proof-mining evidence only. It does not prove the
+geometric turn lemma, promote `n=9`, or imply that an arbitrary minimal
+counterexample has a three-pivot reduction. Check it with
+`python scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json`;
+use `--json` for all per-assignment records.
+
+### Fragile/turn/pivot generalization guardrail
+
+Status: `MACHINE_CHECKED_ABSTRACT_BRIDGE_NEGATIVE_CONTROL`.
+
+The exact abstract selected-row system
+
+```text
+V = Z/16,
+S_i = i + {2,9,10,13}
+```
+
+passes the currently isolated fragile-cover, witness-pair, two-overlap
+crossing, good-deletion, reciprocal-hinge, weak-turn, and vertex-circle
+conditions. It has a surjective row-to-witness matching with cycle type
+`(3,13)`, so it includes a genuine marked three-cycle and three-witness halos.
+The uniform turn vector `t_i=1/4` satisfies every weak turn inequality
+strictly, and exact vertex-circle replay has `144` strict edges with no
+self-edge or cycle.
+
+This does not give a geometric realization. The exact Kalmanson inverse pair
+`K1(0,3,7,9) + K2(0,3,9,13)` sums to zero in the selected-distance quotient
+and rejects the fixed natural order. The object is therefore a bridge
+negative control: it proves that the listed abstract conditions alone cannot
+force the proposed marked-three-cycle contradiction and points to missing
+ordinary-distance convex metric information. It is not a counterexample, a
+proof or disproof of Erdos Problem #97, or a status update. See
+`docs/fragile-turn-pivot-bridge-audit.md` and check
+`python scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json`.
+
 ### Low-angle ascent for middle witnesses
 
 Let `alpha_p` be the interior angle at a bad vertex `p`, and let

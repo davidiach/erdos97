@@ -1416,6 +1416,98 @@ artifacts:
       - counterexample to Erdos Problem #97
       - general proof of Erdos Problem #97
 
+  - id: n9_fragile_turn_pivot_crosswalk
+    path: data/certificates/n9_fragile_turn_pivot_crosswalk.json
+    sha256: b5dc066eb16344d1ffef54ffba66bad8079a8a6496d78f2a8486c55f4023947f
+    size_bytes: 237755
+    kind: finite_case_crosswalk_artifact
+    generator: scripts/check_n9_fragile_turn_pivot_crosswalk.py
+    command: python scripts/check_n9_fragile_turn_pivot_crosswalk.py --assert-expected --write
+    checker: scripts/check_n9_fragile_turn_pivot_crosswalk.py
+    check_command: python scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+    claim_scope: Finite n=9 crosswalk between exact-four incidence, witness-perfect-matchings, weak-turn certificates, inversion row-pivot covers, and the F15 vertex-circle exception; not a proof of n=9, a general three-pivot bridge, a counterexample, or a status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_fragile_turn_pivot_crosswalk.v1
+      status: REVIEW_PENDING_N9_FRAGILE_TURN_PIVOT_CROSSWALK
+      trust: MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING
+      n: 9
+      row_size: 4
+      regular_incidence.assignment_count: 184
+      witness_pivot_matching.perfect_matching_count: 82720
+      witness_pivot_matching.hamiltonian_matching_count: 27704
+      witness_pivot_matching.assignment_count_with_hamiltonian_matching: 184
+      pivot_halo_turn_certificates.certificate_count: 184
+      pivot_halo_turn_certificates.certificate_sha256: 9262eb31f88675e7a01bfc199b12544f211230684baad782ae10c29663e57792
+      pivot_halo_turn_certificates.lambda_histogram.1: 180
+      pivot_halo_turn_certificates.lambda_histogram.2: 4
+      inversion_row_pivot_covers.minimum_cover_size_histogram.2: 182
+      inversion_row_pivot_covers.minimum_cover_size_histogram.3: 2
+      inversion_row_pivot_covers.record_sha256: 460373745c10dfcc4d71d79c5263ef595782422208bd6f10bfcf07ef531c9e5f
+      three_pivot_exception.assignment_count: 2
+      three_pivot_exception.record_sha256: cf792f78c168e75c22b78b66c046df3b6a8a6e1de1b4246905251f0f1bf74cd8
+      three_pivot_exception.two_pivot_case_count: 72
+      three_pivot_exception.two_pivot_binary_feasible_count: 72
+      three_pivot_exception.vertex_circle_status_counts.self_edge: 2
+      three_pivot_exception.self_edge_conflict_count: 54
+      provenance.command: python scripts/check_n9_fragile_turn_pivot_crosswalk.py --assert-expected --write
+    forbidden_claims:
+      - n=9 is proved
+      - the geometric turn lemma is proved
+      - every minimal counterexample reduces to three pivots
+      - independent review complete
+      - source-of-truth strongest result
+      - official/global status update
+      - counterexample to Erdos Problem #97
+      - general proof of Erdos Problem #97
+
+  - id: fragile_turn_pivot_guardrail
+    path: data/certificates/fragile_turn_pivot_guardrail.json
+    sha256: 515f886df3ea3ad7615bf525fbc63f5dfcca92b100e432f4bc6cbb8d6c45a39a
+    size_bytes: 11258
+    kind: abstract_negative_control_artifact
+    generator: scripts/check_fragile_turn_pivot_guardrail.py
+    command: python scripts/check_fragile_turn_pivot_guardrail.py --assert-expected --write
+    checker: scripts/check_fragile_turn_pivot_guardrail.py
+    check_command: python scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: Exact abstract n=16 negative control showing that the current fragile-cover, incidence/crossing, good-deletion, hinge-free, weak-turn, and vertex-circle conditions do not force a general marked-three-cycle contradiction; an exact Kalmanson inverse pair rejects the fixed order, so this is not a Euclidean realization or counterexample.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_turn_pivot_guardrail.v1
+      status: MACHINE_CHECKED_ABSTRACT_BRIDGE_NEGATIVE_CONTROL
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      n: 16
+      pair_multiplicity_histogram.1: 80
+      pair_multiplicity_histogram.2: 8
+      fragile_hypergraph.ok: true
+      fragile_hypergraph.crossing_ok: true
+      fragile_hypergraph.witness_map_ok: true
+      good_deletion.nonempty_proper_seed_count: 65534
+      good_deletion.all_seeds_have_good_survivor: true
+      hinge_guardrail.reciprocal_selected_pair_count: 0
+      weak_turn_replay.all_weak_terms_strictly_satisfied: true
+      vertex_circle_replay.status: ok
+      vertex_circle_replay.strict_edge_count: 144
+      vertex_circle_replay.self_edge_conflict_count: 0
+      vertex_circle_replay.strict_cycle_edge_count: 0
+      kalmanson_inverse.zero_sum_verified: true
+      kalmanson_inverse.combined_nonzero_coefficient_count: 0
+      provenance.command: python scripts/check_fragile_turn_pivot_guardrail.py --assert-expected --write
+    forbidden_claims:
+      - Euclidean realization
+      - counterexample to Erdos Problem #97
+      - the current bridge axioms are sufficient
+      - globally smallest negative control
+      - source-of-truth strongest result
+      - official/global status update
+      - general proof of Erdos Problem #97
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30

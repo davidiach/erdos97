@@ -27,6 +27,16 @@ claim-neutral ledger for choosing bridge work. Prefer PRs that prove one of
 its named lemma contracts or reject one of its negative controls under explicit
 minimal/rich-class hypotheses.
 
+Immediate bridge target (2026-07-23): start from
+`docs/fragile-turn-pivot-bridge-audit.md`. The exact `n=9` crosswalk isolates a
+two-inversion-pivot branch plus the two `F15` orientations, while the abstract
+`Z/16` guardrail proves that fragile-cover, crossing, good-deletion,
+hinge-free, weak-turn, and vertex-circle data do not force a general marked
+three-cycle contradiction. The next technical PR should seek a bounded
+ordinary-distance/Kalmanson lemma extracted from a fragile matching cycle and
+its halos. It must reject the `Z/16` control by its exact Kalmanson mechanism
+and must not assume that the finite `n=9` pivot census generalizes.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an

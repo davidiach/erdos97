@@ -55,6 +55,7 @@ verify-n9-review:
 	$(PYTHON) scripts/check_n9_inversive_incidence_pilot.py --check --assert-expected --json
 	$(PYTHON) scripts/check_turn_inequality_indexing.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_n9_turn_inequality_frontier.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_n9_vertex_circle_input_audit.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_incidence_filters.py --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_vertex_circle_branch_options.py --check --assert-expected --json
@@ -151,6 +152,8 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_localized_rich_support_counting.py --check --json
 	$(PYTHON) scripts/check_minimal_two_deletion_profile.py --check --json
 	$(PYTHON) scripts/check_all_rich_class_pair_budget.py --check --json
+	$(PYTHON) scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json
 	$(PYTHON) scripts/check_brp_boundary_probe.py --check --assert-expected --json
 	$(PYTHON) scripts/check_four_c3_generic_orbit_obstruction.py --assert-expected --json
