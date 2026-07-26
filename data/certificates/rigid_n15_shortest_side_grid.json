@@ -1,0 +1,133 @@
+{
+  "checkerboard_orbits": [
+    {
+      "complement": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "interpretation": "two strict K2 rows sum to 0 > 0",
+      "matching": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "strict_vectors": [
+        [
+          0,
+          0,
+          -1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          -1
+        ]
+      ],
+      "sum": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "complement": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "interpretation": "two strict K2 rows sum to 0 > 0",
+      "matching": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "strict_vectors": [
+        [
+          0,
+          0,
+          1,
+          -1
+        ],
+        [
+          0,
+          0,
+          -1,
+          1
+        ]
+      ],
+      "sum": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "endpoint_cases": [
+    {
+      "cross_hits": 2,
+      "grid_cells": 1,
+      "k_A": 1,
+      "k_B": 1,
+      "status": "count_contradiction"
+    },
+    {
+      "cross_hits": 3,
+      "grid_cells": 2,
+      "k_A": 1,
+      "k_B": 2,
+      "status": "count_contradiction"
+    },
+    {
+      "cross_hits": 3,
+      "grid_cells": 2,
+      "k_A": 2,
+      "k_B": 1,
+      "status": "count_contradiction"
+    },
+    {
+      "cross_hits": 4,
+      "grid_cells": 4,
+      "k_A": 2,
+      "k_B": 2,
+      "status": "checkerboard"
+    }
+  ],
+  "non_claims": [
+    "not a proof of Erd\u0151s Problem 97",
+    "not a Euclidean realizability test",
+    "the geometric rigid-n=15 hypotheses are proved separately in prose"
+  ],
+  "schema": "rigid_n15_shortest_side_grid_v1",
+  "summary": {
+    "checkerboard_count": 1,
+    "checkerboard_orbit_count": 2,
+    "count_contradiction_count": 3,
+    "endpoint_case_count": 4
+  },
+  "trust": "EXACT_FINITE_ALGEBRA"
+}
