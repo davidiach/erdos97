@@ -77,6 +77,14 @@ local_repo:
   strongest_result: "Repo-local elementary geometric theorem: no bad strictly convex polygon exists for n <= 8; selected-witness machine-checked artifacts independently corroborate this repo-local n <= 8 result."
   strongest_result_proof: "docs/n8-geometric-proof.md"
   strongest_result_review_status: "Repository audit completed 2026-07-09; independent external review recommended before paper-style citation and not claimed."
+  restricted_repo_local_theorems:
+    - name: "n9_equilateral_chord_obstruction"
+      status: "REPO_LOCAL_THEOREM"
+      statement: "No bad strictly convex equilateral nonagon exists."
+      proof: "docs/n9-equilateral-chord-obstruction.md"
+      artifact: "data/certificates/n9_equilateral_chord_obstruction.json"
+      verifier: "scripts/check_n9_equilateral_chord_obstruction.py"
+      claim_scope: "Equilateral n=9 sub-case only; does not close general n=9, prove Erdos Problem #97, provide a counterexample, or change the official/global falsifiable/open status."
   review_pending_finite_case_artifacts:
     - name: "n9_vertex_circle_exhaustive"
       status: "MACHINE_CHECKED_FINITE_CASE_ARTIFACT_REVIEW_PENDING"

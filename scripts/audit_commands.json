@@ -1746,6 +1746,17 @@
       "claim_scope": "Crosswalk from the n=9 mixed four/five support reduction to the stored exact-four vertex-circle frontier; support-to-frontier bookkeeping only, not an independent proof of the exact-four vertex-circle exhaustive checker, not a proof of Erdos Problem #97, and not a counterexample."
     },
     {
+      "id": "n9_equilateral_chord_obstruction",
+      "command": [
+        "python",
+        "scripts/check_n9_equilateral_chord_obstruction.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Replay the exact equilateral-nonagon chord obstruction: every one of the 8097 admissible unit-distance chord graphs is refuted by a stored integer multiplier certificate. Equilateral n=9 sub-case only; not a non-equilateral nonagon result, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update."
+    },
+    {
       "id": "bootstrap_core_crosswalk",
       "command": [
         "python",

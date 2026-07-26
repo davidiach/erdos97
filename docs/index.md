@@ -1033,6 +1033,12 @@ put detailed reconciliation in the canonical synthesis.
   #97 closure.
 - [`n9-base-apex-frontier.md`](n9-base-apex-frontier.md): corrected exploratory
   slack ledger for the first `n=9` base-apex workstream; not a proof.
+- [`n9-equilateral-chord-obstruction.md`](n9-equilateral-chord-obstruction.md):
+  exact obstruction for bad *equilateral* nonagons: the base-apex ledger and a
+  profile-excess count make the unit-distance chord graph `0`-or-`2`-regular,
+  and all `8097` admissible chord graphs are refuted by integer multiplier
+  certificates against the chord/turn dictionary; equilateral sub-case only,
+  so `n=9` stays open.
 - [`n9-base-apex-d3-p19-degree-obstruction.md`](n9-base-apex-d3-p19-degree-obstruction.md):
   incident-degree obstruction closing only the P19 rows of the D=3
   profile-capacity packet.
