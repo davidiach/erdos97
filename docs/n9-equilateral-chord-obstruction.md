@@ -192,6 +192,22 @@ w(e) = 839/2000 if step(e) = 4        (lower bound, by (D3'))
 
 where `839/2000 = 0.4195 < 2*arccos(1/4)/(2*pi)`.
 
+The rational under-approximation is itself certified without floating-point
+arithmetic. Machin's identity
+
+```text
+pi = 16*atan(1/5) - 4*atan(1/239)
+```
+
+and alternating arctangent truncations give an exact rational upper bound
+`p_plus < 355/113` for `pi`. Set `y = (839/2000)*p_plus`. The checker verifies
+exactly that `y < 4/3`, so the alternating cosine terms decrease, and that the
+degree-10 lower partial sum
+`1-y^2/2!+y^4/4!-y^6/6!+y^8/8!-y^10/10!` exceeds `1/4`. Therefore
+`cos((839/2000)*pi) > 1/4`, proving
+`839/2000 < arccos(1/4)/pi`. Payload validation requires this rational
+Machin/Taylor certificate before replaying any graph certificate.
+
 **Certificate lemma.** Let `lambda_1,...,lambda_c` be integers with
 `lambda_i >= 0` whenever `step(e_i) = 4`, and put
 

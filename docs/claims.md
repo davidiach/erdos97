@@ -95,7 +95,10 @@ normalized turn to `1/3`, a step-`3` chord pins two consecutive ones to sum to
 `1/2`, and a step-`4` chord forces three consecutive ones to sum to at least
 `2*arccos(1/4)/(2*pi)`. The contradictions are certified by explicit integer
 multipliers in `data/certificates/n9_equilateral_chord_obstruction.json`,
-replayed by `scripts/check_n9_equilateral_chord_obstruction.py`.
+replayed by `scripts/check_n9_equilateral_chord_obstruction.py`. The checker
+also certifies the rational step-`4` lower bound exactly, using Machin's
+identity for a rational upper bound on `pi` and an alternating degree-`10`
+cosine lower bound; no floating-point comparison supports the theorem claim.
 
 This says nothing about non-equilateral nonagons: unlike `n = 8`, the ledger at
 `n = 9` does not force equal sides. It does not close `n = 9` and does not

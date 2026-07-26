@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+from fractions import Fraction
 from pathlib import Path
 import random
 import subprocess
@@ -22,8 +23,11 @@ from erdos97.n9_equilateral_chord_obstruction import (
     certificate_data,
     chord_graphs,
     chord_span,
+    cosine_lower_bound,
     isolated_count,
     ledger_admissible,
+    machin_pi_upper_bound,
+    step4_turn_lower_bound_is_certified,
     step_count,
     transport,
     validate_payload,
@@ -90,8 +94,14 @@ def test_step_three_law_is_an_equivalence() -> None:
         assert _chain(turns, 0, 3) == pytest.approx(1.0, abs=1e-9)
 
 
-def test_step_four_threshold_is_a_valid_under_approximation() -> None:
-    assert STEP4_TURN_LOWER_BOUND < 2 * math.acos(0.25) / (2 * math.pi)
+def test_step_four_threshold_has_an_exact_rational_certificate() -> None:
+    pi_upper = machin_pi_upper_bound()
+    angle_upper = STEP4_TURN_LOWER_BOUND * pi_upper
+
+    assert pi_upper < Fraction(355, 113)
+    assert angle_upper < Fraction(4, 3)
+    assert cosine_lower_bound(angle_upper) > Fraction(1, 4)
+    assert step4_turn_lower_bound_is_certified()
 
 
 def test_enumeration_counts_and_degrees() -> None:

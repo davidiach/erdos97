@@ -43,8 +43,9 @@ N = 9
 STEPS = (2, 3, 4)
 
 #: Turn thresholds per chord step, as fractions of the total turn ``2*pi``.
-#: Steps 2 and 3 are exact equalities; step 4 is a lower bound, namely the
-#: rational under-approximation ``4195/10000 < 2*arccos(1/4)/(2*pi)``.
+#: Steps 2 and 3 are exact equalities; step 4 is a lower bound.  The exact
+#: Machin/Taylor certificate below proves
+#: ``4195/10000 < 2*arccos(1/4)/(2*pi)`` without floating-point arithmetic.
 STEP2_TURN = Fraction(1, 3)
 STEP3_TURN = Fraction(1, 2)
 STEP4_TURN_LOWER_BOUND = Fraction(4195, 10000)
@@ -83,6 +84,74 @@ EXPECTED_SURVIVOR_COUNT = 0
 
 Chord = tuple[int, int, int]
 Graph = tuple[Chord, ...]
+
+
+def _arctan_partial(argument: Fraction, last_index: int) -> Fraction:
+    """Return the exact alternating arctangent partial sum through ``last_index``."""
+
+    return sum(
+        (
+            (-1) ** index
+            * argument ** (2 * index + 1)
+            / Fraction(2 * index + 1)
+            for index in range(last_index + 1)
+        ),
+        Fraction(0),
+    )
+
+
+def machin_pi_upper_bound() -> Fraction:
+    """Return a certified rational upper bound for ``pi``.
+
+    Machin's identity is
+
+    ``pi = 16*atan(1/5) - 4*atan(1/239)``.
+
+    The alternating arctangent series gives an upper bound when truncated
+    after a positive term and a lower bound when truncated after a negative
+    term.  Hence the five-term ``atan(1/5)`` sum and the two-term
+    ``atan(1/239)`` sum give the returned upper bound.
+    """
+
+    atan_one_fifth_upper = _arctan_partial(Fraction(1, 5), 4)
+    atan_one_239th_lower = _arctan_partial(Fraction(1, 239), 1)
+    return 16 * atan_one_fifth_upper - 4 * atan_one_239th_lower
+
+
+def cosine_lower_bound(argument: Fraction) -> Fraction:
+    """Return the exact cosine lower bound through the negative degree-10 term."""
+
+    if argument < 0 or argument * argument >= 2:
+        raise ValueError("cosine certificate requires 0 <= argument^2 < 2")
+    term = Fraction(1)
+    total = term
+    for index in range(1, 6):
+        term *= argument * argument / Fraction((2 * index - 1) * (2 * index))
+        total += term if index % 2 == 0 else -term
+    return total
+
+
+def step4_turn_lower_bound_is_certified() -> bool:
+    """Prove the rational step-4 threshold is below the exact geometric one.
+
+    Let ``p`` be the Machin upper bound for ``pi`` and put
+    ``y = (839/2000)*p``.  Exact rational arithmetic verifies ``p < 355/113``,
+    ``y < 4/3``, and that the alternating degree-10 cosine lower bound at
+    ``y`` exceeds ``1/4``.  Since ``pi < p`` and cosine decreases on
+    ``[0, pi]``, this proves
+
+    ``cos((839/2000)*pi) > 1/4``,
+
+    hence ``839/2000 < arccos(1/4)/pi``.
+    """
+
+    pi_upper = machin_pi_upper_bound()
+    if pi_upper >= Fraction(355, 113):
+        return False
+    angle_upper = STEP4_TURN_LOWER_BOUND * pi_upper
+    if angle_upper >= Fraction(4, 3):
+        return False
+    return cosine_lower_bound(angle_upper) > Fraction(1, 4)
 
 
 def candidate_chords() -> tuple[Chord, ...]:
@@ -430,6 +499,8 @@ def validate_payload(data: dict[str, Any]) -> list[str]:
         return errors
     if data["n"] != N:
         errors.append("unexpected n")
+    if not step4_turn_lower_bound_is_certified():
+        errors.append("step-4 rational turn bound lacks an exact certificate")
     bounds = data.get("turn_bounds", {})
     if (
         bounds.get("step_2_equals") != str(STEP2_TURN)
