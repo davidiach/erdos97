@@ -716,10 +716,13 @@ and must not assume that the finite `n=9` pivot census generalizes.
    `docs/sparse-full-cone-fresh-order-screen.md` classifies all 63 survivors by
    exact positive zero-sum certificates: C25 supports span `197`--`217` rows
    and C29 supports span `282`--`304`, with no separator or unresolved cases.
-   None is a coordinate target. The next bounded target is low-budget
-   alternative-objective compression plus fresh-packet cross-coverage; stop
-   this cluster-mining route if no small or reusable circuit appears. This is
-   still not an all-order obstruction.
+   None is a coordinate target. The bounded compression follow-up in
+   `docs/sparse-full-cone-fresh-certificate-compression.md` improves all 63
+   certificates, finds new C25 widths `3` and `5` plus C29 width `7`, and
+   verifies 64 direct and 96 affine fresh-packet cross-edges. The C25 width-`3`
+   orbit covers all 31 C25 targets, so the stopping rule returns continue. The
+   next target is a transfer audit over the prior packet and a second
+   history-disjoint stream; this is still not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external
