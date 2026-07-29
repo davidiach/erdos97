@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 import sys
 from pathlib import Path
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,14 +26,14 @@ SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_order_screen_2026-07-31"
+    / "sparse_full_cone_fresh_order_screen_2026-07-29"
     / "summary.json"
 )
 ARTIFACT = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_compression_2026-08-01"
+    / "sparse_full_cone_fresh_compression_2026-07-29"
     / "summary.json"
 )
 
@@ -133,3 +136,13 @@ def test_stored_fresh_compression_packet_replays_exactly() -> None:
             "CONTINUE_CLUSTER_MINING",
         ],
     }
+
+
+def test_checker_rejects_duplicate_source_model() -> None:
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    mutated = copy.deepcopy(payload)
+    rows = mutated["runs"][0]["compressed_models"]
+    rows[1] = copy.deepcopy(rows[0])
+
+    with pytest.raises(AssertionError, match="duplicate source model index"):
+        COMPRESSION.check_payload(mutated)
