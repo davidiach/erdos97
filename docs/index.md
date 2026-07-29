@@ -972,6 +972,9 @@ put detailed reconciliation in the canonical synthesis.
   exact compression of those 16 learned certificates and coverage over all 48
   stored orders; seven 3--8-quad circuits reuse inside seeded clusters but
   cover none of the counterfactual probe orders.
+- [`sparse-full-cone-small-template-fresh-stream.md`](sparse-full-cone-small-template-fresh-stream.md):
+  explicit canonical exact forms of the seven tiny circuits and exact affine-
+  template coverage over 64 history-disjoint fresh C25/C29 orders.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.

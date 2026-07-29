@@ -706,9 +706,15 @@ and must not assume that the finite `n=9` pivot census generalizes.
    `3`--`8`-quad circuits among those 16 certificates. Across all 48 stored
    orders they produce 19 C25 and 21 C29 translated cross-coverage edges
    inside the seeded clusters, but zero probe-order coverage; quotient-vector
-   frequency never exceeds two certificates. The next target is a fresh
-   independent order stream seeded by canonical small-circuit templates. The
-   current clauses are not an all-order obstruction.
+   frequency never exceeds two certificates. The canonical-template follow-up
+   in `docs/sparse-full-cone-small-template-fresh-stream.md` stores the seven
+   exact `3`--`8`-quad templates and tests them on 64 deterministic orders
+   dihedrally disjoint from the 48-order source packet. None of the 187 affine
+   images covers a fresh order, including all 63 fresh lightweight survivors,
+   so the templates are now treated as cluster-specific bounded diagnostics.
+   The next target is an exact full-cone screen of those 63 survivors; zero
+   hits from these seven templates do not imply full-cone escape or an
+   all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

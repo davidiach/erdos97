@@ -90,11 +90,14 @@ The 24-objective search is not exhaustive, and the coverage matrix contains
 only the 48 stored orders. The result does not imply all-order coverage for
 either abstract pattern.
 
-The next useful step is to canonicalize the seven `3`--`8`-quad circuits as
-explicit small templates, seed a fresh independent order stream with those
-templates, and measure whether they transfer beyond the current seeded
-cluster. If they still record zero probe/fresh-stream hits, treat them as
-cluster-specific diagnostics rather than prospective all-order clauses.
+That target is completed in
+`docs/sparse-full-cone-small-template-fresh-stream.md`. The seven circuits were
+canonicalized as explicit exact templates and replayed over 64 deterministic
+orders dihedrally disjoint from the 48-order source packet. None of the 187
+affine template images matched a fresh order, including all 63 fresh
+lightweight survivors. The current evidence therefore treats these circuits
+as cluster-specific diagnostics. The next target is an exact full-cone screen
+of those 63 survivors, not an all-order inference from the zero-hit sample.
 
 Replay:
 
