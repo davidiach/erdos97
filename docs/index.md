@@ -984,6 +984,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`sparse-full-cone-fresh-template-transfer.md`](sparse-full-cone-fresh-template-transfer.md):
   exact transfer audit over the prior packet and a second history-disjoint
   stream; C25 transfers while the current C29 template remains packet-specific.
+- [`sparse-full-cone-c25-transfer-cegar.md`](sparse-full-cone-c25-transfer-cegar.md):
+  C25-only history-disjoint exact-clause CEGAR seeded by the transferred
+  width-3, width-5, and width-14 circuits; bounded at eight new certificates.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.

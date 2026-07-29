@@ -714,8 +714,12 @@ benchmarks for the larger frontier:
   and width-`7` circuits plus 96 affine cross-edges;
 - use `docs/sparse-full-cone-fresh-template-transfer.md` as the outside-packet
   decision: C25 transfers to 16/24 prior and 16/32 second-stream orders, while
-  C29 has zero hits across both outside packets. Continue only with C25 exact
-  clause-seeded CEGAR; stop the current C29 template family;
+  C29 has zero hits across both outside packets;
+- use `docs/sparse-full-cone-c25-transfer-cegar.md` as the C25-only follow-up:
+  transferred seeds cover 14/16 new probe orders and eight seed-escaping
+  history-disjoint orders receive exact width-`190`--`200` certificates before
+  the bounded limit. Compress those eight residuals before more CEGAR; keep the
+  current C29 template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 
