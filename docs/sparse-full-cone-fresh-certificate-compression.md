@@ -30,7 +30,8 @@ only when:
 
 The retained circuits are expanded through all quotient-preserving affine
 maps. Every transformed certificate and every claimed coverage edge is
-recomputed exactly by the checker. The LP search is bounded and non-exhaustive;
+recomputed exactly by the checker, which also requires exactly one compressed
+row for every source record. The LP search is bounded and non-exhaustive;
 only the stored certificates and coverage edges are exact conclusions.
 
 ## Compression result
@@ -93,5 +94,5 @@ Replay:
 
 ```bash
 python scripts/exploration/compress_sparse_full_cone_fresh_certificates.py \
-  --check data/runs/sparse_full_cone_fresh_compression_2026-08-01/summary.json
+  --check data/runs/sparse_full_cone_fresh_compression_2026-07-29/summary.json
 ```

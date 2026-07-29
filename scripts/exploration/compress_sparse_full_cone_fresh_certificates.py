@@ -56,7 +56,7 @@ DEFAULT_SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_order_screen_2026-07-31"
+    / "sparse_full_cone_fresh_order_screen_2026-07-29"
     / "summary.json"
 )
 DEFAULT_PRIOR_COMPRESSION = (
@@ -351,8 +351,12 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     affine_cross_edges = 0
     qualifying_sources = 0
     decisions = []
+    seen_patterns: set[str] = set()
     for run in payload["runs"]:
         name = str(run["pattern"])
+        if name in seen_patterns or name not in source_by_pattern:
+            raise AssertionError(f"invalid or duplicate fresh compression pattern: {name}")
+        seen_patterns.add(name)
         source_run = source_by_pattern[name]
         expected_targets = fresh_targets(source_run)
         if run["target_orders"] != expected_targets:
@@ -361,10 +365,20 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         source_records = {
             int(record["fresh_model_index"]): record for record in source_run["records"]
         }
+        rows = run["compressed_models"]
+        if len(rows) != len(source_records):
+            raise AssertionError(f"{name} compressed source count drifted")
         checked_rows = []
-        for row in run["compressed_models"]:
+        seen_model_indices: set[int] = set()
+        for row in rows:
             model_index = int(row["source_model_index"])
+            if model_index in seen_model_indices or model_index not in source_records:
+                raise AssertionError(f"{name} invalid or duplicate source model index")
+            seen_model_indices.add(model_index)
             source_record = source_records[model_index]
+            source_target_id = f"fresh:{model_index}"
+            if row["source_target_id"] != source_target_id:
+                raise AssertionError(f"{name} source target id drifted")
             order = [int(label) for label in row["order"]]
             if order != [int(label) for label in source_record["order"]]:
                 raise AssertionError(f"{name} compression source order drifted")
@@ -418,7 +432,6 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             }
             if row["quotient_vector_support"] != expected_vector_support:
                 raise AssertionError(f"{name} quotient-vector support drifted")
-            source_target_id = f"fresh:{model_index}"
             expected_coverage = clause_coverage(
                 certificate,
                 orbit,
@@ -431,6 +444,8 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             verified_certificates += 1
             verified_affine_images += orbit.affine_map_count
 
+        if seen_model_indices != set(source_records):
+            raise AssertionError(f"{name} compressed source set drifted")
         widths = [
             int(row["compressed_unique_ordered_quad_count"]) for row in checked_rows
         ]

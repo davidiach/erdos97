@@ -3100,7 +3100,7 @@
         "python",
         "scripts/exploration/compress_sparse_full_cone_fresh_certificates.py",
         "--check",
-        "data/runs/sparse_full_cone_fresh_compression_2026-08-01/summary.json"
+        "data/runs/sparse_full_cone_fresh_compression_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay 63 exact compressed positive-circuit certificates, 1703 exact quotient-preserving affine images, and 64 direct plus 96 affine cross-order reuse edges over the same bounded fresh C25/C29 packet. The six-objective search is randomized and non-exhaustive; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
