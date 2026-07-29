@@ -82,12 +82,12 @@ Both patterns return `CONTINUE_CLUSTER_MINING`: the bounded stopping condition
 does not fire because new small circuits and exact cross-order reuse exist.
 This reverses only the proposed route decision, not any mathematical status.
 
-The next bounded step is a transfer audit, not a larger same-packet objective
-budget. Canonicalize the three width-at-most-12 circuits and the broadly
-reusable C25 width-14 circuit, then replay them against the prior 48-order
-packet and a second history-disjoint stream. If the new templates again fail
-outside their source packet, mark this second cluster as packet-specific and
-stop template mining.
+That audit is completed in
+`docs/sparse-full-cone-fresh-template-transfer.md`. The C25 width-`3` and
+width-`5` circuits transfer to both the prior packet and a second
+history-disjoint stream, while the C29 width-`7` circuit has zero hits across
+all 56 outside-source targets. Continue only the C25 exact-clause route and
+stop packet-specific C29 template mining.
 
 Replay:
 

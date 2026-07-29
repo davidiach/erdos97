@@ -710,10 +710,12 @@ benchmarks for the larger frontier:
   source packet: all 63 fresh lightweight survivors have positive full-cone
   certificates;
 - use `docs/sparse-full-cone-fresh-certificate-compression.md` as the bounded
-  reuse result: six objectives per source find three new width-`3`, width-`5`,
-  and width-`7` circuits plus 96 affine cross-edges. The stopping rule returns
-  continue, but run a prior-packet and second-stream transfer audit before any
-  broader inference or larger same-packet search;
+  reuse source: six objectives per source find three new width-`3`, width-`5`,
+  and width-`7` circuits plus 96 affine cross-edges;
+- use `docs/sparse-full-cone-fresh-template-transfer.md` as the outside-packet
+  decision: C25 transfers to 16/24 prior and 16/32 second-stream orders, while
+  C29 has zero hits across both outside packets. Continue only with C25 exact
+  clause-seeded CEGAR; stop the current C29 template family;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

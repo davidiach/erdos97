@@ -981,6 +981,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`sparse-full-cone-fresh-certificate-compression.md`](sparse-full-cone-fresh-certificate-compression.md):
   six-objective exact compression and fresh-packet cross-coverage; three new
   width-3, width-5, and width-7 circuits keep the bounded template route open.
+- [`sparse-full-cone-fresh-template-transfer.md`](sparse-full-cone-fresh-template-transfer.md):
+  exact transfer audit over the prior packet and a second history-disjoint
+  stream; C25 transfers while the current C29 template remains packet-specific.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.
