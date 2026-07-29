@@ -701,6 +701,12 @@ benchmarks for the larger frontier:
   C25/C29 reuse diagnostic: seven exact 3--8-quad circuits cover seeded-order
   clusters but none of 32 counterfactual probe orders, so transfer beyond that
   cluster remains open;
+- use `docs/sparse-full-cone-small-template-fresh-stream.md` as the follow-up
+  transfer audit: all seven circuits are stored as explicit canonical exact
+  templates, but none of their 187 affine images covers any of 64
+  history-disjoint fresh orders. Treat the templates as cluster-specific
+  bounded diagnostics and full-cone-screen the 63 fresh lightweight survivors
+  before spending more search budget on these clauses;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

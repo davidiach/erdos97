@@ -3073,6 +3073,16 @@
         "data/runs/sparse_full_cone_seeded_compression_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay 16 exact compressed positive-circuit certificates, 432 exact quotient-preserving affine images, and their direct/translation-orbit coverage over 48 stored fixed C25/C29 orders. Randomized compression is not exhaustive; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_small_template_fresh_stream",
+      "command": [
+        "python",
+        "scripts/exploration/probe_sparse_full_cone_small_templates.py",
+        "--check",
+        "data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-29/summary.json"
+      ],
+      "claim_scope": "Replay seven explicit canonical exact C25/C29 positive-circuit templates, 187 quotient-preserving affine images, and exact coverage over 64 deterministic orders dihedrally disjoint from 48 historical orders. Fresh means history-disjoint, not statistically independent; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {

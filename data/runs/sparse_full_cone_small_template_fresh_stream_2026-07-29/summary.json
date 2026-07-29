@@ -1,0 +1,4517 @@
+{
+  "claim_scope": "Seven exact three-to-eight-quad C25/C29 positive-circuit templates are canonicalized under quotient-preserving affine maps and replayed against bounded deterministic order streams that are dihedrally disjoint from forty-eight historical orders. Fresh means history-disjoint, not statistically independent. This is not an all-order obstruction, geometric realizability result, counterexample, proof of Erdos Problem #97, or official/global status update.",
+  "configuration": {
+    "conflict_cap": 1024,
+    "fresh_order_limit_per_pattern": 32,
+    "freshness_equivalence": "cyclic rotation and reversal",
+    "generation_filter": "exact two-inequality inverse-pair escape",
+    "max_iterations_per_pattern": 16000,
+    "max_template_width": 8,
+    "pattern_seed_stride": 1000,
+    "random_seed": 20260730
+  },
+  "runs": [
+    {
+      "canonical_small_templates": [
+        {
+          "affine_clause_orbit": {
+            "affine_map_count": 25,
+            "affine_stabilizer_size": 1,
+            "canonical_clause_sha256": "a05729c302ae78e56519087df8d932694361d50708fef38d83ecbb9538f246eb",
+            "quotient_automorphism_multipliers": [
+              1
+            ],
+            "source_model_index": 0,
+            "source_order": [
+              0,
+              18,
+              11,
+              4,
+              22,
+              15,
+              8,
+              1,
+              19,
+              12,
+              5,
+              23,
+              16,
+              9,
+              2,
+              20,
+              13,
+              6,
+              24,
+              17,
+              10,
+              3,
+              21,
+              14,
+              7
+            ],
+            "source_unique_ordered_quad_count": 7,
+            "unique_orbit_clause_count": 25
+          },
+          "canonical_certificate": {
+            "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+            "certificate_type": "kalmanson_strict_inequality_farkas",
+            "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+            "cyclic_order": [
+              0,
+              18,
+              11,
+              4,
+              22,
+              15,
+              8,
+              1,
+              19,
+              12,
+              5,
+              23,
+              16,
+              9,
+              2,
+              20,
+              13,
+              6,
+              24,
+              17,
+              10,
+              3,
+              21,
+              14,
+              7
+            ],
+            "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+            "inequalities": [
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  4,
+                  19,
+                  16
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  18,
+                  4,
+                  16,
+                  13
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  18,
+                  4,
+                  2
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  1,
+                  16,
+                  24,
+                  21
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  19,
+                  5,
+                  16
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  18,
+                  23,
+                  13,
+                  21
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  16,
+                  13,
+                  24,
+                  21
+                ],
+                "weight": 1
+              }
+            ],
+            "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+            "num_inequalities": 7,
+            "pattern": {
+              "circulant_offsets": [
+                2,
+                5,
+                9,
+                14
+              ],
+              "n": 25,
+              "name": "C25_sidon_2_5_9_14"
+            },
+            "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+            "weight_sum": 7
+          },
+          "canonical_certificate_sha256": "91f24f48132d8706832a2c21050ec0ee8bb07d77767f4936d997fc0b1fa95bfd",
+          "canonical_clause_sha256": "a05729c302ae78e56519087df8d932694361d50708fef38d83ecbb9538f246eb",
+          "canonical_ordered_quadrilaterals": [
+            [
+              0,
+              4,
+              19,
+              16
+            ],
+            [
+              0,
+              18,
+              4,
+              2
+            ],
+            [
+              0,
+              19,
+              5,
+              16
+            ],
+            [
+              1,
+              16,
+              24,
+              21
+            ],
+            [
+              16,
+              13,
+              24,
+              21
+            ],
+            [
+              18,
+              4,
+              16,
+              13
+            ],
+            [
+              18,
+              23,
+              13,
+              21
+            ]
+          ],
+          "max_weight": 1,
+          "ordered_quad_count": 7,
+          "pattern": "C25_sidon_2_5_9_14",
+          "positive_inequalities": 7,
+          "source_model_index": 0,
+          "template_id": "C25_sidon_2_5_9_14:seeded-0:w7:a05729c302ae78e5",
+          "weight_sum": 7
+        },
+        {
+          "affine_clause_orbit": {
+            "affine_map_count": 25,
+            "affine_stabilizer_size": 1,
+            "canonical_clause_sha256": "05a9001a99ae9d7ff071364cf7ec110b918736ad45fb1f6593e040bb5d8f4d6d",
+            "quotient_automorphism_multipliers": [
+              1
+            ],
+            "source_model_index": 2,
+            "source_order": [
+              0,
+              14,
+              11,
+              8,
+              22,
+              19,
+              5,
+              16,
+              2,
+              13,
+              24,
+              10,
+              21,
+              18,
+              7,
+              15,
+              4,
+              1,
+              23,
+              12,
+              9,
+              20,
+              6,
+              17,
+              3
+            ],
+            "source_unique_ordered_quad_count": 8,
+            "unique_orbit_clause_count": 25
+          },
+          "canonical_certificate": {
+            "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+            "certificate_type": "kalmanson_strict_inequality_farkas",
+            "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+            "cyclic_order": [
+              0,
+              11,
+              22,
+              19,
+              8,
+              16,
+              5,
+              2,
+              24,
+              13,
+              10,
+              21,
+              7,
+              18,
+              4,
+              1,
+              15,
+              12,
+              9,
+              23,
+              20,
+              6,
+              17,
+              3,
+              14
+            ],
+            "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+            "inequalities": [
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  1,
+                  17,
+                  3
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  21,
+                  1,
+                  3
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  16,
+                  15,
+                  17
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  16,
+                  5,
+                  15
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  22,
+                  8,
+                  13,
+                  17
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  16,
+                  13,
+                  18,
+                  17
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  5,
+                  21,
+                  3,
+                  14
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  5,
+                  21,
+                  14
+                ],
+                "weight": 1
+              }
+            ],
+            "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+            "num_inequalities": 8,
+            "pattern": {
+              "circulant_offsets": [
+                2,
+                5,
+                9,
+                14
+              ],
+              "n": 25,
+              "name": "C25_sidon_2_5_9_14"
+            },
+            "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+            "weight_sum": 8
+          },
+          "canonical_certificate_sha256": "5ab4f045e9e8031714e98b0f34ba613e3d21fcdf5ece4780d90cbf48bac34baf",
+          "canonical_clause_sha256": "05a9001a99ae9d7ff071364cf7ec110b918736ad45fb1f6593e040bb5d8f4d6d",
+          "canonical_ordered_quadrilaterals": [
+            [
+              0,
+              1,
+              17,
+              3
+            ],
+            [
+              0,
+              5,
+              21,
+              14
+            ],
+            [
+              0,
+              16,
+              5,
+              15
+            ],
+            [
+              0,
+              16,
+              15,
+              17
+            ],
+            [
+              0,
+              21,
+              1,
+              3
+            ],
+            [
+              5,
+              21,
+              3,
+              14
+            ],
+            [
+              16,
+              13,
+              18,
+              17
+            ],
+            [
+              22,
+              8,
+              13,
+              17
+            ]
+          ],
+          "max_weight": 1,
+          "ordered_quad_count": 8,
+          "pattern": "C25_sidon_2_5_9_14",
+          "positive_inequalities": 8,
+          "source_model_index": 2,
+          "template_id": "C25_sidon_2_5_9_14:seeded-2:w8:05a9001a99ae9d7f",
+          "weight_sum": 8
+        },
+        {
+          "affine_clause_orbit": {
+            "affine_map_count": 25,
+            "affine_stabilizer_size": 1,
+            "canonical_clause_sha256": "dc2a5320661637a39687811ebdc614b9f9f17f661eefe88102068e27000d4e86",
+            "quotient_automorphism_multipliers": [
+              1
+            ],
+            "source_model_index": 3,
+            "source_order": [
+              0,
+              14,
+              11,
+              8,
+              22,
+              19,
+              5,
+              16,
+              2,
+              13,
+              24,
+              10,
+              21,
+              18,
+              7,
+              4,
+              15,
+              1,
+              23,
+              12,
+              9,
+              20,
+              6,
+              17,
+              3
+            ],
+            "source_unique_ordered_quad_count": 5,
+            "unique_orbit_clause_count": 25
+          },
+          "canonical_certificate": {
+            "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+            "certificate_type": "kalmanson_strict_inequality_farkas",
+            "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+            "cyclic_order": [
+              0,
+              11,
+              22,
+              8,
+              19,
+              16,
+              5,
+              2,
+              24,
+              13,
+              10,
+              21,
+              7,
+              18,
+              4,
+              15,
+              1,
+              12,
+              9,
+              23,
+              20,
+              6,
+              17,
+              14,
+              3
+            ],
+            "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+            "inequalities": [
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  8,
+                  5,
+                  10
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  5,
+                  1,
+                  14
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  22,
+                  8,
+                  2
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  1,
+                  9,
+                  14
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  11,
+                  22,
+                  9,
+                  20
+                ],
+                "weight": 1
+              }
+            ],
+            "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+            "num_inequalities": 5,
+            "pattern": {
+              "circulant_offsets": [
+                2,
+                5,
+                9,
+                14
+              ],
+              "n": 25,
+              "name": "C25_sidon_2_5_9_14"
+            },
+            "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+            "weight_sum": 5
+          },
+          "canonical_certificate_sha256": "80a7d96a5c77538cc8e76330e1b428dfc1449a7ec91ef07410170a769ba4e798",
+          "canonical_clause_sha256": "dc2a5320661637a39687811ebdc614b9f9f17f661eefe88102068e27000d4e86",
+          "canonical_ordered_quadrilaterals": [
+            [
+              0,
+              1,
+              9,
+              14
+            ],
+            [
+              0,
+              5,
+              1,
+              14
+            ],
+            [
+              0,
+              8,
+              5,
+              10
+            ],
+            [
+              0,
+              22,
+              8,
+              2
+            ],
+            [
+              11,
+              22,
+              9,
+              20
+            ]
+          ],
+          "max_weight": 1,
+          "ordered_quad_count": 5,
+          "pattern": "C25_sidon_2_5_9_14",
+          "positive_inequalities": 5,
+          "source_model_index": 3,
+          "template_id": "C25_sidon_2_5_9_14:seeded-3:w5:dc2a5320661637a3",
+          "weight_sum": 5
+        },
+        {
+          "affine_clause_orbit": {
+            "affine_map_count": 25,
+            "affine_stabilizer_size": 1,
+            "canonical_clause_sha256": "ef3d6069c76755ca2044029a85d4d6b498d431284a2b51380c36624f756fbef4",
+            "quotient_automorphism_multipliers": [
+              1
+            ],
+            "source_model_index": 7,
+            "source_order": [
+              0,
+              14,
+              11,
+              8,
+              22,
+              19,
+              5,
+              16,
+              2,
+              13,
+              24,
+              10,
+              21,
+              18,
+              7,
+              4,
+              1,
+              15,
+              23,
+              12,
+              9,
+              20,
+              6,
+              3,
+              17
+            ],
+            "source_unique_ordered_quad_count": 3,
+            "unique_orbit_clause_count": 25
+          },
+          "canonical_certificate": {
+            "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+            "certificate_type": "kalmanson_strict_inequality_farkas",
+            "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+            "cyclic_order": [
+              0,
+              8,
+              22,
+              19,
+              5,
+              16,
+              13,
+              2,
+              10,
+              24,
+              21,
+              18,
+              7,
+              4,
+              15,
+              1,
+              12,
+              23,
+              9,
+              20,
+              6,
+              3,
+              17,
+              14,
+              11
+            ],
+            "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+            "inequalities": [
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  15,
+                  1,
+                  6
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  1,
+                  23,
+                  3
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  20,
+                  6,
+                  11
+                ],
+                "weight": 1
+              }
+            ],
+            "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+            "num_inequalities": 3,
+            "pattern": {
+              "circulant_offsets": [
+                2,
+                5,
+                9,
+                14
+              ],
+              "n": 25,
+              "name": "C25_sidon_2_5_9_14"
+            },
+            "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+            "weight_sum": 3
+          },
+          "canonical_certificate_sha256": "a94be783f9d32f90eaa123559dcc5cdcf1cffd34684fe0957e4840ad846788a0",
+          "canonical_clause_sha256": "ef3d6069c76755ca2044029a85d4d6b498d431284a2b51380c36624f756fbef4",
+          "canonical_ordered_quadrilaterals": [
+            [
+              0,
+              1,
+              23,
+              3
+            ],
+            [
+              0,
+              15,
+              1,
+              6
+            ],
+            [
+              0,
+              20,
+              6,
+              11
+            ]
+          ],
+          "max_weight": 1,
+          "ordered_quad_count": 3,
+          "pattern": "C25_sidon_2_5_9_14",
+          "positive_inequalities": 3,
+          "source_model_index": 7,
+          "template_id": "C25_sidon_2_5_9_14:seeded-7:w3:ef3d6069c76755ca",
+          "weight_sum": 3
+        }
+      ],
+      "circulant_offsets": [
+        2,
+        5,
+        9,
+        14
+      ],
+      "fresh_stream": {
+        "coverage": {
+          "by_template": [
+            {
+              "matched_fresh_orders": 0,
+              "matched_strong_fresh_orders": 0,
+              "matching_orbit_clause_occurrences": 0,
+              "template_id": "C25_sidon_2_5_9_14:seeded-0:w7:a05729c302ae78e5"
+            },
+            {
+              "matched_fresh_orders": 0,
+              "matched_strong_fresh_orders": 0,
+              "matching_orbit_clause_occurrences": 0,
+              "template_id": "C25_sidon_2_5_9_14:seeded-2:w8:05a9001a99ae9d7f"
+            },
+            {
+              "matched_fresh_orders": 0,
+              "matched_strong_fresh_orders": 0,
+              "matching_orbit_clause_occurrences": 0,
+              "template_id": "C25_sidon_2_5_9_14:seeded-3:w5:dc2a5320661637a3"
+            },
+            {
+              "matched_fresh_orders": 0,
+              "matched_strong_fresh_orders": 0,
+              "matching_orbit_clause_occurrences": 0,
+              "template_id": "C25_sidon_2_5_9_14:seeded-7:w3:ef3d6069c76755ca"
+            }
+          ],
+          "covered_fresh_order_count": 0,
+          "covered_fresh_order_fraction": 0.0,
+          "covered_strong_fresh_order_count": 0,
+          "covered_strong_fresh_order_fraction": 0.0,
+          "fresh_order_count": 32,
+          "strong_fresh_order_count": 31,
+          "template_hit_count_histogram": {
+            "0": 32
+          }
+        },
+        "fresh_inverse_pair_escape_order_count": 32,
+        "historical_dihedral_order_count": 24,
+        "inverse_pair_clause_count": 14623,
+        "iterations": 525,
+        "models": [
+          {
+            "dihedral_order_sha256": "f65bb867cbc8532d2c2c89682895ae8999d75de687ef6d03e8122039b88a60c1",
+            "fresh_model_index": 0,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "interval_dominance",
+              "altman_linear_obstructed": true,
+              "altman_signature_obstructed": true,
+              "survives": false,
+              "vertex_circle_obstructed": true
+            },
+            "order": [
+              0,
+              23,
+              21,
+              19,
+              17,
+              15,
+              13,
+              11,
+              9,
+              7,
+              5,
+              3,
+              1,
+              24,
+              22,
+              20,
+              18,
+              16,
+              14,
+              12,
+              10,
+              8,
+              6,
+              4,
+              2
+            ],
+            "order_sha256": "b3fb01c68d5763b9f7e1145de43d85fa10593e255de1664502289aba9f2c18d5",
+            "template_matches": [],
+            "z3_iteration": 426
+          },
+          {
+            "dihedral_order_sha256": "1495f18db025b31993978b203d9884065a466f27754cbb6930c0349d027d6837",
+            "fresh_model_index": 1,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              3,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "e5bbf6b4fe5c23b4d8660b0ee114ae5197a9d92f8b8a7817c809d66c67b6bc7f",
+            "template_matches": [],
+            "z3_iteration": 495
+          },
+          {
+            "dihedral_order_sha256": "14e2003e2113af6086da7654e7dad616e2b5b87fb06dfa1826f5e27d276da60a",
+            "fresh_model_index": 2,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              3,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              16,
+              24,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "fffc543b5fe7bd806e59be736acb34787451c354d733cb00cbc0d3e1d4a17ceb",
+            "template_matches": [],
+            "z3_iteration": 496
+          },
+          {
+            "dihedral_order_sha256": "c0b7138c621548805e187aa1d5f0b70c169765362a98c21535a3b7797b62c9fe",
+            "fresh_model_index": 3,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              3,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "f1f588b6a76fe0727293f263ff3d40bbfe537e40293f68a9e14b7745d23a419c",
+            "template_matches": [],
+            "z3_iteration": 497
+          },
+          {
+            "dihedral_order_sha256": "120335beb6c2273c2f30312e297cd69ae2316e1a273044a0959d79f824424a5c",
+            "fresh_model_index": 4,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              3,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              19,
+              8,
+              11,
+              22,
+              14
+            ],
+            "order_sha256": "6bb23677f914747186d71bf861bd525e7f3788e608396f106b27bf70524c4637",
+            "template_matches": [],
+            "z3_iteration": 498
+          },
+          {
+            "dihedral_order_sha256": "639e2159c550feef6bd9cf9146e1627ace1c8a98fc89c81a626618b078bde5f6",
+            "fresh_model_index": 5,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              17,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "639e2159c550feef6bd9cf9146e1627ace1c8a98fc89c81a626618b078bde5f6",
+            "template_matches": [],
+            "z3_iteration": 499
+          },
+          {
+            "dihedral_order_sha256": "f6fd016a3753972fee8cf8a43b4017b7874a2c1020de8cf9bdd926ac08db9aa5",
+            "fresh_model_index": 6,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              17,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              16,
+              24,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "f6fd016a3753972fee8cf8a43b4017b7874a2c1020de8cf9bdd926ac08db9aa5",
+            "template_matches": [],
+            "z3_iteration": 500
+          },
+          {
+            "dihedral_order_sha256": "dbd48c691bdb204cd2d1f402a2c64f0d22a4dcd6a61ff479c9ea5603b52ebbd5",
+            "fresh_model_index": 7,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              17,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "dbd48c691bdb204cd2d1f402a2c64f0d22a4dcd6a61ff479c9ea5603b52ebbd5",
+            "template_matches": [],
+            "z3_iteration": 501
+          },
+          {
+            "dihedral_order_sha256": "35edfaafcf8fa341a2e840bc8bedca7696c22b70103901e089dbb73539318e3b",
+            "fresh_model_index": 8,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "35edfaafcf8fa341a2e840bc8bedca7696c22b70103901e089dbb73539318e3b",
+            "template_matches": [],
+            "z3_iteration": 502
+          },
+          {
+            "dihedral_order_sha256": "e213d4bfc83a5f48184d3cccbc7c2575a459ce8af6befe6c7941d57ec3966360",
+            "fresh_model_index": 9,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "e213d4bfc83a5f48184d3cccbc7c2575a459ce8af6befe6c7941d57ec3966360",
+            "template_matches": [],
+            "z3_iteration": 503
+          },
+          {
+            "dihedral_order_sha256": "7510eb78efeade7cdb96282c6f3487fb9dbb60b97d15c4ee929e877f557d3567",
+            "fresh_model_index": 10,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              16,
+              24,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "7510eb78efeade7cdb96282c6f3487fb9dbb60b97d15c4ee929e877f557d3567",
+            "template_matches": [],
+            "z3_iteration": 504
+          },
+          {
+            "dihedral_order_sha256": "0b291fe26606a823525b3e10429142e437b8e9118b0a58f64c6ab1ba42c1ef48",
+            "fresh_model_index": 11,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              17,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              24,
+              10,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "0b291fe26606a823525b3e10429142e437b8e9118b0a58f64c6ab1ba42c1ef48",
+            "template_matches": [],
+            "z3_iteration": 505
+          },
+          {
+            "dihedral_order_sha256": "169cb63c511b5342437e41bab670aca22fa1a8dd49197596a5b400c0df9aad93",
+            "fresh_model_index": 12,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              3,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              24,
+              10,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "7d26dac32a4f49b310623dc118741fd3eae62a98fddc3fc02343cda28982e0d2",
+            "template_matches": [],
+            "z3_iteration": 506
+          },
+          {
+            "dihedral_order_sha256": "32005227574dc4178a5ed0dc9a92532a4aca2c618695ab88abab279cf2e90eef",
+            "fresh_model_index": 13,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              24,
+              10,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "32005227574dc4178a5ed0dc9a92532a4aca2c618695ab88abab279cf2e90eef",
+            "template_matches": [],
+            "z3_iteration": 507
+          },
+          {
+            "dihedral_order_sha256": "bcbba47865da74cce7026116c2ed0a10c0b08306440260fb953655a45cd4f9f0",
+            "fresh_model_index": 14,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              9,
+              17,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              24,
+              10,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "bcbba47865da74cce7026116c2ed0a10c0b08306440260fb953655a45cd4f9f0",
+            "template_matches": [],
+            "z3_iteration": 508
+          },
+          {
+            "dihedral_order_sha256": "bb3f6eab8819ac4e2fe9bf2869efbbcb098ff08433d8438c4d58ff46c8efa96b",
+            "fresh_model_index": 15,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              9,
+              17,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              16,
+              24,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "bb3f6eab8819ac4e2fe9bf2869efbbcb098ff08433d8438c4d58ff46c8efa96b",
+            "template_matches": [],
+            "z3_iteration": 509
+          },
+          {
+            "dihedral_order_sha256": "2c0c348bc227e3416ae6baf8b02bd2635672b3880023fcee62d4b89007c5e022",
+            "fresh_model_index": 16,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              9,
+              17,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "2c0c348bc227e3416ae6baf8b02bd2635672b3880023fcee62d4b89007c5e022",
+            "template_matches": [],
+            "z3_iteration": 510
+          },
+          {
+            "dihedral_order_sha256": "d01ae7558e6b8c8c8fdab9643ff77b7495a35fb90fe205c7e00c0c7b9d1df97e",
+            "fresh_model_index": 17,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              9,
+              17,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "d01ae7558e6b8c8c8fdab9643ff77b7495a35fb90fe205c7e00c0c7b9d1df97e",
+            "template_matches": [],
+            "z3_iteration": 511
+          },
+          {
+            "dihedral_order_sha256": "b2ea5b6ee6ac796d5383ae7260006a43c9ef172de728ce355103ad818c011870",
+            "fresh_model_index": 18,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              3,
+              6,
+              9,
+              20,
+              23,
+              12,
+              15,
+              1,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              16,
+              24,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "ad2c330339c8d008ca9dddebd31e6e72a92f3a882529ef6afe1eb15687ac3a92",
+            "template_matches": [],
+            "z3_iteration": 512
+          },
+          {
+            "dihedral_order_sha256": "39344073585252f9a0c4b427237efa9eaff37765c4aebfeba914b69695fc05b3",
+            "fresh_model_index": 19,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              3,
+              6,
+              9,
+              20,
+              23,
+              12,
+              15,
+              1,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "f3ff2b091996877bb676eb68b61bd8740b052aa0b0cc11bf737b7921f33ce237",
+            "template_matches": [],
+            "z3_iteration": 513
+          },
+          {
+            "dihedral_order_sha256": "f53132101e7ebc6bb97285eda5c63a15bdbac44ce205fd7843bb9394a7418435",
+            "fresh_model_index": 20,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              15,
+              1,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "f53132101e7ebc6bb97285eda5c63a15bdbac44ce205fd7843bb9394a7418435",
+            "template_matches": [],
+            "z3_iteration": 514
+          },
+          {
+            "dihedral_order_sha256": "ec5946bf2f40dc5430e51e9490586f5672dce0247712e3725efa519a53aca7de",
+            "fresh_model_index": 21,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              3,
+              6,
+              9,
+              20,
+              23,
+              12,
+              15,
+              1,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "9bca3aac19a02dae679142542a99e8f2691b6b621620d71a97ab7ae9cc651128",
+            "template_matches": [],
+            "z3_iteration": 515
+          },
+          {
+            "dihedral_order_sha256": "2698d071f7d4e7f968fc4fd54e45592946a7ab97d60f0a268dd8d9393be234a6",
+            "fresh_model_index": 22,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              15,
+              1,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "2698d071f7d4e7f968fc4fd54e45592946a7ab97d60f0a268dd8d9393be234a6",
+            "template_matches": [],
+            "z3_iteration": 516
+          },
+          {
+            "dihedral_order_sha256": "8dd6bdeefe428f1636d03e94a2f6a8d1613c58cf54b17d9f575da443006b9e22",
+            "fresh_model_index": 23,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              15,
+              1,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              16,
+              24,
+              2,
+              5,
+              19,
+              8,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "8dd6bdeefe428f1636d03e94a2f6a8d1613c58cf54b17d9f575da443006b9e22",
+            "template_matches": [],
+            "z3_iteration": 517
+          },
+          {
+            "dihedral_order_sha256": "eebb3863a6d7df62e23ba4ae84b69887aa0dc28f91ff1909312f8e0125de2498",
+            "fresh_model_index": 24,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              9,
+              17,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              8,
+              19,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "eebb3863a6d7df62e23ba4ae84b69887aa0dc28f91ff1909312f8e0125de2498",
+            "template_matches": [],
+            "z3_iteration": 518
+          },
+          {
+            "dihedral_order_sha256": "f7f9ff4dec5acc19eccb3617bbebfd51c8de91ac9995ea01ed51c5e7640a40f1",
+            "fresh_model_index": 25,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              9,
+              17,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              16,
+              24,
+              2,
+              5,
+              8,
+              19,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "f7f9ff4dec5acc19eccb3617bbebfd51c8de91ac9995ea01ed51c5e7640a40f1",
+            "template_matches": [],
+            "z3_iteration": 519
+          },
+          {
+            "dihedral_order_sha256": "d5f06651cba5bc1fea4fb741463b0a23882da46749d0428bf05043bbd1fee2db",
+            "fresh_model_index": 26,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              9,
+              17,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              8,
+              19,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "d5f06651cba5bc1fea4fb741463b0a23882da46749d0428bf05043bbd1fee2db",
+            "template_matches": [],
+            "z3_iteration": 520
+          },
+          {
+            "dihedral_order_sha256": "fd00f4de36ac19dc608c032ddceceb873eadedd95e3a60e04860d1818d288273",
+            "fresh_model_index": 27,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              17,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              16,
+              24,
+              2,
+              5,
+              8,
+              19,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "fd00f4de36ac19dc608c032ddceceb873eadedd95e3a60e04860d1818d288273",
+            "template_matches": [],
+            "z3_iteration": 521
+          },
+          {
+            "dihedral_order_sha256": "68ed7c2cac3e460e5de8853d7df30002832ed27e3b5cebd9053d700dc9e7cbc3",
+            "fresh_model_index": 28,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              17,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              8,
+              19,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "68ed7c2cac3e460e5de8853d7df30002832ed27e3b5cebd9053d700dc9e7cbc3",
+            "template_matches": [],
+            "z3_iteration": 522
+          },
+          {
+            "dihedral_order_sha256": "fab70b9a93e3f71ad2c4cb6c3523fb1364b71f3fae64d78dff46f38ce9320d4e",
+            "fresh_model_index": 29,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              6,
+              17,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              8,
+              19,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "fab70b9a93e3f71ad2c4cb6c3523fb1364b71f3fae64d78dff46f38ce9320d4e",
+            "template_matches": [],
+            "z3_iteration": 523
+          },
+          {
+            "dihedral_order_sha256": "52d3d48083519c9975f499dec5daf2a00b4aaf49cd7af51fe470eee6ad38c7de",
+            "fresh_model_index": 30,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              24,
+              13,
+              16,
+              2,
+              5,
+              8,
+              19,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "52d3d48083519c9975f499dec5daf2a00b4aaf49cd7af51fe470eee6ad38c7de",
+            "template_matches": [],
+            "z3_iteration": 524
+          },
+          {
+            "dihedral_order_sha256": "0cf5694e97aad30fb027c2899287e1e73995c4dd8a7ef34101500a61eb7b5861",
+            "fresh_model_index": 31,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 25300,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              3,
+              17,
+              6,
+              9,
+              20,
+              23,
+              12,
+              1,
+              15,
+              4,
+              18,
+              7,
+              21,
+              10,
+              13,
+              24,
+              16,
+              2,
+              5,
+              8,
+              19,
+              22,
+              11,
+              14
+            ],
+            "order_sha256": "0cf5694e97aad30fb027c2899287e1e73995c4dd8a7ef34101500a61eb7b5861",
+            "template_matches": [],
+            "z3_iteration": 525
+          }
+        ],
+        "random_seed": 20260730,
+        "solver_result": "bounded_after_fresh_inverse_pair_escape_orders",
+        "status": "BOUNDED_FRESH_ORDER_LIMIT_REACHED"
+      },
+      "historical_dihedral_order_count": 24,
+      "historical_order_count": 24,
+      "n": 25,
+      "pattern": "C25_sidon_2_5_9_14"
+    },
+    {
+      "canonical_small_templates": [
+        {
+          "affine_clause_orbit": {
+            "affine_map_count": 29,
+            "affine_stabilizer_size": 1,
+            "canonical_clause_sha256": "505c55618e2ee6884b221e43761ce4b2142c51330a83c80d52545ffc2d3de0c5",
+            "quotient_automorphism_multipliers": [
+              1
+            ],
+            "source_model_index": 0,
+            "source_order": [
+              0,
+              15,
+              20,
+              4,
+              26,
+              19,
+              3,
+              8,
+              23,
+              5,
+              22,
+              16,
+              2,
+              27,
+              9,
+              24,
+              6,
+              17,
+              13,
+              10,
+              28,
+              25,
+              12,
+              18,
+              21,
+              14,
+              11,
+              7,
+              1
+            ],
+            "source_unique_ordered_quad_count": 5,
+            "unique_orbit_clause_count": 29
+          },
+          "canonical_certificate": {
+            "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+            "certificate_type": "kalmanson_strict_inequality_farkas",
+            "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+            "cyclic_order": [
+              0,
+              17,
+              11,
+              26,
+              22,
+              4,
+              19,
+              1,
+              12,
+              8,
+              5,
+              23,
+              20,
+              7,
+              13,
+              16,
+              9,
+              6,
+              2,
+              25,
+              24,
+              10,
+              15,
+              28,
+              21,
+              14,
+              27,
+              3,
+              18
+            ],
+            "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+            "inequalities": [
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  25,
+                  15,
+                  14,
+                  3
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  17,
+                  15,
+                  14
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  17,
+                  2,
+                  15,
+                  3
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  2,
+                  14,
+                  3
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  2,
+                  25,
+                  14,
+                  3
+                ],
+                "weight": 1
+              }
+            ],
+            "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+            "num_inequalities": 5,
+            "pattern": {
+              "circulant_offsets": [
+                1,
+                3,
+                7,
+                15
+              ],
+              "n": 29,
+              "name": "C29_sidon_1_3_7_15"
+            },
+            "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+            "weight_sum": 5
+          },
+          "canonical_certificate_sha256": "0d620fa76650063f7362c4c5489b5261333e61d68c7e7944309a8ec3d8280ecf",
+          "canonical_clause_sha256": "505c55618e2ee6884b221e43761ce4b2142c51330a83c80d52545ffc2d3de0c5",
+          "canonical_ordered_quadrilaterals": [
+            [
+              0,
+              2,
+              14,
+              3
+            ],
+            [
+              0,
+              17,
+              15,
+              14
+            ],
+            [
+              2,
+              25,
+              14,
+              3
+            ],
+            [
+              17,
+              2,
+              15,
+              3
+            ],
+            [
+              25,
+              15,
+              14,
+              3
+            ]
+          ],
+          "max_weight": 1,
+          "ordered_quad_count": 5,
+          "pattern": "C29_sidon_1_3_7_15",
+          "positive_inequalities": 5,
+          "source_model_index": 0,
+          "template_id": "C29_sidon_1_3_7_15:seeded-0:w5:505c55618e2ee688",
+          "weight_sum": 5
+        },
+        {
+          "affine_clause_orbit": {
+            "affine_map_count": 29,
+            "affine_stabilizer_size": 1,
+            "canonical_clause_sha256": "d778c533191fb6cfe2c1fa950ae0bec2e63edf16228731b8e9714800a08294aa",
+            "quotient_automorphism_multipliers": [
+              1
+            ],
+            "source_model_index": 1,
+            "source_order": [
+              0,
+              15,
+              20,
+              4,
+              26,
+              19,
+              3,
+              8,
+              23,
+              5,
+              22,
+              16,
+              2,
+              9,
+              27,
+              24,
+              6,
+              17,
+              13,
+              10,
+              28,
+              25,
+              12,
+              18,
+              21,
+              14,
+              11,
+              7,
+              1
+            ],
+            "source_unique_ordered_quad_count": 4,
+            "unique_orbit_clause_count": 29
+          },
+          "canonical_certificate": {
+            "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+            "certificate_type": "kalmanson_strict_inequality_farkas",
+            "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+            "cyclic_order": [
+              0,
+              11,
+              7,
+              4,
+              22,
+              19,
+              6,
+              12,
+              15,
+              8,
+              5,
+              1,
+              24,
+              23,
+              9,
+              14,
+              27,
+              20,
+              13,
+              26,
+              2,
+              17,
+              28,
+              16,
+              10,
+              25,
+              3,
+              21,
+              18
+            ],
+            "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+            "inequalities": [
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  4,
+                  1,
+                  14
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  4,
+                  15,
+                  1,
+                  14
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  4,
+                  26,
+                  3,
+                  18
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  15,
+                  26,
+                  18
+                ],
+                "weight": 1
+              }
+            ],
+            "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+            "num_inequalities": 4,
+            "pattern": {
+              "circulant_offsets": [
+                1,
+                3,
+                7,
+                15
+              ],
+              "n": 29,
+              "name": "C29_sidon_1_3_7_15"
+            },
+            "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+            "weight_sum": 4
+          },
+          "canonical_certificate_sha256": "96f93964b7c0b7c9b2b0bd9291f4c3b58c590e93fa25d196e11881ea751aab0f",
+          "canonical_clause_sha256": "d778c533191fb6cfe2c1fa950ae0bec2e63edf16228731b8e9714800a08294aa",
+          "canonical_ordered_quadrilaterals": [
+            [
+              0,
+              4,
+              1,
+              14
+            ],
+            [
+              0,
+              15,
+              26,
+              18
+            ],
+            [
+              4,
+              15,
+              1,
+              14
+            ],
+            [
+              4,
+              26,
+              3,
+              18
+            ]
+          ],
+          "max_weight": 1,
+          "ordered_quad_count": 4,
+          "pattern": "C29_sidon_1_3_7_15",
+          "positive_inequalities": 4,
+          "source_model_index": 1,
+          "template_id": "C29_sidon_1_3_7_15:seeded-1:w4:d778c533191fb6cf",
+          "weight_sum": 4
+        },
+        {
+          "affine_clause_orbit": {
+            "affine_map_count": 29,
+            "affine_stabilizer_size": 1,
+            "canonical_clause_sha256": "498805ab96dac466e4ab9a1ddd823882d847599fb36b5c5cdaee6a260e97d010",
+            "quotient_automorphism_multipliers": [
+              1
+            ],
+            "source_model_index": 7,
+            "source_order": [
+              0,
+              4,
+              15,
+              20,
+              26,
+              19,
+              3,
+              8,
+              23,
+              5,
+              22,
+              16,
+              2,
+              9,
+              27,
+              24,
+              6,
+              17,
+              13,
+              10,
+              28,
+              12,
+              25,
+              18,
+              21,
+              14,
+              11,
+              7,
+              1
+            ],
+            "source_unique_ordered_quad_count": 4,
+            "unique_orbit_clause_count": 29
+          },
+          "canonical_certificate": {
+            "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+            "certificate_type": "kalmanson_strict_inequality_farkas",
+            "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+            "cyclic_order": [
+              0,
+              4,
+              15,
+              20,
+              26,
+              19,
+              3,
+              8,
+              23,
+              5,
+              22,
+              16,
+              2,
+              9,
+              27,
+              24,
+              6,
+              17,
+              13,
+              10,
+              28,
+              12,
+              25,
+              18,
+              21,
+              14,
+              11,
+              7,
+              1
+            ],
+            "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+            "inequalities": [
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  22,
+                  2,
+                  25
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  0,
+                  2,
+                  28,
+                  25
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K1_diag_gt_sides",
+                "quad": [
+                  0,
+                  2,
+                  25,
+                  1
+                ],
+                "weight": 1
+              },
+              {
+                "kind": "K2_diag_gt_other",
+                "quad": [
+                  4,
+                  25,
+                  18,
+                  1
+                ],
+                "weight": 1
+              }
+            ],
+            "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+            "num_inequalities": 4,
+            "pattern": {
+              "circulant_offsets": [
+                1,
+                3,
+                7,
+                15
+              ],
+              "n": 29,
+              "name": "C29_sidon_1_3_7_15"
+            },
+            "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+            "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+            "weight_sum": 4
+          },
+          "canonical_certificate_sha256": "5db0b9e42d2fc6a0397de6b31964bb3f00fac3ed0fccc58485c9ec2217b22a38",
+          "canonical_clause_sha256": "498805ab96dac466e4ab9a1ddd823882d847599fb36b5c5cdaee6a260e97d010",
+          "canonical_ordered_quadrilaterals": [
+            [
+              0,
+              2,
+              25,
+              1
+            ],
+            [
+              0,
+              2,
+              28,
+              25
+            ],
+            [
+              0,
+              22,
+              2,
+              25
+            ],
+            [
+              4,
+              25,
+              18,
+              1
+            ]
+          ],
+          "max_weight": 1,
+          "ordered_quad_count": 4,
+          "pattern": "C29_sidon_1_3_7_15",
+          "positive_inequalities": 4,
+          "source_model_index": 7,
+          "template_id": "C29_sidon_1_3_7_15:seeded-7:w4:498805ab96dac466",
+          "weight_sum": 4
+        }
+      ],
+      "circulant_offsets": [
+        1,
+        3,
+        7,
+        15
+      ],
+      "fresh_stream": {
+        "coverage": {
+          "by_template": [
+            {
+              "matched_fresh_orders": 0,
+              "matched_strong_fresh_orders": 0,
+              "matching_orbit_clause_occurrences": 0,
+              "template_id": "C29_sidon_1_3_7_15:seeded-0:w5:505c55618e2ee688"
+            },
+            {
+              "matched_fresh_orders": 0,
+              "matched_strong_fresh_orders": 0,
+              "matching_orbit_clause_occurrences": 0,
+              "template_id": "C29_sidon_1_3_7_15:seeded-1:w4:d778c533191fb6cf"
+            },
+            {
+              "matched_fresh_orders": 0,
+              "matched_strong_fresh_orders": 0,
+              "matching_orbit_clause_occurrences": 0,
+              "template_id": "C29_sidon_1_3_7_15:seeded-7:w4:498805ab96dac466"
+            }
+          ],
+          "covered_fresh_order_count": 0,
+          "covered_fresh_order_fraction": 0.0,
+          "covered_strong_fresh_order_count": 0,
+          "covered_strong_fresh_order_fraction": 0.0,
+          "fresh_order_count": 32,
+          "strong_fresh_order_count": 32,
+          "template_hit_count_histogram": {
+            "0": 32
+          }
+        },
+        "fresh_inverse_pair_escape_order_count": 32,
+        "historical_dihedral_order_count": 24,
+        "inverse_pair_clause_count": 20817,
+        "iterations": 489,
+        "models": [
+          {
+            "dihedral_order_sha256": "19b2fb4071d8f53687a868dbb35e9e8d97ab9b1058a4646b76f1adc836e45e67",
+            "fresh_model_index": 0,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              16,
+              18,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              9,
+              25,
+              14,
+              27,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              5
+            ],
+            "order_sha256": "0ae4f99724c75442a27df3aab516439bf6456b7247f8feb2aefa85e9257404a9",
+            "template_matches": [],
+            "z3_iteration": 378
+          },
+          {
+            "dihedral_order_sha256": "4e838e7b0a8702ba67bd742fe52fa9984fc6c83817e66b39db35d458d4f4bdcf",
+            "fresh_model_index": 1,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              16,
+              18,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              9,
+              25,
+              27,
+              14,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              5
+            ],
+            "order_sha256": "18634fcc5c7b4cfe56b72f33f75617aabfb36d1cf67f5416c2f940ca2230248d",
+            "template_matches": [],
+            "z3_iteration": 379
+          },
+          {
+            "dihedral_order_sha256": "2345cce1514cf81addd5c0aae1bc85a21afba4f4295846bfdf88526e78c9cb9b",
+            "fresh_model_index": 2,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              16,
+              18,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              14,
+              9,
+              25,
+              27,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              5
+            ],
+            "order_sha256": "c0c92a0ac24f0b4d49c305bc52037ade2ed583c111cb7f57a14529e082c1c8f7",
+            "template_matches": [],
+            "z3_iteration": 380
+          },
+          {
+            "dihedral_order_sha256": "534131f00775681d1f2ab1cda1d367d44bb59e8a81f068b7682a1d09cb930c8f",
+            "fresh_model_index": 3,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              5,
+              18,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              14,
+              9,
+              25,
+              27,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              16
+            ],
+            "order_sha256": "534131f00775681d1f2ab1cda1d367d44bb59e8a81f068b7682a1d09cb930c8f",
+            "template_matches": [],
+            "z3_iteration": 382
+          },
+          {
+            "dihedral_order_sha256": "0ef44ed0f624411384d9f0d8c9c1f74cc065fb9b3b1a6377bfb9a26a1b1b7e57",
+            "fresh_model_index": 4,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              18,
+              5,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              14,
+              9,
+              25,
+              27,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              16
+            ],
+            "order_sha256": "ed31cd326dba9bccf553a46452527fc3a58305d52103626dc8350b33f27ea602",
+            "template_matches": [],
+            "z3_iteration": 383
+          },
+          {
+            "dihedral_order_sha256": "28d59e1dd141ceb0a4b4fd0a0d1549491688d223f4b64817417d37ffa7b91299",
+            "fresh_model_index": 5,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              18,
+              5,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              9,
+              25,
+              27,
+              14,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              16
+            ],
+            "order_sha256": "460fe098ed78589e2a971cd2f6d12d678addd0ba4db47fd6a85f7d4cf5cf6d78",
+            "template_matches": [],
+            "z3_iteration": 384
+          },
+          {
+            "dihedral_order_sha256": "19a7b0b61289ca831a8333dac96791dc5c8a9c223e73472d0035a130c18a43a2",
+            "fresh_model_index": 6,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              5,
+              18,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              9,
+              25,
+              27,
+              14,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              16
+            ],
+            "order_sha256": "19a7b0b61289ca831a8333dac96791dc5c8a9c223e73472d0035a130c18a43a2",
+            "template_matches": [],
+            "z3_iteration": 385
+          },
+          {
+            "dihedral_order_sha256": "48f468efdd80ddcbb33f25b1971fdf1d57724ae1a022b18b1d59c9606f53fdec",
+            "fresh_model_index": 7,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              18,
+              5,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              9,
+              25,
+              14,
+              27,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              16
+            ],
+            "order_sha256": "3681a37c3687fefc1f55d8f334310509233aa423fa40c676273357bbe2abebe7",
+            "template_matches": [],
+            "z3_iteration": 386
+          },
+          {
+            "dihedral_order_sha256": "ca23a9e985529ea0ff60d8190a58abb85b2bc218144aa9087218fc684d5644d7",
+            "fresh_model_index": 8,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              18,
+              5,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              9,
+              14,
+              25,
+              27,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              16
+            ],
+            "order_sha256": "d95f453a0eda3db9c4f7640ffcea01b62613265a0b1ab03d36ca19044b426532",
+            "template_matches": [],
+            "z3_iteration": 387
+          },
+          {
+            "dihedral_order_sha256": "dd669495594c6895f21516aae3bf41cf3a5fd68af7cb4b2f59bd53493a7e6e68",
+            "fresh_model_index": 9,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              5,
+              18,
+              12,
+              26,
+              11,
+              19,
+              4,
+              10,
+              24,
+              3,
+              17,
+              2,
+              9,
+              14,
+              25,
+              27,
+              21,
+              6,
+              20,
+              28,
+              13,
+              7,
+              1,
+              15,
+              23,
+              8,
+              22,
+              16
+            ],
+            "order_sha256": "dd669495594c6895f21516aae3bf41cf3a5fd68af7cb4b2f59bd53493a7e6e68",
+            "template_matches": [],
+            "z3_iteration": 388
+          },
+          {
+            "dihedral_order_sha256": "d7d4f3c7d78c51bf8726e3eed4c5c29d902be5236f3782a14ae58496e53a0544",
+            "fresh_model_index": 10,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              11,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              27,
+              16
+            ],
+            "order_sha256": "d7d4f3c7d78c51bf8726e3eed4c5c29d902be5236f3782a14ae58496e53a0544",
+            "template_matches": [],
+            "z3_iteration": 389
+          },
+          {
+            "dihedral_order_sha256": "4494a4835a85a30eb75367c9d308fe3214c582943e1173c89a2c1e382723ff17",
+            "fresh_model_index": 11,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              11,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              16,
+              27
+            ],
+            "order_sha256": "4494a4835a85a30eb75367c9d308fe3214c582943e1173c89a2c1e382723ff17",
+            "template_matches": [],
+            "z3_iteration": 390
+          },
+          {
+            "dihedral_order_sha256": "2e77ae001f608bf6712ac0d09353527ec0622b8eaf1725e5dd9a6842d16d2a68",
+            "fresh_model_index": 12,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              16,
+              11,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              27
+            ],
+            "order_sha256": "2e77ae001f608bf6712ac0d09353527ec0622b8eaf1725e5dd9a6842d16d2a68",
+            "template_matches": [],
+            "z3_iteration": 391
+          },
+          {
+            "dihedral_order_sha256": "205183e8dd3ca7f60749968784e9821e9441af27474a8c35b6265ea00d6cb236",
+            "fresh_model_index": 13,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              16,
+              27,
+              11
+            ],
+            "order_sha256": "d1ccddf0b699989693c1b8b09c69c4bb07fe1f3112203e96e81639dcd68f911f",
+            "template_matches": [],
+            "z3_iteration": 392
+          },
+          {
+            "dihedral_order_sha256": "8e895662a309cfdf9934804d8c4e39fb72ec49444b334dbe64f127b61ebc0801",
+            "fresh_model_index": 14,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              16,
+              11,
+              27
+            ],
+            "order_sha256": "8e895662a309cfdf9934804d8c4e39fb72ec49444b334dbe64f127b61ebc0801",
+            "template_matches": [],
+            "z3_iteration": 393
+          },
+          {
+            "dihedral_order_sha256": "ef7a3a6360ad95f6bbd6e1ac2e5b36039e65d9f3f82213e9d12bd88e4c8b26b4",
+            "fresh_model_index": 15,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              11,
+              16,
+              27
+            ],
+            "order_sha256": "ef7a3a6360ad95f6bbd6e1ac2e5b36039e65d9f3f82213e9d12bd88e4c8b26b4",
+            "template_matches": [],
+            "z3_iteration": 394
+          },
+          {
+            "dihedral_order_sha256": "9c28abcb23c711155bbeeed90aba3aa93c03e880660fbb542eddec4f984dfced",
+            "fresh_model_index": 16,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              11,
+              27,
+              16
+            ],
+            "order_sha256": "67b5e4343b4c458574e94e552691e66198206d86fcea6bc57f106ca4ade07f5a",
+            "template_matches": [],
+            "z3_iteration": 395
+          },
+          {
+            "dihedral_order_sha256": "6be8a2621b4b615b41d8daa4e3f1057b90d9647d90c2404a6750bf3a1ca8ba49",
+            "fresh_model_index": 17,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              27,
+              11,
+              16
+            ],
+            "order_sha256": "f281c4d8ba9f5553175a22b3dd288ecdb98b2bdf73a84d1808ae8b1024cdc36d",
+            "template_matches": [],
+            "z3_iteration": 396
+          },
+          {
+            "dihedral_order_sha256": "d795519e96f9b3b962cff98c8d7c665e457f18002dbad959780f02bddead5626",
+            "fresh_model_index": 18,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              27,
+              16,
+              11
+            ],
+            "order_sha256": "d106c6103a61174cff118aaf21839864e7e9f2045f3219e07bfed33d1780f475",
+            "template_matches": [],
+            "z3_iteration": 397
+          },
+          {
+            "dihedral_order_sha256": "fb0cc7599646b54d5a864c5aefc7779d47108f32616b96702d3ee953fd8a3f20",
+            "fresh_model_index": 19,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              16,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              27,
+              11
+            ],
+            "order_sha256": "3babab96fd429f38819b972826117a811eb65ee35403ca67c840dd4e5d2a8f12",
+            "template_matches": [],
+            "z3_iteration": 398
+          },
+          {
+            "dihedral_order_sha256": "58a9a145d7456908bf26ec8fb7a06fe31dc7e06f7bb055cb69565bd4e1f32134",
+            "fresh_model_index": 20,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              11,
+              16,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              27
+            ],
+            "order_sha256": "58a9a145d7456908bf26ec8fb7a06fe31dc7e06f7bb055cb69565bd4e1f32134",
+            "template_matches": [],
+            "z3_iteration": 399
+          },
+          {
+            "dihedral_order_sha256": "380dfde4419f68f80b213d3e9aba0c9fce7415e5f0f5184d15b09322d7167588",
+            "fresh_model_index": 21,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              16,
+              23,
+              8,
+              22,
+              1,
+              15,
+              9,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6,
+              12,
+              26,
+              5,
+              19,
+              4,
+              11,
+              27
+            ],
+            "order_sha256": "380dfde4419f68f80b213d3e9aba0c9fce7415e5f0f5184d15b09322d7167588",
+            "template_matches": [],
+            "z3_iteration": 400
+          },
+          {
+            "dihedral_order_sha256": "5ef26a638412d64f01cd2e99ed2205d7c80add974f1bc090f7827891e9362617",
+            "fresh_model_index": 22,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              23,
+              8,
+              16,
+              1,
+              15,
+              22,
+              9,
+              27,
+              11,
+              5,
+              19,
+              4,
+              12,
+              26,
+              3,
+              17,
+              25,
+              10,
+              24,
+              2,
+              7,
+              18,
+              20,
+              14,
+              28,
+              13,
+              21,
+              6
+            ],
+            "order_sha256": "32cd9c0bd5dc74c28cf8f65b58b3bca3d7c32e35f644e06bd29d481a62ae460e",
+            "template_matches": [],
+            "z3_iteration": 402
+          },
+          {
+            "dihedral_order_sha256": "ef0ade75e96e62b1ae820576820bdec68b8569992815d4c7d3692cbabf0a7510",
+            "fresh_model_index": 23,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              10,
+              3,
+              25,
+              18,
+              13,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              16,
+              27,
+              9,
+              24
+            ],
+            "order_sha256": "ef0ade75e96e62b1ae820576820bdec68b8569992815d4c7d3692cbabf0a7510",
+            "template_matches": [],
+            "z3_iteration": 481
+          },
+          {
+            "dihedral_order_sha256": "8a084038f44979344b1760ddf827b3ed8da67461ec0f3f25cab6ef2a96c246d1",
+            "fresh_model_index": 24,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              10,
+              3,
+              25,
+              18,
+              13,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              27,
+              16,
+              9,
+              24
+            ],
+            "order_sha256": "8a084038f44979344b1760ddf827b3ed8da67461ec0f3f25cab6ef2a96c246d1",
+            "template_matches": [],
+            "z3_iteration": 482
+          },
+          {
+            "dihedral_order_sha256": "e44a26d10786560e4151ee064984621bb36999b559333428a9dd4ce08017a538",
+            "fresh_model_index": 25,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              10,
+              3,
+              25,
+              18,
+              13,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              16,
+              9,
+              27,
+              24
+            ],
+            "order_sha256": "e44a26d10786560e4151ee064984621bb36999b559333428a9dd4ce08017a538",
+            "template_matches": [],
+            "z3_iteration": 483
+          },
+          {
+            "dihedral_order_sha256": "356e8b047b8cdd3111425ec2a59eb6dba51f31032f9b51648119ce1054062dba",
+            "fresh_model_index": 26,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              10,
+              3,
+              25,
+              13,
+              18,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              16,
+              9,
+              27,
+              24
+            ],
+            "order_sha256": "356e8b047b8cdd3111425ec2a59eb6dba51f31032f9b51648119ce1054062dba",
+            "template_matches": [],
+            "z3_iteration": 484
+          },
+          {
+            "dihedral_order_sha256": "79412ca149c544e49be0e82f85b14842d5042de90172bccb44809a5193782a41",
+            "fresh_model_index": 27,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              10,
+              3,
+              25,
+              13,
+              18,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              16,
+              27,
+              9,
+              24
+            ],
+            "order_sha256": "79412ca149c544e49be0e82f85b14842d5042de90172bccb44809a5193782a41",
+            "template_matches": [],
+            "z3_iteration": 485
+          },
+          {
+            "dihedral_order_sha256": "46dd0b2fbcc22f3e9ff811bad03b28f2f2bc5764a049322185e07bb5127b02b0",
+            "fresh_model_index": 28,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              17,
+              10,
+              3,
+              25,
+              13,
+              18,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              27,
+              16,
+              9,
+              24
+            ],
+            "order_sha256": "46dd0b2fbcc22f3e9ff811bad03b28f2f2bc5764a049322185e07bb5127b02b0",
+            "template_matches": [],
+            "z3_iteration": 486
+          },
+          {
+            "dihedral_order_sha256": "dc6b7551fb9e8da5d3fb5b22452c6b9bf3758de6fd6c2d5ef529d00f90834cf9",
+            "fresh_model_index": 29,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              24,
+              17,
+              10,
+              3,
+              25,
+              13,
+              18,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              16,
+              9,
+              27
+            ],
+            "order_sha256": "dc6b7551fb9e8da5d3fb5b22452c6b9bf3758de6fd6c2d5ef529d00f90834cf9",
+            "template_matches": [],
+            "z3_iteration": 487
+          },
+          {
+            "dihedral_order_sha256": "e5babd20e464ba427dd6d232e9075e9a679804384022c6ac1ec313eb362d9b36",
+            "fresh_model_index": 30,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              24,
+              17,
+              10,
+              3,
+              25,
+              13,
+              18,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              16,
+              27,
+              9
+            ],
+            "order_sha256": "9ef42e2d4320e1545d51cd6c60fffa40becaa39998ade9bf72428359fe01328b",
+            "template_matches": [],
+            "z3_iteration": 488
+          },
+          {
+            "dihedral_order_sha256": "be153209500e6d271bcc0ea3fd049f014082ab95f1b3f6293a7d77eb88d5f5c2",
+            "fresh_model_index": 31,
+            "inverse_pair_audit": {
+              "full_kalmanson_rows_seen": 47502,
+              "inverse_pair_conflicts": 0,
+              "status": "FIXED_ORDER_ESCAPES_TWO_INEQUALITY_KALMANSON_INVERSE_PAIR_FILTER"
+            },
+            "lightweight_filters": {
+              "altman_linear_method": "none",
+              "altman_linear_obstructed": false,
+              "altman_signature_obstructed": false,
+              "survives": true,
+              "vertex_circle_obstructed": false
+            },
+            "order": [
+              0,
+              24,
+              17,
+              10,
+              3,
+              25,
+              13,
+              18,
+              6,
+              28,
+              21,
+              14,
+              2,
+              11,
+              7,
+              4,
+              20,
+              19,
+              5,
+              22,
+              15,
+              26,
+              8,
+              1,
+              23,
+              12,
+              27,
+              16,
+              9
+            ],
+            "order_sha256": "879ac4ad0214b199aab480da399652de2a8c32e603a06fdd8edc2a4bc5f1330a",
+            "template_matches": [],
+            "z3_iteration": 489
+          }
+        ],
+        "random_seed": 20261730,
+        "solver_result": "bounded_after_fresh_inverse_pair_escape_orders",
+        "status": "BOUNDED_FRESH_ORDER_LIMIT_REACHED"
+      },
+      "historical_dihedral_order_count": 24,
+      "historical_order_count": 24,
+      "n": 29,
+      "pattern": "C29_sidon_1_3_7_15"
+    }
+  ],
+  "source_artifact": "data/runs/sparse_full_cone_seeded_compression_2026-07-29/summary.json",
+  "source_sha256": "7abd2868e3bd7fad660dbd76fbfa5167dd15040c72c228b6e032a619618fd211",
+  "status": "BOUNDED_FRESH_STREAM_TEMPLATE_TRANSFER_DIAGNOSTIC",
+  "trust": "EXACT_TEMPLATES_AND_BOUNDED_HISTORY_DISJOINT_ORDER_PROBE",
+  "type": "sparse_full_cone_small_template_fresh_stream_v1"
+}
