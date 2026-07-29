@@ -79,5 +79,5 @@ Replay:
 
 ```bash
 python scripts/exploration/probe_sparse_full_cone_small_templates.py \
-  --check data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-30/summary.json
+  --check data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-29/summary.json
 ```
