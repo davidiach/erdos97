@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 from pathlib import Path
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,7 +21,7 @@ ARTIFACT = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_small_template_fresh_stream_2026-07-30"
+    / "sparse_full_cone_small_template_fresh_stream_2026-07-29"
     / "summary.json"
 )
 
@@ -114,3 +117,36 @@ def test_stored_fresh_stream_artifact_replays_exactly() -> None:
         "verified_exact_affine_template_images": 187,
         "verified_history_disjoint_fresh_orders": 64,
     }
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("status", "FABRICATED"),
+        ("solver_result", "fabricated"),
+        ("iterations", -999),
+        ("random_seed", -999),
+        ("inverse_pair_clause_count", -999),
+    ],
+)
+def test_checker_rejects_fabricated_solver_provenance(
+    field: str,
+    value: object,
+) -> None:
+    module = load_module()
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    mutated = copy.deepcopy(payload)
+    mutated["runs"][0]["fresh_stream"][field] = value
+
+    with pytest.raises(AssertionError):
+        module.check_payload(mutated)
+
+
+def test_checker_rejects_fabricated_model_iteration() -> None:
+    module = load_module()
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    mutated = copy.deepcopy(payload)
+    mutated["runs"][0]["fresh_stream"]["models"][0]["z3_iteration"] = -999
+
+    with pytest.raises(AssertionError, match="model iteration provenance drifted"):
+        module.check_payload(mutated)
