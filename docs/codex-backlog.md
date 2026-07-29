@@ -727,10 +727,16 @@ and must not assume that the finite `n=9` pivot census generalizes.
    0/32. The C25-only follow-up in
    `docs/sparse-full-cone-c25-transfer-cegar.md` then blocks 88 known C25
    orders, verifies 14/16 seed hits on a new probe, and learns eight exact
-   wide residual certificates before its configured limit. Compress and
-   cross-audit those eight residuals before expanding CEGAR further. Stop the
-   current C29 template-mining route. This is still not an all-order
-   obstruction.
+   wide residual certificates before its configured limit. The completed
+   compression in
+   `docs/sparse-full-cone-c25-transfer-residual-compression.md` reduces all
+   eight to exact widths `3`--`9`, verifies 150 affine cross-edges, and finds
+   that the new width-`3` orbit alone covers all eight residual orders plus
+   the same 14/16 probe orders reached by the transferred seeds. The two
+   original probe escapes remain uncovered. Next compare width-`3`-only and
+   all-eight residual augmentation on a new history-disjoint C25 probe before
+   extending certificate learning. Stop the current C29 template-mining
+   route. This is still not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

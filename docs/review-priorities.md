@@ -715,11 +715,18 @@ benchmarks for the larger frontier:
 - use `docs/sparse-full-cone-fresh-template-transfer.md` as the outside-packet
   decision: C25 transfers to 16/24 prior and 16/32 second-stream orders, while
   C29 has zero hits across both outside packets;
-- use `docs/sparse-full-cone-c25-transfer-cegar.md` as the C25-only follow-up:
+- use `docs/sparse-full-cone-c25-transfer-cegar.md` as the first C25-only
+  follow-up:
   transferred seeds cover 14/16 new probe orders and eight seed-escaping
   history-disjoint orders receive exact width-`190`--`200` certificates before
-  the bounded limit. Compress those eight residuals before more CEGAR; keep the
-  current C29 template family stopped;
+  the bounded limit;
+- use `docs/sparse-full-cone-c25-transfer-residual-compression.md` as the
+  exact continuation decision: all eight residuals compress to widths
+  `3`--`9`, the width-`3` orbit alone covers the residual packet and 14/16
+  probe orders, and the same two probe orders remain outside every stored
+  seed orbit. Compare width-`3`-only and all-eight residual augmentation on a
+  new C25 probe before more certificate learning; keep the current C29
+  template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

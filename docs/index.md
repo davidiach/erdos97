@@ -987,6 +987,10 @@ put detailed reconciliation in the canonical synthesis.
 - [`sparse-full-cone-c25-transfer-cegar.md`](sparse-full-cone-c25-transfer-cegar.md):
   C25-only history-disjoint exact-clause CEGAR seeded by the transferred
   width-3, width-5, and width-14 circuits; bounded at eight new certificates.
+- [`sparse-full-cone-c25-transfer-residual-compression.md`](sparse-full-cone-c25-transfer-residual-compression.md):
+  exact compression of all eight C25 residual certificates to widths 3--9;
+  one new width-3 orbit covers the full residual packet while the two original
+  probe escapes remain outside all stored seed orbits.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.
