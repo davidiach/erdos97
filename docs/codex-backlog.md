@@ -724,7 +724,11 @@ and must not assume that the finite `n=9` pivot census generalizes.
    transfer audit in `docs/sparse-full-cone-fresh-template-transfer.md` then
    finds an exact pattern split: the C25 templates cover 16/24 prior orders and
    16/32 second-stream orders, while the C29 width-`7` template covers 0/24 and
-   0/32. Continue with a C25-only exact clause-seeded CEGAR run and stop the
+   0/32. The C25-only follow-up in
+   `docs/sparse-full-cone-c25-transfer-cegar.md` then blocks 88 known C25
+   orders, verifies 14/16 seed hits on a new probe, and learns eight exact
+   wide residual certificates before its configured limit. Compress and
+   cross-audit those eight residuals before expanding CEGAR further. Stop the
    current C29 template-mining route. This is still not an all-order
    obstruction.
    The C19 order-CNF export

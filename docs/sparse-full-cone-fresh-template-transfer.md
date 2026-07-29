@@ -87,12 +87,13 @@ packets have zero hits. It therefore yields different decisions:
 - C25: `CONTINUE_EXACT_TEMPLATE_TRANSFER`;
 - C29: `STOP_PACKET_SPECIFIC_TEMPLATE_MINING`.
 
-This is a bounded search-policy decision, not an all-order conclusion. For C25,
-the next useful experiment is a C25-only exact clause-seeded CEGAR run using
-the transferable width-3 and width-5 orbits, with the width-14 orbit retained
-as a secondary prior-packet clause. For C29, do not spend another objective or
-fresh-stream budget on the current template family unless a new structural
-reason appears.
+This is a bounded search-policy decision, not an all-order conclusion. The C25
+target is completed in `docs/sparse-full-cone-c25-transfer-cegar.md`: the
+transferred seeds cover 14/16 new history-disjoint probe orders, and eight
+seed-escaping orders all receive exact wide certificates before the configured
+limit. The next target is bounded compression/cross-coverage of those eight
+residual certificates. For C29, do not spend another objective or fresh-stream
+budget on the current template family unless a new structural reason appears.
 
 Replay:
 
