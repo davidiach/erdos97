@@ -62,7 +62,7 @@ DEFAULT_SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_c25_transfer_cegar_2026-08-03"
+    / "sparse_full_cone_c25_transfer_cegar_2026-07-29"
     / "summary.json"
 )
 DEFAULT_TRIAL_BUDGETS = (32, 32, 32, 32, 64, 64, 32, 112)
@@ -520,28 +520,86 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         raise AssertionError("C25 residual target packet drifted")
     if str(run["pattern"]) != PATTERN:
         raise AssertionError("C25 residual pattern drifted")
+    n, offsets = PATTERNS[PATTERN]
+    if int(run["n"]) != n or run["circulant_offsets"] != list(offsets):
+        raise AssertionError("C25 residual circulant metadata drifted")
 
     source_models = {
         int(model["model_index"]): model for model in source["seeded_cegar"]["models"]
     }
+    if len(trial_budgets) != len(source_models):
+        raise AssertionError("C25 residual trial-budget count drifted")
+    rows = run["compressed_models"]
+    if len(rows) != len(source_models):
+        raise AssertionError("C25 compressed residual source count drifted")
     seed_hashes = active_seed_orbit_hashes(source)
     checked_rows = []
     verified_certificates = 0
     verified_images = 0
-    for row in run["compressed_models"]:
+    seen_model_indices: set[int] = set()
+    for row in rows:
         model_index = int(row["source_model_index"])
+        if model_index in seen_model_indices or model_index not in source_models:
+            raise AssertionError("C25 invalid or duplicate residual source model index")
+        seen_model_indices.add(model_index)
         source_model = source_models[model_index]
+        source_target_id = f"seeded:{model_index}"
+        if row["source_target_id"] != source_target_id:
+            raise AssertionError("C25 residual source target id drifted")
         source_full = source_model["full_kalmanson"]
         order = [int(label) for label in row["order"]]
         if order != [int(label) for label in source_model["order"]]:
             raise AssertionError("C25 residual compression source order drifted")
         if row["source_certificate_sha256"] != source_full["certificate_sha256"]:
             raise AssertionError("C25 residual source certificate hash drifted")
-        if int(row["random_objective_trial_budget"]) != trial_budgets[model_index]:
+        if int(row["source_positive_inequalities"]) != int(
+            source_full["positive_inequalities"]
+        ):
+            raise AssertionError("C25 residual source support drifted")
+        trial_budget = trial_budgets[model_index]
+        if int(row["random_objective_trial_budget"]) != trial_budget:
             raise AssertionError("C25 residual trial budget drifted")
+        if int(row["trial_count"]) != trial_budget:
+            raise AssertionError("C25 residual trial count drifted")
         expected_seed = base_seed + model_index * model_seed_stride
         if int(row["random_objective_seed"]) != expected_seed:
             raise AssertionError("C25 residual objective seed drifted")
+        histogram = {
+            int(size): int(count)
+            for size, count in row["numerical_support_size_histogram"].items()
+        }
+        successful_trials = int(row["successful_numerical_trials"])
+        if sum(histogram.values()) != successful_trials or not (
+            0 <= successful_trials <= trial_budget
+        ):
+            raise AssertionError("C25 residual numerical trial count drifted")
+        expected_min = min(histogram) if histogram else None
+        expected_max = max(histogram) if histogram else None
+        if row["numerical_support_size_min"] != expected_min:
+            raise AssertionError("C25 residual numerical support minimum drifted")
+        if row["numerical_support_size_max"] != expected_max:
+            raise AssertionError("C25 residual numerical support maximum drifted")
+        improvements = row["exact_improvements"]
+        previous_trial = -1
+        previous_width = int(row["source_unique_ordered_quad_count"])
+        for improvement in improvements:
+            trial = int(improvement["trial"])
+            width = int(improvement["unique_ordered_quad_count"])
+            if not previous_trial < trial < trial_budget:
+                raise AssertionError("C25 residual improvement trial drifted")
+            if int(improvement["seed"]) != expected_seed + trial:
+                raise AssertionError("C25 residual improvement seed drifted")
+            if not 0 < width < previous_width:
+                raise AssertionError("C25 residual improvement width drifted")
+            if int(improvement["positive_inequalities"]) <= 0:
+                raise AssertionError("C25 residual improvement support drifted")
+            previous_trial = trial
+            previous_width = width
+        expected_best_trial = previous_trial if improvements else None
+        if row["best_trial"] != expected_best_trial:
+            raise AssertionError("C25 residual best trial drifted")
+        if previous_width != int(row["compressed_unique_ordered_quad_count"]):
+            raise AssertionError("C25 residual terminal improvement width drifted")
 
         certificate = row["compressed_certificate"]
         checked = check_certificate_dict(certificate)
@@ -549,19 +607,28 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             raise AssertionError("C25 compressed residual certificate failed")
         if stable_json_sha256(certificate) != row["compressed_certificate_sha256"]:
             raise AssertionError("C25 compressed residual certificate hash drifted")
+        if int(row["compressed_positive_inequalities"]) != checked.positive_inequalities:
+            raise AssertionError("C25 compressed residual support drifted")
         quads = certificate_order_quads(certificate, order)
         if len(quads) != int(row["compressed_unique_ordered_quad_count"]):
             raise AssertionError("C25 compressed residual width drifted")
         source_quads = certificate_order_quads(source_full["certificate"], order)
         if len(source_quads) != int(row["source_unique_ordered_quad_count"]):
             raise AssertionError("C25 residual source width drifted")
-        if len(source_quads) - len(quads) != int(row["quad_reduction"]):
+        reduction = len(source_quads) - len(quads)
+        if reduction != int(row["quad_reduction"]):
             raise AssertionError("C25 residual compression reduction drifted")
+        if float(row["quad_reduction_fraction"]) != reduction / len(source_quads):
+            raise AssertionError("C25 residual reduction fraction drifted")
         circuit_audit = positive_circuit_audit(certificate)
         if circuit_audit != row["positive_circuit_audit"]:
             raise AssertionError("C25 residual circuit audit drifted")
         if not circuit_audit["positive_circuit_verified"]:
             raise AssertionError("C25 compressed residual is not a circuit")
+        if bool(row["support_is_exact_positive_circuit"]) != bool(
+            circuit_audit["positive_circuit_verified"]
+        ):
+            raise AssertionError("C25 residual circuit flag drifted")
 
         orbit = build_clause_orbit(PATTERN, model_index, certificate)
         if row["affine_clause_orbit"] != orbit.summary():
@@ -580,7 +647,6 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         }
         if row["quotient_vector_support"] != expected_vector_support:
             raise AssertionError("C25 residual quotient-vector support drifted")
-        source_target_id = f"seeded:{model_index}"
         expected_coverage = clause_coverage(
             certificate,
             orbit,
@@ -593,6 +659,8 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         verified_certificates += 1
         verified_images += orbit.affine_map_count
 
+    if seen_model_indices != set(source_models):
+        raise AssertionError("C25 compressed residual source set drifted")
     if run["compression_summary"] != compression_summary(
         checked_rows, small_circuit_max_width=small_width
     ):

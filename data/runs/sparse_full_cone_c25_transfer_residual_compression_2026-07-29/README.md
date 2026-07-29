@@ -31,16 +31,17 @@ Generate:
 
 ```bash
 python scripts/exploration/compress_sparse_full_cone_c25_transfer_residuals.py \
-  --out data/runs/sparse_full_cone_c25_transfer_residual_compression_2026-08-04/summary.json
+  --out data/runs/sparse_full_cone_c25_transfer_residual_compression_2026-07-29/summary.json
 ```
 
-Replay without rerunning the LP objective search:
+Replay without rerunning the LP objective search; the checker requires one
+compressed row per source and validates the stored trial provenance:
 
 ```bash
 python scripts/exploration/compress_sparse_full_cone_c25_transfer_residuals.py \
-  --check data/runs/sparse_full_cone_c25_transfer_residual_compression_2026-08-04/summary.json
+  --check data/runs/sparse_full_cone_c25_transfer_residual_compression_2026-07-29/summary.json
 ```
 
 SHA-256 of `summary.json`:
 
-`4659d5478983a21c8108c63b2f03b9d3165ca76c485db1fd9baac36bdda01a40`
+`e90b7af7af1bac40d61606b6e9f7d400232bbe6d648860e5cc0d8519b2536dea`

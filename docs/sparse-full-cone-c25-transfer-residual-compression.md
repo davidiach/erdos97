@@ -35,7 +35,10 @@ circuit for each source:
 | 6 | 191 | 32 | 31 | 6 |
 | 7 | 199 | 112 | 105 | 4 |
 
-All eight compressed certificates are exact positive circuits. Their
+The checker requires exactly one compressed row for each of the eight sources
+and validates trial counts, seeds, improvement history, numerical-support
+histograms, and exact certificate summaries. All eight compressed certificates
+are exact positive circuits. Their
 canonical clause-orbit hashes are distinct from the three active transferred
 seed orbits. The selected-distance quotient admits translations only, so the
 eight circuits produce 200 exact affine images.
@@ -89,5 +92,5 @@ Replay:
 
 ```bash
 python scripts/exploration/compress_sparse_full_cone_c25_transfer_residuals.py \
-  --check data/runs/sparse_full_cone_c25_transfer_residual_compression_2026-08-04/summary.json
+  --check data/runs/sparse_full_cone_c25_transfer_residual_compression_2026-07-29/summary.json
 ```

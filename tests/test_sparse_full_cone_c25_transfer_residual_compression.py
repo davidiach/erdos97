@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 import sys
 from pathlib import Path
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,14 +29,14 @@ SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_c25_transfer_cegar_2026-08-03"
+    / "sparse_full_cone_c25_transfer_cegar_2026-07-29"
     / "summary.json"
 )
 ARTIFACT = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_c25_transfer_residual_compression_2026-08-04"
+    / "sparse_full_cone_c25_transfer_residual_compression_2026-07-29"
     / "summary.json"
 )
 
@@ -129,3 +132,23 @@ def test_stored_c25_residual_compression_replays_exactly() -> None:
         "small_or_reusable_source_count": 8,
         "decision": "CONTINUE_C25_CLAUSE_EXPANSION_WITH_COMPRESSED_RESIDUALS",
     }
+
+
+def test_checker_rejects_duplicate_residual_source_model() -> None:
+    payload = artifact_payload()
+    mutated = copy.deepcopy(payload)
+    rows = mutated["run"]["compressed_models"]
+    rows[1] = copy.deepcopy(rows[0])
+
+    with pytest.raises(AssertionError, match="duplicate residual source model index"):
+        COMPRESSION.check_payload(mutated)
+
+
+def test_checker_rejects_fabricated_search_provenance() -> None:
+    payload = artifact_payload()
+    mutated = copy.deepcopy(payload)
+    row = mutated["run"]["compressed_models"][0]
+    row["best_trial"] = -999
+
+    with pytest.raises(AssertionError, match="best trial drifted"):
+        COMPRESSION.check_payload(mutated)

@@ -4416,8 +4416,8 @@
       }
     ]
   },
-  "source_artifact": "data/runs/sparse_full_cone_c25_transfer_cegar_2026-08-03/summary.json",
-  "source_sha256": "8ca4933ce67a64706ffeb111627ec1f6d024673ec9f7a2a021d1521f50f5d62a",
+  "source_artifact": "data/runs/sparse_full_cone_c25_transfer_cegar_2026-07-29/summary.json",
+  "source_sha256": "7d61f34c8bc0e96b9ce70a9021f735f0cbdbe93647574239c0234aa5bb48e5c4",
   "status": "BOUNDED_C25_RESIDUAL_COMPRESSION_AND_REUSE_DIAGNOSTIC",
   "trust": "EXACT_COMPRESSED_CERTIFICATES_IN_BOUNDED_RANDOMIZED_SEARCH",
   "type": "sparse_full_cone_c25_transfer_residual_compression_v1"
