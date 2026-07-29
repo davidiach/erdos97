@@ -76,17 +76,16 @@ complete clause geometry, not literal reuse of quotient vectors.
 
 The predeclared continuation rule fires: all eight residual circuits have
 width at most 9, all eight reuse affinely across residual orders, and every
-orbit reaches probe orders. The next bounded experiment should extend the C25
-history-disjoint order search, while preserving the two probe escapes as a
-counterfactual control:
+orbit reaches probe orders. The completed comparison in
+`docs/sparse-full-cone-c25-residual-seed-augmentation.md` blocks all 112 known
+orders and finds that the original transferred seeds already cover all 32 new
+probe orders. The width-3 residual and the other seven residuals add zero
+marginally covered orders, so residual seed augmentation stops.
 
-1. block all 112 known C25 orders under rotation and reversal;
-2. compare the original three transferred seeds plus the new width-3 orbit
-   against the full augmentation by all eight compressed residual orbits;
-3. measure marginal seed coverage on a new probe before learning more
-   full-cone certificates;
-4. stop on any unresolved full-cone model, and never interpret a bounded or
-   history-blocked solver result as an all-order conclusion.
+The next exact targets are the two original probe escapes `probe:0` and
+`probe:1`, which remain outside all 11 stored seed orbits. Screen those two
+fixed orders against the full Kalmanson cone before extending order-search
+limits.
 
 Replay:
 
