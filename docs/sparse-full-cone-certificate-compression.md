@@ -59,6 +59,12 @@ escape orders, so the earlier C29 cross-model reuse did not persist in that
 bounded stream. The seeded solvers learned eight new exact certificate orbits
 per pattern and again stopped at a certificate limit.
 
+The second-generation compression of those sixteen newly learned
+certificates is recorded in
+`docs/sparse-full-cone-seeded-certificate-compression.md`. Seven compress to
+exact `3`--`8`-quad circuits. They show substantial reuse inside the seeded
+order clusters but zero coverage of the 32 counterfactual probe orders.
+
 Replay:
 
 ```bash

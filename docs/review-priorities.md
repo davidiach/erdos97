@@ -697,6 +697,10 @@ benchmarks for the larger frontier:
   the two-inequality inverse-pair filter;
 - try to turn full-cone fixed-order certificates into reusable order-search
   clauses for larger sparse/Sidon patterns;
+- use `docs/sparse-full-cone-seeded-certificate-compression.md` as the bounded
+  C25/C29 reuse diagnostic: seven exact 3--8-quad circuits cover seeded-order
+  clusters but none of 32 counterfactual probe orders, so transfer beyond that
+  cluster remains open;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

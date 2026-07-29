@@ -56,13 +56,15 @@ size (`25` or `29`), and all `16` new canonical orbit hashes are distinct.
 Both searches stopped at the configured eight-certificate limit, not at
 UNSAT.
 
-## Next target
+## Compression follow-up
 
-Compress the `16` new certificates, then measure the compressed clauses across
-all `48` stored fresh orders (the `32` probe orders plus `16` seeded models).
-Because raw seed reuse was zero in the fresh probe, prioritize shared
-quotient-vector supports and unions of small circuits instead of assuming that
-one large certificate orbit will recur.
+That target is completed in
+`docs/sparse-full-cone-seeded-certificate-compression.md`. Seven of the sixteen
+new certificates compress to exact `3`--`8`-quad circuits. Those small clauses
+produce `19` C25 and `21` C29 translation-orbit cross-coverage edges inside
+the seeded model packets, but still cover none of the 32 counterfactual probe
+orders. Quotient-vector overlap is sparse and has maximum certificate
+frequency two.
 
 Replay:
 
