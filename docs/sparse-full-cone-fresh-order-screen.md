@@ -70,5 +70,5 @@ Replay:
 
 ```bash
 python scripts/exploration/screen_sparse_full_cone_fresh_orders.py \
-  --check data/runs/sparse_full_cone_fresh_order_screen_2026-07-31/summary.json
+  --check data/runs/sparse_full_cone_fresh_order_screen_2026-07-29/summary.json
 ```

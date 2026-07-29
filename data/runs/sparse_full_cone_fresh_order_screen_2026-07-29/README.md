@@ -1,4 +1,4 @@
-# Sparse full-cone fresh-order screen (2026-07-31)
+# Sparse full-cone fresh-order screen (2026-07-29)
 
 `summary.json` stores an exact full-Kalmanson-cone classification of the 63
 fresh C25/C29 orders that survive all lightweight filters in the source
@@ -33,7 +33,7 @@ Replay:
 
 ```bash
 python scripts/exploration/screen_sparse_full_cone_fresh_orders.py \
-  --check data/runs/sparse_full_cone_fresh_order_screen_2026-07-31/summary.json
+  --check data/runs/sparse_full_cone_fresh_order_screen_2026-07-29/summary.json
 ```
 
 This is bounded fixed-pattern, fixed-order evidence. It is not an all-order

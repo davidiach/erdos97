@@ -3090,7 +3090,7 @@
         "python",
         "scripts/exploration/screen_sparse_full_cone_fresh_orders.py",
         "--check",
-        "data/runs/sparse_full_cone_fresh_order_screen_2026-07-31/summary.json"
+        "data/runs/sparse_full_cone_fresh_order_screen_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay exact positive full-Kalmanson-cone certificates for all 63 fresh C25/C29 lightweight-filter survivors, with exact Gordan-alternative separator replay for any stored no-circuit case. Fixed patterns and fixed orders only; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }

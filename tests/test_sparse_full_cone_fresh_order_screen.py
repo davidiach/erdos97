@@ -10,14 +10,14 @@ SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_small_template_fresh_stream_2026-07-30"
+    / "sparse_full_cone_small_template_fresh_stream_2026-07-29"
     / "summary.json"
 )
 ARTIFACT = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_order_screen_2026-07-31"
+    / "sparse_full_cone_fresh_order_screen_2026-07-29"
     / "summary.json"
 )
 
