@@ -3120,7 +3120,7 @@
         "python",
         "scripts/exploration/run_sparse_full_cone_c25_transfer_cegar.py",
         "--check",
-        "data/runs/sparse_full_cone_c25_transfer_cegar_2026-08-03/summary.json"
+        "data/runs/sparse_full_cone_c25_transfer_cegar_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay three transferred exact C25 seed certificates, 88 blocked historical order identities, 16 history-disjoint counterfactual probe orders, eight newly learned exact full-cone certificates, and 275 exact affine certificate images. The run stops at a configured certificate limit after history blocking; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }

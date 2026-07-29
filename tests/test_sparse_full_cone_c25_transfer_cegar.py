@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 import sys
 from pathlib import Path
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,14 +24,14 @@ SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_template_transfer_2026-08-02"
+    / "sparse_full_cone_fresh_template_transfer_2026-07-29"
     / "summary.json"
 )
 ARTIFACT = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_c25_transfer_cegar_2026-08-03"
+    / "sparse_full_cone_c25_transfer_cegar_2026-07-29"
     / "summary.json"
 )
 
@@ -102,3 +105,27 @@ def test_stored_c25_transfer_cegar_replays_exactly() -> None:
             "BOUNDED_C25_TRANSFER_SEEDED_CERTIFICATE_LIMIT_REACHED"
         ),
     }
+
+
+def test_checker_rejects_fabricated_probe_provenance() -> None:
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    mutated = copy.deepcopy(payload)
+    probe = mutated["counterfactual_probe"]
+    probe["status"] = "FABRICATED"
+    probe["solver_result"] = "fabricated"
+    probe["iterations"] = -999
+    probe["inverse_pair_clause_count"] = -999
+    probe["models"][0]["probe_model_index"] = -999
+
+    with pytest.raises(AssertionError):
+        C25.check_payload(mutated)
+
+
+def test_checker_rejects_fabricated_certificate_summary() -> None:
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    mutated = copy.deepcopy(payload)
+    full = mutated["seeded_cegar"]["models"][0]["full_kalmanson"]
+    full["positive_inequalities"] = -999
+
+    with pytest.raises(AssertionError, match="positive_inequalities drifted"):
+        C25.check_payload(mutated)

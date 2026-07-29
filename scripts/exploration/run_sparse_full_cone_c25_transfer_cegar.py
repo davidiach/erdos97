@@ -83,7 +83,7 @@ DEFAULT_SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_template_transfer_2026-08-02"
+    / "sparse_full_cone_fresh_template_transfer_2026-07-29"
     / "summary.json"
 )
 
@@ -584,6 +584,23 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         raise AssertionError("C25 first fresh stream hash drifted")
     source = json.loads(source_path.read_text(encoding="utf-8"))
     first = json.loads(first_path.read_text(encoding="utf-8"))
+    configuration = payload["configuration"]
+    probe_order_limit = int(configuration["probe_order_limit"])
+    probe_max_iterations = int(configuration["probe_max_iterations"])
+    full_certificate_limit = int(configuration["full_certificate_limit"])
+    max_iterations = int(configuration["max_iterations"])
+    conflict_cap = int(configuration["conflict_cap"])
+    n, offsets = PATTERNS[PATTERN]
+    if payload["pattern"] != PATTERN or configuration["pattern"] != PATTERN:
+        raise AssertionError("C25 pattern metadata drifted")
+    if int(payload["n"]) != n or payload["circulant_offsets"] != offsets:
+        raise AssertionError("C25 circulant metadata drifted")
+    if configuration["history_equivalence"] != "cyclic rotation and reversal":
+        raise AssertionError("C25 history equivalence drifted")
+    if configuration["primary_seed_widths"] != [3, 5]:
+        raise AssertionError("C25 primary seed selection drifted")
+    if configuration["secondary_seed_widths"] != [14]:
+        raise AssertionError("C25 secondary seed selection drifted")
     expected_seed_records, seed_orbits = c25_seed_packet(source)
     if payload["seed_templates"] != expected_seed_records:
         raise AssertionError("C25 transferred seed packet drifted")
@@ -614,11 +631,25 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         ):
             raise AssertionError(f"C25 {section} history count drifted")
 
-    n, offsets = PATTERNS[PATTERN]
+    probe = payload["counterfactual_probe"]
+    probe_models = probe["models"]
+    probe_iterations = int(probe["iterations"])
+    if not 1 <= probe_iterations <= probe_max_iterations:
+        raise AssertionError("C25 probe iteration count drifted")
+    probe_inverse_count = int(probe["inverse_pair_clause_count"])
+    if not 0 <= probe_inverse_count <= probe_iterations * conflict_cap:
+        raise AssertionError("C25 probe inverse-clause count drifted")
+
     verified_probe_orders = 0
     seen_probe = set(history_keys)
-    probe_models = payload["counterfactual_probe"]["models"]
-    for model in probe_models:
+    previous_probe_iteration = 0
+    for expected_model_index, model in enumerate(probe_models):
+        if int(model["probe_model_index"]) != expected_model_index:
+            raise AssertionError("C25 probe model index drifted")
+        z3_iteration = int(model["z3_iteration"])
+        if not previous_probe_iteration < z3_iteration <= probe_iterations:
+            raise AssertionError("C25 probe iteration provenance drifted")
+        previous_probe_iteration = z3_iteration
         order = check_order_record(model, n=n, offsets=offsets)
         key = dihedral_order_key(order)
         if key in seen_probe:
@@ -627,10 +658,29 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         if model["seed_orbit_matches"] != clause_matches(order, seed_orbits):
             raise AssertionError("C25 probe seed matches drifted")
         verified_probe_orders += 1
-    if int(payload["counterfactual_probe"]["inverse_pair_escape_order_count"]) != len(
-        probe_models
-    ):
+    if int(probe["inverse_pair_escape_order_count"]) != len(probe_models):
         raise AssertionError("C25 probe order count drifted")
+    if len(probe_models) >= probe_order_limit:
+        if len(probe_models) != probe_order_limit:
+            raise AssertionError("C25 probe order limit drifted")
+        if probe["status"] != "BOUNDED_HISTORY_DISJOINT_PROBE_ORDER_LIMIT_REACHED":
+            raise AssertionError("C25 probe bounded status drifted")
+        if probe["solver_result"] != "bounded_after_inverse_pair_escape_models":
+            raise AssertionError("C25 probe bounded result drifted")
+        if probe_iterations != previous_probe_iteration:
+            raise AssertionError("C25 probe terminal iteration drifted")
+        if probe_inverse_count < probe_iterations - len(probe_models):
+            raise AssertionError("C25 probe inverse-clause provenance drifted")
+    elif probe_iterations == probe_max_iterations:
+        if probe["status"] != "BOUNDED_HISTORY_DISJOINT_PROBE_ITERATION_LIMIT":
+            raise AssertionError("C25 probe iteration-limit status drifted")
+        if probe["solver_result"] != "iteration_limit":
+            raise AssertionError("C25 probe iteration-limit result drifted")
+    elif probe["status"] == "HISTORY_DISJOINT_PROBE_SOLVER_UNSAT":
+        if probe["solver_result"] != "unsat":
+            raise AssertionError("C25 probe unsat result drifted")
+    elif probe["status"] != "UNKNOWN_HISTORY_DISJOINT_PROBE_SMT_RESULT":
+        raise AssertionError("C25 probe termination status drifted")
     if payload["counterfactual_seed_coverage"] != probe_coverage_summary(
         probe_models, seed_orbits
     ):
@@ -641,19 +691,52 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         unique_clauses(seed_orbits)
     ):
         raise AssertionError("C25 active seed clause count drifted")
+    seeded_iterations = int(seeded["iterations"])
+    if not 1 <= seeded_iterations <= max_iterations:
+        raise AssertionError("C25 seeded iteration count drifted")
+    initial_inverse_count = int(seeded["initial_probe_inverse_clause_count"])
+    final_inverse_count = int(seeded["final_inverse_pair_clause_count"])
+    if initial_inverse_count != probe_inverse_count:
+        raise AssertionError("C25 seeded initial inverse-clause count drifted")
+    if not initial_inverse_count <= final_inverse_count <= (
+        initial_inverse_count + seeded_iterations * conflict_cap
+    ):
+        raise AssertionError("C25 seeded final inverse-clause count drifted")
+
     learned_clauses: set[FullClause] = set()
     seen_seeded = set(history_keys)
     verified_certificates = 0
     verified_images = sum(orbit.affine_map_count for orbit in seed_orbits)
-    for model in payload["seeded_cegar"]["models"]:
+    previous_seeded_iteration = 0
+    previous_discovery_clause_count = initial_inverse_count
+    seeded_models = seeded["models"]
+    for expected_model_index, model in enumerate(seeded_models):
+        if int(model["model_index"]) != expected_model_index:
+            raise AssertionError("C25 seeded model index drifted")
+        z3_iteration = int(model["z3_iteration"])
+        if not previous_seeded_iteration < z3_iteration <= seeded_iterations:
+            raise AssertionError("C25 seeded iteration provenance drifted")
+        previous_seeded_iteration = z3_iteration
+        discovery_clause_count = int(model["inverse_clause_count_at_discovery"])
+        if not previous_discovery_clause_count <= discovery_clause_count <= final_inverse_count:
+            raise AssertionError("C25 seeded inverse-clause provenance drifted")
+        previous_discovery_clause_count = discovery_clause_count
         order = check_order_record(model, n=n, offsets=offsets)
         key = dihedral_order_key(order)
         if key in seen_seeded:
             raise AssertionError("C25 seeded order is not history-disjoint")
         seen_seeded.add(key)
-        if clause_matches(order, seed_orbits):
+        expected_seed_matches = clause_matches(order, seed_orbits)
+        if model["seed_orbit_matches"] != expected_seed_matches:
+            raise AssertionError("C25 seeded seed matches drifted")
+        if expected_seed_matches:
             raise AssertionError("C25 seeded order matches a transferred seed")
-        if any(order_satisfies_quads(order, clause) for clause in learned_clauses):
+        prior_matches = sum(
+            order_satisfies_quads(order, clause) for clause in learned_clauses
+        )
+        if int(model["prior_learned_orbit_clause_matches"]) != prior_matches:
+            raise AssertionError("C25 prior learned match count drifted")
+        if prior_matches:
             raise AssertionError("C25 seeded order matches a prior learned clause")
         full = model["full_kalmanson"]
         certificate = full.get("certificate")
@@ -662,6 +745,16 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         checked = check_certificate_dict(certificate)
         if not checked.zero_sum_verified:
             raise AssertionError("C25 learned certificate failed exact replay")
+        expected_full_summary = {
+            "status": checked.status,
+            "positive_inequalities": checked.positive_inequalities,
+            "weight_sum": checked.weight_sum,
+            "max_weight": checked.max_weight,
+            "zero_sum_verified": checked.zero_sum_verified,
+        }
+        for field, value in expected_full_summary.items():
+            if full[field] != value:
+                raise AssertionError(f"C25 learned certificate {field} drifted")
         if stable_json_sha256(certificate) != full["certificate_sha256"]:
             raise AssertionError("C25 learned certificate hash drifted")
         quads = certificate_order_quads(certificate, order)
@@ -686,6 +779,30 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         raise AssertionError("C25 learned certificate count drifted")
     if int(seeded["new_unique_affine_orbit_clause_count"]) != len(learned_clauses):
         raise AssertionError("C25 final learned clause count drifted")
+    if verified_certificates >= full_certificate_limit:
+        if verified_certificates != full_certificate_limit:
+            raise AssertionError("C25 seeded certificate limit drifted")
+        if len(seeded_models) != verified_certificates:
+            raise AssertionError("C25 seeded model count drifted")
+        if seeded["status"] != "BOUNDED_C25_TRANSFER_SEEDED_CERTIFICATE_LIMIT_REACHED":
+            raise AssertionError("C25 seeded bounded status drifted")
+        if seeded["solver_result"] != "bounded_after_new_exact_certificates":
+            raise AssertionError("C25 seeded bounded result drifted")
+        if seeded_iterations != previous_seeded_iteration:
+            raise AssertionError("C25 seeded terminal iteration drifted")
+    elif seeded_iterations == max_iterations:
+        if seeded["status"] != "BOUNDED_HISTORY_DISJOINT_SEEDED_CEGAR_ITERATION_LIMIT":
+            raise AssertionError("C25 seeded iteration-limit status drifted")
+        if seeded["solver_result"] != "iteration_limit":
+            raise AssertionError("C25 seeded iteration-limit result drifted")
+    elif seeded["status"] == "REVIEW_PENDING_BOUNDED_HISTORY_DISJOINT_SOLVER_UNSAT":
+        if seeded["solver_result"] != "unsat":
+            raise AssertionError("C25 seeded unsat result drifted")
+    elif seeded["status"] == "NO_EXACT_FULL_CONE_CERTIFICATE_FOUND_FOR_C25_MODEL":
+        if seeded["solver_result"] != "sat" or len(seeded_models) != verified_certificates + 1:
+            raise AssertionError("C25 seeded unresolved result drifted")
+    elif seeded["status"] != "UNKNOWN_HISTORY_DISJOINT_SEEDED_SMT_RESULT":
+        raise AssertionError("C25 seeded termination status drifted")
 
     return {
         "status": "OK",
