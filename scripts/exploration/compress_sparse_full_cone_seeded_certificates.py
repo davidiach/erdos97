@@ -367,17 +367,30 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
 
 
 def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
+    if payload["type"] != "sparse_full_cone_seeded_clause_compression_v1":
+        raise AssertionError("seeded compression artifact type drifted")
     source_path = ROOT / str(payload["source_artifact"])
     if file_sha256(source_path) != str(payload["source_sha256"]):
         raise AssertionError("source seeded-CEGAR artifact hash drifted")
     source = json.loads(source_path.read_text(encoding="utf-8"))
     source_by_pattern = {str(run["pattern"]): run for run in source["runs"]}
+    source_pattern_indices = {
+        str(run["pattern"]): index for index, run in enumerate(source["runs"])
+    }
+    configuration = payload["configuration"]
+    base_seed = int(configuration["seed"])
+    pattern_stride = int(configuration["per_pattern_seed_stride"])
+    model_stride = int(configuration["per_model_seed_stride"])
     verified_certificates = 0
     verified_affine_images = 0
     verified_target_orders = 0
+    seen_patterns: set[str] = set()
 
     for run in payload["runs"]:
         name = str(run["pattern"])
+        if name in seen_patterns or name not in source_by_pattern:
+            raise AssertionError(f"invalid or duplicate compression pattern: {name}")
+        seen_patterns.add(name)
         source_run = source_by_pattern[name]
         expected_targets = target_orders(source_run)
         if run["target_orders"] != expected_targets:
@@ -387,13 +400,40 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             int(model["model_index"]): model
             for model in source_run["seeded_cegar"]["models"]
         }
+        rows = run["compressed_models"]
+        if len(rows) != len(source_models):
+            raise AssertionError(f"{name} compressed source count drifted")
+        seen_model_indices: set[int] = set()
         checked_rows = []
-        for row in run["compressed_models"]:
+        for row in rows:
             model_index = int(row["source_model_index"])
+            if model_index in seen_model_indices or model_index not in source_models:
+                raise AssertionError(f"{name} invalid or duplicate source model index")
+            seen_model_indices.add(model_index)
             source_model = source_models[model_index]
             order = [int(label) for label in row["order"]]
             if order != [int(label) for label in source_model["order"]]:
                 raise AssertionError(f"{name} compression source order drifted")
+            source_target_id = f"seeded:{model_index}"
+            if row["source_target_id"] != source_target_id:
+                raise AssertionError(f"{name} source target id drifted")
+            expected_seed = (
+                base_seed
+                + source_pattern_indices[name] * pattern_stride
+                + model_index * model_stride
+            )
+            if int(row["random_objective_seed"]) != expected_seed:
+                raise AssertionError(f"{name} random objective seed drifted")
+
+            source_certificate = source_model["full_kalmanson"]["certificate"]
+            source_quads = certificate_order_quads(source_certificate, order)
+            if int(source_model["full_kalmanson"]["positive_inequalities"]) != int(
+                row["source_positive_inequalities"]
+            ):
+                raise AssertionError(f"{name} source certificate support drifted")
+            if len(source_quads) != int(row["source_unique_ordered_quad_count"]):
+                raise AssertionError(f"{name} source certificate width drifted")
+
             certificate = row["compressed_certificate"]
             checked = check_certificate_dict(certificate)
             if not checked.zero_sum_verified:
@@ -424,7 +464,6 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             orbit = build_clause_orbit(name, model_index, certificate)
             if row["affine_clause_orbit"] != orbit.summary():
                 raise AssertionError(f"{name} compressed affine orbit drifted")
-            source_target_id = f"seeded:{model_index}"
             expected_coverage = clause_coverage(
                 certificate,
                 orbit,
@@ -437,6 +476,8 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             verified_certificates += 1
             verified_affine_images += orbit.affine_map_count
 
+        if seen_model_indices != set(source_models):
+            raise AssertionError(f"{name} compressed source set drifted")
         if run["coverage_summary"] != aggregate_coverage(
             checked_rows, expected_targets
         ):
@@ -450,8 +491,6 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         "verified_compressed_exact_certificates": verified_certificates,
         "verified_exact_affine_certificate_images": verified_affine_images,
     }
-
-
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
