@@ -129204,8 +129204,8 @@
       ]
     }
   ],
-  "source_artifact": "data/runs/sparse_full_cone_fresh_order_screen_2026-07-31/summary.json",
-  "source_sha256": "8b215c41179a4a745da5fc9fc8067ca0d8043a8462e94c60db8b86fd45349d32",
+  "source_artifact": "data/runs/sparse_full_cone_fresh_order_screen_2026-07-29/summary.json",
+  "source_sha256": "efa2f61e3706c6ae8e1a04632e72f27e32ed30cedcdc385458d406c533ba4158",
   "status": "BOUNDED_FRESH_PACKET_COMPRESSION_AND_REUSE_DIAGNOSTIC",
   "trust": "EXACT_COMPRESSED_CERTIFICATES_IN_BOUNDED_RANDOMIZED_SEARCH",
   "type": "sparse_full_cone_fresh_clause_compression_v1"

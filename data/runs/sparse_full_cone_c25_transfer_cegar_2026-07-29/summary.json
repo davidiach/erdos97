@@ -1497,7 +1497,7 @@
     "strong_probe_order_count": 16
   },
   "distinct_seed_orbit_class_count": 3,
-  "first_fresh_stream_artifact": "data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-30/summary.json",
+  "first_fresh_stream_artifact": "data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-29/summary.json",
   "first_fresh_stream_sha256": "4f1f444405a1316e0acf6fbd1da850a32932c2c6477bfe3e90b4aa62b3a1aa3c",
   "n": 25,
   "pattern": "C25_sidon_2_5_9_14",
@@ -18484,8 +18484,8 @@
     "solver_result": "bounded_after_new_exact_certificates",
     "status": "BOUNDED_C25_TRANSFER_SEEDED_CERTIFICATE_LIMIT_REACHED"
   },
-  "source_transfer_artifact": "data/runs/sparse_full_cone_fresh_template_transfer_2026-08-02/summary.json",
-  "source_transfer_sha256": "406a2dab8f84c673a710353509d00466192df23d4aa320180fc40598a6f00175",
+  "source_transfer_artifact": "data/runs/sparse_full_cone_fresh_template_transfer_2026-07-29/summary.json",
+  "source_transfer_sha256": "fe2af90c417640f32e5c91cba539bea85cc1441721f81b3d0e4e7c97e566d308",
   "status": "BOUNDED_C25_TRANSFER_CLAUSE_SEARCH_DIAGNOSTIC",
   "trust": "EXACT_CLAUSES_IN_BOUNDED_HISTORY_DISJOINT_C25_CEGAR",
   "type": "sparse_full_cone_c25_transferred_seed_cegar_v1",

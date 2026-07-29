@@ -28,16 +28,17 @@ Generate:
 
 ```bash
 python scripts/exploration/run_sparse_full_cone_c25_transfer_cegar.py \
-  --out data/runs/sparse_full_cone_c25_transfer_cegar_2026-08-03/summary.json
+  --out data/runs/sparse_full_cone_c25_transfer_cegar_2026-07-29/summary.json
 ```
 
-Replay without rerunning Z3:
+Replay without rerunning Z3; the checker validates solver termination metadata,
+model/iteration provenance, exact certificate summaries, and affine images:
 
 ```bash
 python scripts/exploration/run_sparse_full_cone_c25_transfer_cegar.py \
-  --check data/runs/sparse_full_cone_c25_transfer_cegar_2026-08-03/summary.json
+  --check data/runs/sparse_full_cone_c25_transfer_cegar_2026-07-29/summary.json
 ```
 
 SHA-256 of `summary.json`:
 
-`8ca4933ce67a64706ffeb111627ec1f6d024673ec9f7a2a021d1521f50f5d62a`
+`7d61f34c8bc0e96b9ce70a9021f735f0cbdbe93647574239c0234aa5bb48e5c4`

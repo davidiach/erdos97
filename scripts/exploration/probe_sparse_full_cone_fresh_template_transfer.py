@@ -59,7 +59,7 @@ DEFAULT_SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_compression_2026-08-01"
+    / "sparse_full_cone_fresh_compression_2026-07-29"
     / "summary.json"
 )
 DEFAULT_PRIOR_PACKET = (
@@ -73,7 +73,7 @@ DEFAULT_FIRST_FRESH_STREAM = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_small_template_fresh_stream_2026-07-30"
+    / "sparse_full_cone_small_template_fresh_stream_2026-07-29"
     / "summary.json"
 )
 DEFAULT_MAX_SMALL_WIDTH = 12
@@ -462,6 +462,11 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     prior = json.loads(prior_path.read_text(encoding="utf-8"))
     first = json.loads(first_path.read_text(encoding="utf-8"))
     configuration = payload["configuration"]
+    order_limit = int(configuration["fresh_order_limit_per_pattern"])
+    max_iterations = int(configuration["max_iterations_per_pattern"])
+    conflict_cap = int(configuration["conflict_cap"])
+    base_seed = int(configuration["random_seed"])
+    pattern_seed_stride = int(configuration["pattern_seed_stride"])
     templates_by_pattern, orbits_by_pattern = build_transfer_templates(
         source,
         max_small_width=int(configuration["max_small_width"]),
@@ -479,8 +484,12 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     verified_second_orders = 0
     outside_hits = 0
     decisions = []
-    for run in payload["runs"]:
+    seen_patterns: set[str] = set()
+    for pattern_index, run in enumerate(payload["runs"]):
         name = str(run["pattern"])
+        if name in seen_patterns or name not in PATTERNS:
+            raise AssertionError(f"invalid or duplicate transfer pattern: {name}")
+        seen_patterns.add(name)
         templates = templates_by_pattern[name]
         orbits = orbits_by_pattern[name]
         if run["canonical_transfer_templates"] != templates:
@@ -515,9 +524,29 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             raise AssertionError(f"{name} combined dihedral count drifted")
 
         second = run["second_fresh_stream"]
+        expected_seed = base_seed + pattern_index * pattern_seed_stride
+        if int(second["random_seed"]) != expected_seed:
+            raise AssertionError(f"{name} second-stream random seed drifted")
+        iterations = int(second["iterations"])
+        if not 1 <= iterations <= max_iterations:
+            raise AssertionError(f"{name} second-stream iteration count drifted")
+        inverse_clause_count = int(second["inverse_pair_clause_count"])
+        if not 0 <= inverse_clause_count <= iterations * conflict_cap:
+            raise AssertionError(f"{name} second-stream clause count drifted")
+        models = second["models"]
+        if int(second["fresh_inverse_pair_escape_order_count"]) != len(models):
+            raise AssertionError(f"{name} second-stream count drifted")
+
         seen = set(history_keys)
         checked_models = []
-        for model in second["models"]:
+        previous_z3_iteration = 0
+        for expected_model_index, model in enumerate(models):
+            if int(model["fresh_model_index"]) != expected_model_index:
+                raise AssertionError(f"{name} second-stream model index drifted")
+            z3_iteration = int(model["z3_iteration"])
+            if not previous_z3_iteration < z3_iteration <= iterations:
+                raise AssertionError(f"{name} second-stream iteration provenance drifted")
+            previous_z3_iteration = z3_iteration
             order = [int(label) for label in model["order"]]
             n, offsets = PATTERNS[name]
             if sorted(order) != list(range(n)) or order[0] != 0:
@@ -541,8 +570,30 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             checked_models.append(model)
             verified_second_orders += 1
 
-        if int(second["fresh_inverse_pair_escape_order_count"]) != len(checked_models):
-            raise AssertionError(f"{name} second-stream count drifted")
+        if len(checked_models) >= order_limit:
+            if len(checked_models) != order_limit:
+                raise AssertionError(f"{name} second-stream order limit drifted")
+            if second["status"] != "BOUNDED_FRESH_ORDER_LIMIT_REACHED":
+                raise AssertionError(f"{name} second-stream bounded status drifted")
+            if (
+                second["solver_result"]
+                != "bounded_after_fresh_inverse_pair_escape_orders"
+            ):
+                raise AssertionError(f"{name} second-stream bounded result drifted")
+            if iterations != previous_z3_iteration:
+                raise AssertionError(f"{name} second-stream terminal iteration drifted")
+        elif iterations == max_iterations:
+            if second["status"] != "BOUNDED_FRESH_STREAM_ITERATION_LIMIT":
+                raise AssertionError(f"{name} second-stream limit status drifted")
+            if second["solver_result"] != "iteration_limit":
+                raise AssertionError(f"{name} second-stream limit result drifted")
+        elif second["status"] == "FRESH_STREAM_SOLVER_UNSAT":
+            if second["solver_result"] != "unsat":
+                raise AssertionError(f"{name} second-stream unsat result drifted")
+        elif second["status"] != "UNKNOWN_FRESH_STREAM_SMT_RESULT":
+            raise AssertionError(f"{name} second-stream termination status drifted")
+        if inverse_clause_count < iterations - len(checked_models):
+            raise AssertionError(f"{name} second-stream clause provenance drifted")
         if int(second["historical_dihedral_order_count"]) != len(history_keys):
             raise AssertionError(f"{name} second-stream history count drifted")
         expected_coverage = coverage_summary(checked_models, templates)

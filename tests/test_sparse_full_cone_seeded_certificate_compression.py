@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 import sys
 from pathlib import Path
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -125,3 +128,13 @@ def test_stored_seeded_compression_packet_replays_exactly() -> None:
         "verified_compressed_exact_certificates": 16,
         "verified_exact_affine_certificate_images": 432,
     }
+
+
+def test_checker_rejects_duplicate_source_model() -> None:
+    payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    mutated = copy.deepcopy(payload)
+    rows = mutated["runs"][0]["compressed_models"]
+    rows[1] = copy.deepcopy(rows[0])
+
+    with pytest.raises(AssertionError, match="duplicate source model index"):
+        COMPRESSION.check_payload(mutated)

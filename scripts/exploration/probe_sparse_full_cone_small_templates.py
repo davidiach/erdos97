@@ -471,11 +471,19 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
 
 
 def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
+    if payload["type"] != "sparse_full_cone_small_template_fresh_stream_v1":
+        raise AssertionError("fresh-stream artifact type drifted")
     source_path = ROOT / str(payload["source_artifact"])
     if file_sha256(source_path) != str(payload["source_sha256"]):
         raise AssertionError("source compression artifact hash drifted")
     source = json.loads(source_path.read_text(encoding="utf-8"))
-    max_width = int(payload["configuration"]["max_template_width"])
+    configuration = payload["configuration"]
+    max_width = int(configuration["max_template_width"])
+    order_limit = int(configuration["fresh_order_limit_per_pattern"])
+    max_iterations = int(configuration["max_iterations_per_pattern"])
+    conflict_cap = int(configuration["conflict_cap"])
+    base_seed = int(configuration["random_seed"])
+    pattern_seed_stride = int(configuration["pattern_seed_stride"])
     templates_by_pattern, orbits_by_pattern = build_small_templates(
         source,
         max_width=max_width,
@@ -484,9 +492,13 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     verified_templates = 0
     verified_images = 0
     verified_fresh_orders = 0
+    seen_patterns: set[str] = set()
 
-    for run in payload["runs"]:
+    for pattern_index, run in enumerate(payload["runs"]):
         name = str(run["pattern"])
+        if name in seen_patterns or name not in PATTERNS:
+            raise AssertionError(f"invalid or duplicate fresh-stream pattern: {name}")
+        seen_patterns.add(name)
         templates = templates_by_pattern[name]
         orbits = orbits_by_pattern[name]
         if run["canonical_small_templates"] != templates:
@@ -498,11 +510,32 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
         if int(run["historical_dihedral_order_count"]) != len(history_keys):
             raise AssertionError(f"{name} historical dihedral count drifted")
 
+        fresh = run["fresh_stream"]
+        expected_seed = base_seed + pattern_index * pattern_seed_stride
+        if int(fresh["random_seed"]) != expected_seed:
+            raise AssertionError(f"{name} random seed drifted")
+        iterations = int(fresh["iterations"])
+        if not 1 <= iterations <= max_iterations:
+            raise AssertionError(f"{name} iteration count drifted")
+        inverse_clause_count = int(fresh["inverse_pair_clause_count"])
+        if not 0 <= inverse_clause_count <= iterations * conflict_cap:
+            raise AssertionError(f"{name} inverse-pair clause count drifted")
+        models = fresh["models"]
+        if int(fresh["fresh_inverse_pair_escape_order_count"]) != len(models):
+            raise AssertionError(f"{name} fresh order count drifted")
+
         verified_templates += len(templates)
         verified_images += sum(orbit.affine_map_count for orbit in orbits)
         seen = set(history_keys)
         checked_models = []
-        for model in run["fresh_stream"]["models"]:
+        previous_z3_iteration = 0
+        for expected_model_index, model in enumerate(models):
+            if int(model["fresh_model_index"]) != expected_model_index:
+                raise AssertionError(f"{name} fresh model index drifted")
+            z3_iteration = int(model["z3_iteration"])
+            if not previous_z3_iteration < z3_iteration <= iterations:
+                raise AssertionError(f"{name} model iteration provenance drifted")
+            previous_z3_iteration = z3_iteration
             order = [int(label) for label in model["order"]]
             n = int(run["n"])
             if sorted(order) != list(range(n)) or order[0] != 0:
@@ -533,9 +566,30 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
             checked_models.append(model)
             verified_fresh_orders += 1
 
-        fresh = run["fresh_stream"]
-        if int(fresh["fresh_inverse_pair_escape_order_count"]) != len(checked_models):
-            raise AssertionError(f"{name} fresh order count drifted")
+        if len(checked_models) >= order_limit:
+            if len(checked_models) != order_limit:
+                raise AssertionError(f"{name} fresh order limit drifted")
+            if fresh["status"] != "BOUNDED_FRESH_ORDER_LIMIT_REACHED":
+                raise AssertionError(f"{name} bounded status drifted")
+            if (
+                fresh["solver_result"]
+                != "bounded_after_fresh_inverse_pair_escape_orders"
+            ):
+                raise AssertionError(f"{name} bounded solver result drifted")
+            if iterations != previous_z3_iteration:
+                raise AssertionError(f"{name} terminal iteration drifted")
+        elif iterations == max_iterations:
+            if fresh["status"] != "BOUNDED_FRESH_STREAM_ITERATION_LIMIT":
+                raise AssertionError(f"{name} iteration-limit status drifted")
+            if fresh["solver_result"] != "iteration_limit":
+                raise AssertionError(f"{name} iteration-limit result drifted")
+        elif fresh["status"] == "FRESH_STREAM_SOLVER_UNSAT":
+            if fresh["solver_result"] != "unsat":
+                raise AssertionError(f"{name} unsat result drifted")
+        elif fresh["status"] != "UNKNOWN_FRESH_STREAM_SMT_RESULT":
+            raise AssertionError(f"{name} solver termination status drifted")
+        if inverse_clause_count < iterations - len(checked_models):
+            raise AssertionError(f"{name} inverse-pair clause provenance drifted")
         if int(fresh["historical_dihedral_order_count"]) != len(history_keys):
             raise AssertionError(f"{name} stream history count drifted")
         if fresh["coverage"] != coverage_summary(checked_models, templates):

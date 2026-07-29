@@ -80,8 +80,9 @@ expanded through its 25 exact translations before the search continues.
 
 All eight orders are history-disjoint, escape every transferred seed image and
 every previously learned image, and have exact positive zero-sum
-certificates. The checker replays 275 exact affine certificate images: 75
-seeds plus 200 learned images.
+certificates. The checker validates solver termination metadata, model and
+iteration provenance, and every exact certificate summary before replaying 275
+exact affine certificate images: 75 seeds plus 200 learned images.
 
 The run stops after 21 seeded iterations at the configured
 eight-certificate limit. It does not reach UNSAT, and it finds no unresolved
@@ -102,5 +103,5 @@ Replay:
 
 ```bash
 python scripts/exploration/run_sparse_full_cone_c25_transfer_cegar.py \
-  --check data/runs/sparse_full_cone_c25_transfer_cegar_2026-08-03/summary.json
+  --check data/runs/sparse_full_cone_c25_transfer_cegar_2026-07-29/summary.json
 ```

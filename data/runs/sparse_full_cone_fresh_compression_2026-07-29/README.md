@@ -6,13 +6,14 @@ counterexample, general proof, or official-status update is claimed.
 
 This run applies six deterministic alternative LP objectives to each of the 63
 exact positive circuits in
-`data/runs/sparse_full_cone_fresh_order_screen_2026-07-31/summary.json`.
+`data/runs/sparse_full_cone_fresh_order_screen_2026-07-29/summary.json`.
 Numerical supports are retained only after exact integer recovery, exact
 zero-sum replay, and a modular-rank positive-circuit audit.
 
 Every retained certificate is expanded through all exact
 quotient-preserving affine maps, and its direct and affine-orbit clause
-coverage is recomputed over the same 63-order fresh packet.
+coverage is recomputed over the same 63-order fresh packet. The checker also
+requires exactly one compressed row for every source record.
 
 ## Result
 
@@ -30,16 +31,16 @@ Generate:
 
 ```bash
 python scripts/exploration/compress_sparse_full_cone_fresh_certificates.py \
-  --out data/runs/sparse_full_cone_fresh_compression_2026-08-01/summary.json
+  --out data/runs/sparse_full_cone_fresh_compression_2026-07-29/summary.json
 ```
 
 Replay without solving the randomized LPs:
 
 ```bash
 python scripts/exploration/compress_sparse_full_cone_fresh_certificates.py \
-  --check data/runs/sparse_full_cone_fresh_compression_2026-08-01/summary.json
+  --check data/runs/sparse_full_cone_fresh_compression_2026-07-29/summary.json
 ```
 
 SHA-256 of `summary.json`:
 
-`53cc04f72ff7671871a1b2907afdbf942b89d5f6ffca0bc2c74556f5c82a528b`
+`e5b9ef4994d67be8cf3b80e495c8500cb33277217e9a6bae4a73e6eaca5846ee`

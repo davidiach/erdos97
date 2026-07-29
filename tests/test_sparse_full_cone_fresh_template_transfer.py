@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 import sys
 from pathlib import Path
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,7 +29,7 @@ SOURCE = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_compression_2026-08-01"
+    / "sparse_full_cone_fresh_compression_2026-07-29"
     / "summary.json"
 )
 PRIOR = (
@@ -40,14 +43,14 @@ FIRST = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_small_template_fresh_stream_2026-07-30"
+    / "sparse_full_cone_small_template_fresh_stream_2026-07-29"
     / "summary.json"
 )
 ARTIFACT = (
     ROOT
     / "data"
     / "runs"
-    / "sparse_full_cone_fresh_template_transfer_2026-08-02"
+    / "sparse_full_cone_fresh_template_transfer_2026-07-29"
     / "summary.json"
 )
 
@@ -144,3 +147,35 @@ def test_stored_transfer_packet_replays_exactly() -> None:
             "STOP_PACKET_SPECIFIC_TEMPLATE_MINING",
         ],
     }
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("status", "FABRICATED"),
+        ("solver_result", "fabricated"),
+        ("iterations", -999),
+        ("random_seed", -999),
+        ("inverse_pair_clause_count", -999),
+    ],
+)
+def test_checker_rejects_fabricated_second_stream_provenance(
+    field: str,
+    value: object,
+) -> None:
+    payload = load(ARTIFACT)
+    mutated = copy.deepcopy(payload)
+    mutated["runs"][0]["second_fresh_stream"][field] = value
+
+    with pytest.raises(AssertionError):
+        TRANSFER.check_payload(mutated)
+
+
+def test_checker_rejects_fabricated_second_stream_iteration() -> None:
+    payload = load(ARTIFACT)
+    mutated = copy.deepcopy(payload)
+    models = mutated["runs"][0]["second_fresh_stream"]["models"]
+    models[0]["z3_iteration"] = -999
+
+    with pytest.raises(AssertionError, match="iteration provenance drifted"):
+        TRANSFER.check_payload(mutated)
