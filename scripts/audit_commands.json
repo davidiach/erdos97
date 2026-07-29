@@ -3110,7 +3110,7 @@
         "python",
         "scripts/exploration/probe_sparse_full_cone_fresh_template_transfer.py",
         "--check",
-        "data/runs/sparse_full_cone_fresh_template_transfer_2026-08-02/summary.json"
+        "data/runs/sparse_full_cone_fresh_template_transfer_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay four canonical exact C25/C29 positive-circuit templates, 104 exact quotient-preserving affine images, exact coverage over the prior 48-order packet, and a second 64-order stream dihedrally disjoint from 112 pattern-specific historical orders in total. The C25/C29 route decisions are bounded transfer diagnostics; not all-order obstructions, geometric realizability results, a proof of Erdos Problem #97, a counterexample, or an official/global status update."
     }

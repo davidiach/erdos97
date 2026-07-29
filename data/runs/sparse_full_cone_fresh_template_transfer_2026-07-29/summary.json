@@ -13,7 +13,7 @@
     "stopping_rule": "stop packet-specific template mining only if both the prior packet and second history-disjoint stream have zero hits",
     "template_selection": "compressed width at most max_small_width OR affine source coverage at least broad_source_coverage_min"
   },
-  "first_fresh_stream_artifact": "data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-30/summary.json",
+  "first_fresh_stream_artifact": "data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-29/summary.json",
   "first_fresh_stream_sha256": "4f1f444405a1316e0acf6fbd1da850a32932c2c6477bfe3e90b4aa62b3a1aa3c",
   "prior_packet_artifact": "data/runs/sparse_full_cone_seeded_compression_2026-07-29/summary.json",
   "prior_packet_sha256": "7abd2868e3bd7fad660dbd76fbfa5167dd15040c72c228b6e032a619618fd211",
@@ -10128,8 +10128,8 @@
       }
     }
   ],
-  "source_artifact": "data/runs/sparse_full_cone_fresh_compression_2026-08-01/summary.json",
-  "source_sha256": "53cc04f72ff7671871a1b2907afdbf942b89d5f6ffca0bc2c74556f5c82a528b",
+  "source_artifact": "data/runs/sparse_full_cone_fresh_compression_2026-07-29/summary.json",
+  "source_sha256": "e5b9ef4994d67be8cf3b80e495c8500cb33277217e9a6bae4a73e6eaca5846ee",
   "status": "BOUNDED_PRIOR_PACKET_AND_SECOND_STREAM_TRANSFER_DIAGNOSTIC",
   "trust": "EXACT_TEMPLATES_AND_BOUNDED_OUTSIDE_PACKET_TRANSFER_AUDIT",
   "type": "sparse_full_cone_fresh_template_transfer_v1"
