@@ -968,6 +968,10 @@ put detailed reconciliation in the canonical synthesis.
   longer exact C25/C29 CEGAR seeded by all quotient-preserving translations of
   the compressed clauses; 32 fresh probe orders have zero seed hits, while 16
   new exact certificate orbits are learned before bounded limits.
+- [`sparse-full-cone-seeded-certificate-compression.md`](sparse-full-cone-seeded-certificate-compression.md):
+  exact compression of those 16 learned certificates and coverage over all 48
+  stored orders; seven 3--8-quad circuits reuse inside seeded clusters but
+  cover none of the counterfactual probe orders.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.

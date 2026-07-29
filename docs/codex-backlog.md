@@ -701,9 +701,14 @@ and must not assume that the finite `n=9` pivot census generalizes.
    quotient-preserving translations: reflection is invalid for both
    quotients. None of 32 fresh strong inverse-pair escape orders hits a seed
    orbit. Separate seeded searches learn eight new exact certificate orbits
-   per pattern before bounded limits. The next target is to compress those 16
-   certificates and test shared small circuits across all 48 fresh stored
-   orders. The current clauses are not an all-order obstruction.
+   per pattern before bounded limits. The compression follow-up in
+   `docs/sparse-full-cone-seeded-certificate-compression.md` finds seven exact
+   `3`--`8`-quad circuits among those 16 certificates. Across all 48 stored
+   orders they produce 19 C25 and 21 C29 translated cross-coverage edges
+   inside the seeded clusters, but zero probe-order coverage; quotient-vector
+   frequency never exceeds two certificates. The next target is a fresh
+   independent order stream seeded by canonical small-circuit templates. The
+   current clauses are not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

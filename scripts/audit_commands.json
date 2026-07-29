@@ -3063,6 +3063,16 @@
         "data/runs/sparse_full_cone_seeded_cegar_2026-07-23/summary.json"
       ],
       "claim_scope": "Replay 32 counterfactual inverse-pair escape orders, 16 new exact full-cone certificates, and 544 exact quotient-preserving affine certificate images from bounded fixed-pattern C25/C29 seeded CEGAR runs. Both runs stopped at certificate limits, not UNSAT; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_seeded_compressed_certificates",
+      "command": [
+        "python",
+        "scripts/exploration/compress_sparse_full_cone_seeded_certificates.py",
+        "--check",
+        "data/runs/sparse_full_cone_seeded_compression_2026-07-29/summary.json"
+      ],
+      "claim_scope": "Replay 16 exact compressed positive-circuit certificates, 432 exact quotient-preserving affine images, and their direct/translation-orbit coverage over 48 stored fixed C25/C29 orders. Randomized compression is not exhaustive; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {
