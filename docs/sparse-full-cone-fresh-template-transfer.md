@@ -48,8 +48,9 @@ Before generation, the solver blocks:
 
 Thus each second stream is disjoint under cyclic rotation and reversal from 56
 historical orders of the same pattern. The new seeds are `20260802` for C25
-and `20261802` for C29. Every retained order exactly replays with zero
-two-inequality inverse-pair conflicts.
+and `20261802` for C29. The checker validates the stored termination status,
+solver result, bounds, seed, clause count, and per-model iteration before every
+retained order exactly replays with zero two-inequality inverse-pair conflicts.
 
 Templates are evaluated only after an order is generated. They are never
 asserted as blocking clauses, so zero hits are not forced by construction.
@@ -98,5 +99,5 @@ Replay:
 
 ```bash
 python scripts/exploration/probe_sparse_full_cone_fresh_template_transfer.py \
-  --check data/runs/sparse_full_cone_fresh_template_transfer_2026-08-02/summary.json
+  --check data/runs/sparse_full_cone_fresh_template_transfer_2026-07-29/summary.json
 ```

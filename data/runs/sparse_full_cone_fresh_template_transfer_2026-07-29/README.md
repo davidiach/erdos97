@@ -5,7 +5,7 @@ packets. No all-order obstruction, geometric counterexample, general proof, or
 official-status update is claimed.
 
 This run canonicalizes four exact circuits from
-`data/runs/sparse_full_cone_fresh_compression_2026-08-01/summary.json`:
+`data/runs/sparse_full_cone_fresh_compression_2026-07-29/summary.json`:
 the three circuits of width at most 12 and the C25 width-14 circuit whose
 affine orbit covers at least 24 source targets.
 
@@ -16,8 +16,9 @@ The four templates are replayed against:
    from both the prior packet and the first 64-order fresh stream.
 
 Templates are not asserted as solver blockers during second-stream
-generation. All 104 affine images and all stored coverage matches are replayed
-exactly.
+generation. The checker validates the stored solver status, result, bounds,
+seeds, clause counts, and model iterations. All 104 affine images and all
+stored coverage matches are replayed exactly.
 
 ## Result
 
@@ -30,16 +31,16 @@ Generate:
 
 ```bash
 python scripts/exploration/probe_sparse_full_cone_fresh_template_transfer.py \
-  --out data/runs/sparse_full_cone_fresh_template_transfer_2026-08-02/summary.json
+  --out data/runs/sparse_full_cone_fresh_template_transfer_2026-07-29/summary.json
 ```
 
 Replay without rerunning Z3:
 
 ```bash
 python scripts/exploration/probe_sparse_full_cone_fresh_template_transfer.py \
-  --check data/runs/sparse_full_cone_fresh_template_transfer_2026-08-02/summary.json
+  --check data/runs/sparse_full_cone_fresh_template_transfer_2026-07-29/summary.json
 ```
 
 SHA-256 of `summary.json`:
 
-`406a2dab8f84c673a710353509d00466192df23d4aa320180fc40598a6f00175`
+`fe2af90c417640f32e5c91cba539bea85cc1441721f81b3d0e4e7c97e566d308`

@@ -164915,7 +164915,7 @@
       }
     }
   ],
-  "source_artifact": "data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-30/summary.json",
+  "source_artifact": "data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-29/summary.json",
   "source_sha256": "4f1f444405a1316e0acf6fbd1da850a32932c2c6477bfe3e90b4aa62b3a1aa3c",
   "status": "BOUNDED_FRESH_ORDER_FULL_CONE_CLASSIFICATION",
   "summary": {

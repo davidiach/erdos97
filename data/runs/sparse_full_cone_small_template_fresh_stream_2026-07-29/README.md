@@ -1,4 +1,4 @@
-# Sparse full-cone small-template fresh stream (2026-07-30)
+# Sparse full-cone small-template fresh stream (2026-07-29)
 
 `summary.json` stores seven explicit canonical exact C25/C29 positive-circuit
 templates and a bounded transfer probe over 64 fresh inverse-pair-escape
@@ -11,6 +11,7 @@ checker:
 - verifies the source compression artifact SHA-256;
 - reconstructs and exact-replays all seven canonical certificates;
 - reconstructs all 187 quotient-preserving affine template images;
+- validates the stored solver status, result, bounds, seeds, clause counts, and model iterations;
 - checks permutation, anchoring, and dihedral freshness for all 64 orders;
 - independently replays the inverse-pair and lightweight filters;
 - recomputes every exact template match and coverage count.
@@ -29,7 +30,7 @@ Replay:
 
 ```bash
 python scripts/exploration/probe_sparse_full_cone_small_templates.py \
-  --check data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-30/summary.json
+  --check data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-29/summary.json
 ```
 
 “Fresh” means history-disjoint under cyclic rotation and reversal, not
