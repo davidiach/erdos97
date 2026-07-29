@@ -3083,6 +3083,16 @@
         "data/runs/sparse_full_cone_small_template_fresh_stream_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay seven explicit canonical exact C25/C29 positive-circuit templates, 187 quotient-preserving affine images, and exact coverage over 64 deterministic orders dihedrally disjoint from 48 historical orders. Fresh means history-disjoint, not statistically independent; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_fresh_order_screen",
+      "command": [
+        "python",
+        "scripts/exploration/screen_sparse_full_cone_fresh_orders.py",
+        "--check",
+        "data/runs/sparse_full_cone_fresh_order_screen_2026-07-29/summary.json"
+      ],
+      "claim_scope": "Replay exact positive full-Kalmanson-cone certificates for all 63 fresh C25/C29 lightweight-filter survivors, with exact Gordan-alternative separator replay for any stored no-circuit case. Fixed patterns and fixed orders only; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {

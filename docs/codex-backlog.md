@@ -712,9 +712,14 @@ and must not assume that the finite `n=9` pivot census generalizes.
    dihedrally disjoint from the 48-order source packet. None of the 187 affine
    images covers a fresh order, including all 63 fresh lightweight survivors,
    so the templates are now treated as cluster-specific bounded diagnostics.
-   The next target is an exact full-cone screen of those 63 survivors; zero
-   hits from these seven templates do not imply full-cone escape or an
-   all-order obstruction.
+   The exact full-cone follow-up in
+   `docs/sparse-full-cone-fresh-order-screen.md` classifies all 63 survivors by
+   exact positive zero-sum certificates: C25 supports span `197`--`217` rows
+   and C29 supports span `282`--`304`, with no separator or unresolved cases.
+   None is a coordinate target. The next bounded target is low-budget
+   alternative-objective compression plus fresh-packet cross-coverage; stop
+   this cluster-mining route if no small or reusable circuit appears. This is
+   still not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external
