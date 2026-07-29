@@ -90,11 +90,13 @@ full-cone screen or coordinate target.
 ## Decision and next target
 
 The transferred C25 circuits are genuinely reusable order-search clauses, but
-the first residual certificates are again wide. Do not simply increase the
-CEGAR certificate limit. First run a small deterministic
-alternative-objective compression and exact cross-coverage audit on these
-eight residual certificates. Continue clause expansion only if that audit
-finds a new small or reusable residual circuit.
+the first residual certificates are again wide. The completed follow-up in
+`docs/sparse-full-cone-c25-transfer-residual-compression.md` compresses all
+eight to exact widths `3`--`9`. One new width-`3` orbit covers all eight
+residual orders and 14/16 probe orders, while the two original seed-escaping
+probe orders remain uncovered. The continuation rule therefore fires:
+compare width-`3`-only and all-eight residual augmentation on a new
+history-disjoint C25 probe before extending the certificate-learning limit.
 
 Replay:
 
