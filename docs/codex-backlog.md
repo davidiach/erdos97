@@ -721,8 +721,12 @@ and must not assume that the finite `n=9` pivot census generalizes.
    certificates, finds new C25 widths `3` and `5` plus C29 width `7`, and
    verifies 64 direct and 96 affine fresh-packet cross-edges. The C25 width-`3`
    orbit covers all 31 C25 targets, so the stopping rule returns continue. The
-   next target is a transfer audit over the prior packet and a second
-   history-disjoint stream; this is still not an all-order obstruction.
+   transfer audit in `docs/sparse-full-cone-fresh-template-transfer.md` then
+   finds an exact pattern split: the C25 templates cover 16/24 prior orders and
+   16/32 second-stream orders, while the C29 width-`7` template covers 0/24 and
+   0/32. Continue with a C25-only exact clause-seeded CEGAR run and stop the
+   current C29 template-mining route. This is still not an all-order
+   obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external
