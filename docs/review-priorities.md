@@ -707,10 +707,13 @@ benchmarks for the larger frontier:
   history-disjoint fresh orders. Treat the templates as cluster-specific
   bounded diagnostics;
 - use `docs/sparse-full-cone-fresh-order-screen.md` as the exact fixed-order
-  follow-up: all 63 fresh lightweight survivors have positive full-cone
-  certificates, but their supports remain large. Run only a bounded
-  alternative-objective compression/cross-coverage pass before deciding
-  whether to stop this cluster-mining route;
+  source packet: all 63 fresh lightweight survivors have positive full-cone
+  certificates;
+- use `docs/sparse-full-cone-fresh-certificate-compression.md` as the bounded
+  reuse result: six objectives per source find three new width-`3`, width-`5`,
+  and width-`7` circuits plus 96 affine cross-edges. The stopping rule returns
+  continue, but run a prior-packet and second-stream transfer audit before any
+  broader inference or larger same-packet search;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

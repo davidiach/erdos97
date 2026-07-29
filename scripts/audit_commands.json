@@ -3093,6 +3093,16 @@
         "data/runs/sparse_full_cone_fresh_order_screen_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay exact positive full-Kalmanson-cone certificates for all 63 fresh C25/C29 lightweight-filter survivors, with exact Gordan-alternative separator replay for any stored no-circuit case. Fixed patterns and fixed orders only; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_fresh_compressed_certificates",
+      "command": [
+        "python",
+        "scripts/exploration/compress_sparse_full_cone_fresh_certificates.py",
+        "--check",
+        "data/runs/sparse_full_cone_fresh_compression_2026-07-29/summary.json"
+      ],
+      "claim_scope": "Replay 63 exact compressed positive-circuit certificates, 1703 exact quotient-preserving affine images, and 64 direct plus 96 affine cross-order reuse edges over the same bounded fresh C25/C29 packet. The six-objective search is randomized and non-exhaustive; not an all-order obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {

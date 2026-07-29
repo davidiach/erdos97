@@ -54,13 +54,13 @@ orders of either abstract pattern.
 
 ## Limitations and next target
 
-The certificates are substantially wider than the seven earlier tiny
-circuits, and the earlier templates have zero coverage on this packet. The
-next useful experiment is a bounded alternative-objective compression of the
-63 new certificates followed by exact cross-coverage on the fresh packet.
-Start with a small deterministic trial budget; if no new small or reusable
-circuit appears, stop this cluster-mining route rather than interpreting large
-fixed-order certificates as broad structure.
+The bounded follow-up is completed in
+`docs/sparse-full-cone-fresh-certificate-compression.md`. Six deterministic
+alternative objectives per source recover three new width-`3`, width-`5`, and
+width-`7` circuits plus exact fresh-packet reuse. The strongest C25 width-`3`
+affine orbit covers all 31 C25 targets, so the predeclared stopping rule does
+not fire. The next target is a transfer audit against prior and second-stream
+orders, not a larger same-packet objective budget.
 
 No coordinate search is warranted for these 63 orders because each is already
 exactly inconsistent with its selected-distance quotient and fixed cyclic

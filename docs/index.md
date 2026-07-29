@@ -978,6 +978,9 @@ put detailed reconciliation in the canonical synthesis.
 - [`sparse-full-cone-fresh-order-screen.md`](sparse-full-cone-fresh-order-screen.md):
   exact positive full-cone certificates for all 63 fresh lightweight survivors,
   with theorem-of-alternatives separator support for any future miss.
+- [`sparse-full-cone-fresh-certificate-compression.md`](sparse-full-cone-fresh-certificate-compression.md):
+  six-objective exact compression and fresh-packet cross-coverage; three new
+  width-3, width-5, and width-7 circuits keep the bounded template route open.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.
