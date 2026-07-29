@@ -705,8 +705,12 @@ benchmarks for the larger frontier:
   transfer audit: all seven circuits are stored as explicit canonical exact
   templates, but none of their 187 affine images covers any of 64
   history-disjoint fresh orders. Treat the templates as cluster-specific
-  bounded diagnostics and full-cone-screen the 63 fresh lightweight survivors
-  before spending more search budget on these clauses;
+  bounded diagnostics;
+- use `docs/sparse-full-cone-fresh-order-screen.md` as the exact fixed-order
+  follow-up: all 63 fresh lightweight survivors have positive full-cone
+  certificates, but their supports remain large. Run only a bounded
+  alternative-objective compression/cross-coverage pass before deciding
+  whether to stop this cluster-mining route;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

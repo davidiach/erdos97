@@ -65,15 +65,16 @@ order they cover.
 ## Limitations and next target
 
 The stream is bounded, solver-selected, and nonuniform. It does not enumerate
-cyclic orders, rerun the full Kalmanson cone on the fresh orders, or address
-geometric realizability. A zero template hit is not evidence that an order
-escapes the full cone: a different positive circuit may still obstruct it.
+cyclic orders or address geometric realizability. A zero template hit is not
+evidence that an order escapes the full cone: a different positive circuit may
+still obstruct it.
 
-The next useful step is therefore to run the exact full-cone certificate
-screen on the 63 fresh lightweight survivors. Any order with no exact
-certificate becomes a higher-priority coordinate/geometry target; otherwise,
-compress only the newly observed certificates and test whether they define a
-new order cluster before adding more template-seeded search.
+That full-cone target is completed in
+`docs/sparse-full-cone-fresh-order-screen.md`. All 63 lightweight survivors
+have exact positive zero-sum certificates, so none becomes a coordinate or
+geometry target. The next bounded experiment is alternative-objective
+compression and exact cross-coverage for these new large certificates; stop
+this cluster-mining route if it yields no small or reusable circuit.
 
 Replay:
 
