@@ -1,0 +1,4940 @@
+{
+  "claim_scope": "Deterministic-budget alternative-objective compression of eight exact C25 five-seed-escaping circuits, followed by exact direct and quotient-preserving affine coverage over sixteen probe and eight residual orders. Retained certificates, affine images, coverage relations, and minimum covers are exact for this finite packet. The objective search is not exhaustive and this is not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global update.",
+  "configuration": {
+    "per_model_seed_stride": 1000,
+    "seed": 20260801,
+    "small_circuit_max_width": 12,
+    "stopping_rule": "replace the selected width-three seed only when it has zero marginal target coverage beyond the four parent seeds and an exact minimum small new compressed residual cover completes the full source packet with those four parent seeds",
+    "target_order_selection": "all 16 counterfactual probe and 8 five-seed residual models",
+    "tolerance": 1e-09,
+    "trial_budgets_by_model_index": [
+      64,
+      64,
+      112,
+      112,
+      112,
+      32,
+      32,
+      64
+    ]
+  },
+  "decision": "REPLACE_NONMARGINAL_WIDTH3_WITH_MINIMUM_COMPRESSED_ESCAPE_COVER",
+  "next_target": "Run a bounded 192-history-blocked C25 order CEGAR with the four parent seeds and only the exact minimum compressed escape cover selected here, retiring the nonmarginal prior width-three seed.",
+  "run": {
+    "circulant_offsets": [
+      2,
+      5,
+      9,
+      14
+    ],
+    "compressed_models": [
+      {
+        "affine_clause_orbit": {
+          "affine_map_count": 25,
+          "affine_stabilizer_size": 1,
+          "canonical_clause_sha256": "b0e8a92fdc05be1734911534002b23746dab0aa16bf2825616068eb3b941a816",
+          "quotient_automorphism_multipliers": [
+            1
+          ],
+          "source_model_index": 0,
+          "source_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            5,
+            16,
+            2,
+            13,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "source_unique_ordered_quad_count": 7,
+          "unique_orbit_clause_count": 25
+        },
+        "best_trial": 50,
+        "clause_coverage": {
+          "direct_covered_target_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:4",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "direct_cross_target_count": 7,
+          "source_target_id": "residual:0",
+          "translated_orbit_covered_targets": [
+            {
+              "matching_translation_count": 9,
+              "target_id": "probe:4"
+            },
+            {
+              "matching_translation_count": 5,
+              "target_id": "probe:5"
+            },
+            {
+              "matching_translation_count": 5,
+              "target_id": "probe:6"
+            },
+            {
+              "matching_translation_count": 9,
+              "target_id": "probe:7"
+            },
+            {
+              "matching_translation_count": 6,
+              "target_id": "probe:8"
+            },
+            {
+              "matching_translation_count": 9,
+              "target_id": "probe:9"
+            },
+            {
+              "matching_translation_count": 6,
+              "target_id": "probe:10"
+            },
+            {
+              "matching_translation_count": 9,
+              "target_id": "probe:11"
+            },
+            {
+              "matching_translation_count": 8,
+              "target_id": "probe:12"
+            },
+            {
+              "matching_translation_count": 5,
+              "target_id": "probe:13"
+            },
+            {
+              "matching_translation_count": 5,
+              "target_id": "probe:14"
+            },
+            {
+              "matching_translation_count": 8,
+              "target_id": "probe:15"
+            },
+            {
+              "matching_translation_count": 21,
+              "target_id": "residual:0"
+            },
+            {
+              "matching_translation_count": 18,
+              "target_id": "residual:1"
+            },
+            {
+              "matching_translation_count": 19,
+              "target_id": "residual:2"
+            },
+            {
+              "matching_translation_count": 16,
+              "target_id": "residual:3"
+            },
+            {
+              "matching_translation_count": 14,
+              "target_id": "residual:4"
+            },
+            {
+              "matching_translation_count": 18,
+              "target_id": "residual:5"
+            },
+            {
+              "matching_translation_count": 15,
+              "target_id": "residual:6"
+            },
+            {
+              "matching_translation_count": 19,
+              "target_id": "residual:7"
+            }
+          ],
+          "translated_orbit_cross_target_count": 19
+        },
+        "compressed_certificate": {
+          "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+          "certificate_type": "kalmanson_strict_inequality_farkas",
+          "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+          "cyclic_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            5,
+            16,
+            2,
+            13,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+          "inequalities": [
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                0,
+                8,
+                18,
+                1
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                0,
+                10,
+                21,
+                18
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                0,
+                21,
+                1,
+                23
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                0,
+                21,
+                20,
+                6
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                0,
+                18,
+                23,
+                20
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                8,
+                10,
+                18,
+                1
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                21,
+                15,
+                1,
+                6
+              ],
+              "weight": 1
+            }
+          ],
+          "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+          "num_inequalities": 7,
+          "pattern": {
+            "circulant_offsets": [
+              2,
+              5,
+              9,
+              14
+            ],
+            "n": 25,
+            "name": "C25_sidon_2_5_9_14"
+          },
+          "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+          "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+          "weight_sum": 7
+        },
+        "compressed_certificate_sha256": "b8b8cf2c29185f3cca6c1c04f237ec9e63fd69477ca51e060fa9a7d8d3caebab",
+        "compressed_positive_inequalities": 7,
+        "compressed_unique_ordered_quad_count": 7,
+        "exact_improvements": [
+          {
+            "positive_inequalities": 133,
+            "seed": 20260801,
+            "trial": 0,
+            "unique_ordered_quad_count": 133
+          },
+          {
+            "positive_inequalities": 131,
+            "seed": 20260809,
+            "trial": 8,
+            "unique_ordered_quad_count": 131
+          },
+          {
+            "positive_inequalities": 121,
+            "seed": 20260832,
+            "trial": 31,
+            "unique_ordered_quad_count": 121
+          },
+          {
+            "positive_inequalities": 7,
+            "seed": 20260851,
+            "trial": 50,
+            "unique_ordered_quad_count": 7
+          }
+        ],
+        "matches_active_seed_orbit": false,
+        "numerical_support_size_histogram": {
+          "121": 1,
+          "129": 1,
+          "131": 2,
+          "132": 1,
+          "133": 1,
+          "135": 1,
+          "136": 1,
+          "138": 2,
+          "139": 1,
+          "140": 3,
+          "142": 1,
+          "143": 4,
+          "144": 1,
+          "145": 2,
+          "146": 3,
+          "147": 2,
+          "148": 2,
+          "149": 1,
+          "150": 3,
+          "151": 2,
+          "152": 2,
+          "153": 1,
+          "155": 3,
+          "156": 4,
+          "157": 3,
+          "158": 1,
+          "160": 1,
+          "162": 2,
+          "164": 3,
+          "166": 2,
+          "168": 1,
+          "169": 2,
+          "171": 1,
+          "173": 2,
+          "7": 1
+        },
+        "numerical_support_size_max": 173,
+        "numerical_support_size_min": 7,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          5,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "positive_circuit_audit": {
+          "all_weights_positive": true,
+          "exact_zero_sum_gives_nullity_at_least": 1,
+          "modular_rank_gives_rational_rank_at_least": 6,
+          "positive_circuit_verified": true,
+          "rank_mod_1000000007": 6,
+          "support_size": 7
+        },
+        "quad_reduction": 212,
+        "quad_reduction_fraction": 0.9680365296803652,
+        "quotient_vector_support": {
+          "duplicate_inequality_vector_count": 0,
+          "hashes": [
+            "0f849e6c631327436b8c36edb09f9d1e9b42b7eef563cb1b1183da8b5871477c",
+            "79b6d3fe3b775f5a432954475698aa84c14db300e94776798f1573d187945460",
+            "85444ae8cb77919f668db87c96be32d717d61fdb08c7d246b300f4a876e25666",
+            "9777f10c463c72e5275f784d5c0db900414343a22ec1091e69ac7d6b3508f695",
+            "9e96d61f36d415fea25b8766452fc27eeb1b601a07606fba150d8abec1e49089",
+            "e2b5be6f167d6921c6ba4cb611c57a282a956905fd035bec475db6d7bbd04784",
+            "ee5f012e333b0907c34c026d273b62d73640efab36326c6d555d35e83e4f4e95"
+          ],
+          "unique_vector_count": 7
+        },
+        "random_objective_seed": 20260801,
+        "random_objective_trial_budget": 64,
+        "source_certificate_sha256": "13bd5e616c63e0ea2980b54d3b09b588aea2d96e38dc8a9febd9ea6884022f4b",
+        "source_model_index": 0,
+        "source_positive_inequalities": 220,
+        "source_target_id": "residual:0",
+        "source_unique_ordered_quad_count": 219,
+        "successful_numerical_trials": 64,
+        "support_is_exact_positive_circuit": true,
+        "trial_count": 64
+      },
+      {
+        "affine_clause_orbit": {
+          "affine_map_count": 25,
+          "affine_stabilizer_size": 1,
+          "canonical_clause_sha256": "d3f0fb1beba30fc7eb129bdd5b57c1ae837303d1ff38963ea6656830d270293a",
+          "quotient_automorphism_multipliers": [
+            1
+          ],
+          "source_model_index": 1,
+          "source_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            16,
+            5,
+            2,
+            13,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "source_unique_ordered_quad_count": 6,
+          "unique_orbit_clause_count": 25
+        },
+        "best_trial": 47,
+        "clause_coverage": {
+          "direct_covered_target_ids": [
+            "probe:4",
+            "probe:7",
+            "probe:9",
+            "probe:11",
+            "probe:12",
+            "probe:15",
+            "residual:0",
+            "residual:1"
+          ],
+          "direct_cross_target_count": 7,
+          "source_target_id": "residual:1",
+          "translated_orbit_covered_targets": [
+            {
+              "matching_translation_count": 8,
+              "target_id": "probe:4"
+            },
+            {
+              "matching_translation_count": 7,
+              "target_id": "probe:5"
+            },
+            {
+              "matching_translation_count": 7,
+              "target_id": "probe:6"
+            },
+            {
+              "matching_translation_count": 8,
+              "target_id": "probe:7"
+            },
+            {
+              "matching_translation_count": 7,
+              "target_id": "probe:8"
+            },
+            {
+              "matching_translation_count": 9,
+              "target_id": "probe:9"
+            },
+            {
+              "matching_translation_count": 7,
+              "target_id": "probe:10"
+            },
+            {
+              "matching_translation_count": 9,
+              "target_id": "probe:11"
+            },
+            {
+              "matching_translation_count": 8,
+              "target_id": "probe:12"
+            },
+            {
+              "matching_translation_count": 6,
+              "target_id": "probe:13"
+            },
+            {
+              "matching_translation_count": 6,
+              "target_id": "probe:14"
+            },
+            {
+              "matching_translation_count": 8,
+              "target_id": "probe:15"
+            },
+            {
+              "matching_translation_count": 20,
+              "target_id": "residual:0"
+            },
+            {
+              "matching_translation_count": 17,
+              "target_id": "residual:1"
+            },
+            {
+              "matching_translation_count": 17,
+              "target_id": "residual:2"
+            },
+            {
+              "matching_translation_count": 15,
+              "target_id": "residual:3"
+            },
+            {
+              "matching_translation_count": 14,
+              "target_id": "residual:4"
+            },
+            {
+              "matching_translation_count": 17,
+              "target_id": "residual:5"
+            },
+            {
+              "matching_translation_count": 14,
+              "target_id": "residual:6"
+            },
+            {
+              "matching_translation_count": 15,
+              "target_id": "residual:7"
+            }
+          ],
+          "translated_orbit_cross_target_count": 19
+        },
+        "compressed_certificate": {
+          "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+          "certificate_type": "kalmanson_strict_inequality_farkas",
+          "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+          "cyclic_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            16,
+            5,
+            2,
+            13,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+          "inequalities": [
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                19,
+                5,
+                10,
+                17
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                5,
+                2,
+                7,
+                17
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                2,
+                13,
+                7,
+                20
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                2,
+                10,
+                20,
+                17
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                2,
+                7,
+                18,
+                20
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                13,
+                10,
+                15,
+                20
+              ],
+              "weight": 1
+            }
+          ],
+          "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+          "num_inequalities": 6,
+          "pattern": {
+            "circulant_offsets": [
+              2,
+              5,
+              9,
+              14
+            ],
+            "n": 25,
+            "name": "C25_sidon_2_5_9_14"
+          },
+          "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+          "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+          "weight_sum": 6
+        },
+        "compressed_certificate_sha256": "3028e5552fa5a52d1a403de3f99ef234dd2750ad123949117b4f6450fa97b55c",
+        "compressed_positive_inequalities": 6,
+        "compressed_unique_ordered_quad_count": 6,
+        "exact_improvements": [
+          {
+            "positive_inequalities": 144,
+            "seed": 20261801,
+            "trial": 0,
+            "unique_ordered_quad_count": 144
+          },
+          {
+            "positive_inequalities": 128,
+            "seed": 20261805,
+            "trial": 4,
+            "unique_ordered_quad_count": 128
+          },
+          {
+            "positive_inequalities": 110,
+            "seed": 20261845,
+            "trial": 44,
+            "unique_ordered_quad_count": 110
+          },
+          {
+            "positive_inequalities": 6,
+            "seed": 20261848,
+            "trial": 47,
+            "unique_ordered_quad_count": 6
+          }
+        ],
+        "matches_active_seed_orbit": false,
+        "numerical_support_size_histogram": {
+          "102": 1,
+          "110": 2,
+          "128": 1,
+          "129": 1,
+          "130": 2,
+          "131": 2,
+          "133": 1,
+          "136": 1,
+          "137": 3,
+          "139": 1,
+          "140": 4,
+          "141": 1,
+          "143": 2,
+          "144": 2,
+          "145": 1,
+          "147": 1,
+          "148": 4,
+          "150": 3,
+          "151": 4,
+          "153": 2,
+          "154": 1,
+          "155": 3,
+          "156": 3,
+          "157": 3,
+          "158": 3,
+          "160": 1,
+          "161": 1,
+          "163": 3,
+          "164": 1,
+          "165": 1,
+          "167": 1,
+          "169": 1,
+          "174": 1,
+          "175": 1,
+          "6": 1
+        },
+        "numerical_support_size_max": 175,
+        "numerical_support_size_min": 6,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          16,
+          5,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "positive_circuit_audit": {
+          "all_weights_positive": true,
+          "exact_zero_sum_gives_nullity_at_least": 1,
+          "modular_rank_gives_rational_rank_at_least": 5,
+          "positive_circuit_verified": true,
+          "rank_mod_1000000007": 5,
+          "support_size": 6
+        },
+        "quad_reduction": 214,
+        "quad_reduction_fraction": 0.9727272727272728,
+        "quotient_vector_support": {
+          "duplicate_inequality_vector_count": 0,
+          "hashes": [
+            "01bb7de52046e75bceb859b3f62ef6f4b74efe99770dab019fd2e50c0aeb2ea0",
+            "0a3cd326a7a4bd24ebf83e8808126ffa731caced51972d322c375c160c331afd",
+            "66c10ae172168cc31777c50a43d991b5829f2df243e2bdf1ff9d23976f315886",
+            "6da873576093b17aec6bacbcbffecf27446eb8e9aa7223ad179a9bb0e0bd5c28",
+            "6fe96bd4007c7cddd3ad346349a006dc4c86a28dea4de19fadf96d87532e4dc9",
+            "8a3a064fcc347f8896b085bfa794dca297d375974372e90154454a698ee7c726"
+          ],
+          "unique_vector_count": 6
+        },
+        "random_objective_seed": 20261801,
+        "random_objective_trial_budget": 64,
+        "source_certificate_sha256": "351fd833f95a984d6539c8a20458e9cee599c16b7975cd86ab5f783fc9629ce2",
+        "source_model_index": 1,
+        "source_positive_inequalities": 220,
+        "source_target_id": "residual:1",
+        "source_unique_ordered_quad_count": 220,
+        "successful_numerical_trials": 64,
+        "support_is_exact_positive_circuit": true,
+        "trial_count": 64
+      },
+      {
+        "affine_clause_orbit": {
+          "affine_map_count": 25,
+          "affine_stabilizer_size": 1,
+          "canonical_clause_sha256": "9cb437cde3f0b8195893861722d86601bb7d4742b19b29cb5ea861a549e7ad8b",
+          "quotient_automorphism_multipliers": [
+            1
+          ],
+          "source_model_index": 2,
+          "source_order": [
+            0,
+            11,
+            22,
+            8,
+            5,
+            19,
+            16,
+            2,
+            13,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "source_unique_ordered_quad_count": 4,
+          "unique_orbit_clause_count": 25
+        },
+        "best_trial": 77,
+        "clause_coverage": {
+          "direct_covered_target_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:4",
+            "residual:5",
+            "residual:6"
+          ],
+          "direct_cross_target_count": 6,
+          "source_target_id": "residual:2",
+          "translated_orbit_covered_targets": [
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:4"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:5"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:6"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:7"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:8"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:9"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:10"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:11"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:12"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:13"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:14"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:15"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:0"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:1"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:2"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:3"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:4"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:5"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:6"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:7"
+            }
+          ],
+          "translated_orbit_cross_target_count": 19
+        },
+        "compressed_certificate": {
+          "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+          "certificate_type": "kalmanson_strict_inequality_farkas",
+          "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+          "cyclic_order": [
+            0,
+            11,
+            22,
+            8,
+            5,
+            19,
+            16,
+            2,
+            13,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+          "inequalities": [
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                7,
+                15,
+                4,
+                12
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                7,
+                4,
+                9,
+                20
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                18,
+                15,
+                12,
+                17
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                18,
+                12,
+                17,
+                3
+              ],
+              "weight": 1
+            }
+          ],
+          "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+          "num_inequalities": 4,
+          "pattern": {
+            "circulant_offsets": [
+              2,
+              5,
+              9,
+              14
+            ],
+            "n": 25,
+            "name": "C25_sidon_2_5_9_14"
+          },
+          "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+          "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+          "weight_sum": 4
+        },
+        "compressed_certificate_sha256": "5cd1403e864cc8d8b18b53371933e4db5f511e89d09ea028a582294fa9cc929c",
+        "compressed_positive_inequalities": 4,
+        "compressed_unique_ordered_quad_count": 4,
+        "exact_improvements": [
+          {
+            "positive_inequalities": 126,
+            "seed": 20262801,
+            "trial": 0,
+            "unique_ordered_quad_count": 126
+          },
+          {
+            "positive_inequalities": 121,
+            "seed": 20262816,
+            "trial": 15,
+            "unique_ordered_quad_count": 121
+          },
+          {
+            "positive_inequalities": 4,
+            "seed": 20262878,
+            "trial": 77,
+            "unique_ordered_quad_count": 4
+          }
+        ],
+        "matches_active_seed_orbit": false,
+        "numerical_support_size_histogram": {
+          "104": 1,
+          "121": 1,
+          "122": 1,
+          "125": 1,
+          "126": 1,
+          "127": 2,
+          "130": 1,
+          "131": 1,
+          "132": 1,
+          "135": 1,
+          "136": 2,
+          "137": 4,
+          "138": 4,
+          "139": 3,
+          "141": 1,
+          "142": 4,
+          "143": 3,
+          "144": 4,
+          "145": 5,
+          "146": 6,
+          "147": 4,
+          "148": 3,
+          "149": 8,
+          "150": 5,
+          "151": 2,
+          "152": 2,
+          "153": 6,
+          "154": 3,
+          "155": 3,
+          "156": 3,
+          "157": 2,
+          "158": 2,
+          "159": 5,
+          "160": 2,
+          "161": 4,
+          "162": 3,
+          "163": 1,
+          "164": 1,
+          "165": 2,
+          "166": 1,
+          "172": 1,
+          "4": 1,
+          "6": 1
+        },
+        "numerical_support_size_max": 172,
+        "numerical_support_size_min": 4,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          5,
+          19,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "positive_circuit_audit": {
+          "all_weights_positive": true,
+          "exact_zero_sum_gives_nullity_at_least": 1,
+          "modular_rank_gives_rational_rank_at_least": 3,
+          "positive_circuit_verified": true,
+          "rank_mod_1000000007": 3,
+          "support_size": 4
+        },
+        "quad_reduction": 210,
+        "quad_reduction_fraction": 0.9813084112149533,
+        "quotient_vector_support": {
+          "duplicate_inequality_vector_count": 0,
+          "hashes": [
+            "5ea8bcbbbc6b2a70f445987cda82158df2421c02c31ad70fa8a6d47eebaf850d",
+            "e35e4093abcb5fb95c1903e9e33cc48499878abd92c1915bade3a001d65f59a8",
+            "f49e1baecf24c560d284a88d3cca3258bb81d35fd4f05add9677fb696319f0eb",
+            "f76f8f525ce9b9912a88a94572b6fb669179dff576b7f67aaaadb63f1cb96204"
+          ],
+          "unique_vector_count": 4
+        },
+        "random_objective_seed": 20262801,
+        "random_objective_trial_budget": 112,
+        "source_certificate_sha256": "ca9d0edb8b2a6b5f25214b7e96cfd8e55ee863b0f658a7ffb7b7b0842449ad4d",
+        "source_model_index": 2,
+        "source_positive_inequalities": 214,
+        "source_target_id": "residual:2",
+        "source_unique_ordered_quad_count": 214,
+        "successful_numerical_trials": 112,
+        "support_is_exact_positive_circuit": true,
+        "trial_count": 112
+      },
+      {
+        "affine_clause_orbit": {
+          "affine_map_count": 25,
+          "affine_stabilizer_size": 1,
+          "canonical_clause_sha256": "e238092a5981f20a780121388be10bf5e9f7e9d9d7ad5f1e04552b84139bff87",
+          "quotient_automorphism_multipliers": [
+            1
+          ],
+          "source_model_index": 3,
+          "source_order": [
+            0,
+            11,
+            22,
+            8,
+            5,
+            19,
+            16,
+            13,
+            2,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "source_unique_ordered_quad_count": 4,
+          "unique_orbit_clause_count": 25
+        },
+        "best_trial": 65,
+        "clause_coverage": {
+          "direct_covered_target_ids": [
+            "residual:3",
+            "residual:4",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "direct_cross_target_count": 4,
+          "source_target_id": "residual:3",
+          "translated_orbit_covered_targets": [
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:4"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:5"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:6"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:7"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:8"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:9"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:10"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:11"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "probe:12"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:13"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:14"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:15"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:0"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:1"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:2"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:3"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:4"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:5"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:6"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:7"
+            }
+          ],
+          "translated_orbit_cross_target_count": 19
+        },
+        "compressed_certificate": {
+          "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+          "certificate_type": "kalmanson_strict_inequality_farkas",
+          "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+          "cyclic_order": [
+            0,
+            11,
+            22,
+            8,
+            5,
+            19,
+            16,
+            13,
+            2,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+          "inequalities": [
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                0,
+                11,
+                8,
+                2
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                0,
+                8,
+                16,
+                2
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                11,
+                22,
+                16,
+                18
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                22,
+                13,
+                2,
+                18
+              ],
+              "weight": 1
+            }
+          ],
+          "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+          "num_inequalities": 4,
+          "pattern": {
+            "circulant_offsets": [
+              2,
+              5,
+              9,
+              14
+            ],
+            "n": 25,
+            "name": "C25_sidon_2_5_9_14"
+          },
+          "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+          "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+          "weight_sum": 4
+        },
+        "compressed_certificate_sha256": "3c98c549a7cbb9baa36475c2d149e47d622ec8c62046b8fbd5193c4785366376",
+        "compressed_positive_inequalities": 4,
+        "compressed_unique_ordered_quad_count": 4,
+        "exact_improvements": [
+          {
+            "positive_inequalities": 148,
+            "seed": 20263801,
+            "trial": 0,
+            "unique_ordered_quad_count": 146
+          },
+          {
+            "positive_inequalities": 135,
+            "seed": 20263805,
+            "trial": 4,
+            "unique_ordered_quad_count": 135
+          },
+          {
+            "positive_inequalities": 132,
+            "seed": 20263814,
+            "trial": 13,
+            "unique_ordered_quad_count": 131
+          },
+          {
+            "positive_inequalities": 128,
+            "seed": 20263818,
+            "trial": 17,
+            "unique_ordered_quad_count": 128
+          },
+          {
+            "positive_inequalities": 124,
+            "seed": 20263824,
+            "trial": 23,
+            "unique_ordered_quad_count": 123
+          },
+          {
+            "positive_inequalities": 122,
+            "seed": 20263860,
+            "trial": 59,
+            "unique_ordered_quad_count": 122
+          },
+          {
+            "positive_inequalities": 4,
+            "seed": 20263866,
+            "trial": 65,
+            "unique_ordered_quad_count": 4
+          }
+        ],
+        "matches_active_seed_orbit": false,
+        "numerical_support_size_histogram": {
+          "119": 1,
+          "122": 3,
+          "123": 1,
+          "124": 3,
+          "125": 1,
+          "128": 3,
+          "129": 2,
+          "130": 1,
+          "131": 1,
+          "132": 2,
+          "133": 2,
+          "134": 1,
+          "135": 1,
+          "136": 4,
+          "137": 2,
+          "138": 1,
+          "139": 5,
+          "140": 4,
+          "141": 4,
+          "142": 2,
+          "143": 1,
+          "144": 2,
+          "145": 5,
+          "146": 2,
+          "147": 3,
+          "148": 2,
+          "149": 4,
+          "150": 5,
+          "151": 4,
+          "152": 5,
+          "153": 1,
+          "154": 2,
+          "155": 3,
+          "156": 2,
+          "157": 2,
+          "158": 1,
+          "159": 2,
+          "160": 7,
+          "161": 4,
+          "162": 3,
+          "163": 3,
+          "164": 1,
+          "171": 1,
+          "173": 1,
+          "179": 1,
+          "4": 1
+        },
+        "numerical_support_size_max": 179,
+        "numerical_support_size_min": 4,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          5,
+          19,
+          16,
+          13,
+          2,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "positive_circuit_audit": {
+          "all_weights_positive": true,
+          "exact_zero_sum_gives_nullity_at_least": 1,
+          "modular_rank_gives_rational_rank_at_least": 3,
+          "positive_circuit_verified": true,
+          "rank_mod_1000000007": 3,
+          "support_size": 4
+        },
+        "quad_reduction": 212,
+        "quad_reduction_fraction": 0.9814814814814815,
+        "quotient_vector_support": {
+          "duplicate_inequality_vector_count": 0,
+          "hashes": [
+            "0c430ecb49145c547b9a1849812c07efe92da9b2b1fd03d3310b4561e511553b",
+            "33fa7d1da8e6cd9d9b681a045a284d8eb836229ac4641dfe745d5fd3e210c470",
+            "71d288c4740692f49285be4533d59a982783f26a5e0a9123450a7477c6744634",
+            "aead15a6cdcd168b12cd591b422999dd0faf717030d567f9a47150d3af918a24"
+          ],
+          "unique_vector_count": 4
+        },
+        "random_objective_seed": 20263801,
+        "random_objective_trial_budget": 112,
+        "source_certificate_sha256": "6ba8b953177f865b278650dc2a6ffbf462bab13e66ec41425fea4c78ba45ecfb",
+        "source_model_index": 3,
+        "source_positive_inequalities": 216,
+        "source_target_id": "residual:3",
+        "source_unique_ordered_quad_count": 216,
+        "successful_numerical_trials": 112,
+        "support_is_exact_positive_circuit": true,
+        "trial_count": 112
+      },
+      {
+        "affine_clause_orbit": {
+          "affine_map_count": 25,
+          "affine_stabilizer_size": 1,
+          "canonical_clause_sha256": "baeabf1fb892cb37a7f452ee1258dcadfdc10d799f93c940c7309fcd93bcc7f3",
+          "quotient_automorphism_multipliers": [
+            1
+          ],
+          "source_model_index": 4,
+          "source_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            16,
+            13,
+            5,
+            2,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "source_unique_ordered_quad_count": 9,
+          "unique_orbit_clause_count": 25
+        },
+        "best_trial": 67,
+        "clause_coverage": {
+          "direct_covered_target_ids": [
+            "residual:4",
+            "residual:6"
+          ],
+          "direct_cross_target_count": 1,
+          "source_target_id": "residual:4",
+          "translated_orbit_covered_targets": [
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:4"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:6"
+            }
+          ],
+          "translated_orbit_cross_target_count": 1
+        },
+        "compressed_certificate": {
+          "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+          "certificate_type": "kalmanson_strict_inequality_farkas",
+          "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+          "cyclic_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            16,
+            13,
+            5,
+            2,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+          "inequalities": [
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                0,
+                11,
+                22,
+                20
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                0,
+                11,
+                20,
+                6
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                0,
+                22,
+                16,
+                6
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                22,
+                19,
+                2,
+                6
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                8,
+                13,
+                10,
+                15
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                19,
+                16,
+                10,
+                6
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                19,
+                5,
+                2,
+                7
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                16,
+                5,
+                10,
+                21
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                13,
+                2,
+                24,
+                4
+              ],
+              "weight": 1
+            }
+          ],
+          "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+          "num_inequalities": 9,
+          "pattern": {
+            "circulant_offsets": [
+              2,
+              5,
+              9,
+              14
+            ],
+            "n": 25,
+            "name": "C25_sidon_2_5_9_14"
+          },
+          "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+          "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+          "weight_sum": 9
+        },
+        "compressed_certificate_sha256": "b69714e4889a80410e09421201575ecf807e624c5b36034259c142988e51b2c3",
+        "compressed_positive_inequalities": 9,
+        "compressed_unique_ordered_quad_count": 9,
+        "exact_improvements": [
+          {
+            "positive_inequalities": 157,
+            "seed": 20264801,
+            "trial": 0,
+            "unique_ordered_quad_count": 157
+          },
+          {
+            "positive_inequalities": 149,
+            "seed": 20264802,
+            "trial": 1,
+            "unique_ordered_quad_count": 149
+          },
+          {
+            "positive_inequalities": 144,
+            "seed": 20264803,
+            "trial": 2,
+            "unique_ordered_quad_count": 144
+          },
+          {
+            "positive_inequalities": 136,
+            "seed": 20264805,
+            "trial": 4,
+            "unique_ordered_quad_count": 135
+          },
+          {
+            "positive_inequalities": 116,
+            "seed": 20264807,
+            "trial": 6,
+            "unique_ordered_quad_count": 116
+          },
+          {
+            "positive_inequalities": 9,
+            "seed": 20264868,
+            "trial": 67,
+            "unique_ordered_quad_count": 9
+          }
+        ],
+        "matches_active_seed_orbit": false,
+        "numerical_support_size_histogram": {
+          "111": 1,
+          "116": 1,
+          "120": 1,
+          "124": 1,
+          "126": 1,
+          "128": 2,
+          "129": 1,
+          "130": 1,
+          "131": 2,
+          "132": 2,
+          "133": 5,
+          "134": 2,
+          "135": 4,
+          "136": 5,
+          "137": 4,
+          "138": 4,
+          "139": 2,
+          "140": 3,
+          "141": 2,
+          "142": 3,
+          "143": 2,
+          "144": 3,
+          "145": 6,
+          "146": 5,
+          "147": 3,
+          "148": 2,
+          "149": 4,
+          "150": 2,
+          "151": 4,
+          "152": 4,
+          "153": 4,
+          "154": 2,
+          "155": 4,
+          "156": 6,
+          "157": 3,
+          "158": 2,
+          "159": 2,
+          "164": 2,
+          "166": 2,
+          "167": 1,
+          "170": 1,
+          "9": 1
+        },
+        "numerical_support_size_max": 170,
+        "numerical_support_size_min": 9,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          16,
+          13,
+          5,
+          2,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "positive_circuit_audit": {
+          "all_weights_positive": true,
+          "exact_zero_sum_gives_nullity_at_least": 1,
+          "modular_rank_gives_rational_rank_at_least": 8,
+          "positive_circuit_verified": true,
+          "rank_mod_1000000007": 8,
+          "support_size": 9
+        },
+        "quad_reduction": 202,
+        "quad_reduction_fraction": 0.957345971563981,
+        "quotient_vector_support": {
+          "duplicate_inequality_vector_count": 0,
+          "hashes": [
+            "20034627d683ead01e28d25245a00004a88af7ec95fbec4c43d1102768c171ee",
+            "3b3b03d88f7cc12e5f9ee16662619e1147d95f8ecd1664df83869a0c2bc2ba1b",
+            "4e7ee97700175007edfe8765d6a02573cf5e561710573493c7a0b45a7c74967f",
+            "7b40db0c8ea19d2cddd7ee58f45b953665d03db4b8e64a1efd351229ed6e6050",
+            "ad20551dc9af10a37ca298e19f96e6cc121f43348b9236ef760ec33084903e51",
+            "bf969dfedcd80688a05844b092ecc87d6caf444de745b03b3e184d656fdbb57c",
+            "bfd1dea1dd4a7464a7ef3c31d72ddaf3997a570b808e42e9a684eae957caa06d",
+            "c184ed3aa4e91ade3623837261be7c695888f2d4e1b6c1d6ad2c3a21c07d81f4",
+            "c9f9572daae1d09cdaa94f6d9267bb6c83a7b867e39abb272eb6aeb21845abd4"
+          ],
+          "unique_vector_count": 9
+        },
+        "random_objective_seed": 20264801,
+        "random_objective_trial_budget": 112,
+        "source_certificate_sha256": "13b45a8dcd3c5036f64322a112eb116946d71ff82315a26af78b9dfa326d17c9",
+        "source_model_index": 4,
+        "source_positive_inequalities": 211,
+        "source_target_id": "residual:4",
+        "source_unique_ordered_quad_count": 211,
+        "successful_numerical_trials": 112,
+        "support_is_exact_positive_circuit": true,
+        "trial_count": 112
+      },
+      {
+        "affine_clause_orbit": {
+          "affine_map_count": 25,
+          "affine_stabilizer_size": 1,
+          "canonical_clause_sha256": "d6b4279023778ae4b3a2fc322dc0f4cb27a03cde71595f8e748591b90321d827",
+          "quotient_automorphism_multipliers": [
+            1
+          ],
+          "source_model_index": 5,
+          "source_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            5,
+            16,
+            13,
+            2,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "source_unique_ordered_quad_count": 6,
+          "unique_orbit_clause_count": 25
+        },
+        "best_trial": 5,
+        "clause_coverage": {
+          "direct_covered_target_ids": [
+            "residual:3",
+            "residual:4",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "direct_cross_target_count": 4,
+          "source_target_id": "residual:5",
+          "translated_orbit_covered_targets": [
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:6"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:7"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:8"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:9"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:12"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:13"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:14"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:15"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:0"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:1"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:2"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:3"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:4"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:5"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:6"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:7"
+            }
+          ],
+          "translated_orbit_cross_target_count": 15
+        },
+        "compressed_certificate": {
+          "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+          "certificate_type": "kalmanson_strict_inequality_farkas",
+          "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+          "cyclic_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            5,
+            16,
+            13,
+            2,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+          "inequalities": [
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                0,
+                5,
+                2,
+                23
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                19,
+                13,
+                2,
+                15
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                19,
+                2,
+                18,
+                23
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                19,
+                18,
+                15,
+                1
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                5,
+                10,
+                21,
+                1
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                5,
+                18,
+                1,
+                23
+              ],
+              "weight": 1
+            }
+          ],
+          "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+          "num_inequalities": 6,
+          "pattern": {
+            "circulant_offsets": [
+              2,
+              5,
+              9,
+              14
+            ],
+            "n": 25,
+            "name": "C25_sidon_2_5_9_14"
+          },
+          "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+          "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+          "weight_sum": 6
+        },
+        "compressed_certificate_sha256": "c6f1df6e5c0398eef9822b994fcfac4768711a73e305f23593e8cf9d11f34ae5",
+        "compressed_positive_inequalities": 6,
+        "compressed_unique_ordered_quad_count": 6,
+        "exact_improvements": [
+          {
+            "positive_inequalities": 153,
+            "seed": 20265801,
+            "trial": 0,
+            "unique_ordered_quad_count": 153
+          },
+          {
+            "positive_inequalities": 141,
+            "seed": 20265802,
+            "trial": 1,
+            "unique_ordered_quad_count": 141
+          },
+          {
+            "positive_inequalities": 6,
+            "seed": 20265806,
+            "trial": 5,
+            "unique_ordered_quad_count": 6
+          }
+        ],
+        "matches_active_seed_orbit": false,
+        "numerical_support_size_histogram": {
+          "123": 1,
+          "128": 1,
+          "132": 1,
+          "135": 1,
+          "141": 2,
+          "143": 2,
+          "144": 1,
+          "146": 1,
+          "147": 4,
+          "151": 1,
+          "152": 2,
+          "153": 1,
+          "154": 2,
+          "155": 1,
+          "156": 1,
+          "157": 2,
+          "163": 2,
+          "164": 1,
+          "168": 2,
+          "173": 2,
+          "6": 1
+        },
+        "numerical_support_size_max": 173,
+        "numerical_support_size_min": 6,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          5,
+          16,
+          13,
+          2,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "positive_circuit_audit": {
+          "all_weights_positive": true,
+          "exact_zero_sum_gives_nullity_at_least": 1,
+          "modular_rank_gives_rational_rank_at_least": 5,
+          "positive_circuit_verified": true,
+          "rank_mod_1000000007": 5,
+          "support_size": 6
+        },
+        "quad_reduction": 211,
+        "quad_reduction_fraction": 0.9723502304147466,
+        "quotient_vector_support": {
+          "duplicate_inequality_vector_count": 0,
+          "hashes": [
+            "09f6d39a41506e993ab790919ed618eabfe69f83dc4e74c455e1839097faec06",
+            "5d856410199eb442cd97ad529cce233ed8e9a3bdf0efe59aa4e2473d6f604145",
+            "64cf52004e9d0ae81cd172050984671f7f0812ca444f43fa0cd1ed74a40c7cc7",
+            "6b6277a715f2061f7f738502f1de93ee8f98d7afaf366a85c12c46eb2f74c465",
+            "7980fd05ab814d1556db6cb45568ca7a105ca053629b7a24d4c6886f79dabc8d",
+            "aa9afb389c51e9d2cf097a99b836d0ec67243695adb32d6be532f0b428502eda"
+          ],
+          "unique_vector_count": 6
+        },
+        "random_objective_seed": 20265801,
+        "random_objective_trial_budget": 32,
+        "source_certificate_sha256": "5b301a6a521648c99fa3fcfed8758fe3fc868517f92a8fa6ff4933ca61483860",
+        "source_model_index": 5,
+        "source_positive_inequalities": 217,
+        "source_target_id": "residual:5",
+        "source_unique_ordered_quad_count": 217,
+        "successful_numerical_trials": 32,
+        "support_is_exact_positive_circuit": true,
+        "trial_count": 32
+      },
+      {
+        "affine_clause_orbit": {
+          "affine_map_count": 25,
+          "affine_stabilizer_size": 1,
+          "canonical_clause_sha256": "48e7cb42c1735fb8f0ddac7196f19a38a429adcb18a787338e1ffcb1338f18f4",
+          "quotient_automorphism_multipliers": [
+            1
+          ],
+          "source_model_index": 6,
+          "source_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            16,
+            5,
+            13,
+            2,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "source_unique_ordered_quad_count": 4,
+          "unique_orbit_clause_count": 25
+        },
+        "best_trial": 24,
+        "clause_coverage": {
+          "direct_covered_target_ids": [
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "direct_cross_target_count": 2,
+          "source_target_id": "residual:6",
+          "translated_orbit_covered_targets": [
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:4"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:5"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:6"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:7"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:8"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:9"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:10"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:11"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:12"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:13"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:14"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:15"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:0"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:1"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:2"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:3"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:4"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:5"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:6"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:7"
+            }
+          ],
+          "translated_orbit_cross_target_count": 19
+        },
+        "compressed_certificate": {
+          "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+          "certificate_type": "kalmanson_strict_inequality_farkas",
+          "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+          "cyclic_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            16,
+            5,
+            13,
+            2,
+            24,
+            10,
+            21,
+            7,
+            18,
+            15,
+            4,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            17,
+            3,
+            14
+          ],
+          "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+          "inequalities": [
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                0,
+                5,
+                2,
+                14
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                22,
+                19,
+                5,
+                17
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                22,
+                5,
+                13,
+                1
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                5,
+                13,
+                2,
+                1
+              ],
+              "weight": 1
+            }
+          ],
+          "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+          "num_inequalities": 4,
+          "pattern": {
+            "circulant_offsets": [
+              2,
+              5,
+              9,
+              14
+            ],
+            "n": 25,
+            "name": "C25_sidon_2_5_9_14"
+          },
+          "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+          "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+          "weight_sum": 4
+        },
+        "compressed_certificate_sha256": "13365e39751ef8543d1ad69d636c5ef4788000f4522fb8b6d4fe52c3f78f7f41",
+        "compressed_positive_inequalities": 4,
+        "compressed_unique_ordered_quad_count": 4,
+        "exact_improvements": [
+          {
+            "positive_inequalities": 158,
+            "seed": 20266801,
+            "trial": 0,
+            "unique_ordered_quad_count": 158
+          },
+          {
+            "positive_inequalities": 153,
+            "seed": 20266803,
+            "trial": 2,
+            "unique_ordered_quad_count": 153
+          },
+          {
+            "positive_inequalities": 141,
+            "seed": 20266805,
+            "trial": 4,
+            "unique_ordered_quad_count": 140
+          },
+          {
+            "positive_inequalities": 119,
+            "seed": 20266807,
+            "trial": 6,
+            "unique_ordered_quad_count": 119
+          },
+          {
+            "positive_inequalities": 4,
+            "seed": 20266825,
+            "trial": 24,
+            "unique_ordered_quad_count": 4
+          }
+        ],
+        "matches_active_seed_orbit": false,
+        "numerical_support_size_histogram": {
+          "119": 1,
+          "126": 1,
+          "132": 1,
+          "133": 2,
+          "134": 1,
+          "135": 1,
+          "137": 1,
+          "138": 1,
+          "140": 1,
+          "141": 1,
+          "144": 1,
+          "145": 1,
+          "146": 2,
+          "147": 2,
+          "149": 1,
+          "151": 1,
+          "153": 2,
+          "155": 2,
+          "158": 1,
+          "161": 3,
+          "162": 1,
+          "166": 2,
+          "170": 1,
+          "4": 1
+        },
+        "numerical_support_size_max": 170,
+        "numerical_support_size_min": 4,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          16,
+          5,
+          13,
+          2,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "positive_circuit_audit": {
+          "all_weights_positive": true,
+          "exact_zero_sum_gives_nullity_at_least": 1,
+          "modular_rank_gives_rational_rank_at_least": 3,
+          "positive_circuit_verified": true,
+          "rank_mod_1000000007": 3,
+          "support_size": 4
+        },
+        "quad_reduction": 215,
+        "quad_reduction_fraction": 0.9817351598173516,
+        "quotient_vector_support": {
+          "duplicate_inequality_vector_count": 0,
+          "hashes": [
+            "4ed91377322d70297ea475be58f0361b09ce9abf828f5e252e0d6e9170386492",
+            "65b39d76ee4a01565d8ef4657149b106d43c34fc1654dca23c4ea5b88eb0019e",
+            "a3b9d19c68d9a695cfa1e0e71288f4df51bf3c4f9c5a8284d513b05721ce0e7c",
+            "b0f8b3fbbb52a6398124d8569c1574c6996374c153d9db5e66b7a293acaf9140"
+          ],
+          "unique_vector_count": 4
+        },
+        "random_objective_seed": 20266801,
+        "random_objective_trial_budget": 32,
+        "source_certificate_sha256": "fa872ff087f04ce0a2c28c7ad7741f53c2fff1bdfe557fe505fcd4490b425ccf",
+        "source_model_index": 6,
+        "source_positive_inequalities": 219,
+        "source_target_id": "residual:6",
+        "source_unique_ordered_quad_count": 219,
+        "successful_numerical_trials": 32,
+        "support_is_exact_positive_circuit": true,
+        "trial_count": 32
+      },
+      {
+        "affine_clause_orbit": {
+          "affine_map_count": 25,
+          "affine_stabilizer_size": 1,
+          "canonical_clause_sha256": "116a425997179619afcafe5257772a5840aaa1e246c49ab86b0227bb0744621e",
+          "quotient_automorphism_multipliers": [
+            1
+          ],
+          "source_model_index": 7,
+          "source_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            5,
+            16,
+            13,
+            2,
+            24,
+            10,
+            21,
+            18,
+            7,
+            4,
+            15,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            3,
+            17,
+            14
+          ],
+          "source_unique_ordered_quad_count": 3,
+          "unique_orbit_clause_count": 25
+        },
+        "best_trial": 37,
+        "clause_coverage": {
+          "direct_covered_target_ids": [
+            "residual:7"
+          ],
+          "direct_cross_target_count": 0,
+          "source_target_id": "residual:7",
+          "translated_orbit_covered_targets": [
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:4"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:5"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:6"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:7"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:8"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:9"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:10"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "probe:11"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:12"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "probe:13"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "probe:14"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "probe:15"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:1"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:2"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:3"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:4"
+            },
+            {
+              "matching_translation_count": 1,
+              "target_id": "residual:5"
+            },
+            {
+              "matching_translation_count": 2,
+              "target_id": "residual:6"
+            },
+            {
+              "matching_translation_count": 3,
+              "target_id": "residual:7"
+            }
+          ],
+          "translated_orbit_cross_target_count": 18
+        },
+        "compressed_certificate": {
+          "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+          "certificate_type": "kalmanson_strict_inequality_farkas",
+          "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+          "cyclic_order": [
+            0,
+            11,
+            22,
+            8,
+            19,
+            5,
+            16,
+            13,
+            2,
+            24,
+            10,
+            21,
+            18,
+            7,
+            4,
+            15,
+            1,
+            12,
+            23,
+            9,
+            20,
+            6,
+            3,
+            17,
+            14
+          ],
+          "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+          "inequalities": [
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                0,
+                22,
+                2,
+                24
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                0,
+                5,
+                24,
+                15
+              ],
+              "weight": 1
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                5,
+                15,
+                3,
+                17
+              ],
+              "weight": 1
+            }
+          ],
+          "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+          "num_inequalities": 3,
+          "pattern": {
+            "circulant_offsets": [
+              2,
+              5,
+              9,
+              14
+            ],
+            "n": 25,
+            "name": "C25_sidon_2_5_9_14"
+          },
+          "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+          "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+          "weight_sum": 3
+        },
+        "compressed_certificate_sha256": "52226e804072e982288dc0581ffe88235f40715241c17fc9c53f042909194528",
+        "compressed_positive_inequalities": 3,
+        "compressed_unique_ordered_quad_count": 3,
+        "exact_improvements": [
+          {
+            "positive_inequalities": 154,
+            "seed": 20267801,
+            "trial": 0,
+            "unique_ordered_quad_count": 153
+          },
+          {
+            "positive_inequalities": 151,
+            "seed": 20267806,
+            "trial": 5,
+            "unique_ordered_quad_count": 151
+          },
+          {
+            "positive_inequalities": 150,
+            "seed": 20267808,
+            "trial": 7,
+            "unique_ordered_quad_count": 150
+          },
+          {
+            "positive_inequalities": 142,
+            "seed": 20267811,
+            "trial": 10,
+            "unique_ordered_quad_count": 141
+          },
+          {
+            "positive_inequalities": 121,
+            "seed": 20267812,
+            "trial": 11,
+            "unique_ordered_quad_count": 120
+          },
+          {
+            "positive_inequalities": 81,
+            "seed": 20267823,
+            "trial": 22,
+            "unique_ordered_quad_count": 80
+          },
+          {
+            "positive_inequalities": 3,
+            "seed": 20267838,
+            "trial": 37,
+            "unique_ordered_quad_count": 3
+          }
+        ],
+        "matches_active_seed_orbit": false,
+        "numerical_support_size_histogram": {
+          "119": 1,
+          "121": 1,
+          "123": 1,
+          "126": 2,
+          "129": 1,
+          "133": 2,
+          "135": 2,
+          "136": 1,
+          "137": 3,
+          "138": 1,
+          "139": 1,
+          "140": 1,
+          "141": 1,
+          "142": 1,
+          "143": 2,
+          "144": 1,
+          "145": 3,
+          "146": 2,
+          "147": 3,
+          "148": 2,
+          "149": 1,
+          "150": 1,
+          "151": 4,
+          "153": 1,
+          "154": 2,
+          "155": 4,
+          "156": 2,
+          "157": 2,
+          "158": 1,
+          "159": 1,
+          "160": 2,
+          "161": 2,
+          "162": 2,
+          "163": 2,
+          "169": 2,
+          "3": 1,
+          "7": 1,
+          "81": 1
+        },
+        "numerical_support_size_max": 169,
+        "numerical_support_size_min": 3,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          5,
+          16,
+          13,
+          2,
+          24,
+          10,
+          21,
+          18,
+          7,
+          4,
+          15,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          3,
+          17,
+          14
+        ],
+        "positive_circuit_audit": {
+          "all_weights_positive": true,
+          "exact_zero_sum_gives_nullity_at_least": 1,
+          "modular_rank_gives_rational_rank_at_least": 2,
+          "positive_circuit_verified": true,
+          "rank_mod_1000000007": 2,
+          "support_size": 3
+        },
+        "quad_reduction": 207,
+        "quad_reduction_fraction": 0.9857142857142858,
+        "quotient_vector_support": {
+          "duplicate_inequality_vector_count": 0,
+          "hashes": [
+            "337504827b50da0dc9d2a4cfb6566f2c1d2b44feddec2003f061b523f68fa677",
+            "5c329ff5c2a2f066e24613991f41161059d86be619af2768c8174cc018f43a4d",
+            "79e68f2f94c2547b9a3301363c3a4e5e64e80623a39380e3aa685fec61fde883"
+          ],
+          "unique_vector_count": 3
+        },
+        "random_objective_seed": 20267801,
+        "random_objective_trial_budget": 64,
+        "source_certificate_sha256": "06862ba18305f7ab9370ec1da3fb687a53da351938c99a8ad6dd68b4a9fb71f1",
+        "source_model_index": 7,
+        "source_positive_inequalities": 210,
+        "source_target_id": "residual:7",
+        "source_unique_ordered_quad_count": 210,
+        "successful_numerical_trials": 64,
+        "support_is_exact_positive_circuit": true,
+        "trial_count": 64
+      }
+    ],
+    "compression_summary": {
+      "active_seed_orbit_match_count": 0,
+      "compressed_width_at_most_threshold_count": 8,
+      "compressed_widths": [
+        7,
+        6,
+        4,
+        4,
+        9,
+        6,
+        4,
+        3
+      ],
+      "exact_improvement_count": 8,
+      "maximum_compressed_width": 9,
+      "minimum_compressed_width": 3,
+      "source_count": 8,
+      "source_widths": [
+        219,
+        220,
+        214,
+        216,
+        211,
+        217,
+        219,
+        210
+      ]
+    },
+    "coverage_comparison": {
+      "active_plus_compressed_covered_target_count": 24,
+      "active_plus_compressed_uncovered_target_ids": [],
+      "active_seed_covered_target_count": 16,
+      "active_seed_covered_target_ids": [
+        "probe:0",
+        "probe:1",
+        "probe:2",
+        "probe:3",
+        "probe:4",
+        "probe:5",
+        "probe:6",
+        "probe:7",
+        "probe:8",
+        "probe:9",
+        "probe:10",
+        "probe:11",
+        "probe:12",
+        "probe:13",
+        "probe:14",
+        "probe:15"
+      ],
+      "compressed_affine_covered_target_count": 20,
+      "compressed_affine_covered_target_ids": [
+        "probe:4",
+        "probe:5",
+        "probe:6",
+        "probe:7",
+        "probe:8",
+        "probe:9",
+        "probe:10",
+        "probe:11",
+        "probe:12",
+        "probe:13",
+        "probe:14",
+        "probe:15",
+        "residual:0",
+        "residual:1",
+        "residual:2",
+        "residual:3",
+        "residual:4",
+        "residual:5",
+        "residual:6",
+        "residual:7"
+      ],
+      "compressed_marginal_over_active_target_ids": [
+        "residual:0",
+        "residual:1",
+        "residual:2",
+        "residual:3",
+        "residual:4",
+        "residual:5",
+        "residual:6",
+        "residual:7"
+      ],
+      "compressed_source_coverage": {
+        "compressed_source_count": 8,
+        "direct_covered_target_count": 14,
+        "direct_cross_reuse_edge_count": 31,
+        "target_coverage": [
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:0",
+            "translated_orbit_covering_source_ids": []
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:1",
+            "translated_orbit_covering_source_ids": []
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:2",
+            "translated_orbit_covering_source_ids": []
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:3",
+            "translated_orbit_covering_source_ids": []
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:1"
+            ],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:4",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:5",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:6",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:1"
+            ],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:7",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:8",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:1"
+            ],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:9",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:10",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:1"
+            ],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:11",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:1"
+            ],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:12",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:13",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:14",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:1"
+            ],
+            "stream": "probe",
+            "strong_lightweight_survivor": true,
+            "target_id": "probe:15",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2"
+            ],
+            "stream": "residual",
+            "strong_lightweight_survivor": true,
+            "target_id": "residual:0",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2"
+            ],
+            "stream": "residual",
+            "strong_lightweight_survivor": true,
+            "target_id": "residual:1",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:0",
+              "residual:2"
+            ],
+            "stream": "residual",
+            "strong_lightweight_survivor": true,
+            "target_id": "residual:2",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:0",
+              "residual:2",
+              "residual:3",
+              "residual:5"
+            ],
+            "stream": "residual",
+            "strong_lightweight_survivor": true,
+            "target_id": "residual:3",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:0",
+              "residual:2",
+              "residual:3",
+              "residual:4",
+              "residual:5"
+            ],
+            "stream": "residual",
+            "strong_lightweight_survivor": true,
+            "target_id": "residual:4",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:4",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:0",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6"
+            ],
+            "stream": "residual",
+            "strong_lightweight_survivor": true,
+            "target_id": "residual:5",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:0",
+              "residual:2",
+              "residual:3",
+              "residual:4",
+              "residual:5",
+              "residual:6"
+            ],
+            "stream": "residual",
+            "strong_lightweight_survivor": true,
+            "target_id": "residual:6",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:4",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          },
+          {
+            "direct_covering_source_ids": [
+              "residual:0",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ],
+            "stream": "residual",
+            "strong_lightweight_survivor": true,
+            "target_id": "residual:7",
+            "translated_orbit_covering_source_ids": [
+              "residual:0",
+              "residual:1",
+              "residual:2",
+              "residual:3",
+              "residual:5",
+              "residual:6",
+              "residual:7"
+            ]
+          }
+        ],
+        "target_order_count": 24,
+        "translated_orbit_covered_target_count": 20,
+        "translated_orbit_cross_reuse_edge_count": 129
+      },
+      "minimum_affine_source_covers": {
+        "compressed_marginal_over_active_targets": {
+          "coverable_target_count": 8,
+          "minimum_source_count": 1,
+          "minimum_total_width": 4,
+          "selected_source_target_ids": [
+            "residual:2"
+          ],
+          "status": "EXACT_MINIMUM_AFFINE_SOURCE_COVER_FOUND",
+          "target_count": 8,
+          "target_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:4",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "uncovered_target_ids": []
+        },
+        "residual_targets": {
+          "coverable_target_count": 8,
+          "minimum_source_count": 1,
+          "minimum_total_width": 4,
+          "selected_source_target_ids": [
+            "residual:2"
+          ],
+          "status": "EXACT_MINIMUM_AFFINE_SOURCE_COVER_FOUND",
+          "target_count": 8,
+          "target_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:4",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "uncovered_target_ids": []
+        }
+      },
+      "parent_plus_compressed_covered_target_count": 24,
+      "parent_plus_compressed_uncovered_target_ids": [],
+      "parent_seed_covered_target_count": 16,
+      "parent_seed_covered_target_ids": [
+        "probe:0",
+        "probe:1",
+        "probe:2",
+        "probe:3",
+        "probe:4",
+        "probe:5",
+        "probe:6",
+        "probe:7",
+        "probe:8",
+        "probe:9",
+        "probe:10",
+        "probe:11",
+        "probe:12",
+        "probe:13",
+        "probe:14",
+        "probe:15"
+      ],
+      "selected_width3_marginal_over_parent_target_ids": [],
+      "selected_width3_seed_covered_target_count": 4,
+      "selected_width3_seed_covered_target_ids": [
+        "probe:0",
+        "probe:1",
+        "probe:2",
+        "probe:3"
+      ],
+      "target_coverage": [
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": false,
+          "compressed_affine_covering_source_ids": [],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": true,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:0"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": false,
+          "compressed_affine_covering_source_ids": [],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": true,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:1"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": false,
+          "compressed_affine_covering_source_ids": [],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": true,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:2"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": false,
+          "compressed_affine_covering_source_ids": [],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": true,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:3"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:4"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:5"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:6"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:7"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:8"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:9"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:10"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:11"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:12"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:13"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:14"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": true,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": false,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": true,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "probe",
+          "strong_lightweight_survivor": true,
+          "target_id": "probe:15"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": false,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6"
+          ],
+          "compressed_marginal_over_active": true,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": false,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "residual",
+          "strong_lightweight_survivor": true,
+          "target_id": "residual:0"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": false,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": true,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": false,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "residual",
+          "strong_lightweight_survivor": true,
+          "target_id": "residual:1"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": false,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": true,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": false,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "residual",
+          "strong_lightweight_survivor": true,
+          "target_id": "residual:2"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": false,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": true,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": false,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "residual",
+          "strong_lightweight_survivor": true,
+          "target_id": "residual:3"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": false,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:4",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": true,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": false,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "residual",
+          "strong_lightweight_survivor": true,
+          "target_id": "residual:4"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": false,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": true,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": false,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "residual",
+          "strong_lightweight_survivor": true,
+          "target_id": "residual:5"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": false,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:4",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": true,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": false,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "residual",
+          "strong_lightweight_survivor": true,
+          "target_id": "residual:6"
+        },
+        {
+          "active_plus_compressed_covered": true,
+          "active_seed_covered": false,
+          "compressed_affine_covered": true,
+          "compressed_affine_covering_source_ids": [
+            "residual:0",
+            "residual:1",
+            "residual:2",
+            "residual:3",
+            "residual:5",
+            "residual:6",
+            "residual:7"
+          ],
+          "compressed_marginal_over_active": true,
+          "parent_plus_compressed_covered": true,
+          "parent_seed_covered": false,
+          "selected_width3_marginal_over_parent": false,
+          "selected_width3_seed_covered": false,
+          "stream": "residual",
+          "strong_lightweight_survivor": true,
+          "target_id": "residual:7"
+        }
+      ],
+      "target_order_count": 24
+    },
+    "decision": "REPLACE_NONMARGINAL_WIDTH3_WITH_MINIMUM_COMPRESSED_ESCAPE_COVER",
+    "n": 25,
+    "pattern": "C25_sidon_2_5_9_14",
+    "quotient_vector_reuse": {
+      "distinct_vector_count": 43,
+      "max_certificate_frequency": 1,
+      "nonzero_pairwise_overlaps": [],
+      "per_source_max_pairwise_shared_vector_count": [
+        {
+          "max_pairwise_shared_vector_count": 0,
+          "source_target_id": "residual:0"
+        },
+        {
+          "max_pairwise_shared_vector_count": 0,
+          "source_target_id": "residual:1"
+        },
+        {
+          "max_pairwise_shared_vector_count": 0,
+          "source_target_id": "residual:2"
+        },
+        {
+          "max_pairwise_shared_vector_count": 0,
+          "source_target_id": "residual:3"
+        },
+        {
+          "max_pairwise_shared_vector_count": 0,
+          "source_target_id": "residual:4"
+        },
+        {
+          "max_pairwise_shared_vector_count": 0,
+          "source_target_id": "residual:5"
+        },
+        {
+          "max_pairwise_shared_vector_count": 0,
+          "source_target_id": "residual:6"
+        },
+        {
+          "max_pairwise_shared_vector_count": 0,
+          "source_target_id": "residual:7"
+        }
+      ],
+      "shared_vector_count": 0,
+      "shared_vectors": []
+    },
+    "stopping_assessment": {
+      "decision": "REPLACE_NONMARGINAL_WIDTH3_WITH_MINIMUM_COMPRESSED_ESCAPE_COVER",
+      "minimum_residual_cover_source_target_ids": [
+        "residual:2"
+      ],
+      "minimum_residual_cover_sources_are_new_and_small": true,
+      "new_small_source_target_ids": [
+        "residual:0",
+        "residual:1",
+        "residual:2",
+        "residual:3",
+        "residual:4",
+        "residual:5",
+        "residual:6",
+        "residual:7"
+      ],
+      "parent_plus_replacement_cover_is_complete": true,
+      "retire_selected_width3_seed": true,
+      "selected_width3_marginal_target_ids": [],
+      "small_circuit_max_width": 12
+    },
+    "target_orders": [
+      {
+        "active_seed_orbit_match_count": 3,
+        "dihedral_order_sha256": "9e9942503d8326886c1fc092a25ae8f71dd463725708aa7884049b2148b8dbdd",
+        "model_index": 0,
+        "order": [
+          0,
+          11,
+          14,
+          3,
+          17,
+          6,
+          20,
+          9,
+          23,
+          12,
+          1,
+          15,
+          4,
+          18,
+          21,
+          7,
+          24,
+          10,
+          13,
+          2,
+          16,
+          5,
+          19,
+          8,
+          22
+        ],
+        "order_sha256": "9e9942503d8326886c1fc092a25ae8f71dd463725708aa7884049b2148b8dbdd",
+        "parent_seed_orbit_match_count": 2,
+        "selected_width3_seed_orbit_match_count": 1,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:0"
+      },
+      {
+        "active_seed_orbit_match_count": 3,
+        "dihedral_order_sha256": "531643184f51441dbd88a25c684aed28cff41893d27f62f501c7e5b07913d05e",
+        "model_index": 1,
+        "order": [
+          0,
+          11,
+          14,
+          3,
+          17,
+          6,
+          20,
+          9,
+          23,
+          12,
+          1,
+          15,
+          4,
+          18,
+          21,
+          7,
+          24,
+          10,
+          13,
+          2,
+          16,
+          5,
+          19,
+          22,
+          8
+        ],
+        "order_sha256": "30584c2826d14a34fb1754a4b4eee389e0cfeb9decf1adfbc2631656586d679d",
+        "parent_seed_orbit_match_count": 2,
+        "selected_width3_seed_orbit_match_count": 1,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:1"
+      },
+      {
+        "active_seed_orbit_match_count": 3,
+        "dihedral_order_sha256": "1e3367b3ad0722e8dad98d1bc1ef4735c77d5d688d169017bbf3302ee4775bfd",
+        "model_index": 2,
+        "order": [
+          0,
+          11,
+          14,
+          3,
+          17,
+          6,
+          20,
+          9,
+          23,
+          1,
+          12,
+          15,
+          4,
+          18,
+          21,
+          7,
+          24,
+          10,
+          13,
+          2,
+          16,
+          5,
+          19,
+          22,
+          8
+        ],
+        "order_sha256": "d728eafd0dbd649d5451b5ddf669d8705a9942323b252338792ef2227525d526",
+        "parent_seed_orbit_match_count": 2,
+        "selected_width3_seed_orbit_match_count": 1,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:2"
+      },
+      {
+        "active_seed_orbit_match_count": 3,
+        "dihedral_order_sha256": "bb3773624a3787d41f9ae8d9c166829c9de1763e0b993607fa10a867c1d0fb5c",
+        "model_index": 3,
+        "order": [
+          0,
+          11,
+          14,
+          3,
+          17,
+          6,
+          20,
+          9,
+          23,
+          1,
+          12,
+          15,
+          4,
+          18,
+          21,
+          7,
+          24,
+          10,
+          13,
+          2,
+          16,
+          5,
+          19,
+          8,
+          22
+        ],
+        "order_sha256": "bb3773624a3787d41f9ae8d9c166829c9de1763e0b993607fa10a867c1d0fb5c",
+        "parent_seed_orbit_match_count": 2,
+        "selected_width3_seed_orbit_match_count": 1,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:3"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "d07d0c3bbc5257b5147290b15a9c21ada2558deb9e35669a4f76c77fc50e9c37",
+        "model_index": 4,
+        "order": [
+          0,
+          22,
+          19,
+          16,
+          5,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          4,
+          1,
+          15,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "b9a91b3f8bebf9b67f30563b17af166cc111f25f6be5210c64b903fdb2d2cbda",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:4"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "17342cdd2bf3dce538024cb84374950cea4fea3eb71cd40200329d792f536722",
+        "model_index": 5,
+        "order": [
+          0,
+          5,
+          22,
+          19,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          4,
+          1,
+          15,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "17342cdd2bf3dce538024cb84374950cea4fea3eb71cd40200329d792f536722",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:5"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "415bb579d8af0acefb7defb5815feedadee692dfda99e142e9ad3584395625c0",
+        "model_index": 6,
+        "order": [
+          0,
+          5,
+          22,
+          19,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          4,
+          1,
+          15,
+          12,
+          9,
+          23,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "415bb579d8af0acefb7defb5815feedadee692dfda99e142e9ad3584395625c0",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:6"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "b30808379af6404c5d6ce4ce993e58417983b43adb018ea880ebbe735ef8784a",
+        "model_index": 7,
+        "order": [
+          0,
+          22,
+          19,
+          16,
+          5,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          4,
+          1,
+          15,
+          12,
+          9,
+          23,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "ad7162b38bc6a4b81720129ed8cd661106030e1a0f77779ea46f8ab42dba70c8",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:7"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "f366a8313a78ffbd74198bec3557fbe7fd032ef918f546a2b9278fd95d77a376",
+        "model_index": 8,
+        "order": [
+          0,
+          22,
+          5,
+          19,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          4,
+          1,
+          15,
+          12,
+          9,
+          23,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "9a8fe41c57528ff4636f314d34b3959bc1fc493dc8aae2007640cc9920589b5f",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:8"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "576fceed3d90c2fb794664163d2415b2fc3533855a71397399fd52eb10a1dffd",
+        "model_index": 9,
+        "order": [
+          0,
+          22,
+          19,
+          5,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          4,
+          1,
+          15,
+          12,
+          9,
+          23,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "4836d1d7c3baefd980d2f86ac6bcf9d17ebe6570152763ac17d33980c4c76332",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:9"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "eefc193614d35cc47d5b2594106f909c06f3669dea5a26a021d96b04e5221c9a",
+        "model_index": 10,
+        "order": [
+          0,
+          22,
+          5,
+          19,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          4,
+          1,
+          15,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "17211b47a0f84b7998518989a70fbb94ebd3b042a605e2bd602a5d49f198c744",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:10"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "fb1b5258eac6b7f84f213c7f36680368aa0644a8bec2a0e80ec82f145e55ec57",
+        "model_index": 11,
+        "order": [
+          0,
+          22,
+          19,
+          5,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          4,
+          1,
+          15,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "498d4906b5edd357fcdf3c776b1446eaee9ac80276cd50b77c380c6b35a74de6",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:11"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "380cee06e9a5961300f1f48361c4d51085b505e611d7bb9a305b6170b94e78b0",
+        "model_index": 12,
+        "order": [
+          0,
+          22,
+          19,
+          5,
+          16,
+          2,
+          13,
+          24,
+          10,
+          7,
+          21,
+          18,
+          4,
+          1,
+          15,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "1ff9bd64e103bb6c0d2a2496ab96e328cab46b1ffdf84e43822f50ddfe42b178",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:12"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "57c5b4cac6f3afd5dc5e92a496082434afe8371cc2960705bb72ac8176529c7b",
+        "model_index": 13,
+        "order": [
+          0,
+          22,
+          5,
+          19,
+          16,
+          2,
+          13,
+          24,
+          10,
+          7,
+          21,
+          18,
+          4,
+          1,
+          15,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "1577f685ba3d1b667090592bc43493c40e4864adac22c2564a443ac1f45246df",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:13"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "6fa4c4f4a93452bf8339f25281142379a18c191b65eae5c44c50e66df6f631ea",
+        "model_index": 14,
+        "order": [
+          0,
+          22,
+          5,
+          19,
+          16,
+          2,
+          13,
+          24,
+          10,
+          7,
+          21,
+          18,
+          4,
+          1,
+          15,
+          12,
+          9,
+          23,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "c80b4cf93f08d2847adb385f5414589217aedd666653f91c06a8dd95cb395378",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:14"
+      },
+      {
+        "active_seed_orbit_match_count": 1,
+        "dihedral_order_sha256": "7a418f66b1c2b15c2adc093b9bb224916b8d37211aa342787cfc194c4f4eeada",
+        "model_index": 15,
+        "order": [
+          0,
+          22,
+          19,
+          5,
+          16,
+          2,
+          13,
+          24,
+          10,
+          7,
+          21,
+          18,
+          4,
+          1,
+          15,
+          12,
+          9,
+          23,
+          20,
+          6,
+          17,
+          3,
+          14,
+          11,
+          8
+        ],
+        "order_sha256": "1ac3d22cdc916dfe78f7edd78bc1a10c994d1d65b84e5f757668b1fd883f2e28",
+        "parent_seed_orbit_match_count": 1,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "probe",
+        "strong_lightweight_survivor": true,
+        "target_id": "probe:15"
+      },
+      {
+        "active_seed_orbit_match_count": 0,
+        "dihedral_order_sha256": "0c51120774bdecd9e7cb71cff2477aaf06c4e6c923aaeb821fd92124ade0f0f0",
+        "model_index": 0,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          5,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "order_sha256": "0c51120774bdecd9e7cb71cff2477aaf06c4e6c923aaeb821fd92124ade0f0f0",
+        "parent_seed_orbit_match_count": 0,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "residual",
+        "strong_lightweight_survivor": true,
+        "target_id": "residual:0"
+      },
+      {
+        "active_seed_orbit_match_count": 0,
+        "dihedral_order_sha256": "2c01223fc713b5e71f5b20bd5ea76e7e9ea829f5eeaf40dc90578681783e387b",
+        "model_index": 1,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          16,
+          5,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "order_sha256": "2c01223fc713b5e71f5b20bd5ea76e7e9ea829f5eeaf40dc90578681783e387b",
+        "parent_seed_orbit_match_count": 0,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "residual",
+        "strong_lightweight_survivor": true,
+        "target_id": "residual:1"
+      },
+      {
+        "active_seed_orbit_match_count": 0,
+        "dihedral_order_sha256": "7a844de5b47bc27fafa790fb4de59dd3c5fb08f89356333036fc98f0df98f7f8",
+        "model_index": 2,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          5,
+          19,
+          16,
+          2,
+          13,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "order_sha256": "7a844de5b47bc27fafa790fb4de59dd3c5fb08f89356333036fc98f0df98f7f8",
+        "parent_seed_orbit_match_count": 0,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "residual",
+        "strong_lightweight_survivor": true,
+        "target_id": "residual:2"
+      },
+      {
+        "active_seed_orbit_match_count": 0,
+        "dihedral_order_sha256": "3c278ac529881595d138bdfdf0dba52105b9856da609a4f92e0364c0595002b8",
+        "model_index": 3,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          5,
+          19,
+          16,
+          13,
+          2,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "order_sha256": "3c278ac529881595d138bdfdf0dba52105b9856da609a4f92e0364c0595002b8",
+        "parent_seed_orbit_match_count": 0,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "residual",
+        "strong_lightweight_survivor": true,
+        "target_id": "residual:3"
+      },
+      {
+        "active_seed_orbit_match_count": 0,
+        "dihedral_order_sha256": "e94b21cf5be2c3145b9746a7bc68723415fd28176c99103846304bb2385a1e1f",
+        "model_index": 4,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          16,
+          13,
+          5,
+          2,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "order_sha256": "e94b21cf5be2c3145b9746a7bc68723415fd28176c99103846304bb2385a1e1f",
+        "parent_seed_orbit_match_count": 0,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "residual",
+        "strong_lightweight_survivor": true,
+        "target_id": "residual:4"
+      },
+      {
+        "active_seed_orbit_match_count": 0,
+        "dihedral_order_sha256": "2bebdc8929cdb6568112fd5ded9f71b307f5e37eedce75f7ea00b36fce059f49",
+        "model_index": 5,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          5,
+          16,
+          13,
+          2,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "order_sha256": "2bebdc8929cdb6568112fd5ded9f71b307f5e37eedce75f7ea00b36fce059f49",
+        "parent_seed_orbit_match_count": 0,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "residual",
+        "strong_lightweight_survivor": true,
+        "target_id": "residual:5"
+      },
+      {
+        "active_seed_orbit_match_count": 0,
+        "dihedral_order_sha256": "fbdd7460b4666dc782b093769bacb46ac3a4fc15a894e038bd05034379cf92d7",
+        "model_index": 6,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          16,
+          5,
+          13,
+          2,
+          24,
+          10,
+          21,
+          7,
+          18,
+          15,
+          4,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3,
+          14
+        ],
+        "order_sha256": "fbdd7460b4666dc782b093769bacb46ac3a4fc15a894e038bd05034379cf92d7",
+        "parent_seed_orbit_match_count": 0,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "residual",
+        "strong_lightweight_survivor": true,
+        "target_id": "residual:6"
+      },
+      {
+        "active_seed_orbit_match_count": 0,
+        "dihedral_order_sha256": "dabafcb478e73d1c280a281636af93593e2b879ea0a775cc4188e11cce2f7986",
+        "model_index": 7,
+        "order": [
+          0,
+          11,
+          22,
+          8,
+          19,
+          5,
+          16,
+          13,
+          2,
+          24,
+          10,
+          21,
+          18,
+          7,
+          4,
+          15,
+          1,
+          12,
+          23,
+          9,
+          20,
+          6,
+          3,
+          17,
+          14
+        ],
+        "order_sha256": "dabafcb478e73d1c280a281636af93593e2b879ea0a775cc4188e11cce2f7986",
+        "parent_seed_orbit_match_count": 0,
+        "selected_width3_seed_orbit_match_count": 0,
+        "stream": "residual",
+        "strong_lightweight_survivor": true,
+        "target_id": "residual:7"
+      }
+    ]
+  },
+  "source_artifact": "data/runs/sparse_full_cone_c25_selected_residual_augmented_cegar_2026-07-30/summary.json",
+  "source_sha256": "f6abf754d8fb31913ddb986e993ccf4917a985c41890ca1e2c22d5ae081a2388",
+  "status": "BOUNDED_C25_SELECTED_RESIDUAL_ESCAPE_COMPRESSION",
+  "trust": "EXACT_COMPRESSED_CERTIFICATES_AND_AFFINE_COVERAGE_IN_BOUNDED_PACKET",
+  "type": "sparse_full_cone_c25_selected_residual_augmented_escape_compression_v1"
+}

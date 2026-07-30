@@ -80,10 +80,15 @@ active seed images, the checker replays 325 exact affine certificate images.
 The route decision is
 `COMPRESS_NEW_C25_SELECTED_RESIDUAL_AUGMENTED_ESCAPES`.
 
-Compress the eight new width-210--220 certificates, construct their exact
-quotient-preserving affine orbits, and compare marginal coverage against both
-the four parent seeds and the selected width-3 seed before choosing the seed
-packet for a possible 192-history C25 CEGAR.
+The completed follow-up in
+`docs/sparse-full-cone-c25-selected-residual-augmented-escape-compression.md`
+compresses the eight circuits to exact widths `3`--`9`. The old width-3 seed
+has zero marginal targets over the four parent seeds, while the new width-4
+orbit from `residual:2` is the exact one-source minimum cover of all eight
+five-seed escapes.
+
+The next target is a bounded 192-history C25 CEGAR using the four parent seeds
+plus only this new width-4 replacement orbit, retiring the old width-3 seed.
 
 Replay:
 

@@ -3193,6 +3193,16 @@
         "data/runs/sparse_full_cone_c25_selected_residual_augmented_cegar_2026-07-30/summary.json"
       ],
       "claim_scope": "Replay five active exact C25 seed certificates, sixteen explicitly inactive exact seed summaries, 168 blocked order identities, 16 history-disjoint probe orders, eight newly learned exact full-cone certificates, 200 new affine clauses, and 325 exact affine certificate images. The selected width-three seed has zero fresh-probe marginal coverage and the run stops at configured finite limits; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_c25_selected_residual_augmented_escape_compression",
+      "command": [
+        "python",
+        "scripts/exploration/compress_sparse_full_cone_c25_selected_residual_augmented_escapes.py",
+        "--check",
+        "data/runs/sparse_full_cone_c25_selected_residual_augmented_escape_compression_2026-07-30/summary.json"
+      ],
+      "claim_scope": "Replay eight exact compressed C25 positive-circuit certificates of widths 3 through 9, 200 exact quotient-preserving affine images, exact coverage over 16 probe and eight five-seed-escaping residual orders, 31 direct plus 129 affine cross-source reuse edges, and exhaustive minimum-source covers inside that finite packet. The old selected width-three seed has zero marginal targets and the objective search is deterministic-budget but non-exhaustive; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {
