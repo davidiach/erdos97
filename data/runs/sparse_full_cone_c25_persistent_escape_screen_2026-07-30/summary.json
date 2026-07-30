@@ -1,0 +1,4268 @@
+{
+  "circulant_offsets": [
+    2,
+    5,
+    9,
+    14
+  ],
+  "claim_scope": "Exact Gordan-alternative classification of transfer-CEGAR counterfactual probe orders 0 and 1 for the fixed C25_sidon_2_5_9_14 selected-witness pattern. The targets are replayed outside all three transferred and eight compressed residual seed orbits. Each conclusive record stores either an exact positive Kalmanson zero-sum certificate or an exact integer separating potential. This is not an all-order obstruction, a geometric realizability result, a proof of Erdos Problem #97, a counterexample, or an official/global status update.",
+  "configuration": {
+    "max_separator_denominator": 1000000,
+    "retry_count": 16,
+    "retry_seed": 20260730,
+    "selection": "the two predeclared original transfer-CEGAR probe escapes outside all eleven stored seed orbits",
+    "target_probe_model_indices": [
+      0,
+      1
+    ],
+    "target_seed_stride": 1000,
+    "tolerance": 1e-09
+  },
+  "decision": "CONTINUE_C25_CLAUSE_ROUTE_WITH_EXACT_POSITIVE_CIRCUITS",
+  "n": 25,
+  "next_target": "Compress the two new exact positive circuits and test their quotient-preserving affine orbits before extending C25 cyclic-order search limits.",
+  "pattern": "C25_sidon_2_5_9_14",
+  "records": [
+    {
+      "all_eleven_seed_orbit_match_count": 0,
+      "certificate": {
+        "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+        "certificate_type": "kalmanson_strict_inequality_farkas",
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "cyclic_order": [
+          0,
+          22,
+          14,
+          11,
+          8,
+          19,
+          5,
+          2,
+          24,
+          16,
+          13,
+          10,
+          21,
+          7,
+          4,
+          1,
+          18,
+          15,
+          12,
+          23,
+          9,
+          20,
+          6,
+          17,
+          3
+        ],
+        "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              14,
+              7,
+              6
+            ],
+            "weight": 413209878042317819
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              14,
+              4,
+              1
+            ],
+            "weight": 245460979634608784
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              6,
+              17
+            ],
+            "weight": 1061619812728895477
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              8,
+              2
+            ],
+            "weight": 230391779606417786
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              5,
+              20
+            ],
+            "weight": 391598987386524353
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              2,
+              9
+            ],
+            "weight": 1528179291738494166
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              11,
+              18,
+              20
+            ],
+            "weight": 343273811883487230
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              8,
+              19,
+              2
+            ],
+            "weight": 2761870410221250343
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              8,
+              19,
+              23
+            ],
+            "weight": 230391779606417786
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              8,
+              24,
+              10
+            ],
+            "weight": 252547031438386864
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              8,
+              4,
+              12
+            ],
+            "weight": 88008340801534279
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              19,
+              5,
+              15
+            ],
+            "weight": 230391779606417786
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              19,
+              1,
+              3
+            ],
+            "weight": 2992262189827668129
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              5,
+              13,
+              4
+            ],
+            "weight": 333469320436143063
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              5,
+              7,
+              15
+            ],
+            "weight": 267429521923028078
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              5,
+              18,
+              17
+            ],
+            "weight": 207674806831352305
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              24,
+              10,
+              1
+            ],
+            "weight": 252547031438386864
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              24,
+              21,
+              1
+            ],
+            "weight": 252547031438386864
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              24,
+              6,
+              17
+            ],
+            "weight": 239879286857426741
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              16,
+              15,
+              9
+            ],
+            "weight": 164351981093302801
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              15,
+              9
+            ],
+            "weight": 333469320436143063
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              21,
+              23,
+              3
+            ],
+            "weight": 252547031438386864
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              23,
+              20
+            ],
+            "weight": 391766952872620347
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              9,
+              3
+            ],
+            "weight": 288872447092725550
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              1,
+              12,
+              3
+            ],
+            "weight": 2494254178754672481
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              18,
+              9,
+              20
+            ],
+            "weight": 550948618714839535
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              23,
+              6
+            ],
+            "weight": 960840664759911925
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              9,
+              17
+            ],
+            "weight": 1205525886335799536
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              17,
+              3
+            ],
+            "weight": 239879286857426741
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              9,
+              20,
+              6
+            ],
+            "weight": 888289221544004399
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              14,
+              16,
+              21
+            ],
+            "weight": 353443406651105120
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              14,
+              13,
+              15
+            ],
+            "weight": 46539179676577490
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              11,
+              8,
+              1
+            ],
+            "weight": 406961997822322528
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              11,
+              19,
+              3
+            ],
+            "weight": 1388008879221049309
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              11,
+              24,
+              18
+            ],
+            "weight": 519556024141938079
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              11,
+              10,
+              4
+            ],
+            "weight": 46897457779534484
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              11,
+              10,
+              18
+            ],
+            "weight": 107033667969151339
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              11,
+              10,
+              17
+            ],
+            "weight": 698190328652852334
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              8,
+              24,
+              23
+            ],
+            "weight": 716892987391187892
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              8,
+              7,
+              3
+            ],
+            "weight": 955577651491841215
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              8,
+              4,
+              15
+            ],
+            "weight": 46897457779534484
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              8,
+              18,
+              17
+            ],
+            "weight": 417480863299501062
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              19,
+              5,
+              2
+            ],
+            "weight": 388681534253897827
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              19,
+              2,
+              12
+            ],
+            "weight": 1285933718378612292
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              19,
+              13,
+              7
+            ],
+            "weight": 955577651491841215
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              19,
+              18,
+              6
+            ],
+            "weight": 102075160842437017
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              5,
+              16,
+              9
+            ],
+            "weight": 131591329782690818
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              5,
+              13,
+              3
+            ],
+            "weight": 158752115879317896
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              5,
+              10,
+              23
+            ],
+            "weight": 75008351530190662
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              5,
+              9,
+              6
+            ],
+            "weight": 154921066844389269
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              2,
+              1,
+              12
+            ],
+            "weight": 93436637456111974
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              24,
+              13,
+              10
+            ],
+            "weight": 927129805931728819
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              24,
+              21,
+              23
+            ],
+            "weight": 316061352272921172
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              24,
+              9,
+              20
+            ],
+            "weight": 194314596267133312
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              16,
+              21,
+              6
+            ],
+            "weight": 37382054378183948
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              16,
+              12,
+              17
+            ],
+            "weight": 191853656400201383
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              16,
+              20,
+              6
+            ],
+            "weight": 485034736433795938
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              1,
+              15,
+              23
+            ],
+            "weight": 93436637456111974
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              1,
+              12,
+              9
+            ],
+            "weight": 217644333328831763
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              12,
+              23,
+              9
+            ],
+            "weight": 316061352272921172
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              11,
+              19,
+              21
+            ],
+            "weight": 552635027017255410
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              11,
+              4,
+              15
+            ],
+            "weight": 140334095235646458
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              11,
+              23,
+              6
+            ],
+            "weight": 1160750956596003713
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              19,
+              2,
+              13
+            ],
+            "weight": 224175946865261923
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              5,
+              24,
+              9
+            ],
+            "weight": 314761331484694963
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              5,
+              10,
+              21
+            ],
+            "weight": 118301675827832136
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              5,
+              1,
+              20
+            ],
+            "weight": 45357368778419441
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              5,
+              12,
+              3
+            ],
+            "weight": 860061314777558884
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              2,
+              13,
+              4
+            ],
+            "weight": 205420648493301228
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              2,
+              21,
+              23
+            ],
+            "weight": 371530708188616858
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              2,
+              4,
+              12
+            ],
+            "weight": 146888488286011977
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              2,
+              20,
+              17
+            ],
+            "weight": 77287458579249946
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              24,
+              13,
+              4
+            ],
+            "weight": 269403962706275522
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              24,
+              10,
+              3
+            ],
+            "weight": 45357368778419441
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              16,
+              7,
+              20
+            ],
+            "weight": 155062981389946050
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              13,
+              21,
+              3
+            ],
+            "weight": 204109484657737337
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              13,
+              6,
+              17
+            ],
+            "weight": 747541078553685894
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              10,
+              4,
+              18
+            ],
+            "weight": 163659044606251577
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              10,
+              18,
+              17
+            ],
+            "weight": 163659044606251577
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              21,
+              7,
+              18
+            ],
+            "weight": 258146896652371769
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              21,
+              15,
+              12
+            ],
+            "weight": 93794915559068968
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              1,
+              9,
+              17
+            ],
+            "weight": 290818348413028225
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              18,
+              23,
+              17
+            ],
+            "weight": 190945842586094038
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              23,
+              9,
+              6
+            ],
+            "weight": 319296396582072299
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              23,
+              20,
+              17
+            ],
+            "weight": 123132891589115545
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              8,
+              19,
+              3
+            ],
+            "weight": 559086758673241130
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              8,
+              2,
+              21
+            ],
+            "weight": 1223159672337330968
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              8,
+              15,
+              17
+            ],
+            "weight": 272924855148544826
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              19,
+              5,
+              1
+            ],
+            "weight": 413413729478308248
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              19,
+              4,
+              3
+            ],
+            "weight": 93436637456111974
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              19,
+              1,
+              6
+            ],
+            "weight": 6451731655985720
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              19,
+              12,
+              6
+            ],
+            "weight": 719037601140668904
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              5,
+              13,
+              17
+            ],
+            "weight": 413413729478308248
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              2,
+              24,
+              12
+            ],
+            "weight": 1045608592636488341
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              2,
+              16,
+              3
+            ],
+            "weight": 475830961488566212
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              2,
+              10,
+              18
+            ],
+            "weight": 745087786432386818
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              24,
+              16,
+              18
+            ],
+            "weight": 526052568494550262
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              24,
+              21,
+              12
+            ],
+            "weight": 670524645320075558
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              24,
+              23,
+              17
+            ],
+            "weight": 1160750956596003713
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              16,
+              17,
+              3
+            ],
+            "weight": 735485483091696205
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              13,
+              7,
+              12
+            ],
+            "weight": 461771906204784630
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              7,
+              18,
+              9
+            ],
+            "weight": 461771906204784630
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              15,
+              12,
+              9
+            ],
+            "weight": 413258950384191284
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              19,
+              5,
+              17
+            ],
+            "weight": 2953582011107589239
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              19,
+              16,
+              12
+            ],
+            "weight": 45845433009865599
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              19,
+              18,
+              20
+            ],
+            "weight": 33833630272905678
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              5,
+              24,
+              13
+            ],
+            "weight": 1254796096526912736
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              5,
+              13,
+              21
+            ],
+            "weight": 1698785914580676503
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              5,
+              4,
+              20
+            ],
+            "weight": 346241618608104912
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              5,
+              18,
+              23
+            ],
+            "weight": 172311412999559235
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              2,
+              24,
+              18
+            ],
+            "weight": 1308318958277501589
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              2,
+              15,
+              9
+            ],
+            "weight": 226027397369010342
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              24,
+              10,
+              21
+            ],
+            "weight": 1223159672337330968
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              16,
+              20,
+              17
+            ],
+            "weight": 45845433009865599
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              13,
+              1,
+              12
+            ],
+            "weight": 146888488286011977
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              10,
+              20,
+              3
+            ],
+            "weight": 45357368778419441
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              21,
+              7,
+              23
+            ],
+            "weight": 260073509536310551
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              21,
+              12,
+              6
+            ],
+            "weight": 104725580494343297
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              7,
+              1,
+              15
+            ],
+            "weight": 260073509536310551
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              4,
+              18,
+              23
+            ],
+            "weight": 211335820027036149
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              23,
+              9,
+              20
+            ],
+            "weight": 514899844461735892
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              9,
+              20,
+              3
+            ],
+            "weight": 288872447092725550
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              6,
+              17,
+              3
+            ],
+            "weight": 354192315363855595
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              5,
+              13,
+              12
+            ],
+            "weight": 612741550247808987
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              2,
+              16,
+              23
+            ],
+            "weight": 164505587388635904
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              2,
+              10,
+              20
+            ],
+            "weight": 33833630272905678
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              2,
+              4,
+              1
+            ],
+            "weight": 93436637456111974
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              24,
+              10,
+              1
+            ],
+            "weight": 446018386048462773
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              24,
+              18,
+              3
+            ],
+            "weight": 33833630272905678
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              16,
+              13,
+              12
+            ],
+            "weight": 118660154378770305
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              13,
+              21,
+              7
+            ],
+            "weight": 955577651491841215
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              10,
+              21,
+              6
+            ],
+            "weight": 1147541585661287915
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              1,
+              6,
+              3
+            ],
+            "weight": 319977092022196274
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              15,
+              23,
+              6
+            ],
+            "weight": 230391779606417786
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              2,
+              16,
+              18
+            ],
+            "weight": 82345810751506994
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              2,
+              13,
+              9
+            ],
+            "weight": 1222362264421435603
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              24,
+              4,
+              15
+            ],
+            "weight": 267429521923028078
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              5,
+              16,
+              10,
+              18
+            ],
+            "weight": 4036349277065765107
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              5,
+              13,
+              7,
+              15
+            ],
+            "weight": 1530947490264396289
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              5,
+              10,
+              21,
+              6
+            ],
+            "weight": 880735183648393119
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              5,
+              21,
+              1,
+              20
+            ],
+            "weight": 45357368778419441
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              21,
+              9,
+              6
+            ],
+            "weight": 776009603154049822
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              7,
+              12,
+              23
+            ],
+            "weight": 247319764529749897
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              7,
+              6,
+              17
+            ],
+            "weight": 621088536309660553
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              5,
+              4,
+              18,
+              3
+            ],
+            "weight": 254657223751066229
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              24,
+              10,
+              3
+            ],
+            "weight": 281135023023663273
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              24,
+              7,
+              23
+            ],
+            "weight": 536036295577252762
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              16,
+              10,
+              17
+            ],
+            "weight": 497786393681629223
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              13,
+              21,
+              12
+            ],
+            "weight": 371530708188616858
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              7,
+              15,
+              6
+            ],
+            "weight": 75395821271043464
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              4,
+              15,
+              20
+            ],
+            "weight": 150631576097966878
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              4,
+              6,
+              17
+            ],
+            "weight": 271983397044152885
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              18,
+              17,
+              3
+            ],
+            "weight": 194695938464902939
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              15,
+              9,
+              20
+            ],
+            "weight": 79789629948048221
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              15,
+              20,
+              6
+            ],
+            "weight": 196587575773109421
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              21,
+              7,
+              4
+            ],
+            "weight": 1081729010615869851
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              24,
+              21,
+              18,
+              17
+            ],
+            "weight": 236573674744334238
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              21,
+              12,
+              17
+            ],
+            "weight": 375083947316412783
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              24,
+              7,
+              18,
+              6
+            ],
+            "weight": 545692715038617089
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              4,
+              9,
+              20
+            ],
+            "weight": 194314596267133312
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              12,
+              23,
+              17
+            ],
+            "weight": 1025546296137017671
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              12,
+              9,
+              6
+            ],
+            "weight": 120446735217561651
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              12,
+              6,
+              3
+            ],
+            "weight": 360326022074988392
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              13,
+              21,
+              4
+            ],
+            "weight": 33610657817539190
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              10,
+              7,
+              1
+            ],
+            "weight": 86755062491070913
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              10,
+              4,
+              23
+            ],
+            "weight": 120365720308610103
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              21,
+              18,
+              9
+            ],
+            "weight": 164351981093302801
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              7,
+              15,
+              23
+            ],
+            "weight": 237545483114733879
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              7,
+              20,
+              3
+            ],
+            "weight": 259654521603129993
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              16,
+              4,
+              1,
+              20
+            ],
+            "weight": 86755062491070913
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              4,
+              18,
+              20
+            ],
+            "weight": 414717502993076043
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              4,
+              23,
+              6
+            ],
+            "weight": 522416790811979886
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              16,
+              15,
+              12,
+              6
+            ],
+            "weight": 73193502021431078
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              10,
+              21,
+              7
+            ],
+            "weight": 86755062491070913
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              10,
+              21,
+              18
+            ],
+            "weight": 2601219161398985995
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              10,
+              12,
+              17
+            ],
+            "weight": 334127349075377646
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              10,
+              23,
+              20
+            ],
+            "weight": 45357368778419441
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              21,
+              4,
+              23
+            ],
+            "weight": 452408051574405113
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              21,
+              20,
+              3
+            ],
+            "weight": 45357368778419441
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              7,
+              15,
+              12
+            ],
+            "weight": 1195658297376020806
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              7,
+              23,
+              3
+            ],
+            "weight": 407050682795985672
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              4,
+              1,
+              12
+            ],
+            "weight": 146888488286011977
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              15,
+              9,
+              6
+            ],
+            "weight": 414071758117542831
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              9,
+              6,
+              17
+            ],
+            "weight": 747541078553685894
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              21,
+              4,
+              1
+            ],
+            "weight": 629320959041464738
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              7,
+              18,
+              15
+            ],
+            "weight": 2026272614910732980
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              4,
+              1,
+              23
+            ],
+            "weight": 311080970784943737
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              4,
+              6,
+              3
+            ],
+            "weight": 34215223341659321
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              1,
+              12,
+              6
+            ],
+            "weight": 2062491992651340355
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              18,
+              12,
+              6
+            ],
+            "weight": 647767875881054106
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              21,
+              18,
+              15,
+              3
+            ],
+            "weight": 93794915559068968
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              21,
+              18,
+              9,
+              17
+            ],
+            "weight": 611657622060747021
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              21,
+              15,
+              23,
+              3
+            ],
+            "weight": 93794915559068968
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              1,
+              15,
+              20
+            ],
+            "weight": 132112431269490354
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              1,
+              15,
+              17
+            ],
+            "weight": 621088536309660553
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              15,
+              20,
+              17
+            ],
+            "weight": 271983397044152885
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              20,
+              6,
+              3
+            ],
+            "weight": 288872447092725550
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              15,
+              12,
+              23
+            ],
+            "weight": 187231553015180942
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              12,
+              23,
+              9
+            ],
+            "weight": 217644333328831763
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              23,
+              9,
+              6,
+              17
+            ],
+            "weight": 748803156195141867
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              23,
+              20,
+              6,
+              17
+            ],
+            "weight": 123132891589115545
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "num_inequalities": 201,
+        "pattern": {
+          "circulant_offsets": [
+            2,
+            5,
+            9,
+            14
+          ],
+          "n": 25,
+          "name": "C25_sidon_2_5_9_14"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 99350014738666548712
+      },
+      "certificate_search": {
+        "exactification_method": "zero_objective_basic_support",
+        "primary_numerical_support_size": 201,
+        "retry_index": null
+      },
+      "certificate_sha256": "a0b0cc198e8a030a4f8111530914a06cffc6207b69cc2ceae3d1c0b0ab7b8101",
+      "classification": "EXACT_POSITIVE_ZERO_SUM_CERTIFICATE",
+      "dihedral_order_sha256": "21af0fdceaa2c7b6d6fd444590571ed04a48bd7e0dce5aeafecf86e80e6b2081",
+      "distance_class_count": 225,
+      "max_weight": 4036349277065765107,
+      "order": [
+        0,
+        22,
+        14,
+        11,
+        8,
+        19,
+        5,
+        2,
+        24,
+        16,
+        13,
+        10,
+        21,
+        7,
+        4,
+        1,
+        18,
+        15,
+        12,
+        23,
+        9,
+        20,
+        6,
+        17,
+        3
+      ],
+      "order_sha256": "01e5595550dc1a887be1e0a5745e1ea9ab38070460f5afa569ad45df8ae3a32c",
+      "positive_circuit_audit": {
+        "all_weights_positive": true,
+        "exact_zero_sum_gives_nullity_at_least": 1,
+        "modular_rank_gives_rational_rank_at_least": 200,
+        "positive_circuit_verified": true,
+        "rank_mod_1000000007": 200,
+        "support_size": 201
+      },
+      "positive_inequalities": 201,
+      "probe_model_index": 0,
+      "seed_packet_matches": {
+        "transferred_only": [],
+        "transferred_plus_all_residuals": [],
+        "transferred_plus_width3": []
+      },
+      "source_transferred_seed_orbit_matches": [],
+      "strict_row_count": 25300,
+      "target_id": "probe:0",
+      "unique_ordered_quad_count": 201,
+      "weight_sum": 99350014738666548712
+    },
+    {
+      "all_eleven_seed_orbit_match_count": 0,
+      "certificate": {
+        "certificate_logic": "the listed positive integer combination of Kalmanson strict inequalities has zero total coefficient after quotienting by selected-distance equalities, giving 0 > 0",
+        "certificate_type": "kalmanson_strict_inequality_farkas",
+        "claim_strength": "Exact obstruction for this fixed selected-witness pattern and fixed cyclic order only; not an abstract all-order obstruction.",
+        "cyclic_order": [
+          0,
+          22,
+          14,
+          11,
+          8,
+          19,
+          5,
+          2,
+          24,
+          16,
+          13,
+          10,
+          21,
+          7,
+          4,
+          1,
+          18,
+          15,
+          12,
+          23,
+          9,
+          20,
+          6,
+          3,
+          17
+        ],
+        "distance_equalities": "for each row i, all distances d(i,w), w in S_i, are identified",
+        "inequalities": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              22,
+              8,
+              15
+            ],
+            "weight": 59037445220637246
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              22,
+              5,
+              3
+            ],
+            "weight": 41377813403191988
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              22,
+              4,
+              1
+            ],
+            "weight": 13978836246832730
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              8,
+              2
+            ],
+            "weight": 85297139204070589
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              14,
+              13,
+              7
+            ],
+            "weight": 85673746957891398
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              14,
+              7,
+              4
+            ],
+            "weight": 33275592205311267
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              14,
+              15,
+              9
+            ],
+            "weight": 4633157064817928
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              14,
+              3,
+              17
+            ],
+            "weight": 119274564498717199
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              11,
+              2,
+              20
+            ],
+            "weight": 93287605249867304
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              2,
+              3
+            ],
+            "weight": 34702868148879318
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              10,
+              7
+            ],
+            "weight": 19296755958478537
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              11,
+              21,
+              18
+            ],
+            "weight": 18635028914314633
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              11,
+              7,
+              3
+            ],
+            "weight": 77896751095525211
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              11,
+              15,
+              23
+            ],
+            "weight": 27202144077909659
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              11,
+              15,
+              6
+            ],
+            "weight": 27202144077909659
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              8,
+              19,
+              5
+            ],
+            "weight": 20479807529884443
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              8,
+              24,
+              1
+            ],
+            "weight": 42350775328588051
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              8,
+              21,
+              17
+            ],
+            "weight": 31571656857364814
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              8,
+              7,
+              9
+            ],
+            "weight": 70412152238754970
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              19,
+              5,
+              2
+            ],
+            "weight": 421489695390744733
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              19,
+              2,
+              9
+            ],
+            "weight": 20479807529884443
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              5,
+              6,
+              17
+            ],
+            "weight": 27202144077909659
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              2,
+              16,
+              21
+            ],
+            "weight": 50206685771679447
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              2,
+              18,
+              3
+            ],
+            "weight": 18635028914314633
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              24,
+              16,
+              6
+            ],
+            "weight": 27339314490107218
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              24,
+              12,
+              17
+            ],
+            "weight": 15011460838480833
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              13,
+              9,
+              3
+            ],
+            "weight": 85673746957891398
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              10,
+              4,
+              15
+            ],
+            "weight": 19296755958478537
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              7,
+              1,
+              23
+            ],
+            "weight": 95910748581700050
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              1,
+              23,
+              6
+            ],
+            "weight": 81931912334867320
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              12,
+              23,
+              20
+            ],
+            "weight": 15011460838480833
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              14,
+              2,
+              15
+            ],
+            "weight": 4633157064817928
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              14,
+              1,
+              12
+            ],
+            "weight": 8202148549880204
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              14,
+              6,
+              17
+            ],
+            "weight": 52313458994117908
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              11,
+              8,
+              24
+            ],
+            "weight": 1262900625983877
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              11,
+              19,
+              5
+            ],
+            "weight": 8081803249877807
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              11,
+              5,
+              17
+            ],
+            "weight": 99848836129104830
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              8,
+              13,
+              7
+            ],
+            "weight": 253003322401953080
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              8,
+              10,
+              18
+            ],
+            "weight": 182784405795050886
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              8,
+              23,
+              17
+            ],
+            "weight": 383792754290556390
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              19,
+              16,
+              9
+            ],
+            "weight": 7415735947984652
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              19,
+              13,
+              1
+            ],
+            "weight": 666067301893155
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              19,
+              7,
+              15
+            ],
+            "weight": 60078555356452557
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              19,
+              18,
+              23
+            ],
+            "weight": 90197327659729662
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              5,
+              24,
+              9
+            ],
+            "weight": 40248858225585398
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              5,
+              13,
+              4
+            ],
+            "weight": 9606298935278342
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              5,
+              10,
+              4
+            ],
+            "weight": 10140361250449637
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              5,
+              12,
+              3
+            ],
+            "weight": 37461550932624515
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              2,
+              21,
+              23
+            ],
+            "weight": 293595426630826728
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              16,
+              21,
+              12
+            ],
+            "weight": 7415735947984652
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              16,
+              4,
+              12
+            ],
+            "weight": 29259402382744311
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              22,
+              13,
+              6,
+              3
+            ],
+            "weight": 3916262470567473
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              10,
+              7,
+              15
+            ],
+            "weight": 192924767045500523
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              21,
+              18,
+              23
+            ],
+            "weight": 92587078135321224
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              21,
+              20,
+              17
+            ],
+            "weight": 208424084443490156
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              4,
+              15,
+              3
+            ],
+            "weight": 5674267200633239
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              22,
+              1,
+              20,
+              3
+            ],
+            "weight": 22180984796712934
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              11,
+              19,
+              7
+            ],
+            "weight": 112331850905866534
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              11,
+              24,
+              4
+            ],
+            "weight": 1262900625983877
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              11,
+              13,
+              21
+            ],
+            "weight": 20167640314477597
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              8,
+              24,
+              17
+            ],
+            "weight": 99851295180365761
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              8,
+              16,
+              12
+            ],
+            "weight": 255095900639774371
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              8,
+              1,
+              6
+            ],
+            "weight": 5554134489576632
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              19,
+              7,
+              4
+            ],
+            "weight": 32012691579327390
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              19,
+              1,
+              18
+            ],
+            "weight": 2648014060303572
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              19,
+              18,
+              6
+            ],
+            "weight": 2648014060303572
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              5,
+              13,
+              17
+            ],
+            "weight": 909963738725825
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              5,
+              9,
+              17
+            ],
+            "weight": 71736728312469346
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              2,
+              13,
+              6
+            ],
+            "weight": 64596142904687976
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              2,
+              21,
+              3
+            ],
+            "weight": 16067839234564685
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              24,
+              7,
+              6
+            ],
+            "weight": 27921004573959013
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              14,
+              24,
+              23,
+              3
+            ],
+            "weight": 73193191232390625
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              13,
+              21,
+              20
+            ],
+            "weight": 4099801079912912
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              21,
+              20,
+              3
+            ],
+            "weight": 4099801079912912
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              7,
+              12,
+              23
+            ],
+            "weight": 376005534154120506
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              14,
+              12,
+              6,
+              3
+            ],
+            "weight": 57867593483694540
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              8,
+              19,
+              4
+            ],
+            "weight": 120413654155744341
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              8,
+              1,
+              17
+            ],
+            "weight": 36796640839011419
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              8,
+              12,
+              3
+            ],
+            "weight": 175651814534497940
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              19,
+              2,
+              6
+            ],
+            "weight": 76042664285424064
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              5,
+              16,
+              21
+            ],
+            "weight": 8081803249877807
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              5,
+              7,
+              1
+            ],
+            "weight": 38329252239174383
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              2,
+              7,
+              17
+            ],
+            "weight": 5009764818638737
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              2,
+              4,
+              12
+            ],
+            "weight": 119150753529760464
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              16,
+              15,
+              23
+            ],
+            "weight": 27202144077909659
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              21,
+              1,
+              9
+            ],
+            "weight": 1532611400162964
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              7,
+              18,
+              12
+            ],
+            "weight": 272722687361130920
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              7,
+              12,
+              9
+            ],
+            "weight": 97070872826632980
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              11,
+              18,
+              9,
+              3
+            ],
+            "weight": 291357716275445553
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              11,
+              9,
+              3,
+              17
+            ],
+            "weight": 63052195290093411
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              19,
+              2,
+              7
+            ],
+            "weight": 92091246935779947
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              19,
+              16,
+              10
+            ],
+            "weight": 58450074375641049
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              19,
+              13,
+              17
+            ],
+            "weight": 551668948770138247
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              5,
+              2,
+              9
+            ],
+            "weight": 12450961862713307
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              5,
+              16,
+              21
+            ],
+            "weight": 238202465137614507
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              5,
+              4,
+              18
+            ],
+            "weight": 19746660185727979
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              5,
+              15,
+              23
+            ],
+            "weight": 8028845667171136
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              2,
+              16,
+              21
+            ],
+            "weight": 19245069594422665
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              2,
+              21,
+              18
+            ],
+            "weight": 331978666742667176
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              24,
+              7,
+              15
+            ],
+            "weight": 8028845667171136
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              16,
+              23,
+              9
+            ],
+            "weight": 47664594173570050
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              16,
+              20,
+              6
+            ],
+            "weight": 60801708467903850
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              16,
+              20,
+              3
+            ],
+            "weight": 140409312211072659
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              8,
+              10,
+              4,
+              9
+            ],
+            "weight": 102191644170461351
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              21,
+              4,
+              17
+            ],
+            "weight": 93776201605052669
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              7,
+              18,
+              9
+            ],
+            "weight": 168940921133344269
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              4,
+              23,
+              17
+            ],
+            "weight": 336128160116986340
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              12,
+              9,
+              17
+            ],
+            "weight": 79444086105276431
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              8,
+              20,
+              6,
+              17
+            ],
+            "weight": 201211020678976509
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              5,
+              18,
+              6
+            ],
+            "weight": 87549313599426090
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              5,
+              15,
+              9
+            ],
+            "weight": 19036908224170641
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              2,
+              16,
+              23
+            ],
+            "weight": 13818339407968220
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              2,
+              13,
+              10
+            ],
+            "weight": 298313164600597525
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              2,
+              13,
+              18
+            ],
+            "weight": 253355784169540722
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              24,
+              16,
+              4
+            ],
+            "weight": 44631734967672829
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              24,
+              21,
+              1
+            ],
+            "weight": 110016988370650408
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              24,
+              21,
+              12
+            ],
+            "weight": 75508208282651205
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              13,
+              12,
+              20
+            ],
+            "weight": 63237603709488036
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              21,
+              1,
+              15
+            ],
+            "weight": 117727971526472440
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              4,
+              15,
+              17
+            ],
+            "weight": 19742087006164221
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              4,
+              12,
+              6
+            ],
+            "weight": 12270604573163169
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              19,
+              1,
+              15,
+              23
+            ],
+            "weight": 82108024649173057
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              1,
+              23,
+              9
+            ],
+            "weight": 5729036397411615
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              15,
+              20,
+              17
+            ],
+            "weight": 63237603709488036
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              19,
+              9,
+              6,
+              17
+            ],
+            "weight": 8858635253698454
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              24,
+              13,
+              23
+            ],
+            "weight": 9606298935278342
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              5,
+              16,
+              10,
+              18
+            ],
+            "weight": 450505312469568069
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              16,
+              7,
+              3
+            ],
+            "weight": 10223598899076872
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              13,
+              12,
+              6
+            ],
+            "weight": 66934952107148243
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              10,
+              1,
+              20
+            ],
+            "weight": 29473401174523728
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              10,
+              23,
+              6
+            ],
+            "weight": 1577453268107206
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              5,
+              1,
+              18,
+              6
+            ],
+            "weight": 67802653413698111
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              5,
+              1,
+              15,
+              6
+            ],
+            "weight": 19036908224170641
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              5,
+              12,
+              20,
+              6
+            ],
+            "weight": 29473401174523728
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              16,
+              4,
+              1
+            ],
+            "weight": 49604592632000681
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              16,
+              12,
+              6
+            ],
+            "weight": 36675138330728963
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              13,
+              7,
+              12
+            ],
+            "weight": 155825891860489427
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              13,
+              1,
+              23
+            ],
+            "weight": 307413766038794948
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              13,
+              20,
+              17
+            ],
+            "weight": 5009764818638737
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              10,
+              21,
+              1
+            ],
+            "weight": 257809173406794267
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              10,
+              21,
+              18
+            ],
+            "weight": 298313164600597525
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              10,
+              9,
+              20
+            ],
+            "weight": 90414028400646271
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              2,
+              7,
+              9,
+              6
+            ],
+            "weight": 27921004573959013
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              2,
+              9,
+              20,
+              3
+            ],
+            "weight": 85404263582007534
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              16,
+              21,
+              3
+            ],
+            "weight": 73193191232390625
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              16,
+              15,
+              20
+            ],
+            "weight": 30022921676961666
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              16,
+              9,
+              6
+            ],
+            "weight": 40248858225585398
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              24,
+              13,
+              10,
+              6
+            ],
+            "weight": 1577453268107206
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              24,
+              10,
+              21,
+              4
+            ],
+            "weight": 112332005420910988
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              24,
+              10,
+              7,
+              20
+            ],
+            "weight": 47316179132281378
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              10,
+              20,
+              17
+            ],
+            "weight": 15011460838480833
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              21,
+              15,
+              12
+            ],
+            "weight": 75508208282651205
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              24,
+              7,
+              15,
+              3
+            ],
+            "weight": 39287333465110242
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              1,
+              15,
+              23
+            ],
+            "weight": 9606298935278342
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              24,
+              12,
+              20,
+              6
+            ],
+            "weight": 15011460838480833
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              13,
+              15,
+              3
+            ],
+            "weight": 57225065754871325
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              10,
+              23,
+              3
+            ],
+            "weight": 166601036587668831
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              21,
+              1,
+              23
+            ],
+            "weight": 146138586492008440
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              16,
+              7,
+              4,
+              12
+            ],
+            "weight": 188929079810927639
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              16,
+              4,
+              18,
+              3
+            ],
+            "weight": 65433349828509818
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              16,
+              1,
+              18,
+              17
+            ],
+            "weight": 195743179124009121
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              16,
+              15,
+              20,
+              6
+            ],
+            "weight": 110386390534110993
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              10,
+              21,
+              17
+            ],
+            "weight": 4099801079912912
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              10,
+              7,
+              9
+            ],
+            "weight": 156400874085960957
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              21,
+              4,
+              23
+            ],
+            "weight": 40765599490366081
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              21,
+              18,
+              9
+            ],
+            "weight": 6000644161321602
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              7,
+              15,
+              20
+            ],
+            "weight": 47316179132281378
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              7,
+              3,
+              17
+            ],
+            "weight": 574982225471530
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              4,
+              1,
+              12
+            ],
+            "weight": 308079833340688103
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              4,
+              15,
+              23
+            ],
+            "weight": 292301502592282015
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              18,
+              9,
+              3
+            ],
+            "weight": 147390057408801726
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              13,
+              12,
+              23,
+              6
+            ],
+            "weight": 25653336043853148
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              13,
+              23,
+              9,
+              20
+            ],
+            "weight": 15011460838480833
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              10,
+              21,
+              7,
+              23
+            ],
+            "weight": 175697630044439494
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              4,
+              18,
+              20
+            ],
+            "weight": 152192147868970544
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              1,
+              12,
+              3
+            ],
+            "weight": 185712298506062576
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              15,
+              23,
+              9
+            ],
+            "weight": 168178489855776037
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              10,
+              15,
+              3,
+              17
+            ],
+            "weight": 19111261918393745
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              21,
+              7,
+              4,
+              23
+            ],
+            "weight": 153097604911277069
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              21,
+              7,
+              18,
+              15
+            ],
+            "weight": 304313808761919127
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              21,
+              7,
+              3,
+              17
+            ],
+            "weight": 4434782593167207
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              21,
+              1,
+              15,
+              20
+            ],
+            "weight": 262094045518097892
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              21,
+              18,
+              20,
+              17
+            ],
+            "weight": 266193846598010804
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              21,
+              9,
+              3,
+              17
+            ],
+            "weight": 7533255561484566
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              7,
+              15,
+              12,
+              3
+            ],
+            "weight": 64072862584137226
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              7,
+              23,
+              9,
+              3
+            ],
+            "weight": 34852550871943035
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              1,
+              20,
+              17
+            ],
+            "weight": 262094045518097892
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              15,
+              23,
+              20
+            ],
+            "weight": 196924262435981394
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              4,
+              12,
+              9,
+              3
+            ],
+            "weight": 71107617029143057
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              4,
+              23,
+              6,
+              17
+            ],
+            "weight": 336128160116986340
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              1,
+              18,
+              23,
+              9
+            ],
+            "weight": 4196424997248651
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              1,
+              15,
+              12,
+              23
+            ],
+            "weight": 232155252181062189
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              18,
+              9,
+              20,
+              3
+            ],
+            "weight": 354679394941422828
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              18,
+              20,
+              6,
+              17
+            ],
+            "weight": 70450667474001683
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              15,
+              12,
+              23,
+              9
+            ],
+            "weight": 168178489855776037
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              23,
+              20,
+              6,
+              3
+            ],
+            "weight": 107585248378720468
+          }
+        ],
+        "inequality_lemma": "for every convex quadrilateral a,b,c,d in cyclic order, d(a,c)+d(b,d)>d(a,b)+d(c,d) and d(a,c)+d(b,d)>d(a,d)+d(b,c)",
+        "num_inequalities": 196,
+        "pattern": {
+          "circulant_offsets": [
+            2,
+            5,
+            9,
+            14
+          ],
+          "n": 25,
+          "name": "C25_sidon_2_5_9_14"
+        },
+        "selected_witness_rule": "S_i={(i+d) mod n: d in circulant_offsets}",
+        "status": "EXACT_OBSTRUCTION_FOR_FIXED_PATTERN_AND_FIXED_CYCLIC_ORDER",
+        "weight_sum": 18328751602592595684
+      },
+      "certificate_search": {
+        "exactification_method": "zero_objective_basic_support",
+        "primary_numerical_support_size": 196,
+        "retry_index": null
+      },
+      "certificate_sha256": "6672eead7fe08d256529334c99d49beb48c380a1474d7b174172ed050c5024d7",
+      "classification": "EXACT_POSITIVE_ZERO_SUM_CERTIFICATE",
+      "dihedral_order_sha256": "2ec108f7f3fbc4f5b9dbc523095b381676452797aa2384d5d4e65eb375b22f3c",
+      "distance_class_count": 225,
+      "max_weight": 551668948770138247,
+      "order": [
+        0,
+        22,
+        14,
+        11,
+        8,
+        19,
+        5,
+        2,
+        24,
+        16,
+        13,
+        10,
+        21,
+        7,
+        4,
+        1,
+        18,
+        15,
+        12,
+        23,
+        9,
+        20,
+        6,
+        3,
+        17
+      ],
+      "order_sha256": "793e8e7d2770941c399debc6a5e57e4c903561f826f10991922fb616d14081c4",
+      "positive_circuit_audit": {
+        "all_weights_positive": true,
+        "exact_zero_sum_gives_nullity_at_least": 1,
+        "modular_rank_gives_rational_rank_at_least": 195,
+        "positive_circuit_verified": true,
+        "rank_mod_1000000007": 195,
+        "support_size": 196
+      },
+      "positive_inequalities": 196,
+      "probe_model_index": 1,
+      "seed_packet_matches": {
+        "transferred_only": [],
+        "transferred_plus_all_residuals": [],
+        "transferred_plus_width3": []
+      },
+      "source_transferred_seed_orbit_matches": [],
+      "strict_row_count": 25300,
+      "target_id": "probe:1",
+      "unique_ordered_quad_count": 196,
+      "weight_sum": 18328751602592595684
+    }
+  ],
+  "seed_packet_summary": {
+    "all_seed_exact_affine_image_count": 275,
+    "all_seed_orbit_count": 11,
+    "compressed_residual_seed_orbit_count": 8,
+    "compressed_residual_seed_widths": [
+      7,
+      9,
+      5,
+      3,
+      7,
+      4,
+      6,
+      4
+    ],
+    "transferred_seed_orbit_count": 3,
+    "transferred_seed_widths": [
+      3,
+      5,
+      14
+    ]
+  },
+  "source_augmentation_artifact": "data/runs/sparse_full_cone_c25_residual_seed_probe_2026-07-29/summary.json",
+  "source_augmentation_sha256": "a58f1f8caa7df997b16b225b12cd8622ef498759d3c9f43d6f0d8dda7d496502",
+  "source_cegar_artifact": "data/runs/sparse_full_cone_c25_transfer_cegar_2026-07-29/summary.json",
+  "source_cegar_sha256": "7d61f34c8bc0e96b9ce70a9021f735f0cbdbe93647574239c0234aa5bb48e5c4",
+  "status": "BOUNDED_TWO_ORDER_C25_FULL_CONE_SCREEN",
+  "summary": {
+    "certificate_positive_inequality_count_histogram": {
+      "196": 1,
+      "201": 1
+    },
+    "certificate_unique_quad_count_histogram": {
+      "196": 1,
+      "201": 1
+    },
+    "classification_histogram": {
+      "EXACT_POSITIVE_ZERO_SUM_CERTIFICATE": 2
+    },
+    "exact_positive_certificate_count": 2,
+    "exact_separating_potential_count": 0,
+    "maximum_certificate_positive_inequality_count": 201,
+    "maximum_certificate_unique_quad_count": 201,
+    "minimum_certificate_positive_inequality_count": 196,
+    "minimum_certificate_unique_quad_count": 196,
+    "selected_target_order_count": 2,
+    "unresolved_numerical_screen_count": 0
+  },
+  "trust": "EXACT_FIXED_ORDER_FULL_CONE_CLASSIFICATION_FOR_TWO_C25_TARGETS",
+  "type": "sparse_full_cone_c25_persistent_escape_screen_v1"
+}
