@@ -3153,6 +3153,16 @@
         "data/runs/sparse_full_cone_c25_persistent_escape_screen_2026-07-30/summary.json"
       ],
       "claim_scope": "Replay two exact positive full-Kalmanson-cone certificates for the fixed C25 transfer-CEGAR probe orders 0 and 1, together with their absence from three transferred and eight compressed residual seed orbits comprising 275 exact affine images. Fixed pattern and two fixed orders only; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_c25_persistent_escape_compression",
+      "command": [
+        "python",
+        "scripts/exploration/compress_sparse_full_cone_c25_persistent_escapes.py",
+        "--check",
+        "data/runs/sparse_full_cone_c25_persistent_escape_compression_2026-07-30/summary.json"
+      ],
+      "claim_scope": "Replay two exact compressed C25 positive circuits of widths 4 and 5, 50 exact quotient-preserving affine images, exact coverage over the current 144-order C25 packet, and exhaustive minimum-source covers inside that finite packet. The deterministic-budget objective search is non-exhaustive; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {

@@ -61,12 +61,17 @@ The exact alternative returns
 `CONTINUE_C25_CLAUSE_ROUTE_WITH_EXACT_POSITIVE_CIRCUITS`. These two orders are
 not coordinate-search targets.
 
-The certificates are still wide, at 201 and 196 ordered quadrilaterals. Before
-extending the C25 cyclic-order search budget, compress both certificates with
-the established deterministic alternative-objective protocol, construct their
-quotient-preserving affine orbits, and measure direct and affine reuse against
-the current C25 packets. This remains a bounded clause-engineering diagnostic,
-not evidence of an all-order obstruction.
+The completed follow-up in
+`docs/sparse-full-cone-c25-persistent-escape-compression.md` compresses the
+circuits to exact widths 4 and 5. The width-4 affine orbit alone covers all 23
+targets marginal over the 11 existing seeds in the current 144-order packet,
+including both persistent orders; the width-5 orbit adds no marginal target.
+
+The next bounded target is a 144-history-blocked C25 order CEGAR run using the
+three transferred seed orbits plus only the new width-4 orbit. Keep the
+width-5 orbit and all eight zero-marginal residual orbits inactive. This
+remains a bounded clause-engineering diagnostic, not evidence of an all-order
+obstruction.
 
 Replay:
 

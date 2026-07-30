@@ -999,6 +999,10 @@ put detailed reconciliation in the canonical synthesis.
   exact full-cone classification of the two original C25 probe escapes; both
   remain outside all 11 seed orbits but have positive circuits of widths 201
   and 196, so the bounded clause route continues.
+- [`sparse-full-cone-c25-persistent-escape-compression.md`](sparse-full-cone-c25-persistent-escape-compression.md):
+  exact compression to widths 4 and 5 over the current 144-order C25 packet;
+  the width-4 orbit is the one-source minimum cover of all 23 targets marginal
+  over the existing seeds and is the only new orbit selected for the next CEGAR.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.
