@@ -338,6 +338,9 @@ def run_history_disjoint_seeded_cegar(
     max_iterations: int,
     conflict_cap: int,
     random_seed: int,
+    certificate_limit_status: str = (
+        "BOUNDED_C25_TRANSFER_SEEDED_CERTIFICATE_LIMIT_REACHED"
+    ),
 ) -> dict[str, object]:
     require_z3()
     n, offsets = PATTERNS[PATTERN]
@@ -453,7 +456,7 @@ def run_history_disjoint_seeded_cegar(
         seen.add(key)
         block_dihedral_order(solver, positions, order)
         if len(learned_orbits) >= full_certificate_limit:
-            status = "BOUNDED_C25_TRANSFER_SEEDED_CERTIFICATE_LIMIT_REACHED"
+            status = certificate_limit_status
             solver_result = "bounded_after_new_exact_certificates"
             break
 

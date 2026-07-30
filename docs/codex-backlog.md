@@ -750,8 +750,15 @@ and must not assume that the finite `n=9` pivot census generalizes.
    seeds and width `4` cover 142/144 stored orders. Next run a bounded
    144-history-blocked C25 order CEGAR with the three transferred seeds and
    only the new width-`4` orbit, keeping all eight zero-marginal residual
-   orbits and width `5` inactive. Stop the current C29 template-mining route.
-   This is still not an all-order obstruction.
+   orbits and width `5` inactive. The completed follow-up in
+   `docs/sparse-full-cone-c25-persistent-augmented-cegar.md` finds that the
+   transferred seeds cover 0/16 fresh probe orders while the selected width-4
+   orbit covers 16/16. With that orbit active, CEGAR learns eight further exact
+   full-cone certificates of widths `191`--`200` before its configured limit,
+   with no unresolved model. Next compress those eight certificates and audit
+   their exact affine reuse before increasing order-search budget. Stop the
+   current C29 template-mining route. This is still not an all-order
+   obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

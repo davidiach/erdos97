@@ -76,11 +76,18 @@ The same orbit is also the one-source, width-4 minimum cover of the two
 persistent targets. Therefore the route decision is
 `ADD_MINIMUM_COMPRESSED_MARGINAL_COVER_BEFORE_C25_ORDER_SEARCH`.
 
-The next bounded experiment should block the complete 144-order history and
-run C25 order CEGAR with the three transferred seed orbits plus only this new
-width-4 orbit. Keep the width-5 orbit and all eight zero-marginal compressed
-residual orbits inactive. This remains clause engineering for one fixed
-selected-witness quotient, not evidence of an all-order obstruction.
+The completed follow-up in
+`docs/sparse-full-cone-c25-persistent-augmented-cegar.md` blocks the complete
+144-order history and keeps the three transferred seeds plus only this
+width-4 orbit active. On 16 new history-disjoint probe orders, the transferred
+seeds cover none while width 4 covers all 16.
+
+The augmented CEGAR then learns eight further exact full-cone certificates of
+widths `191`--`200` before its configured limit, with no unresolved model. The
+next bounded target is to compress those eight certificates and measure their
+exact affine reuse before increasing the order-search budget. This remains
+clause engineering for one fixed selected-witness quotient, not evidence of
+an all-order obstruction.
 
 Replay:
 
