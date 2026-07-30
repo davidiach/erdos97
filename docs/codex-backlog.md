@@ -759,11 +759,19 @@ and must not assume that the finite `n=9` pivot census generalizes.
    `docs/sparse-full-cone-c25-persistent-augmented-residual-compression.md`
    reduces them to exact widths `3`--`8`, replays 200 affine images and 54
    affine cross-edges, and finds that `residual:2` alone is the exact
-   one-source minimum cover of all eight active-seed escapes. Next run a
-   bounded 168-history-blocked C25 CEGAR with the three transferred seeds,
-   persistent width-4 seed, and only this width-3 residual orbit. Stop the
-   current C29 template-mining route. This is still not an all-order
-   obstruction.
+   one-source minimum cover of all eight active-seed escapes. The completed
+   follow-up in
+   `docs/sparse-full-cone-c25-selected-residual-augmented-cegar.md` blocks 168
+   history classes and activates the three transferred seeds, persistent
+   width-4 seed, and only this selected width-3 residual orbit. The four
+   parent seeds cover all 16 fresh probe orders; width 3 covers four of those
+   same orders and adds zero marginal coverage. Five-seed CEGAR nevertheless
+   learns eight further exact full-cone certificates of widths `210`--`220`
+   before its configured limit, with no unresolved model. Next compress those
+   eight certificates and compare their affine marginal coverage against the
+   four parent seeds and selected width 3 before choosing a possible
+   192-history seed packet. Stop the current C29 template-mining route. This
+   is still not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external

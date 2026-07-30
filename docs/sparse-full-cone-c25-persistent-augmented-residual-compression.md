@@ -65,12 +65,16 @@ overlaps are zero.
 
 The predeclared stopping rule returns
 `ADD_MINIMUM_COMPRESSED_RESIDUAL_COVER_BEFORE_NEXT_C25_ORDER_SEARCH`.
-The next bounded experiment should block the complete 168-order history and
-activate:
+The completed follow-up in
+`docs/sparse-full-cone-c25-selected-residual-augmented-cegar.md` blocks 168
+history classes and activates the three transferred orbits, persistent
+width-4 orbit, and only this selected width-3 orbit. The four parent seeds
+cover all 16 fresh probe orders; width 3 covers four of those same orders and
+therefore adds zero marginal coverage outside its source packet.
 
-- the three transferred exact seed orbits;
-- the persistent width-4 seed orbit;
-- only the selected width-3 orbit from `residual:2`.
+Five-seed CEGAR nevertheless learns eight new exact full-cone certificates of
+widths `210`--`220` before its configured limit. Compress those eight and
+reassess marginal coverage before choosing a possible 192-history seed packet.
 
 This is finite clause engineering for one fixed quotient, not evidence of an
 all-order C25 obstruction.
