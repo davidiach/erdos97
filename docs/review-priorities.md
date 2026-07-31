@@ -759,9 +759,14 @@ benchmarks for the larger frontier:
   as the exact replacement decision: the eight escapes compress to widths
   `3`--`9`; the new width-4 `residual:2` orbit is the one-source minimum cover
   of all eight residuals, while the old width-3 seed has zero marginal targets
-  over the four parent seeds. Use the four parent seeds plus only the new
-  width-4 replacement for a bounded 192-history packet; keep the current C29
-  template family stopped;
+  over the four parent seeds;
+- use `docs/sparse-full-cone-c25-replacement-augmented-cegar.md` as the
+  outside-packet replacement check: after 192 history blocks, both the four
+  parent seeds and the replacement width-4 orbit cover all 16 fresh probe
+  orders, so the replacement adds zero marginal coverage. The five-seed CEGAR
+  still learns eight exact width-`193`--`201` certificates before its
+  configured limit. Compress those eight escapes and reassess exact marginal
+  affine coverage; keep the current C29 template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

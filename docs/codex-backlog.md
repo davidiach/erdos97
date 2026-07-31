@@ -773,10 +773,17 @@ and must not assume that the finite `n=9` pivot census generalizes.
    reduces them to exact widths `3`--`9`, replays 200 affine images and 129
    affine cross-edges, and finds that the new width-4 `residual:2` orbit alone
    is the exact minimum cover of all eight residuals. The old width-3 seed has
-   zero marginal targets over the four parent seeds and is retired. Next run a
-   bounded 192-history C25 CEGAR with the four parent seeds plus only this new
-   width-4 replacement. Stop the current C29 template-mining route. This is
-   still not an all-order obstruction.
+   zero marginal targets over the four parent seeds and is retired. The
+   completed follow-up in
+   `docs/sparse-full-cone-c25-replacement-augmented-cegar.md` blocks 192
+   history classes and activates the four parent seeds plus only this new
+   width-4 replacement. Both the parent packet and replacement alone cover all
+   16 fresh probe orders, so the replacement adds zero marginal coverage.
+   Five-seed CEGAR nevertheless learns eight further exact full-cone
+   certificates of widths `193`--`201` before its configured limit, with no
+   unresolved model. Next compress those eight exact escapes and reassess
+   marginal affine coverage. Stop the current C29 template-mining route. This
+   is still not an all-order obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external
