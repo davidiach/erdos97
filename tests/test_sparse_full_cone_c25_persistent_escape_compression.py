@@ -6,6 +6,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = (
@@ -152,3 +154,21 @@ def test_stored_persistent_escape_compression_replays_exactly() -> None:
             "ADD_MINIMUM_COMPRESSED_MARGINAL_COVER_BEFORE_C25_ORDER_SEARCH"
         ),
     }
+
+def test_checker_rejects_fabricated_compression_configuration() -> None:
+    payload = artifact_payload()
+    payload["configuration"]["seed"] += 1
+
+    with pytest.raises(AssertionError, match="configuration drifted"):
+        COMPRESSION.check_payload(payload)
+
+
+def test_checker_rejects_substituted_source_artifact(tmp_path: Path) -> None:
+    substitute = tmp_path / "summary.json"
+    substitute.write_bytes(COMPRESSION.DEFAULT_SOURCE.read_bytes())
+    payload = artifact_payload()
+    payload["source_screen_artifact"] = str(substitute)
+    payload["source_screen_sha256"] = COMPRESSION.file_sha256(substitute)
+
+    with pytest.raises(AssertionError, match="source artifact drifted"):
+        COMPRESSION.check_payload(payload)
