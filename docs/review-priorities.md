@@ -724,9 +724,13 @@ benchmarks for the larger frontier:
   exact continuation decision: all eight residuals compress to widths
   `3`--`9`, the width-`3` orbit alone covers the residual packet and 14/16
   probe orders, and the same two probe orders remain outside every stored
-  seed orbit. Compare width-`3`-only and all-eight residual augmentation on a
-  new C25 probe before more certificate learning; keep the current C29
-  template family stopped;
+  seed orbit;
+- use `docs/sparse-full-cone-c25-residual-seed-augmentation.md` as the
+  marginal-coverage decision: after 112 history blocks the transferred seeds
+  cover all 32 new probe orders, while width-`3`-only and all-eight residual
+  augmentation add zero covered orders. Stop residual augmentation and screen
+  the two original probe escapes exactly before more order-search budget; keep
+  the current C29 template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

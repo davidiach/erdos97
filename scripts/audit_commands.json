@@ -3133,6 +3133,16 @@
         "data/runs/sparse_full_cone_c25_transfer_residual_compression_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay eight exact compressed C25 positive-circuit certificates of widths 3 through 9, 200 exact quotient-preserving affine images, exact coverage over 16 probe and eight residual orders, 16 direct plus 150 affine cross-order reuse edges, and exhaustive minimum-source covers inside that finite packet. The objective search is deterministic-budget but non-exhaustive; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_c25_residual_seed_augmentation_probe",
+      "command": [
+        "python",
+        "scripts/exploration/probe_sparse_full_cone_c25_residual_seed_augmentation.py",
+        "--check",
+        "data/runs/sparse_full_cone_c25_residual_seed_probe_2026-07-29/summary.json"
+      ],
+      "claim_scope": "Replay three transferred and eight compressed residual exact C25 seed certificates, 275 exact quotient-preserving affine images, 112 blocked historical order identities, 32 history-disjoint inverse-pair-escape probe orders, and exact coverage for three nested seed packets. The bounded probe finds zero marginal order coverage from residual augmentation; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {

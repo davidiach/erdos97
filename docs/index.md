@@ -991,6 +991,10 @@ put detailed reconciliation in the canonical synthesis.
   exact compression of all eight C25 residual certificates to widths 3--9;
   one new width-3 orbit covers the full residual packet while the two original
   probe escapes remain outside all stored seed orbits.
+- [`sparse-full-cone-c25-residual-seed-augmentation.md`](sparse-full-cone-c25-residual-seed-augmentation.md):
+  exact comparison of three nested C25 seed packets on 32 orders disjoint from
+  112-order history; transferred seeds cover all 32, so residual augmentation
+  adds no marginal order coverage and stops.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.
