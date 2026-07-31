@@ -74,6 +74,14 @@ DEFAULT_TRIAL_BUDGETS = (32, 32, 32, 64, 32, 32, 32, 112)
 DEFAULT_SMALL_CIRCUIT_MAX_WIDTH = 12
 DEFAULT_SEED = 20_260_731
 DEFAULT_MODEL_SEED_STRIDE = 1_000
+DEFAULT_TOLERANCE = 1.0e-9
+TARGET_ORDER_SELECTION = "all 16 counterfactual probe and 8 augmented residual models"
+STOPPING_RULE = (
+    "continue only with the exact minimum compressed source-orbit "
+    "cover of all eight active-seed-escaping residual targets, and "
+    "only when every selected source is new relative to the four "
+    "active seeds and has width at most the configured threshold"
+)
 CONTINUE_DECISION = (
     "ADD_MINIMUM_COMPRESSED_RESIDUAL_COVER_BEFORE_NEXT_C25_ORDER_SEARCH"
 )
@@ -439,15 +447,8 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
             "per_model_seed_stride": args.model_seed_stride,
             "tolerance": args.tolerance,
             "small_circuit_max_width": args.small_circuit_max_width,
-            "target_order_selection": (
-                "all 16 counterfactual probe and 8 augmented residual models"
-            ),
-            "stopping_rule": (
-                "continue only with the exact minimum compressed source-orbit "
-                "cover of all eight active-seed-escaping residual targets, and "
-                "only when every selected source is new relative to the four "
-                "active seeds and has width at most the configured threshold"
-            ),
+            "target_order_selection": TARGET_ORDER_SELECTION,
+            "stopping_rule": STOPPING_RULE,
         },
         "run": run,
         "decision": run["decision"],
@@ -466,24 +467,29 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["type"] != expected_type:
         raise AssertionError("persistent residual compression type drifted")
     source_path = ROOT / str(payload["source_artifact"])
+    if source_path.resolve() != DEFAULT_SOURCE.resolve():
+        raise AssertionError("persistent residual source artifact drifted")
+    configuration = payload["configuration"]
+    expected_configuration = {
+        "trial_budgets_by_model_index": list(DEFAULT_TRIAL_BUDGETS),
+        "seed": DEFAULT_SEED,
+        "per_model_seed_stride": DEFAULT_MODEL_SEED_STRIDE,
+        "tolerance": DEFAULT_TOLERANCE,
+        "small_circuit_max_width": DEFAULT_SMALL_CIRCUIT_MAX_WIDTH,
+        "target_order_selection": TARGET_ORDER_SELECTION,
+        "stopping_rule": STOPPING_RULE,
+    }
+    if configuration != expected_configuration:
+        raise AssertionError("persistent residual configuration drifted")
     if file_sha256(source_path) != str(payload["source_sha256"]):
         raise AssertionError("persistent residual compression source hash drifted")
     source = json.loads(source_path.read_text(encoding="utf-8"))
     check_source_payload(source)
 
-    configuration = payload["configuration"]
-    budgets = [
-        int(value) for value in configuration["trial_budgets_by_model_index"]
-    ]
-    if budgets != list(DEFAULT_TRIAL_BUDGETS):
-        raise AssertionError("persistent residual compression budgets drifted")
-    base_seed = int(configuration["seed"])
-    stride = int(configuration["per_model_seed_stride"])
-    if base_seed != DEFAULT_SEED or stride != DEFAULT_MODEL_SEED_STRIDE:
-        raise AssertionError("persistent residual compression seeds drifted")
-    small_width = int(configuration["small_circuit_max_width"])
-    if small_width != DEFAULT_SMALL_CIRCUIT_MAX_WIDTH:
-        raise AssertionError("persistent residual width threshold drifted")
+    budgets = list(DEFAULT_TRIAL_BUDGETS)
+    base_seed = DEFAULT_SEED
+    stride = DEFAULT_MODEL_SEED_STRIDE
+    small_width = DEFAULT_SMALL_CIRCUIT_MAX_WIDTH
 
     targets = target_orders(source)
     run = payload["run"]
@@ -654,7 +660,7 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=DEFAULT_MODEL_SEED_STRIDE,
     )
-    parser.add_argument("--tolerance", type=float, default=1.0e-9)
+    parser.add_argument("--tolerance", type=float, default=DEFAULT_TOLERANCE)
     parser.add_argument(
         "--small-circuit-max-width",
         type=int,

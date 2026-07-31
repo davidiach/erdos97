@@ -180,3 +180,21 @@ def test_checker_rejects_fabricated_search_provenance() -> None:
         match="persistent compression best trial drifted",
     ):
         COMPRESSION.check_payload(mutated)
+
+def test_checker_rejects_fabricated_configuration() -> None:
+    mutated = copy.deepcopy(artifact_payload())
+    mutated["configuration"]["tolerance"] *= 10
+
+    with pytest.raises(AssertionError, match="configuration drifted"):
+        COMPRESSION.check_payload(mutated)
+
+
+def test_checker_rejects_substituted_source_artifact(tmp_path: Path) -> None:
+    substitute = tmp_path / "summary.json"
+    substitute.write_bytes(SOURCE.read_bytes())
+    payload = artifact_payload()
+    payload["source_artifact"] = str(substitute)
+    payload["source_sha256"] = COMPRESSION.file_sha256(substitute)
+
+    with pytest.raises(AssertionError, match="source artifact drifted"):
+        COMPRESSION.check_payload(payload)

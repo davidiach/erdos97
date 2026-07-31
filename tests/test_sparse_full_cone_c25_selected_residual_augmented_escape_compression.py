@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = (
@@ -163,3 +165,21 @@ def test_stored_selected_residual_escape_compression_replays_exactly() -> None:
             "REPLACE_NONMARGINAL_WIDTH3_WITH_MINIMUM_COMPRESSED_ESCAPE_COVER"
         ),
     }
+
+def test_checker_rejects_fabricated_configuration() -> None:
+    payload = artifact_payload()
+    payload["configuration"]["tolerance"] *= 10
+
+    with pytest.raises(AssertionError, match="configuration drifted"):
+        COMPRESSION.check_payload(payload)
+
+
+def test_checker_rejects_substituted_source_artifact(tmp_path: Path) -> None:
+    substitute = tmp_path / "summary.json"
+    substitute.write_bytes(SOURCE.read_bytes())
+    payload = artifact_payload()
+    payload["source_artifact"] = str(substitute)
+    payload["source_sha256"] = COMPRESSION.file_sha256(substitute)
+
+    with pytest.raises(AssertionError, match="source artifact drifted"):
+        COMPRESSION.check_payload(payload)
