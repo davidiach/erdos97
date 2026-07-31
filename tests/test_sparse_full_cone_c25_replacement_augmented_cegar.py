@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = (
@@ -33,6 +35,30 @@ ARTIFACT = (
 
 def artifact_payload() -> dict[str, object]:
     return json.loads(ARTIFACT.read_text(encoding="utf-8"))
+
+
+def test_checker_rejects_substituted_source_artifact(tmp_path: Path) -> None:
+    substitute = tmp_path / "summary.json"
+    substitute.write_bytes(CEGAR.DEFAULT_SOURCE.read_bytes())
+    payload = artifact_payload()
+    payload["source_artifact"] = str(substitute)
+    payload["source_sha256"] = CEGAR.file_sha256(substitute)
+
+    with pytest.raises(AssertionError, match="source artifact drifted"):
+        CEGAR.check_payload(payload)
+
+
+def test_checker_rejects_tampered_pattern_metadata() -> None:
+    mutations = (
+        ("pattern", "C25_wrong", "pattern drifted"),
+        ("n", 24, "pattern drifted"),
+        ("circulant_offsets", [1, 2, 3, 4], "offsets drifted"),
+    )
+    for field, value, message in mutations:
+        payload = artifact_payload()
+        payload[field] = value
+        with pytest.raises(AssertionError, match=message):
+            CEGAR.check_payload(payload)
 
 
 def test_stored_packet_blocks_the_complete_192_order_history() -> None:

@@ -454,7 +454,14 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
 def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["type"] != "sparse_full_cone_c25_replacement_augmented_cegar_v1":
         raise AssertionError("replacement artifact type drifted")
+    n, offsets = prior.PATTERNS[PATTERN]
+    if payload["pattern"] != PATTERN or int(payload["n"]) != n:
+        raise AssertionError("replacement pattern drifted")
+    if payload["circulant_offsets"] != list(offsets):
+        raise AssertionError("replacement offsets drifted")
     source_path = ROOT / str(payload["source_artifact"])
+    if source_path.resolve() != DEFAULT_SOURCE.resolve():
+        raise AssertionError("replacement source artifact drifted")
     if file_sha256(source_path) != str(payload["source_sha256"]):
         raise AssertionError("replacement source hash drifted")
     unpacked = unpack_for_run(source_path)
