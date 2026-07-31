@@ -3163,6 +3163,16 @@
         "data/runs/sparse_full_cone_c25_persistent_escape_compression_2026-07-30/summary.json"
       ],
       "claim_scope": "Replay two exact compressed C25 positive circuits of widths 4 and 5, 50 exact quotient-preserving affine images, exact coverage over the current 144-order C25 packet, and exhaustive minimum-source covers inside that finite packet. The deterministic-budget objective search is non-exhaustive; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_c25_persistent_augmented_cegar",
+      "command": [
+        "python",
+        "scripts/exploration/run_sparse_full_cone_c25_persistent_augmented_cegar.py",
+        "--check",
+        "data/runs/sparse_full_cone_c25_persistent_augmented_cegar_2026-07-30/summary.json"
+      ],
+      "claim_scope": "Replay four active exact C25 seed certificates, nine explicitly inactive exact seed summaries, 144 blocked order identities, 16 history-disjoint probe orders, eight newly learned exact full-cone certificates, 200 new affine clauses, and 300 exact affine certificate images. The run stops at configured finite limits; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {

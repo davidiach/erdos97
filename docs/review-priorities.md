@@ -737,8 +737,13 @@ benchmarks for the larger frontier:
   exact compression and seed-selection decision: the circuits compress to
   widths `4` and `5`; the width-`4` orbit alone covers all 23 targets marginal
   over the existing seeds in the current 144-order packet, while width `5`
-  adds no marginal target. Run the next bounded C25 CEGAR with 144 history
-  blocks, the three transferred seeds, and only that width-`4` orbit; keep the
+  adds no marginal target;
+- use `docs/sparse-full-cone-c25-persistent-augmented-cegar.md` as the
+  outside-packet transfer and continuation decision: with 144 history blocks,
+  the transferred seeds cover 0/16 fresh probe orders while width `4` covers
+  16/16; the augmented CEGAR learns eight exact width-`191`--`200`
+  certificates before its configured limit. Compress those eight residuals
+  and audit exact affine reuse before more order-search budget; keep the
   current C29 template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
