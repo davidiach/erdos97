@@ -1011,6 +1011,10 @@ put detailed reconciliation in the canonical synthesis.
   exact compression of those eight residual certificates to widths 3--8; one
   new width-3 orbit is the minimum affine cover of all eight residual orders
   and is the only residual orbit selected for the next bounded C25 CEGAR.
+- [`sparse-full-cone-c25-selected-residual-augmented-cegar.md`](sparse-full-cone-c25-selected-residual-augmented-cegar.md):
+  168-history-blocked five-seed C25 CEGAR; the selected width-3 orbit adds zero
+  fresh-probe marginal coverage, while the search learns eight new exact
+  width-210--220 certificates before its configured limit.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.

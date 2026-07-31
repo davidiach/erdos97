@@ -747,9 +747,15 @@ benchmarks for the larger frontier:
   `docs/sparse-full-cone-c25-persistent-augmented-residual-compression.md`
   as the exact seed-selection decision: the eight certificates compress to
   widths `3`--`8`, and the affine orbit of `residual:2` is the one-source
-  minimum cover of all eight active-seed escapes. Add only that width-3 orbit
-  before a bounded 168-history-blocked C25 CEGAR; keep the current C29
-  template family stopped;
+  minimum cover of all eight active-seed escapes;
+- use `docs/sparse-full-cone-c25-selected-residual-augmented-cegar.md` as the
+  outside-packet transfer check: after 168 history blocks, the four parent
+  seeds cover all 16 fresh probe orders and the selected width-3 orbit covers
+  four already-covered orders, hence adds zero marginal coverage. The
+  five-seed CEGAR still learns eight exact width-`210`--`220` certificates
+  before its configured limit. Compress those eight and reassess marginal
+  coverage before choosing a possible 192-history packet; keep the current
+  C29 template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 
