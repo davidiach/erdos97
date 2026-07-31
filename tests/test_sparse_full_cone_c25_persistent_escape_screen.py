@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = (
@@ -94,3 +96,21 @@ def test_stored_persistent_escape_screen_replays_exactly() -> None:
         "verified_exact_affine_seed_images": 275,
         "decision": "CONTINUE_C25_CLAUSE_ROUTE_WITH_EXACT_POSITIVE_CIRCUITS",
     }
+
+def test_checker_rejects_fabricated_screen_configuration() -> None:
+    payload = artifact_payload()
+    payload["configuration"]["retry_seed"] += 1
+
+    with pytest.raises(AssertionError, match="screen configuration drifted"):
+        SCREEN.check_payload(payload)
+
+
+def test_checker_rejects_substituted_source_artifact(tmp_path: Path) -> None:
+    substitute = tmp_path / "summary.json"
+    substitute.write_bytes(SOURCE.read_bytes())
+    payload = artifact_payload()
+    payload["source_augmentation_artifact"] = str(substitute)
+    payload["source_augmentation_sha256"] = SCREEN.file_sha256(substitute)
+
+    with pytest.raises(AssertionError, match="source artifact drifted"):
+        SCREEN.check_payload(payload)

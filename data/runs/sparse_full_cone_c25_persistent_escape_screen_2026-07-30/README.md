@@ -37,3 +37,7 @@ Replay:
 python scripts/exploration/screen_sparse_full_cone_c25_persistent_escapes.py \
   --check data/runs/sparse_full_cone_c25_persistent_escape_screen_2026-07-30/summary.json
 ```
+
+SHA-256 of `summary.json`:
+
+`15e3efdf86e27a9fcb0173f447bab87f9e51c8f3f7ea69e5ceeaeb2c556bbe7f`

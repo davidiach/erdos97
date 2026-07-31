@@ -6,6 +6,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = (
@@ -156,3 +158,21 @@ def test_stored_c25_residual_seed_probe_replays_exactly() -> None:
         "verified_exact_affine_seed_images": 275,
         "decision": "STOP_C25_RESIDUAL_SEED_AUGMENTATION_AFTER_BOUNDED_PROBE",
     }
+
+def test_checker_rejects_fabricated_probe_configuration() -> None:
+    payload = artifact_payload()
+    payload["configuration"]["random_seed"] += 1
+
+    with pytest.raises(AssertionError, match="configuration drifted"):
+        PROBE.check_payload(payload)
+
+
+def test_checker_rejects_substituted_source_artifact(tmp_path: Path) -> None:
+    substitute = tmp_path / "summary.json"
+    substitute.write_bytes(SOURCE.read_bytes())
+    payload = artifact_payload()
+    payload["source_compression_artifact"] = str(substitute)
+    payload["source_compression_sha256"] = PROBE.file_sha256(substitute)
+
+    with pytest.raises(AssertionError, match="source artifact drifted"):
+        PROBE.check_payload(payload)
