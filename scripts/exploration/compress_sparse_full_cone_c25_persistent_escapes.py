@@ -83,6 +83,19 @@ DEFAULT_SOURCE = (
 )
 DEFAULT_TRIAL_BUDGETS = (64, 64)
 DEFAULT_SMALL_CIRCUIT_MAX_WIDTH = 12
+DEFAULT_SEED = 20_260_730
+DEFAULT_MODEL_SEED_STRIDE = 1_000
+DEFAULT_TOLERANCE = 1.0e-9
+TARGET_ORDER_SELECTION = (
+    "all 112 stored history orders plus all 32 residual-augmentation "
+    "probe orders"
+)
+STOPPING_RULE = (
+    "add the exact minimum compressed source-orbit cover of every "
+    "target marginal over all eleven existing seeds when at least "
+    "one retained circuit is new relative to those seeds and has "
+    "width at most the configured threshold"
+)
 PERSISTENT_TARGET_IDS = (
     "transfer_cegar_probe:0",
     "transfer_cegar_probe:1",
@@ -579,16 +592,8 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
             "per_model_seed_stride": args.model_seed_stride,
             "tolerance": args.tolerance,
             "small_circuit_max_width": args.small_circuit_max_width,
-            "target_order_selection": (
-                "all 112 stored history orders plus all 32 residual-augmentation "
-                "probe orders"
-            ),
-            "stopping_rule": (
-                "add the exact minimum compressed source-orbit cover of every "
-                "target marginal over all eleven existing seeds when at least "
-                "one retained circuit is new relative to those seeds and has "
-                "width at most the configured threshold"
-            ),
+            "target_order_selection": TARGET_ORDER_SELECTION,
+            "stopping_rule": STOPPING_RULE,
         },
         "existing_seed_packet": seed_summary,
         "target_orders": targets,
@@ -665,6 +670,20 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["type"] != expected_type:
         raise AssertionError("persistent compression artifact type drifted")
     source_path = ROOT / str(payload["source_screen_artifact"])
+    if source_path.resolve() != DEFAULT_SOURCE.resolve():
+        raise AssertionError("persistent compression source artifact drifted")
+    configuration = payload["configuration"]
+    expected_configuration = {
+        "trial_budgets_by_source_ordinal": list(DEFAULT_TRIAL_BUDGETS),
+        "seed": DEFAULT_SEED,
+        "per_model_seed_stride": DEFAULT_MODEL_SEED_STRIDE,
+        "tolerance": DEFAULT_TOLERANCE,
+        "small_circuit_max_width": DEFAULT_SMALL_CIRCUIT_MAX_WIDTH,
+        "target_order_selection": TARGET_ORDER_SELECTION,
+        "stopping_rule": STOPPING_RULE,
+    }
+    if configuration != expected_configuration:
+        raise AssertionError("persistent compression configuration drifted")
     if file_sha256(source_path) != str(payload["source_screen_sha256"]):
         raise AssertionError("persistent compression screen hash drifted")
     screen, augmentation, compression, cegar, transfer, first = load_source_chain(
@@ -688,15 +707,10 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["existing_seed_packet"] != seed_summary:
         raise AssertionError("persistent compression seed packet drifted")
 
-    configuration = payload["configuration"]
-    budgets = [
-        int(value) for value in configuration["trial_budgets_by_source_ordinal"]
-    ]
-    if budgets != list(DEFAULT_TRIAL_BUDGETS):
-        raise AssertionError("persistent compression budgets drifted")
-    base_seed = int(configuration["seed"])
-    stride = int(configuration["per_model_seed_stride"])
-    threshold = int(configuration["small_circuit_max_width"])
+    budgets = list(DEFAULT_TRIAL_BUDGETS)
+    base_seed = DEFAULT_SEED
+    stride = DEFAULT_MODEL_SEED_STRIDE
+    threshold = DEFAULT_SMALL_CIRCUIT_MAX_WIDTH
     records = screen["records"]
     rows = payload["compressed_models"]
     if len(rows) != len(records) or len(rows) != 2:
@@ -842,9 +856,13 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_TRIAL_BUDGETS,
         help="comma-separated deterministic LP objective counts by source order",
     )
-    parser.add_argument("--seed", type=int, default=20260730)
-    parser.add_argument("--model-seed-stride", type=int, default=1_000)
-    parser.add_argument("--tolerance", type=float, default=1.0e-9)
+    parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    parser.add_argument(
+        "--model-seed-stride",
+        type=int,
+        default=DEFAULT_MODEL_SEED_STRIDE,
+    )
+    parser.add_argument("--tolerance", type=float, default=DEFAULT_TOLERANCE)
     parser.add_argument(
         "--small-circuit-max-width",
         type=int,

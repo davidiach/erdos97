@@ -68,6 +68,17 @@ DEFAULT_SOURCE = (
     / "sparse_full_cone_c25_transfer_residual_compression_2026-07-29"
     / "summary.json"
 )
+DEFAULT_PROBE_ORDER_LIMIT = 32
+DEFAULT_PROBE_MAX_ITERATIONS = 12_000
+DEFAULT_CONFLICT_CAP = 1_024
+DEFAULT_RANDOM_SEED = 20_260_729
+DEFAULT_HISTORY_ORDER_COUNT = 112
+HISTORY_EQUIVALENCE = "cyclic rotation and reversal"
+PACKET_COMPARISON = (
+    "transferred_only",
+    "transferred_plus_width3",
+    "transferred_plus_all_residuals",
+)
 
 
 def load_source_chain(
@@ -150,7 +161,7 @@ def augmented_history(
                     **hashes,
                 }
             )
-    if len(history) != 112:
+    if len(history) != DEFAULT_HISTORY_ORDER_COUNT:
         raise AssertionError("C25 augmented history must contain 112 orders")
     return history
 
@@ -453,13 +464,9 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
             "probe_max_iterations": args.probe_max_iterations,
             "conflict_cap": args.conflict_cap,
             "random_seed": args.random_seed,
-            "history_equivalence": "cyclic rotation and reversal",
+            "history_equivalence": HISTORY_EQUIVALENCE,
             "history_order_count": len(history),
-            "packet_comparison": [
-                "transferred_only",
-                "transferred_plus_width3",
-                "transferred_plus_all_residuals",
-            ],
+            "packet_comparison": list(PACKET_COMPARISON),
         },
         "pattern": PATTERN,
         "n": n,
@@ -523,15 +530,28 @@ def check_source_chain_references(
 def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["type"] != "sparse_full_cone_c25_residual_seed_augmentation_probe_v1":
         raise AssertionError("C25 augmentation artifact type drifted")
-    compression, cegar, transfer, first = check_source_chain_references(payload)
+    source_path = ROOT / str(payload["source_compression_artifact"])
+    if source_path.resolve() != DEFAULT_SOURCE.resolve():
+        raise AssertionError("C25 augmentation source artifact drifted")
     configuration = payload["configuration"]
+    expected_configuration = {
+        "pattern": PATTERN,
+        "probe_order_limit": DEFAULT_PROBE_ORDER_LIMIT,
+        "probe_max_iterations": DEFAULT_PROBE_MAX_ITERATIONS,
+        "conflict_cap": DEFAULT_CONFLICT_CAP,
+        "random_seed": DEFAULT_RANDOM_SEED,
+        "history_equivalence": HISTORY_EQUIVALENCE,
+        "history_order_count": DEFAULT_HISTORY_ORDER_COUNT,
+        "packet_comparison": list(PACKET_COMPARISON),
+    }
+    if configuration != expected_configuration:
+        raise AssertionError("C25 augmentation configuration drifted")
+    compression, cegar, transfer, first = check_source_chain_references(payload)
     n, offsets = PATTERNS[PATTERN]
     if payload["pattern"] != PATTERN or configuration["pattern"] != PATTERN:
         raise AssertionError("C25 augmentation pattern drifted")
     if int(payload["n"]) != n or payload["circulant_offsets"] != list(offsets):
         raise AssertionError("C25 augmentation circulant metadata drifted")
-    if configuration["history_equivalence"] != "cyclic rotation and reversal":
-        raise AssertionError("C25 augmentation history equivalence drifted")
 
     history = augmented_history(transfer, first, cegar)
     history_keys = {dihedral_order_key(record["order"]) for record in history}
@@ -568,9 +588,9 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
 
     probe = payload["probe"]
     models = probe["models"]
-    probe_order_limit = int(configuration["probe_order_limit"])
-    probe_max_iterations = int(configuration["probe_max_iterations"])
-    conflict_cap = int(configuration["conflict_cap"])
+    probe_order_limit = DEFAULT_PROBE_ORDER_LIMIT
+    probe_max_iterations = DEFAULT_PROBE_MAX_ITERATIONS
+    conflict_cap = DEFAULT_CONFLICT_CAP
     iterations = int(probe["iterations"])
     if not 1 <= iterations <= probe_max_iterations:
         raise AssertionError("C25 augmentation probe iteration count drifted")
@@ -656,10 +676,18 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
-    parser.add_argument("--probe-order-limit", type=int, default=32)
-    parser.add_argument("--probe-max-iterations", type=int, default=12_000)
-    parser.add_argument("--conflict-cap", type=int, default=1_024)
-    parser.add_argument("--random-seed", type=int, default=20260729)
+    parser.add_argument(
+        "--probe-order-limit",
+        type=int,
+        default=DEFAULT_PROBE_ORDER_LIMIT,
+    )
+    parser.add_argument(
+        "--probe-max-iterations",
+        type=int,
+        default=DEFAULT_PROBE_MAX_ITERATIONS,
+    )
+    parser.add_argument("--conflict-cap", type=int, default=DEFAULT_CONFLICT_CAP)
+    parser.add_argument("--random-seed", type=int, default=DEFAULT_RANDOM_SEED)
     parser.add_argument("--out", type=Path)
     parser.add_argument("--check", type=Path)
     parser.add_argument("--json", action="store_true")

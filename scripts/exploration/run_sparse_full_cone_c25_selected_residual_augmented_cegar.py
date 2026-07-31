@@ -671,6 +671,8 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["type"] != expected_type:
         raise AssertionError("selected residual artifact type drifted")
     source_path = ROOT / str(payload["source_residual_compression_artifact"])
+    if source_path.resolve() != DEFAULT_SOURCE.resolve():
+        raise AssertionError("selected residual source artifact drifted")
     if file_sha256(source_path) != str(
         payload["source_residual_compression_sha256"]
     ):
