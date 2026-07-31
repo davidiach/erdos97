@@ -3143,6 +3143,16 @@
         "data/runs/sparse_full_cone_c25_residual_seed_probe_2026-07-29/summary.json"
       ],
       "claim_scope": "Replay three transferred and eight compressed residual exact C25 seed certificates, 275 exact quotient-preserving affine images, 112 blocked historical order identities, 32 history-disjoint inverse-pair-escape probe orders, and exact coverage for three nested seed packets. The bounded probe finds zero marginal order coverage from residual augmentation; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
+    },
+    {
+      "id": "sparse_full_cone_c25_persistent_escape_screen",
+      "command": [
+        "python",
+        "scripts/exploration/screen_sparse_full_cone_c25_persistent_escapes.py",
+        "--check",
+        "data/runs/sparse_full_cone_c25_persistent_escape_screen_2026-07-30/summary.json"
+      ],
+      "claim_scope": "Replay two exact positive full-Kalmanson-cone certificates for the fixed C25 transfer-CEGAR probe orders 0 and 1, together with their absence from three transferred and eight compressed residual seed orbits comprising 275 exact affine images. Fixed pattern and two fixed orders only; not an all-order C25 obstruction, geometric realizability result, proof of Erdos Problem #97, counterexample, or official/global status update."
     }
   ],
   "make_targets": {

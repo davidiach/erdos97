@@ -81,13 +81,14 @@ The predeclared marginal-coverage rule returns
 residual orbits to the next CEGAR merely because they create more matching
 clause occurrences.
 
-The most informative remaining fixed-order targets are the two original
-transfer-CEGAR probe orders `probe:0` and `probe:1`. They survive the
-lightweight filters and remain outside all three transferred and eight
-compressed residual seed orbits. Screen those two orders against the full
-Kalmanson cone exactly before extending order-search limits: an exact positive
-circuit continues the clause route, while an exact Gordan separator would
-identify a genuine fixed-order cone escape for later geometric investigation.
+The predeclared follow-up is now completed in
+`docs/sparse-full-cone-c25-persistent-escape-screen.md`. The two original
+transfer-CEGAR probe orders `probe:0` and `probe:1` survive the lightweight
+filters and remain outside all three transferred and eight compressed residual
+seed orbits, but exact positive circuits of widths `201` and `196` obstruct
+them in the full Kalmanson cone. Neither is a coordinate target. Compress those
+two new circuits and test their affine reuse before extending order-search
+limits.
 
 Replay:
 

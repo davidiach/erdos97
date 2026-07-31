@@ -728,9 +728,12 @@ benchmarks for the larger frontier:
 - use `docs/sparse-full-cone-c25-residual-seed-augmentation.md` as the
   marginal-coverage decision: after 112 history blocks the transferred seeds
   cover all 32 new probe orders, while width-`3`-only and all-eight residual
-  augmentation add zero covered orders. Stop residual augmentation and screen
-  the two original probe escapes exactly before more order-search budget; keep
-  the current C29 template family stopped;
+  augmentation add zero covered orders. Stop residual augmentation;
+- use `docs/sparse-full-cone-c25-persistent-escape-screen.md` as the exact
+  disposition of the two original probe escapes: both remain outside all 11
+  seed orbits but have exact positive full-cone circuits of widths `201` and
+  `196`. Compress those two circuits and audit affine reuse before more
+  order-search budget; keep the current C29 template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 

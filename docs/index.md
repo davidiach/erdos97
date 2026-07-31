@@ -995,6 +995,10 @@ put detailed reconciliation in the canonical synthesis.
   exact comparison of three nested C25 seed packets on 32 orders disjoint from
   112-order history; transferred seeds cover all 32, so residual augmentation
   adds no marginal order coverage and stops.
+- [`sparse-full-cone-c25-persistent-escape-screen.md`](sparse-full-cone-c25-persistent-escape-screen.md):
+  exact full-cone classification of the two original C25 probe escapes; both
+  remain outside all 11 seed orbits but have positive circuits of widths 201
+  and 196, so the bounded clause route continues.
 - [`fr-cut-homotopy.md`](fr-cut-homotopy.md): Fishburn--Reeds decimal
   cut-matrix nearest-fourth mixed-radius homotopy diagnostic; failed-route
   numerical evidence only, not an exact coordinate certificate.

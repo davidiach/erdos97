@@ -737,10 +737,14 @@ and must not assume that the finite `n=9` pivot census generalizes.
    in `docs/sparse-full-cone-c25-residual-seed-augmentation.md` then blocks all
    112 known orders and finds 32/32 transferred-seed coverage on a new probe;
    adding the residual width-`3` orbit or all eight residual orbits adds zero
-   covered orders. Stop residual seed augmentation and screen the two original
-   probe escapes `probe:0` and `probe:1` against the full Kalmanson cone before
-   extending order-search limits. Stop the current C29 template-mining route.
-   This is still not an all-order obstruction.
+   covered orders. The completed exact screen in
+   `docs/sparse-full-cone-c25-persistent-escape-screen.md` then verifies that
+   the two original probe escapes `probe:0` and `probe:1` remain outside all
+   11 stored seed orbits but have exact positive full-cone circuits of widths
+   `201` and `196`. Neither is a coordinate target. Compress those two
+   circuits and test their affine reuse before extending order-search limits.
+   Stop the current C29 template-mining route. This is still not an all-order
+   obstruction.
    The C19 order-CNF export
    `python scripts/export_c19_kalmanson_order_cnf.py --assert-expected --check-artifact reports/c19_kalmanson_order_cnf_summary.json`
    gives a standard SAT target for the stored Z3 clauses, but the external
