@@ -755,8 +755,13 @@ and must not assume that the finite `n=9` pivot census generalizes.
    transferred seeds cover 0/16 fresh probe orders while the selected width-4
    orbit covers 16/16. With that orbit active, CEGAR learns eight further exact
    full-cone certificates of widths `191`--`200` before its configured limit,
-   with no unresolved model. Next compress those eight certificates and audit
-   their exact affine reuse before increasing order-search budget. Stop the
+   with no unresolved model. The completed compression in
+   `docs/sparse-full-cone-c25-persistent-augmented-residual-compression.md`
+   reduces them to exact widths `3`--`8`, replays 200 affine images and 54
+   affine cross-edges, and finds that `residual:2` alone is the exact
+   one-source minimum cover of all eight active-seed escapes. Next run a
+   bounded 168-history-blocked C25 CEGAR with the three transferred seeds,
+   persistent width-4 seed, and only this width-3 residual orbit. Stop the
    current C29 template-mining route. This is still not an all-order
    obstruction.
    The C19 order-CNF export

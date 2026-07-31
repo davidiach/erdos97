@@ -85,11 +85,17 @@ certificate images.
 The route decision is
 `COMPRESS_NEW_C25_PERSISTENT_AUGMENTED_RESIDUALS`.
 
-Before increasing the cyclic-order search budget, compress the eight new
-width-191--200 certificates, construct their exact quotient-preserving affine
-orbits, and measure reuse and marginal coverage against both the 16-order probe
-and eight new residual orders. This remains bounded clause engineering for one
-fixed selected-witness quotient.
+The completed follow-up in
+`docs/sparse-full-cone-c25-persistent-augmented-residual-compression.md`
+compresses all eight certificates to widths `3`--`8`. The width-3 orbit from
+`residual:2` is the exact one-source minimum affine cover of all eight
+active-seed-escaping residual orders. Together with the four active seed
+orbits, it covers all 24 source-packet orders.
+
+The next target is a bounded 168-history-blocked C25 order CEGAR using the
+three transferred seeds, persistent width-4 seed, and only this selected
+width-3 residual orbit. This remains bounded clause engineering for one fixed
+selected-witness quotient.
 
 Replay:
 

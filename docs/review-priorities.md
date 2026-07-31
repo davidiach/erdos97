@@ -742,9 +742,14 @@ benchmarks for the larger frontier:
   outside-packet transfer and continuation decision: with 144 history blocks,
   the transferred seeds cover 0/16 fresh probe orders while width `4` covers
   16/16; the augmented CEGAR learns eight exact width-`191`--`200`
-  certificates before its configured limit. Compress those eight residuals
-  and audit exact affine reuse before more order-search budget; keep the
-  current C29 template family stopped;
+  certificates before its configured limit;
+- use
+  `docs/sparse-full-cone-c25-persistent-augmented-residual-compression.md`
+  as the exact seed-selection decision: the eight certificates compress to
+  widths `3`--`8`, and the affine orbit of `residual:2` is the one-source
+  minimum cover of all eight active-seed escapes. Add only that width-3 orbit
+  before a bounded 168-history-blocked C25 CEGAR; keep the current C29
+  template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 
