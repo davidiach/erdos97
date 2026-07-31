@@ -68,9 +68,17 @@ with no cross-certificate hash reuse.
 The route decision is
 `REPLACE_NONMARGINAL_WIDTH3_WITH_MINIMUM_COMPRESSED_ESCAPE_COVER`.
 
-A possible 192-history C25 CEGAR should activate the four parent seed orbits
-and only the new width-4 `residual:2` orbit selected here. The prior width-3
-seed is retired because it adds no target marginal in this packet.
+The completed 192-history follow-up in
+`docs/sparse-full-cone-c25-replacement-augmented-cegar.md` activates the four
+parent seed orbits and only the new width-4 `residual:2` replacement selected
+here. The prior width-3 seed is retired.
+
+On 16 fresh probe orders, both the four parent seeds and the replacement alone
+cover 16/16, so the replacement adds zero marginal fresh-probe coverage.
+Bounded five-seed CEGAR nevertheless learns eight new exact certificates of
+widths `193`--`201` before its configured limit. The next target is to compress
+those eight replacement-seed escapes and reassess exact marginal affine
+coverage.
 
 Replay without rerunning the numerical objective search:
 
