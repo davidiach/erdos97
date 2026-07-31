@@ -69,6 +69,15 @@ DEFAULT_SOURCE = (
     / "summary.json"
 )
 DEFAULT_TARGET_INDICES = (0, 1)
+DEFAULT_TOLERANCE = 1.0e-9
+DEFAULT_RETRY_COUNT = 16
+DEFAULT_RETRY_SEED = 20_260_730
+DEFAULT_TARGET_SEED_STRIDE = 1_000
+DEFAULT_MAX_SEPARATOR_DENOMINATOR = 1_000_000
+TARGET_SELECTION = (
+    "the two predeclared original transfer-CEGAR probe escapes "
+    "outside all eleven stored seed orbits"
+)
 
 
 def load_source(
@@ -305,10 +314,7 @@ def build_payload(args: argparse.Namespace) -> dict[str, object]:
             "target_probe_model_indices": [
                 int(index) for index in args.target_index
             ],
-            "selection": (
-                "the two predeclared original transfer-CEGAR probe escapes "
-                "outside all eleven stored seed orbits"
-            ),
+            "selection": TARGET_SELECTION,
             "tolerance": args.tolerance,
             "retry_count": args.retry_count,
             "retry_seed": args.retry_seed,
@@ -379,6 +385,20 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["type"] != "sparse_full_cone_c25_persistent_escape_screen_v1":
         raise AssertionError("persistent C25 screen artifact type drifted")
     source_path = ROOT / str(payload["source_augmentation_artifact"])
+    if source_path.resolve() != DEFAULT_SOURCE.resolve():
+        raise AssertionError("persistent C25 augmentation source artifact drifted")
+    configuration = payload["configuration"]
+    expected_configuration = {
+        "target_probe_model_indices": list(DEFAULT_TARGET_INDICES),
+        "selection": TARGET_SELECTION,
+        "tolerance": DEFAULT_TOLERANCE,
+        "retry_count": DEFAULT_RETRY_COUNT,
+        "retry_seed": DEFAULT_RETRY_SEED,
+        "target_seed_stride": DEFAULT_TARGET_SEED_STRIDE,
+        "max_separator_denominator": DEFAULT_MAX_SEPARATOR_DENOMINATOR,
+    }
+    if configuration != expected_configuration:
+        raise AssertionError("persistent C25 screen configuration drifted")
     if file_sha256(source_path) != str(payload["source_augmentation_sha256"]):
         raise AssertionError("persistent C25 augmentation source hash drifted")
     augmentation, compression, cegar, transfer = load_source(source_path)
@@ -393,8 +413,7 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["circulant_offsets"] != list(offsets):
         raise AssertionError("persistent C25 offsets drifted")
 
-    configuration = payload["configuration"]
-    indices = [int(index) for index in configuration["target_probe_model_indices"]]
+    indices = list(DEFAULT_TARGET_INDICES)
     if indices != list(DEFAULT_TARGET_INDICES):
         raise AssertionError("persistent C25 target selection drifted")
     selected = target_models(cegar, indices)
@@ -474,11 +493,19 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="transfer-CEGAR counterfactual probe index; defaults to 0 and 1",
     )
-    parser.add_argument("--tolerance", type=float, default=1.0e-9)
-    parser.add_argument("--retry-count", type=int, default=16)
-    parser.add_argument("--retry-seed", type=int, default=20260730)
-    parser.add_argument("--target-seed-stride", type=int, default=1_000)
-    parser.add_argument("--max-separator-denominator", type=int, default=1_000_000)
+    parser.add_argument("--tolerance", type=float, default=DEFAULT_TOLERANCE)
+    parser.add_argument("--retry-count", type=int, default=DEFAULT_RETRY_COUNT)
+    parser.add_argument("--retry-seed", type=int, default=DEFAULT_RETRY_SEED)
+    parser.add_argument(
+        "--target-seed-stride",
+        type=int,
+        default=DEFAULT_TARGET_SEED_STRIDE,
+    )
+    parser.add_argument(
+        "--max-separator-denominator",
+        type=int,
+        default=DEFAULT_MAX_SEPARATOR_DENOMINATOR,
+    )
     parser.add_argument("--out", type=Path)
     parser.add_argument("--check", type=Path)
     parser.add_argument("--json", action="store_true")
