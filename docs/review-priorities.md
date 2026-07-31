@@ -753,9 +753,15 @@ benchmarks for the larger frontier:
   seeds cover all 16 fresh probe orders and the selected width-3 orbit covers
   four already-covered orders, hence adds zero marginal coverage. The
   five-seed CEGAR still learns eight exact width-`210`--`220` certificates
-  before its configured limit. Compress those eight and reassess marginal
-  coverage before choosing a possible 192-history packet; keep the current
-  C29 template family stopped;
+  before its configured limit;
+- use
+  `docs/sparse-full-cone-c25-selected-residual-augmented-escape-compression.md`
+  as the exact replacement decision: the eight escapes compress to widths
+  `3`--`9`; the new width-4 `residual:2` orbit is the one-source minimum cover
+  of all eight residuals, while the old width-3 seed has zero marginal targets
+  over the four parent seeds. Use the four parent seeds plus only the new
+  width-4 replacement for a bounded 192-history packet; keep the current C29
+  template family stopped;
 - look for a bridge from arbitrary selected-witness counterexamples to a
   classified family where Kalmanson/SMT certificates can be applied.
 
