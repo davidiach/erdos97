@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = (
@@ -144,3 +146,13 @@ def test_stored_selected_residual_augmented_cegar_replays_exactly() -> None:
         "verified_new_unique_affine_orbit_clauses": 200,
         "decision": "COMPRESS_NEW_C25_SELECTED_RESIDUAL_AUGMENTED_ESCAPES",
     }
+
+def test_checker_rejects_substituted_source_artifact(tmp_path: Path) -> None:
+    substitute = tmp_path / "summary.json"
+    substitute.write_bytes(CEGAR.DEFAULT_SOURCE.read_bytes())
+    payload = artifact_payload()
+    payload["source_residual_compression_artifact"] = str(substitute)
+    payload["source_residual_compression_sha256"] = CEGAR.file_sha256(substitute)
+
+    with pytest.raises(AssertionError, match="source artifact drifted"):
+        CEGAR.check_payload(payload)
