@@ -669,6 +669,8 @@ def check_payload(payload: Mapping[str, Any]) -> dict[str, object]:
     if payload["type"] != "sparse_full_cone_c25_persistent_augmented_cegar_v1":
         raise AssertionError("persistent augmented artifact type drifted")
     source_path = ROOT / str(payload["source_compression_artifact"])
+    if source_path.resolve() != DEFAULT_SOURCE.resolve():
+        raise AssertionError("persistent augmented source artifact drifted")
     if file_sha256(source_path) != str(payload["source_compression_sha256"]):
         raise AssertionError("persistent augmented source hash drifted")
     (
