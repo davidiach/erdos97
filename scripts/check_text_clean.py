@@ -124,6 +124,11 @@ def display_path(path: Path) -> str:
 def hidden_char_description(char: str) -> str | None:
     if char in HIDDEN_CHARS:
         return HIDDEN_CHARS[char]
+    # Tabs and line feeds are the only C0 controls allowed in tracked text.
+    # Other ASCII controls can silently corrupt rendered prose (for example,
+    # a backspace produced by an accidentally escaped \binom string).
+    if unicodedata.category(char) == "Cc" and char not in {"\t", "\n"}:
+        return unicodedata.name(char, "CONTROL CHARACTER")
     # Policy: tracked text files should contain no Unicode format controls.
     # They are invisible in review and too easy to mistake for ordinary text.
     if unicodedata.category(char) == "Cf" or unicodedata.bidirectional(char) in BIDI_CONTROL_CLASSES:

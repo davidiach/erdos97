@@ -24,8 +24,8 @@ which identifications of the remaining formal roles preserve the certificate?
 
 ## Admissible role quotients
 
-For a template with formal role set (R), retained equal-distance classes,
-and marked strict Kalmanson quadrilaterals, a set partition of (R) is
+For a template with formal role set `R`, retained equal-distance classes,
+and marked strict Kalmanson quadrilaterals, a set partition of `R` is
 admissible when:
 
 - no marked strict quadrilateral loses a vertex;
@@ -37,9 +37,10 @@ rebuilds every mapped strict row and retained equality class with exact integer
 arithmetic.
 
 The reusable algebraic point is conditional but elementary. If a nonnegative
-combination of strict rows has coordinate coefficients (c_Cleq 0) in one
+combination of strict rows has coordinate coefficients `c_C <= 0` in one
 distance quotient, merging quotient classes replaces a target coefficient by
-(sum_{Cmapsto D}c_C). It therefore remains nonpositive. In the three
+the sum of `c_C` over source classes `C` mapped to the target class. It
+therefore remains nonpositive. In the three
 stored templates the checked combinations are stronger: every mapped sum is
 identically zero.
 
@@ -59,15 +60,15 @@ The first two templates are role-rigid under these admissibility rules. The
 scalable four-row template has exactly two proper quotients, both on seven
 roles:
 
-- identify roles (18) and (23); or
-- identify roles (23) and (27).
+- identify roles `18` and `23`; or
+- identify roles `23` and `27`.
 
 Each proper quotient has one compatible cyclic order. The unmerged
 eight-role template has three compatible cyclic orders, giving five ordered
 quotients at that level and seven across the full hierarchy.
 
 For the `Z/16` equality quotient, an independent fixed-order scan also checks
-all (2inom{16}{4}=3,640) individual strict Kalmanson rows. None is
+all `2 * binom(16, 4) = 3,640` individual strict Kalmanson rows. None is
 coordinatewise nonpositive, while the stored two-row inverse pair sums to
 zero. This records fixed-order support minimality only.
 
