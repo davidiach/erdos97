@@ -247,6 +247,16 @@ strict directed-cycle skeletons map to multi-class descent regions, with the
 same `184` assignment/orbit total. It is packet bookkeeping only, not
 local-lemma completeness, a bridge proof, or an `n=9` proof.
 
+## Exact Dual Follow-up
+
+`docs/n9-vertex-circle-template-duals.md` converts every skeleton into an
+exact positive-circuit identity in ordinary pair-distance coordinates. The
+follow-up checks unit positive strict coefficients, signed unit equality
+transfers, all active-variable quotient coarsenings, and transformed replay
+across the `184` source assignments. It proves certificate stability under
+additional distance equalities only; it does not force a skeleton or promote
+the review-pending `n=9` result.
+
 ## Review Standard
 
 A reviewer should be able to restate each skeleton as a local lemma without
