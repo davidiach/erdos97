@@ -295,6 +295,11 @@ put detailed reconciliation in the canonical synthesis.
   exact `n=9` witness-matching/inversion-pivot crosswalk together with the
   abstract `n=16` guardrail showing why the same marked-three-cycle argument
   does not generalize without stronger convex metric information.
+- [`fragile-cycle-quotient-hierarchy.md`](fragile-cycle-quotient-hierarchy.md):
+  exact role-quotient classification of the stored one-, two-, and four-row
+  fragile-cycle certificate templates, including two proper seven-role
+  quotients of the scalable template; proof-mining evidence only, not a
+  bridge theorem.
 - [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
   `T4`/`T5`/`T44` classification for centers made good by deleting two
   vertices, with pair capacities and the exclusive-mutual-pair corollary.

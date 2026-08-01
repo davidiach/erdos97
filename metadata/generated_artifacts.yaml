@@ -1545,6 +1545,47 @@ artifacts:
       - official/global status update
       - general proof of Erdos Problem #97
 
+  - id: fragile_cycle_quotient_hierarchy
+    path: data/certificates/fragile_cycle_quotient_hierarchy.json
+    sha256: 307c77bd44fc417e7f1c8d59db7a2a1c4d992682f1e04c40f8f95359b06d64b9
+    size_bytes: 25624
+    kind: exact_quotient_hierarchy_artifact
+    generator: scripts/check_fragile_cycle_quotient_hierarchy.py
+    command: python scripts/check_fragile_cycle_quotient_hierarchy.py --write --assert-expected
+    checker: scripts/check_fragile_cycle_quotient_hierarchy.py
+    check_command: python scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact admissible-role-quotient classification for the stored n=9
+      equilateral hinge, fixed-order Z/16 inverse pair, and scalable k=8
+      four-row Kalmanson circuit. It proves certificate pushforward only for
+      these local templates; not Euclidean realizability, a fragile-cycle
+      bridge, n=9, a general proof, a counterexample, or an official/global
+      status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_quotient_hierarchy.v1
+      status: EXACT_BRIDGE_TEMPLATE_DIAGNOSTIC
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      summary.template_count: 3
+      summary.strict_support_levels: [1, 2, 4]
+      summary.admissible_partition_count: 5
+      summary.admissible_ordered_quotient_count: 7
+      summary.nontrivial_admissible_partition_count: 2
+      summary.all_quotient_certificates_zero_sum: true
+      summary.quotient_catalog_sha256: 58ad9b77ab1b71d2e9178a3b4faa572e46c2b253ed5f9b68eca6f5b18e8218b6
+      provenance.command: python scripts/check_fragile_cycle_quotient_hierarchy.py --write --assert-expected
+    forbidden_claims:
+      - Euclidean realization
+      - a fragile-cycle bridge is proved
+      - n=9 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30
