@@ -179,6 +179,15 @@ cycle and its halos. Such a lemma must:
 - reject the abstract `n=16` control for the right metric reason; and
 - remain compatible with the exact `n=9` two-pivot/`F15` split.
 
+The exact quotient-hierarchy pilot in
+`docs/fragile-cycle-quotient-hierarchy.md` now packages the known one-, two-,
+and four-row certificates as role templates and exhausts all admissible role
+partitions. The hinge and `Z/16` inverse templates are role-rigid; the
+scalable four-row template has exactly two proper seven-role quotients. This
+narrows the proof-mining target, but it is not the missing bridge: a geometric
+lemma must still force one of those templates or a separately stated
+rich-class/deletion alternative.
+
 The existing `n=16` certificate suggests a concrete first template: search
 for two cyclic quadruples whose strict Kalmanson coefficient rows cancel
 after quotienting by three matched fragile rows. The negative control provides
@@ -191,6 +200,9 @@ python scripts/check_n9_fragile_turn_pivot_crosswalk.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_turn_pivot_guardrail.py \
+  --check --assert-expected --summary-json
+
+python scripts/check_fragile_cycle_quotient_hierarchy.py \
   --check --assert-expected --summary-json
 ```
 

@@ -156,6 +156,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_rigid_n15_shortest_side_grid.py --artifact data/certificates/rigid_n15_shortest_side_grid.json --check --assert-expected --json
 	$(PYTHON) scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json
 	$(PYTHON) scripts/check_brp_boundary_probe.py --check --assert-expected --json
 	$(PYTHON) scripts/check_four_c3_generic_orbit_obstruction.py --assert-expected --json

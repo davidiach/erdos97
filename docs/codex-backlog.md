@@ -37,6 +37,15 @@ ordinary-distance/Kalmanson lemma extracted from a fragile matching cycle and
 its halos. It must reject the `Z/16` control by its exact Kalmanson mechanism
 and must not assume that the finite `n=9` pivot census generalizes.
 
+The exact quotient hierarchy
+`python scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expected --summary-json`
+now supplies smaller regression targets for that work. It classifies the
+stored certificate supports under all admissible role partitions and finds
+two proper seven-role forms of the scalable four-row circuit. The next bridge
+PR should try to force one of those forms, the role-rigid hinge or inverse
+template, or an explicit geometric alternative; the quotient classification
+alone is not a bridge proof.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an

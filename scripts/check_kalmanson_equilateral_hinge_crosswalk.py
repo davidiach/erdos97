@@ -21,6 +21,7 @@ from erdos97.kalmanson_equilateral_hinge import (
     find_core_hinge_instances,
     find_hinge_instances,
 )
+from erdos97.path_display import display_path
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -269,7 +270,7 @@ def build_payload(source_path: Path = DEFAULT_SOURCE) -> dict[str, Any]:
             "contradiction": "the three spoke equalities make both sides equal",
         },
         "source_artifact": {
-            "path": str(source_path.relative_to(ROOT)),
+            "path": display_path(source_path, ROOT),
             "sha256": source_digest,
             "schema": source.get("schema"),
             "status": source.get("status"),

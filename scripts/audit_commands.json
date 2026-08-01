@@ -542,6 +542,17 @@
       "claim_scope": "Exact abstract n=16 negative control for the proposed fragile-matching/three-pivot bridge; the fixed order is Kalmanson-obstructed, so this is not a Euclidean realization, counterexample, proof, or official/global status update."
     },
     {
+      "id": "fragile_cycle_quotient_hierarchy",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_quotient_hierarchy.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact admissible-role-quotient classification for three stored Kalmanson certificate templates; proves only certificate pushforward for those templates, not Euclidean realizability, a fragile-cycle bridge, n=9, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "n9_vertex_circle_input_audit",
       "command": [
         "python",
@@ -3354,6 +3365,7 @@
       "rigid_n15_shortest_side_grid",
       "n9_fragile_turn_pivot_crosswalk",
       "fragile_turn_pivot_guardrail",
+      "fragile_cycle_quotient_hierarchy",
       "adjacent_closest_pair_nonagon_barrier",
       "brp_boundary_vertexization_probe",
       "four_c3_generic_orbit_obstruction",
