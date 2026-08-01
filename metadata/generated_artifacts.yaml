@@ -1697,6 +1697,69 @@ artifacts:
       - motif classification is an independent proof
       - general proof of Erdos Problem #97
 
+  - id: n9_vertex_circle_template_duals
+    path: data/certificates/n9_vertex_circle_template_duals.json
+    sha256: 3223b82598b49214f331167093f259d66c53f88d600c9fc00fbe66faa25f9da0
+    size_bytes: 45024
+    kind: certificate_diagnostic_artifact
+    generator: scripts/check_n9_vertex_circle_template_duals.py
+    command: python scripts/check_n9_vertex_circle_template_duals.py --assert-expected --write
+    checker: scripts/check_n9_vertex_circle_template_duals.py
+    check_command: python scripts/check_n9_vertex_circle_template_duals.py --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: REVIEW_PENDING_DIAGNOSTIC
+    claim_scope: 'Exact unit-positive dual identities for the 16 stored n=9 vertex-circle relation skeletons, with transformed-certificate coverage of the 184 review-pending frontier assignments and exhaustive active-variable quotient-coarsening checks; not local-template forcing, not a proof of n=9, not a bridge proof, not a proof of Erdos Problem #97, not a counterexample, and not independent review of the source packets.'
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.n9_vertex_circle_template_duals.v1
+      status: REVIEW_PENDING_DIAGNOSTIC_ONLY
+      trust: REVIEW_PENDING_DIAGNOSTIC
+      claim_scope: 'Exact unit-positive dual identities for the 16 stored n=9 vertex-circle relation skeletons, with transformed-certificate coverage of the 184 review-pending frontier assignments and exhaustive active-variable quotient-coarsening checks; not local-template forcing, not a proof of n=9, not a bridge proof, not a proof of Erdos Problem #97, not a counterexample, and not independent review of the source packets.'
+      n: 9
+      skeleton_count: 16
+      template_count: 12
+      family_count: 16
+      covered_assignment_count: 184
+      contradiction_type_counts.strict_directed_cycle: 3
+      contradiction_type_counts.strict_self_edge: 13
+      strict_term_count_counts.1: 13
+      strict_term_count_counts.2: 1
+      strict_term_count_counts.3: 2
+      equality_term_count_counts.3: 11
+      equality_term_count_counts.4: 3
+      equality_term_count_counts.5: 1
+      equality_term_count_counts.6: 1
+      active_pair_count_counts.4: 9
+      active_pair_count_counts.5: 3
+      active_pair_count_counts.6: 2
+      active_pair_count_counts.7: 2
+      maximum_equality_term_count: 6
+      maximum_active_pair_count: 7
+      total_active_pair_quotient_partitions_checked: 2451
+      all_strict_coefficients_positive_unit: true
+      all_equality_multipliers_signed_unit: true
+      all_identity_balances_zero: true
+      all_active_pair_quotients_preserve_zero_balance: true
+      assignment_coverage.assignment_count: 184
+      assignment_coverage.unique_assignment_count: 184
+      assignment_coverage.family_count: 16
+      assignment_coverage.template_count: 12
+      assignment_coverage.transformed_certificate_sha256: c60ce8833bd4b2fa7ad32e2e034091966369a77553614fffc2226dc4a0edf3eb
+      assignment_coverage.all_transformed_identities_verified_zero: true
+      assignment_coverage.all_transformed_terms_supported_by_assignment_cores: true
+      assignment_coverage.all_label_maps_verified_dihedral: true
+      provenance.command: python scripts/check_n9_vertex_circle_template_duals.py --assert-expected --write
+    forbidden_claims:
+      - local-template forcing is proved
+      - n=9 is proved
+      - 'bridge proof of Erdos Problem #97'
+      - 'counterexample to Erdos Problem #97'
+      - independent review of the source packets is complete
+      - source-of-truth strongest result
+      - official/global status update
+      - 'general proof of Erdos Problem #97'
+
   - id: n9_vertex_circle_frontier_comparison
     path: data/certificates/n9_vertex_circle_frontier_comparison.json
     sha256: 76074a8001a36600d528db767a0bd643a47becead762e985debfca6e0688ed4c
