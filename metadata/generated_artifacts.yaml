@@ -1586,6 +1586,47 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_cycle_halo_lift_frontier
+    path: data/certificates/fragile_cycle_halo_lift_frontier.json
+    sha256: 93603182d0c4cc4be20e163f4b10cadcf366359203f2495b87aefce4c130165f
+    size_bytes: 78690
+    kind: exact_bounded_halo_lift_artifact
+    generator: scripts/check_fragile_cycle_halo_lift_frontier.py
+    command: python scripts/check_fragile_cycle_halo_lift_frontier.py --write --assert-expected
+    checker: scripts/check_fragile_cycle_halo_lift_frontier.py
+    check_command: python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact bounded abstract zero-, one-, and two-halo completion frontier for
+      the proper seven-role quotients of the stored scalable four-row
+      Kalmanson circuit. The six n=9 full-extension witnesses are joined to
+      stored review-pending positive circuits. Not Euclidean realizability, a
+      fragile-cycle forcing lemma, n=9, a general proof, a counterexample, or
+      an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_halo_lift_frontier.v1
+      status: EXACT_BOUNDED_HALO_LIFT_DIAGNOSTIC
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      summary.minimum_added_halos_for_fragile_cover: 1
+      summary.minimum_added_halos_for_full_selected_extension: 2
+      summary.one_halo_essential_cover_count: 38
+      summary.two_halo_essential_cover_count: 7708
+      summary.two_halo_extendable_partial_cover_count: 6
+      summary.two_halo_canonical_full_system_count: 5
+      summary.all_n9_witnesses_have_exact_positive_circuit: true
+      provenance.command: python scripts/check_fragile_cycle_halo_lift_frontier.py --write --assert-expected
+    forbidden_claims:
+      - Euclidean realization
+      - a fragile-cycle forcing lemma is proved
+      - n=9 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30

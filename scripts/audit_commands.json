@@ -553,6 +553,17 @@
       "claim_scope": "Exact admissible-role-quotient classification for three stored Kalmanson certificate templates; proves only certificate pushforward for those templates, not Euclidean realizability, a fragile-cycle bridge, n=9, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_halo_lift_frontier",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_halo_lift_frontier.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact bounded zero-, one-, and two-halo completion frontier for one stored seven-role Kalmanson certificate quotient, joined to review-pending n=9 positive circuits; not Euclidean realizability, a fragile-cycle forcing lemma, n=9, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "n9_vertex_circle_input_audit",
       "command": [
         "python",
@@ -3366,6 +3377,7 @@
       "n9_fragile_turn_pivot_crosswalk",
       "fragile_turn_pivot_guardrail",
       "fragile_cycle_quotient_hierarchy",
+      "fragile_cycle_halo_lift_frontier",
       "adjacent_closest_pair_nonagon_barrier",
       "brp_boundary_vertexization_probe",
       "four_c3_generic_orbit_obstruction",

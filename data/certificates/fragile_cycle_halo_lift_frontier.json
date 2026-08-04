@@ -1,0 +1,3682 @@
+{
+  "claim_scope": "Exact bounded abstract halo-lift diagnostic for the two proper seven-role quotients of the stored scalable four-row Kalmanson circuit: it checks zero, one, and two added cyclic halo roles under stated incidence, crossing, capacity, cover, and full-selected-extension rules, then joins the six n=9 extension witnesses to stored review-pending vertex-circle positive circuits; not a Euclidean realization, not a fragile-cycle forcing lemma, not a proof of n=9, not a general proof, not a counterexample, and not an official/global status update.",
+  "conclusion": "Center injectivity rejects the 18=23 quotient as a lift of four distinct retained fragile rows.  For the 23=27 quotient, one added halo role is necessary and sufficient for a four-row fragile cover, while two are necessary and sufficient within this bounded search for a full selected incidence extension.  Exactly six of the 7,708 two-halo cover lifts admit a deterministic full-extension witness; all six are among the stored n=9 frontier assignments and inherit exact positive-circuit contradictions.  This sharpens a proof-mining target but does not force the quotient from minimal-counterexample geometry.",
+  "limitations": [
+    "The scan starts from one stored seven-role certificate quotient; it does not prove that a minimal counterexample contains that quotient.",
+    "The halo count measures additional formal cyclic roles in this bounded completion model, not all possible geometric halo structures.",
+    "The full-extension search imposes only the stated incidence, crossing, pair-capacity, and indegree conditions before the stored n=9 certificate join.",
+    "The joined n=9 frontier and template-dual artifacts remain review-pending diagnostics and are not independently rederived here.",
+    "No Euclidean realization, n=9 theorem, general proof, or counterexample is claimed."
+  ],
+  "one_halo": {
+    "essential_cover_count": 38,
+    "extendable_partial_cover_count": 0,
+    "extension_nodes_visited": 0,
+    "halo_count": 1,
+    "initially_dead_partial_cover_count": 38,
+    "placement_count": 7,
+    "placements": [
+      {
+        "cover_count": 4,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 4,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 4,
+          "nodes_visited": 0,
+          "partial_cover_count": 4,
+          "unextendable_partial_cover_count": 4
+        },
+        "gaps_after_core_roles": [
+          0
+        ],
+        "pair_and_crossing_compatible_count": 4,
+        "pair_capacity_compatible_count": 4,
+        "raw_row_combination_count": 10000,
+        "row_option_count_by_center": {
+          "1": 10,
+          "3": 10,
+          "4": 10,
+          "6": 10
+        }
+      },
+      {
+        "cover_count": 9,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 9,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 9,
+          "nodes_visited": 0,
+          "partial_cover_count": 9,
+          "unextendable_partial_cover_count": 9
+        },
+        "gaps_after_core_roles": [
+          1
+        ],
+        "pair_and_crossing_compatible_count": 9,
+        "pair_capacity_compatible_count": 9,
+        "raw_row_combination_count": 10000,
+        "row_option_count_by_center": {
+          "1": 10,
+          "3": 10,
+          "4": 10,
+          "6": 10
+        }
+      },
+      {
+        "cover_count": 9,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 9,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 9,
+          "nodes_visited": 0,
+          "partial_cover_count": 9,
+          "unextendable_partial_cover_count": 9
+        },
+        "gaps_after_core_roles": [
+          2
+        ],
+        "pair_and_crossing_compatible_count": 9,
+        "pair_capacity_compatible_count": 9,
+        "raw_row_combination_count": 10000,
+        "row_option_count_by_center": {
+          "1": 10,
+          "3": 10,
+          "4": 10,
+          "6": 10
+        }
+      },
+      {
+        "cover_count": 6,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 6,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 6,
+          "nodes_visited": 0,
+          "partial_cover_count": 6,
+          "unextendable_partial_cover_count": 6
+        },
+        "gaps_after_core_roles": [
+          3
+        ],
+        "pair_and_crossing_compatible_count": 6,
+        "pair_capacity_compatible_count": 6,
+        "raw_row_combination_count": 10000,
+        "row_option_count_by_center": {
+          "1": 10,
+          "3": 10,
+          "4": 10,
+          "6": 10
+        }
+      },
+      {
+        "cover_count": 3,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          5,
+          6
+        ],
+        "essential_cover_count": 3,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 3,
+          "nodes_visited": 0,
+          "partial_cover_count": 3,
+          "unextendable_partial_cover_count": 3
+        },
+        "gaps_after_core_roles": [
+          4
+        ],
+        "pair_and_crossing_compatible_count": 3,
+        "pair_capacity_compatible_count": 3,
+        "raw_row_combination_count": 10000,
+        "row_option_count_by_center": {
+          "1": 10,
+          "3": 10,
+          "4": 10,
+          "6": 10
+        }
+      },
+      {
+        "cover_count": 3,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6
+        ],
+        "essential_cover_count": 3,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 3,
+          "nodes_visited": 0,
+          "partial_cover_count": 3,
+          "unextendable_partial_cover_count": 3
+        },
+        "gaps_after_core_roles": [
+          5
+        ],
+        "pair_and_crossing_compatible_count": 3,
+        "pair_capacity_compatible_count": 3,
+        "raw_row_combination_count": 10000,
+        "row_option_count_by_center": {
+          "1": 10,
+          "3": 10,
+          "4": 10,
+          "6": 10
+        }
+      },
+      {
+        "cover_count": 4,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "essential_cover_count": 4,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 4,
+          "nodes_visited": 0,
+          "partial_cover_count": 4,
+          "unextendable_partial_cover_count": 4
+        },
+        "gaps_after_core_roles": [
+          6
+        ],
+        "pair_and_crossing_compatible_count": 4,
+        "pair_capacity_compatible_count": 4,
+        "raw_row_combination_count": 10000,
+        "row_option_count_by_center": {
+          "1": 10,
+          "3": 10,
+          "4": 10,
+          "6": 10
+        }
+      }
+    ],
+    "raw_row_combination_count": 70000,
+    "unextendable_partial_cover_count": 38
+  },
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_halo_lift_frontier.py --write --assert-expected",
+    "generator": "scripts/check_fragile_cycle_halo_lift_frontier.py"
+  },
+  "schema": "erdos97.fragile_cycle_halo_lift_frontier.v1",
+  "search_contract": {
+    "fragile_cover_filters": [
+      "row intersections have size at most two",
+      "every two-overlap crosses the center chord in the supplied cyclic order",
+      "every witness pair occurs in at most two retained rows",
+      "the four retained rows cover every displayed role",
+      "the four retained rows admit a matching to distinct covered roles"
+    ],
+    "fragile_row_completion": "Each retained center keeps its two certificate witnesses and chooses two additional witnesses to form a self-excluding four-set.",
+    "full_extension_filters": [
+      "one self-excluding four-witness selected row at every center",
+      "the same row-intersection and crossing rules",
+      "witness-pair multiplicity at most two",
+      "selected indegree at most floor(2(n-1)/3)"
+    ],
+    "halo_placement_model": "Added halos are otherwise interchangeable and inserted into the seven cyclic gaps; nondecreasing gap multisets give one canonical placement per halo-label permutation.",
+    "search_order": "lexicographic row options with minimum-remaining-options center choice; one deterministic full-extension witness is retained per extendable cover"
+  },
+  "source_artifacts": [
+    {
+      "canonical_json_sha256": "fa32a11a7dc79c8f57286e740e71377627e1cd1307435ee24beb6e9118455b8b",
+      "path": "data/certificates/n9_vertex_circle_frontier_motif_classification.json",
+      "role": "exact lookup of each full n=9 selected-row witness",
+      "schema": "erdos97.n9_vertex_circle_frontier_motif_classification.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    },
+    {
+      "canonical_json_sha256": "c6a751311a1181de31c505703054239af3b8790bd121e3145931f6174708feef",
+      "path": "data/certificates/n9_vertex_circle_template_duals.json",
+      "role": "exact transformed positive circuit for each matched n=9 family",
+      "schema": "erdos97.n9_vertex_circle_template_duals.v1",
+      "status": "REVIEW_PENDING_DIAGNOSTIC_ONLY",
+      "trust": "REVIEW_PENDING_DIAGNOSTIC"
+    }
+  ],
+  "source_template": {
+    "formal_roles": [
+      1,
+      8,
+      16,
+      18,
+      23,
+      27,
+      37,
+      44
+    ],
+    "name": "scalable_k8_four_circuit",
+    "proper_quotients": [
+      {
+        "disposition": "rejected_as_four_distinct_fragile_row_lift",
+        "four_center_injective": false,
+        "identified_roles": [
+          18,
+          23
+        ],
+        "reason": "two retained strict-row centers are identified"
+      },
+      {
+        "core_cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "core_role_blocks": [
+          [
+            1
+          ],
+          [
+            8
+          ],
+          [
+            16
+          ],
+          [
+            18
+          ],
+          [
+            23,
+            27
+          ],
+          [
+            37
+          ],
+          [
+            44
+          ]
+        ],
+        "disposition": "bounded_halo_lift_scan",
+        "four_center_injective": true,
+        "fragile_centers": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "identified_roles": [
+          23,
+          27
+        ],
+        "required_witness_pairs": {
+          "1": [
+            0,
+            4
+          ],
+          "3": [
+            4,
+            5
+          ],
+          "4": [
+            0,
+            2
+          ],
+          "6": [
+            2,
+            5
+          ]
+        }
+      }
+    ],
+    "retained_strict_row_centers": [
+      8,
+      18,
+      23,
+      44
+    ]
+  },
+  "status": "EXACT_BOUNDED_HALO_LIFT_DIAGNOSTIC",
+  "summary": {
+    "all_n9_witnesses_have_exact_positive_circuit": true,
+    "center_collision_quotient_count": 1,
+    "minimum_added_halos_for_fragile_cover": 1,
+    "minimum_added_halos_for_full_selected_extension": 2,
+    "n9_frontier_assignment_ids": [
+      "A138",
+      "A008",
+      "A079",
+      "A121",
+      "A179",
+      "A069"
+    ],
+    "one_halo_essential_cover_count": 38,
+    "scanned_seven_role_quotient_count": 1,
+    "two_halo_canonical_full_system_count": 5,
+    "two_halo_essential_cover_count": 7708,
+    "two_halo_extendable_partial_cover_count": 6
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "two_halos": {
+    "all_fragile_hypergraph_checks_ok": true,
+    "all_good_deletion_checks_ok": true,
+    "all_positive_circuit_identities_zero": true,
+    "assignment_ids": [
+      "A138",
+      "A008",
+      "A079",
+      "A121",
+      "A179",
+      "A069"
+    ],
+    "canonical_full_system_count": 5,
+    "essential_cover_count": 7708,
+    "extendable_partial_cover_count": 6,
+    "extension_nodes_visited": 2414,
+    "extension_witnesses": [
+      {
+        "cover_index": 48,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "fragile_hypergraph_check": {
+          "cover_missing": [],
+          "cover_ok": true,
+          "crossing_ok": true,
+          "crossing_violations": [],
+          "essential_cover_ok": true,
+          "essential_matching": {
+            "1": 0,
+            "3": 1,
+            "4": 3,
+            "6": 2
+          },
+          "essential_matching_unmatched_centers": [],
+          "fragile_centers": [
+            1,
+            3,
+            4,
+            6
+          ],
+          "n": 9,
+          "ok": true,
+          "pairwise_intersection_ok": true,
+          "pairwise_intersection_violations": [],
+          "self_exclusion_ok": true,
+          "self_exclusion_violations": [],
+          "type": "fragile_hypergraph_check",
+          "uniformity_ok": true,
+          "uniformity_violations": [],
+          "witness_map_ok": null,
+          "witness_map_violations": []
+        },
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            6
+          ],
+          [
+            6,
+            2,
+            5,
+            7,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          0,
+          6
+        ],
+        "good_deletion": {
+          "all_seeds_have_good_survivor": true,
+          "eligible_center_count_histogram": {
+            "1": 9,
+            "2": 36,
+            "3": 84,
+            "4": 146,
+            "5": 168,
+            "6": 66,
+            "7": 1
+          },
+          "nonempty_proper_seed_count": 510,
+          "violating_seeds": []
+        },
+        "maximum_witness_pair_multiplicity": 2,
+        "n9_frontier_assignment": {
+          "assignment_id": "A138",
+          "core_selected_rows": [
+            [
+              0,
+              1,
+              5,
+              7,
+              8
+            ],
+            [
+              1,
+              0,
+              4,
+              6,
+              8
+            ],
+            [
+              8,
+              0,
+              2,
+              6,
+              7
+            ]
+          ],
+          "family_id": "F04",
+          "status": "self_edge",
+          "template_id": "T02",
+          "to_canonical_label_map": [
+            1,
+            0,
+            8,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2
+          ]
+        },
+        "natural_order_selected_rows": [
+          [
+            0,
+            1,
+            5,
+            7,
+            8
+          ],
+          [
+            1,
+            0,
+            4,
+            6,
+            8
+          ],
+          [
+            2,
+            0,
+            1,
+            3,
+            5
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            7
+          ],
+          [
+            4,
+            2,
+            3,
+            5,
+            6
+          ],
+          [
+            5,
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            6,
+            2,
+            4,
+            5,
+            8
+          ],
+          [
+            7,
+            1,
+            3,
+            6,
+            8
+          ],
+          [
+            8,
+            0,
+            2,
+            6,
+            7
+          ]
+        ],
+        "positive_circuit": {
+          "contradiction_type": "strict_self_edge",
+          "equality_terms": [
+            {
+              "coefficient": -1,
+              "left_pair": [
+                1,
+                8
+              ],
+              "right_pair": [
+                0,
+                1
+              ],
+              "supporting_rows": [
+                1
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                0,
+                1
+              ],
+              "right_pair": [
+                0,
+                8
+              ],
+              "supporting_rows": [
+                0
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                0,
+                8
+              ],
+              "right_pair": [
+                7,
+                8
+              ],
+              "supporting_rows": [
+                8
+              ]
+            }
+          ],
+          "identity_balance": [],
+          "identity_verified_zero": true,
+          "skeleton_id": "VC-T02-F04-strict-self-edge",
+          "strict_terms": [
+            {
+              "coefficient": 1,
+              "inner_pair": [
+                7,
+                8
+              ],
+              "outer_pair": [
+                1,
+                8
+              ],
+              "row": 0,
+              "witness_order": [
+                8,
+                7,
+                5,
+                1
+              ]
+            }
+          ]
+        },
+        "row_intersection_size_histogram": {
+          "1": 18,
+          "2": 18
+        },
+        "selected_indegrees": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "4": 4,
+          "5": 4,
+          "6": 4,
+          "7": 4,
+          "8": 4
+        },
+        "selected_rows": [
+          [
+            0,
+            4,
+            6,
+            7,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            2,
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            6
+          ],
+          [
+            5,
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            6,
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            7,
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            8,
+            0,
+            1,
+            5,
+            6
+          ]
+        ],
+        "witness_pair_multiplicity_histogram": {
+          "1": 18,
+          "2": 18
+        }
+      },
+      {
+        "cover_index": 68,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          4,
+          5,
+          8,
+          6
+        ],
+        "fragile_hypergraph_check": {
+          "cover_missing": [],
+          "cover_ok": true,
+          "crossing_ok": true,
+          "crossing_violations": [],
+          "essential_cover_ok": true,
+          "essential_matching": {
+            "1": 2,
+            "3": 4,
+            "4": 0,
+            "6": 1
+          },
+          "essential_matching_unmatched_centers": [],
+          "fragile_centers": [
+            1,
+            3,
+            4,
+            6
+          ],
+          "n": 9,
+          "ok": true,
+          "pairwise_intersection_ok": true,
+          "pairwise_intersection_violations": [],
+          "self_exclusion_ok": true,
+          "self_exclusion_violations": [],
+          "type": "fragile_hypergraph_check",
+          "uniformity_ok": true,
+          "uniformity_violations": [],
+          "witness_map_ok": null,
+          "witness_map_violations": []
+        },
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            8
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          1,
+          5
+        ],
+        "good_deletion": {
+          "all_seeds_have_good_survivor": true,
+          "eligible_center_count_histogram": {
+            "1": 9,
+            "2": 36,
+            "3": 84,
+            "4": 150,
+            "5": 159,
+            "6": 72
+          },
+          "nonempty_proper_seed_count": 510,
+          "violating_seeds": []
+        },
+        "maximum_witness_pair_multiplicity": 2,
+        "n9_frontier_assignment": {
+          "assignment_id": "A008",
+          "core_selected_rows": [
+            [
+              0,
+              1,
+              2,
+              4,
+              8
+            ],
+            [
+              1,
+              0,
+              2,
+              3,
+              5
+            ],
+            [
+              5,
+              0,
+              3,
+              4,
+              7
+            ],
+            [
+              6,
+              1,
+              5,
+              7,
+              8
+            ]
+          ],
+          "family_id": "F07",
+          "status": "strict_cycle",
+          "template_id": "T11",
+          "to_canonical_label_map": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "natural_order_selected_rows": [
+          [
+            0,
+            1,
+            2,
+            4,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            2,
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            7
+          ],
+          [
+            4,
+            3,
+            5,
+            6,
+            8
+          ],
+          [
+            5,
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            6,
+            1,
+            5,
+            7,
+            8
+          ],
+          [
+            7,
+            0,
+            2,
+            6,
+            8
+          ],
+          [
+            8,
+            1,
+            3,
+            6,
+            7
+          ]
+        ],
+        "positive_circuit": {
+          "contradiction_type": "strict_directed_cycle",
+          "equality_terms": [
+            {
+              "coefficient": 1,
+              "left_pair": [
+                0,
+                5
+              ],
+              "right_pair": [
+                5,
+                7
+              ],
+              "supporting_rows": [
+                5
+              ]
+            },
+            {
+              "coefficient": 1,
+              "left_pair": [
+                1,
+                5
+              ],
+              "right_pair": [
+                0,
+                1
+              ],
+              "supporting_rows": [
+                1
+              ]
+            },
+            {
+              "coefficient": 1,
+              "left_pair": [
+                0,
+                1
+              ],
+              "right_pair": [
+                0,
+                2
+              ],
+              "supporting_rows": [
+                0
+              ]
+            }
+          ],
+          "identity_balance": [],
+          "identity_verified_zero": true,
+          "skeleton_id": "VC-T11-F07-strict-directed-cycle",
+          "strict_terms": [
+            {
+              "coefficient": 1,
+              "inner_pair": [
+                0,
+                3
+              ],
+              "outer_pair": [
+                0,
+                2
+              ],
+              "row": 1,
+              "witness_order": [
+                2,
+                3,
+                5,
+                0
+              ]
+            },
+            {
+              "coefficient": 1,
+              "inner_pair": [
+                0,
+                5
+              ],
+              "outer_pair": [
+                0,
+                3
+              ],
+              "row": 1,
+              "witness_order": [
+                2,
+                3,
+                5,
+                0
+              ]
+            },
+            {
+              "coefficient": 1,
+              "inner_pair": [
+                1,
+                5
+              ],
+              "outer_pair": [
+                5,
+                7
+              ],
+              "row": 6,
+              "witness_order": [
+                7,
+                8,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        "row_intersection_size_histogram": {
+          "1": 18,
+          "2": 18
+        },
+        "selected_indegrees": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "4": 4,
+          "5": 4,
+          "6": 4,
+          "7": 4,
+          "8": 4
+        },
+        "selected_rows": [
+          [
+            0,
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            2,
+            3,
+            4,
+            7,
+            8
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            8
+          ],
+          [
+            5,
+            1,
+            4,
+            6,
+            8
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            8
+          ],
+          [
+            7,
+            0,
+            1,
+            3,
+            5
+          ],
+          [
+            8,
+            0,
+            5,
+            6,
+            7
+          ]
+        ],
+        "witness_pair_multiplicity_histogram": {
+          "1": 18,
+          "2": 18
+        }
+      },
+      {
+        "cover_index": 38,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "fragile_hypergraph_check": {
+          "cover_missing": [],
+          "cover_ok": true,
+          "crossing_ok": true,
+          "crossing_violations": [],
+          "essential_cover_ok": true,
+          "essential_matching": {
+            "1": 0,
+            "3": 1,
+            "4": 5,
+            "6": 2
+          },
+          "essential_matching_unmatched_centers": [],
+          "fragile_centers": [
+            1,
+            3,
+            4,
+            6
+          ],
+          "n": 9,
+          "ok": true,
+          "pairwise_intersection_ok": true,
+          "pairwise_intersection_violations": [],
+          "self_exclusion_ok": true,
+          "self_exclusion_violations": [],
+          "type": "fragile_hypergraph_check",
+          "uniformity_ok": true,
+          "uniformity_violations": [],
+          "witness_map_ok": null,
+          "witness_map_violations": []
+        },
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            5,
+            7
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          2,
+          6
+        ],
+        "good_deletion": {
+          "all_seeds_have_good_survivor": true,
+          "eligible_center_count_histogram": {
+            "1": 9,
+            "2": 36,
+            "3": 84,
+            "4": 146,
+            "5": 167,
+            "6": 68
+          },
+          "nonempty_proper_seed_count": 510,
+          "violating_seeds": []
+        },
+        "maximum_witness_pair_multiplicity": 2,
+        "n9_frontier_assignment": {
+          "assignment_id": "A079",
+          "core_selected_rows": [
+            [
+              1,
+              0,
+              2,
+              5,
+              7
+            ],
+            [
+              5,
+              0,
+              2,
+              3,
+              6
+            ],
+            [
+              6,
+              3,
+              5,
+              7,
+              8
+            ],
+            [
+              7,
+              2,
+              4,
+              6,
+              8
+            ]
+          ],
+          "family_id": "F05",
+          "status": "self_edge",
+          "template_id": "T03",
+          "to_canonical_label_map": [
+            5,
+            6,
+            7,
+            8,
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "natural_order_selected_rows": [
+          [
+            0,
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            1,
+            0,
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            0,
+            3,
+            4,
+            8
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            7
+          ],
+          [
+            4,
+            1,
+            5,
+            6,
+            8
+          ],
+          [
+            5,
+            0,
+            2,
+            3,
+            6
+          ],
+          [
+            6,
+            3,
+            5,
+            7,
+            8
+          ],
+          [
+            7,
+            2,
+            4,
+            6,
+            8
+          ],
+          [
+            8,
+            0,
+            1,
+            4,
+            5
+          ]
+        ],
+        "positive_circuit": {
+          "contradiction_type": "strict_self_edge",
+          "equality_terms": [
+            {
+              "coefficient": -1,
+              "left_pair": [
+                2,
+                7
+              ],
+              "right_pair": [
+                6,
+                7
+              ],
+              "supporting_rows": [
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                6,
+                7
+              ],
+              "right_pair": [
+                5,
+                6
+              ],
+              "supporting_rows": [
+                6
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                5,
+                6
+              ],
+              "right_pair": [
+                2,
+                5
+              ],
+              "supporting_rows": [
+                5
+              ]
+            }
+          ],
+          "identity_balance": [],
+          "identity_verified_zero": true,
+          "skeleton_id": "VC-T03-F05-strict-self-edge",
+          "strict_terms": [
+            {
+              "coefficient": 1,
+              "inner_pair": [
+                2,
+                5
+              ],
+              "outer_pair": [
+                2,
+                7
+              ],
+              "row": 1,
+              "witness_order": [
+                2,
+                5,
+                7,
+                0
+              ]
+            }
+          ]
+        },
+        "row_intersection_size_histogram": {
+          "1": 18,
+          "2": 18
+        },
+        "selected_indegrees": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "4": 4,
+          "5": 4,
+          "6": 4,
+          "7": 4,
+          "8": 4
+        },
+        "selected_rows": [
+          [
+            0,
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            2,
+            0,
+            3,
+            7,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            5,
+            7
+          ],
+          [
+            5,
+            4,
+            6,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ],
+          [
+            7,
+            1,
+            2,
+            3,
+            6
+          ],
+          [
+            8,
+            0,
+            1,
+            3,
+            4
+          ]
+        ],
+        "witness_pair_multiplicity_histogram": {
+          "1": 18,
+          "2": 18
+        }
+      },
+      {
+        "cover_index": 22,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          8,
+          5,
+          6
+        ],
+        "fragile_hypergraph_check": {
+          "cover_missing": [],
+          "cover_ok": true,
+          "crossing_ok": true,
+          "crossing_violations": [],
+          "essential_cover_ok": true,
+          "essential_matching": {
+            "1": 0,
+            "3": 1,
+            "4": 7,
+            "6": 2
+          },
+          "essential_matching_unmatched_centers": [],
+          "fragile_centers": [
+            1,
+            3,
+            4,
+            6
+          ],
+          "n": 9,
+          "ok": true,
+          "pairwise_intersection_ok": true,
+          "pairwise_intersection_violations": [],
+          "self_exclusion_ok": true,
+          "self_exclusion_violations": [],
+          "type": "fragile_hypergraph_check",
+          "uniformity_ok": true,
+          "uniformity_violations": [],
+          "witness_map_ok": null,
+          "witness_map_violations": []
+        },
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          3,
+          4
+        ],
+        "good_deletion": {
+          "all_seeds_have_good_survivor": true,
+          "eligible_center_count_histogram": {
+            "1": 9,
+            "2": 36,
+            "3": 84,
+            "4": 144,
+            "5": 172,
+            "6": 64,
+            "7": 1
+          },
+          "nonempty_proper_seed_count": 510,
+          "violating_seeds": []
+        },
+        "maximum_witness_pair_multiplicity": 2,
+        "n9_frontier_assignment": {
+          "assignment_id": "A121",
+          "core_selected_rows": [
+            [
+              6,
+              0,
+              3,
+              5,
+              7
+            ],
+            [
+              7,
+              4,
+              5,
+              6,
+              8
+            ],
+            [
+              8,
+              2,
+              3,
+              6,
+              7
+            ]
+          ],
+          "family_id": "F01",
+          "status": "self_edge",
+          "template_id": "T02",
+          "to_canonical_label_map": [
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0,
+            8
+          ]
+        },
+        "natural_order_selected_rows": [
+          [
+            0,
+            1,
+            4,
+            7,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            5,
+            8
+          ],
+          [
+            2,
+            0,
+            1,
+            3,
+            4
+          ],
+          [
+            3,
+            1,
+            2,
+            5,
+            7
+          ],
+          [
+            4,
+            1,
+            3,
+            6,
+            8
+          ],
+          [
+            5,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            6,
+            0,
+            3,
+            5,
+            7
+          ],
+          [
+            7,
+            4,
+            5,
+            6,
+            8
+          ],
+          [
+            8,
+            2,
+            3,
+            6,
+            7
+          ]
+        ],
+        "positive_circuit": {
+          "contradiction_type": "strict_self_edge",
+          "equality_terms": [
+            {
+              "coefficient": -1,
+              "left_pair": [
+                6,
+                8
+              ],
+              "right_pair": [
+                7,
+                8
+              ],
+              "supporting_rows": [
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                7,
+                8
+              ],
+              "right_pair": [
+                6,
+                7
+              ],
+              "supporting_rows": [
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                6,
+                7
+              ],
+              "right_pair": [
+                5,
+                6
+              ],
+              "supporting_rows": [
+                6
+              ]
+            }
+          ],
+          "identity_balance": [],
+          "identity_verified_zero": true,
+          "skeleton_id": "VC-T02-F01-strict-self-edge",
+          "strict_terms": [
+            {
+              "coefficient": 1,
+              "inner_pair": [
+                5,
+                6
+              ],
+              "outer_pair": [
+                6,
+                8
+              ],
+              "row": 7,
+              "witness_order": [
+                6,
+                5,
+                4,
+                8
+              ]
+            }
+          ]
+        },
+        "row_intersection_size_histogram": {
+          "1": 18,
+          "2": 18
+        },
+        "selected_indegrees": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "4": 4,
+          "5": 4,
+          "6": 4,
+          "7": 4,
+          "8": 4
+        },
+        "selected_rows": [
+          [
+            0,
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            2,
+            0,
+            1,
+            3,
+            7
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            5,
+            4,
+            6,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ],
+          [
+            7,
+            1,
+            3,
+            6,
+            8
+          ],
+          [
+            8,
+            0,
+            3,
+            4,
+            5
+          ]
+        ],
+        "witness_pair_multiplicity_histogram": {
+          "1": 18,
+          "2": 18
+        }
+      },
+      {
+        "cover_index": 14,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          5,
+          8,
+          6
+        ],
+        "fragile_hypergraph_check": {
+          "cover_missing": [],
+          "cover_ok": true,
+          "crossing_ok": true,
+          "crossing_violations": [],
+          "essential_cover_ok": true,
+          "essential_matching": {
+            "1": 2,
+            "3": 4,
+            "4": 0,
+            "6": 1
+          },
+          "essential_matching_unmatched_centers": [],
+          "fragile_centers": [
+            1,
+            3,
+            4,
+            6
+          ],
+          "n": 9,
+          "ok": true,
+          "pairwise_intersection_ok": true,
+          "pairwise_intersection_violations": [],
+          "self_exclusion_ok": true,
+          "self_exclusion_violations": [],
+          "type": "fragile_hypergraph_check",
+          "uniformity_ok": true,
+          "uniformity_violations": [],
+          "witness_map_ok": null,
+          "witness_map_violations": []
+        },
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          3,
+          5
+        ],
+        "good_deletion": {
+          "all_seeds_have_good_survivor": true,
+          "eligible_center_count_histogram": {
+            "1": 9,
+            "2": 36,
+            "3": 84,
+            "4": 146,
+            "5": 167,
+            "6": 68
+          },
+          "nonempty_proper_seed_count": 510,
+          "violating_seeds": []
+        },
+        "maximum_witness_pair_multiplicity": 2,
+        "n9_frontier_assignment": {
+          "assignment_id": "A179",
+          "core_selected_rows": [
+            [
+              0,
+              3,
+              4,
+              7,
+              8
+            ],
+            [
+              2,
+              0,
+              1,
+              4,
+              6
+            ],
+            [
+              6,
+              1,
+              4,
+              5,
+              8
+            ],
+            [
+              7,
+              0,
+              3,
+              6,
+              8
+            ],
+            [
+              8,
+              1,
+              2,
+              6,
+              7
+            ]
+          ],
+          "family_id": "F11",
+          "status": "self_edge",
+          "template_id": "T06",
+          "to_canonical_label_map": [
+            8,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "natural_order_selected_rows": [
+          [
+            0,
+            3,
+            4,
+            7,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            2,
+            0,
+            1,
+            4,
+            6
+          ],
+          [
+            3,
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            4,
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            5,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            6,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            7,
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            8,
+            1,
+            2,
+            6,
+            7
+          ]
+        ],
+        "positive_circuit": {
+          "contradiction_type": "strict_self_edge",
+          "equality_terms": [
+            {
+              "coefficient": -1,
+              "left_pair": [
+                0,
+                4
+              ],
+              "right_pair": [
+                0,
+                7
+              ],
+              "supporting_rows": [
+                0
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                0,
+                7
+              ],
+              "right_pair": [
+                7,
+                8
+              ],
+              "supporting_rows": [
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                7,
+                8
+              ],
+              "right_pair": [
+                6,
+                8
+              ],
+              "supporting_rows": [
+                8
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                6,
+                8
+              ],
+              "right_pair": [
+                4,
+                6
+              ],
+              "supporting_rows": [
+                6
+              ]
+            }
+          ],
+          "identity_balance": [],
+          "identity_verified_zero": true,
+          "skeleton_id": "VC-T06-F11-strict-self-edge",
+          "strict_terms": [
+            {
+              "coefficient": 1,
+              "inner_pair": [
+                4,
+                6
+              ],
+              "outer_pair": [
+                0,
+                4
+              ],
+              "row": 2,
+              "witness_order": [
+                4,
+                6,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "row_intersection_size_histogram": {
+          "1": 18,
+          "2": 18
+        },
+        "selected_indegrees": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "4": 4,
+          "5": 4,
+          "6": 4,
+          "7": 4,
+          "8": 4
+        },
+        "selected_rows": [
+          [
+            0,
+            3,
+            6,
+            7,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            0,
+            1,
+            5,
+            7
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            5,
+            1,
+            4,
+            6,
+            7
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            8
+          ],
+          [
+            7,
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            8,
+            0,
+            3,
+            5,
+            6
+          ]
+        ],
+        "witness_pair_multiplicity_histogram": {
+          "1": 18,
+          "2": 18
+        }
+      },
+      {
+        "cover_index": 38,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6,
+          8
+        ],
+        "fragile_hypergraph_check": {
+          "cover_missing": [],
+          "cover_ok": true,
+          "crossing_ok": true,
+          "crossing_violations": [],
+          "essential_cover_ok": true,
+          "essential_matching": {
+            "1": 0,
+            "3": 1,
+            "4": 3,
+            "6": 2
+          },
+          "essential_matching_unmatched_centers": [],
+          "fragile_centers": [
+            1,
+            3,
+            4,
+            6
+          ],
+          "n": 9,
+          "ok": true,
+          "pairwise_intersection_ok": true,
+          "pairwise_intersection_violations": [],
+          "self_exclusion_ok": true,
+          "self_exclusion_violations": [],
+          "type": "fragile_hypergraph_check",
+          "uniformity_ok": true,
+          "uniformity_violations": [],
+          "witness_map_ok": null,
+          "witness_map_violations": []
+        },
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            6,
+            2,
+            5,
+            7,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          5,
+          6
+        ],
+        "good_deletion": {
+          "all_seeds_have_good_survivor": true,
+          "eligible_center_count_histogram": {
+            "1": 9,
+            "2": 36,
+            "3": 84,
+            "4": 146,
+            "5": 167,
+            "6": 68
+          },
+          "nonempty_proper_seed_count": 510,
+          "violating_seeds": []
+        },
+        "maximum_witness_pair_multiplicity": 2,
+        "n9_frontier_assignment": {
+          "assignment_id": "A069",
+          "core_selected_rows": [
+            [
+              3,
+              1,
+              4,
+              5,
+              8
+            ],
+            [
+              5,
+              1,
+              2,
+              6,
+              7
+            ],
+            [
+              6,
+              3,
+              4,
+              7,
+              8
+            ],
+            [
+              7,
+              2,
+              5,
+              6,
+              8
+            ],
+            [
+              8,
+              0,
+              1,
+              4,
+              6
+            ]
+          ],
+          "family_id": "F11",
+          "status": "self_edge",
+          "template_id": "T06",
+          "to_canonical_label_map": [
+            4,
+            3,
+            2,
+            1,
+            0,
+            8,
+            7,
+            6,
+            5
+          ]
+        },
+        "natural_order_selected_rows": [
+          [
+            0,
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            2,
+            0,
+            3,
+            6,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            5,
+            1,
+            2,
+            6,
+            7
+          ],
+          [
+            6,
+            3,
+            4,
+            7,
+            8
+          ],
+          [
+            7,
+            2,
+            5,
+            6,
+            8
+          ],
+          [
+            8,
+            0,
+            1,
+            4,
+            6
+          ]
+        ],
+        "positive_circuit": {
+          "contradiction_type": "strict_self_edge",
+          "equality_terms": [
+            {
+              "coefficient": -1,
+              "left_pair": [
+                1,
+                5
+              ],
+              "right_pair": [
+                5,
+                7
+              ],
+              "supporting_rows": [
+                5
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                5,
+                7
+              ],
+              "right_pair": [
+                6,
+                7
+              ],
+              "supporting_rows": [
+                7
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                6,
+                7
+              ],
+              "right_pair": [
+                6,
+                8
+              ],
+              "supporting_rows": [
+                6
+              ]
+            },
+            {
+              "coefficient": -1,
+              "left_pair": [
+                6,
+                8
+              ],
+              "right_pair": [
+                1,
+                8
+              ],
+              "supporting_rows": [
+                8
+              ]
+            }
+          ],
+          "identity_balance": [],
+          "identity_verified_zero": true,
+          "skeleton_id": "VC-T06-F11-strict-self-edge",
+          "strict_terms": [
+            {
+              "coefficient": 1,
+              "inner_pair": [
+                1,
+                8
+              ],
+              "outer_pair": [
+                1,
+                5
+              ],
+              "row": 3,
+              "witness_order": [
+                1,
+                8,
+                5,
+                4
+              ]
+            }
+          ]
+        },
+        "row_intersection_size_histogram": {
+          "1": 18,
+          "2": 18
+        },
+        "selected_indegrees": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "4": 4,
+          "5": 4,
+          "6": 4,
+          "7": 4,
+          "8": 4
+        },
+        "selected_rows": [
+          [
+            0,
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            2,
+            0,
+            3,
+            7,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            5,
+            1,
+            2,
+            6,
+            7
+          ],
+          [
+            6,
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            7,
+            3,
+            4,
+            6,
+            8
+          ],
+          [
+            8,
+            0,
+            1,
+            4,
+            7
+          ]
+        ],
+        "witness_pair_multiplicity_histogram": {
+          "1": 18,
+          "2": 18
+        }
+      }
+    ],
+    "family_id_counts": {
+      "F01": 1,
+      "F04": 1,
+      "F05": 1,
+      "F07": 1,
+      "F11": 2
+    },
+    "frontier_status_counts": {
+      "self_edge": 5,
+      "strict_cycle": 1
+    },
+    "halo_count": 2,
+    "placement_count": 28,
+    "placements": [
+      {
+        "cover_count": 252,
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 252,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 196,
+          "nodes_visited": 140,
+          "partial_cover_count": 252,
+          "unextendable_partial_cover_count": 252
+        },
+        "gaps_after_core_roles": [
+          0,
+          0
+        ],
+        "pair_and_crossing_compatible_count": 300,
+        "pair_capacity_compatible_count": 300,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 339,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          8,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 339,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 294,
+          "nodes_visited": 73,
+          "partial_cover_count": 339,
+          "unextendable_partial_cover_count": 339
+        },
+        "gaps_after_core_roles": [
+          0,
+          1
+        ],
+        "pair_and_crossing_compatible_count": 419,
+        "pair_capacity_compatible_count": 419,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 339,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          8,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 339,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 291,
+          "nodes_visited": 81,
+          "partial_cover_count": 339,
+          "unextendable_partial_cover_count": 339
+        },
+        "gaps_after_core_roles": [
+          0,
+          2
+        ],
+        "pair_and_crossing_compatible_count": 419,
+        "pair_capacity_compatible_count": 419,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 237,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          8,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 237,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 233,
+          "nodes_visited": 4,
+          "partial_cover_count": 237,
+          "unextendable_partial_cover_count": 237
+        },
+        "gaps_after_core_roles": [
+          0,
+          3
+        ],
+        "pair_and_crossing_compatible_count": 297,
+        "pair_capacity_compatible_count": 297,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 223,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          8,
+          5,
+          6
+        ],
+        "essential_cover_count": 223,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 180,
+          "nodes_visited": 96,
+          "partial_cover_count": 223,
+          "unextendable_partial_cover_count": 223
+        },
+        "gaps_after_core_roles": [
+          0,
+          4
+        ],
+        "pair_and_crossing_compatible_count": 258,
+        "pair_capacity_compatible_count": 258,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 223,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          6
+        ],
+        "essential_cover_count": 223,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 178,
+          "nodes_visited": 86,
+          "partial_cover_count": 223,
+          "unextendable_partial_cover_count": 223
+        },
+        "gaps_after_core_roles": [
+          0,
+          5
+        ],
+        "pair_and_crossing_compatible_count": 258,
+        "pair_capacity_compatible_count": 258,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 252,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "essential_cover_count": 252,
+        "full_extension": {
+          "extendable_partial_cover_count": 1,
+          "initially_dead_partial_cover_count": 192,
+          "nodes_visited": 155,
+          "partial_cover_count": 252,
+          "unextendable_partial_cover_count": 251
+        },
+        "gaps_after_core_roles": [
+          0,
+          6
+        ],
+        "pair_and_crossing_compatible_count": 300,
+        "pair_capacity_compatible_count": 300,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 426,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          8,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 426,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 364,
+          "nodes_visited": 94,
+          "partial_cover_count": 426,
+          "unextendable_partial_cover_count": 426
+        },
+        "gaps_after_core_roles": [
+          1,
+          1
+        ],
+        "pair_and_crossing_compatible_count": 536,
+        "pair_capacity_compatible_count": 536,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 426,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          8,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 426,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 367,
+          "nodes_visited": 90,
+          "partial_cover_count": 426,
+          "unextendable_partial_cover_count": 426
+        },
+        "gaps_after_core_roles": [
+          1,
+          2
+        ],
+        "pair_and_crossing_compatible_count": 536,
+        "pair_capacity_compatible_count": 536,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 308,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          8,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 308,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 303,
+          "nodes_visited": 5,
+          "partial_cover_count": 308,
+          "unextendable_partial_cover_count": 308
+        },
+        "gaps_after_core_roles": [
+          1,
+          3
+        ],
+        "pair_and_crossing_compatible_count": 384,
+        "pair_capacity_compatible_count": 384,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 305,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          4,
+          8,
+          5,
+          6
+        ],
+        "essential_cover_count": 305,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 263,
+          "nodes_visited": 78,
+          "partial_cover_count": 305,
+          "unextendable_partial_cover_count": 305
+        },
+        "gaps_after_core_roles": [
+          1,
+          4
+        ],
+        "pair_and_crossing_compatible_count": 375,
+        "pair_capacity_compatible_count": 375,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 305,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          4,
+          5,
+          8,
+          6
+        ],
+        "essential_cover_count": 305,
+        "full_extension": {
+          "extendable_partial_cover_count": 1,
+          "initially_dead_partial_cover_count": 257,
+          "nodes_visited": 82,
+          "partial_cover_count": 305,
+          "unextendable_partial_cover_count": 304
+        },
+        "gaps_after_core_roles": [
+          1,
+          5
+        ],
+        "pair_and_crossing_compatible_count": 375,
+        "pair_capacity_compatible_count": 375,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 339,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "essential_cover_count": 339,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 279,
+          "nodes_visited": 113,
+          "partial_cover_count": 339,
+          "unextendable_partial_cover_count": 339
+        },
+        "gaps_after_core_roles": [
+          1,
+          6
+        ],
+        "pair_and_crossing_compatible_count": 419,
+        "pair_capacity_compatible_count": 419,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 426,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          8,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 426,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 370,
+          "nodes_visited": 88,
+          "partial_cover_count": 426,
+          "unextendable_partial_cover_count": 426
+        },
+        "gaps_after_core_roles": [
+          2,
+          2
+        ],
+        "pair_and_crossing_compatible_count": 536,
+        "pair_capacity_compatible_count": 536,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 308,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          8,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 308,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 302,
+          "nodes_visited": 6,
+          "partial_cover_count": 308,
+          "unextendable_partial_cover_count": 308
+        },
+        "gaps_after_core_roles": [
+          2,
+          3
+        ],
+        "pair_and_crossing_compatible_count": 384,
+        "pair_capacity_compatible_count": 384,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 305,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          4,
+          8,
+          5,
+          6
+        ],
+        "essential_cover_count": 305,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 257,
+          "nodes_visited": 98,
+          "partial_cover_count": 305,
+          "unextendable_partial_cover_count": 305
+        },
+        "gaps_after_core_roles": [
+          2,
+          4
+        ],
+        "pair_and_crossing_compatible_count": 375,
+        "pair_capacity_compatible_count": 375,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 305,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          4,
+          5,
+          8,
+          6
+        ],
+        "essential_cover_count": 305,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 250,
+          "nodes_visited": 108,
+          "partial_cover_count": 305,
+          "unextendable_partial_cover_count": 305
+        },
+        "gaps_after_core_roles": [
+          2,
+          5
+        ],
+        "pair_and_crossing_compatible_count": 375,
+        "pair_capacity_compatible_count": 375,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 339,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "essential_cover_count": 339,
+        "full_extension": {
+          "extendable_partial_cover_count": 1,
+          "initially_dead_partial_cover_count": 281,
+          "nodes_visited": 119,
+          "partial_cover_count": 339,
+          "unextendable_partial_cover_count": 338
+        },
+        "gaps_after_core_roles": [
+          2,
+          6
+        ],
+        "pair_and_crossing_compatible_count": 419,
+        "pair_capacity_compatible_count": 419,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 200,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          8,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 200,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 195,
+          "nodes_visited": 6,
+          "partial_cover_count": 200,
+          "unextendable_partial_cover_count": 200
+        },
+        "gaps_after_core_roles": [
+          3,
+          3
+        ],
+        "pair_and_crossing_compatible_count": 240,
+        "pair_capacity_compatible_count": 240,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 194,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          8,
+          5,
+          6
+        ],
+        "essential_cover_count": 194,
+        "full_extension": {
+          "extendable_partial_cover_count": 1,
+          "initially_dead_partial_cover_count": 182,
+          "nodes_visited": 23,
+          "partial_cover_count": 194,
+          "unextendable_partial_cover_count": 193
+        },
+        "gaps_after_core_roles": [
+          3,
+          4
+        ],
+        "pair_and_crossing_compatible_count": 229,
+        "pair_capacity_compatible_count": 229,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 194,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          5,
+          8,
+          6
+        ],
+        "essential_cover_count": 194,
+        "full_extension": {
+          "extendable_partial_cover_count": 1,
+          "initially_dead_partial_cover_count": 184,
+          "nodes_visited": 18,
+          "partial_cover_count": 194,
+          "unextendable_partial_cover_count": 193
+        },
+        "gaps_after_core_roles": [
+          3,
+          5
+        ],
+        "pair_and_crossing_compatible_count": 229,
+        "pair_capacity_compatible_count": 229,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 237,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          5,
+          6,
+          8
+        ],
+        "essential_cover_count": 237,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 230,
+          "nodes_visited": 8,
+          "partial_cover_count": 237,
+          "unextendable_partial_cover_count": 237
+        },
+        "gaps_after_core_roles": [
+          3,
+          6
+        ],
+        "pair_and_crossing_compatible_count": 297,
+        "pair_capacity_compatible_count": 297,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 176,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          8,
+          5,
+          6
+        ],
+        "essential_cover_count": 176,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 137,
+          "nodes_visited": 102,
+          "partial_cover_count": 176,
+          "unextendable_partial_cover_count": 176
+        },
+        "gaps_after_core_roles": [
+          4,
+          4
+        ],
+        "pair_and_crossing_compatible_count": 196,
+        "pair_capacity_compatible_count": 196,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 176,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          5,
+          8,
+          6
+        ],
+        "essential_cover_count": 176,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 138,
+          "nodes_visited": 97,
+          "partial_cover_count": 176,
+          "unextendable_partial_cover_count": 176
+        },
+        "gaps_after_core_roles": [
+          4,
+          5
+        ],
+        "pair_and_crossing_compatible_count": 196,
+        "pair_capacity_compatible_count": 196,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 223,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          5,
+          6,
+          8
+        ],
+        "essential_cover_count": 223,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 168,
+          "nodes_visited": 185,
+          "partial_cover_count": 223,
+          "unextendable_partial_cover_count": 223
+        },
+        "gaps_after_core_roles": [
+          4,
+          6
+        ],
+        "pair_and_crossing_compatible_count": 258,
+        "pair_capacity_compatible_count": 258,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 176,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          6
+        ],
+        "essential_cover_count": 176,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 136,
+          "nodes_visited": 89,
+          "partial_cover_count": 176,
+          "unextendable_partial_cover_count": 176
+        },
+        "gaps_after_core_roles": [
+          5,
+          5
+        ],
+        "pair_and_crossing_compatible_count": 196,
+        "pair_capacity_compatible_count": 196,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 223,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6,
+          8
+        ],
+        "essential_cover_count": 223,
+        "full_extension": {
+          "extendable_partial_cover_count": 1,
+          "initially_dead_partial_cover_count": 168,
+          "nodes_visited": 151,
+          "partial_cover_count": 223,
+          "unextendable_partial_cover_count": 222
+        },
+        "gaps_after_core_roles": [
+          5,
+          6
+        ],
+        "pair_and_crossing_compatible_count": 258,
+        "pair_capacity_compatible_count": 258,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      },
+      {
+        "cover_count": 252,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "essential_cover_count": 252,
+        "full_extension": {
+          "extendable_partial_cover_count": 0,
+          "initially_dead_partial_cover_count": 191,
+          "nodes_visited": 219,
+          "partial_cover_count": 252,
+          "unextendable_partial_cover_count": 252
+        },
+        "gaps_after_core_roles": [
+          6,
+          6
+        ],
+        "pair_and_crossing_compatible_count": 300,
+        "pair_capacity_compatible_count": 300,
+        "raw_row_combination_count": 50625,
+        "row_option_count_by_center": {
+          "1": 15,
+          "3": 15,
+          "4": 15,
+          "6": 15
+        }
+      }
+    ],
+    "placements_with_extension_count": 6,
+    "raw_row_combination_count": 1417500,
+    "template_id_counts": {
+      "T02": 2,
+      "T03": 1,
+      "T06": 2,
+      "T11": 1
+    },
+    "unextendable_partial_cover_count": 7702
+  },
+  "zero_halos": {
+    "cover_count": 0,
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "essential_cover_count": 0,
+    "full_extension": {
+      "extendable_partial_cover_count": 0,
+      "partial_cover_count": 0
+    },
+    "halo_count": 0,
+    "pair_and_crossing_compatible_count": 0,
+    "pair_capacity_compatible_count": 0,
+    "placement_count": 1,
+    "raw_row_combination_count": 1296,
+    "row_option_count_by_center": {
+      "1": 6,
+      "3": 6,
+      "4": 6,
+      "6": 6
+    }
+  }
+}

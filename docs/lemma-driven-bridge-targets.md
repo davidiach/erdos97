@@ -294,9 +294,11 @@ Useful evidence:
 
 - `docs/fragile-turn-pivot-bridge-audit.md`
 - `docs/fragile-cycle-quotient-hierarchy.md`
+- `docs/fragile-cycle-halo-lift-frontier.md`
 - `data/certificates/n9_fragile_turn_pivot_crosswalk.json`
 - `data/certificates/fragile_turn_pivot_guardrail.json`
 - `data/certificates/fragile_cycle_quotient_hierarchy.json`
+- `data/certificates/fragile_cycle_halo_lift_frontier.json`
 - `docs/turn-packing-bridge.md`
 - `docs/n9-kalmanson-three-row-core-compression.md`
 
@@ -319,6 +321,14 @@ four-inequality target to two proper seven-role templates, merging roles
 `18=23` or `23=27`. A successful Contract F lemma must force one of these
 or another checked certificate from genuine geometry; quotient closure by
 itself is not a forcing argument.
+
+The bounded halo-lift frontier further removes the `18=23` quotient as a lift
+of four distinct retained centers. For `23=27`, one added halo supports 38
+essential covers but no full selected-row extension; two added halos support
+six extendable covers, all already rejected by exact stored `n=9` positive
+circuits. This is finite proof-mining evidence only. Contract F still needs a
+geometric argument controlling arbitrary genuine halos and rejecting the
+`Z/16` and scalable controls for the right metric reason.
 
 ## Low-leverage moves to avoid
 
@@ -364,4 +374,5 @@ python scripts/check_block6_reversed_block_clean_kalmanson.py --check --assert-e
 python scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expected --summary-json
 python scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expected --summary-json
+python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json
 ```

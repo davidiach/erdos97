@@ -188,6 +188,15 @@ narrows the proof-mining target, but it is not the missing bridge: a geometric
 lemma must still force one of those templates or a separately stated
 rich-class/deletion alternative.
 
+The next bounded follow-up in `docs/fragile-cycle-halo-lift-frontier.md`
+checks whether those two seven-role targets can actually be completed under
+the abstract fragile-cover rules. Center injectivity removes `18=23`. The
+`23=27` core needs one restored halo role for a four-row cover and two for a
+full selected-row extension. Exactly six two-halo covers extend; all six are
+stored `n=9` frontier assignments with exact positive-circuit certificates.
+This closes only the zero-, one-, and two-halo abstract slice, not the general
+fragile-cycle bridge.
+
 The existing `n=16` certificate suggests a concrete first template: search
 for two cyclic quadruples whose strict Kalmanson coefficient rows cancel
 after quotienting by three matched fragile rows. The negative control provides
@@ -203,6 +212,9 @@ python scripts/check_fragile_turn_pivot_guardrail.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_cycle_quotient_hierarchy.py \
+  --check --assert-expected --summary-json
+
+python scripts/check_fragile_cycle_halo_lift_frontier.py \
   --check --assert-expected --summary-json
 ```
 

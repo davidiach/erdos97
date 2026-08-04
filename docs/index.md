@@ -300,6 +300,10 @@ put detailed reconciliation in the canonical synthesis.
   fragile-cycle certificate templates, including two proper seven-role
   quotients of the scalable template; proof-mining evidence only, not a
   bridge theorem.
+- [`fragile-cycle-halo-lift-frontier.md`](fragile-cycle-halo-lift-frontier.md):
+  exact zero-, one-, and two-halo completion frontier for the center-injective
+  seven-role quotient, including six full `n=9` extension witnesses and their
+  stored positive circuits; bounded abstract evidence only.
 - [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
   `T4`/`T5`/`T44` classification for centers made good by deleting two
   vertices, with pair capacities and the exclusive-mutual-pair corollary.

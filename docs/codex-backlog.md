@@ -46,6 +46,17 @@ PR should try to force one of those forms, the role-rigid hinge or inverse
 template, or an explicit geometric alternative; the quotient classification
 alone is not a bridge proof.
 
+The bounded halo-lift frontier
+`python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json`
+now resolves the first abstract completion boundary of those seven-role forms.
+The `18=23` form collides two retained centers. The `23=27` form needs one
+added halo for a four-row fragile cover and two for a full selected-row
+extension; its six two-halo extension witnesses all join to stored exact `n=9`
+positive circuits. The next bridge PR should prove a genuine geometric reason
+that controls this core-plus-halo structure, or explain why a larger halo
+system forces a different certificate. Re-enumerating the same bounded
+incidence slice is not the missing Contract F lemma.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an
