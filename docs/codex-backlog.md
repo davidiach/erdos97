@@ -75,6 +75,17 @@ should use genuine minimal-counterexample geometry to force entry into this
 packet or force a named rich-class/deletion alternative; another fixed-halo
 enumeration is lower leverage.
 
+The natural-order metric follow-up
+`python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json`
+now shows that all 13 deep states already contain an exact Kalmanson
+obstruction on exactly three selected rows. Eleven use one strict self-edge;
+states `S08` and `S11` use unit-weight two-inequality inverse pairs. This
+supplies a compact ordinary-distance endgame once the fixed catalog is
+reached. The remaining high-leverage target is the geometric entry lemma:
+force the `23=27` core plus one of these three-row cores, or force a separately
+checked rich-class/deletion alternative. Extending the halo count is not that
+entry argument.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an

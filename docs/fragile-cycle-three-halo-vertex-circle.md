@@ -110,6 +110,13 @@ centers and two forced ninth rows covered by six minimum three-row quotient
 cores. That packet is still bounded proof-mining evidence, not a geometric
 forcing lemma.
 
+The metric follow-up in
+`docs/fragile-cycle-three-halo-kalmanson-endgame.md` rejects all 13 deep
+states directly in their stored cyclic orders using exactly three selected
+rows: 11 by a strict Kalmanson self-edge and two by an exact two-row inverse
+pair. This supplies genuine ordinary-distance input after catalog entry, but
+does not supply the missing entry lemma.
+
 ## Replay
 
 ```bash
@@ -117,6 +124,9 @@ python scripts/check_fragile_cycle_three_halo_vertex_circle.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_cycle_three_halo_deep_frontier.py \
+  --check --assert-expected --summary-json
+
+python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_cycle_halo_lift_frontier.py \

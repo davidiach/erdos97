@@ -312,6 +312,10 @@ put detailed reconciliation in the canonical synthesis.
   compact replay of the 13 clean eight-row frontier states, reducing the final
   layers to 11 crossing-dead centers and six minimum three-row quotient cores;
   fixed-search local certificate only.
+- [`fragile-cycle-three-halo-kalmanson-endgame.md`](fragile-cycle-three-halo-kalmanson-endgame.md):
+  exact natural-order metric compression of all 13 deep states to
+  three-selected-row cores, using 11 strict Kalmanson self-edges and two
+  two-inequality inverse pairs; fixed-catalog, fixed-order certificate only.
 - [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
   `T4`/`T5`/`T44` classification for centers made good by deleting two
   vertices, with pair capacities and the exclusive-mutual-pair corollary.

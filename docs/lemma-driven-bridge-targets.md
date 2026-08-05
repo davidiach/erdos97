@@ -297,12 +297,14 @@ Useful evidence:
 - `docs/fragile-cycle-halo-lift-frontier.md`
 - `docs/fragile-cycle-three-halo-vertex-circle.md`
 - `docs/fragile-cycle-three-halo-deep-frontier.md`
+- `docs/fragile-cycle-three-halo-kalmanson-endgame.md`
 - `data/certificates/n9_fragile_turn_pivot_crosswalk.json`
 - `data/certificates/fragile_turn_pivot_guardrail.json`
 - `data/certificates/fragile_cycle_quotient_hierarchy.json`
 - `data/certificates/fragile_cycle_halo_lift_frontier.json`
 - `data/certificates/fragile_cycle_three_halo_vertex_circle.json`
 - `data/certificates/fragile_cycle_three_halo_deep_frontier.json`
+- `data/certificates/fragile_cycle_three_halo_kalmanson_endgame.json`
 - `docs/turn-packing-bridge.md`
 - `docs/n9-kalmanson-three-row-core-compression.md`
 
@@ -346,6 +348,14 @@ whose full 126-row option set fails intersection/crossing, while the other two
 force one ninth row and expose six minimum width-three quotient obstructions.
 This is a reusable bounded regression lemma, but its finite state catalog is
 not the missing geometric entry argument.
+
+The Kalmanson endgame injects the ordinary-distance convex information absent
+from the vertex-circle quotient. Every one of the 13 deep states contains an
+exact obstruction on exactly three selected rows: 11 strict self-edges and
+two unit-weight inverse pairs. This closes the metric endgame conditional on
+entry into the fixed catalog. Contract F still needs to force the `23=27`
+core and one of those three-row cores, or a separately checked alternative,
+from a genuine fragile cycle and active-halo geometry.
 
 ## Low-leverage moves to avoid
 
@@ -394,4 +404,5 @@ python scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expect
 python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json
+python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json
 ```

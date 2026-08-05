@@ -1714,6 +1714,56 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_cycle_three_halo_kalmanson_endgame
+    path: data/certificates/fragile_cycle_three_halo_kalmanson_endgame.json
+    sha256: ae05a8653423b8356ce89bf742ee8f44214e765649b31fb9cdec64964985d916
+    size_bytes: 38723
+    kind: exact_bounded_three_halo_kalmanson_endgame_artifact
+    generator: scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py
+    command: python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --write --assert-expected --summary-json
+    checker: scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py
+    check_command: python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact natural-order Kalmanson certificates for the 13 fixed eight-row
+      states in the fragile-cycle three-halo deep-frontier packet. Every
+      selected certificate uses exactly three selected rows; 11 use one
+      strict self-edge and two use exact inverse pairs. Not an all-order
+      result, Euclidean realizability, a fragile-cycle forcing lemma, n=10, a
+      general proof, a counterexample, or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_three_halo_kalmanson_endgame.v1
+      status: EXACT_BOUNDED_FIXED_ORDER_KALMANSON_ENDGAME
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      source_artifact.deep_frontier_catalog_sha256: 73e1cabd1670fddd3452bba72c80880f3eeebbc574a4873de3905a1c33781765
+      state_certificate_count: 13
+      strict_support_histogram.1: 11
+      strict_support_histogram.2: 2
+      selected_core_width_histogram.3: 13
+      strict_kind_counts.K1_diag_gt_sides: 4
+      strict_kind_counts.K2_diag_gt_other: 11
+      summary.deep_states_checked: 13
+      summary.states_killed_by_one_strict_self_edge: 11
+      summary.states_killed_by_two_strict_inverse_pair: 2
+      summary.minimum_selected_core_width: 3
+      summary.maximum_selected_core_width: 3
+      summary.all_states_exactly_obstructed: true
+      summary.all_selected_certificates_zero_sum: true
+      kalmanson_endgame_catalog_sha256: b624cc8772fc50bd2cd924608b35e8769b6aa717167814d84936348fb9501eb5
+      provenance.command: python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --write --assert-expected --summary-json
+    forbidden_claims:
+      - all cyclic orders are closed
+      - Euclidean realization
+      - a fragile-cycle forcing lemma is proved
+      - n=10 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30

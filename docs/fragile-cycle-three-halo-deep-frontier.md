@@ -92,10 +92,23 @@ from minimal-counterexample geometry. It does not cover four or more halo
 roles. The next genuine Contract F step remains a geometric reason that lands
 inside this core/halo packet or forces a separately checked alternative.
 
+## Natural-order metric follow-up
+
+The exact follow-up in
+`docs/fragile-cycle-three-halo-kalmanson-endgame.md` shows that every one of
+the thirteen states already contains a natural-order Kalmanson obstruction on
+exactly three selected rows. Eleven use one strict self-edge; two use exact
+two-inequality inverse pairs. That packet replaces the incidence/ninth-row
+terminal split by a uniform convex-metric endgame, while remaining conditional
+on this fixed source catalog.
+
 ## Replay
 
 ```bash
 python scripts/check_fragile_cycle_three_halo_deep_frontier.py \
+  --check --assert-expected --summary-json
+
+python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_cycle_three_halo_vertex_circle.py \

@@ -586,6 +586,17 @@
       "claim_scope": "Exact bounded compression of the fixed three-halo search's final layers into 13 clean eight-row states, 11 crossing-dead centers, and six minimum three-row quotient cores; not Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_three_halo_kalmanson_endgame",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact natural-order Kalmanson compression of the 13 fixed three-halo deep states into three-selected-row cores, with 11 strict self-edges and two inverse pairs; not an all-order result, Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "n9_vertex_circle_input_audit",
       "command": [
         "python",
@@ -3402,6 +3413,7 @@
       "fragile_cycle_halo_lift_frontier",
       "fragile_cycle_three_halo_vertex_circle",
       "fragile_cycle_three_halo_deep_frontier",
+      "fragile_cycle_three_halo_kalmanson_endgame",
       "adjacent_closest_pair_nonagon_barrier",
       "brp_boundary_vertexization_probe",
       "four_c3_generic_orbit_obstruction",

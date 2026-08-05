@@ -1,0 +1,1869 @@
+{
+  "certificate_contract": {
+    "allowed_strict_support": [
+      1,
+      2
+    ],
+    "coefficient_arithmetic": "exact integers",
+    "cyclic_order_rule": "Relabel each source halo placement by its stored natural cyclic order 0,1,...,9.",
+    "n": 10,
+    "selected_core_rule": "Minimize selected-row cardinality at the state's minimum strict support; exhaust and count all hits at that width.",
+    "strict_candidate_count": 420,
+    "strict_row_family": "Both strict Kalmanson inequalities for every four-label subsequence of the natural cyclic order."
+  },
+  "claim_scope": "Exact natural-order Kalmanson certificates for the thirteen fixed eight-row states in the fragile-cycle three-halo deep-frontier packet. Each certificate applies only to its encoded partial selected-row system and cyclic order. This does not force the quotient or halo placement from minimal-counterexample geometry, does not prove n=10 or Erdos Problem #97, and is not a counterexample.",
+  "conclusion": "Every stored clean eight-row three-halo frontier state contains a three-selected-row natural-order Kalmanson obstruction: eleven use one strict self-edge and two use an exact two-inequality inverse pair.",
+  "kalmanson_endgame_catalog_sha256": "b624cc8772fc50bd2cd924608b35e8769b6aa717167814d84936348fb9501eb5",
+  "limitations": [
+    "The packet starts from the thirteen stored fixed three-halo deep-frontier states; it does not force any state from geometry.",
+    "Every certificate uses the cyclic order attached to its source halo placement; no all-order statement is claimed.",
+    "The three-row core conclusion is a finite catalog compression, not a universal fragile-cycle lemma.",
+    "No proof of n=10, general proof, counterexample, or official/global status update is claimed."
+  ],
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py"
+  },
+  "schema": "erdos97.fragile_cycle_three_halo_kalmanson_endgame.v1",
+  "selected_core_width_histogram": {
+    "3": 13
+  },
+  "source_artifact": {
+    "deep_frontier_catalog_sha256": "73e1cabd1670fddd3452bba72c80880f3eeebbc574a4873de3905a1c33781765",
+    "path": "data/certificates/fragile_cycle_three_halo_deep_frontier.json",
+    "schema": "erdos97.fragile_cycle_three_halo_deep_frontier.v1"
+  },
+  "source_terminal_type_crosswalk": {
+    "forced_ninth_row_obstruction": 2,
+    "incidence_dead_end": 11
+  },
+  "state_certificate_count": 13,
+  "state_certificates": [
+    {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K1_diag_gt_sides": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 4,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 4,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          1,
+          2,
+          7,
+          9
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          7,
+          0,
+          2,
+          5,
+          9
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          4,
+          6,
+          7,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          6,
+          8
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "forced_ninth_row_obstruction",
+      "state_id": "S01",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              2
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            2,
+            4,
+            7
+          ],
+          "quad_original_labels": [
+            0,
+            8,
+            1,
+            4
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 4,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 3,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          2,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S02",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              9
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              8
+            ],
+            [
+              7,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            7,
+            8,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 5,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 4,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S03",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              9
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              8
+            ],
+            [
+              7,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            7,
+            8,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 3,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 3,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S04",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              9
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              8
+            ],
+            [
+              7,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            7,
+            8,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 3,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 3,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S05",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              9
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              8
+            ],
+            [
+              7,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            7,
+            8,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            4,
+            5,
+            6
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 6,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 5,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          1,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          7,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          9,
+          0,
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S06",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "quad_original_labels": [
+            0,
+            7,
+            9,
+            1
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 6,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 5,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          2,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          8,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          9,
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S07",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "quad_original_labels": [
+            0,
+            8,
+            9,
+            1
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        8,
+        2,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        1,
+        5
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K1_diag_gt_sides": 1,
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 2,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 56,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 36,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_inverse_pair",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          2,
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          5,
+          2,
+          4,
+          6,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          1,
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          1,
+          2,
+          4,
+          5
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S08",
+      "strict_row_count": 2,
+      "strict_rows": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              2
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              3
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            2,
+            3,
+            6
+          ],
+          "quad_original_labels": [
+            0,
+            1,
+            8,
+            4
+          ],
+          "reduced_nonzero_coefficients": {
+            "2": 1,
+            "21": -1
+          },
+          "source": "kalmanson",
+          "weight": 1
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              3,
+              7
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              3,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "quad_natural_order": [
+            3,
+            5,
+            6,
+            7
+          ],
+          "quad_original_labels": [
+            8,
+            3,
+            4,
+            5
+          ],
+          "reduced_nonzero_coefficients": {
+            "2": -1,
+            "21": 1
+          },
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        8,
+        4,
+        5,
+        9,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        3,
+        5
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 3,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 3,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          5,
+          0,
+          4,
+          8,
+          9
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          3,
+          6,
+          7,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          8
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S09",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              9
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              6
+            ],
+            [
+              5,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            5,
+            6,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            8,
+            4,
+            6
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        6,
+        9
+      ],
+      "halo_gaps": [
+        0,
+        5,
+        6
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 2,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 2,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          4,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          9,
+          1,
+          2,
+          6,
+          8
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          3,
+          6,
+          8,
+          9
+        ],
+        [
+          6,
+          2,
+          5,
+          8,
+          9
+        ],
+        [
+          9,
+          1,
+          5,
+          6,
+          7
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S10",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              9
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              8
+            ],
+            [
+              6,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            6,
+            8,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            5,
+            6,
+            9
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        8,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "halo_gaps": [
+        1,
+        1,
+        6
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K1_diag_gt_sides": 1,
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 2,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 22,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 20,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_inverse_pair",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          6,
+          9
+        ],
+        [
+          3,
+          1,
+          5,
+          8,
+          9
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          1,
+          2,
+          6,
+          7
+        ],
+        [
+          1,
+          0,
+          4,
+          7,
+          9
+        ],
+        [
+          8,
+          1,
+          3,
+          6,
+          9
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S11",
+      "strict_row_count": 2,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "quad_original_labels": [
+            0,
+            1,
+            7,
+            8
+          ],
+          "reduced_nonzero_coefficients": {
+            "1": -1,
+            "6": 1
+          },
+          "source": "kalmanson",
+          "weight": 1
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              9
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            1,
+            3,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            1,
+            8,
+            9
+          ],
+          "reduced_nonzero_coefficients": {
+            "1": 1,
+            "6": -1
+          },
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        8,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "halo_gaps": [
+        1,
+        2,
+        5
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 1,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 1,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          2,
+          5,
+          8,
+          9
+        ],
+        [
+          8,
+          1,
+          2,
+          4,
+          9
+        ],
+        [
+          9,
+          1,
+          3,
+          7,
+          8
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          0,
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          9,
+          1,
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          1,
+          2,
+          5,
+          9
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "forced_ninth_row_obstruction",
+      "state_id": "S12",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              9
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              8
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            1,
+            8,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            1,
+            9,
+            6
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "halo_gaps": [
+        2,
+        2,
+        5
+      ],
+      "independent_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K1_diag_gt_sides": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "minimum_core_search": {
+        "full_state_obstruction_count_at_minimum_strict_support": 2,
+        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "strict_candidate_count_at_minimum_width": 1,
+        "subsets_checked_by_width": {
+          "0": 1,
+          "1": 8,
+          "2": 28,
+          "3": 56
+        }
+      },
+      "obstruction_type": "strict_kalmanson_self_edge",
+      "selected_core_row_count": 3,
+      "selected_core_rows_natural_order": [
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          0,
+          1,
+          5,
+          8
+        ],
+        [
+          9,
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "selected_core_rows_original_labels": [
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          9
+        ],
+        [
+          6,
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "source_selected_row_count": 8,
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S13",
+      "strict_row_count": 1,
+      "strict_rows": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "negative_pairs_natural_order": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              9
+            ]
+          ],
+          "positive_pairs_natural_order": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "quad_natural_order": [
+            0,
+            1,
+            2,
+            9
+          ],
+          "quad_original_labels": [
+            0,
+            1,
+            2,
+            6
+          ],
+          "reduced_nonzero_coefficients": {},
+          "source": "kalmanson",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "status": "EXACT_BOUNDED_FIXED_ORDER_KALMANSON_ENDGAME",
+  "strict_kind_counts": {
+    "K1_diag_gt_sides": 4,
+    "K2_diag_gt_other": 11
+  },
+  "strict_support_histogram": {
+    "1": 11,
+    "2": 2
+  },
+  "summary": {
+    "all_selected_certificates_zero_sum": true,
+    "all_states_exactly_obstructed": true,
+    "deep_states_checked": 13,
+    "maximum_selected_core_width": 3,
+    "minimum_selected_core_width": 3,
+    "states_killed_by_one_strict_self_edge": 11,
+    "states_killed_by_two_strict_inverse_pair": 2,
+    "total_strict_rows_in_selected_certificates": 15
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
+}
