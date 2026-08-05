@@ -316,6 +316,10 @@ put detailed reconciliation in the canonical synthesis.
   exact natural-order metric compression of all 13 deep states to
   three-selected-row cores, using 11 strict Kalmanson self-edges and two
   two-inequality inverse pairs; fixed-catalog, fixed-order certificate only.
+- [`fragile-cycle-three-halo-motif-crosswalk.md`](fragile-cycle-three-halo-motif-crosswalk.md):
+  exact compression of those 13 fixed endgames to three reusable local
+  motifs: 11 equilateral hinges, one five-role splice, and one six-role
+  splice; no geometric occurrence or forcing claim.
 - [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
   `T4`/`T5`/`T44` classification for centers made good by deleting two
   vertices, with pair capacities and the exclusive-mutual-pair corollary.

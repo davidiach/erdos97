@@ -84,9 +84,14 @@ supplies a compact ordinary-distance endgame once the fixed catalog is
 reached. Its three-row minimality is only within that one-self-edge/
 two-inverse-row certificate family, not arbitrary wider positive
 combinations. The remaining high-leverage target is the geometric entry lemma:
-force the `23=27` core plus one of these three-row cores, or force a separately
-checked rich-class/deletion alternative. Extending the halo count is not that
-entry argument.
+force the `23=27` core plus one of these metric obstructions, or force a
+separately checked rich-class/deletion alternative. The exact motif follow-up
+`python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --check --assert-expected --summary-json`
+collapses the thirteen endgames to only three local targets: eleven instances
+of the equilateral-hinge lemma, the five-role splice in `S11`, and the
+six-role splice in `S08`. The next step should force one of those three motifs
+from genuine active-halo geometry; extending the halo count is not that entry
+argument.
 
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`

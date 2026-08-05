@@ -298,6 +298,7 @@ Useful evidence:
 - `docs/fragile-cycle-three-halo-vertex-circle.md`
 - `docs/fragile-cycle-three-halo-deep-frontier.md`
 - `docs/fragile-cycle-three-halo-kalmanson-endgame.md`
+- `docs/fragile-cycle-three-halo-motif-crosswalk.md`
 - `data/certificates/n9_fragile_turn_pivot_crosswalk.json`
 - `data/certificates/fragile_turn_pivot_guardrail.json`
 - `data/certificates/fragile_cycle_quotient_hierarchy.json`
@@ -305,6 +306,7 @@ Useful evidence:
 - `data/certificates/fragile_cycle_three_halo_vertex_circle.json`
 - `data/certificates/fragile_cycle_three_halo_deep_frontier.json`
 - `data/certificates/fragile_cycle_three_halo_kalmanson_endgame.json`
+- `data/certificates/fragile_cycle_three_halo_motif_crosswalk.json`
 - `docs/turn-packing-bridge.md`
 - `docs/n9-kalmanson-three-row-core-compression.md`
 
@@ -357,6 +359,15 @@ entry into the fixed catalog. Contract F still needs to force the `23=27`
 core and one of those three-row cores, or a separately checked alternative,
 from a genuine fragile cycle and active-halo geometry.
 
+The exact motif crosswalk removes the remaining state-by-state phrasing.
+The 13 fixed endgames are 11 instances of the generic equilateral-hinge
+lemma, one five-role `K2/K1` splice, and one six-role `K1/K2` splice. Both
+splice identities are verified directly with exact coefficient vectors and
+inclusion-minimal three-equality footprints. Contract F can therefore target
+three local pair-membership motifs rather than thirteen stored states. The
+crosswalk does not force any motif from geometry and does not extend beyond
+the fixed catalog.
+
 ## Low-leverage moves to avoid
 
 - Repeating selected-row neighborhood widenings around `81:3`, `81:8`,
@@ -405,4 +416,5 @@ python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expect
 python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json
+python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --check --assert-expected --summary-json
 ```

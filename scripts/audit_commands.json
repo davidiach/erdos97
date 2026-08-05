@@ -597,6 +597,17 @@
       "claim_scope": "Exact natural-order Kalmanson compression of the 13 fixed three-halo deep states into three-selected-row cores, with 11 strict self-edges and two inverse pairs; three-row minimality is only within that one-self-edge/two-inverse-row family, not arbitrary wider positive combinations; not an all-order result, Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_three_halo_motif_crosswalk",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_three_halo_motif_crosswalk.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact compression of the 13 fixed three-halo Kalmanson endgames into 11 equilateral hinges, one five-role splice, and one six-role splice, with direct exact replay of both generic splice identities; not motif occurrence or geometric forcing, an all-order result, n=10, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "n9_vertex_circle_input_audit",
       "command": [
         "python",
@@ -3414,6 +3425,7 @@
       "fragile_cycle_three_halo_vertex_circle",
       "fragile_cycle_three_halo_deep_frontier",
       "fragile_cycle_three_halo_kalmanson_endgame",
+      "fragile_cycle_three_halo_motif_crosswalk",
       "adjacent_closest_pair_nonagon_barrier",
       "brp_boundary_vertexization_probe",
       "four_c3_generic_orbit_obstruction",

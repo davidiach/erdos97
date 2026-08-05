@@ -1,0 +1,1454 @@
+{
+  "claim_scope": "Exact motif compression of the thirteen fixed three-halo Kalmanson endgame certificates into the generic equilateral hinge and two generic two-inequality splice templates. This does not force any motif, quotient, or halo placement from minimal-counterexample geometry, does not prove n=10 or Erdos Problem #97, and is not a counterexample.",
+  "conclusion": "The thirteen fixed metric endgames reduce to three local motifs: eleven equilateral hinges, one six-role K1/K2 splice, and one five-role K2/K1 splice. The two splice states are hinge-free and each has one unique order-preserving template embedding.",
+  "limitations": [
+    "The crosswalk compresses a fixed thirteen-state source catalog and does not force catalog entry.",
+    "The splice lemmas are direct local contradictions only when their ordered roles and centered equalities occur.",
+    "The reciprocal-pair census is descriptive; a reciprocal pair alone is not an obstruction.",
+    "No proof of n=10, general proof, counterexample, or official/global status update is claimed."
+  ],
+  "motif_class_count": 3,
+  "motif_class_counts": {
+    "equilateral_hinge": 11,
+    "five_role_K2_K1_splice": 1,
+    "six_role_K1_K2_splice": 1
+  },
+  "motif_crosswalk_catalog_sha256": "995db4351e5fddcaaaf33dc7ee700ed370bad33f8d6f69a6c82cce237da6f3d9",
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_fragile_cycle_three_halo_motif_crosswalk.py"
+  },
+  "reciprocal_selected_center_pair_count_histogram": {
+    "0": 1,
+    "1": 12
+  },
+  "schema": "erdos97.fragile_cycle_three_halo_motif_crosswalk.v1",
+  "source_artifact": {
+    "kalmanson_endgame_catalog_sha256": "ef3fe4aea1975f491f25af286a69e52ad239f15320538044b1803e0adcca10bf",
+    "path": "data/certificates/fragile_cycle_three_halo_kalmanson_endgame.json",
+    "schema": "erdos97.fragile_cycle_three_halo_kalmanson_endgame.v1"
+  },
+  "splice_template_replays": [
+    {
+      "claim_scope": "Direct local contradiction for these ordered roles and centered equalities only; no occurrence or counterexample claim.",
+      "combined_zero_sum_verified": true,
+      "direct_cancelled_pair": [
+        "a",
+        "d"
+      ],
+      "equality_omission_replays": [
+        {
+          "omitted_equality_index": 0,
+          "remaining_nonzero_class_count": 2
+        },
+        {
+          "omitted_equality_index": 1,
+          "remaining_nonzero_class_count": 2
+        },
+        {
+          "omitted_equality_index": 2,
+          "remaining_nonzero_class_count": 2
+        }
+      ],
+      "individual_strict_rows_nonzero": true,
+      "role_count": 5,
+      "roles": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "selected_equalities": [
+        {
+          "center": "a",
+          "witness_pair": [
+            "b",
+            "c"
+          ]
+        },
+        {
+          "center": "b",
+          "witness_pair": [
+            "c",
+            "e"
+          ]
+        },
+        {
+          "center": "d",
+          "witness_pair": [
+            "b",
+            "e"
+          ]
+        }
+      ],
+      "selected_equality_footprint_inclusion_minimal": true,
+      "strict_quad_intersection_size": 3,
+      "strict_rows": [
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        },
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            "a",
+            "b",
+            "d",
+            "e"
+          ]
+        }
+      ],
+      "template": "five_role_K2_K1_splice"
+    },
+    {
+      "claim_scope": "Direct local contradiction for these ordered roles and centered equalities only; no occurrence or counterexample claim.",
+      "combined_zero_sum_verified": true,
+      "direct_cancelled_pair": [
+        "c",
+        "e"
+      ],
+      "equality_omission_replays": [
+        {
+          "omitted_equality_index": 0,
+          "remaining_nonzero_class_count": 2
+        },
+        {
+          "omitted_equality_index": 1,
+          "remaining_nonzero_class_count": 2
+        },
+        {
+          "omitted_equality_index": 2,
+          "remaining_nonzero_class_count": 2
+        }
+      ],
+      "individual_strict_rows_nonzero": true,
+      "role_count": 6,
+      "roles": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "selected_equalities": [
+        {
+          "center": "b",
+          "witness_pair": [
+            "a",
+            "e"
+          ]
+        },
+        {
+          "center": "c",
+          "witness_pair": [
+            "a",
+            "f"
+          ]
+        },
+        {
+          "center": "d",
+          "witness_pair": [
+            "e",
+            "f"
+          ]
+        }
+      ],
+      "selected_equality_footprint_inclusion_minimal": true,
+      "strict_quad_intersection_size": 2,
+      "strict_rows": [
+        {
+          "kind": "K1_diag_gt_sides",
+          "quad": [
+            "a",
+            "b",
+            "c",
+            "e"
+          ]
+        },
+        {
+          "kind": "K2_diag_gt_other",
+          "quad": [
+            "c",
+            "d",
+            "e",
+            "f"
+          ]
+        }
+      ],
+      "template": "six_role_K1_K2_splice"
+    }
+  ],
+  "state_motif_crosswalk": [
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 7,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              2,
+              7
+            ]
+          },
+          {
+            "center": 0,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              0,
+              2
+            ]
+          },
+          {
+            "center": 4,
+            "left_pair": [
+              4,
+              7
+            ],
+            "right_pair": [
+              0,
+              4
+            ]
+          }
+        ],
+        "centers": [
+          7,
+          0,
+          4
+        ],
+        "inequality_kind": "K1",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          2,
+          4,
+          7
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          0,
+          7
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          1,
+          2,
+          7,
+          9
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          7,
+          0,
+          2,
+          5,
+          9
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K1_diag_gt_sides": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "forced_ninth_row_obstruction",
+      "state_id": "S01"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 7,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              7,
+              9
+            ]
+          },
+          {
+            "center": 0,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              0,
+              9
+            ]
+          },
+          {
+            "center": 8,
+            "left_pair": [
+              7,
+              8
+            ],
+            "right_pair": [
+              0,
+              8
+            ]
+          }
+        ],
+        "centers": [
+          7,
+          0,
+          8
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          7,
+          8,
+          9
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          0,
+          7
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          2,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S02"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 7,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              7,
+              9
+            ]
+          },
+          {
+            "center": 0,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              0,
+              9
+            ]
+          },
+          {
+            "center": 8,
+            "left_pair": [
+              7,
+              8
+            ],
+            "right_pair": [
+              0,
+              8
+            ]
+          }
+        ],
+        "centers": [
+          7,
+          0,
+          8
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          7,
+          8,
+          9
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          0,
+          7
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S03"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 7,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              7,
+              9
+            ]
+          },
+          {
+            "center": 0,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              0,
+              9
+            ]
+          },
+          {
+            "center": 8,
+            "left_pair": [
+              7,
+              8
+            ],
+            "right_pair": [
+              0,
+              8
+            ]
+          }
+        ],
+        "centers": [
+          7,
+          0,
+          8
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          7,
+          8,
+          9
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          0,
+          7
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S04"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 7,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              7,
+              9
+            ]
+          },
+          {
+            "center": 0,
+            "left_pair": [
+              0,
+              7
+            ],
+            "right_pair": [
+              0,
+              9
+            ]
+          },
+          {
+            "center": 8,
+            "left_pair": [
+              7,
+              8
+            ],
+            "right_pair": [
+              0,
+              8
+            ]
+          }
+        ],
+        "centers": [
+          7,
+          0,
+          8
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          7,
+          8,
+          9
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          0,
+          7
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S05"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 3,
+            "left_pair": [
+              3,
+              4
+            ],
+            "right_pair": [
+              0,
+              3
+            ]
+          },
+          {
+            "center": 4,
+            "left_pair": [
+              3,
+              4
+            ],
+            "right_pair": [
+              0,
+              4
+            ]
+          },
+          {
+            "center": 1,
+            "left_pair": [
+              1,
+              3
+            ],
+            "right_pair": [
+              1,
+              4
+            ]
+          }
+        ],
+        "centers": [
+          3,
+          4,
+          1
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          3,
+          4
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          1,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S06"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 3,
+            "left_pair": [
+              3,
+              4
+            ],
+            "right_pair": [
+              0,
+              3
+            ]
+          },
+          {
+            "center": 4,
+            "left_pair": [
+              3,
+              4
+            ],
+            "right_pair": [
+              0,
+              4
+            ]
+          },
+          {
+            "center": 2,
+            "left_pair": [
+              2,
+              3
+            ],
+            "right_pair": [
+              2,
+              4
+            ]
+          }
+        ],
+        "centers": [
+          3,
+          4,
+          2
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          3,
+          4
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          2,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S07"
+    },
+    {
+      "motif_class": "six_role_K1_K2_splice",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 2,
+            "witness_pair": [
+              0,
+              6
+            ]
+          },
+          {
+            "center": 3,
+            "witness_pair": [
+              0,
+              7
+            ]
+          },
+          {
+            "center": 5,
+            "witness_pair": [
+              6,
+              7
+            ]
+          }
+        ],
+        "role_count": 6,
+        "role_map": {
+          "a": 0,
+          "b": 2,
+          "c": 3,
+          "d": 5,
+          "e": 6,
+          "f": 7
+        },
+        "strict_rows": [
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              2,
+              3,
+              6
+            ]
+          },
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              3,
+              5,
+              6,
+              7
+            ]
+          }
+        ],
+        "template": "six_role_K1_K2_splice"
+      },
+      "reciprocal_selected_center_pairs": [],
+      "selected_core_rows_natural_order": [
+        [
+          2,
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          5,
+          2,
+          4,
+          6,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K1_diag_gt_sides": 1,
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 2,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_inverse_pair",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S08"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 5,
+            "left_pair": [
+              0,
+              5
+            ],
+            "right_pair": [
+              5,
+              9
+            ]
+          },
+          {
+            "center": 0,
+            "left_pair": [
+              0,
+              5
+            ],
+            "right_pair": [
+              0,
+              9
+            ]
+          },
+          {
+            "center": 6,
+            "left_pair": [
+              5,
+              6
+            ],
+            "right_pair": [
+              0,
+              6
+            ]
+          }
+        ],
+        "centers": [
+          5,
+          0,
+          6
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          5,
+          6,
+          9
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          0,
+          5
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          5,
+          0,
+          4,
+          8,
+          9
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S09"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 9,
+            "left_pair": [
+              8,
+              9
+            ],
+            "right_pair": [
+              6,
+              9
+            ]
+          },
+          {
+            "center": 8,
+            "left_pair": [
+              8,
+              9
+            ],
+            "right_pair": [
+              6,
+              8
+            ]
+          },
+          {
+            "center": 0,
+            "left_pair": [
+              0,
+              9
+            ],
+            "right_pair": [
+              0,
+              8
+            ]
+          }
+        ],
+        "centers": [
+          9,
+          8,
+          0
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          6,
+          8,
+          9
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          8,
+          9
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          4,
+          7,
+          8,
+          9
+        ],
+        [
+          8,
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          9,
+          1,
+          2,
+          6,
+          8
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S10"
+    },
+    {
+      "motif_class": "five_role_K2_K1_splice",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 0,
+            "witness_pair": [
+              1,
+              2
+            ]
+          },
+          {
+            "center": 1,
+            "witness_pair": [
+              2,
+              9
+            ]
+          },
+          {
+            "center": 3,
+            "witness_pair": [
+              1,
+              9
+            ]
+          }
+        ],
+        "role_count": 5,
+        "role_map": {
+          "a": 0,
+          "b": 1,
+          "c": 2,
+          "d": 3,
+          "e": 9
+        },
+        "strict_rows": [
+          {
+            "kind": "K2_diag_gt_other",
+            "quad": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "kind": "K1_diag_gt_sides",
+            "quad": [
+              0,
+              1,
+              3,
+              9
+            ]
+          }
+        ],
+        "template": "five_role_K2_K1_splice"
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          6,
+          9
+        ],
+        [
+          3,
+          1,
+          5,
+          8,
+          9
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K1_diag_gt_sides": 1,
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 2,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_inverse_pair",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S11"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 9,
+            "left_pair": [
+              8,
+              9
+            ],
+            "right_pair": [
+              1,
+              9
+            ]
+          },
+          {
+            "center": 8,
+            "left_pair": [
+              8,
+              9
+            ],
+            "right_pair": [
+              1,
+              8
+            ]
+          },
+          {
+            "center": 0,
+            "left_pair": [
+              0,
+              9
+            ],
+            "right_pair": [
+              0,
+              8
+            ]
+          }
+        ],
+        "centers": [
+          9,
+          8,
+          0
+        ],
+        "inequality_kind": "K2",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          1,
+          8,
+          9
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          8,
+          9
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          0,
+          2,
+          5,
+          8,
+          9
+        ],
+        [
+          8,
+          1,
+          2,
+          4,
+          9
+        ],
+        [
+          9,
+          1,
+          3,
+          7,
+          8
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K2_diag_gt_other": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "forced_ninth_row_obstruction",
+      "state_id": "S12"
+    },
+    {
+      "motif_class": "equilateral_hinge",
+      "motif_embedding": {
+        "active_equalities": [
+          {
+            "center": 2,
+            "left_pair": [
+              1,
+              2
+            ],
+            "right_pair": [
+              0,
+              2
+            ]
+          },
+          {
+            "center": 1,
+            "left_pair": [
+              1,
+              2
+            ],
+            "right_pair": [
+              0,
+              1
+            ]
+          },
+          {
+            "center": 9,
+            "left_pair": [
+              2,
+              9
+            ],
+            "right_pair": [
+              1,
+              9
+            ]
+          }
+        ],
+        "centers": [
+          2,
+          1,
+          9
+        ],
+        "inequality_kind": "K1",
+        "motif": "equilateral_hinge",
+        "quadruple": [
+          0,
+          1,
+          2,
+          9
+        ],
+        "role_count": 4
+      },
+      "reciprocal_selected_center_pairs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "selected_core_rows_natural_order": [
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          0,
+          1,
+          5,
+          8
+        ],
+        [
+          9,
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "source_certificate_replay": {
+        "combined_nonzero_coefficient_count": 0,
+        "distance_class_count": 36,
+        "kind_counts": {
+          "K1_diag_gt_sides": 1
+        },
+        "selected_core_row_count": 3,
+        "strict_row_count": 1,
+        "zero_sum_verified": true
+      },
+      "source_obstruction_type": "strict_kalmanson_self_edge",
+      "source_terminal_type": "incidence_dead_end",
+      "state_id": "S13"
+    }
+  ],
+  "status": "EXACT_BOUNDED_HINGE_SPLICE_MOTIF_CROSSWALK",
+  "summary": {
+    "all_source_certificates_replayed": true,
+    "all_states_classified_once": true,
+    "distinct_local_motif_classes": 3,
+    "equilateral_hinge_states": 11,
+    "five_role_splice_states": 1,
+    "hinge_free_splice_states": 2,
+    "six_role_splice_states": 1,
+    "source_states_checked": 13
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
+}

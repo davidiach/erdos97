@@ -117,10 +117,22 @@ core plus a three-row certificate core—or a separately checked alternative—
 from a genuine fragile matching cycle and its active halos. Extending the
 fixed halo count without such an entry argument is lower leverage.
 
+## Motif follow-up
+
+The exact
+[`fragile-cycle-three-halo-motif-crosswalk.md`](fragile-cycle-three-halo-motif-crosswalk.md)
+reduces the 13 state-specific endgames to three local types: 11 equilateral
+hinges, the five-role `K2/K1` splice in `S11`, and the six-role `K1/K2` splice
+in `S08`. This sharpens the conditional entry target, but it does not prove
+that genuine active-halo geometry supplies any of the three motifs.
+
 ## Replay
 
 ```bash
 python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py \
+  --check --assert-expected --summary-json
+
+python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_cycle_three_halo_deep_frontier.py \
