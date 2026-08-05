@@ -1,0 +1,3421 @@
+{
+  "benchmarks": [
+    {
+      "all_equal_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": false,
+        "equal_relation_count": 1,
+        "equal_relations": [
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ]
+          }
+        ],
+        "forced_point_equal_classes": [],
+        "midpoint_equation_rows": [
+          [
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0
+          ]
+        ],
+        "midpoint_matrix_rank": 1,
+        "radius_equal_components": [
+          [
+            0,
+            3
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0,
+            3
+          ]
+        ],
+        "strict_relation_count": 0,
+        "strict_relations": [],
+        "survives_local_diagnostic": true
+      },
+      "all_strict_escape_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": false,
+        "equal_relation_count": 0,
+        "equal_relations": [],
+        "forced_point_equal_classes": [],
+        "midpoint_equation_rows": [],
+        "midpoint_matrix_rank": 0,
+        "radius_equal_components": [
+          [
+            0
+          ],
+          [
+            3
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0
+          ],
+          [
+            3
+          ]
+        ],
+        "strict_relation_count": 1,
+        "strict_relations": [
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ],
+            "midpoint_distance_order": [
+              0,
+              3
+            ],
+            "radius_order": [
+              0,
+              3
+            ]
+          }
+        ],
+        "survives_local_diagnostic": true
+      },
+      "atom_equal_mixed_escape_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": false,
+        "equal_relation_count": 1,
+        "equal_relations": [
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ]
+          }
+        ],
+        "forced_point_equal_classes": [],
+        "midpoint_equation_rows": [
+          [
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0
+          ]
+        ],
+        "midpoint_matrix_rank": 1,
+        "radius_equal_components": [
+          [
+            0,
+            3
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0,
+            3
+          ]
+        ],
+        "strict_relation_count": 0,
+        "strict_relations": [],
+        "survives_local_diagnostic": true
+      },
+      "n": 6,
+      "name": "block6_geometric_atom",
+      "selected_rows": {
+        "0": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "3": [
+          0,
+          2,
+          4,
+          5
+        ]
+      },
+      "two_overlap_relation_count": 1,
+      "two_overlap_relations": [
+        {
+          "centers": [
+            0,
+            3
+          ],
+          "common_witnesses": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "all_equal_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": true,
+        "equal_relation_count": 18,
+        "equal_relations": [
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ]
+          },
+          {
+            "centers": [
+              1,
+              4
+            ],
+            "common_witnesses": [
+              3,
+              6
+            ]
+          },
+          {
+            "centers": [
+              1,
+              8
+            ],
+            "common_witnesses": [
+              7,
+              11
+            ]
+          },
+          {
+            "centers": [
+              1,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              11
+            ]
+          },
+          {
+            "centers": [
+              1,
+              10
+            ],
+            "common_witnesses": [
+              6,
+              7
+            ]
+          },
+          {
+            "centers": [
+              2,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              9
+            ]
+          },
+          {
+            "centers": [
+              2,
+              8
+            ],
+            "common_witnesses": [
+              5,
+              11
+            ]
+          },
+          {
+            "centers": [
+              2,
+              10
+            ],
+            "common_witnesses": [
+              1,
+              5
+            ]
+          },
+          {
+            "centers": [
+              3,
+              5
+            ],
+            "common_witnesses": [
+              0,
+              2
+            ]
+          },
+          {
+            "centers": [
+              3,
+              8
+            ],
+            "common_witnesses": [
+              4,
+              5
+            ]
+          },
+          {
+            "centers": [
+              3,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              5
+            ]
+          },
+          {
+            "centers": [
+              4,
+              7
+            ],
+            "common_witnesses": [
+              0,
+              9
+            ]
+          },
+          {
+            "centers": [
+              4,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              3
+            ]
+          },
+          {
+            "centers": [
+              5,
+              9
+            ],
+            "common_witnesses": [
+              10,
+              11
+            ]
+          },
+          {
+            "centers": [
+              6,
+              7
+            ],
+            "common_witnesses": [
+              8,
+              9
+            ]
+          },
+          {
+            "centers": [
+              6,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              10
+            ]
+          },
+          {
+            "centers": [
+              7,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              8
+            ]
+          },
+          {
+            "centers": [
+              8,
+              10
+            ],
+            "common_witnesses": [
+              5,
+              7
+            ]
+          }
+        ],
+        "forced_point_equal_classes": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        ],
+        "midpoint_equation_rows": [
+          [
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            -1,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            -1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            1,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            -1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            -1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            -1,
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            -1,
+            1,
+            0,
+            1,
+            0
+          ]
+        ],
+        "midpoint_matrix_rank": 11,
+        "radius_equal_components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        ],
+        "strict_relation_count": 0,
+        "strict_relations": [],
+        "survives_local_diagnostic": false
+      },
+      "all_strict_escape_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": false,
+        "equal_relation_count": 0,
+        "equal_relations": [],
+        "forced_point_equal_classes": [],
+        "midpoint_equation_rows": [],
+        "midpoint_matrix_rank": 0,
+        "radius_equal_components": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "strict_relation_count": 18,
+        "strict_relations": [
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ],
+            "midpoint_distance_order": [
+              0,
+              3
+            ],
+            "radius_order": [
+              0,
+              3
+            ]
+          },
+          {
+            "centers": [
+              1,
+              4
+            ],
+            "common_witnesses": [
+              3,
+              6
+            ],
+            "midpoint_distance_order": [
+              1,
+              4
+            ],
+            "radius_order": [
+              1,
+              4
+            ]
+          },
+          {
+            "centers": [
+              1,
+              8
+            ],
+            "common_witnesses": [
+              7,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              8
+            ],
+            "radius_order": [
+              1,
+              8
+            ]
+          },
+          {
+            "centers": [
+              1,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              9
+            ],
+            "radius_order": [
+              1,
+              9
+            ]
+          },
+          {
+            "centers": [
+              1,
+              10
+            ],
+            "common_witnesses": [
+              6,
+              7
+            ],
+            "midpoint_distance_order": [
+              1,
+              10
+            ],
+            "radius_order": [
+              1,
+              10
+            ]
+          },
+          {
+            "centers": [
+              2,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              9
+            ],
+            "midpoint_distance_order": [
+              2,
+              7
+            ],
+            "radius_order": [
+              2,
+              7
+            ]
+          },
+          {
+            "centers": [
+              2,
+              8
+            ],
+            "common_witnesses": [
+              5,
+              11
+            ],
+            "midpoint_distance_order": [
+              2,
+              8
+            ],
+            "radius_order": [
+              2,
+              8
+            ]
+          },
+          {
+            "centers": [
+              2,
+              10
+            ],
+            "common_witnesses": [
+              1,
+              5
+            ],
+            "midpoint_distance_order": [
+              2,
+              10
+            ],
+            "radius_order": [
+              2,
+              10
+            ]
+          },
+          {
+            "centers": [
+              3,
+              5
+            ],
+            "common_witnesses": [
+              0,
+              2
+            ],
+            "midpoint_distance_order": [
+              3,
+              5
+            ],
+            "radius_order": [
+              3,
+              5
+            ]
+          },
+          {
+            "centers": [
+              3,
+              8
+            ],
+            "common_witnesses": [
+              4,
+              5
+            ],
+            "midpoint_distance_order": [
+              3,
+              8
+            ],
+            "radius_order": [
+              3,
+              8
+            ]
+          },
+          {
+            "centers": [
+              3,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              5
+            ],
+            "midpoint_distance_order": [
+              3,
+              11
+            ],
+            "radius_order": [
+              3,
+              11
+            ]
+          },
+          {
+            "centers": [
+              4,
+              7
+            ],
+            "common_witnesses": [
+              0,
+              9
+            ],
+            "midpoint_distance_order": [
+              4,
+              7
+            ],
+            "radius_order": [
+              4,
+              7
+            ]
+          },
+          {
+            "centers": [
+              4,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              3
+            ],
+            "midpoint_distance_order": [
+              4,
+              11
+            ],
+            "radius_order": [
+              4,
+              11
+            ]
+          },
+          {
+            "centers": [
+              5,
+              9
+            ],
+            "common_witnesses": [
+              10,
+              11
+            ],
+            "midpoint_distance_order": [
+              5,
+              9
+            ],
+            "radius_order": [
+              5,
+              9
+            ]
+          },
+          {
+            "centers": [
+              6,
+              7
+            ],
+            "common_witnesses": [
+              8,
+              9
+            ],
+            "midpoint_distance_order": [
+              6,
+              7
+            ],
+            "radius_order": [
+              6,
+              7
+            ]
+          },
+          {
+            "centers": [
+              6,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              10
+            ],
+            "midpoint_distance_order": [
+              6,
+              9
+            ],
+            "radius_order": [
+              6,
+              9
+            ]
+          },
+          {
+            "centers": [
+              7,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              8
+            ],
+            "midpoint_distance_order": [
+              7,
+              11
+            ],
+            "radius_order": [
+              7,
+              11
+            ]
+          },
+          {
+            "centers": [
+              8,
+              10
+            ],
+            "common_witnesses": [
+              5,
+              7
+            ],
+            "midpoint_distance_order": [
+              8,
+              10
+            ],
+            "radius_order": [
+              8,
+              10
+            ]
+          }
+        ],
+        "survives_local_diagnostic": true
+      },
+      "atom_equal_mixed_escape_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": false,
+        "equal_relation_count": 2,
+        "equal_relations": [
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ]
+          },
+          {
+            "centers": [
+              6,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              10
+            ]
+          }
+        ],
+        "forced_point_equal_classes": [],
+        "midpoint_equation_rows": [
+          [
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0
+          ]
+        ],
+        "midpoint_matrix_rank": 2,
+        "radius_equal_components": [
+          [
+            0,
+            3
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0,
+            3
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "strict_relation_count": 16,
+        "strict_relations": [
+          {
+            "centers": [
+              1,
+              4
+            ],
+            "common_witnesses": [
+              3,
+              6
+            ],
+            "midpoint_distance_order": [
+              1,
+              4
+            ],
+            "radius_order": [
+              1,
+              4
+            ]
+          },
+          {
+            "centers": [
+              1,
+              8
+            ],
+            "common_witnesses": [
+              7,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              8
+            ],
+            "radius_order": [
+              1,
+              8
+            ]
+          },
+          {
+            "centers": [
+              1,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              9
+            ],
+            "radius_order": [
+              1,
+              9
+            ]
+          },
+          {
+            "centers": [
+              1,
+              10
+            ],
+            "common_witnesses": [
+              6,
+              7
+            ],
+            "midpoint_distance_order": [
+              1,
+              10
+            ],
+            "radius_order": [
+              1,
+              10
+            ]
+          },
+          {
+            "centers": [
+              2,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              9
+            ],
+            "midpoint_distance_order": [
+              2,
+              7
+            ],
+            "radius_order": [
+              2,
+              7
+            ]
+          },
+          {
+            "centers": [
+              2,
+              8
+            ],
+            "common_witnesses": [
+              5,
+              11
+            ],
+            "midpoint_distance_order": [
+              2,
+              8
+            ],
+            "radius_order": [
+              2,
+              8
+            ]
+          },
+          {
+            "centers": [
+              2,
+              10
+            ],
+            "common_witnesses": [
+              1,
+              5
+            ],
+            "midpoint_distance_order": [
+              2,
+              10
+            ],
+            "radius_order": [
+              2,
+              10
+            ]
+          },
+          {
+            "centers": [
+              3,
+              5
+            ],
+            "common_witnesses": [
+              0,
+              2
+            ],
+            "midpoint_distance_order": [
+              3,
+              5
+            ],
+            "radius_order": [
+              3,
+              5
+            ]
+          },
+          {
+            "centers": [
+              3,
+              8
+            ],
+            "common_witnesses": [
+              4,
+              5
+            ],
+            "midpoint_distance_order": [
+              3,
+              8
+            ],
+            "radius_order": [
+              3,
+              8
+            ]
+          },
+          {
+            "centers": [
+              3,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              5
+            ],
+            "midpoint_distance_order": [
+              3,
+              11
+            ],
+            "radius_order": [
+              3,
+              11
+            ]
+          },
+          {
+            "centers": [
+              4,
+              7
+            ],
+            "common_witnesses": [
+              0,
+              9
+            ],
+            "midpoint_distance_order": [
+              4,
+              7
+            ],
+            "radius_order": [
+              4,
+              7
+            ]
+          },
+          {
+            "centers": [
+              4,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              3
+            ],
+            "midpoint_distance_order": [
+              4,
+              11
+            ],
+            "radius_order": [
+              4,
+              11
+            ]
+          },
+          {
+            "centers": [
+              5,
+              9
+            ],
+            "common_witnesses": [
+              10,
+              11
+            ],
+            "midpoint_distance_order": [
+              5,
+              9
+            ],
+            "radius_order": [
+              5,
+              9
+            ]
+          },
+          {
+            "centers": [
+              6,
+              7
+            ],
+            "common_witnesses": [
+              8,
+              9
+            ],
+            "midpoint_distance_order": [
+              6,
+              7
+            ],
+            "radius_order": [
+              6,
+              7
+            ]
+          },
+          {
+            "centers": [
+              7,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              8
+            ],
+            "midpoint_distance_order": [
+              7,
+              11
+            ],
+            "radius_order": [
+              7,
+              11
+            ]
+          },
+          {
+            "centers": [
+              8,
+              10
+            ],
+            "common_witnesses": [
+              5,
+              7
+            ],
+            "midpoint_distance_order": [
+              8,
+              10
+            ],
+            "radius_order": [
+              8,
+              10
+            ]
+          }
+        ],
+        "survives_local_diagnostic": true
+      },
+      "n": 12,
+      "name": "two_block_full_extension_no_forward_ear",
+      "selected_rows": {
+        "0": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "1": [
+          3,
+          6,
+          7,
+          11
+        ],
+        "10": [
+          1,
+          5,
+          6,
+          7
+        ],
+        "11": [
+          0,
+          3,
+          5,
+          8
+        ],
+        "2": [
+          1,
+          5,
+          9,
+          11
+        ],
+        "3": [
+          0,
+          2,
+          4,
+          5
+        ],
+        "4": [
+          0,
+          3,
+          6,
+          9
+        ],
+        "5": [
+          0,
+          2,
+          10,
+          11
+        ],
+        "6": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "7": [
+          0,
+          1,
+          8,
+          9
+        ],
+        "8": [
+          4,
+          5,
+          7,
+          11
+        ],
+        "9": [
+          6,
+          8,
+          10,
+          11
+        ]
+      },
+      "two_overlap_relation_count": 18,
+      "two_overlap_relations": [
+        {
+          "centers": [
+            0,
+            3
+          ],
+          "common_witnesses": [
+            2,
+            4
+          ]
+        },
+        {
+          "centers": [
+            1,
+            4
+          ],
+          "common_witnesses": [
+            3,
+            6
+          ]
+        },
+        {
+          "centers": [
+            1,
+            8
+          ],
+          "common_witnesses": [
+            7,
+            11
+          ]
+        },
+        {
+          "centers": [
+            1,
+            9
+          ],
+          "common_witnesses": [
+            6,
+            11
+          ]
+        },
+        {
+          "centers": [
+            1,
+            10
+          ],
+          "common_witnesses": [
+            6,
+            7
+          ]
+        },
+        {
+          "centers": [
+            2,
+            7
+          ],
+          "common_witnesses": [
+            1,
+            9
+          ]
+        },
+        {
+          "centers": [
+            2,
+            8
+          ],
+          "common_witnesses": [
+            5,
+            11
+          ]
+        },
+        {
+          "centers": [
+            2,
+            10
+          ],
+          "common_witnesses": [
+            1,
+            5
+          ]
+        },
+        {
+          "centers": [
+            3,
+            5
+          ],
+          "common_witnesses": [
+            0,
+            2
+          ]
+        },
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "common_witnesses": [
+            4,
+            5
+          ]
+        },
+        {
+          "centers": [
+            3,
+            11
+          ],
+          "common_witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "centers": [
+            4,
+            7
+          ],
+          "common_witnesses": [
+            0,
+            9
+          ]
+        },
+        {
+          "centers": [
+            4,
+            11
+          ],
+          "common_witnesses": [
+            0,
+            3
+          ]
+        },
+        {
+          "centers": [
+            5,
+            9
+          ],
+          "common_witnesses": [
+            10,
+            11
+          ]
+        },
+        {
+          "centers": [
+            6,
+            7
+          ],
+          "common_witnesses": [
+            8,
+            9
+          ]
+        },
+        {
+          "centers": [
+            6,
+            9
+          ],
+          "common_witnesses": [
+            8,
+            10
+          ]
+        },
+        {
+          "centers": [
+            7,
+            11
+          ],
+          "common_witnesses": [
+            0,
+            8
+          ]
+        },
+        {
+          "centers": [
+            8,
+            10
+          ],
+          "common_witnesses": [
+            5,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "all_equal_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": true,
+        "equal_relation_count": 18,
+        "equal_relations": [
+          {
+            "centers": [
+              0,
+              2
+            ],
+            "common_witnesses": [
+              1,
+              3
+            ]
+          },
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ]
+          },
+          {
+            "centers": [
+              1,
+              4
+            ],
+            "common_witnesses": [
+              3,
+              11
+            ]
+          },
+          {
+            "centers": [
+              1,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              11
+            ]
+          },
+          {
+            "centers": [
+              1,
+              10
+            ],
+            "common_witnesses": [
+              9,
+              11
+            ]
+          },
+          {
+            "centers": [
+              2,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              5
+            ]
+          },
+          {
+            "centers": [
+              3,
+              8
+            ],
+            "common_witnesses": [
+              0,
+              5
+            ]
+          },
+          {
+            "centers": [
+              3,
+              10
+            ],
+            "common_witnesses": [
+              2,
+              5
+            ]
+          },
+          {
+            "centers": [
+              3,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              4
+            ]
+          },
+          {
+            "centers": [
+              4,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              11
+            ]
+          },
+          {
+            "centers": [
+              5,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              6
+            ]
+          },
+          {
+            "centers": [
+              5,
+              8
+            ],
+            "common_witnesses": [
+              0,
+              7
+            ]
+          },
+          {
+            "centers": [
+              5,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              6
+            ]
+          },
+          {
+            "centers": [
+              6,
+              8
+            ],
+            "common_witnesses": [
+              7,
+              9
+            ]
+          },
+          {
+            "centers": [
+              6,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              10
+            ]
+          },
+          {
+            "centers": [
+              7,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              8
+            ]
+          },
+          {
+            "centers": [
+              8,
+              10
+            ],
+            "common_witnesses": [
+              5,
+              9
+            ]
+          },
+          {
+            "centers": [
+              9,
+              11
+            ],
+            "common_witnesses": [
+              6,
+              10
+            ]
+          }
+        ],
+        "forced_point_equal_classes": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        ],
+        "midpoint_equation_rows": [
+          [
+            1,
+            -1,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            -1
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            -1
+          ],
+          [
+            0,
+            -1,
+            1,
+            0,
+            0,
+            -1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1,
+            1,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            0,
+            -1
+          ],
+          [
+            0,
+            -1,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            1,
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            1,
+            -1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            -1,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            -1,
+            1
+          ]
+        ],
+        "midpoint_matrix_rank": 11,
+        "radius_equal_components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        ],
+        "strict_relation_count": 0,
+        "strict_relations": [],
+        "survives_local_diagnostic": false
+      },
+      "all_strict_escape_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": false,
+        "equal_relation_count": 0,
+        "equal_relations": [],
+        "forced_point_equal_classes": [],
+        "midpoint_equation_rows": [],
+        "midpoint_matrix_rank": 0,
+        "radius_equal_components": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "strict_relation_count": 18,
+        "strict_relations": [
+          {
+            "centers": [
+              0,
+              2
+            ],
+            "common_witnesses": [
+              1,
+              3
+            ],
+            "midpoint_distance_order": [
+              0,
+              2
+            ],
+            "radius_order": [
+              0,
+              2
+            ]
+          },
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ],
+            "midpoint_distance_order": [
+              0,
+              3
+            ],
+            "radius_order": [
+              0,
+              3
+            ]
+          },
+          {
+            "centers": [
+              1,
+              4
+            ],
+            "common_witnesses": [
+              3,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              4
+            ],
+            "radius_order": [
+              1,
+              4
+            ]
+          },
+          {
+            "centers": [
+              1,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              9
+            ],
+            "radius_order": [
+              1,
+              9
+            ]
+          },
+          {
+            "centers": [
+              1,
+              10
+            ],
+            "common_witnesses": [
+              9,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              10
+            ],
+            "radius_order": [
+              1,
+              10
+            ]
+          },
+          {
+            "centers": [
+              2,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              5
+            ],
+            "midpoint_distance_order": [
+              2,
+              7
+            ],
+            "radius_order": [
+              2,
+              7
+            ]
+          },
+          {
+            "centers": [
+              3,
+              8
+            ],
+            "common_witnesses": [
+              0,
+              5
+            ],
+            "midpoint_distance_order": [
+              3,
+              8
+            ],
+            "radius_order": [
+              3,
+              8
+            ]
+          },
+          {
+            "centers": [
+              3,
+              10
+            ],
+            "common_witnesses": [
+              2,
+              5
+            ],
+            "midpoint_distance_order": [
+              3,
+              10
+            ],
+            "radius_order": [
+              3,
+              10
+            ]
+          },
+          {
+            "centers": [
+              3,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              4
+            ],
+            "midpoint_distance_order": [
+              3,
+              11
+            ],
+            "radius_order": [
+              3,
+              11
+            ]
+          },
+          {
+            "centers": [
+              4,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              11
+            ],
+            "midpoint_distance_order": [
+              4,
+              9
+            ],
+            "radius_order": [
+              4,
+              9
+            ]
+          },
+          {
+            "centers": [
+              5,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              6
+            ],
+            "midpoint_distance_order": [
+              5,
+              7
+            ],
+            "radius_order": [
+              5,
+              7
+            ]
+          },
+          {
+            "centers": [
+              5,
+              8
+            ],
+            "common_witnesses": [
+              0,
+              7
+            ],
+            "midpoint_distance_order": [
+              5,
+              8
+            ],
+            "radius_order": [
+              5,
+              8
+            ]
+          },
+          {
+            "centers": [
+              5,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              6
+            ],
+            "midpoint_distance_order": [
+              5,
+              11
+            ],
+            "radius_order": [
+              5,
+              11
+            ]
+          },
+          {
+            "centers": [
+              6,
+              8
+            ],
+            "common_witnesses": [
+              7,
+              9
+            ],
+            "midpoint_distance_order": [
+              6,
+              8
+            ],
+            "radius_order": [
+              6,
+              8
+            ]
+          },
+          {
+            "centers": [
+              6,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              10
+            ],
+            "midpoint_distance_order": [
+              6,
+              9
+            ],
+            "radius_order": [
+              6,
+              9
+            ]
+          },
+          {
+            "centers": [
+              7,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              8
+            ],
+            "midpoint_distance_order": [
+              7,
+              9
+            ],
+            "radius_order": [
+              7,
+              9
+            ]
+          },
+          {
+            "centers": [
+              8,
+              10
+            ],
+            "common_witnesses": [
+              5,
+              9
+            ],
+            "midpoint_distance_order": [
+              8,
+              10
+            ],
+            "radius_order": [
+              8,
+              10
+            ]
+          },
+          {
+            "centers": [
+              9,
+              11
+            ],
+            "common_witnesses": [
+              6,
+              10
+            ],
+            "midpoint_distance_order": [
+              9,
+              11
+            ],
+            "radius_order": [
+              9,
+              11
+            ]
+          }
+        ],
+        "survives_local_diagnostic": true
+      },
+      "atom_equal_mixed_escape_branch": {
+        "branch_semantics": {
+          "equal": "r_y=r_z; the common-witness midpoint is also the center-chord midpoint, giving X_y+X_z-X_u-X_v=0 on each coordinate axis",
+          "strict": "radius_order [y,z] means r_y<r_z and therefore |y-m|<|z-m| for the common-witness midpoint m"
+        },
+        "coordinate_collision_obstruction": false,
+        "equal_relation_count": 2,
+        "equal_relations": [
+          {
+            "centers": [
+              0,
+              3
+            ],
+            "common_witnesses": [
+              2,
+              4
+            ]
+          },
+          {
+            "centers": [
+              6,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              10
+            ]
+          }
+        ],
+        "forced_point_equal_classes": [],
+        "midpoint_equation_rows": [
+          [
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            -1,
+            1,
+            -1,
+            0
+          ]
+        ],
+        "midpoint_matrix_rank": 2,
+        "radius_equal_components": [
+          [
+            0,
+            3
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "radius_equality_closed": true,
+        "strict_radius_acyclic": true,
+        "strict_radius_component_order": [
+          [
+            0,
+            3
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "strict_relation_count": 16,
+        "strict_relations": [
+          {
+            "centers": [
+              0,
+              2
+            ],
+            "common_witnesses": [
+              1,
+              3
+            ],
+            "midpoint_distance_order": [
+              0,
+              2
+            ],
+            "radius_order": [
+              0,
+              2
+            ]
+          },
+          {
+            "centers": [
+              1,
+              4
+            ],
+            "common_witnesses": [
+              3,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              4
+            ],
+            "radius_order": [
+              1,
+              4
+            ]
+          },
+          {
+            "centers": [
+              1,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              9
+            ],
+            "radius_order": [
+              1,
+              9
+            ]
+          },
+          {
+            "centers": [
+              1,
+              10
+            ],
+            "common_witnesses": [
+              9,
+              11
+            ],
+            "midpoint_distance_order": [
+              1,
+              10
+            ],
+            "radius_order": [
+              1,
+              10
+            ]
+          },
+          {
+            "centers": [
+              2,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              5
+            ],
+            "midpoint_distance_order": [
+              2,
+              7
+            ],
+            "radius_order": [
+              2,
+              7
+            ]
+          },
+          {
+            "centers": [
+              3,
+              8
+            ],
+            "common_witnesses": [
+              0,
+              5
+            ],
+            "midpoint_distance_order": [
+              3,
+              8
+            ],
+            "radius_order": [
+              3,
+              8
+            ]
+          },
+          {
+            "centers": [
+              3,
+              10
+            ],
+            "common_witnesses": [
+              2,
+              5
+            ],
+            "midpoint_distance_order": [
+              3,
+              10
+            ],
+            "radius_order": [
+              3,
+              10
+            ]
+          },
+          {
+            "centers": [
+              3,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              4
+            ],
+            "midpoint_distance_order": [
+              3,
+              11
+            ],
+            "radius_order": [
+              3,
+              11
+            ]
+          },
+          {
+            "centers": [
+              4,
+              9
+            ],
+            "common_witnesses": [
+              8,
+              11
+            ],
+            "midpoint_distance_order": [
+              4,
+              9
+            ],
+            "radius_order": [
+              4,
+              9
+            ]
+          },
+          {
+            "centers": [
+              5,
+              7
+            ],
+            "common_witnesses": [
+              1,
+              6
+            ],
+            "midpoint_distance_order": [
+              5,
+              7
+            ],
+            "radius_order": [
+              5,
+              7
+            ]
+          },
+          {
+            "centers": [
+              5,
+              8
+            ],
+            "common_witnesses": [
+              0,
+              7
+            ],
+            "midpoint_distance_order": [
+              5,
+              8
+            ],
+            "radius_order": [
+              5,
+              8
+            ]
+          },
+          {
+            "centers": [
+              5,
+              11
+            ],
+            "common_witnesses": [
+              0,
+              6
+            ],
+            "midpoint_distance_order": [
+              5,
+              11
+            ],
+            "radius_order": [
+              5,
+              11
+            ]
+          },
+          {
+            "centers": [
+              6,
+              8
+            ],
+            "common_witnesses": [
+              7,
+              9
+            ],
+            "midpoint_distance_order": [
+              6,
+              8
+            ],
+            "radius_order": [
+              6,
+              8
+            ]
+          },
+          {
+            "centers": [
+              7,
+              9
+            ],
+            "common_witnesses": [
+              6,
+              8
+            ],
+            "midpoint_distance_order": [
+              9,
+              7
+            ],
+            "radius_order": [
+              9,
+              7
+            ]
+          },
+          {
+            "centers": [
+              8,
+              10
+            ],
+            "common_witnesses": [
+              5,
+              9
+            ],
+            "midpoint_distance_order": [
+              8,
+              10
+            ],
+            "radius_order": [
+              8,
+              10
+            ]
+          },
+          {
+            "centers": [
+              9,
+              11
+            ],
+            "common_witnesses": [
+              6,
+              10
+            ],
+            "midpoint_distance_order": [
+              9,
+              11
+            ],
+            "radius_order": [
+              9,
+              11
+            ]
+          }
+        ],
+        "survives_local_diagnostic": true
+      },
+      "n": 12,
+      "name": "block6_two_block_survivor_extension_3",
+      "selected_rows": {
+        "0": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "1": [
+          3,
+          6,
+          9,
+          11
+        ],
+        "10": [
+          2,
+          5,
+          9,
+          11
+        ],
+        "11": [
+          0,
+          4,
+          6,
+          10
+        ],
+        "2": [
+          1,
+          3,
+          5,
+          10
+        ],
+        "3": [
+          0,
+          2,
+          4,
+          5
+        ],
+        "4": [
+          0,
+          3,
+          8,
+          11
+        ],
+        "5": [
+          0,
+          1,
+          6,
+          7
+        ],
+        "6": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "7": [
+          1,
+          5,
+          6,
+          8
+        ],
+        "8": [
+          0,
+          5,
+          7,
+          9
+        ],
+        "9": [
+          6,
+          8,
+          10,
+          11
+        ]
+      },
+      "two_overlap_relation_count": 18,
+      "two_overlap_relations": [
+        {
+          "centers": [
+            0,
+            2
+          ],
+          "common_witnesses": [
+            1,
+            3
+          ]
+        },
+        {
+          "centers": [
+            0,
+            3
+          ],
+          "common_witnesses": [
+            2,
+            4
+          ]
+        },
+        {
+          "centers": [
+            1,
+            4
+          ],
+          "common_witnesses": [
+            3,
+            11
+          ]
+        },
+        {
+          "centers": [
+            1,
+            9
+          ],
+          "common_witnesses": [
+            6,
+            11
+          ]
+        },
+        {
+          "centers": [
+            1,
+            10
+          ],
+          "common_witnesses": [
+            9,
+            11
+          ]
+        },
+        {
+          "centers": [
+            2,
+            7
+          ],
+          "common_witnesses": [
+            1,
+            5
+          ]
+        },
+        {
+          "centers": [
+            3,
+            8
+          ],
+          "common_witnesses": [
+            0,
+            5
+          ]
+        },
+        {
+          "centers": [
+            3,
+            10
+          ],
+          "common_witnesses": [
+            2,
+            5
+          ]
+        },
+        {
+          "centers": [
+            3,
+            11
+          ],
+          "common_witnesses": [
+            0,
+            4
+          ]
+        },
+        {
+          "centers": [
+            4,
+            9
+          ],
+          "common_witnesses": [
+            8,
+            11
+          ]
+        },
+        {
+          "centers": [
+            5,
+            7
+          ],
+          "common_witnesses": [
+            1,
+            6
+          ]
+        },
+        {
+          "centers": [
+            5,
+            8
+          ],
+          "common_witnesses": [
+            0,
+            7
+          ]
+        },
+        {
+          "centers": [
+            5,
+            11
+          ],
+          "common_witnesses": [
+            0,
+            6
+          ]
+        },
+        {
+          "centers": [
+            6,
+            8
+          ],
+          "common_witnesses": [
+            7,
+            9
+          ]
+        },
+        {
+          "centers": [
+            6,
+            9
+          ],
+          "common_witnesses": [
+            8,
+            10
+          ]
+        },
+        {
+          "centers": [
+            7,
+            9
+          ],
+          "common_witnesses": [
+            6,
+            8
+          ]
+        },
+        {
+          "centers": [
+            8,
+            10
+          ],
+          "common_witnesses": [
+            5,
+            9
+          ]
+        },
+        {
+          "centers": [
+            9,
+            11
+          ],
+          "common_witnesses": [
+            6,
+            10
+          ]
+        }
+      ]
+    }
+  ],
+  "catalog_sha256": "3d64b404cce68cb1028421ee5a2a5c08aaf6956324e543642f46cdf894c9585e",
+  "claim_scope": "Exact local trichotomy for selected row pairs sharing two witnesses, plus bounded branch diagnostics on one block-6 atom and two fixed twelve-row controls. It neither forces a radius branch nor proves Euclidean realizability, catalog entry, n=9 or n=10, Erdos Problem #97, a counterexample, or an official/global status update.",
+  "conclusion": "The equal-radius branch is an exact rhombus/midpoint branch. Making all two-overlap radii equal collapses all twelve point labels in both full-row controls, but the two genuine block-6 atom equalities can coexist with an acyclic strict ordering on every other relation. Thus this lemma prunes a real metric branch but does not yet force entry into the three-halo hinge/splice endgame.",
+  "limitations": [
+    "The diagnostic does not decide which equality or strict branch geometry selects.",
+    "A surviving branch is only algebraic/order consistency, not a Euclidean realization.",
+    "The two twelve-row benchmarks are fixed selected-row systems and fixed labels.",
+    "No general proof, counterexample, or official/global status update is claimed."
+  ],
+  "provenance": {
+    "command": "python scripts/check_fragile_radius_midpoint.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_fragile_radius_midpoint.py"
+  },
+  "schema": "erdos97.fragile_radius_midpoint.v1",
+  "status": "EXACT_LOCAL_RADIUS_MIDPOINT_TRICHOTOMY_DIAGNOSTIC",
+  "summary": {
+    "all_benchmarks_have_a_surviving_branch": true,
+    "all_equal_collision_obstructions": 2,
+    "atom_equal_mixed_escape_branches": 3,
+    "benchmarks_checked": 3,
+    "two_overlap_relation_counts": {
+      "block6_geometric_atom": 1,
+      "block6_two_block_survivor_extension_3": 18,
+      "two_block_full_extension_no_forward_ear": 18
+    }
+  },
+  "theorem_replay": {
+    "equal_radius_crossing_conclusion": "When y and z are distinct and m lies between them on the perpendicular bisector, r_y=r_z iff s+t=0; hence m is also the midpoint of yz and the alternating four-point figure is a rhombus.",
+    "normalized_factorization_verified": true,
+    "normalized_radius_factorization": "r_y^2-r_z^2=(s-t)(s+t)",
+    "polynomial_identity": "2*(r_y^2-r_z^2-(|y-m|^2-|z-m|^2)) = (|y-u|^2-|y-v|^2)-(|z-u|^2-|z-v|^2)",
+    "polynomial_identity_verified": true
+  },
+  "trust": "EXACT_LEMMA_AND_BOUNDED_NEGATIVE_CONTROL"
+}

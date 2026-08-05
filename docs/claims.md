@@ -767,6 +767,29 @@ If exact rational row reduction of all such midpoint equations forces
 selected-witness pattern obstruction, not a proof against other possible
 4-subset selections on the same hypothetical coordinate set.
 
+### Critical-radius midpoint trichotomy
+
+Status: `EXACT_LOCAL_LEMMA` with bounded negative-control diagnostics.
+
+If two selected-row centers `y,z` share exactly the witnesses `{u,v}` and `m`
+is the midpoint of `uv`, their selected radii satisfy
+
+```text
+r_y^2-r_z^2 = |y-m|^2-|z-m|^2.
+```
+
+The equal-radius branch makes `m` the midpoint of `yz`, so the alternating
+four-point figure is a rhombus and each coordinate satisfies
+`X_y+X_z-X_u-X_v=0`. The two unequal branches strictly order the centers by
+distance from `m`. The exact checker rejects the branch making all 18
+two-overlap relations equal in each of two fixed twelve-row controls: the
+resulting rank-11 midpoint system collapses all 12 point labels. However, both
+controls retain a mixed escape with the two genuine block-6 relations equal
+and the other 16 relations strictly and acyclically ordered. Thus this is a
+real metric branch filter, not a bridge closure or a forcing lemma. See
+`docs/fragile-critical-radius-midpoint.md` and
+`scripts/check_fragile_radius_midpoint.py`.
+
 ### Pair and triple sharing
 
 For an unordered pair `{a,b}`, at most two polygon vertices `x` satisfy

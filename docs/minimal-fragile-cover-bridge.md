@@ -618,5 +618,13 @@ minimal counterexample:
    ordering, row-circle exact constraints, or a bounded ordinary-distance
    Kalmanson consequence of a fragile matching cycle and its halos.
 
+The first critical-radius layer is now isolated in
+`docs/fragile-critical-radius-midpoint.md`. For every two-overlap it branches
+between an exact equal-radius rhombus equation and two strict radius orders.
+On both fixed twelve-row controls the all-equal branch collapses all point
+labels, but the two block-atom equalities plus 16 acyclic strict branches still
+survive. Consequently a useful next lemma must force radius branches from the
+active-halo geometry; the two-overlap graph by itself cannot do so.
+
 This is a foothold toward a bridge theorem, not the central ear-orderable
 bridge itself.

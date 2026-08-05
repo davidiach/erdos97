@@ -93,6 +93,18 @@ six-role splice in `S08`. The next step should force one of those three motifs
 from genuine active-halo geometry; extending the halo count is not that entry
 argument.
 
+The exact critical-radius midpoint follow-up
+`python scripts/check_fragile_radius_midpoint.py --check --assert-expected --summary-json`
+now supplies one such geometric branch rule for every two-overlap. An
+equal-radius pair forces a rhombus midpoint equation; unequal radii strictly
+order the centers by distance from the common-witness midpoint. The all-equal
+branch collapses all 12 point labels in each of two fixed full-row controls,
+but the two genuine block-6 equalities plus 16 acyclic strict branches survive
+in both. The next useful step is therefore not another two-overlap census: it
+must use the `23=27` active-halo geometry to force enough equality branches or
+strict directions to reach one of the three hinge/splice motifs or a radius
+cycle.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an
