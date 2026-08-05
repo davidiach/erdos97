@@ -7,16 +7,18 @@
     "coefficient_arithmetic": "exact integers",
     "cyclic_order_rule": "Relabel each source halo placement by its stored natural cyclic order 0,1,...,9.",
     "n": 10,
+    "selected_core_minimality_scope": "Minimum only within the searched one-row self-edge or two-row inverse-pair certificate family; no minimum over arbitrary wider positive combinations is claimed.",
     "selected_core_rule": "Minimize selected-row cardinality at the state's minimum strict support; exhaust and count all hits at that width.",
     "strict_candidate_count": 420,
     "strict_row_family": "Both strict Kalmanson inequalities for every four-label subsequence of the natural cyclic order."
   },
   "claim_scope": "Exact natural-order Kalmanson certificates for the thirteen fixed eight-row states in the fragile-cycle three-halo deep-frontier packet. Each certificate applies only to its encoded partial selected-row system and cyclic order. This does not force the quotient or halo placement from minimal-counterexample geometry, does not prove n=10 or Erdos Problem #97, and is not a counterexample.",
   "conclusion": "Every stored clean eight-row three-halo frontier state contains a three-selected-row natural-order Kalmanson obstruction: eleven use one strict self-edge and two use an exact two-inequality inverse pair.",
-  "kalmanson_endgame_catalog_sha256": "b624cc8772fc50bd2cd924608b35e8769b6aa717167814d84936348fb9501eb5",
+  "kalmanson_endgame_catalog_sha256": "ef3fe4aea1975f491f25af286a69e52ad239f15320538044b1803e0adcca10bf",
   "limitations": [
     "The packet starts from the thirteen stored fixed three-halo deep-frontier states; it does not force any state from geometry.",
     "Every certificate uses the cyclic order attached to its source halo placement; no all-order statement is claimed.",
+    "The three-row minimum is only within the searched one-row self-edge or two-row inverse-pair certificate family, not arbitrary wider positive combinations.",
     "The three-row core conclusion is a finite catalog compression, not a universal fragile-cycle lemma.",
     "No proof of n=10, general proof, counterexample, or official/global status update is claimed."
   ],
@@ -69,7 +71,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 4,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 4,
         "subsets_checked_by_width": {
           "0": 1,
@@ -201,7 +203,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 4,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 3,
         "subsets_checked_by_width": {
           "0": 1,
@@ -333,7 +335,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 5,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 4,
         "subsets_checked_by_width": {
           "0": 1,
@@ -465,7 +467,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 3,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 3,
         "subsets_checked_by_width": {
           "0": 1,
@@ -597,7 +599,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 3,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 3,
         "subsets_checked_by_width": {
           "0": 1,
@@ -729,7 +731,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 6,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 5,
         "subsets_checked_by_width": {
           "0": 1,
@@ -861,7 +863,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 6,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 5,
         "subsets_checked_by_width": {
           "0": 1,
@@ -994,7 +996,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 56,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 36,
         "subsets_checked_by_width": {
           "0": 1,
@@ -1170,7 +1172,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 3,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 3,
         "subsets_checked_by_width": {
           "0": 1,
@@ -1302,7 +1304,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 2,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 2,
         "subsets_checked_by_width": {
           "0": 1,
@@ -1435,7 +1437,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 22,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 20,
         "subsets_checked_by_width": {
           "0": 1,
@@ -1611,7 +1613,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 1,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 1,
         "subsets_checked_by_width": {
           "0": 1,
@@ -1743,7 +1745,7 @@
       },
       "minimum_core_search": {
         "full_state_obstruction_count_at_minimum_strict_support": 2,
-        "minimality": "All selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
+        "minimality": "At the state's selected strict support (one self-edge if available, otherwise two inverse rows), all selected-row subsets of smaller cardinality were exhausted; every obstruction at the first successful width was enumerated before deterministic selection.",
         "strict_candidate_count_at_minimum_width": 1,
         "subsets_checked_by_width": {
           "0": 1,

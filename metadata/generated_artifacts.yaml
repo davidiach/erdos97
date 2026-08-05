@@ -1716,8 +1716,8 @@ artifacts:
 
   - id: fragile_cycle_three_halo_kalmanson_endgame
     path: data/certificates/fragile_cycle_three_halo_kalmanson_endgame.json
-    sha256: ae05a8653423b8356ce89bf742ee8f44214e765649b31fb9cdec64964985d916
-    size_bytes: 38723
+    sha256: 21cac6ed94c4fcff2b9e03cfa66a86a3746a60871330021a3ce5ceb666f78629
+    size_bytes: 40348
     kind: exact_bounded_three_halo_kalmanson_endgame_artifact
     generator: scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py
     command: python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --write --assert-expected --summary-json
@@ -1730,9 +1730,11 @@ artifacts:
       Exact natural-order Kalmanson certificates for the 13 fixed eight-row
       states in the fragile-cycle three-halo deep-frontier packet. Every
       selected certificate uses exactly three selected rows; 11 use one
-      strict self-edge and two use exact inverse pairs. Not an all-order
-      result, Euclidean realizability, a fragile-cycle forcing lemma, n=10, a
-      general proof, a counterexample, or an official/global status update.
+      strict self-edge and two use exact inverse pairs. Three-row minimality is
+      only within that one-self-edge/two-inverse-row certificate family, not
+      arbitrary wider positive combinations. Not an all-order result,
+      Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general
+      proof, a counterexample, or an official/global status update.
     json_top_level_type: object
     expected_json:
       schema: erdos97.fragile_cycle_three_halo_kalmanson_endgame.v1
@@ -1752,10 +1754,11 @@ artifacts:
       summary.maximum_selected_core_width: 3
       summary.all_states_exactly_obstructed: true
       summary.all_selected_certificates_zero_sum: true
-      kalmanson_endgame_catalog_sha256: b624cc8772fc50bd2cd924608b35e8769b6aa717167814d84936348fb9501eb5
+      kalmanson_endgame_catalog_sha256: ef3fe4aea1975f491f25af286a69e52ad239f15320538044b1803e0adcca10bf
       provenance.command: python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --write --assert-expected --summary-json
     forbidden_claims:
       - all cyclic orders are closed
+      - minimum over arbitrary Kalmanson positive combinations
       - Euclidean realization
       - a fragile-cycle forcing lemma is proved
       - n=10 is proved

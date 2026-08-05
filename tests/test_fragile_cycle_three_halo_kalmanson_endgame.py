@@ -33,6 +33,9 @@ def test_stored_kalmanson_endgame_matches_expected() -> None:
     assert payload["kalmanson_endgame_catalog_sha256"] == EXPECTED_CATALOG_SHA256
     assert payload["strict_support_histogram"] == {"1": 11, "2": 2}
     assert payload["selected_core_width_histogram"] == {"3": 13}
+    assert "arbitrary wider positive combinations" in payload[
+        "certificate_contract"
+    ]["selected_core_minimality_scope"]
 
 
 def test_every_selected_certificate_replays_from_three_partial_rows() -> None:

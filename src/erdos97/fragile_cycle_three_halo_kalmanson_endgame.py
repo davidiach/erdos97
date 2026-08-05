@@ -3,8 +3,8 @@
 The source packet contains thirteen fixed eight-row partial selected-witness
 systems on ten cyclically ordered labels.  This module quotients ordinary
 pair-distance variables by those partial selected equalities and extracts a
-minimum selected-row core supporting either one strict Kalmanson self-edge or
-an exact two-row inverse pair.
+minimum selected-row core within the searched certificate family: either one
+strict Kalmanson self-edge or an exact two-row inverse pair.
 
 Everything here is a bounded fixed-order certificate diagnostic.  In
 particular, the module does not force the source quotient from geometry and
@@ -70,7 +70,7 @@ EXPECTED_KIND_COUNTS = {
     "K2_diag_gt_other": 11,
 }
 EXPECTED_CATALOG_SHA256 = (
-    "b624cc8772fc50bd2cd924608b35e8769b6aa717167814d84936348fb9501eb5"
+    "ef3fe4aea1975f491f25af286a69e52ad239f15320538044b1803e0adcca10bf"
 )
 
 CenteredRow = tuple[int, tuple[int, int, int, int]]
@@ -433,9 +433,11 @@ def kalmanson_endgame_payload(source: Mapping[str, Any]) -> dict[str, Any]:
                     full_obstruction_count
                 ),
                 "minimality": (
-                    "All selected-row subsets of smaller cardinality were "
-                    "exhausted; every obstruction at the first successful "
-                    "width was enumerated before deterministic selection."
+                    "At the state's selected strict support (one self-edge if "
+                    "available, otherwise two inverse rows), all selected-row "
+                    "subsets of smaller cardinality were exhausted; every "
+                    "obstruction at the first successful width was enumerated "
+                    "before deterministic selection."
                 ),
             },
         }
@@ -480,6 +482,11 @@ def kalmanson_endgame_payload(source: Mapping[str, Any]) -> dict[str, Any]:
                 "Minimize selected-row cardinality at the state's minimum "
                 "strict support; exhaust and count all hits at that width."
             ),
+            "selected_core_minimality_scope": (
+                "Minimum only within the searched one-row self-edge or "
+                "two-row inverse-pair certificate family; no minimum over "
+                "arbitrary wider positive combinations is claimed."
+            ),
             "coefficient_arithmetic": "exact integers",
         },
         "state_certificate_count": len(certificates),
@@ -510,6 +517,7 @@ def kalmanson_endgame_payload(source: Mapping[str, Any]) -> dict[str, Any]:
         "limitations": [
             "The packet starts from the thirteen stored fixed three-halo deep-frontier states; it does not force any state from geometry.",
             "Every certificate uses the cyclic order attached to its source halo placement; no all-order statement is claimed.",
+            "The three-row minimum is only within the searched one-row self-edge or two-row inverse-pair certificate family, not arbitrary wider positive combinations.",
             "The three-row core conclusion is a finite catalog compression, not a universal fragile-cycle lemma.",
             "No proof of n=10, general proof, counterexample, or official/global status update is claimed.",
         ],

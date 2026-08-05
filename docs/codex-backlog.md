@@ -81,7 +81,9 @@ now shows that all 13 deep states already contain an exact Kalmanson
 obstruction on exactly three selected rows. Eleven use one strict self-edge;
 states `S08` and `S11` use unit-weight two-inequality inverse pairs. This
 supplies a compact ordinary-distance endgame once the fixed catalog is
-reached. The remaining high-leverage target is the geometric entry lemma:
+reached. Its three-row minimality is only within that one-self-edge/
+two-inverse-row certificate family, not arbitrary wider positive
+combinations. The remaining high-leverage target is the geometric entry lemma:
 force the `23=27` core plus one of these three-row cores, or force a separately
 checked rich-class/deletion alternative. Extending the halo count is not that
 entry argument.

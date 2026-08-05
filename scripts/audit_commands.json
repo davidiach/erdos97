@@ -594,7 +594,7 @@
         "--assert-expected",
         "--summary-json"
       ],
-      "claim_scope": "Exact natural-order Kalmanson compression of the 13 fixed three-halo deep states into three-selected-row cores, with 11 strict self-edges and two inverse pairs; not an all-order result, Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general proof, a counterexample, or an official/global status update."
+      "claim_scope": "Exact natural-order Kalmanson compression of the 13 fixed three-halo deep states into three-selected-row cores, with 11 strict self-edges and two inverse pairs; three-row minimality is only within that one-self-edge/two-inverse-row family, not arbitrary wider positive combinations; not an all-order result, Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general proof, a counterexample, or an official/global status update."
     },
     {
       "id": "n9_vertex_circle_input_audit",

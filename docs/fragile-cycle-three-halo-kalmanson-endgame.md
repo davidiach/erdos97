@@ -34,10 +34,14 @@ using exactly three of its eight selected rows.
 | One strict row collapses to equality | 11 | 1 each | 3 each |
 | Two strict rows form an inverse pair | 2 | 2 each | 3 each |
 
-The selected-row width is exactly three in every state: the checker exhausts
-all subsets of widths zero, one, and two before enumerating every obstruction
-at width three. Across the deterministically selected certificates there are
-fifteen strict rows: four of Kalmanson kind `K1` and eleven of kind `K2`.
+Within the searched certificate family, the selected-row width is exactly
+three in every state. The family uses one strict self-edge when one exists and
+otherwise a two-inequality inverse pair. At that selected strict support, the
+checker exhausts all subsets of widths zero, one, and two before enumerating
+every obstruction at width three. This is not a minimum over arbitrary wider
+positive combinations of Kalmanson inequalities. Across the deterministically
+selected certificates there are fifteen strict rows: four of Kalmanson kind `K1`
+and eleven of kind `K2`.
 
 Thus the thirteen states need neither a ninth selected row nor the 1,386-row
 incidence rejection ledger once natural cyclic-order metric information is
@@ -97,7 +101,8 @@ For every state the artifact stores:
 - an independent exact replay of the combined zero coefficient vector.
 
 No floating-point optimization result is part of the certificate. The search
-uses only exact integer quotient vectors and exhaustive finite enumeration.
+uses only exact integer quotient vectors and exhaustive finite enumeration
+within the stated one-/two-strict-row certificate family.
 
 ## Scope and next target
 
