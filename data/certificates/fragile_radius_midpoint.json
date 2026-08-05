@@ -3417,5 +3417,5 @@
     "polynomial_identity": "2*(r_y^2-r_z^2-(|y-m|^2-|z-m|^2)) = (|y-u|^2-|y-v|^2)-(|z-u|^2-|z-v|^2)",
     "polynomial_identity_verified": true
   },
-  "trust": "EXACT_LEMMA_AND_BOUNDED_NEGATIVE_CONTROL"
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
 }

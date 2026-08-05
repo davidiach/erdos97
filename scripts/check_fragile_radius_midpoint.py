@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "fragile_radius_midpoint.json"
 SCHEMA = "erdos97.fragile_radius_midpoint.v1"
 STATUS = "EXACT_LOCAL_RADIUS_MIDPOINT_TRICHOTOMY_DIAGNOSTIC"
-TRUST = "EXACT_LEMMA_AND_BOUNDED_NEGATIVE_CONTROL"
+TRUST = "EXACT_CERTIFICATE_DIAGNOSTIC"
 EXPECTED_CATALOG_SHA256 = (
     "3d64b404cce68cb1028421ee5a2a5c08aaf6956324e543642f46cdf894c9585e"
 )

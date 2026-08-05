@@ -1816,6 +1816,51 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_radius_midpoint
+    path: data/certificates/fragile_radius_midpoint.json
+    sha256: 8475563baaa2a1ecd8d92e8a17938364acfbfda65807bab97dae3dc73c86e608
+    size_bytes: 64067
+    kind: exact_local_radius_midpoint_diagnostic_artifact
+    generator: scripts/check_fragile_radius_midpoint.py
+    command: python scripts/check_fragile_radius_midpoint.py --write --assert-expected --summary-json
+    checker: scripts/check_fragile_radius_midpoint.py
+    check_command: python scripts/check_fragile_radius_midpoint.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact local equal-radius rhombus and unequal-radius midpoint-distance
+      trichotomy for two-overlap selected rows, plus bounded diagnostics on one
+      block-6 atom and two fixed twelve-row controls. The all-equal branch is
+      rejected on both full-row controls, but explicit mixed branches survive.
+      Not branch forcing, geometric realizability, catalog entry, n=9 or n=10,
+      a general proof, a counterexample, or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_radius_midpoint.v1
+      status: EXACT_LOCAL_RADIUS_MIDPOINT_TRICHOTOMY_DIAGNOSTIC
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      theorem_replay.polynomial_identity_verified: true
+      theorem_replay.normalized_factorization_verified: true
+      summary.benchmarks_checked: 3
+      summary.two_overlap_relation_counts.block6_geometric_atom: 1
+      summary.two_overlap_relation_counts.two_block_full_extension_no_forward_ear: 18
+      summary.two_overlap_relation_counts.block6_two_block_survivor_extension_3: 18
+      summary.all_equal_collision_obstructions: 2
+      summary.atom_equal_mixed_escape_branches: 3
+      summary.all_benchmarks_have_a_surviving_branch: true
+      catalog_sha256: 3d64b404cce68cb1028421ee5a2a5c08aaf6956324e543642f46cdf894c9585e
+      provenance.command: python scripts/check_fragile_radius_midpoint.py --write --assert-expected --summary-json
+    forbidden_claims:
+      - radius equality or a strict radius direction is forced
+      - a surviving branch is a Euclidean realization
+      - entry into the three-halo motif catalog is proved
+      - n=9 or n=10 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30
