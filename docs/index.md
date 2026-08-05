@@ -304,6 +304,10 @@ put detailed reconciliation in the canonical synthesis.
   exact zero-, one-, and two-halo completion frontier for the center-injective
   seven-role quotient, including six full `n=9` extension witnesses and their
   stored positive circuits; bounded abstract evidence only.
+- [`fragile-cycle-three-halo-vertex-circle.md`](fragile-cycle-three-halo-vertex-circle.md):
+  exact three-halo closure of the same fixed quotient core across 84 canonical
+  placements and 141,750 essential covers, with no full vertex-circle-clean
+  selected-row extension; bounded abstract `n=10` slice only.
 - [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
   `T4`/`T5`/`T44` classification for centers made good by deleting two
   vertices, with pair capacities and the exclusive-mutual-pair corollary.

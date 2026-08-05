@@ -123,10 +123,18 @@ controls. A useful general Contract F lemma still has to extract genuine
 ordinary-distance convex information from a fragile matching cycle and its
 halos.
 
+The separate three-halo continuation in
+`docs/fragile-cycle-three-halo-vertex-circle.md` exhausts all 84 canonical
+placements and finds no full vertex-circle-clean extension. It closes that
+fixed abstract slice but still does not control arbitrary halo systems.
+
 ## Replay
 
 ```bash
 python scripts/check_fragile_cycle_halo_lift_frontier.py \
+  --check --assert-expected --summary-json
+
+python scripts/check_fragile_cycle_three_halo_vertex_circle.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_cycle_quotient_hierarchy.py \

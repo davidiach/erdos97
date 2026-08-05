@@ -1627,6 +1627,47 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_cycle_three_halo_vertex_circle
+    path: data/certificates/fragile_cycle_three_halo_vertex_circle.json
+    sha256: a914f9d8dee41f63eb6ef53ee200deb526cf98af7163aeb91e6a238873f6aeff
+    size_bytes: 104027
+    kind: exact_bounded_three_halo_vertex_circle_artifact
+    generator: scripts/check_fragile_cycle_three_halo_vertex_circle.py
+    command: python scripts/check_fragile_cycle_three_halo_vertex_circle.py --write --assert-expected
+    checker: scripts/check_fragile_cycle_three_halo_vertex_circle.py
+    check_command: python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact bounded abstract n=10 closure of the fixed 23=27 seven-role
+      quotient core with exactly three formal halo roles. Exhausts all 84
+      canonical placements, 141750 essential retained covers, and their full
+      selected-row extension searches under the vertex-circle quotient. Not
+      Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general
+      proof, a counterexample, or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_three_halo_vertex_circle.v1
+      status: EXACT_BOUNDED_THREE_HALO_VERTEX_CIRCLE_CLOSURE
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      placement_count: 84
+      aggregate.essential_cover_count: 141750
+      aggregate.extension_candidate_count: 420682
+      aggregate.full_vertex_circle_survivor_count: 0
+      summary.all_three_halo_placements_exhausted: true
+      summary.fixed_three_halo_slice_closed: true
+      catalog_trace_sha256: 06132f8cf83fa5015596a1d384c5cdff5aa90d857cd66a5c264392a1bdae2c56
+      provenance.command: python scripts/check_fragile_cycle_three_halo_vertex_circle.py --write --assert-expected
+    forbidden_claims:
+      - Euclidean realization
+      - a fragile-cycle forcing lemma is proved
+      - n=10 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30

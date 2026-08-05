@@ -295,10 +295,12 @@ Useful evidence:
 - `docs/fragile-turn-pivot-bridge-audit.md`
 - `docs/fragile-cycle-quotient-hierarchy.md`
 - `docs/fragile-cycle-halo-lift-frontier.md`
+- `docs/fragile-cycle-three-halo-vertex-circle.md`
 - `data/certificates/n9_fragile_turn_pivot_crosswalk.json`
 - `data/certificates/fragile_turn_pivot_guardrail.json`
 - `data/certificates/fragile_cycle_quotient_hierarchy.json`
 - `data/certificates/fragile_cycle_halo_lift_frontier.json`
+- `data/certificates/fragile_cycle_three_halo_vertex_circle.json`
 - `docs/turn-packing-bridge.md`
 - `docs/n9-kalmanson-three-row-core-compression.md`
 
@@ -329,6 +331,12 @@ six extendable covers, all already rejected by exact stored `n=9` positive
 circuits. This is finite proof-mining evidence only. Contract F still needs a
 geometric argument controlling arbitrary genuine halos and rejecting the
 `Z/16` and scalable controls for the right metric reason.
+
+The three-halo continuation closes the next fixed slice: all 84 canonical
+placements and 141,750 essential retained covers are exhausted, with no full
+selected-row extension surviving the vertex-circle quotient. This is still
+finite proof-mining evidence, not `n=10` or a forcing lemma; four or more halo
+roles remain outside the scan.
 
 ## Low-leverage moves to avoid
 
@@ -375,4 +383,5 @@ python scripts/check_n9_fragile_turn_pivot_crosswalk.py --check --assert-expecte
 python scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json
+python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
 ```

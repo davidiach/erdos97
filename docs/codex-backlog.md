@@ -57,6 +57,14 @@ that controls this core-plus-halo structure, or explain why a larger halo
 system forces a different certificate. Re-enumerating the same bounded
 incidence slice is not the missing Contract F lemma.
 
+The exact three-halo continuation
+`python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json`
+exhausts all 84 canonical placements and 141,750 essential retained covers at
+`n=10`; none extends to a full selected-row system that survives the
+vertex-circle quotient. This closes only the fixed three-halo abstract slice.
+The next useful PR should now seek the geometric core/halo forcing lemma or a
+reusable local obstruction, not add another unconstrained enumeration layer.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an
