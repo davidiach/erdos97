@@ -1767,6 +1767,55 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_cycle_three_halo_motif_crosswalk
+    path: data/certificates/fragile_cycle_three_halo_motif_crosswalk.json
+    sha256: 91771b3190e88059d25195916ac0d8dbc81f1852a5690526e4a903a285bb5260
+    size_bytes: 29852
+    kind: exact_bounded_three_halo_motif_crosswalk_artifact
+    generator: scripts/check_fragile_cycle_three_halo_motif_crosswalk.py
+    command: python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --write --assert-expected --summary-json
+    checker: scripts/check_fragile_cycle_three_halo_motif_crosswalk.py
+    check_command: python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact motif compression of the 13 fixed three-halo Kalmanson endgame
+      certificates into 11 equilateral hinges, one five-role splice, and one
+      six-role splice. The two generic splice identities are replayed with
+      exact coefficient vectors and inclusion-minimal three-equality
+      footprints. Not motif occurrence or geometric forcing, an all-order
+      result, n=10, a general proof, a counterexample, or an official/global
+      status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_three_halo_motif_crosswalk.v1
+      status: EXACT_BOUNDED_HINGE_SPLICE_MOTIF_CROSSWALK
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      source_artifact.kalmanson_endgame_catalog_sha256: ef3fe4aea1975f491f25af286a69e52ad239f15320538044b1803e0adcca10bf
+      motif_class_count: 3
+      motif_class_counts.equilateral_hinge: 11
+      motif_class_counts.five_role_K2_K1_splice: 1
+      motif_class_counts.six_role_K1_K2_splice: 1
+      reciprocal_selected_center_pair_count_histogram.0: 1
+      reciprocal_selected_center_pair_count_histogram.1: 12
+      summary.source_states_checked: 13
+      summary.hinge_free_splice_states: 2
+      summary.distinct_local_motif_classes: 3
+      summary.all_source_certificates_replayed: true
+      summary.all_states_classified_once: true
+      motif_crosswalk_catalog_sha256: 995db4351e5fddcaaaf33dc7ee700ed370bad33f8d6f69a6c82cce237da6f3d9
+      provenance.command: python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --write --assert-expected --summary-json
+    forbidden_claims:
+      - motif occurrence is forced
+      - all cyclic orders are closed
+      - geometric forcing from active halos
+      - n=10 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30
