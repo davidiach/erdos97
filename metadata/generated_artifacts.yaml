@@ -1586,6 +1586,187 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_cycle_halo_lift_frontier
+    path: data/certificates/fragile_cycle_halo_lift_frontier.json
+    sha256: 93603182d0c4cc4be20e163f4b10cadcf366359203f2495b87aefce4c130165f
+    size_bytes: 78690
+    kind: exact_bounded_halo_lift_artifact
+    generator: scripts/check_fragile_cycle_halo_lift_frontier.py
+    command: python scripts/check_fragile_cycle_halo_lift_frontier.py --write --assert-expected
+    checker: scripts/check_fragile_cycle_halo_lift_frontier.py
+    check_command: python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact bounded abstract zero-, one-, and two-halo completion frontier for
+      the proper seven-role quotients of the stored scalable four-row
+      Kalmanson circuit. The six n=9 full-extension witnesses are joined to
+      stored review-pending positive circuits. Not Euclidean realizability, a
+      fragile-cycle forcing lemma, n=9, a general proof, a counterexample, or
+      an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_halo_lift_frontier.v1
+      status: EXACT_BOUNDED_HALO_LIFT_DIAGNOSTIC
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      summary.minimum_added_halos_for_fragile_cover: 1
+      summary.minimum_added_halos_for_full_selected_extension: 2
+      summary.one_halo_essential_cover_count: 38
+      summary.two_halo_essential_cover_count: 7708
+      summary.two_halo_extendable_partial_cover_count: 6
+      summary.two_halo_canonical_full_system_count: 5
+      summary.all_n9_witnesses_have_exact_positive_circuit: true
+      provenance.command: python scripts/check_fragile_cycle_halo_lift_frontier.py --write --assert-expected
+    forbidden_claims:
+      - Euclidean realization
+      - a fragile-cycle forcing lemma is proved
+      - n=9 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
+  - id: fragile_cycle_three_halo_vertex_circle
+    path: data/certificates/fragile_cycle_three_halo_vertex_circle.json
+    sha256: a914f9d8dee41f63eb6ef53ee200deb526cf98af7163aeb91e6a238873f6aeff
+    size_bytes: 104027
+    kind: exact_bounded_three_halo_vertex_circle_artifact
+    generator: scripts/check_fragile_cycle_three_halo_vertex_circle.py
+    command: python scripts/check_fragile_cycle_three_halo_vertex_circle.py --write --assert-expected
+    checker: scripts/check_fragile_cycle_three_halo_vertex_circle.py
+    check_command: python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact bounded abstract n=10 closure of the fixed 23=27 seven-role
+      quotient core with exactly three formal halo roles. Exhausts all 84
+      canonical placements, 141750 essential retained covers, and their full
+      selected-row extension searches under the vertex-circle quotient. Not
+      Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general
+      proof, a counterexample, or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_three_halo_vertex_circle.v1
+      status: EXACT_BOUNDED_THREE_HALO_VERTEX_CIRCLE_CLOSURE
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      placement_count: 84
+      aggregate.essential_cover_count: 141750
+      aggregate.extension_candidate_count: 420682
+      aggregate.full_vertex_circle_survivor_count: 0
+      summary.all_three_halo_placements_exhausted: true
+      summary.fixed_three_halo_slice_closed: true
+      catalog_trace_sha256: 06132f8cf83fa5015596a1d384c5cdff5aa90d857cd66a5c264392a1bdae2c56
+      provenance.command: python scripts/check_fragile_cycle_three_halo_vertex_circle.py --write --assert-expected
+    forbidden_claims:
+      - Euclidean realization
+      - a fragile-cycle forcing lemma is proved
+      - n=10 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
+  - id: fragile_cycle_three_halo_deep_frontier
+    path: data/certificates/fragile_cycle_three_halo_deep_frontier.json
+    sha256: 78970c2662f06de0ad8463701992148c8bb84fb248662216e4c13bfadb7eb544
+    size_bytes: 59726
+    kind: exact_bounded_three_halo_deep_frontier_artifact
+    generator: scripts/check_fragile_cycle_three_halo_deep_frontier.py
+    command: python scripts/check_fragile_cycle_three_halo_deep_frontier.py --write --assert-expected
+    checker: scripts/check_fragile_cycle_three_halo_deep_frontier.py
+    check_command: python scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact bounded compression of the fixed three-halo n=10 search's final
+      layers into 13 clean eight-row states. Eleven have crossing-dead centers;
+      two force ninth rows and expose six minimum three-row quotient cores.
+      Not Euclidean realizability, a fragile-cycle forcing lemma, n=10, a
+      general proof, a counterexample, or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_three_halo_deep_frontier.v1
+      status: EXACT_BOUNDED_THREE_HALO_DEEP_FRONTIER_COMPRESSION
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      source_artifact.catalog_trace_sha256: 06132f8cf83fa5015596a1d384c5cdff5aa90d857cd66a5c264392a1bdae2c56
+      deep_frontier_state_count: 13
+      deep_placement_count: 7
+      dihedral_class_count: 13
+      minimum_obstruction_core_count: 6
+      incidence_rejection_totals.row_intersection_or_crossing: 1386
+      summary.incidence_dead_state_count: 11
+      summary.forced_ninth_row_state_count: 2
+      summary.minimum_forced_obstruction_core_width: 3
+      summary.maximum_forced_obstruction_core_width: 3
+      summary.all_deep_states_terminal: true
+      summary.all_minimum_cores_independently_replayed: true
+      deep_frontier_catalog_sha256: 73e1cabd1670fddd3452bba72c80880f3eeebbc574a4873de3905a1c33781765
+      provenance.command: python scripts/check_fragile_cycle_three_halo_deep_frontier.py --write --assert-expected
+    forbidden_claims:
+      - Euclidean realization
+      - a fragile-cycle forcing lemma is proved
+      - n=10 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
+  - id: fragile_cycle_three_halo_kalmanson_endgame
+    path: data/certificates/fragile_cycle_three_halo_kalmanson_endgame.json
+    sha256: 21cac6ed94c4fcff2b9e03cfa66a86a3746a60871330021a3ce5ceb666f78629
+    size_bytes: 40348
+    kind: exact_bounded_three_halo_kalmanson_endgame_artifact
+    generator: scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py
+    command: python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --write --assert-expected --summary-json
+    checker: scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py
+    check_command: python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact natural-order Kalmanson certificates for the 13 fixed eight-row
+      states in the fragile-cycle three-halo deep-frontier packet. Every
+      selected certificate uses exactly three selected rows; 11 use one
+      strict self-edge and two use exact inverse pairs. Three-row minimality is
+      only within that one-self-edge/two-inverse-row certificate family, not
+      arbitrary wider positive combinations. Not an all-order result,
+      Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general
+      proof, a counterexample, or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_three_halo_kalmanson_endgame.v1
+      status: EXACT_BOUNDED_FIXED_ORDER_KALMANSON_ENDGAME
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      source_artifact.deep_frontier_catalog_sha256: 73e1cabd1670fddd3452bba72c80880f3eeebbc574a4873de3905a1c33781765
+      state_certificate_count: 13
+      strict_support_histogram.1: 11
+      strict_support_histogram.2: 2
+      selected_core_width_histogram.3: 13
+      strict_kind_counts.K1_diag_gt_sides: 4
+      strict_kind_counts.K2_diag_gt_other: 11
+      summary.deep_states_checked: 13
+      summary.states_killed_by_one_strict_self_edge: 11
+      summary.states_killed_by_two_strict_inverse_pair: 2
+      summary.minimum_selected_core_width: 3
+      summary.maximum_selected_core_width: 3
+      summary.all_states_exactly_obstructed: true
+      summary.all_selected_certificates_zero_sum: true
+      kalmanson_endgame_catalog_sha256: ef3fe4aea1975f491f25af286a69e52ad239f15320538044b1803e0adcca10bf
+      provenance.command: python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --write --assert-expected --summary-json
+    forbidden_claims:
+      - all cyclic orders are closed
+      - minimum over arbitrary Kalmanson positive combinations
+      - Euclidean realization
+      - a fragile-cycle forcing lemma is proved
+      - n=10 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: n9_vertex_circle_local_core_packet
     path: data/certificates/n9_vertex_circle_local_core_packet.json
     sha256: d6eff2556d93338d15da665a7670ebb6bac2145238fe55789eb5dbbf84404d30

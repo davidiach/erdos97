@@ -1,0 +1,4517 @@
+{
+  "aggregate": {
+    "cover_count": 141750,
+    "essential_cover_count": 141750,
+    "extension_candidate_count": 420682,
+    "extension_candidate_status_counts": {
+      "ok": 144714,
+      "self_edge": 96008,
+      "strict_cycle": 179960
+    },
+    "extension_dead_end_count": 108085,
+    "full_vertex_circle_survivor_count": 0,
+    "pair_and_crossing_compatible_count": 352012,
+    "pair_capacity_compatible_count": 352012,
+    "raw_row_combination_count": 16336404,
+    "retained_cover_ok_count": 120690,
+    "retained_cover_self_edge_count": 5544,
+    "retained_cover_strict_cycle_count": 15516
+  },
+  "catalog_trace_sha256": "06132f8cf83fa5015596a1d384c5cdff5aa90d857cd66a5c264392a1bdae2c56",
+  "claim_scope": "Exact bounded abstract n=10 scan for the 23=27 seven-role quotient of the stored scalable four-row Kalmanson circuit with exactly three added cyclic halo roles. It exhausts all 84 canonical halo-gap multisets, all four-row retained fragile covers, and every full selected-row extension under the stated incidence, crossing, capacity, and vertex-circle rules. Not Euclidean realizability, not a fragile-cycle forcing lemma, not a proof of n=10, not a general proof, not a counterexample, and not an official/global status update.",
+  "conclusion": "None of the essential retained-row covers over the 84 canonical three-halo placements extends to a full selected-row system that stays vertex-circle clean. This closes the fixed three-halo abstract slice and sharpens the Contract F proof-mining target; it does not force the core from geometry or control four or more halo roles.",
+  "limitations": [
+    "The scan assumes the retained 23=27 quotient core and exactly three formal halo roles.",
+    "It does not force that core or its retained rows from minimal-counterexample geometry.",
+    "It does not cover four or more halo roles or arbitrary genuine halo incidence.",
+    "Vertex-circle obstruction is an abstract necessary-condition diagnostic, not Euclidean realizability.",
+    "No proof of n=10, general proof, counterexample, or official/global status update is claimed."
+  ],
+  "placement_count": 84,
+  "placements": [
+    {
+      "cover_count": 1476,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1476,
+      "extension_candidate_count": 7445,
+      "extension_candidate_status_counts": {
+        "ok": 2817,
+        "self_edge": 1797,
+        "strict_cycle": 2831
+      },
+      "extension_dead_end_count": 1498,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "pair_and_crossing_compatible_count": 3585,
+      "pair_capacity_compatible_count": 3585,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        4,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1254,
+      "retained_cover_self_edge_count": 63,
+      "retained_cover_strict_cycle_count": 159,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "d8257c322023fa043d51a0d1170c1e16c38eb75a40d25f5db110f81efcd427a1"
+    },
+    {
+      "cover_count": 1760,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        1,
+        9,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1760,
+      "extension_candidate_count": 6356,
+      "extension_candidate_status_counts": {
+        "ok": 2647,
+        "self_edge": 1375,
+        "strict_cycle": 2334
+      },
+      "extension_dead_end_count": 1729,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        0,
+        1
+      ],
+      "pair_and_crossing_compatible_count": 4596,
+      "pair_capacity_compatible_count": 4596,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        3,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1520,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 175,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "5d5829e210917676e8c04816c42740a0707d9aedd0536d400f11d974cd55279f"
+    },
+    {
+      "cover_count": 1760,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        1,
+        2,
+        9,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1760,
+      "extension_candidate_count": 5668,
+      "extension_candidate_status_counts": {
+        "ok": 2044,
+        "self_edge": 1372,
+        "strict_cycle": 2252
+      },
+      "extension_dead_end_count": 1472,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        0,
+        2
+      ],
+      "pair_and_crossing_compatible_count": 4596,
+      "pair_capacity_compatible_count": 4596,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        3,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1526,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 169,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "2727a8ee5e51c03a989166ce7ca9aeeda3cdaec938dc08c76bae5f503898a3bd"
+    },
+    {
+      "cover_count": 1484,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        1,
+        2,
+        3,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1484,
+      "extension_candidate_count": 2192,
+      "extension_candidate_status_counts": {
+        "ok": 923,
+        "self_edge": 411,
+        "strict_cycle": 858
+      },
+      "extension_dead_end_count": 1197,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        0,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 3636,
+      "pair_capacity_compatible_count": 3636,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        3,
+        5,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1258,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 162,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "438fe54f18a1bdf70a45ddb5df209a2a8b24169e87c3944f64cb3279b307f124"
+    },
+    {
+      "cover_count": 1457,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        1,
+        2,
+        3,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1457,
+      "extension_candidate_count": 5633,
+      "extension_candidate_status_counts": {
+        "ok": 2063,
+        "self_edge": 1357,
+        "strict_cycle": 2213
+      },
+      "extension_dead_end_count": 1227,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        0,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 3404,
+      "pair_capacity_compatible_count": 3404,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        3,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1215,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 178,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "6c51349861a096f9d927164e36fea06c90afee96c16155c9e8d93dfa3202158d"
+    },
+    {
+      "cover_count": 1457,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1457,
+      "extension_candidate_count": 5019,
+      "extension_candidate_status_counts": {
+        "ok": 1914,
+        "self_edge": 1127,
+        "strict_cycle": 1978
+      },
+      "extension_dead_end_count": 1189,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        0,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 3404,
+      "pair_capacity_compatible_count": 3404,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        3,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1231,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 162,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "6651bc65a8c703f28955a3021783b43b8a7252fccf62a96d9112a93c79acee94"
+    },
+    {
+      "cover_count": 1476,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1476,
+      "extension_candidate_count": 7562,
+      "extension_candidate_status_counts": {
+        "ok": 2607,
+        "self_edge": 1809,
+        "strict_cycle": 3146
+      },
+      "extension_dead_end_count": 1290,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        0,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3585,
+      "pair_capacity_compatible_count": 3585,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        3,
+        5,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1245,
+      "retained_cover_self_edge_count": 63,
+      "retained_cover_strict_cycle_count": 168,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "de925ae459393a8c18d6922854606bc18ab40fe67a82534e12fab040d879c2d2"
+    },
+    {
+      "cover_count": 2048,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        8,
+        9,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2048,
+      "extension_candidate_count": 6467,
+      "extension_candidate_status_counts": {
+        "ok": 2497,
+        "self_edge": 1418,
+        "strict_cycle": 2552
+      },
+      "extension_dead_end_count": 1866,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        1,
+        1
+      ],
+      "pair_and_crossing_compatible_count": 5615,
+      "pair_capacity_compatible_count": 5615,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1790,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 191,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "1afe39b3d5ef51a08b4a72fd3dba91de4eba17924f2227d18857fa009c7cc5c2"
+    },
+    {
+      "cover_count": 2048,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        8,
+        2,
+        9,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2048,
+      "extension_candidate_count": 5977,
+      "extension_candidate_status_counts": {
+        "ok": 2233,
+        "self_edge": 1380,
+        "strict_cycle": 2364
+      },
+      "extension_dead_end_count": 1756,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        1,
+        2
+      ],
+      "pair_and_crossing_compatible_count": 5615,
+      "pair_capacity_compatible_count": 5615,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1796,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 185,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "41bda6cd7adb155d62eb9cf5cf8f40d1fc081b940a9c8f895d319388d000247f"
+    },
+    {
+      "cover_count": 1749,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        8,
+        2,
+        3,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1749,
+      "extension_candidate_count": 2663,
+      "extension_candidate_status_counts": {
+        "ok": 1130,
+        "self_edge": 545,
+        "strict_cycle": 988
+      },
+      "extension_dead_end_count": 1485,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        1,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 4529,
+      "pair_capacity_compatible_count": 4529,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        5,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1505,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 178,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "f346ad48797337b9a1da6161595c9f69e37c2f3d6762232589016993725a18bd"
+    },
+    {
+      "cover_count": 1732,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        8,
+        2,
+        3,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1732,
+      "extension_candidate_count": 5164,
+      "extension_candidate_status_counts": {
+        "ok": 2094,
+        "self_edge": 1171,
+        "strict_cycle": 1899
+      },
+      "extension_dead_end_count": 1550,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        1,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 4382,
+      "pair_capacity_compatible_count": 4382,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1472,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 194,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "c8ff8bcb96a3528b3a16ec010b01aedb33b9c710d783d5ad2dbc3aef632bc441"
+    },
+    {
+      "cover_count": 1732,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        8,
+        2,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1732,
+      "extension_candidate_count": 4600,
+      "extension_candidate_status_counts": {
+        "ok": 1941,
+        "self_edge": 966,
+        "strict_cycle": 1693
+      },
+      "extension_dead_end_count": 1473,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        1,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 4382,
+      "pair_capacity_compatible_count": 4382,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1488,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 178,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "f4e8ce1c68d5670082d04f7e1a54f01fecffa02feac9be52c60a7b56bb2f907a"
+    },
+    {
+      "cover_count": 1760,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        8,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1760,
+      "extension_candidate_count": 7523,
+      "extension_candidate_status_counts": {
+        "ok": 2947,
+        "self_edge": 1748,
+        "strict_cycle": 2828
+      },
+      "extension_dead_end_count": 1633,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        1,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4596,
+      "pair_capacity_compatible_count": 4596,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        5,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1511,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 184,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "b6ae64a7265bd7db7346ca51890f4bef27792c7ac55362c67782656cb78bca3e"
+    },
+    {
+      "cover_count": 2048,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        8,
+        9,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2048,
+      "extension_candidate_count": 5980,
+      "extension_candidate_status_counts": {
+        "ok": 2178,
+        "self_edge": 1328,
+        "strict_cycle": 2474
+      },
+      "extension_dead_end_count": 1755,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        2,
+        2
+      ],
+      "pair_and_crossing_compatible_count": 5615,
+      "pair_capacity_compatible_count": 5615,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1802,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 179,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "f4af5e58294b9f863cfbe298d52ac6e7d20485edb2ed253c204fd409aa5a3468"
+    },
+    {
+      "cover_count": 1749,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        8,
+        3,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1749,
+      "extension_candidate_count": 2528,
+      "extension_candidate_status_counts": {
+        "ok": 960,
+        "self_edge": 518,
+        "strict_cycle": 1050
+      },
+      "extension_dead_end_count": 1347,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        2,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 4529,
+      "pair_capacity_compatible_count": 4529,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        5,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1511,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 172,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "f6465def78da8bbdba2d7a0d9a61b039ea99d9fb482c819ece75e462a40beb78"
+    },
+    {
+      "cover_count": 1732,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        8,
+        3,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1732,
+      "extension_candidate_count": 5001,
+      "extension_candidate_status_counts": {
+        "ok": 1812,
+        "self_edge": 1127,
+        "strict_cycle": 2062
+      },
+      "extension_dead_end_count": 1377,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        2,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 4382,
+      "pair_capacity_compatible_count": 4382,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1478,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 188,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "de849f5fe43c4f2a42a953221fc40c3e1f8f53cb052159d0df2fbb8cee6ffab3"
+    },
+    {
+      "cover_count": 1732,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        8,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1732,
+      "extension_candidate_count": 4530,
+      "extension_candidate_status_counts": {
+        "ok": 1716,
+        "self_edge": 999,
+        "strict_cycle": 1815
+      },
+      "extension_dead_end_count": 1355,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        2,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 4382,
+      "pair_capacity_compatible_count": 4382,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1494,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 172,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "88eea9b9c32cf14db3aca40f87fa232ae27dbbf32430e91b4e27cc9014c84910"
+    },
+    {
+      "cover_count": 1760,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        8,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1760,
+      "extension_candidate_count": 6166,
+      "extension_candidate_status_counts": {
+        "ok": 2173,
+        "self_edge": 1439,
+        "strict_cycle": 2554
+      },
+      "extension_dead_end_count": 1467,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        2,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4596,
+      "pair_capacity_compatible_count": 4596,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        5,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1517,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 178,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "07b45bfcd9e7ba549d7ecd3d625f40a7cec11a88c8fdac8f1bf542fd51d6c077"
+    },
+    {
+      "cover_count": 1460,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        8,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1460,
+      "extension_candidate_count": 2187,
+      "extension_candidate_status_counts": {
+        "ok": 808,
+        "self_edge": 486,
+        "strict_cycle": 893
+      },
+      "extension_dead_end_count": 1096,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        3,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 3473,
+      "pair_capacity_compatible_count": 3473,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1230,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 165,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "0c23d7a76e4b926ab0b7a31af63e1357fcbf31925d15e2e298b148ffa70ccc6a"
+    },
+    {
+      "cover_count": 1447,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        8,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1447,
+      "extension_candidate_count": 2437,
+      "extension_candidate_status_counts": {
+        "ok": 911,
+        "self_edge": 527,
+        "strict_cycle": 999
+      },
+      "extension_dead_end_count": 1037,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        3,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 3344,
+      "pair_capacity_compatible_count": 3344,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1201,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 181,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "eb95437116e4ab369cd4799257dea07b1697f50bbbccd76a8be28a9d2034270c"
+    },
+    {
+      "cover_count": 1447,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        8,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1447,
+      "extension_candidate_count": 2320,
+      "extension_candidate_status_counts": {
+        "ok": 901,
+        "self_edge": 505,
+        "strict_cycle": 914
+      },
+      "extension_dead_end_count": 1054,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        3,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 3344,
+      "pair_capacity_compatible_count": 3344,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1217,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 165,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "6e7dd001960fa6381fa0f2c1a81995e3ba6c8b6ed57373bd1298bb1fa4eb4a91"
+    },
+    {
+      "cover_count": 1484,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        8,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1484,
+      "extension_candidate_count": 2319,
+      "extension_candidate_status_counts": {
+        "ok": 951,
+        "self_edge": 406,
+        "strict_cycle": 962
+      },
+      "extension_dead_end_count": 1160,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        3,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3636,
+      "pair_capacity_compatible_count": 3636,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1249,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 171,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "18b186306a71fdee4a98f495680eebaadd3e2f57f3110b860fd8dc6fea8312ea"
+    },
+    {
+      "cover_count": 1422,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        4,
+        8,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1422,
+      "extension_candidate_count": 4062,
+      "extension_candidate_status_counts": {
+        "ok": 1346,
+        "self_edge": 1062,
+        "strict_cycle": 1654
+      },
+      "extension_dead_end_count": 925,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        4,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 3105,
+      "pair_capacity_compatible_count": 3105,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1160,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 197,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "8fee08b1c6f2e1f01700ba084f378e833d01deb45402c4cd6223ae15ef15b718"
+    },
+    {
+      "cover_count": 1422,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        4,
+        8,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1422,
+      "extension_candidate_count": 3736,
+      "extension_candidate_status_counts": {
+        "ok": 1276,
+        "self_edge": 1004,
+        "strict_cycle": 1456
+      },
+      "extension_dead_end_count": 914,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        4,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 3105,
+      "pair_capacity_compatible_count": 3105,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1176,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 181,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "6a6efdd7240bc2c016d2a8092be748276f4e176c0eca332f051d9acde8facbea"
+    },
+    {
+      "cover_count": 1457,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        4,
+        8,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1457,
+      "extension_candidate_count": 6444,
+      "extension_candidate_status_counts": {
+        "ok": 2055,
+        "self_edge": 1590,
+        "strict_cycle": 2799
+      },
+      "extension_dead_end_count": 1073,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        4,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3404,
+      "pair_capacity_compatible_count": 3404,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        5,
+        8
+      ],
+      "retained_cover_ok_count": 1206,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 187,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "48080fa491c10af4f23ce8de64928645d34de856ecbc874058f13327c6f8aaa1"
+    },
+    {
+      "cover_count": 1422,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        6
+      ],
+      "essential_cover_count": 1422,
+      "extension_candidate_count": 3658,
+      "extension_candidate_status_counts": {
+        "ok": 1208,
+        "self_edge": 976,
+        "strict_cycle": 1474
+      },
+      "extension_dead_end_count": 902,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        5,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 3105,
+      "pair_capacity_compatible_count": 3105,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1192,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 165,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "2398731f1e64029e56b111b269b785e5d04f9f9b87f8f092e25581279d12be5a"
+    },
+    {
+      "cover_count": 1457,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        6,
+        9
+      ],
+      "essential_cover_count": 1457,
+      "extension_candidate_count": 5610,
+      "extension_candidate_status_counts": {
+        "ok": 1807,
+        "self_edge": 1328,
+        "strict_cycle": 2475
+      },
+      "extension_dead_end_count": 992,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        5,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3404,
+      "pair_capacity_compatible_count": 3404,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        5,
+        8
+      ],
+      "retained_cover_ok_count": 1222,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 171,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "757a254a5314b575d26c21d9f1ec8f77f4cd50bbb67340a1835ec44c48102ebb"
+    },
+    {
+      "cover_count": 1476,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "essential_cover_count": 1476,
+      "extension_candidate_count": 8074,
+      "extension_candidate_status_counts": {
+        "ok": 2457,
+        "self_edge": 2106,
+        "strict_cycle": 3511
+      },
+      "extension_dead_end_count": 1144,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        0,
+        6,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3585,
+      "pair_capacity_compatible_count": 3585,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "retained_cover_ok_count": 1236,
+      "retained_cover_self_edge_count": 63,
+      "retained_cover_strict_cycle_count": 177,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "a7b527765e23fd7c277e0889e0fd15b5f5b58d7a9494ac779b4e5207680bfb42"
+    },
+    {
+      "cover_count": 2340,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        8,
+        9,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2340,
+      "extension_candidate_count": 9597,
+      "extension_candidate_status_counts": {
+        "ok": 3350,
+        "self_edge": 2173,
+        "strict_cycle": 4074
+      },
+      "extension_dead_end_count": 1878,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        1,
+        1
+      ],
+      "pair_and_crossing_compatible_count": 6642,
+      "pair_capacity_compatible_count": 6642,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 2064,
+      "retained_cover_self_edge_count": 69,
+      "retained_cover_strict_cycle_count": 207,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "ec4b7894d740e36c9d45b38fd6b27977364941726ef40da22fffdcf962a0abab"
+    },
+    {
+      "cover_count": 2340,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        8,
+        2,
+        9,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2340,
+      "extension_candidate_count": 8658,
+      "extension_candidate_status_counts": {
+        "ok": 2948,
+        "self_edge": 1969,
+        "strict_cycle": 3741
+      },
+      "extension_dead_end_count": 1835,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        1,
+        2
+      ],
+      "pair_and_crossing_compatible_count": 6642,
+      "pair_capacity_compatible_count": 6642,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 2070,
+      "retained_cover_self_edge_count": 69,
+      "retained_cover_strict_cycle_count": 201,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "cfd6db990c86ca77770169d2c84a4a23dce639c72ae9df79bff221c663c2812e"
+    },
+    {
+      "cover_count": 2018,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        8,
+        2,
+        3,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2018,
+      "extension_candidate_count": 3600,
+      "extension_candidate_status_counts": {
+        "ok": 1409,
+        "self_edge": 660,
+        "strict_cycle": 1531
+      },
+      "extension_dead_end_count": 1667,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        1,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 5402,
+      "pair_capacity_compatible_count": 5402,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1756,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 194,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "4303aafefa2c3f275549d327f0088a527bf2e8c1ae6ed6355a26ff1c08004669"
+    },
+    {
+      "cover_count": 2011,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        8,
+        2,
+        3,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 2011,
+      "extension_candidate_count": 7667,
+      "extension_candidate_status_counts": {
+        "ok": 2649,
+        "self_edge": 1757,
+        "strict_cycle": 3261
+      },
+      "extension_dead_end_count": 1600,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        1,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 5372,
+      "pair_capacity_compatible_count": 5372,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1733,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 210,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "4b81c6c03bfa44ef801b8f600bad7f29ee06813bf74d31715f9236301d8b7ac6"
+    },
+    {
+      "cover_count": 2011,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        8,
+        2,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 2011,
+      "extension_candidate_count": 6388,
+      "extension_candidate_status_counts": {
+        "ok": 2270,
+        "self_edge": 1399,
+        "strict_cycle": 2719
+      },
+      "extension_dead_end_count": 1565,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        1,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 5372,
+      "pair_capacity_compatible_count": 5372,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1749,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 194,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "30433d16b4f500233aa80b9523dcf443619dbf90e30fde27628f0a3c677ffc3a"
+    },
+    {
+      "cover_count": 2048,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        8,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 2048,
+      "extension_candidate_count": 9122,
+      "extension_candidate_status_counts": {
+        "ok": 3263,
+        "self_edge": 2146,
+        "strict_cycle": 3713
+      },
+      "extension_dead_end_count": 1797,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        1,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 5615,
+      "pair_capacity_compatible_count": 5615,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1781,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 200,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "8239b29cd50f330f051216588522321be568acaf9fddcaef2cddbff617b226d8"
+    },
+    {
+      "cover_count": 2340,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        8,
+        9,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2340,
+      "extension_candidate_count": 8448,
+      "extension_candidate_status_counts": {
+        "ok": 2905,
+        "self_edge": 1802,
+        "strict_cycle": 3741
+      },
+      "extension_dead_end_count": 1904,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        2,
+        2
+      ],
+      "pair_and_crossing_compatible_count": 6642,
+      "pair_capacity_compatible_count": 6642,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 2076,
+      "retained_cover_self_edge_count": 69,
+      "retained_cover_strict_cycle_count": 195,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "63d6989ceb63e07db430a051ff36ffa17df1b4e3c478ad7b95b07239b9a24701"
+    },
+    {
+      "cover_count": 2018,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        8,
+        3,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2018,
+      "extension_candidate_count": 3529,
+      "extension_candidate_status_counts": {
+        "ok": 1362,
+        "self_edge": 681,
+        "strict_cycle": 1486
+      },
+      "extension_dead_end_count": 1627,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        2,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 5402,
+      "pair_capacity_compatible_count": 5402,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1762,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 188,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "e9e662616ceaafcdf35998c583fb9e68888d4f4d6ff2de4025573a9316fc2c9e"
+    },
+    {
+      "cover_count": 2011,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        8,
+        3,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 2011,
+      "extension_candidate_count": 6777,
+      "extension_candidate_status_counts": {
+        "ok": 2277,
+        "self_edge": 1570,
+        "strict_cycle": 2930
+      },
+      "extension_dead_end_count": 1551,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        2,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 5372,
+      "pair_capacity_compatible_count": 5372,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1739,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 204,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "85e1092b477ceb42051205c1e753469091f5a966fd33939a457c0d05a1a5a5b6"
+    },
+    {
+      "cover_count": 2011,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        8,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 2011,
+      "extension_candidate_count": 5900,
+      "extension_candidate_status_counts": {
+        "ok": 2075,
+        "self_edge": 1254,
+        "strict_cycle": 2571
+      },
+      "extension_dead_end_count": 1568,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        2,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 5372,
+      "pair_capacity_compatible_count": 5372,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1755,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 188,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "8778450ab2ca5a73369d7034f428e93accc829a46f6d3900d74007e79f57bd20"
+    },
+    {
+      "cover_count": 2048,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        8,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 2048,
+      "extension_candidate_count": 8156,
+      "extension_candidate_status_counts": {
+        "ok": 2932,
+        "self_edge": 1915,
+        "strict_cycle": 3309
+      },
+      "extension_dead_end_count": 1825,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        2,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 5615,
+      "pair_capacity_compatible_count": 5615,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1787,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 194,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "f742f7324efe80c18c00c0f1788c94000a2f455c7c471feb15a75ff02a373b05"
+    },
+    {
+      "cover_count": 1706,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        8,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1706,
+      "extension_candidate_count": 2658,
+      "extension_candidate_status_counts": {
+        "ok": 1021,
+        "self_edge": 470,
+        "strict_cycle": 1167
+      },
+      "extension_dead_end_count": 1346,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        3,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 4214,
+      "pair_capacity_compatible_count": 4214,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1458,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 181,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "7f3ed68f6a64fc578300d2ba4327a441f3475626a05e0485c8bd1c2932ae52c3"
+    },
+    {
+      "cover_count": 1703,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        8,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1703,
+      "extension_candidate_count": 3294,
+      "extension_candidate_status_counts": {
+        "ok": 1297,
+        "self_edge": 593,
+        "strict_cycle": 1404
+      },
+      "extension_dead_end_count": 1359,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        3,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 4178,
+      "pair_capacity_compatible_count": 4178,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1439,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 197,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "957a0e9bf765eef4258fd553d94a0f20c413969a1d7a9154cd29b3ed578ee0b6"
+    },
+    {
+      "cover_count": 1703,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        8,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1703,
+      "extension_candidate_count": 2828,
+      "extension_candidate_status_counts": {
+        "ok": 1189,
+        "self_edge": 518,
+        "strict_cycle": 1121
+      },
+      "extension_dead_end_count": 1396,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        3,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 4178,
+      "pair_capacity_compatible_count": 4178,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1455,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 181,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "d0a5220ab55966fddfff0b11172706a8873d74b5f612f2affd1e8bcd19ba4d53"
+    },
+    {
+      "cover_count": 1749,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        8,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1749,
+      "extension_candidate_count": 3092,
+      "extension_candidate_status_counts": {
+        "ok": 1361,
+        "self_edge": 533,
+        "strict_cycle": 1198
+      },
+      "extension_dead_end_count": 1560,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        3,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4529,
+      "pair_capacity_compatible_count": 4529,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1496,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 187,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "7b48091365eac34154c2c18a2ce98bade12dce6237b33a5332970b15140d387e"
+    },
+    {
+      "cover_count": 1688,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        4,
+        8,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1688,
+      "extension_candidate_count": 5060,
+      "extension_candidate_status_counts": {
+        "ok": 1776,
+        "self_edge": 1193,
+        "strict_cycle": 2091
+      },
+      "extension_dead_end_count": 1296,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        4,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 4024,
+      "pair_capacity_compatible_count": 4024,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1408,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 213,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "0be7341eb987fc76ddca04c00866ebd68fb2bcafc2158d4451523b788337fbc6"
+    },
+    {
+      "cover_count": 1688,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        4,
+        8,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1688,
+      "extension_candidate_count": 4374,
+      "extension_candidate_status_counts": {
+        "ok": 1594,
+        "self_edge": 1035,
+        "strict_cycle": 1745
+      },
+      "extension_dead_end_count": 1330,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        4,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 4024,
+      "pair_capacity_compatible_count": 4024,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1424,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 197,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "b185364bab6b0a987fd9f967e6a9bca1c296e46419a6e26fa8f27d8acb5771d8"
+    },
+    {
+      "cover_count": 1732,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        4,
+        8,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1732,
+      "extension_candidate_count": 7242,
+      "extension_candidate_status_counts": {
+        "ok": 2565,
+        "self_edge": 1753,
+        "strict_cycle": 2924
+      },
+      "extension_dead_end_count": 1476,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        4,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4382,
+      "pair_capacity_compatible_count": 4382,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        8
+      ],
+      "retained_cover_ok_count": 1463,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 203,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "df749182337692e64bda9c627892d7b7248e2c8fab6fcd5ee3bd75efc574d8d8"
+    },
+    {
+      "cover_count": 1688,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        6
+      ],
+      "essential_cover_count": 1688,
+      "extension_candidate_count": 4327,
+      "extension_candidate_status_counts": {
+        "ok": 1588,
+        "self_edge": 974,
+        "strict_cycle": 1765
+      },
+      "extension_dead_end_count": 1323,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        5,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 4024,
+      "pair_capacity_compatible_count": 4024,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1440,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 181,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "0ee4875ce8e9324a1f07f5d6e029e34e6bc80e41c6578aac441edb8c695f59d1"
+    },
+    {
+      "cover_count": 1732,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        4,
+        5,
+        8,
+        6,
+        9
+      ],
+      "essential_cover_count": 1732,
+      "extension_candidate_count": 5771,
+      "extension_candidate_status_counts": {
+        "ok": 2142,
+        "self_edge": 1179,
+        "strict_cycle": 2450
+      },
+      "extension_dead_end_count": 1391,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        5,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4382,
+      "pair_capacity_compatible_count": 4382,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        8
+      ],
+      "retained_cover_ok_count": 1479,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 187,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "1903b2579f04737cd1a4bf4d7d7ad0805360aa7999ccc8b2e659c0c3782df2b1"
+    },
+    {
+      "cover_count": 1760,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "essential_cover_count": 1760,
+      "extension_candidate_count": 8218,
+      "extension_candidate_status_counts": {
+        "ok": 2820,
+        "self_edge": 1970,
+        "strict_cycle": 3428
+      },
+      "extension_dead_end_count": 1438,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        1,
+        6,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4596,
+      "pair_capacity_compatible_count": 4596,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        7
+      ],
+      "retained_cover_ok_count": 1502,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 193,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "3ca9db92c70b863c1bae731dbd4ece23c732bea8dc5cb17566f4d1ff8897a446"
+    },
+    {
+      "cover_count": 2340,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        9,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2340,
+      "extension_candidate_count": 8099,
+      "extension_candidate_status_counts": {
+        "ok": 2764,
+        "self_edge": 1655,
+        "strict_cycle": 3680
+      },
+      "extension_dead_end_count": 1972,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        2,
+        2
+      ],
+      "pair_and_crossing_compatible_count": 6642,
+      "pair_capacity_compatible_count": 6642,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        6,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 2082,
+      "retained_cover_self_edge_count": 69,
+      "retained_cover_strict_cycle_count": 189,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "a58fc497fe0d3290e58f2a61cd2cca883437a49a80688d4951b442624750bb42"
+    },
+    {
+      "cover_count": 2018,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        3,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 2018,
+      "extension_candidate_count": 3390,
+      "extension_candidate_status_counts": {
+        "ok": 1257,
+        "self_edge": 625,
+        "strict_cycle": 1508
+      },
+      "extension_dead_end_count": 1603,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        2,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 5402,
+      "pair_capacity_compatible_count": 5402,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1768,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 182,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "e74e3a5fb97612de97d0ad8d70f604afbcc34b781c68101c263961fc39dd27b4"
+    },
+    {
+      "cover_count": 2011,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        3,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 2011,
+      "extension_candidate_count": 6428,
+      "extension_candidate_status_counts": {
+        "ok": 2137,
+        "self_edge": 1302,
+        "strict_cycle": 2989
+      },
+      "extension_dead_end_count": 1600,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        2,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 5372,
+      "pair_capacity_compatible_count": 5372,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1745,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 198,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "404f44374988307a8c9a4986b7f42cb81775734584bcc2d715dd34c0d77159dd"
+    },
+    {
+      "cover_count": 2011,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 2011,
+      "extension_candidate_count": 5847,
+      "extension_candidate_status_counts": {
+        "ok": 1997,
+        "self_edge": 1166,
+        "strict_cycle": 2684
+      },
+      "extension_dead_end_count": 1601,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        2,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 5372,
+      "pair_capacity_compatible_count": 5372,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1761,
+      "retained_cover_self_edge_count": 68,
+      "retained_cover_strict_cycle_count": 182,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "c7cd11c2247c49131c5b79560af8dd739f55897e379bb639da2931c8791147ca"
+    },
+    {
+      "cover_count": 2048,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 2048,
+      "extension_candidate_count": 7867,
+      "extension_candidate_status_counts": {
+        "ok": 2811,
+        "self_edge": 1782,
+        "strict_cycle": 3274
+      },
+      "extension_dead_end_count": 1866,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        2,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 5615,
+      "pair_capacity_compatible_count": 5615,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        5,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1793,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 188,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "b724388f0a31b02f77b0f8bce61ad8e7e100771a1bb15b1152ef5556d920c665"
+    },
+    {
+      "cover_count": 1706,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        8,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1706,
+      "extension_candidate_count": 2752,
+      "extension_candidate_status_counts": {
+        "ok": 1024,
+        "self_edge": 447,
+        "strict_cycle": 1281
+      },
+      "extension_dead_end_count": 1313,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        3,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 4214,
+      "pair_capacity_compatible_count": 4214,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1464,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 175,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "891dc4a5dabc0517b46afb4c01b1cb6e829354ca12494668f5e6914385b6b641"
+    },
+    {
+      "cover_count": 1703,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        8,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1703,
+      "extension_candidate_count": 3451,
+      "extension_candidate_status_counts": {
+        "ok": 1250,
+        "self_edge": 612,
+        "strict_cycle": 1589
+      },
+      "extension_dead_end_count": 1253,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        3,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 4178,
+      "pair_capacity_compatible_count": 4178,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1445,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 191,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "7a5f89dcfd98bc57231e3d74ca1868b1017a679d584da625221877874203a03a"
+    },
+    {
+      "cover_count": 1703,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        8,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1703,
+      "extension_candidate_count": 3058,
+      "extension_candidate_status_counts": {
+        "ok": 1163,
+        "self_edge": 570,
+        "strict_cycle": 1325
+      },
+      "extension_dead_end_count": 1299,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        3,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 4178,
+      "pair_capacity_compatible_count": 4178,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1461,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 175,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "5bf600f7f2be34532d5b6d1f6d8706d1bfa0764c55e6018ade8787fa36a7384b"
+    },
+    {
+      "cover_count": 1749,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        8,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1749,
+      "extension_candidate_count": 2923,
+      "extension_candidate_status_counts": {
+        "ok": 1172,
+        "self_edge": 509,
+        "strict_cycle": 1242
+      },
+      "extension_dead_end_count": 1416,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        3,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4529,
+      "pair_capacity_compatible_count": 4529,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1502,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 181,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "2e38108e3c3291b60f824df588ea7f6c17a90a0e2e5a38b030c77a7f95d27d46"
+    },
+    {
+      "cover_count": 1688,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        4,
+        8,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1688,
+      "extension_candidate_count": 5503,
+      "extension_candidate_status_counts": {
+        "ok": 1604,
+        "self_edge": 1362,
+        "strict_cycle": 2537
+      },
+      "extension_dead_end_count": 1088,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        4,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 4024,
+      "pair_capacity_compatible_count": 4024,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1414,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 207,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "4dbbbac38c124d0f3f3cb97fbaa05d3bf4063628266ffe6b4971370a35f0cf59"
+    },
+    {
+      "cover_count": 1688,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        4,
+        8,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1688,
+      "extension_candidate_count": 4834,
+      "extension_candidate_status_counts": {
+        "ok": 1484,
+        "self_edge": 1218,
+        "strict_cycle": 2132
+      },
+      "extension_dead_end_count": 1147,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        4,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 4024,
+      "pair_capacity_compatible_count": 4024,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1430,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 191,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "ac7aed447dcb9071ff28c117f3a58f58f4fed8c0dbc250fbced0dc395135dc4e"
+    },
+    {
+      "cover_count": 1732,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        4,
+        8,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1732,
+      "extension_candidate_count": 6428,
+      "extension_candidate_status_counts": {
+        "ok": 2020,
+        "self_edge": 1528,
+        "strict_cycle": 2880
+      },
+      "extension_dead_end_count": 1250,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        4,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4382,
+      "pair_capacity_compatible_count": 4382,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        8
+      ],
+      "retained_cover_ok_count": 1469,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 197,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "afd8fba6989dd2a8f9dcd52c260a56139c3f530c8bee45b056df73908fb41c79"
+    },
+    {
+      "cover_count": 1688,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        4,
+        5,
+        8,
+        9,
+        6
+      ],
+      "essential_cover_count": 1688,
+      "extension_candidate_count": 4654,
+      "extension_candidate_status_counts": {
+        "ok": 1462,
+        "self_edge": 1138,
+        "strict_cycle": 2054
+      },
+      "extension_dead_end_count": 1183,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        5,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 4024,
+      "pair_capacity_compatible_count": 4024,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1446,
+      "retained_cover_self_edge_count": 67,
+      "retained_cover_strict_cycle_count": 175,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "bdc9a54ca8bbef6f116bd7b84ec089844bc25cdeb01bbdc24ad30efdea741779"
+    },
+    {
+      "cover_count": 1732,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        4,
+        5,
+        8,
+        6,
+        9
+      ],
+      "essential_cover_count": 1732,
+      "extension_candidate_count": 5588,
+      "extension_candidate_status_counts": {
+        "ok": 1815,
+        "self_edge": 1158,
+        "strict_cycle": 2615
+      },
+      "extension_dead_end_count": 1232,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        5,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4382,
+      "pair_capacity_compatible_count": 4382,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        8
+      ],
+      "retained_cover_ok_count": 1485,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 181,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "768e9d43678b190f60bbc95037088f9501ccabf06950e27d600df553fa81a9a6"
+    },
+    {
+      "cover_count": 1760,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "essential_cover_count": 1760,
+      "extension_candidate_count": 6975,
+      "extension_candidate_status_counts": {
+        "ok": 2126,
+        "self_edge": 1666,
+        "strict_cycle": 3183
+      },
+      "extension_dead_end_count": 1304,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        2,
+        6,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 4596,
+      "pair_capacity_compatible_count": 4596,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        4,
+        5,
+        7
+      ],
+      "retained_cover_ok_count": 1508,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 187,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "d2fa731880860efd2b0ed29ec5adcab6083e27e00639857fe214cefa330e4eec"
+    },
+    {
+      "cover_count": 1404,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        9,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_count": 1404,
+      "extension_candidate_count": 2376,
+      "extension_candidate_status_counts": {
+        "ok": 781,
+        "self_edge": 486,
+        "strict_cycle": 1109
+      },
+      "extension_dead_end_count": 948,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        3,
+        3
+      ],
+      "pair_and_crossing_compatible_count": 3078,
+      "pair_capacity_compatible_count": 3078,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        7,
+        9
+      ],
+      "retained_cover_ok_count": 1170,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 168,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "1e5c39e2da6d1cbfaeed95226ddeca2981a836d9729833d58169e4f3b3297705"
+    },
+    {
+      "cover_count": 1405,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        4,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1405,
+      "extension_candidate_count": 2577,
+      "extension_candidate_status_counts": {
+        "ok": 821,
+        "self_edge": 563,
+        "strict_cycle": 1193
+      },
+      "extension_dead_end_count": 922,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        3,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 3044,
+      "pair_capacity_compatible_count": 3044,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1155,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 184,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "f7747e2ace5479810cf2ff691fa0365927e87aa7c271cce38dab68fa6ce694ce"
+    },
+    {
+      "cover_count": 1405,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        4,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1405,
+      "extension_candidate_count": 2086,
+      "extension_candidate_status_counts": {
+        "ok": 688,
+        "self_edge": 486,
+        "strict_cycle": 912
+      },
+      "extension_dead_end_count": 955,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        3,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 3044,
+      "pair_capacity_compatible_count": 3044,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        6,
+        9
+      ],
+      "retained_cover_ok_count": 1171,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 168,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "880dd79b50f25ce9bbdd648811a4191b88508e7f768bba992a874df68c65699a"
+    },
+    {
+      "cover_count": 1460,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        8,
+        4,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1460,
+      "extension_candidate_count": 2516,
+      "extension_candidate_status_counts": {
+        "ok": 954,
+        "self_edge": 519,
+        "strict_cycle": 1043
+      },
+      "extension_dead_end_count": 1140,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        3,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3473,
+      "pair_capacity_compatible_count": 3473,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        6,
+        8
+      ],
+      "retained_cover_ok_count": 1221,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 174,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "1ff814a073c739aeb8ce0ef092efae8823fc0a15fe872fbee4c28e9d716dae84"
+    },
+    {
+      "cover_count": 1394,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        4,
+        8,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1394,
+      "extension_candidate_count": 2750,
+      "extension_candidate_status_counts": {
+        "ok": 856,
+        "self_edge": 647,
+        "strict_cycle": 1247
+      },
+      "extension_dead_end_count": 818,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        4,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 2914,
+      "pair_capacity_compatible_count": 2914,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1128,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 200,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "491c7fd528ea25000837370c445a8d43992f0f103eeae7e2e1c45ee7d34d6325"
+    },
+    {
+      "cover_count": 1394,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        4,
+        8,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1394,
+      "extension_candidate_count": 2505,
+      "extension_candidate_status_counts": {
+        "ok": 841,
+        "self_edge": 599,
+        "strict_cycle": 1065
+      },
+      "extension_dead_end_count": 887,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        4,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 2914,
+      "pair_capacity_compatible_count": 2914,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1144,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 184,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "a67cb4ac2f3ef9d6f4d647e6646f9d63455cec395370a9168dafe551384a70fe"
+    },
+    {
+      "cover_count": 1447,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        4,
+        8,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1447,
+      "extension_candidate_count": 3193,
+      "extension_candidate_status_counts": {
+        "ok": 1126,
+        "self_edge": 646,
+        "strict_cycle": 1421
+      },
+      "extension_dead_end_count": 1008,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        4,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3344,
+      "pair_capacity_compatible_count": 3344,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        5,
+        8
+      ],
+      "retained_cover_ok_count": 1192,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 190,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "4be657ba3f9b1d89b69ef0377c37b5dec683bac02ce5c556d25daadf855ad324"
+    },
+    {
+      "cover_count": 1394,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        4,
+        5,
+        8,
+        9,
+        6
+      ],
+      "essential_cover_count": 1394,
+      "extension_candidate_count": 2491,
+      "extension_candidate_status_counts": {
+        "ok": 848,
+        "self_edge": 599,
+        "strict_cycle": 1044
+      },
+      "extension_dead_end_count": 923,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        5,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 2914,
+      "pair_capacity_compatible_count": 2914,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        5,
+        9
+      ],
+      "retained_cover_ok_count": 1160,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 168,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "d359387a99741905ec32eb0f41ce2e3f05e5106867e6103e60a465d6a6d1033f"
+    },
+    {
+      "cover_count": 1447,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        4,
+        5,
+        8,
+        6,
+        9
+      ],
+      "essential_cover_count": 1447,
+      "extension_candidate_count": 2829,
+      "extension_candidate_status_counts": {
+        "ok": 1027,
+        "self_edge": 569,
+        "strict_cycle": 1233
+      },
+      "extension_dead_end_count": 1027,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        5,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3344,
+      "pair_capacity_compatible_count": 3344,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        5,
+        8
+      ],
+      "retained_cover_ok_count": 1208,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 174,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "9709cd13107dba6271df26d1601d2fb4752b0b0c42236da166d7e18fe8c6a1cc"
+    },
+    {
+      "cover_count": 1484,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "essential_cover_count": 1484,
+      "extension_candidate_count": 2625,
+      "extension_candidate_status_counts": {
+        "ok": 987,
+        "self_edge": 480,
+        "strict_cycle": 1158
+      },
+      "extension_dead_end_count": 1100,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        3,
+        6,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3636,
+      "pair_capacity_compatible_count": 3636,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "retained_cover_ok_count": 1240,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 180,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "42ceed75fa8479e0406f04d8f7b657c5ef78b88e8efeaf4b3583b5a74522363f"
+    },
+    {
+      "cover_count": 1371,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        9,
+        5,
+        6
+      ],
+      "essential_cover_count": 1371,
+      "extension_candidate_count": 4195,
+      "extension_candidate_status_counts": {
+        "ok": 1016,
+        "self_edge": 1258,
+        "strict_cycle": 1921
+      },
+      "extension_dead_end_count": 592,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        4,
+        4,
+        4
+      ],
+      "pair_and_crossing_compatible_count": 2688,
+      "pair_capacity_compatible_count": 2688,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        9
+      ],
+      "retained_cover_ok_count": 1089,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 216,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "7a351703968f84f42ffeae997c665610e902bf63f92c6c669f408427534df828"
+    },
+    {
+      "cover_count": 1371,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        5,
+        9,
+        6
+      ],
+      "essential_cover_count": 1371,
+      "extension_candidate_count": 3870,
+      "extension_candidate_status_counts": {
+        "ok": 1016,
+        "self_edge": 1166,
+        "strict_cycle": 1688
+      },
+      "extension_dead_end_count": 682,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        4,
+        4,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 2688,
+      "pair_capacity_compatible_count": 2688,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        9
+      ],
+      "retained_cover_ok_count": 1105,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 200,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "d4402de72cc495f6d5a38d64e8f9f1e3ae815f9382347971177e1b8a6f6920e0"
+    },
+    {
+      "cover_count": 1422,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        8,
+        5,
+        6,
+        9
+      ],
+      "essential_cover_count": 1422,
+      "extension_candidate_count": 6647,
+      "extension_candidate_status_counts": {
+        "ok": 1736,
+        "self_edge": 1776,
+        "strict_cycle": 3135
+      },
+      "extension_dead_end_count": 793,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        4,
+        4,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3105,
+      "pair_capacity_compatible_count": 3105,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        8
+      ],
+      "retained_cover_ok_count": 1151,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 206,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "7bdc3231a1a5c89b90f7c5237962153d6354c3a33fb9c007197c6bc0a9377b4d"
+    },
+    {
+      "cover_count": 1371,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        5,
+        8,
+        9,
+        6
+      ],
+      "essential_cover_count": 1371,
+      "extension_candidate_count": 3805,
+      "extension_candidate_status_counts": {
+        "ok": 1047,
+        "self_edge": 1146,
+        "strict_cycle": 1612
+      },
+      "extension_dead_end_count": 699,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        4,
+        5,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 2688,
+      "pair_capacity_compatible_count": 2688,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        9
+      ],
+      "retained_cover_ok_count": 1121,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 184,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "77f07b2378d95ad0bbcbb1e29fed006687544fc4aef8ddd980429c2761b931fc"
+    },
+    {
+      "cover_count": 1422,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        5,
+        8,
+        6,
+        9
+      ],
+      "essential_cover_count": 1422,
+      "extension_candidate_count": 5746,
+      "extension_candidate_status_counts": {
+        "ok": 1601,
+        "self_edge": 1433,
+        "strict_cycle": 2712
+      },
+      "extension_dead_end_count": 790,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        4,
+        5,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3105,
+      "pair_capacity_compatible_count": 3105,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        8
+      ],
+      "retained_cover_ok_count": 1167,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 190,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "8a58dabc7804e62e3b4b7c4dc857a2f18242ffeb1c7f37d91c553a14b0ceb858"
+    },
+    {
+      "cover_count": 1457,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        5,
+        6,
+        8,
+        9
+      ],
+      "essential_cover_count": 1457,
+      "extension_candidate_count": 7391,
+      "extension_candidate_status_counts": {
+        "ok": 1969,
+        "self_edge": 1715,
+        "strict_cycle": 3707
+      },
+      "extension_dead_end_count": 875,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        4,
+        6,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3404,
+      "pair_capacity_compatible_count": 3404,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        7
+      ],
+      "retained_cover_ok_count": 1197,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 196,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "2c8298b5490d6aa6a545d5307c366ffd8f3f79d4a9c99a93e7549ad0af2a9577"
+    },
+    {
+      "cover_count": 1371,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        6
+      ],
+      "essential_cover_count": 1371,
+      "extension_candidate_count": 3641,
+      "extension_candidate_status_counts": {
+        "ok": 960,
+        "self_edge": 1058,
+        "strict_cycle": 1623
+      },
+      "extension_dead_end_count": 679,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        5,
+        5,
+        5
+      ],
+      "pair_and_crossing_compatible_count": 2688,
+      "pair_capacity_compatible_count": 2688,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        9
+      ],
+      "retained_cover_ok_count": 1137,
+      "retained_cover_self_edge_count": 66,
+      "retained_cover_strict_cycle_count": 168,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "a4d9882ab5098ee81177d730c4b8c6f00bf1b6505a20e03b182d44f049a1e275"
+    },
+    {
+      "cover_count": 1422,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        6,
+        9
+      ],
+      "essential_cover_count": 1422,
+      "extension_candidate_count": 5304,
+      "extension_candidate_status_counts": {
+        "ok": 1474,
+        "self_edge": 1228,
+        "strict_cycle": 2602
+      },
+      "extension_dead_end_count": 769,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        5,
+        5,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3105,
+      "pair_capacity_compatible_count": 3105,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        8
+      ],
+      "retained_cover_ok_count": 1183,
+      "retained_cover_self_edge_count": 65,
+      "retained_cover_strict_cycle_count": 174,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "b0e3a71baac6c8b69c5beecd1ba04856ea4d173bea933711596bca073508767f"
+    },
+    {
+      "cover_count": 1457,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        6,
+        8,
+        9
+      ],
+      "essential_cover_count": 1457,
+      "extension_candidate_count": 6249,
+      "extension_candidate_status_counts": {
+        "ok": 1702,
+        "self_edge": 1404,
+        "strict_cycle": 3143
+      },
+      "extension_dead_end_count": 809,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        5,
+        6,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3404,
+      "pair_capacity_compatible_count": 3404,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        7
+      ],
+      "retained_cover_ok_count": 1213,
+      "retained_cover_self_edge_count": 64,
+      "retained_cover_strict_cycle_count": 180,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "382f85940c2beee92a9d702ec325417b8ff136c4d91365d77e49448466652bbc"
+    },
+    {
+      "cover_count": 1476,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "essential_cover_count": 1476,
+      "extension_candidate_count": 8062,
+      "extension_candidate_status_counts": {
+        "ok": 1969,
+        "self_edge": 2071,
+        "strict_cycle": 4022
+      },
+      "extension_dead_end_count": 847,
+      "full_vertex_circle_survivor_count": 0,
+      "halo_gaps": [
+        6,
+        6,
+        6
+      ],
+      "pair_and_crossing_compatible_count": 3585,
+      "pair_capacity_compatible_count": 3585,
+      "raw_row_combination_count": 194481,
+      "retained_center_positions": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "retained_cover_ok_count": 1227,
+      "retained_cover_self_edge_count": 63,
+      "retained_cover_strict_cycle_count": 186,
+      "retained_row_option_counts": {
+        "1": 21,
+        "3": 21,
+        "4": 21,
+        "6": 21
+      },
+      "stored_full_survivors": [],
+      "trace_sha256": "0e811f4b7e6f3e5ce43604bbb765530db303a6b97dcae06b0617d577329e83c5"
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_three_halo_vertex_circle.py --write --assert-expected",
+    "generator": "scripts/check_fragile_cycle_three_halo_vertex_circle.py"
+  },
+  "representative_obstructions": {
+    "self_edge": {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          7,
+          8,
+          9,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "selected_row_count": 6,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              1,
+              2
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              1,
+              4
+            ],
+            "row": 8,
+            "witness_order": [
+              1,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 54,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "optimized_status": "self_edge",
+      "selected_rows": [
+        [
+          8,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          1,
+          0,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          6,
+          9
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          8
+        ]
+      ]
+    },
+    "strict_cycle": {
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_replay": {
+        "cycle_edges": [
+          {
+            "inner_class": [
+              0,
+              4
+            ],
+            "inner_interval": [
+              0,
+              2
+            ],
+            "inner_pair": [
+              4,
+              9
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              1,
+              4
+            ],
+            "row": 3,
+            "witness_order": [
+              4,
+              5,
+              9,
+              1
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              0,
+              1
+            ],
+            "outer_class": [
+              0,
+              4
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              4
+            ],
+            "row": 5,
+            "witness_order": [
+              0,
+              1,
+              3,
+              4
+            ]
+          }
+        ],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          7,
+          8,
+          9,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "selected_row_count": 6,
+        "self_edge_conflicts": [],
+        "status": "strict_cycle",
+        "strict_edge_count": 54,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "optimized_status": "strict_cycle",
+      "selected_rows": [
+        [
+          1,
+          0,
+          4,
+          7,
+          8
+        ],
+        [
+          2,
+          1,
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          6,
+          9
+        ],
+        [
+          5,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          7
+        ]
+      ]
+    }
+  },
+  "schema": "erdos97.fragile_cycle_three_halo_vertex_circle.v1",
+  "search_contract": {
+    "added_halo_count": 3,
+    "canonical_placement_rule": "nondecreasing three-element multisets of the seven core gaps",
+    "extension_rule": "one selected four-witness row at every center",
+    "n": 10,
+    "retained_cover_rules": [
+      "covers_all_labels",
+      "essential_matching"
+    ],
+    "row_intersection_cap": 2,
+    "row_size": 4,
+    "search_exhaustive": true,
+    "search_order": "fixed retained centers, then minimum-remaining-options center with lexicographic row masks",
+    "selected_indegree_cap": 6,
+    "two_overlap_rule": "the center-pair and witness-pair chords cross",
+    "vertex_circle_rule": "reject selected-distance quotient self-edges and strict cycles after every extension row",
+    "witness_pair_multiplicity_cap": 2
+  },
+  "source_core": {
+    "canonical_core_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "core_role_blocks": [
+      [
+        1
+      ],
+      [
+        8
+      ],
+      [
+        16
+      ],
+      [
+        18
+      ],
+      [
+        23,
+        27
+      ],
+      [
+        37
+      ],
+      [
+        44
+      ]
+    ],
+    "fragile_centers": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "quotient_identification": "23=27",
+    "required_witnesses": {
+      "1": [
+        0,
+        4
+      ],
+      "3": [
+        4,
+        5
+      ],
+      "4": [
+        0,
+        2
+      ],
+      "6": [
+        2,
+        5
+      ]
+    }
+  },
+  "status": "EXACT_BOUNDED_THREE_HALO_VERTEX_CIRCLE_CLOSURE",
+  "summary": {
+    "all_three_halo_placements_exhausted": true,
+    "canonical_three_halo_placement_count": 84,
+    "essential_retained_cover_count": 141750,
+    "fixed_three_halo_slice_closed": true,
+    "full_vertex_circle_survivor_count": 0,
+    "raw_retained_row_combination_count": 16336404
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
+}

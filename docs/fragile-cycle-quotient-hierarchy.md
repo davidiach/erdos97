@@ -90,10 +90,28 @@ The catalogue is deliberately incomplete. It forgets unused halo roles,
 preserves only marked quadrilateral orders, and does not check Euclidean
 realizability. It is a proof-mining hierarchy, not a bridge theorem.
 
+## Bounded halo-lift follow-up
+
+The exact follow-up in `docs/fragile-cycle-halo-lift-frontier.md` tests whether
+the two proper seven-role quotients can lift to four distinct retained fragile
+rows after forgotten halo roles are restored. The `18=23` quotient collides
+two retained centers. For the `23=27` quotient, zero halos give no compatible
+four-row system, one halo gives 38 essential covers but no full selected-row
+extension, and two halos give 7,708 covers of which exactly six have a
+deterministic full-extension witness. Those six witnesses are stored `n=9`
+frontier assignments and inherit exact positive-circuit contradictions.
+
+This is a bounded abstract incidence result, not a geometric forcing lemma.
+It sharpens the next target to controlling the quotient core together with its
+active halos.
+
 ## Replay
 
 ```bash
 python scripts/check_fragile_cycle_quotient_hierarchy.py \
+  --check --assert-expected --summary-json
+
+python scripts/check_fragile_cycle_halo_lift_frontier.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_turn_pivot_guardrail.py \

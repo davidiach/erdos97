@@ -46,6 +46,48 @@ PR should try to force one of those forms, the role-rigid hinge or inverse
 template, or an explicit geometric alternative; the quotient classification
 alone is not a bridge proof.
 
+The bounded halo-lift frontier
+`python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json`
+now resolves the first abstract completion boundary of those seven-role forms.
+The `18=23` form collides two retained centers. The `23=27` form needs one
+added halo for a four-row fragile cover and two for a full selected-row
+extension; its six two-halo extension witnesses all join to stored exact `n=9`
+positive circuits. The next bridge PR should prove a genuine geometric reason
+that controls this core-plus-halo structure, or explain why a larger halo
+system forces a different certificate. Re-enumerating the same bounded
+incidence slice is not the missing Contract F lemma.
+
+The exact three-halo continuation
+`python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json`
+exhausts all 84 canonical placements and 141,750 essential retained covers at
+`n=10`; none extends to a full selected-row system that survives the
+vertex-circle quotient. This closes only the fixed three-halo abstract slice.
+The next useful PR should now seek the geometric core/halo forcing lemma or a
+reusable local obstruction, not add another unconstrained enumeration layer.
+
+The deep-frontier compression
+`python scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json`
+now replaces the last two search layers by 13 clean eight-row states. Eleven
+have a center whose 126 candidate rows all fail intersection/crossing; the
+other two force one ninth row and expose six minimum three-row quotient cores.
+This is the requested reusable bounded obstruction packet. The next bridge PR
+should use genuine minimal-counterexample geometry to force entry into this
+packet or force a named rich-class/deletion alternative; another fixed-halo
+enumeration is lower leverage.
+
+The natural-order metric follow-up
+`python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json`
+now shows that all 13 deep states already contain an exact Kalmanson
+obstruction on exactly three selected rows. Eleven use one strict self-edge;
+states `S08` and `S11` use unit-weight two-inequality inverse pairs. This
+supplies a compact ordinary-distance endgame once the fixed catalog is
+reached. Its three-row minimality is only within that one-self-edge/
+two-inverse-row certificate family, not arbitrary wider positive
+combinations. The remaining high-leverage target is the geometric entry lemma:
+force the `23=27` core plus one of these three-row cores, or force a separately
+checked rich-class/deletion alternative. Extending the halo count is not that
+entry argument.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an

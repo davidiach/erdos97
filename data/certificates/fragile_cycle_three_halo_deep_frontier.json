@@ -1,0 +1,3554 @@
+{
+  "claim_scope": "Exact bounded compression of the final two search layers in the fixed three-halo n=10 scan for the 23=27 seven-role quotient core. It extracts all vertex-circle-clean eight-row states, certifies incidence dead ends or forced ninth rows, and independently replays the resulting minimum three-row quotient obstructions. Not Euclidean realizability, not a fragile-cycle forcing lemma, not a proof of n=10, not a general proof, not a counterexample, and not an official/global status update.",
+  "conclusion": "The complete fixed three-halo search has exactly thirteen clean eight-row frontier states in seven placements. Eleven have a remaining center with no incidence-admissible row. Each of the other two has a unique minimum-remaining-options ninth row, and that row creates an exact vertex-circle obstruction containing a three-row core. This replaces the last two opaque search layers by a compact replayable packet but does not supply the missing geometric forcing lemma.",
+  "deep_frontier_catalog_sha256": "73e1cabd1670fddd3452bba72c80880f3eeebbc574a4873de3905a1c33781765",
+  "deep_frontier_state_count": 13,
+  "deep_frontier_states": [
+    {
+      "admissible_row_option_counts": {
+        "1": 1,
+        "8": 2
+      },
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dihedral_class_id": "D07",
+      "forced_assignment_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 9,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              3
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              2
+            ],
+            "inner_pair": [
+              2,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              4,
+              7
+            ],
+            "row": 6,
+            "witness_order": [
+              7,
+              8,
+              2,
+              4
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 81,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "forced_assignment_status": "self_edge",
+      "forced_center_natural_order": 1,
+      "forced_center_original_label": 7,
+      "forced_row_natural_order": [
+        1,
+        0,
+        2,
+        3,
+        6
+      ],
+      "forced_row_original_labels": [
+        7,
+        0,
+        3,
+        8,
+        9
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "minimum_obstruction_core_ids": [
+        "S01-C01",
+        "S01-C02",
+        "S01-C03",
+        "S01-C04"
+      ],
+      "minimum_obstruction_width": 3,
+      "remaining_centers_natural_order": [
+        1,
+        8
+      ],
+      "remaining_centers_original_labels": [
+        7,
+        5
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          1,
+          2,
+          7,
+          9
+        ],
+        [
+          2,
+          3,
+          4,
+          5,
+          9
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          8
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          9
+        ],
+        [
+          6,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          2,
+          5,
+          9
+        ],
+        [
+          9,
+          1,
+          5,
+          6,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          4,
+          6,
+          7,
+          8
+        ],
+        [
+          8,
+          1,
+          2,
+          6,
+          9
+        ],
+        [
+          9,
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          7
+        ]
+      ],
+      "state_id": "S01",
+      "terminal_type": "forced_ninth_row_obstruction"
+    },
+    {
+      "admissible_row_option_counts": {
+        "1": 0,
+        "2": 1
+      },
+      "certificate_center_natural_order": 1,
+      "certificate_center_original_label": 7,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_centers_natural_order": [
+        1
+      ],
+      "dead_centers_original_labels": [
+        7
+      ],
+      "dihedral_class_id": "D11",
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        1,
+        2
+      ],
+      "remaining_centers_original_labels": [
+        7,
+        8
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          2,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          2,
+          3,
+          6
+        ],
+        [
+          6,
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ],
+        [
+          9,
+          2,
+          5,
+          6,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          1,
+          4,
+          6,
+          8
+        ],
+        [
+          9,
+          0,
+          1,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          3,
+          7,
+          8,
+          9
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          8
+        ]
+      ],
+      "state_id": "S02",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "1": 0,
+        "2": 0
+      },
+      "certificate_center_natural_order": 1,
+      "certificate_center_original_label": 7,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_centers_natural_order": [
+        1,
+        2
+      ],
+      "dead_centers_original_labels": [
+        7,
+        8
+      ],
+      "dihedral_class_id": "D08",
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        1,
+        2
+      ],
+      "remaining_centers_original_labels": [
+        7,
+        8
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          1,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          2,
+          3,
+          8,
+          9
+        ],
+        [
+          6,
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ],
+        [
+          9,
+          2,
+          5,
+          6,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          9,
+          1,
+          3,
+          7,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          5,
+          6,
+          8,
+          9
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          8
+        ]
+      ],
+      "state_id": "S03",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "1": 0,
+        "2": 0
+      },
+      "certificate_center_natural_order": 1,
+      "certificate_center_original_label": 7,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_centers_natural_order": [
+        1,
+        2
+      ],
+      "dead_centers_original_labels": [
+        7,
+        8
+      ],
+      "dihedral_class_id": "D10",
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        1,
+        2
+      ],
+      "remaining_centers_original_labels": [
+        7,
+        8
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          2,
+          3,
+          6
+        ],
+        [
+          6,
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ],
+        [
+          9,
+          2,
+          5,
+          6,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          9,
+          0,
+          1,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          3,
+          7,
+          8,
+          9
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          8
+        ]
+      ],
+      "state_id": "S04",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "1": 0,
+        "2": 0
+      },
+      "certificate_center_natural_order": 1,
+      "certificate_center_original_label": 7,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_centers_natural_order": [
+        1,
+        2
+      ],
+      "dead_centers_original_labels": [
+        7,
+        8
+      ],
+      "dihedral_class_id": "D05",
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        1,
+        2
+      ],
+      "remaining_centers_original_labels": [
+        7,
+        8
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          2,
+          3,
+          9
+        ],
+        [
+          6,
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ],
+        [
+          9,
+          2,
+          5,
+          6,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          9,
+          0,
+          1,
+          5,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          6,
+          7,
+          8,
+          9
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          8
+        ]
+      ],
+      "state_id": "S05",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "0": 0,
+        "2": 0
+      },
+      "certificate_center_natural_order": 0,
+      "certificate_center_original_label": 0,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_centers_natural_order": [
+        0,
+        2
+      ],
+      "dead_centers_original_labels": [
+        0,
+        8
+      ],
+      "dihedral_class_id": "D09",
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        0,
+        2
+      ],
+      "remaining_centers_original_labels": [
+        0,
+        8
+      ],
+      "selected_rows_natural_order": [
+        [
+          1,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          2,
+          3,
+          8,
+          9
+        ],
+        [
+          6,
+          1,
+          4,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          1,
+          6,
+          7
+        ],
+        [
+          9,
+          2,
+          5,
+          6,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          7,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          9,
+          0,
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          5,
+          6,
+          8,
+          9
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          7
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          7
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          8
+        ]
+      ],
+      "state_id": "S06",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "0": 0,
+        "1": 1
+      },
+      "certificate_center_natural_order": 0,
+      "certificate_center_original_label": 0,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "dead_centers_natural_order": [
+        0
+      ],
+      "dead_centers_original_labels": [
+        0
+      ],
+      "dihedral_class_id": "D12",
+      "halo_gaps": [
+        0,
+        0,
+        0
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        0,
+        1
+      ],
+      "remaining_centers_original_labels": [
+        0,
+        7
+      ],
+      "selected_rows_natural_order": [
+        [
+          2,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          6
+        ],
+        [
+          4,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          5,
+          1,
+          3,
+          8,
+          9
+        ],
+        [
+          6,
+          2,
+          4,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          0,
+          2,
+          6,
+          7
+        ],
+        [
+          9,
+          1,
+          5,
+          6,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          8,
+          1,
+          4,
+          6,
+          9
+        ],
+        [
+          9,
+          0,
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          5,
+          6,
+          7,
+          9
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          8
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          7
+        ]
+      ],
+      "state_id": "S07",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "0": 0,
+        "1": 0
+      },
+      "certificate_center_natural_order": 0,
+      "certificate_center_original_label": 0,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        8,
+        2,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "dead_centers_natural_order": [
+        0,
+        1
+      ],
+      "dead_centers_original_labels": [
+        0,
+        7
+      ],
+      "dihedral_class_id": "D01",
+      "halo_gaps": [
+        0,
+        1,
+        5
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        0,
+        1
+      ],
+      "remaining_centers_original_labels": [
+        0,
+        7
+      ],
+      "selected_rows_natural_order": [
+        [
+          2,
+          0,
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          4,
+          3,
+          5,
+          6,
+          8
+        ],
+        [
+          5,
+          2,
+          4,
+          6,
+          7
+        ],
+        [
+          6,
+          0,
+          4,
+          5,
+          9
+        ],
+        [
+          7,
+          0,
+          2,
+          6,
+          8
+        ],
+        [
+          8,
+          1,
+          2,
+          3,
+          9
+        ],
+        [
+          9,
+          1,
+          4,
+          7,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          1,
+          0,
+          2,
+          4,
+          8
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          4,
+          8,
+          9
+        ],
+        [
+          3,
+          1,
+          2,
+          4,
+          5
+        ],
+        [
+          4,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          5,
+          0,
+          1,
+          4,
+          9
+        ],
+        [
+          9,
+          1,
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          9
+        ]
+      ],
+      "state_id": "S08",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "3": 0,
+        "8": 0
+      },
+      "certificate_center_natural_order": 3,
+      "certificate_center_original_label": 2,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        8,
+        4,
+        5,
+        9,
+        6
+      ],
+      "dead_centers_natural_order": [
+        3,
+        8
+      ],
+      "dead_centers_original_labels": [
+        2,
+        9
+      ],
+      "dihedral_class_id": "D06",
+      "halo_gaps": [
+        0,
+        3,
+        5
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        3,
+        8
+      ],
+      "remaining_centers_original_labels": [
+        2,
+        9
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          1,
+          2,
+          5,
+          6,
+          8
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          6
+        ],
+        [
+          4,
+          2,
+          6,
+          7,
+          9
+        ],
+        [
+          5,
+          0,
+          4,
+          8,
+          9
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          7,
+          1,
+          2,
+          3,
+          8
+        ],
+        [
+          9,
+          3,
+          4,
+          7,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          3,
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          1,
+          4,
+          8,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          6
+        ],
+        [
+          8,
+          0,
+          3,
+          6,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          8
+        ],
+        [
+          5,
+          1,
+          2,
+          7,
+          9
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          9
+        ]
+      ],
+      "state_id": "S09",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "1": 0,
+        "3": 0
+      },
+      "certificate_center_natural_order": 1,
+      "certificate_center_original_label": 7,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        7,
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        6,
+        9
+      ],
+      "dead_centers_natural_order": [
+        1,
+        3
+      ],
+      "dead_centers_original_labels": [
+        7,
+        2
+      ],
+      "dihedral_class_id": "D02",
+      "halo_gaps": [
+        0,
+        5,
+        6
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        1,
+        3
+      ],
+      "remaining_centers_original_labels": [
+        7,
+        2
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          4,
+          7,
+          8,
+          9
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          4,
+          2,
+          3,
+          5,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          4,
+          8
+        ],
+        [
+          6,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          7,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          8,
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          9,
+          1,
+          2,
+          6,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          3,
+          6,
+          8,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          3,
+          1,
+          2,
+          4,
+          5
+        ],
+        [
+          4,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          5,
+          0,
+          1,
+          4,
+          8
+        ],
+        [
+          8,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          6,
+          2,
+          5,
+          8,
+          9
+        ],
+        [
+          9,
+          1,
+          5,
+          6,
+          7
+        ]
+      ],
+      "state_id": "S10",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "7": 1,
+        "9": 0
+      },
+      "certificate_center_natural_order": 9,
+      "certificate_center_original_label": 9,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        8,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "dead_centers_natural_order": [
+        9
+      ],
+      "dead_centers_original_labels": [
+        9
+      ],
+      "dihedral_class_id": "D13",
+      "halo_gaps": [
+        1,
+        1,
+        6
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        7,
+        9
+      ],
+      "remaining_centers_original_labels": [
+        5,
+        9
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          1,
+          2,
+          4,
+          8
+        ],
+        [
+          1,
+          0,
+          2,
+          6,
+          9
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          3,
+          1,
+          5,
+          8,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          3,
+          5
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          7
+        ],
+        [
+          6,
+          0,
+          4,
+          7,
+          8
+        ],
+        [
+          8,
+          4,
+          5,
+          7,
+          9
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          1,
+          2,
+          6,
+          7
+        ],
+        [
+          1,
+          0,
+          4,
+          7,
+          9
+        ],
+        [
+          7,
+          0,
+          1,
+          2,
+          8
+        ],
+        [
+          8,
+          1,
+          3,
+          6,
+          9
+        ],
+        [
+          2,
+          0,
+          3,
+          7,
+          8
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          6,
+          2,
+          3,
+          5,
+          9
+        ]
+      ],
+      "state_id": "S11",
+      "terminal_type": "incidence_dead_end"
+    },
+    {
+      "admissible_row_option_counts": {
+        "2": 1,
+        "3": 2
+      },
+      "cyclic_order": [
+        0,
+        1,
+        7,
+        2,
+        8,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "dihedral_class_id": "D03",
+      "forced_assignment_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 9,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              3,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              2,
+              6
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              5,
+              7
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              5
+            ],
+            "row": 4,
+            "witness_order": [
+              5,
+              7,
+              0,
+              2
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              0,
+              1
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              6
+            ],
+            "row": 7,
+            "witness_order": [
+              8,
+              0,
+              1,
+              6
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              6
+            ],
+            "row": 7,
+            "witness_order": [
+              8,
+              0,
+              1,
+              6
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 81,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "forced_assignment_status": "self_edge",
+      "forced_center_natural_order": 2,
+      "forced_center_original_label": 7,
+      "forced_row_natural_order": [
+        2,
+        1,
+        4,
+        5,
+        6
+      ],
+      "forced_row_original_labels": [
+        7,
+        1,
+        3,
+        4,
+        8
+      ],
+      "halo_gaps": [
+        1,
+        2,
+        5
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "minimum_obstruction_core_ids": [
+        "S12-C01",
+        "S12-C02"
+      ],
+      "minimum_obstruction_width": 3,
+      "remaining_centers_natural_order": [
+        2,
+        3
+      ],
+      "remaining_centers_original_labels": [
+        7,
+        2
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          2,
+          5,
+          8,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          5,
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          6,
+          0,
+          3,
+          5,
+          9
+        ],
+        [
+          7,
+          0,
+          1,
+          6,
+          8
+        ],
+        [
+          8,
+          1,
+          2,
+          4,
+          9
+        ],
+        [
+          9,
+          1,
+          3,
+          7,
+          8
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          3,
+          6,
+          7,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          8,
+          0,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          5,
+          0,
+          1,
+          4,
+          9
+        ],
+        [
+          9,
+          1,
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          1,
+          2,
+          5,
+          9
+        ]
+      ],
+      "state_id": "S12",
+      "terminal_type": "forced_ninth_row_obstruction"
+    },
+    {
+      "admissible_row_option_counts": {
+        "4": 0,
+        "7": 0
+      },
+      "certificate_center_natural_order": 4,
+      "certificate_center_original_label": 8,
+      "certificate_option_count": 126,
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        7,
+        8,
+        3,
+        4,
+        5,
+        9,
+        6
+      ],
+      "dead_centers_natural_order": [
+        4,
+        7
+      ],
+      "dead_centers_original_labels": [
+        8,
+        5
+      ],
+      "dihedral_class_id": "D04",
+      "halo_gaps": [
+        2,
+        2,
+        5
+      ],
+      "independent_clean_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": false,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 8,
+        "self_edge_conflicts": [],
+        "status": "ok",
+        "strict_edge_count": 72,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "option_rejection_ledger": {
+        "row_intersection_or_crossing": 126,
+        "selected_indegree_capacity": 0,
+        "viable": 0,
+        "witness_pair_capacity": 0
+      },
+      "remaining_centers_natural_order": [
+        4,
+        7
+      ],
+      "remaining_centers_original_labels": [
+        8,
+        5
+      ],
+      "selected_rows_natural_order": [
+        [
+          0,
+          1,
+          4,
+          8,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          0,
+          1,
+          5,
+          8
+        ],
+        [
+          3,
+          2,
+          4,
+          5,
+          6
+        ],
+        [
+          5,
+          4,
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          0,
+          2,
+          7,
+          9
+        ],
+        [
+          8,
+          3,
+          4,
+          7,
+          9
+        ],
+        [
+          9,
+          1,
+          2,
+          5,
+          7
+        ]
+      ],
+      "selected_rows_original_labels": [
+        [
+          0,
+          1,
+          6,
+          8,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          7
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          9
+        ],
+        [
+          7,
+          2,
+          3,
+          4,
+          8
+        ],
+        [
+          3,
+          4,
+          5,
+          8,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          6
+        ],
+        [
+          9,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          1,
+          2,
+          3,
+          5
+        ]
+      ],
+      "state_id": "S13",
+      "terminal_type": "incidence_dead_end"
+    }
+  ],
+  "deep_placement_count": 7,
+  "deep_placements": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      5
+    ],
+    [
+      0,
+      3,
+      5
+    ],
+    [
+      0,
+      5,
+      6
+    ],
+    [
+      1,
+      1,
+      6
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      2,
+      2,
+      5
+    ]
+  ],
+  "depth_status_profile": {
+    "4": {
+      "ok": 120690,
+      "self_edge": 5544,
+      "strict_cycle": 15516
+    },
+    "5": {
+      "ok": 116374,
+      "self_edge": 28179,
+      "strict_cycle": 87592
+    },
+    "6": {
+      "ok": 27054,
+      "self_edge": 53837,
+      "strict_cycle": 80165
+    },
+    "7": {
+      "ok": 1273,
+      "self_edge": 13584,
+      "strict_cycle": 11992
+    },
+    "8": {
+      "ok": 13,
+      "self_edge": 406,
+      "strict_cycle": 211
+    },
+    "9": {
+      "ok": 0,
+      "self_edge": 2,
+      "strict_cycle": 0
+    }
+  },
+  "dihedral_class_count": 13,
+  "incidence_rejection_totals": {
+    "row_intersection_or_crossing": 1386,
+    "selected_indegree_capacity": 0,
+    "viable": 0,
+    "witness_pair_capacity": 0
+  },
+  "limitations": [
+    "The packet compresses only the fixed three-halo source search and inherits its assumptions.",
+    "It does not force the 23=27 quotient core or any selected row from geometry.",
+    "The thirteen deep states are dihedrally distinct; the packet is a local catalog, not one universal row template.",
+    "Incidence dead ends use the selected-row filters of the source search, not Euclidean realizability.",
+    "No proof of n=10, general proof, counterexample, or official/global status update is claimed."
+  ],
+  "minimum_obstruction_core_count": 6,
+  "minimum_obstruction_core_status_counts": {
+    "self_edge": 2,
+    "strict_cycle": 4
+  },
+  "minimum_obstruction_cores": [
+    {
+      "centers": [
+        0,
+        1,
+        3
+      ],
+      "core_id": "S01-C01",
+      "independent_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 3,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              1,
+              3
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 27,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "selected_rows": [
+        [
+          0,
+          1,
+          2,
+          7,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          8
+        ]
+      ],
+      "source_state_id": "S01",
+      "status": "self_edge"
+    },
+    {
+      "centers": [
+        0,
+        1,
+        5
+      ],
+      "core_id": "S01-C02",
+      "independent_replay": {
+        "cycle_edges": [
+          {
+            "inner_class": [
+              0,
+              3
+            ],
+            "inner_interval": [
+              1,
+              3
+            ],
+            "inner_pair": [
+              0,
+              3
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              3,
+              6
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              3,
+              6
+            ],
+            "outer_class": [
+              0,
+              3
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "outer_class": [
+              3,
+              6
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              6
+            ],
+            "row": 5,
+            "witness_order": [
+              6,
+              9,
+              1,
+              3
+            ]
+          }
+        ],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 3,
+        "self_edge_conflicts": [],
+        "status": "strict_cycle",
+        "strict_edge_count": 27,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "selected_rows": [
+        [
+          0,
+          1,
+          2,
+          7,
+          9
+        ],
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          9
+        ]
+      ],
+      "source_state_id": "S01",
+      "status": "strict_cycle"
+    },
+    {
+      "centers": [
+        1,
+        2,
+        7
+      ],
+      "core_id": "S01-C03",
+      "independent_replay": {
+        "cycle_edges": [
+          {
+            "inner_class": [
+              2,
+              3
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              2,
+              3
+            ],
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              0,
+              2
+            ],
+            "outer_class": [
+              2,
+              3
+            ],
+            "outer_interval": [
+              0,
+              2
+            ],
+            "outer_pair": [
+              2,
+              9
+            ],
+            "row": 7,
+            "witness_order": [
+              9,
+              0,
+              2,
+              5
+            ]
+          }
+        ],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 3,
+        "self_edge_conflicts": [],
+        "status": "strict_cycle",
+        "strict_edge_count": 27,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "selected_rows": [
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          3,
+          4,
+          5,
+          9
+        ],
+        [
+          7,
+          0,
+          2,
+          5,
+          9
+        ]
+      ],
+      "source_state_id": "S01",
+      "status": "strict_cycle"
+    },
+    {
+      "centers": [
+        1,
+        3,
+        5
+      ],
+      "core_id": "S01-C04",
+      "independent_replay": {
+        "cycle_edges": [
+          {
+            "inner_class": [
+              3,
+              6
+            ],
+            "inner_interval": [
+              1,
+              2
+            ],
+            "inner_pair": [
+              3,
+              6
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              1,
+              3
+            ],
+            "outer_pair": [
+              0,
+              3
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              1,
+              3
+            ],
+            "outer_class": [
+              3,
+              6
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              3,
+              6
+            ],
+            "row": 5,
+            "witness_order": [
+              6,
+              9,
+              1,
+              3
+            ]
+          }
+        ],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 3,
+        "self_edge_conflicts": [],
+        "status": "strict_cycle",
+        "strict_edge_count": 27,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "selected_rows": [
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          8
+        ],
+        [
+          5,
+          1,
+          3,
+          6,
+          9
+        ]
+      ],
+      "source_state_id": "S01",
+      "status": "strict_cycle"
+    },
+    {
+      "centers": [
+        1,
+        2,
+        4
+      ],
+      "core_id": "S12-C01",
+      "independent_replay": {
+        "cycle_edges": [
+          {
+            "inner_class": [
+              0,
+              2
+            ],
+            "inner_interval": [
+              2,
+              3
+            ],
+            "inner_pair": [
+              0,
+              2
+            ],
+            "outer_class": [
+              0,
+              1
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              5
+            ],
+            "row": 4,
+            "witness_order": [
+              5,
+              7,
+              0,
+              2
+            ]
+          },
+          {
+            "inner_class": [
+              0,
+              1
+            ],
+            "inner_interval": [
+              0,
+              2
+            ],
+            "inner_pair": [
+              2,
+              6
+            ],
+            "outer_class": [
+              0,
+              2
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              0,
+              2
+            ],
+            "row": 1,
+            "witness_order": [
+              2,
+              3,
+              6,
+              0
+            ]
+          }
+        ],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 3,
+        "self_edge_conflicts": [],
+        "status": "strict_cycle",
+        "strict_edge_count": 27,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "selected_rows": [
+        [
+          1,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          1,
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ]
+      ],
+      "source_state_id": "S12",
+      "status": "strict_cycle"
+    },
+    {
+      "centers": [
+        2,
+        4,
+        5
+      ],
+      "core_id": "S12-C02",
+      "independent_replay": {
+        "cycle_edges": [],
+        "n": 10,
+        "obstructed": true,
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_row_count": 3,
+        "self_edge_conflicts": [
+          {
+            "inner_class": [
+              0,
+              4
+            ],
+            "inner_interval": [
+              0,
+              1
+            ],
+            "inner_pair": [
+              5,
+              7
+            ],
+            "outer_class": [
+              0,
+              4
+            ],
+            "outer_interval": [
+              0,
+              3
+            ],
+            "outer_pair": [
+              2,
+              5
+            ],
+            "row": 4,
+            "witness_order": [
+              5,
+              7,
+              0,
+              2
+            ]
+          }
+        ],
+        "status": "self_edge",
+        "strict_edge_count": 27,
+        "type": "vertex_circle_quotient_replay_result"
+      },
+      "selected_rows": [
+        [
+          2,
+          1,
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          0,
+          2,
+          5,
+          7
+        ],
+        [
+          5,
+          3,
+          4,
+          6,
+          7
+        ]
+      ],
+      "source_state_id": "S12",
+      "status": "self_edge"
+    }
+  ],
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_three_halo_deep_frontier.py --write --assert-expected",
+    "generator": "scripts/check_fragile_cycle_three_halo_deep_frontier.py"
+  },
+  "schema": "erdos97.fragile_cycle_three_halo_deep_frontier.v1",
+  "search_contract": {
+    "deep_frontier_depth": 8,
+    "incidence_filters": [
+      "row_intersection_and_two_overlap_crossing",
+      "selected_indegree_capacity",
+      "witness_pair_capacity"
+    ],
+    "minimum_core_rule": "exhaust row subsets in increasing width and retain every obstructed subset at the first nonempty width",
+    "natural_cyclic_order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "remaining_center_rule": "minimum option count, then center label",
+    "search_exhaustive": true,
+    "terminal_replay_depth": 9
+  },
+  "source_artifact": {
+    "catalog_trace_sha256": "06132f8cf83fa5015596a1d384c5cdff5aa90d857cd66a5c264392a1bdae2c56",
+    "instrumented_replay_trace_sha256": "06132f8cf83fa5015596a1d384c5cdff5aa90d857cd66a5c264392a1bdae2c56",
+    "path": "data/certificates/fragile_cycle_three_halo_vertex_circle.json",
+    "schema": "erdos97.fragile_cycle_three_halo_vertex_circle.v1"
+  },
+  "status": "EXACT_BOUNDED_THREE_HALO_DEEP_FRONTIER_COMPRESSION",
+  "summary": {
+    "all_deep_states_terminal": true,
+    "all_forced_ninth_rows_obstructed": true,
+    "all_minimum_cores_independently_replayed": true,
+    "clean_eight_row_dihedral_class_count": 13,
+    "clean_eight_row_placement_count": 7,
+    "clean_eight_row_state_count": 13,
+    "forced_ninth_row_state_count": 2,
+    "incidence_dead_state_count": 11,
+    "maximum_forced_obstruction_core_width": 3,
+    "minimum_forced_obstruction_core_width": 3
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
+}
