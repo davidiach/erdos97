@@ -65,6 +65,16 @@ vertex-circle quotient. This closes only the fixed three-halo abstract slice.
 The next useful PR should now seek the geometric core/halo forcing lemma or a
 reusable local obstruction, not add another unconstrained enumeration layer.
 
+The deep-frontier compression
+`python scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json`
+now replaces the last two search layers by 13 clean eight-row states. Eleven
+have a center whose 126 candidate rows all fail intersection/crossing; the
+other two force one ninth row and expose six minimum three-row quotient cores.
+This is the requested reusable bounded obstruction packet. The next bridge PR
+should use genuine minimal-counterexample geometry to force entry into this
+packet or force a named rich-class/deletion alternative; another fixed-halo
+enumeration is lower leverage.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an

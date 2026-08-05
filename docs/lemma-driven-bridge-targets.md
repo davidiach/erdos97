@@ -296,11 +296,13 @@ Useful evidence:
 - `docs/fragile-cycle-quotient-hierarchy.md`
 - `docs/fragile-cycle-halo-lift-frontier.md`
 - `docs/fragile-cycle-three-halo-vertex-circle.md`
+- `docs/fragile-cycle-three-halo-deep-frontier.md`
 - `data/certificates/n9_fragile_turn_pivot_crosswalk.json`
 - `data/certificates/fragile_turn_pivot_guardrail.json`
 - `data/certificates/fragile_cycle_quotient_hierarchy.json`
 - `data/certificates/fragile_cycle_halo_lift_frontier.json`
 - `data/certificates/fragile_cycle_three_halo_vertex_circle.json`
+- `data/certificates/fragile_cycle_three_halo_deep_frontier.json`
 - `docs/turn-packing-bridge.md`
 - `docs/n9-kalmanson-three-row-core-compression.md`
 
@@ -337,6 +339,13 @@ placements and 141,750 essential retained covers are exhausted, with no full
 selected-row extension surviving the vertex-circle quotient. This is still
 finite proof-mining evidence, not `n=10` or a forcing lemma; four or more halo
 roles remain outside the scan.
+
+The deep-frontier packet replaces the final opaque search layers by a local
+catalog. Exactly 13 clean eight-row states survive: 11 have a remaining center
+whose full 126-row option set fails intersection/crossing, while the other two
+force one ninth row and expose six minimum width-three quotient obstructions.
+This is a reusable bounded regression lemma, but its finite state catalog is
+not the missing geometric entry argument.
 
 ## Low-leverage moves to avoid
 
@@ -384,4 +393,5 @@ python scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected -
 python scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
+python scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json
 ```

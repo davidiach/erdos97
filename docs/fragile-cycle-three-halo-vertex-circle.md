@@ -104,10 +104,19 @@ A Contract F lemma must still supply the geometric forcing step or a checked
 alternative, and must engage the scalable and `Z/16` controls for the right
 ordinary-distance reason.
 
+The exact follow-up in `docs/fragile-cycle-three-halo-deep-frontier.md`
+compresses the final two layers to 13 clean eight-row states: 11 crossing-dead
+centers and two forced ninth rows covered by six minimum three-row quotient
+cores. That packet is still bounded proof-mining evidence, not a geometric
+forcing lemma.
+
 ## Replay
 
 ```bash
 python scripts/check_fragile_cycle_three_halo_vertex_circle.py \
+  --check --assert-expected --summary-json
+
+python scripts/check_fragile_cycle_three_halo_deep_frontier.py \
   --check --assert-expected --summary-json
 
 python scripts/check_fragile_cycle_halo_lift_frontier.py \

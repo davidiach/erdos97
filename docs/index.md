@@ -308,6 +308,10 @@ put detailed reconciliation in the canonical synthesis.
   exact three-halo closure of the same fixed quotient core across 84 canonical
   placements and 141,750 essential covers, with no full vertex-circle-clean
   selected-row extension; bounded abstract `n=10` slice only.
+- [`fragile-cycle-three-halo-deep-frontier.md`](fragile-cycle-three-halo-deep-frontier.md):
+  compact replay of the 13 clean eight-row frontier states, reducing the final
+  layers to 11 crossing-dead centers and six minimum three-row quotient cores;
+  fixed-search local certificate only.
 - [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
   `T4`/`T5`/`T44` classification for centers made good by deleting two
   vertices, with pair capacities and the exclusive-mutual-pair corollary.

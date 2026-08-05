@@ -575,6 +575,17 @@
       "claim_scope": "Exact bounded three-halo n=10 vertex-circle closure for one fixed seven-role quotient core across all 84 canonical placements; not Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_three_halo_deep_frontier",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_three_halo_deep_frontier.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact bounded compression of the fixed three-halo search's final layers into 13 clean eight-row states, 11 crossing-dead centers, and six minimum three-row quotient cores; not Euclidean realizability, a fragile-cycle forcing lemma, n=10, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "n9_vertex_circle_input_audit",
       "command": [
         "python",
@@ -3390,6 +3401,7 @@
       "fragile_cycle_quotient_hierarchy",
       "fragile_cycle_halo_lift_frontier",
       "fragile_cycle_three_halo_vertex_circle",
+      "fragile_cycle_three_halo_deep_frontier",
       "adjacent_closest_pair_nonagon_barrier",
       "brp_boundary_vertexization_probe",
       "four_c3_generic_orbit_obstruction",
