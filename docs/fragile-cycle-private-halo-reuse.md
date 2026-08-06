@@ -116,8 +116,8 @@ five halos:
 The next useful step is geometric: use the retained row together with these
 forced reuse rows to obtain a critical-radius branch, deletion-profile
 constraint, hinge/splice motif, or another exact metric obstruction. The
-separate entry problem?forcing the `23=27` core from a genuine fragile
-matching cycle?also remains open.
+separate entry problem of forcing the `23=27` core from a genuine fragile
+matching cycle also remains open.
 
 ## Replay
 
