@@ -608,6 +608,17 @@
       "claim_scope": "Exact one-row negative control for all 310320 retained-exclusive four/five-halo covers of the fixed 23=27 core: every cover admits an outside-center endpoint-reuse selected row preserving pair/crossing/capacity and natural-order vertex-circle constraints; not an exact T4 rich class, full extension, Euclidean realization, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_private_halo_reuse",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_private_halo_reuse.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact full-system witness-pair budget for four/five-halo lifts of the fixed 23=27 core: four-halo extensions reuse at least one of three or two of four retained-private roles, and five-halo extensions reuse at least two; stored abstract guardrails leave selected-private roles, so this is not core forcing, fixed-core closure, Euclidean realizability, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "fragile_cycle_three_halo_vertex_circle",
       "command": [
         "python",
@@ -3470,6 +3481,7 @@
       "fragile_cycle_halo_slot_budget",
       "fragile_cycle_halo_deletion_crosswalk",
       "fragile_cycle_halo_endpoint_reuse",
+      "fragile_cycle_private_halo_reuse",
       "n12_rich_support_determinant",
       "localized_rich_support_counting",
       "minimal_two_deletion_profile",

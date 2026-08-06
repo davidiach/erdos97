@@ -873,6 +873,24 @@ general proof, or a counterexample. See
 docs/fragile-cycle-halo-deletion-crosswalk.md.
 The one-row follow-up is docs/fragile-cycle-halo-endpoint-reuse.md.
 
+### Fixed-core private-halo reuse pair budget
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` for full selected-row extensions of
+the fixed `23=27` four/five-halo retained covers.
+
+If `q` retained-private halos remain selected-private, the `n-4`
+non-retained rows and the four retained rows require
+`6(n-4)+sum_i C(4-p_i,2)` witness-pair occurrences on only `n-q` labels.
+The two-circle pair cap bounds the same load by `2 C(n-q,2)`. At `n=11`,
+three selected-private halos require `57>56` pair slots; at `n=12`, four
+require `60>56`. Thus a four-halo full extension reuses at least one of
+three or two of four retained-private roles, and a five-halo extension reuses
+at least two of five. Stored full-row guardrails still leave one and two
+selected-private halos respectively and contain known hinge/splice motifs.
+The bounds are not claimed sharp and do not close either regime. See
+docs/fragile-cycle-private-halo-reuse.md and
+scripts/check_fragile_cycle_private_halo_reuse.py.
+
 ### Pair and triple sharing
 
 For an unordered pair `{a,b}`, at most two polygon vertices `x` satisfy

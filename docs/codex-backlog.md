@@ -138,11 +138,19 @@ outside centers supply the remaining 9,265. This does not construct an exact
 T4 rich class or a full selected extension, but it proves that the checked
 one-row necessary conditions cannot force the T5/T44 branch.
 
+The private-halo reuse pair budget supplies a complementary full-system
+upgrade. Witness-pair capacity proves that a four-halo extension reuses at
+least one of three or two of four retained-private roles, while a five-halo
+extension reuses at least two. Stored abstract full-row guardrails leave one
+and two selected-private halos, so pair/crossing incidence does not force
+total reuse and the lower bounds are not claimed sharp.
+
 The missing bridge is structural and metric: force the `23=27` core from a
-genuine minimal counterexample; in the triggered branch, use simultaneous
-full extension, exact rich-class type, critical radii, or ordinary-distance
-geometry to eliminate or exploit endpoint reuse; in the pair-free branch,
-use geometry beyond the current deletion-coverage lemmas. Another independent
+genuine minimal counterexample; use simultaneous full extension, exact
+rich-class type, critical radii, or ordinary-distance geometry to eliminate
+or exploit endpoint reuse; use geometry beyond the current deletion-coverage
+lemmas in the pair-free branch; and combine retained rows with the forced
+reuse rows to obtain a genuine geometric obstruction. Another independent
 one-row incidence filter is lower leverage unless it adds a stronger genuine
 minimal-counterexample hypothesis.
 

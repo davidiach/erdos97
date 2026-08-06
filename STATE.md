@@ -121,6 +121,14 @@ conditions do not force a T5/T44 certifier. The surviving row is not an exact
 rich-class, full-extension, or Euclidean certificate. See
 `docs/fragile-cycle-halo-endpoint-reuse.md`.
 
+An exact complementary full-system pair budget proves that a four-halo
+extension reuses at least one of three or two of four retained-private roles,
+and a five-halo extension reuses at least two of five. Those are additional
+selected rich-class incidences, but stored abstract guardrails leave one and
+two selected-private roles and contain hinge/splice obstructions. The fixed
+core remains assumed; this is not fixed-core closure or an `n=11`, `n=12`, or
+general theorem. See `docs/fragile-cycle-private-halo-reuse.md`.
+
 The five-orbit `C3` lane also has a review-pending exact boundary draft:
 generic four-orbit own-pair rows force coincident reciprocal suppliers, and
 generic five-orbit

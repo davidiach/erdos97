@@ -832,6 +832,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   only this short forcing route; its witness is not an exact T4 rich class, a
   full selected extension, or a Euclidean realization, and the fixed core is
   still assumed.
+- review the fixed-core private-halo reuse packet in
+  docs/fragile-cycle-private-halo-reuse.md. Its direct pair count proves that
+  no four-halo full extension can leave three retained-private halos
+  selected-private and no five-halo extension can leave four. Review should
+  verify the pair-load inequality, the minima `15` and `12`, and both stored
+  full-row guardrails. Those guardrails intentionally retain one and two
+  selected-private halos and contain hinge/splice obstructions; they prevent
+  promotion to total reuse, Euclidean realizability, or fixed-core closure.
 - use the exact fragile/turn/pivot audit as the current pivot guardrail. Its
   finite `n=9` side has a two-pivot/`F15` split, but the abstract
   `S_i=i+{2,9,10,13}` system on `Z/16` has a marked three-cycle matching and

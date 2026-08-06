@@ -642,10 +642,19 @@ an active cover has at most five halos. Every four-halo cover has at least
 three retained-private halo roles, and every five-halo cover has five. The
 exact census shows that most of those retained covers remain motif-free.
 
-This still does not force the quotient core or make a retained-private role
-private in a full selected system or rich class. The next bridge obligation
-is to obtain that genuine rich-class/deletion upgrade, or a metric obstruction
-from the private-halo pattern.
+The pair-budget follow-up in
+`docs/fragile-cycle-private-halo-reuse.md` proves that complete selected-row
+systems cannot leave all of those roles private. A four-halo extension must
+reuse at least one of three or two of four retained-private halos; a five-halo
+extension must reuse at least two. Every such reuse places the halo in a
+non-retained selected row and therefore in an additional rich class. Abstract
+full-row guardrails still leave one and two selected-private halos and contain
+known hinge/splice motifs, so total reuse and geometric closure are not
+claimed.
+
+The next bridge obligation is to combine the retained row with its forced
+reuse row through deletion, critical-radius, or ordinary-distance geometry,
+or to force the quotient core directly.
 
 This is a foothold toward a bridge theorem, not the central ear-orderable
 bridge itself.

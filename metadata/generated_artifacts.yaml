@@ -1724,6 +1724,55 @@ artifacts:
       - counterexample to Erdos Problem #97
       - source-of-truth strongest result
       - official/global status update
+  - id: fragile_cycle_private_halo_reuse
+    path: data/certificates/fragile_cycle_private_halo_reuse.json
+    sha256: 534cea09411937ef3c6ce7b83f6b1d3f62aa03573221482f78cc66ab7c58c4a3
+    size_bytes: 7601
+    kind: exact_fixed_core_private_halo_reuse_artifact
+    generator: scripts/check_fragile_cycle_private_halo_reuse.py
+    command: python scripts/check_fragile_cycle_private_halo_reuse.py --write --assert-expected --summary-json
+    checker: scripts/check_fragile_cycle_private_halo_reuse.py
+    check_command: python scripts/check_fragile_cycle_private_halo_reuse.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact witness-pair budget for full selected-row extensions of the fixed
+      23=27 four/five-halo retained covers. Four-halo extensions reuse at least
+      one of three or two of four retained-private roles; five-halo extensions
+      reuse at least two. Stored abstract full-row guardrails leave one and two
+      selected-private halos and contain hinge/splice motifs. Not core forcing,
+      fixed-core closure, Euclidean realizability, n=11 or n=12, a general
+      proof, a counterexample, or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_private_halo_reuse.v1
+      status: EXACT_FIXED_CORE_PRIVATE_HALO_REUSE_BOUND
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      pair_budget_lemma.four_halos_three_selected_private.required_pair_load: 57
+      pair_budget_lemma.four_halos_three_selected_private.available_pair_capacity: 56
+      pair_budget_lemma.four_halos_three_selected_private.obstructed: true
+      pair_budget_lemma.four_halos_maximum_selected_private: 2
+      pair_budget_lemma.four_halos_minimum_reused_if_three_retained_private: 1
+      pair_budget_lemma.four_halos_minimum_reused_if_four_retained_private: 2
+      pair_budget_lemma.five_halos_four_selected_private.required_pair_load: 60
+      pair_budget_lemma.five_halos_four_selected_private.available_pair_capacity: 56
+      pair_budget_lemma.five_halos_four_selected_private.obstructed: true
+      pair_budget_lemma.five_halos_maximum_selected_private: 3
+      pair_budget_lemma.five_halos_minimum_reused: 2
+      provenance.command: python scripts/check_fragile_cycle_private_halo_reuse.py --write --assert-expected --summary-json
+    forbidden_claims:
+      - the 23=27 quotient core is forced
+      - every retained-private halo is reused
+      - the pair-budget lower bounds are sharp
+      - four- or five-halo full selected extensions are closed
+      - Euclidean realization
+      - n=11 or n=12 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
 
   - id: fragile_cycle_halo_deletion_crosswalk
     path: data/certificates/fragile_cycle_halo_deletion_crosswalk.json

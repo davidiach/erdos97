@@ -287,6 +287,30 @@ The fixed core is assumed, and no `n=11`, `n=12`, general-proof, or
 counterexample claim is made. See
 `docs/fragile-cycle-halo-endpoint-reuse.md`.
 
+### Exact fixed-core lemma: full extensions must reuse private halos
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` for full selected-row extensions of the
+fixed `23=27` four/five-halo branch.
+
+If `q` retained-private halos remain absent from all non-retained selected
+rows, witness-pair capacity requires
+
+```text
+6(n-4) + sum_i C(4-p_i,2) <= 2 C(n-q,2).
+```
+
+For four halos, three selected-private roles would require `57` pair
+occurrences on `56` available slots, so a full extension reuses at least one
+of three or two of four retained-private roles. For five halos, four
+selected-private roles require `60>56`, so every full extension reuses at
+least two of five.
+
+Stored abstract full-row guardrails still leave one and two selected-private
+roles and contain equilateral-hinge and Kalmanson-splice obstructions. The
+fixed core is assumed; the bounds are not claimed sharp and do not establish
+Euclidean realizability, `n=11`, `n=12`, the general problem, or a
+counterexample. See `docs/fragile-cycle-private-halo-reuse.md`.
+
 ### Lemma: selected-path self-edge obstruction
 
 Status: proved local criterion.

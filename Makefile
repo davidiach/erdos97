@@ -151,6 +151,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_fragile_cycle_halo_slot_budget.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_halo_deletion_crosswalk.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_halo_endpoint_reuse.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_fragile_cycle_private_halo_reuse.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_n12_rich_support_determinant.py --check --json
 	$(PYTHON) scripts/check_localized_rich_support_counting.py --check --json
 	$(PYTHON) scripts/check_minimal_two_deletion_profile.py --check --json

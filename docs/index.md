@@ -332,6 +332,10 @@ put detailed reconciliation in the canonical synthesis.
   every cover admits a pair/crossing/capacity/vertex-circle-compatible
   endpoint-reuse selected row, without constructing an exact rich class, full
   extension, or Euclidean realization.
+- [`fragile-cycle-private-halo-reuse.md`](fragile-cycle-private-halo-reuse.md):
+  exact full-system witness-pair budget forcing non-retained rows to reuse
+  some four/five-halo retained-private roles, with abstract guardrails showing
+  that one or two selected-private roles can still survive.
 - [`fragile-cycle-three-halo-vertex-circle.md`](fragile-cycle-three-halo-vertex-circle.md):
   exact three-halo closure of the same fixed quotient core across 84 canonical
   placements and 141,750 essential covers, with no full vertex-circle-clean

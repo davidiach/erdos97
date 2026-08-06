@@ -1,0 +1,373 @@
+{
+  "claim_scope": "Exact witness-pair budget for full selected-row extensions of the fixed 23=27 four/five-halo retained covers. In a four-halo extension at most two retained-private halos remain selected-private, so at least one of three or two of four must be reused. In a five-halo extension at most three remain selected-private, so at least two are reused. Stored abstract full-row guardrails show that selected-private halos can still survive. This does not force the quotient core, close the four/five-halo regimes, prove full-rich-class privacy, Euclidean realizability, n=11, n=12, the general problem, or a counterexample.",
+  "conclusion": "The retained-private alternative cannot stay completely private in any full selected system: witness-pair capacity forces non-retained selected rows, hence additional rich classes, to reuse at least one/two of the four-halo private roles and at least two of the five-halo roles. The stored guardrails leave one and two selected-private halos respectively, so incidence and crossing alone do not upgrade every halo to reuse or give a geometric contradiction.",
+  "guardrails": [
+    {
+      "all_nonempty_proper_seeds_have_good_survivor": true,
+      "contains_equilateral_hinge": true,
+      "contains_kalmanson_splice": true,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        10,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_ok": true,
+      "full_rows": [
+        [
+          0,
+          1,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          0,
+          3,
+          4,
+          10
+        ],
+        [
+          2,
+          5,
+          6,
+          7,
+          10
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          3,
+          7,
+          9
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          5,
+          9,
+          10
+        ],
+        [
+          8,
+          2,
+          4,
+          7,
+          9
+        ],
+        [
+          9,
+          1,
+          3,
+          7,
+          10
+        ],
+        [
+          10,
+          2,
+          3,
+          6,
+          9
+        ]
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximum_pair_multiplicity": 2,
+      "maximum_selected_indegree": 6,
+      "name": "four_halo_one_selected_private",
+      "nonempty_proper_seed_count": 2046,
+      "pair_crossing_ok": true,
+      "retained_private_halos": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "retained_rows": [
+        [
+          1,
+          0,
+          3,
+          4,
+          10
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          4,
+          0,
+          1,
+          2,
+          6
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ]
+      ],
+      "reused_retained_private_halos": [
+        7,
+        9,
+        10
+      ],
+      "selected_indegree_cap": 6,
+      "selected_private_halos": [
+        8
+      ]
+    },
+    {
+      "all_nonempty_proper_seeds_have_good_survivor": true,
+      "contains_equilateral_hinge": true,
+      "contains_kalmanson_splice": true,
+      "cyclic_order": [
+        0,
+        7,
+        8,
+        9,
+        10,
+        11,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "essential_cover_ok": true,
+      "full_rows": [
+        [
+          0,
+          3,
+          4,
+          6,
+          7
+        ],
+        [
+          1,
+          0,
+          4,
+          10,
+          11
+        ],
+        [
+          2,
+          1,
+          3,
+          7,
+          11
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          5,
+          4,
+          6,
+          8,
+          11
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ],
+        [
+          7,
+          0,
+          1,
+          3,
+          8
+        ],
+        [
+          8,
+          1,
+          5,
+          6,
+          7
+        ],
+        [
+          9,
+          3,
+          5,
+          8,
+          11
+        ],
+        [
+          10,
+          0,
+          2,
+          7,
+          11
+        ],
+        [
+          11,
+          1,
+          2,
+          4,
+          8
+        ]
+      ],
+      "halo_gaps": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximum_pair_multiplicity": 2,
+      "maximum_selected_indegree": 5,
+      "name": "five_halo_two_selected_private",
+      "nonempty_proper_seed_count": 4094,
+      "pair_crossing_ok": true,
+      "retained_private_halos": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "retained_rows": [
+        [
+          1,
+          0,
+          4,
+          10,
+          11
+        ],
+        [
+          3,
+          1,
+          4,
+          5,
+          9
+        ],
+        [
+          4,
+          0,
+          2,
+          3,
+          6
+        ],
+        [
+          6,
+          2,
+          5,
+          7,
+          8
+        ]
+      ],
+      "reused_retained_private_halos": [
+        7,
+        8,
+        11
+      ],
+      "selected_indegree_cap": 7,
+      "selected_private_halos": [
+        9,
+        10
+      ]
+    }
+  ],
+  "limitations": [
+    "The fixed 23=27 quotient core and its four retained rows are assumed.",
+    "Selected-private is relative to one chosen full selected-row system.",
+    "Selected-private does not imply privacy in every full rich class.",
+    "The pair-budget lower bounds are not claimed sharp.",
+    "Both stored guardrails contain hinge and splice obstructions.",
+    "No Euclidean, n=11, n=12, general, or counterexample claim is made."
+  ],
+  "pair_budget_lemma": {
+    "five_halos_four_selected_private": {
+      "available_pair_capacity": 56,
+      "capacity_deficit": 4,
+      "minimum_retained_pair_load": 12,
+      "n": 12,
+      "nonretained_pair_load": 48,
+      "nonretained_row_count": 8,
+      "obstructed": true,
+      "required_pair_load": 60,
+      "selected_private_count": 4
+    },
+    "five_halos_maximum_selected_private": 3,
+    "five_halos_minimum_reused": 2,
+    "formula": "6*(n-4) + sum_i C(4-p_i,2) <= 2*C(n-q,2)",
+    "four_halos_maximum_selected_private": 2,
+    "four_halos_minimum_reused_if_four_retained_private": 2,
+    "four_halos_minimum_reused_if_three_retained_private": 1,
+    "four_halos_three_selected_private": {
+      "available_pair_capacity": 56,
+      "capacity_deficit": 1,
+      "minimum_retained_pair_load": 15,
+      "n": 11,
+      "nonretained_pair_load": 42,
+      "nonretained_row_count": 7,
+      "obstructed": true,
+      "required_pair_load": 57,
+      "selected_private_count": 3
+    },
+    "pair_multiplicity_cap": 2,
+    "retained_row_count": 4,
+    "row_size": 4
+  },
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_private_halo_reuse.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_fragile_cycle_private_halo_reuse.py"
+  },
+  "schema": "erdos97.fragile_cycle_private_halo_reuse.v1",
+  "status": "EXACT_FIXED_CORE_PRIVATE_HALO_REUSE_BOUND",
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
+}
