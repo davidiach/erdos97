@@ -113,6 +113,13 @@ larger `n`.  The bounds still do not force `e>0`, so every `n>=9` remains open.
 See
 `docs/minimal-two-deletion-profile.md` and
 `docs/all-rich-class-pair-budget.md`.
+For the fixed `23=27` large-halo branch, an exact one-row negative control now
+exhausts all 310,320 retained-exclusive four/five-halo covers. Every cover
+admits an outside-center endpoint-reuse selected row satisfying pair capacity,
+crossing, and the natural-order vertex-circle quotient. Thus those necessary
+conditions do not force a T5/T44 certifier. The surviving row is not an exact
+rich-class, full-extension, or Euclidean certificate. See
+`docs/fragile-cycle-halo-endpoint-reuse.md`.
 
 The five-orbit `C3` lane also has a review-pending exact boundary draft:
 generic four-orbit own-pair rows force coincident reciprocal suppliers, and

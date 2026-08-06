@@ -1,0 +1,813 @@
+{
+  "candidate_contract": {
+    "candidate_center": "outside the four retained centers",
+    "candidate_row_size": 4,
+    "checked_constraints": [
+      "center excluded from its own row",
+      "row intersection at most two",
+      "two-overlap chords cross in the supplied cyclic order",
+      "witness-pair multiplicity at most two",
+      "natural-order vertex-circle quotient has no strict self-edge or cycle"
+    ],
+    "endpoint_reuse": "candidate row contains at least one endpoint",
+    "preferred_centers": {
+      "1-3": 2,
+      "1-6": 2,
+      "3-6": 0
+    },
+    "selected_indegree_note": "automatic for a five-row partial system: indegree is at most five, below the n=11 cap six and n=12 cap seven",
+    "witness_selection": "try the pair's preferred core center first, then remaining outside centers in cyclic order; within a center use the lexicographically first surviving four-set"
+  },
+  "claim_scope": "Exact one-row negative control for every retained-exclusive four/five-halo cover of the fixed 23=27 core. Each of the 310320 triggered covers admits an outside-center selected four-witness row that contains an exclusive-pair endpoint and preserves the retained incidence, crossing, witness-pair-capacity, and natural-order vertex-circle constraints. This shows those necessary conditions do not force the T5/T44 branch. It does not construct an exact T4 rich class, a full selected extension, or a Euclidean realization; force the core; prove n=11, n=12, or the general problem; give a counterexample; or update official/global status.",
+  "conclusion": "All 144000 triggered four-halo covers and all 166320 triggered five-halo covers admit a compatible endpoint-reuse selected row with vertex-circle status ok. Fixed preferred core centers supply 136043 and 165012 of the witnesses; alternate outside centers supply the remaining 7957 and 1308. Thus retained exclusivity plus the checked one-row necessary conditions cannot force a T5/T44 deletion certifier. Further progress needs full-extension constraints, exact rich-class information, critical-radius or ordinary-distance geometry, or a separate forcing lemma.",
+  "five_halos": {
+    "alternate_center_survivor_count": 1308,
+    "chosen_center_histogram": {
+      "0": 54132,
+      "2": 111432,
+      "7": 756
+    },
+    "chosen_endpoint_count_histogram": {
+      "1": 143030,
+      "2": 23290
+    },
+    "endpoint_reuse_survivor_count": 166320,
+    "essential_cover_count": 512820,
+    "exclusive_pair_identity_histogram": {
+      "1-3": 55440,
+      "1-6": 55440,
+      "3-6": 55440
+    },
+    "exclusive_trigger_cover_count": 166320,
+    "halo_count": 5,
+    "no_survivor_count": 0,
+    "pair_free_cover_count": 346500,
+    "placement_count": 462,
+    "placement_trace_sha256": "7aca29fa5bc8bf98c829a6f9d619d395cc91ec535022c50d0ed82eb928b3bd80",
+    "preferred_center_survivor_count": 165012,
+    "representatives": {
+      "alternate_outside_center_pair_3_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          1,
+          9,
+          10,
+          2,
+          3,
+          11,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 7,
+          "exclusive_endpoint_count": 2,
+          "row": [
+            0,
+            1,
+            3,
+            6
+          ],
+          "selection_kind": "alternate_outside_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          1,
+          1,
+          3
+        ],
+        "retained_exclusive_pair": [
+          3,
+          6
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            4,
+            9,
+            10
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            11
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ]
+        ]
+      },
+      "preferred_core_center_pair_1_3": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 2,
+          "exclusive_endpoint_count": 2,
+          "row": [
+            1,
+            3,
+            8,
+            10
+          ],
+          "selection_kind": "preferred_core_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pair": [
+          1,
+          3
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            4,
+            0,
+            2,
+            8,
+            9
+          ],
+          [
+            6,
+            2,
+            5,
+            10,
+            11
+          ]
+        ]
+      },
+      "preferred_core_center_pair_1_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 2,
+          "exclusive_endpoint_count": 1,
+          "row": [
+            1,
+            3,
+            5,
+            9
+          ],
+          "selection_kind": "preferred_core_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pair": [
+          1,
+          6
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            3,
+            4,
+            5,
+            7,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            9,
+            10
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            11
+          ]
+        ]
+      },
+      "preferred_core_center_pair_3_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 0,
+          "exclusive_endpoint_count": 1,
+          "row": [
+            1,
+            2,
+            6,
+            7
+          ],
+          "selection_kind": "preferred_core_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pair": [
+          3,
+          6
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            4,
+            7,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            9,
+            10
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            11
+          ]
+        ]
+      }
+    },
+    "retained_vertex_circle_ok_count": 166320
+  },
+  "four_halos": {
+    "alternate_center_survivor_count": 7957,
+    "chosen_center_histogram": {
+      "0": 45551,
+      "2": 95688,
+      "5": 4,
+      "7": 2687,
+      "8": 66,
+      "9": 4
+    },
+    "chosen_endpoint_count_histogram": {
+      "1": 105041,
+      "2": 38959
+    },
+    "endpoint_reuse_survivor_count": 144000,
+    "essential_cover_count": 529200,
+    "exclusive_pair_identity_histogram": {
+      "1-3": 41760,
+      "1-6": 52920,
+      "3-6": 49320
+    },
+    "exclusive_trigger_cover_count": 144000,
+    "halo_count": 4,
+    "no_survivor_count": 0,
+    "pair_free_cover_count": 385200,
+    "placement_count": 210,
+    "placement_trace_sha256": "364e803294ac55594b1c5a3a9e5145628f7fd32dbecd242d2d7666681983ca30",
+    "preferred_center_survivor_count": 136043,
+    "representatives": {
+      "alternate_outside_center_pair_1_3": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          1,
+          2,
+          3,
+          4,
+          10,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 0,
+          "exclusive_endpoint_count": 1,
+          "row": [
+            3,
+            6,
+            7,
+            8
+          ],
+          "selection_kind": "alternate_outside_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          4
+        ],
+        "retained_exclusive_pair": [
+          1,
+          3
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            4,
+            0,
+            2,
+            6,
+            10
+          ],
+          [
+            6,
+            2,
+            5,
+            8,
+            9
+          ]
+        ]
+      },
+      "alternate_outside_center_pair_1_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          1,
+          2,
+          3,
+          10,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 0,
+          "exclusive_endpoint_count": 1,
+          "row": [
+            1,
+            3,
+            7,
+            8
+          ],
+          "selection_kind": "alternate_outside_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          3
+        ],
+        "retained_exclusive_pair": [
+          1,
+          6
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            10
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            9
+          ]
+        ]
+      },
+      "alternate_outside_center_pair_3_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          1,
+          9,
+          10,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 7,
+          "exclusive_endpoint_count": 2,
+          "row": [
+            0,
+            1,
+            3,
+            6
+          ],
+          "selection_kind": "alternate_outside_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "retained_exclusive_pair": [
+          3,
+          6
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            4,
+            9,
+            10
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            7
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ]
+        ]
+      },
+      "preferred_core_center_pair_1_3": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 2,
+          "exclusive_endpoint_count": 2,
+          "row": [
+            1,
+            3,
+            7,
+            9
+          ],
+          "selection_kind": "preferred_core_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pair": [
+          1,
+          3
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            5,
+            9,
+            10
+          ]
+        ]
+      },
+      "preferred_core_center_pair_1_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 2,
+          "exclusive_endpoint_count": 2,
+          "row": [
+            1,
+            3,
+            5,
+            6
+          ],
+          "selection_kind": "preferred_core_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pair": [
+          1,
+          6
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            4,
+            5,
+            7,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            9
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            10
+          ]
+        ]
+      },
+      "preferred_core_center_pair_3_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "endpoint_reuse_witness": {
+          "center": 0,
+          "exclusive_endpoint_count": 1,
+          "row": [
+            1,
+            3,
+            4,
+            7
+          ],
+          "selection_kind": "preferred_core_center",
+          "vertex_circle_status": "ok"
+        },
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pair": [
+          3,
+          6
+        ],
+        "retained_rows": [
+          [
+            1,
+            0,
+            4,
+            7,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            9
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            10
+          ]
+        ]
+      }
+    },
+    "retained_vertex_circle_ok_count": 144000
+  },
+  "limitations": [
+    "The fixed 23=27 core and its four retained rows are assumed.",
+    "A selected four-witness row is only a necessary combinatorial shadow of an exact T4 rich class.",
+    "Only one added row is checked; no full selected-row extension is constructed.",
+    "Vertex-circle feasibility is necessary, not a Euclidean realization certificate.",
+    "The 731700 pair-free covers are outside this triggered-branch packet.",
+    "No n=11, n=12, general-proof, counterexample, or official-status claim is made."
+  ],
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_halo_endpoint_reuse.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_fragile_cycle_halo_endpoint_reuse.py"
+  },
+  "schema": "erdos97.fragile_cycle_halo_endpoint_reuse.v1",
+  "source_contract": {
+    "exclusive_pairs": [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "halo_counts": [
+      4,
+      5
+    ],
+    "quotient_identification": "23=27",
+    "retained_centers": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "source_deletion_crosswalk_schema": "erdos97.fragile_cycle_halo_deletion_crosswalk.v1"
+  },
+  "status": "EXACT_BOUNDED_HALO_ENDPOINT_REUSE_NEGATIVE_CONTROL",
+  "summary": {
+    "alternate_center_survivor_count": 9265,
+    "checked_constraints_force_richer_profile": false,
+    "endpoint_reuse_survivor_count": 310320,
+    "exclusive_trigger_cover_count": 310320,
+    "no_survivor_count": 0,
+    "preferred_center_survivor_count": 301055
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
+}

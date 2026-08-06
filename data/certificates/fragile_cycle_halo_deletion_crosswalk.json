@@ -1,0 +1,988 @@
+{
+  "claim_scope": "Exact retained-T4 coverage-graph and minimal two-deletion-profile crosswalk for every four- and five-halo essential cover of the fixed 23=27 core. A retained-exclusive mutual pair forces the conditional alternative of an added T4 endpoint-reuse row or a T5/T44 deletion certifier. Pair-free covers show that retained T4 coverage alone does not force either alternative. This does not force the core, upgrade all retained-private halos, close full selected extensions, prove Euclidean realizability, n=11, n=12, the general problem, or a counterexample.",
+  "conclusion": "The deletion-profile route detects 144000 of 529200 four-halo covers and 166320 of 512820 five-halo covers through exactly one retained-exclusive mutual pair. Only pairs 1-3, 1-6, and 3-6 occur. The remaining 385200 and 346500 pair-free covers are exact negative controls for any claim that singleton/two-deletion T4 coverage alone upgrades retained-private halos. Further progress must force an endpoint-reuse T4 row, a richer T5/T44 profile, or genuinely metric geometry in that residue.",
+  "deletion_profile_lemma": {
+    "candidate_exclusive_pairs": [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        6
+      ]
+    ],
+    "center_4_exclusion": "required rows 1 and 3 both contain center 4, so Gamma_R(4) has size at least two",
+    "exclusive_definition": "Gamma_R(x)={z} and Gamma_R(z)={x}",
+    "full_rich_class_dichotomy": "each retained-exclusive pair is either broken by an added T4 row centered outside the retained family and containing an endpoint, or remains globally exclusive and therefore forces a T5/T44 certifier by the minimal two-deletion lemma",
+    "gamma_definition": "Gamma_R(x) is the set of retained T4 centers whose row contains x",
+    "maximum_retained_exclusive_pair_count": 1,
+    "pair_free_negative_control": "if no retained-exclusive pair occurs, the retained T4 rows already certify every two-vertex deletion; singleton and two-deletion T4 coverage alone therefore force neither an added row nor a richer certifier",
+    "retained_identity": "a deletion pair has no retained T4 certifier exactly when it is retained-exclusive mutual"
+  },
+  "five_halos": {
+    "essential_cover_count": 512820,
+    "exclusive_pair_count_histogram": {
+      "0": 346500,
+      "1": 166320
+    },
+    "exclusive_pair_identity_histogram": {
+      "1-3": 55440,
+      "1-6": 55440,
+      "3-6": 55440
+    },
+    "exclusive_trigger_cover_count": 166320,
+    "halo_count": 5,
+    "pair_free_cover_count": 346500,
+    "placement_count": 462,
+    "placement_trace_sha256": "04793a25fd4896bf2eab14029fc04383aa77a473f753c4d0c4057dc3c4edadb7",
+    "private_spare_trigger_records": [
+      {
+        "cover_count": 346500,
+        "exclusive_trigger": false,
+        "retained_private_halo_count": 5,
+        "spare_kind": "none"
+      },
+      {
+        "cover_count": 166320,
+        "exclusive_trigger": true,
+        "retained_private_halo_count": 5,
+        "spare_kind": "none"
+      }
+    ],
+    "representatives": {
+      "pair_1_3": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pairs": [
+          [
+            1,
+            3
+          ]
+        ],
+        "retained_gamma": {
+          "0": [
+            1,
+            4
+          ],
+          "1": [
+            3
+          ],
+          "10": [
+            6
+          ],
+          "11": [
+            6
+          ],
+          "2": [
+            4,
+            6
+          ],
+          "3": [
+            1
+          ],
+          "4": [
+            1,
+            3
+          ],
+          "5": [
+            3,
+            6
+          ],
+          "6": [
+            1
+          ],
+          "7": [
+            3
+          ],
+          "8": [
+            4
+          ],
+          "9": [
+            4
+          ]
+        },
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            4,
+            0,
+            2,
+            8,
+            9
+          ],
+          [
+            6,
+            2,
+            5,
+            10,
+            11
+          ]
+        ],
+        "retained_t4_certified_deletion_pair_count": 65,
+        "retained_uncertified_deletion_pairs": [
+          [
+            1,
+            3
+          ]
+        ],
+        "total_deletion_pair_count": 66
+      },
+      "pair_1_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pairs": [
+          [
+            1,
+            6
+          ]
+        ],
+        "retained_gamma": {
+          "0": [
+            1,
+            4
+          ],
+          "1": [
+            6
+          ],
+          "10": [
+            4
+          ],
+          "11": [
+            6
+          ],
+          "2": [
+            4,
+            6
+          ],
+          "3": [
+            1
+          ],
+          "4": [
+            1,
+            3
+          ],
+          "5": [
+            3,
+            6
+          ],
+          "6": [
+            1
+          ],
+          "7": [
+            3
+          ],
+          "8": [
+            3
+          ],
+          "9": [
+            4
+          ]
+        },
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            3,
+            4,
+            5,
+            7,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            9,
+            10
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            11
+          ]
+        ],
+        "retained_t4_certified_deletion_pair_count": 65,
+        "retained_uncertified_deletion_pairs": [
+          [
+            1,
+            6
+          ]
+        ],
+        "total_deletion_pair_count": 66
+      },
+      "pair_3_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pairs": [
+          [
+            3,
+            6
+          ]
+        ],
+        "retained_gamma": {
+          "0": [
+            1,
+            4
+          ],
+          "1": [
+            3
+          ],
+          "10": [
+            4
+          ],
+          "11": [
+            6
+          ],
+          "2": [
+            4,
+            6
+          ],
+          "3": [
+            6
+          ],
+          "4": [
+            1,
+            3
+          ],
+          "5": [
+            3,
+            6
+          ],
+          "6": [
+            3
+          ],
+          "7": [
+            1
+          ],
+          "8": [
+            1
+          ],
+          "9": [
+            4
+          ]
+        },
+        "retained_rows": [
+          [
+            1,
+            0,
+            4,
+            7,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            9,
+            10
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            11
+          ]
+        ],
+        "retained_t4_certified_deletion_pair_count": 65,
+        "retained_uncertified_deletion_pairs": [
+          [
+            3,
+            6
+          ]
+        ],
+        "total_deletion_pair_count": 66
+      },
+      "pair_free": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pairs": [],
+        "retained_gamma": {
+          "0": [
+            1,
+            4
+          ],
+          "1": [
+            4
+          ],
+          "10": [
+            6
+          ],
+          "11": [
+            6
+          ],
+          "2": [
+            4,
+            6
+          ],
+          "3": [
+            1
+          ],
+          "4": [
+            1,
+            3
+          ],
+          "5": [
+            3,
+            6
+          ],
+          "6": [
+            1
+          ],
+          "7": [
+            3
+          ],
+          "8": [
+            3
+          ],
+          "9": [
+            4
+          ]
+        },
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            3,
+            4,
+            5,
+            7,
+            8
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            9
+          ],
+          [
+            6,
+            2,
+            5,
+            10,
+            11
+          ]
+        ],
+        "retained_t4_certified_deletion_pair_count": 66,
+        "retained_uncertified_deletion_pairs": [],
+        "total_deletion_pair_count": 66
+      }
+    }
+  },
+  "four_halos": {
+    "essential_cover_count": 529200,
+    "exclusive_pair_count_histogram": {
+      "0": 385200,
+      "1": 144000
+    },
+    "exclusive_pair_identity_histogram": {
+      "1-3": 41760,
+      "1-6": 52920,
+      "3-6": 49320
+    },
+    "exclusive_trigger_cover_count": 144000,
+    "halo_count": 4,
+    "pair_free_cover_count": 385200,
+    "placement_count": 210,
+    "placement_trace_sha256": "ce5e62165d13a1de2ebbd093604bfc4cf29068825096aeaa5ed489f335091332",
+    "private_spare_trigger_records": [
+      {
+        "cover_count": 163440,
+        "exclusive_trigger": false,
+        "retained_private_halo_count": 3,
+        "spare_kind": "duplicated_halo"
+      },
+      {
+        "cover_count": 75960,
+        "exclusive_trigger": true,
+        "retained_private_halo_count": 3,
+        "spare_kind": "duplicated_halo"
+      },
+      {
+        "cover_count": 107100,
+        "exclusive_trigger": false,
+        "retained_private_halo_count": 4,
+        "spare_kind": "duplicated_missing_core"
+      },
+      {
+        "cover_count": 10080,
+        "exclusive_trigger": true,
+        "retained_private_halo_count": 4,
+        "spare_kind": "duplicated_missing_core"
+      },
+      {
+        "cover_count": 114660,
+        "exclusive_trigger": false,
+        "retained_private_halo_count": 4,
+        "spare_kind": "required_anchor_reuse"
+      },
+      {
+        "cover_count": 57960,
+        "exclusive_trigger": true,
+        "retained_private_halo_count": 4,
+        "spare_kind": "required_anchor_reuse"
+      }
+    ],
+    "representatives": {
+      "pair_1_3": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pairs": [
+          [
+            1,
+            3
+          ]
+        ],
+        "retained_gamma": {
+          "0": [
+            1,
+            4
+          ],
+          "1": [
+            3
+          ],
+          "10": [
+            6
+          ],
+          "2": [
+            1,
+            4,
+            6
+          ],
+          "3": [
+            1
+          ],
+          "4": [
+            1,
+            3
+          ],
+          "5": [
+            3,
+            6
+          ],
+          "6": [
+            3
+          ],
+          "7": [
+            4
+          ],
+          "8": [
+            4
+          ],
+          "9": [
+            6
+          ]
+        },
+        "retained_rows": [
+          [
+            1,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            5,
+            9,
+            10
+          ]
+        ],
+        "retained_t4_certified_deletion_pair_count": 54,
+        "retained_uncertified_deletion_pairs": [
+          [
+            1,
+            3
+          ]
+        ],
+        "total_deletion_pair_count": 55
+      },
+      "pair_1_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pairs": [
+          [
+            1,
+            6
+          ]
+        ],
+        "retained_gamma": {
+          "0": [
+            1,
+            4
+          ],
+          "1": [
+            6
+          ],
+          "10": [
+            6
+          ],
+          "2": [
+            1,
+            4,
+            6
+          ],
+          "3": [
+            4
+          ],
+          "4": [
+            1,
+            3
+          ],
+          "5": [
+            3,
+            6
+          ],
+          "6": [
+            1
+          ],
+          "7": [
+            3
+          ],
+          "8": [
+            3
+          ],
+          "9": [
+            4
+          ]
+        },
+        "retained_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            4,
+            5,
+            7,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            9
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            10
+          ]
+        ],
+        "retained_t4_certified_deletion_pair_count": 54,
+        "retained_uncertified_deletion_pairs": [
+          [
+            1,
+            6
+          ]
+        ],
+        "total_deletion_pair_count": 55
+      },
+      "pair_3_6": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pairs": [
+          [
+            3,
+            6
+          ]
+        ],
+        "retained_gamma": {
+          "0": [
+            1,
+            4
+          ],
+          "1": [
+            3,
+            4
+          ],
+          "10": [
+            6
+          ],
+          "2": [
+            4,
+            6
+          ],
+          "3": [
+            6
+          ],
+          "4": [
+            1,
+            3
+          ],
+          "5": [
+            3,
+            6
+          ],
+          "6": [
+            3
+          ],
+          "7": [
+            1
+          ],
+          "8": [
+            1
+          ],
+          "9": [
+            4
+          ]
+        },
+        "retained_rows": [
+          [
+            1,
+            0,
+            4,
+            7,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            9
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            10
+          ]
+        ],
+        "retained_t4_certified_deletion_pair_count": 54,
+        "retained_uncertified_deletion_pairs": [
+          [
+            3,
+            6
+          ]
+        ],
+        "total_deletion_pair_count": 55
+      },
+      "pair_free": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_exclusive_pairs": [],
+        "retained_gamma": {
+          "0": [
+            1,
+            4
+          ],
+          "1": [
+            3,
+            4
+          ],
+          "10": [
+            6
+          ],
+          "2": [
+            4,
+            6
+          ],
+          "3": [
+            1
+          ],
+          "4": [
+            1,
+            3
+          ],
+          "5": [
+            3,
+            6
+          ],
+          "6": [
+            1
+          ],
+          "7": [
+            3
+          ],
+          "8": [
+            4
+          ],
+          "9": [
+            6
+          ]
+        },
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            8
+          ],
+          [
+            6,
+            2,
+            5,
+            9,
+            10
+          ]
+        ],
+        "retained_t4_certified_deletion_pair_count": 55,
+        "retained_uncertified_deletion_pairs": [],
+        "total_deletion_pair_count": 55
+      }
+    }
+  },
+  "limitations": [
+    "The fixed 23=27 quotient core and four retained T4 rows are assumed.",
+    "The census classifies retained T4 coverage, not every rich class.",
+    "The dichotomy does not choose between added T4 reuse and T5/T44.",
+    "Pair-free is a coverage-level negative control, not an abstract or Euclidean counterexample.",
+    "No full-extension, Euclidean, n=11, n=12, general, or counterexample claim is made."
+  ],
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_halo_deletion_crosswalk.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_fragile_cycle_halo_deletion_crosswalk.py"
+  },
+  "schema": "erdos97.fragile_cycle_halo_deletion_crosswalk.v1",
+  "source_contract": {
+    "halo_counts": [
+      4,
+      5
+    ],
+    "quotient_identification": "23=27",
+    "retained_centers": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "retained_rows_are_T4_profiles": true,
+    "source_slot_budget_schema": "erdos97.fragile_cycle_halo_slot_budget.v1"
+  },
+  "status": "EXACT_BOUNDED_HALO_DELETION_CROSSWALK",
+  "summary": {
+    "deletion_profile_trigger_is_universal": false,
+    "essential_cover_count": 1042020,
+    "exclusive_trigger_cover_count": 310320,
+    "pair_free_negative_control_count": 731700
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
+}

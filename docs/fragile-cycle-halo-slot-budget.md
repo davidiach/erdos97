@@ -100,10 +100,15 @@ or show that three or more retained-private halo roles force
 a full-rich-class, deletion-profile, critical-radius, or metric obstruction.
 ```
 
-The natural next experiment is therefore not a six-halo enumeration, which
-the slot lemma makes impossible. It is a rich-class/deletion crosswalk for the
-retained-private roles that either proves they remain private in the needed
-sense or records the exact additional rows/classes required to reuse them.
+The companion deletion-profile crosswalk now performs that experiment. It
+finds a retained-exclusive mutual pair in 310,320 covers; each such pair
+forces the conditional alternative of an added T4 endpoint-reuse row or a
+T5/T44 certifier. The other 731,700 covers are pair-free and already
+T4-certify every deletion pair with the retained rows. Thus deletion coverage
+alone cannot upgrade the retained-private roles in that residue. See
+`docs/fragile-cycle-halo-deletion-crosswalk.md`; the next target must exploit
+the triggered rich-class alternative or add metric/full-extension geometry to
+the pair-free branch.
 
 ## Replay
 
