@@ -618,5 +618,34 @@ minimal counterexample:
    ordering, row-circle exact constraints, or a bounded ordinary-distance
    Kalmanson consequence of a fragile matching cycle and its halos.
 
+The first critical-radius layer is now isolated in
+`docs/fragile-critical-radius-midpoint.md`. For every two-overlap it branches
+between an exact equal-radius rhombus equation and two strict radius orders.
+On both fixed twelve-row controls the all-equal branch collapses all point
+labels, but the two block-atom equalities plus 16 acyclic strict branches still
+survive. Consequently a useful next lemma must force radius branches from the
+active-halo geometry; the two-overlap graph by itself cannot do so.
+
+The first bounded active-halo motif step is recorded in
+docs/fragile-cycle-halo-motif-forcing.md. Once the fixed 23=27 quotient core
+is assumed, all 38 one-halo essential covers contain a hinge or splice. At the
+first complete boundary, only six of 7,708 two-halo covers extend, and
+exhaustive hinge-free searches prove that every full extension of those six
+contains an equilateral hinge. Thus the fixed two-halo regime now has a
+native generic local endgame rather than only an imported n=9 certificate
+join.
+
+The companion slot-budget lemma in
+`docs/fragile-cycle-halo-slot-budget.md` controls the arbitrary-count part of
+this fixed-core contract. The retained rows have eight free witness slots, so
+an active cover has at most five halos. Every four-halo cover has at least
+three retained-private halo roles, and every five-halo cover has five. The
+exact census shows that most of those retained covers remain motif-free.
+
+This still does not force the quotient core or make a retained-private role
+private in a full selected system or rich class. The next bridge obligation
+is to obtain that genuine rich-class/deletion upgrade, or a metric obstruction
+from the private-halo pattern.
+
 This is a foothold toward a bridge theorem, not the central ear-orderable
 bridge itself.

@@ -298,6 +298,7 @@ Useful evidence:
 - `docs/fragile-cycle-three-halo-vertex-circle.md`
 - `docs/fragile-cycle-three-halo-deep-frontier.md`
 - `docs/fragile-cycle-three-halo-kalmanson-endgame.md`
+- `docs/fragile-cycle-three-halo-motif-crosswalk.md`
 - `data/certificates/n9_fragile_turn_pivot_crosswalk.json`
 - `data/certificates/fragile_turn_pivot_guardrail.json`
 - `data/certificates/fragile_cycle_quotient_hierarchy.json`
@@ -305,6 +306,7 @@ Useful evidence:
 - `data/certificates/fragile_cycle_three_halo_vertex_circle.json`
 - `data/certificates/fragile_cycle_three_halo_deep_frontier.json`
 - `data/certificates/fragile_cycle_three_halo_kalmanson_endgame.json`
+- `data/certificates/fragile_cycle_three_halo_motif_crosswalk.json`
 - `docs/turn-packing-bridge.md`
 - `docs/n9-kalmanson-three-row-core-compression.md`
 
@@ -339,8 +341,16 @@ geometric argument controlling arbitrary genuine halos and rejecting the
 The three-halo continuation closes the next fixed slice: all 84 canonical
 placements and 141,750 essential retained covers are exhausted, with no full
 selected-row extension surviving the vertex-circle quotient. This is still
-finite proof-mining evidence, not `n=10` or a forcing lemma; four or more halo
-roles remain outside the scan.
+finite proof-mining evidence, not `n=10` or a forcing lemma.
+
+The slot-budget follow-up removes the unbounded halo-count ambiguity for this
+fixed retained-row core: its eight free witness slots prove that an active
+cover has at most five halos. Every four-halo cover has at least three
+retained-private roles and every five-halo cover has five. An exact
+coverage-first census finds large motif-free populations in both regimes, so
+this is a named private-halo alternative rather than full-extension closure.
+Contract F still has to force the core or upgrade retained-private incidence
+to genuine full-rich-class, deletion, critical-radius, or metric geometry.
 
 The deep-frontier packet replaces the final opaque search layers by a local
 catalog. Exactly 13 clean eight-row states survive: 11 have a remaining center
@@ -356,6 +366,15 @@ two unit-weight inverse pairs. This closes the metric endgame conditional on
 entry into the fixed catalog. Contract F still needs to force the `23=27`
 core and one of those three-row cores, or a separately checked alternative,
 from a genuine fragile cycle and active-halo geometry.
+
+The exact motif crosswalk removes the remaining state-by-state phrasing.
+The 13 fixed endgames are 11 instances of the generic equilateral-hinge
+lemma, one five-role `K2/K1` splice, and one six-role `K1/K2` splice. Both
+splice identities are verified directly with exact coefficient vectors and
+inclusion-minimal three-equality footprints. Contract F can therefore target
+three local pair-membership motifs rather than thirteen stored states. The
+crosswalk does not force any motif from geometry and does not extend beyond
+the fixed catalog.
 
 ## Low-leverage moves to avoid
 
@@ -405,4 +424,5 @@ python scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expect
 python scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json
 python scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json
+python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --check --assert-expected --summary-json
 ```

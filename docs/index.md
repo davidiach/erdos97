@@ -304,6 +304,15 @@ put detailed reconciliation in the canonical synthesis.
   exact zero-, one-, and two-halo completion frontier for the center-injective
   seven-role quotient, including six full `n=9` extension witnesses and their
   stored positive circuits; bounded abstract evidence only.
+- [fragile-cycle-halo-motif-forcing.md](fragile-cycle-halo-motif-forcing.md):
+  exact bounded refinement showing that every one-halo cover has a hinge or
+  splice and every full extension at the first complete two-halo boundary
+  contains an equilateral hinge; assumes the fixed 23=27 core and does not
+  control arbitrary halo counts.
+- [`fragile-cycle-halo-slot-budget.md`](fragile-cycle-halo-slot-budget.md):
+  exact eight-slot cap on active lifts of the fixed 23=27 retained rows, plus
+  a complete four/five-halo census forcing at least three retained-private
+  halo roles; this is a structural alternative, not full-extension closure.
 - [`fragile-cycle-three-halo-vertex-circle.md`](fragile-cycle-three-halo-vertex-circle.md):
   exact three-halo closure of the same fixed quotient core across 84 canonical
   placements and 141,750 essential covers, with no full vertex-circle-clean
@@ -316,6 +325,10 @@ put detailed reconciliation in the canonical synthesis.
   exact natural-order metric compression of all 13 deep states to
   three-selected-row cores, using 11 strict Kalmanson self-edges and two
   two-inequality inverse pairs; fixed-catalog, fixed-order certificate only.
+- [`fragile-cycle-three-halo-motif-crosswalk.md`](fragile-cycle-three-halo-motif-crosswalk.md):
+  exact compression of those 13 fixed endgames to three reusable local
+  motifs: 11 equilateral hinges, one five-role splice, and one six-role
+  splice; no geometric occurrence or forcing claim.
 - [`minimal-two-deletion-profile.md`](minimal-two-deletion-profile.md): exact
   `T4`/`T5`/`T44` classification for centers made good by deleting two
   vertices, with pair capacities and the exclusive-mutual-pair corollary.

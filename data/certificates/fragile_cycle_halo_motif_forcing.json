@@ -1,0 +1,1927 @@
+{
+  "catalog_sha256": "9af09fdca7a348a696d74c56087974e84e1c9da3d3b65ccb6e366bd92c05162e",
+  "claim_scope": "Exact bounded consequence for the stored 23=27 quotient core with one or two canonical added halo roles. All 38 one-halo essential fragile covers contain an equilateral hinge or a generic Kalmanson splice. At the two-halo first-full-extension boundary, the source frontier proves that only six of 7,708 essential covers extend, and an exhaustive hinge-pruned search proves that none of those six has a hinge-free full selected-row extension. This does not force the quotient core, control three or more or arbitrary halo roles, prove Euclidean realizability, n=9, n=10, Erdos Problem #97, or a counterexample.",
+  "conclusion": "The first complete 23=27 core-plus-halo boundary has a native generic endgame: every admissible two-halo full selected-row extension contains an equilateral hinge. The one-halo boundary is already covered by the hinge/splice alternatives but has no full extension. The remaining bridge gap is to force this bounded core/halo regime or control larger halos.",
+  "limitations": [
+    "The 23=27 quotient core is assumed, not forced from a minimal counterexample.",
+    "The one- and two-halo labels are canonical formal roles, not a bound on arbitrary active halos.",
+    "The conclusion uses the source frontier's exhaustive six-of-7708 extendability classification.",
+    "No statement is made for three or more halos, Euclidean realizability, n=9, n=10, the general problem, or a counterexample."
+  ],
+  "one_halo": {
+    "both_motifs_cover_count": 13,
+    "classification_representatives": {
+      "both": {
+        "cover_index": 1,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "first_hinge": {
+          "a": 3,
+          "b": 4,
+          "c": 5,
+          "centers": [
+            3,
+            4,
+            1
+          ],
+          "d": 1,
+          "equalities": [
+            {
+              "center": 3,
+              "left_pair": [
+                3,
+                4
+              ],
+              "right_pair": [
+                3,
+                5
+              ]
+            },
+            {
+              "center": 4,
+              "left_pair": [
+                3,
+                4
+              ],
+              "right_pair": [
+                4,
+                5
+              ]
+            },
+            {
+              "center": 1,
+              "left_pair": [
+                1,
+                3
+              ],
+              "right_pair": [
+                1,
+                4
+              ]
+            }
+          ],
+          "inequality": "d(1,3) + d(4,5) < d(1,4) + d(3,5)",
+          "inequality_kind": "K1",
+          "left_pairs": [
+            [
+              1,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "quadruple": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "required_pairs": [
+            [
+              4,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "right_pairs": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ]
+        },
+        "first_splice": {
+          "active_equalities": [
+            {
+              "center": 6,
+              "witness_pair": [
+                1,
+                7
+              ]
+            },
+            {
+              "center": 1,
+              "witness_pair": [
+                7,
+                4
+              ]
+            },
+            {
+              "center": 3,
+              "witness_pair": [
+                1,
+                4
+              ]
+            }
+          ],
+          "role_map": {
+            "a": 6,
+            "b": 1,
+            "c": 7,
+            "d": 3,
+            "e": 4
+          },
+          "strict_rows": [
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                6,
+                1,
+                7,
+                3
+              ]
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                6,
+                1,
+                3,
+                4
+              ]
+            }
+          ],
+          "template": "five_role_K2_K1_splice"
+        },
+        "fragile_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "gaps_after_core_roles": [
+          1
+        ],
+        "hinge_count": 1,
+        "splice_count": 2
+      },
+      "hinge_only": {
+        "cover_index": 2,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "first_hinge": {
+          "a": 3,
+          "b": 4,
+          "c": 5,
+          "centers": [
+            3,
+            4,
+            1
+          ],
+          "d": 1,
+          "equalities": [
+            {
+              "center": 3,
+              "left_pair": [
+                3,
+                4
+              ],
+              "right_pair": [
+                3,
+                5
+              ]
+            },
+            {
+              "center": 4,
+              "left_pair": [
+                3,
+                4
+              ],
+              "right_pair": [
+                4,
+                5
+              ]
+            },
+            {
+              "center": 1,
+              "left_pair": [
+                1,
+                3
+              ],
+              "right_pair": [
+                1,
+                4
+              ]
+            }
+          ],
+          "inequality": "d(1,3) + d(4,5) < d(1,4) + d(3,5)",
+          "inequality_kind": "K1",
+          "left_pairs": [
+            [
+              1,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "quadruple": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "required_pairs": [
+            [
+              4,
+              5
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "right_pairs": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ]
+        },
+        "first_splice": null,
+        "fragile_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            7
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "gaps_after_core_roles": [
+          0
+        ],
+        "hinge_count": 1,
+        "splice_count": 0
+      },
+      "splice_only": {
+        "cover_index": 0,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "first_hinge": null,
+        "first_splice": {
+          "active_equalities": [
+            {
+              "center": 3,
+              "witness_pair": [
+                4,
+                5
+              ]
+            },
+            {
+              "center": 4,
+              "witness_pair": [
+                5,
+                2
+              ]
+            },
+            {
+              "center": 1,
+              "witness_pair": [
+                4,
+                2
+              ]
+            }
+          ],
+          "role_map": {
+            "a": 3,
+            "b": 4,
+            "c": 5,
+            "d": 1,
+            "e": 2
+          },
+          "strict_rows": [
+            {
+              "kind": "K2_diag_gt_other",
+              "quad": [
+                3,
+                4,
+                5,
+                1
+              ]
+            },
+            {
+              "kind": "K1_diag_gt_sides",
+              "quad": [
+                3,
+                4,
+                1,
+                2
+              ]
+            }
+          ],
+          "template": "five_role_K2_K1_splice"
+        },
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            7
+          ]
+        ],
+        "gaps_after_core_roles": [
+          0
+        ],
+        "hinge_count": 0,
+        "splice_count": 2
+      }
+    },
+    "essential_cover_count": 38,
+    "hinge_cover_count": 29,
+    "hinge_only_cover_count": 16,
+    "motif_free_cover_count": 0,
+    "placement_count": 7,
+    "placements": [
+      {
+        "both_motifs_cover_count": 0,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 4,
+        "gaps_after_core_roles": [
+          0
+        ],
+        "hinge_cover_count": 2,
+        "hinge_only_cover_count": 2,
+        "motif_free_cover_count": 0,
+        "splice_cover_count": 2,
+        "splice_only_cover_count": 2
+      },
+      {
+        "both_motifs_cover_count": 6,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 9,
+        "gaps_after_core_roles": [
+          1
+        ],
+        "hinge_cover_count": 8,
+        "hinge_only_cover_count": 2,
+        "motif_free_cover_count": 0,
+        "splice_cover_count": 7,
+        "splice_only_cover_count": 1
+      },
+      {
+        "both_motifs_cover_count": 5,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 9,
+        "gaps_after_core_roles": [
+          2
+        ],
+        "hinge_cover_count": 8,
+        "hinge_only_cover_count": 3,
+        "motif_free_cover_count": 0,
+        "splice_cover_count": 6,
+        "splice_only_cover_count": 1
+      },
+      {
+        "both_motifs_cover_count": 0,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          5,
+          6
+        ],
+        "essential_cover_count": 6,
+        "gaps_after_core_roles": [
+          3
+        ],
+        "hinge_cover_count": 5,
+        "hinge_only_cover_count": 5,
+        "motif_free_cover_count": 0,
+        "splice_cover_count": 1,
+        "splice_only_cover_count": 1
+      },
+      {
+        "both_motifs_cover_count": 2,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          7,
+          5,
+          6
+        ],
+        "essential_cover_count": 3,
+        "gaps_after_core_roles": [
+          4
+        ],
+        "hinge_cover_count": 2,
+        "hinge_only_cover_count": 0,
+        "motif_free_cover_count": 0,
+        "splice_cover_count": 3,
+        "splice_only_cover_count": 1
+      },
+      {
+        "both_motifs_cover_count": 0,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6
+        ],
+        "essential_cover_count": 3,
+        "gaps_after_core_roles": [
+          5
+        ],
+        "hinge_cover_count": 2,
+        "hinge_only_cover_count": 2,
+        "motif_free_cover_count": 0,
+        "splice_cover_count": 1,
+        "splice_only_cover_count": 1
+      },
+      {
+        "both_motifs_cover_count": 0,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "essential_cover_count": 4,
+        "gaps_after_core_roles": [
+          6
+        ],
+        "hinge_cover_count": 2,
+        "hinge_only_cover_count": 2,
+        "motif_free_cover_count": 0,
+        "splice_cover_count": 2,
+        "splice_only_cover_count": 2
+      }
+    ],
+    "source_extendable_cover_count": 0,
+    "splice_cover_count": 22,
+    "splice_only_cover_count": 9
+  },
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_halo_motif_forcing.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_fragile_cycle_halo_motif_forcing.py"
+  },
+  "schema": "erdos97.fragile_cycle_halo_motif_forcing.v1",
+  "source_artifact": {
+    "canonical_json_sha256": "2668919cfbe2fd505a29121553ae9f3d850baa0a05cf0e11edf3d659c37a0520",
+    "frontier_schema": "erdos97.n9_vertex_circle_frontier_motif_classification.v1",
+    "path": "data/certificates/fragile_cycle_halo_lift_frontier.json",
+    "schema": "erdos97.fragile_cycle_halo_lift_frontier.v1"
+  },
+  "status": "EXACT_BOUNDED_ACTIVE_HALO_MOTIF_FORCING",
+  "summary": {
+    "first_full_boundary_forces_equilateral_hinge": true,
+    "one_halo_essential_covers": 38,
+    "one_halo_motif_free_covers": 0,
+    "two_halo_essential_covers": 7708,
+    "two_halo_extendable_covers": 6,
+    "two_halo_hinge_free_extendable_covers": 0
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "two_halos": {
+    "aggregate_hinge_free_search_counts": {
+      "branches_visited": 30,
+      "dead_ends": 3,
+      "hinge_prunes": 17,
+      "states_visited": 36
+    },
+    "all_full_extensions_force_hinge": true,
+    "essential_cover_count": 7708,
+    "extendable_cover_hinge_exhaustions": [
+      {
+        "assignment_id": "A138",
+        "cover_index": 48,
+        "cyclic_order": [
+          0,
+          7,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            6
+          ],
+          [
+            6,
+            2,
+            5,
+            7,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          0,
+          6
+        ],
+        "hinge_free_full_extension": null,
+        "hinge_free_full_extension_exists": false,
+        "search_counts": {
+          "branches_visited": 12,
+          "dead_ends": 2,
+          "hinge_prunes": 7,
+          "states_visited": 13
+        },
+        "search_exhausted": true,
+        "source_first_full_extension": [
+          [
+            0,
+            4,
+            6,
+            7,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            2,
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            6
+          ],
+          [
+            5,
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            6,
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            7,
+            0,
+            3,
+            5,
+            8
+          ],
+          [
+            8,
+            0,
+            1,
+            5,
+            6
+          ]
+        ],
+        "source_first_full_extension_first_hinge": {
+          "a": 7,
+          "b": 0,
+          "c": 8,
+          "centers": [
+            7,
+            0,
+            1
+          ],
+          "d": 1,
+          "equalities": [
+            {
+              "center": 7,
+              "left_pair": [
+                0,
+                7
+              ],
+              "right_pair": [
+                7,
+                8
+              ]
+            },
+            {
+              "center": 0,
+              "left_pair": [
+                0,
+                7
+              ],
+              "right_pair": [
+                0,
+                8
+              ]
+            },
+            {
+              "center": 1,
+              "left_pair": [
+                1,
+                7
+              ],
+              "right_pair": [
+                0,
+                1
+              ]
+            }
+          ],
+          "inequality": "d(0,8) + d(7,1) < d(0,1) + d(7,8)",
+          "inequality_kind": "K2",
+          "left_pairs": [
+            [
+              0,
+              8
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "quadruple": [
+            0,
+            7,
+            1,
+            8
+          ],
+          "required_pairs": [
+            [
+              0,
+              8
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              0
+            ]
+          ],
+          "right_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        "source_first_full_extension_hinge_count": 8,
+        "source_frontier_status": "self_edge",
+        "source_template_id": "T02"
+      },
+      {
+        "assignment_id": "A008",
+        "cover_index": 68,
+        "cyclic_order": [
+          0,
+          1,
+          7,
+          2,
+          3,
+          4,
+          5,
+          8,
+          6
+        ],
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            8
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          1,
+          5
+        ],
+        "hinge_free_full_extension": null,
+        "hinge_free_full_extension_exists": false,
+        "search_counts": {
+          "branches_visited": 6,
+          "dead_ends": 0,
+          "hinge_prunes": 3,
+          "states_visited": 7
+        },
+        "search_exhausted": true,
+        "source_first_full_extension": [
+          [
+            0,
+            1,
+            3,
+            6,
+            7
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            7
+          ],
+          [
+            2,
+            3,
+            4,
+            7,
+            8
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            8
+          ],
+          [
+            5,
+            1,
+            4,
+            6,
+            8
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            8
+          ],
+          [
+            7,
+            0,
+            1,
+            3,
+            5
+          ],
+          [
+            8,
+            0,
+            5,
+            6,
+            7
+          ]
+        ],
+        "source_first_full_extension_first_hinge": {
+          "a": 0,
+          "b": 7,
+          "c": 3,
+          "centers": [
+            0,
+            7,
+            8
+          ],
+          "d": 8,
+          "equalities": [
+            {
+              "center": 0,
+              "left_pair": [
+                0,
+                7
+              ],
+              "right_pair": [
+                0,
+                3
+              ]
+            },
+            {
+              "center": 7,
+              "left_pair": [
+                0,
+                7
+              ],
+              "right_pair": [
+                3,
+                7
+              ]
+            },
+            {
+              "center": 8,
+              "left_pair": [
+                0,
+                8
+              ],
+              "right_pair": [
+                7,
+                8
+              ]
+            }
+          ],
+          "inequality": "d(0,8) + d(7,3) < d(0,3) + d(7,8)",
+          "inequality_kind": "K2",
+          "left_pairs": [
+            [
+              0,
+              8
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "quadruple": [
+            0,
+            7,
+            3,
+            8
+          ],
+          "required_pairs": [
+            [
+              7,
+              3
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "right_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              7,
+              8
+            ]
+          ]
+        },
+        "source_first_full_extension_hinge_count": 3,
+        "source_frontier_status": "strict_cycle",
+        "source_template_id": "T11"
+      },
+      {
+        "assignment_id": "A079",
+        "cover_index": 38,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            5,
+            7
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          2,
+          6
+        ],
+        "hinge_free_full_extension": null,
+        "hinge_free_full_extension_exists": false,
+        "search_counts": {
+          "branches_visited": 2,
+          "dead_ends": 0,
+          "hinge_prunes": 1,
+          "states_visited": 3
+        },
+        "search_exhausted": true,
+        "source_first_full_extension": [
+          [
+            0,
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            2,
+            0,
+            3,
+            7,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            5,
+            7
+          ],
+          [
+            5,
+            4,
+            6,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ],
+          [
+            7,
+            1,
+            2,
+            3,
+            6
+          ],
+          [
+            8,
+            0,
+            1,
+            3,
+            4
+          ]
+        ],
+        "source_first_full_extension_first_hinge": {
+          "a": 0,
+          "b": 1,
+          "c": 6,
+          "centers": [
+            0,
+            1,
+            8
+          ],
+          "d": 8,
+          "equalities": [
+            {
+              "center": 0,
+              "left_pair": [
+                0,
+                1
+              ],
+              "right_pair": [
+                0,
+                6
+              ]
+            },
+            {
+              "center": 1,
+              "left_pair": [
+                0,
+                1
+              ],
+              "right_pair": [
+                1,
+                6
+              ]
+            },
+            {
+              "center": 8,
+              "left_pair": [
+                0,
+                8
+              ],
+              "right_pair": [
+                1,
+                8
+              ]
+            }
+          ],
+          "inequality": "d(0,8) + d(1,6) < d(0,6) + d(1,8)",
+          "inequality_kind": "K2",
+          "left_pairs": [
+            [
+              0,
+              8
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "quadruple": [
+            0,
+            1,
+            6,
+            8
+          ],
+          "required_pairs": [
+            [
+              1,
+              6
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "right_pairs": [
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        "source_first_full_extension_hinge_count": 6,
+        "source_frontier_status": "self_edge",
+        "source_template_id": "T03"
+      },
+      {
+        "assignment_id": "A121",
+        "cover_index": 22,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          8,
+          5,
+          6
+        ],
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          3,
+          4
+        ],
+        "hinge_free_full_extension": null,
+        "hinge_free_full_extension_exists": false,
+        "search_counts": {
+          "branches_visited": 2,
+          "dead_ends": 0,
+          "hinge_prunes": 1,
+          "states_visited": 3
+        },
+        "search_exhausted": true,
+        "source_first_full_extension": [
+          [
+            0,
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            2,
+            0,
+            1,
+            3,
+            7
+          ],
+          [
+            3,
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            5,
+            4,
+            6,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            3,
+            5,
+            8
+          ],
+          [
+            7,
+            1,
+            3,
+            6,
+            8
+          ],
+          [
+            8,
+            0,
+            3,
+            4,
+            5
+          ]
+        ],
+        "source_first_full_extension_first_hinge": {
+          "a": 2,
+          "b": 1,
+          "c": 0,
+          "centers": [
+            2,
+            1,
+            3
+          ],
+          "d": 3,
+          "equalities": [
+            {
+              "center": 2,
+              "left_pair": [
+                1,
+                2
+              ],
+              "right_pair": [
+                0,
+                2
+              ]
+            },
+            {
+              "center": 1,
+              "left_pair": [
+                1,
+                2
+              ],
+              "right_pair": [
+                0,
+                1
+              ]
+            },
+            {
+              "center": 3,
+              "left_pair": [
+                2,
+                3
+              ],
+              "right_pair": [
+                1,
+                3
+              ]
+            }
+          ],
+          "inequality": "d(0,1) + d(2,3) < d(0,2) + d(1,3)",
+          "inequality_kind": "K1",
+          "left_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "quadruple": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "required_pairs": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "right_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        "source_first_full_extension_hinge_count": 6,
+        "source_frontier_status": "self_edge",
+        "source_template_id": "T02"
+      },
+      {
+        "assignment_id": "A179",
+        "cover_index": 14,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          7,
+          4,
+          5,
+          8,
+          6
+        ],
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          3,
+          5
+        ],
+        "hinge_free_full_extension": null,
+        "hinge_free_full_extension_exists": false,
+        "search_counts": {
+          "branches_visited": 3,
+          "dead_ends": 1,
+          "hinge_prunes": 1,
+          "states_visited": 4
+        },
+        "search_exhausted": true,
+        "source_first_full_extension": [
+          [
+            0,
+            3,
+            6,
+            7,
+            8
+          ],
+          [
+            1,
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            0,
+            1,
+            5,
+            7
+          ],
+          [
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            5,
+            1,
+            4,
+            6,
+            7
+          ],
+          [
+            6,
+            1,
+            2,
+            5,
+            8
+          ],
+          [
+            7,
+            1,
+            3,
+            4,
+            8
+          ],
+          [
+            8,
+            0,
+            3,
+            5,
+            6
+          ]
+        ],
+        "source_first_full_extension_first_hinge": {
+          "a": 2,
+          "b": 1,
+          "c": 0,
+          "centers": [
+            2,
+            1,
+            6
+          ],
+          "d": 6,
+          "equalities": [
+            {
+              "center": 2,
+              "left_pair": [
+                1,
+                2
+              ],
+              "right_pair": [
+                0,
+                2
+              ]
+            },
+            {
+              "center": 1,
+              "left_pair": [
+                1,
+                2
+              ],
+              "right_pair": [
+                0,
+                1
+              ]
+            },
+            {
+              "center": 6,
+              "left_pair": [
+                2,
+                6
+              ],
+              "right_pair": [
+                1,
+                6
+              ]
+            }
+          ],
+          "inequality": "d(0,1) + d(2,6) < d(0,2) + d(1,6)",
+          "inequality_kind": "K1",
+          "left_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "quadruple": [
+            0,
+            1,
+            2,
+            6
+          ],
+          "required_pairs": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "right_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              6
+            ]
+          ]
+        },
+        "source_first_full_extension_hinge_count": 5,
+        "source_frontier_status": "self_edge",
+        "source_template_id": "T06"
+      },
+      {
+        "assignment_id": "A069",
+        "cover_index": 38,
+        "cyclic_order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          6,
+          8
+        ],
+        "fragile_rows": [
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            6,
+            2,
+            5,
+            7,
+            8
+          ]
+        ],
+        "gaps_after_core_roles": [
+          5,
+          6
+        ],
+        "hinge_free_full_extension": null,
+        "hinge_free_full_extension_exists": false,
+        "search_counts": {
+          "branches_visited": 5,
+          "dead_ends": 0,
+          "hinge_prunes": 4,
+          "states_visited": 6
+        },
+        "search_exhausted": true,
+        "source_first_full_extension": [
+          [
+            0,
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            1,
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            2,
+            0,
+            3,
+            7,
+            8
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            8
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            5
+          ],
+          [
+            5,
+            1,
+            2,
+            6,
+            7
+          ],
+          [
+            6,
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            7,
+            3,
+            4,
+            6,
+            8
+          ],
+          [
+            8,
+            0,
+            1,
+            4,
+            7
+          ]
+        ],
+        "source_first_full_extension_first_hinge": {
+          "a": 0,
+          "b": 1,
+          "c": 6,
+          "centers": [
+            0,
+            1,
+            8
+          ],
+          "d": 8,
+          "equalities": [
+            {
+              "center": 0,
+              "left_pair": [
+                0,
+                1
+              ],
+              "right_pair": [
+                0,
+                6
+              ]
+            },
+            {
+              "center": 1,
+              "left_pair": [
+                0,
+                1
+              ],
+              "right_pair": [
+                1,
+                6
+              ]
+            },
+            {
+              "center": 8,
+              "left_pair": [
+                0,
+                8
+              ],
+              "right_pair": [
+                1,
+                8
+              ]
+            }
+          ],
+          "inequality": "d(0,8) + d(1,6) < d(0,6) + d(1,8)",
+          "inequality_kind": "K2",
+          "left_pairs": [
+            [
+              0,
+              8
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "quadruple": [
+            0,
+            1,
+            6,
+            8
+          ],
+          "required_pairs": [
+            [
+              1,
+              6
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "right_pairs": [
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              8
+            ]
+          ]
+        },
+        "source_first_full_extension_hinge_count": 5,
+        "source_frontier_status": "self_edge",
+        "source_template_id": "T06"
+      }
+    ],
+    "hinge_free_extendable_cover_count": 0,
+    "source_extendable_cover_count": 6
+  }
+}

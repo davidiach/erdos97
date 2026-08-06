@@ -767,6 +767,77 @@ If exact rational row reduction of all such midpoint equations forces
 selected-witness pattern obstruction, not a proof against other possible
 4-subset selections on the same hypothetical coordinate set.
 
+### Critical-radius midpoint trichotomy
+
+Status: `EXACT_LOCAL_LEMMA` with bounded negative-control diagnostics.
+
+If two selected-row centers `y,z` share exactly the witnesses `{u,v}` and `m`
+is the midpoint of `uv`, their selected radii satisfy
+
+```text
+r_y^2-r_z^2 = |y-m|^2-|z-m|^2.
+```
+
+The equal-radius branch makes `m` the midpoint of `yz`, so the alternating
+four-point figure is a rhombus and each coordinate satisfies
+`X_y+X_z-X_u-X_v=0`. The two unequal branches strictly order the centers by
+distance from `m`. The exact checker rejects the branch making all 18
+two-overlap relations equal in each of two fixed twelve-row controls: the
+resulting rank-11 midpoint system collapses all 12 point labels. However, both
+controls retain a mixed escape with the two genuine block-6 relations equal
+and the other 16 relations strictly and acyclically ordered. Thus this is a
+real metric branch filter, not a bridge closure or a forcing lemma. See
+`docs/fragile-critical-radius-midpoint.md` and
+`scripts/check_fragile_radius_midpoint.py`.
+
+### Active-halo motif forcing at the first full boundary
+
+Status: EXACT_BOUNDED_DIAGNOSTIC.
+
+For the fixed 23=27 quotient core, all 38 essential one-halo fragile covers
+contain at least one generic local Kalmanson target: 29 contain an
+equilateral hinge, 22 contain a five- or six-role splice, and the union covers
+all 38, with overlap.
+
+At the two-halo boundary the source frontier exhausts 7,708 essential covers
+and proves that exactly six admit a full selected-row extension. Starting
+from each of those six covers, an independent exhaustive search applies the
+same incidence, proper-crossing, witness-pair-capacity, and selected-indegree
+rules while pruning a branch as soon as an equilateral hinge appears. Hinge
+occurrence is monotone under adding rows. All six hinge-free searches exhaust
+with no full extension. Therefore every admissible full selected-row
+extension in this exact two-halo contract contains an equilateral hinge.
+
+The quotient core and the one- or two-halo regime are assumptions; no
+arbitrary-halo reduction or geometric entry lemma is proved. See
+docs/fragile-cycle-halo-motif-forcing.md and
+scripts/check_fragile_cycle_halo_motif_forcing.py.
+
+### Fixed-core halo slot budget
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` for the fixed `23=27` retained-row
+contract.
+
+The four retained rows have two required witnesses each, leaving exactly
+eight free witness slots. Their required pairs cover only four of the seven
+core roles, so the free slots must cover three missing core roles plus every
+active halo. Therefore `3 + halo_count <= 8`, and no active retained-row
+cover can have more than five halos.
+
+With four halos, at most one of the eight mandatory free-slot roles can be
+repeated, so at least three halo roles occur in exactly one retained row.
+With five halos, all five halo roles occur exactly once in the retained rows.
+The exact coverage-first census finds 529,200 essential four-halo covers and
+512,820 essential five-halo covers. It also records 518,760 motif-free
+four-halo covers and 512,820 motif-free five-halo covers, so this is a
+private-halo alternative rather than a local motif closure.
+
+Here `retained-private` concerns only the four retained rows. It does not
+assert privacy in a full selected-row extension or full rich-class system.
+The core is assumed and the four/five-halo full-extension regimes are not
+closed. See docs/fragile-cycle-halo-slot-budget.md and
+scripts/check_fragile_cycle_halo_slot_budget.py.
+
 ### Pair and triple sharing
 
 For an unordered pair `{a,b}`, at most two polygon vertices `x` satisfy

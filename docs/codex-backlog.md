@@ -84,9 +84,46 @@ supplies a compact ordinary-distance endgame once the fixed catalog is
 reached. Its three-row minimality is only within that one-self-edge/
 two-inverse-row certificate family, not arbitrary wider positive
 combinations. The remaining high-leverage target is the geometric entry lemma:
-force the `23=27` core plus one of these three-row cores, or force a separately
-checked rich-class/deletion alternative. Extending the halo count is not that
-entry argument.
+force the `23=27` core plus one of these metric obstructions, or force a
+separately checked rich-class/deletion alternative. The exact motif follow-up
+`python scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --check --assert-expected --summary-json`
+collapses the thirteen endgames to only three local targets: eleven instances
+of the equilateral-hinge lemma, the five-role splice in `S11`, and the
+six-role splice in `S08`. The next step should force one of those three motifs
+from genuine active-halo geometry; extending the halo count is not that entry
+argument.
+
+The exact critical-radius midpoint follow-up
+`python scripts/check_fragile_radius_midpoint.py --check --assert-expected --summary-json`
+now supplies one such geometric branch rule for every two-overlap. An
+equal-radius pair forces a rhombus midpoint equation; unequal radii strictly
+order the centers by distance from the common-witness midpoint. The all-equal
+branch collapses all 12 point labels in each of two fixed full-row controls,
+but the two genuine block-6 equalities plus 16 acyclic strict branches survive
+in both. The next useful step is therefore not another two-overlap census: it
+must use the `23=27` active-halo geometry to force enough equality branches or
+strict directions to reach one of the three hinge/splice motifs or a radius
+cycle.
+
+The bounded active-halo follow-up in
+scripts/check_fragile_cycle_halo_motif_forcing.py now reaches that target at
+the first complete formal boundary. All 38 one-halo essential covers contain
+a hinge or splice. Of the 7,708 two-halo essential covers, the exact source
+frontier has only six extendable covers; exhaustive hinge-free searches on
+those six prove that every admissible full extension contains an equilateral
+hinge. This replaces the imported n=9 positive-dual join for that boundary
+with one generic local endgame.
+
+The slot-budget follow-up now closes the arbitrary-count question at the
+retained-row incidence level. The eight free witness slots cap every active
+lift at five halos. Four halos force at least three retained-private roles;
+five halos force all five. The exact census also leaves 518,760 motif-free
+four-halo covers and 512,820 motif-free five-halo covers, so this is a named
+private-halo alternative rather than fixed-core closure.
+
+The missing bridge is now structural and geometric: force the `23=27` core
+from a genuine minimal counterexample, or upgrade three retained-private halo
+roles to a full-rich-class/deletion, critical-radius, or metric obstruction.
 
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`

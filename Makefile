@@ -148,6 +148,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_rich_support_counting_bound.py --check --json
 	$(PYTHON) scripts/check_support_saturation_obstruction.py --check --json
 	$(PYTHON) scripts/check_near_saturation_support_obstruction.py --check --check-artifact --json
+	$(PYTHON) scripts/check_fragile_cycle_halo_slot_budget.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_n12_rich_support_determinant.py --check --json
 	$(PYTHON) scripts/check_localized_rich_support_counting.py --check --json
 	$(PYTHON) scripts/check_minimal_two_deletion_profile.py --check --json
@@ -158,11 +159,14 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_fragile_cycle_halo_motif_forcing.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_fragile_cycle_three_halo_motif_crosswalk.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_adjacent_closest_pair_nonagon_barrier.py --check --summary-json
 	$(PYTHON) scripts/check_brp_boundary_probe.py --check --assert-expected --json
+	$(PYTHON) scripts/check_fragile_radius_midpoint.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_four_c3_generic_orbit_obstruction.py --assert-expected --json
 	$(PYTHON) scripts/check_five_c3_tournament_obstruction.py --assert-expected --json
 	$(PYTHON) scripts/check_five_c3_all_cross_nonreciprocal_obstruction.py --assert-expected --json

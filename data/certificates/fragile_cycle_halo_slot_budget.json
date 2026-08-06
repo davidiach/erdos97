@@ -1,0 +1,243 @@
+{
+  "claim_scope": "Exact incidence-level slot-budget lemma and coverage-first census for four- and five-halo lifts of the fixed 23=27 seven-role quotient core. It proves that the four retained rows cannot actively cover more than five halos and that every four/five-halo cover has at least three retained-private halo roles. It does not force the quotient core, make retained-private roles private in full rich classes, prove Euclidean realizability, n=11, n=12, the general problem, or a counterexample.",
+  "conclusion": "The eight free witness slots cap every active 23=27 retained-row lift at five halos. Four-halo covers force at least three retained-private halos; five-halo covers force all five halos to be retained-private. The exact census records a large motif-free escape population, so the honest next bridge target is to convert this private-halo alternative into genuine rich-class or deletion geometry, not to claim fixed-core closure.",
+  "five_halos": {
+    "aggregate_counts": {
+      "essential_covers": 512820,
+      "motif_free_covers": 512820,
+      "search_states": 1299144
+    },
+    "classification_representatives": {
+      "motif_free": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_private_halo_count": 5,
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            4,
+            0,
+            2,
+            8,
+            9
+          ],
+          [
+            6,
+            2,
+            5,
+            10,
+            11
+          ]
+        ],
+        "spare_kind": "none"
+      }
+    },
+    "halo_count": 5,
+    "minimum_retained_private_halos": 5,
+    "placement_count": 462,
+    "placement_trace_sha256": "cfb7fab0f26323081d77810065eadf0ed364dcee9589dfe73b2083063623c7f2",
+    "retained_private_halo_histogram": {
+      "5": 512820
+    },
+    "spare_kind_histogram": {
+      "none": 512820
+    }
+  },
+  "four_halos": {
+    "aggregate_counts": {
+      "crossing_rejects": 353010,
+      "essential_covers": 529200,
+      "motif_free_covers": 518760,
+      "search_states": 2087580,
+      "splice_only_covers": 10440
+    },
+    "classification_representatives": {
+      "motif_free": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "retained_private_halo_count": 4,
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            7
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            8
+          ],
+          [
+            6,
+            2,
+            5,
+            9,
+            10
+          ]
+        ],
+        "spare_kind": "duplicated_missing_core"
+      },
+      "splice_only": {
+        "cyclic_order": [
+          0,
+          7,
+          8,
+          9,
+          1,
+          2,
+          3,
+          4,
+          10,
+          5,
+          6
+        ],
+        "halo_gaps": [
+          0,
+          0,
+          0,
+          4
+        ],
+        "retained_private_halo_count": 3,
+        "retained_rows": [
+          [
+            1,
+            0,
+            3,
+            4,
+            10
+          ],
+          [
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            0,
+            2,
+            7,
+            8
+          ],
+          [
+            6,
+            2,
+            5,
+            9,
+            10
+          ]
+        ],
+        "spare_kind": "duplicated_halo"
+      }
+    },
+    "halo_count": 4,
+    "minimum_retained_private_halos": 3,
+    "placement_count": 210,
+    "placement_trace_sha256": "5ee7c02529164134b32ec5a26c91c791f2d9dcf6bc6f2e3ff2b4b7766fe37b11",
+    "retained_private_halo_histogram": {
+      "3": 239400,
+      "4": 289800
+    },
+    "spare_kind_histogram": {
+      "duplicated_halo": 239400,
+      "duplicated_missing_core": 117180,
+      "required_anchor_reuse": 172620
+    }
+  },
+  "limitations": [
+    "The fixed 23=27 quotient core and its four retained rows are assumed.",
+    "Retained-private means occurrence in exactly one retained row only.",
+    "Other selected rows or full rich classes may contain the same halo role.",
+    "The four/five-halo census does not search full selected-row extensions.",
+    "No Euclidean, n=11, n=12, general, or counterexample claim is made."
+  ],
+  "provenance": {
+    "command": "python scripts/check_fragile_cycle_halo_slot_budget.py --write --assert-expected --summary-json",
+    "generator": "scripts/check_fragile_cycle_halo_slot_budget.py"
+  },
+  "schema": "erdos97.fragile_cycle_halo_slot_budget.v1",
+  "slot_budget_lemma": {
+    "core_role_count": 7,
+    "five_halo_minimum_retained_private_halos": 5,
+    "four_halo_minimum_retained_private_halos": 3,
+    "free_slots_per_retained_row": 2,
+    "maximum_active_halo_count": 5,
+    "missing_core_roles": [
+      1,
+      3,
+      6
+    ],
+    "proof_identity": "3 + halo_count <= 8",
+    "required_covered_roles": [
+      0,
+      2,
+      4,
+      5
+    ],
+    "retained_row_count": 4,
+    "total_free_slots": 8
+  },
+  "status": "EXACT_BOUNDED_HALO_SLOT_BUDGET",
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC"
+}
