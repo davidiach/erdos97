@@ -564,6 +564,17 @@
       "claim_scope": "Exact bounded zero-, one-, and two-halo completion frontier for one stored seven-role Kalmanson certificate quotient, joined to review-pending n=9 positive circuits; not Euclidean realizability, a fragile-cycle forcing lemma, n=9, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_halo_motif_forcing",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_halo_motif_forcing.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact bounded active-halo motif forcing for the stored 23=27 core: all 38 one-halo essential covers contain a hinge or splice, and the exact six-of-7708 two-halo extendability frontier plus six hinge-free exhaustion searches proves every admissible two-halo full extension contains an equilateral hinge; not core forcing, arbitrary-halo control, Euclidean realizability, n=9 or n=10, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "fragile_cycle_three_halo_vertex_circle",
       "command": [
         "python",
@@ -3433,6 +3444,7 @@
       "fragile_turn_pivot_guardrail",
       "fragile_cycle_quotient_hierarchy",
       "fragile_cycle_halo_lift_frontier",
+      "fragile_cycle_halo_motif_forcing",
       "fragile_cycle_three_halo_vertex_circle",
       "fragile_cycle_three_halo_deep_frontier",
       "fragile_cycle_three_halo_kalmanson_endgame",

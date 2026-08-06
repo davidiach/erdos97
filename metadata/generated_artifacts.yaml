@@ -1627,6 +1627,55 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_cycle_halo_motif_forcing
+    path: data/certificates/fragile_cycle_halo_motif_forcing.json
+    sha256: b48f79fa09416a6b39f27009fed58a5a8c9fc410c00786ec37a30b6c2a44b254
+    size_bytes: 36867
+    kind: exact_bounded_active_halo_motif_forcing_artifact
+    generator: scripts/check_fragile_cycle_halo_motif_forcing.py
+    command: python scripts/check_fragile_cycle_halo_motif_forcing.py --write --assert-expected --summary-json
+    checker: scripts/check_fragile_cycle_halo_motif_forcing.py
+    check_command: python scripts/check_fragile_cycle_halo_motif_forcing.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact bounded active-halo motif forcing for the fixed 23=27 quotient
+      core. All 38 one-halo essential covers contain an equilateral hinge or
+      generic splice. The exact six-of-7708 two-halo extendability frontier,
+      together with exhaustive hinge-free searches for those six covers,
+      proves that every admissible full extension at the first complete
+      boundary contains an equilateral hinge. Not core forcing, arbitrary-halo
+      control, Euclidean realizability, n=9 or n=10, a general proof, a
+      counterexample, or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_halo_motif_forcing.v1
+      status: EXACT_BOUNDED_ACTIVE_HALO_MOTIF_FORCING
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      source_artifact.canonical_json_sha256: 2668919cfbe2fd505a29121553ae9f3d850baa0a05cf0e11edf3d659c37a0520
+      one_halo.essential_cover_count: 38
+      one_halo.hinge_cover_count: 29
+      one_halo.splice_cover_count: 22
+      one_halo.motif_free_cover_count: 0
+      one_halo.source_extendable_cover_count: 0
+      two_halos.essential_cover_count: 7708
+      two_halos.source_extendable_cover_count: 6
+      two_halos.hinge_free_extendable_cover_count: 0
+      two_halos.all_full_extensions_force_hinge: true
+      summary.first_full_boundary_forces_equilateral_hinge: true
+      catalog_sha256: 9af09fdca7a348a696d74c56087974e84e1c9da3d3b65ccb6e366bd92c05162e
+      provenance.command: python scripts/check_fragile_cycle_halo_motif_forcing.py --write --assert-expected --summary-json
+    forbidden_claims:
+      - the 23=27 quotient core is forced
+      - arbitrary halo systems reduce to two halos
+      - Euclidean realization
+      - n=9 or n=10 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: fragile_cycle_three_halo_vertex_circle
     path: data/certificates/fragile_cycle_three_halo_vertex_circle.json
     sha256: a914f9d8dee41f63eb6ef53ee200deb526cf98af7163aeb91e6a238873f6aeff

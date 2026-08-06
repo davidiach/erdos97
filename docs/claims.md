@@ -790,6 +790,29 @@ real metric branch filter, not a bridge closure or a forcing lemma. See
 `docs/fragile-critical-radius-midpoint.md` and
 `scripts/check_fragile_radius_midpoint.py`.
 
+### Active-halo motif forcing at the first full boundary
+
+Status: EXACT_BOUNDED_DIAGNOSTIC.
+
+For the fixed 23=27 quotient core, all 38 essential one-halo fragile covers
+contain at least one generic local Kalmanson target: 29 contain an
+equilateral hinge, 22 contain a five- or six-role splice, and the union covers
+all 38, with overlap.
+
+At the two-halo boundary the source frontier exhausts 7,708 essential covers
+and proves that exactly six admit a full selected-row extension. Starting
+from each of those six covers, an independent exhaustive search applies the
+same incidence, proper-crossing, witness-pair-capacity, and selected-indegree
+rules while pruning a branch as soon as an equilateral hinge appears. Hinge
+occurrence is monotone under adding rows. All six hinge-free searches exhaust
+with no full extension. Therefore every admissible full selected-row
+extension in this exact two-halo contract contains an equilateral hinge.
+
+The quotient core and the one- or two-halo regime are assumptions; no
+arbitrary-halo reduction or geometric entry lemma is proved. See
+docs/fragile-cycle-halo-motif-forcing.md and
+scripts/check_fragile_cycle_halo_motif_forcing.py.
+
 ### Pair and triple sharing
 
 For an unordered pair `{a,b}`, at most two polygon vertices `x` satisfy

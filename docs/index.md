@@ -304,6 +304,11 @@ put detailed reconciliation in the canonical synthesis.
   exact zero-, one-, and two-halo completion frontier for the center-injective
   seven-role quotient, including six full `n=9` extension witnesses and their
   stored positive circuits; bounded abstract evidence only.
+- [fragile-cycle-halo-motif-forcing.md](fragile-cycle-halo-motif-forcing.md):
+  exact bounded refinement showing that every one-halo cover has a hinge or
+  splice and every full extension at the first complete two-halo boundary
+  contains an equilateral hinge; assumes the fixed 23=27 core and does not
+  control arbitrary halo counts.
 - [`fragile-cycle-three-halo-vertex-circle.md`](fragile-cycle-three-halo-vertex-circle.md):
   exact three-halo closure of the same fixed quotient core across 84 canonical
   placements and 141,750 essential covers, with no full vertex-circle-clean

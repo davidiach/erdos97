@@ -105,6 +105,19 @@ must use the `23=27` active-halo geometry to force enough equality branches or
 strict directions to reach one of the three hinge/splice motifs or a radius
 cycle.
 
+The bounded active-halo follow-up in
+scripts/check_fragile_cycle_halo_motif_forcing.py now reaches that target at
+the first complete formal boundary. All 38 one-halo essential covers contain
+a hinge or splice. Of the 7,708 two-halo essential covers, the exact source
+frontier has only six extendable covers; exhaustive hinge-free searches on
+those six prove that every admissible full extension contains an equilateral
+hinge. This replaces the imported n=9 positive-dual join for that boundary
+with one generic local endgame.
+
+The missing bridge is now structural: force the 23=27 core with at most two
+active halo roles from genuine minimal-counterexample geometry, or show that
+a third active halo forces a separately checked rich-class/deletion alternative.
+
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`
    to hand the 2026-06-09 internal A6/A7, A8, and A10 review notes into an

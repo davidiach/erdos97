@@ -232,8 +232,7 @@ def verify_splice_template(template: KalmansonSpliceTemplate) -> dict[str, Any]:
             for center, left, right in template.selected_equalities
         ],
         "strict_rows": [
-            {"kind": row.kind, "quad": list(row.quad)}
-            for row in template.strict_rows
+            {"kind": row.kind, "quad": list(row.quad)} for row in template.strict_rows
         ],
         "strict_quad_intersection_size": len(
             set(template.strict_rows[0].quad) & set(template.strict_rows[1].quad)
@@ -281,8 +280,7 @@ def find_splice_embeddings(
                 for center, left, right in template.selected_equalities
             )
             if not all(
-                center in normalized_rows
-                and {left, right} <= normalized_rows[center]
+                center in normalized_rows and {left, right} <= normalized_rows[center]
                 for center, left, right in active_equalities
             ):
                 continue
@@ -306,12 +304,84 @@ def find_splice_embeddings(
     return tuple(found)
 
 
+def find_dihedral_splice_embeddings(
+    rows: Mapping[int, Sequence[int]],
+    cyclic_order: Sequence[int],
+) -> tuple[SpliceEmbedding, ...]:
+    """Find splice footprints in every rotation and reflection of an order.
+
+    Unlike :func:`find_splice_embeddings`, this routine does not take a stored
+    strict-row support. The two Kalmanson inequalities belonging to a template
+    are available for every mapped cyclic role order, so this is the
+    appropriate occurrence test when only selected-row memberships are fixed.
+    """
+
+    order = tuple(int(label) for label in cyclic_order)
+    if len(set(order)) != len(order):
+        raise ValueError("cyclic order must contain distinct labels")
+    normalized_rows = {
+        int(center): frozenset(int(witness) for witness in witnesses)
+        for center, witnesses in rows.items()
+    }
+    if any(center not in order for center in normalized_rows):
+        raise ValueError("row center is absent from the cyclic order")
+    if any(
+        witness not in order
+        for witnesses in normalized_rows.values()
+        for witness in witnesses
+    ):
+        raise ValueError("row witness is absent from the cyclic order")
+
+    found: set[SpliceEmbedding] = set()
+    size = len(order)
+    for direction in (1, -1):
+        for start in range(size):
+            oriented_order = tuple(
+                order[(start + direction * offset) % size] for offset in range(size)
+            )
+            for template in SPLICE_TEMPLATES:
+                verify_splice_template(template)
+                for labels in combinations(oriented_order, len(template.roles)):
+                    role_map = dict(zip(template.roles, labels, strict=True))
+                    active_equalities = tuple(
+                        (role_map[center], role_map[left], role_map[right])
+                        for center, left, right in template.selected_equalities
+                    )
+                    if not all(
+                        center in normalized_rows
+                        and {left, right} <= normalized_rows[center]
+                        for center, left, right in active_equalities
+                    ):
+                        continue
+                    mapped_strict = tuple(
+                        (
+                            strict_row.kind,
+                            tuple(role_map[role] for role in strict_row.quad),
+                        )
+                        for strict_row in template.strict_rows
+                    )
+                    found.add(
+                        SpliceEmbedding(
+                            template=template.name,
+                            role_map=tuple(
+                                (role, role_map[role]) for role in template.roles
+                            ),
+                            active_equalities=active_equalities,
+                            strict_rows=mapped_strict,
+                        )
+                    )
+    return tuple(
+        sorted(found, key=lambda embedding: (embedding.template, embedding.role_map))
+    )
+
+
 __all__ = [
     "FIVE_ROLE_SPLICE",
     "KalmansonSpliceTemplate",
     "SIX_ROLE_SPLICE",
     "SPLICE_TEMPLATES",
     "SpliceEmbedding",
+    "find_dihedral_splice_embeddings",
     "find_splice_embeddings",
     "verify_splice_template",
 ]

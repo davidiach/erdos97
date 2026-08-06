@@ -798,6 +798,14 @@ condition that the surviving multi-block family does not automatically satisfy:
 - exact row-circle constraints on the fragile rows;
 - interaction between fragile-cover rows and stuck-set/ear-orderability
   failures.
+- review the bounded active-halo motif-forcing packet in
+  docs/fragile-cycle-halo-motif-forcing.md. It checks that all 38 one-halo
+  essential covers contain a hinge or splice and combines the exact 6/7,708
+  two-halo extendability frontier with six exhaustive hinge-free searches to
+  force an equilateral hinge in every full extension at that boundary. Review
+  should verify the dihedral splice occurrence scan, monotonicity of hinge
+  pruning, source-cover crosswalk, and the fact that the result assumes the
+  23=27 core and does not control three or more active halos.
 - use the exact fragile/turn/pivot audit as the current pivot guardrail. Its
   finite `n=9` side has a two-pivot/`F15` split, but the abstract
   `S_i=i+{2,9,10,13}` system on `Z/16` has a marked three-cycle matching and

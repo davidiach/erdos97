@@ -626,5 +626,18 @@ labels, but the two block-atom equalities plus 16 acyclic strict branches still
 survive. Consequently a useful next lemma must force radius branches from the
 active-halo geometry; the two-overlap graph by itself cannot do so.
 
+The first bounded active-halo motif step is recorded in
+docs/fragile-cycle-halo-motif-forcing.md. Once the fixed 23=27 quotient core
+is assumed, all 38 one-halo essential covers contain a hinge or splice. At the
+first complete boundary, only six of 7,708 two-halo covers extend, and
+exhaustive hinge-free searches prove that every full extension of those six
+contains an equilateral hinge. Thus the fixed two-halo regime now has a
+native generic local endgame rather than only an imported n=9 certificate
+join.
+
+This still does not force the quotient core or reduce an arbitrary halo
+system to two active roles. The next bridge obligation is precisely that
+structural reduction, or a checked alternative forced by a third active halo.
+
 This is a foothold toward a bridge theorem, not the central ear-orderable
 bridge itself.

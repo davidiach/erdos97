@@ -158,6 +158,7 @@ verify-bridge-frontier:
 	$(PYTHON) scripts/check_fragile_turn_pivot_guardrail.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_quotient_hierarchy.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_halo_lift_frontier.py --check --assert-expected --summary-json
+	$(PYTHON) scripts/check_fragile_cycle_halo_motif_forcing.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_three_halo_vertex_circle.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_three_halo_deep_frontier.py --check --assert-expected --summary-json
 	$(PYTHON) scripts/check_fragile_cycle_three_halo_kalmanson_endgame.py --check --assert-expected --summary-json
