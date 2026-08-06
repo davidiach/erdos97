@@ -85,6 +85,15 @@ put detailed reconciliation in the canonical synthesis.
   1,000 all-fresh exact-seven L0 schemas while recording the missing public
   Lean normal-form source, omitted merge/L1 coverage, and census integrity
   requirements; exact schema mechanics only, not a closure result.
+- [`conversation-research-rounds-2026-08-06.md`](conversation-research-rounds-2026-08-06.md):
+  structured archival ledger of the conversation research rounds;
+  `REVIEW_PENDING` and not a status update.
+- [`conversation-paper-lemma-candidates-2026-08-06.md`](conversation-paper-lemma-candidates-2026-08-06.md):
+  self-contained candidate statements and proof sketches;
+  `PAPER_PROOF_CANDIDATES` / `REVIEW_PENDING`, not accepted claims.
+- [`conversation-frontier-and-failed-routes-2026-08-06.md`](conversation-frontier-and-failed-routes-2026-08-06.md):
+  failed-route record, verified upstream crosswalk, and open paired frontier;
+  `DIAGNOSTIC_ONLY` / `OPEN_BRIDGE`, with no closure claim.
 - [`canonical-synthesis.md`](canonical-synthesis.md): long-form canonical
   synthesis, claim taxonomy, failed-route reconciliation, and source/hash
   inventory.
