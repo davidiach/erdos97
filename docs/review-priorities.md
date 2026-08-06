@@ -814,6 +814,15 @@ condition that the surviving multi-block family does not automatically satisfy:
   predicates against the generic scanners, and the narrow meaning of
   retained-private. The packet does not close full extensions or prove that a
   role is private in a full rich class.
+- review the large-halo deletion-profile crosswalk in
+  docs/fragile-cycle-halo-deletion-crosswalk.md. It exhausts all 1,042,020
+  four/five-halo covers and identifies 310,320 with one retained-exclusive
+  mutual pair, yielding the conditional added-T4 endpoint-reuse or T5/T44
+  certifier alternative. Review should verify the retained T4-certifier/
+  exclusive-pair equivalence, the coverage-first source crosscheck, and the
+  731,700 pair-free negative controls. The packet does not classify all rich
+  classes, choose a dichotomy branch, close full extensions, or force the
+  fixed core.
 - use the exact fragile/turn/pivot audit as the current pivot guardrail. Its
   finite `n=9` side has a two-pivot/`F15` split, but the abstract
   `S_i=i+{2,9,10,13}` system on `Z/16` has a marked three-cycle matching and

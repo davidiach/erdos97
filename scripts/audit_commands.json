@@ -586,6 +586,17 @@
       "claim_scope": "Exact slot-budget lemma and coverage-first four/five-halo census for the fixed 23=27 core: active retained-row covers have at most five halos, four halos force at least three retained-private roles, and five halos force all five; retained-private is not full-rich-class privacy, and this is not core forcing, full-extension closure, Euclidean realizability, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_halo_deletion_crosswalk",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_halo_deletion_crosswalk.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact retained-T4 deletion-profile crosswalk for every four/five-halo cover of the fixed 23=27 core: a retained-exclusive pair forces an added T4 endpoint-reuse row or a T5/T44 certifier, while pair-free covers show T4 deletion coverage alone does not upgrade retained-private halos; not core forcing, full-extension closure, Euclidean realizability, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "fragile_cycle_three_halo_vertex_circle",
       "command": [
         "python",
@@ -3446,6 +3457,7 @@
       "support_saturation_obstruction",
       "near_saturation_support_obstruction",
       "fragile_cycle_halo_slot_budget",
+      "fragile_cycle_halo_deletion_crosswalk",
       "n12_rich_support_determinant",
       "localized_rich_support_counting",
       "minimal_two_deletion_profile",

@@ -313,6 +313,11 @@ put detailed reconciliation in the canonical synthesis.
   exact eight-slot cap on active lifts of the fixed 23=27 retained rows, plus
   a complete four/five-halo census forcing at least three retained-private
   halo roles; this is a structural alternative, not full-extension closure.
+- [`fragile-cycle-halo-deletion-crosswalk.md`](fragile-cycle-halo-deletion-crosswalk.md):
+  exact retained-T4/two-deletion split for every four/five-halo cover of the
+  fixed core; 310,320 covers trigger an endpoint-reuse-or-richer-profile
+  alternative, while 731,700 pair-free covers are the exact coverage-level
+  negative-control residue.
 - [`fragile-cycle-three-halo-vertex-circle.md`](fragile-cycle-three-halo-vertex-circle.md):
   exact three-halo closure of the same fixed quotient core across 84 canonical
   placements and 141,750 essential covers, with no full vertex-circle-clean

@@ -838,6 +838,31 @@ The core is assumed and the four/five-halo full-extension regimes are not
 closed. See docs/fragile-cycle-halo-slot-budget.md and
 scripts/check_fragile_cycle_halo_slot_budget.py.
 
+### Large-halo deletion-profile crosswalk
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` for retained T4 coverage in the fixed
+`23=27` four/five-halo contract.
+
+For a retained cover, let `Gamma_R(x)` be the retained T4 centers whose rows
+contain `x`. A pair `{x,z}` has no retained T4 certifier for its two-vertex
+deletion exactly when `Gamma_R(x)={z}` and `Gamma_R(z)={x}`. In a full
+rich-class system, each such retained-exclusive pair is therefore either
+broken by an additional T4 row containing an endpoint or remains globally
+exclusive and forces a T5/T44 certifier by the minimal two-deletion lemma.
+
+The exact census finds one retained-exclusive pair in 144,000 of 529,200
+four-halo covers and 166,320 of 512,820 five-halo covers. Only pairs `{1,3}`,
+`{1,6}`, and `{3,6}` occur. The other 731,700 covers are pair-free: their
+retained rows already T4-certify every deletion pair, so singleton and
+two-deletion T4 coverage alone cannot force an added reuse row or richer
+profile.
+
+This is a conditional deletion-profile split and a coverage-level negative
+control, not full-rich-class classification or full-extension closure. It
+does not force the quotient core, Euclidean realizability, `n=11`, `n=12`, a
+general proof, or a counterexample. See
+docs/fragile-cycle-halo-deletion-crosswalk.md.
+
 ### Pair and triple sharing
 
 For an unordered pair `{a,b}`, at most two polygon vertices `x` satisfy
