@@ -1776,6 +1776,61 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_cycle_halo_endpoint_reuse
+    path: data/certificates/fragile_cycle_halo_endpoint_reuse.json
+    sha256: 1df1bea2d591f3613e1820ea333beaacde8c6caf006a7baf5d65cc22c8d48c51
+    size_bytes: 16727
+    kind: exact_bounded_halo_endpoint_reuse_negative_control_artifact
+    generator: scripts/check_fragile_cycle_halo_endpoint_reuse.py
+    command: python scripts/check_fragile_cycle_halo_endpoint_reuse.py --write --assert-expected --summary-json
+    checker: scripts/check_fragile_cycle_halo_endpoint_reuse.py
+    check_command: python scripts/check_fragile_cycle_halo_endpoint_reuse.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact one-row negative control for every retained-exclusive four/five-
+      halo cover of the fixed 23=27 core. Every triggered cover admits an
+      outside-center selected four-witness row that reuses an endpoint and
+      preserves pair capacity, crossing, and the natural-order vertex-circle
+      quotient. Not an exact T4 rich class, full extension, Euclidean
+      realization, n=11 or n=12, a general proof, a counterexample, or an
+      official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_halo_endpoint_reuse.v1
+      status: EXACT_BOUNDED_HALO_ENDPOINT_REUSE_NEGATIVE_CONTROL
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      four_halos.placement_count: 210
+      four_halos.exclusive_trigger_cover_count: 144000
+      four_halos.endpoint_reuse_survivor_count: 144000
+      four_halos.preferred_center_survivor_count: 136043
+      four_halos.alternate_center_survivor_count: 7957
+      four_halos.no_survivor_count: 0
+      four_halos.placement_trace_sha256: 364e803294ac55594b1c5a3a9e5145628f7fd32dbecd242d2d7666681983ca30
+      five_halos.placement_count: 462
+      five_halos.exclusive_trigger_cover_count: 166320
+      five_halos.endpoint_reuse_survivor_count: 166320
+      five_halos.preferred_center_survivor_count: 165012
+      five_halos.alternate_center_survivor_count: 1308
+      five_halos.no_survivor_count: 0
+      five_halos.placement_trace_sha256: 7aca29fa5bc8bf98c829a6f9d619d395cc91ec535022c50d0ed82eb928b3bd80
+      summary.exclusive_trigger_cover_count: 310320
+      summary.endpoint_reuse_survivor_count: 310320
+      summary.no_survivor_count: 0
+      summary.checked_constraints_force_richer_profile: false
+      provenance.command: python scripts/check_fragile_cycle_halo_endpoint_reuse.py --write --assert-expected --summary-json
+    forbidden_claims:
+      - the 23=27 quotient core is forced
+      - a selected four-witness row is an exact T4 rich class
+      - a full selected-row extension exists
+      - Euclidean realization
+      - n=11 or n=12 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: fragile_cycle_three_halo_vertex_circle
     path: data/certificates/fragile_cycle_three_halo_vertex_circle.json
     sha256: a914f9d8dee41f63eb6ef53ee200deb526cf98af7163aeb91e6a238873f6aeff

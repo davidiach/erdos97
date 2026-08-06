@@ -823,6 +823,15 @@ condition that the surviving multi-block family does not automatically satisfy:
   731,700 pair-free negative controls. The packet does not classify all rich
   classes, choose a dichotomy branch, close full extensions, or force the
   fixed core.
+- review the endpoint-reuse negative control in
+  docs/fragile-cycle-halo-endpoint-reuse.md. It checks all 310,320 triggered
+  covers and finds a pair/crossing/capacity/vertex-circle-compatible added
+  selected row for each. Review should verify the deterministic preferred/
+  alternate center search, the source-crosswalk count join, the candidate-row
+  crossing equivalence, and the placement trace digests. The packet rules out
+  only this short forcing route; its witness is not an exact T4 rich class, a
+  full selected extension, or a Euclidean realization, and the fixed core is
+  still assumed.
 - use the exact fragile/turn/pivot audit as the current pivot guardrail. Its
   finite `n=9` side has a two-pivot/`F15` split, but the abstract
   `S_i=i+{2,9,10,13}` system on `Z/16` has a marked three-cycle matching and

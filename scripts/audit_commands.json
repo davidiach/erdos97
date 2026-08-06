@@ -597,6 +597,17 @@
       "claim_scope": "Exact retained-T4 deletion-profile crosswalk for every four/five-halo cover of the fixed 23=27 core: a retained-exclusive pair forces an added T4 endpoint-reuse row or a T5/T44 certifier, while pair-free covers show T4 deletion coverage alone does not upgrade retained-private halos; not core forcing, full-extension closure, Euclidean realizability, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_halo_endpoint_reuse",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_halo_endpoint_reuse.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact one-row negative control for all 310320 retained-exclusive four/five-halo covers of the fixed 23=27 core: every cover admits an outside-center endpoint-reuse selected row preserving pair/crossing/capacity and natural-order vertex-circle constraints; not an exact T4 rich class, full extension, Euclidean realization, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "fragile_cycle_three_halo_vertex_circle",
       "command": [
         "python",
@@ -3458,6 +3469,7 @@
       "near_saturation_support_obstruction",
       "fragile_cycle_halo_slot_budget",
       "fragile_cycle_halo_deletion_crosswalk",
+      "fragile_cycle_halo_endpoint_reuse",
       "n12_rich_support_determinant",
       "localized_rich_support_counting",
       "minimal_two_deletion_profile",

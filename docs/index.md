@@ -318,6 +318,11 @@ put detailed reconciliation in the canonical synthesis.
   fixed core; 310,320 covers trigger an endpoint-reuse-or-richer-profile
   alternative, while 731,700 pair-free covers are the exact coverage-level
   negative-control residue.
+- [`fragile-cycle-halo-endpoint-reuse.md`](fragile-cycle-halo-endpoint-reuse.md):
+  exact one-row negative control for all 310,320 triggered large-halo covers;
+  every cover admits a pair/crossing/capacity/vertex-circle-compatible
+  endpoint-reuse selected row, without constructing an exact rich class, full
+  extension, or Euclidean realization.
 - [`fragile-cycle-three-halo-vertex-circle.md`](fragile-cycle-three-halo-vertex-circle.md):
   exact three-halo closure of the same fixed quotient core across 84 canonical
   placements and 141,750 essential covers, with no full vertex-circle-clean

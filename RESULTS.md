@@ -267,6 +267,26 @@ a contradiction.  See
 `docs/minimal-two-deletion-profile.md` and
 `docs/all-rich-class-pair-budget.md`.
 
+### Exact bounded negative control: retained exclusivity does not force T5/T44
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` / one-row negative control for the fixed
+`23=27` four/five-halo branch.
+
+The retained deletion crosswalk has 310,320 covers with one exclusive mutual
+pair. Every one admits an additional selected four-witness row centered
+outside the retained family, containing an exclusive endpoint, and preserving
+the row-intersection/crossing rules, witness-pair capacity, and natural-order
+vertex-circle quotient. Preferred core centers give 301,055 deterministic
+witnesses and alternate outside centers give 9,265; no triggered cover is
+eliminated.
+
+This proves only that the checked one-row necessary conditions do not force
+the richer T5/T44 deletion-profile branch. A surviving selected row is not an
+exact T4 rich class, a full selected extension, or a Euclidean realization.
+The fixed core is assumed, and no `n=11`, `n=12`, general-proof, or
+counterexample claim is made. See
+`docs/fragile-cycle-halo-endpoint-reuse.md`.
+
 ### Lemma: selected-path self-edge obstruction
 
 Status: proved local criterion.

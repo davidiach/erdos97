@@ -229,11 +229,18 @@ proof-facing route is summarized in
 [`docs/fragile-turn-pivot-bridge-audit.md`](docs/fragile-turn-pivot-bridge-audit.md),
 [`docs/minimal-two-deletion-profile.md`](docs/minimal-two-deletion-profile.md),
 [`docs/all-rich-class-pair-budget.md`](docs/all-rich-class-pair-budget.md),
+[`docs/fragile-cycle-halo-endpoint-reuse.md`](docs/fragile-cycle-halo-endpoint-reuse.md),
 [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md),
 [`docs/bootstrap-t12-bridge-target-map.md`](docs/bootstrap-t12-bridge-target-map.md),
 and the current
 [`next-lemma obligation contract`](docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md).
 These diagnostics do not promote the review-pending `n=9` candidate.
+The fixed-core large-halo endpoint-reuse packet exhausts all 310,320 covers
+with a retained-exclusive pair and finds a compatible five-row
+vertex-circle-feasible partial system for every one. This is an exact
+one-row negative control: the checked incidence/order conditions do not force
+the T5/T44 branch, but no exact rich class, full extension, or Euclidean
+configuration is constructed.
 The complementary
 [`scalable strict-cycle control`](docs/scalable-strict-cycle-bridge-control.md)
 shows why these abstract bridge axioms alone cannot force a bounded

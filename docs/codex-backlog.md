@@ -129,11 +129,22 @@ are pair-free and already T4-certify every deletion pair using only the
 retained rows, so singleton/two-deletion coverage alone is provably silent on
 that residue.
 
-The missing bridge is now structural and metric: force the `23=27` core from
-a genuine minimal counterexample; in the triggered branch, force or exploit
-the endpoint-reuse/T5/T44 alternative; in the pair-free branch, use
-critical-radius, full-extension, or ordinary-distance geometry beyond the
-current deletion-coverage lemmas.
+The endpoint-reuse follow-up closes the proposed short forcing step as a
+negative control. All 310,320 triggered covers admit an outside-center
+selected four-witness row that reuses an exclusive endpoint while preserving
+pair capacity, crossing, and the natural-order vertex-circle quotient.
+Preferred core centers supply 301,055 deterministic witnesses; alternate
+outside centers supply the remaining 9,265. This does not construct an exact
+T4 rich class or a full selected extension, but it proves that the checked
+one-row necessary conditions cannot force the T5/T44 branch.
+
+The missing bridge is structural and metric: force the `23=27` core from a
+genuine minimal counterexample; in the triggered branch, use simultaneous
+full extension, exact rich-class type, critical radii, or ordinary-distance
+geometry to eliminate or exploit endpoint reuse; in the pair-free branch,
+use geometry beyond the current deletion-coverage lemmas. Another independent
+one-row incidence filter is lower leverage unless it adds a stronger genuine
+minimal-counterexample hypothesis.
 
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`

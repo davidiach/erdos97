@@ -87,19 +87,21 @@ still reject a pair-free cover.
 
 ## Next bridge target
 
-The large-halo branch is now split into two honest targets:
+The endpoint-reuse follow-up exhausts the first target and finds that every
+triggered cover admits a compatible one-row escape:
 
 ```text
 exclusive-pair covers:
-    force the endpoint-reuse T4 row or exploit the T5/T44 certifier;
+    all pass the current one-row incidence/crossing/vertex-circle filters;
 
 pair-free covers:
     use metric/full-extension geometry, since deletion coverage alone is silent.
 ```
 
-The first target is structural and rich-class-facing. The second is the exact
-residue for a future optimized full-extension or ordinary-distance certificate;
-it should not be described as closed by this packet.
+Thus the next step needs exact rich-class type, simultaneous full-extension,
+critical-radius, or ordinary-distance information. See
+`docs/fragile-cycle-halo-endpoint-reuse.md`. Neither branch should be described
+as closed by these packets.
 
 ## Replay
 

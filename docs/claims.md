@@ -857,11 +857,21 @@ retained rows already T4-certify every deletion pair, so singleton and
 two-deletion T4 coverage alone cannot force an added reuse row or richer
 profile.
 
+The one-row endpoint-reuse follow-up exhausts all 310,320 triggered covers.
+Every cover admits an outside-center selected four-witness row that contains
+an exclusive endpoint and preserves pair capacity, crossing, and the
+natural-order vertex-circle quotient. Preferred core centers supply 301,055
+deterministic witnesses and alternate outside centers supply 9,265. This is
+an exact negative control for forcing the T5/T44 branch from those necessary
+conditions; it does not construct an exact T4 class or a full selected-row
+extension.
+
 This is a conditional deletion-profile split and a coverage-level negative
 control, not full-rich-class classification or full-extension closure. It
 does not force the quotient core, Euclidean realizability, `n=11`, `n=12`, a
 general proof, or a counterexample. See
 docs/fragile-cycle-halo-deletion-crosswalk.md.
+The one-row follow-up is docs/fragile-cycle-halo-endpoint-reuse.md.
 
 ### Pair and triple sharing
 
