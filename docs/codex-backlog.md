@@ -121,9 +121,17 @@ five halos force all five. The exact census also leaves 518,760 motif-free
 four-halo covers and 512,820 motif-free five-halo covers, so this is a named
 private-halo alternative rather than fixed-core closure.
 
+The private-halo reuse pair budget supplies the first full-system upgrade.
+Witness-pair capacity proves that a four-halo extension reuses at least one
+of three or two of four retained-private roles, while a five-halo extension
+reuses at least two. These are genuine additional rich-class incidences.
+Stored abstract full-row guardrails leave one and two selected-private halos,
+so pair/crossing incidence does not force total reuse and the lower bounds are
+not claimed sharp.
+
 The missing bridge is now structural and geometric: force the `23=27` core
-from a genuine minimal counterexample, or upgrade three retained-private halo
-roles to a full-rich-class/deletion, critical-radius, or metric obstruction.
+from a genuine minimal counterexample, or turn the retained-row/reuse-row
+pairings into a deletion, critical-radius, hinge/splice, or metric obstruction.
 
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`

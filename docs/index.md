@@ -313,6 +313,10 @@ put detailed reconciliation in the canonical synthesis.
   exact eight-slot cap on active lifts of the fixed 23=27 retained rows, plus
   a complete four/five-halo census forcing at least three retained-private
   halo roles; this is a structural alternative, not full-extension closure.
+- [`fragile-cycle-private-halo-reuse.md`](fragile-cycle-private-halo-reuse.md):
+  exact full-system witness-pair budget forcing non-retained rows to reuse
+  some four/five-halo retained-private roles, with abstract guardrails showing
+  that one or two selected-private roles can still survive.
 - [`fragile-cycle-three-halo-vertex-circle.md`](fragile-cycle-three-halo-vertex-circle.md):
   exact three-halo closure of the same fixed quotient core across 84 canonical
   placements and 141,750 essential covers, with no full vertex-circle-clean

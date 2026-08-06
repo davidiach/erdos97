@@ -586,6 +586,17 @@
       "claim_scope": "Exact slot-budget lemma and coverage-first four/five-halo census for the fixed 23=27 core: active retained-row covers have at most five halos, four halos force at least three retained-private roles, and five halos force all five; retained-private is not full-rich-class privacy, and this is not core forcing, full-extension closure, Euclidean realizability, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_private_halo_reuse",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_private_halo_reuse.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact full-system witness-pair budget for four/five-halo lifts of the fixed 23=27 core: four-halo extensions reuse at least one of three or two of four retained-private roles, and five-halo extensions reuse at least two; stored abstract guardrails leave selected-private roles, so this is not core forcing, fixed-core closure, Euclidean realizability, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "fragile_cycle_three_halo_vertex_circle",
       "command": [
         "python",
@@ -3446,6 +3457,7 @@
       "support_saturation_obstruction",
       "near_saturation_support_obstruction",
       "fragile_cycle_halo_slot_budget",
+      "fragile_cycle_private_halo_reuse",
       "n12_rich_support_determinant",
       "localized_rich_support_counting",
       "minimal_two_deletion_profile",

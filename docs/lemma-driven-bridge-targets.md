@@ -349,8 +349,13 @@ cover has at most five halos. Every four-halo cover has at least three
 retained-private roles and every five-halo cover has five. An exact
 coverage-first census finds large motif-free populations in both regimes, so
 this is a named private-halo alternative rather than full-extension closure.
-Contract F still has to force the core or upgrade retained-private incidence
-to genuine full-rich-class, deletion, critical-radius, or metric geometry.
+The private-halo reuse pair budget gives a genuine full-system upgrade:
+four-halo extensions reuse at least one of three or two of four
+retained-private roles, and five-halo extensions reuse at least two. Stored
+guardrails show that one or two selected-private halos can still survive the
+abstract incidence/crossing contract. Contract F must now force the core or
+combine a retained row with these forced reuse rows to obtain deletion,
+critical-radius, hinge/splice, or metric geometry.
 
 The deep-frontier packet replaces the final opaque search layers by a local
 catalog. Exactly 13 clean eight-row states survive: 11 have a remaining center
