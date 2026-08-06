@@ -85,6 +85,15 @@ put detailed reconciliation in the canonical synthesis.
   1,000 all-fresh exact-seven L0 schemas while recording the missing public
   Lean normal-form source, omitted merge/L1 coverage, and census integrity
   requirements; exact schema mechanics only, not a closure result.
+- [`conversation-research-rounds-2026-08-06.md`](conversation-research-rounds-2026-08-06.md):
+  structured archival ledger of the conversation research rounds;
+  `REVIEW_PENDING` and not a status update.
+- [`conversation-paper-lemma-candidates-2026-08-06.md`](conversation-paper-lemma-candidates-2026-08-06.md):
+  self-contained candidate statements and proof sketches;
+  `PAPER_PROOF_CANDIDATES` / `REVIEW_PENDING`, not accepted claims.
+- [`conversation-frontier-and-failed-routes-2026-08-06.md`](conversation-frontier-and-failed-routes-2026-08-06.md):
+  failed-route record, verified upstream crosswalk, and open paired frontier;
+  `DIAGNOSTIC_ONLY` / `OPEN_BRIDGE`, with no closure claim.
 - [`canonical-synthesis.md`](canonical-synthesis.md): long-form canonical
   synthesis, claim taxonomy, failed-route reconciliation, and source/hash
   inventory.
@@ -313,6 +322,16 @@ put detailed reconciliation in the canonical synthesis.
   exact eight-slot cap on active lifts of the fixed 23=27 retained rows, plus
   a complete four/five-halo census forcing at least three retained-private
   halo roles; this is a structural alternative, not full-extension closure.
+- [`fragile-cycle-halo-deletion-crosswalk.md`](fragile-cycle-halo-deletion-crosswalk.md):
+  exact retained-T4/two-deletion split for every four/five-halo cover of the
+  fixed core; 310,320 covers trigger an endpoint-reuse-or-richer-profile
+  alternative, while 731,700 pair-free covers are the exact coverage-level
+  negative-control residue.
+- [`fragile-cycle-halo-endpoint-reuse.md`](fragile-cycle-halo-endpoint-reuse.md):
+  exact one-row negative control for all 310,320 triggered large-halo covers;
+  every cover admits a pair/crossing/capacity/vertex-circle-compatible
+  endpoint-reuse selected row, without constructing an exact rich class, full
+  extension, or Euclidean realization.
 - [`fragile-cycle-private-halo-reuse.md`](fragile-cycle-private-halo-reuse.md):
   exact full-system witness-pair budget forcing non-retained rows to reuse
   some four/five-halo retained-private roles, with abstract guardrails showing

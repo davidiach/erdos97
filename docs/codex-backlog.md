@@ -121,17 +121,38 @@ five halos force all five. The exact census also leaves 518,760 motif-free
 four-halo covers and 512,820 motif-free five-halo covers, so this is a named
 private-halo alternative rather than fixed-core closure.
 
-The private-halo reuse pair budget supplies the first full-system upgrade.
-Witness-pair capacity proves that a four-halo extension reuses at least one
-of three or two of four retained-private roles, while a five-halo extension
-reuses at least two. These are genuine additional rich-class incidences.
-Stored abstract full-row guardrails leave one and two selected-private halos,
-so pair/crossing incidence does not force total reuse and the lower bounds are
-not claimed sharp.
+The deletion-profile crosswalk now makes the first upgrade exact. Of the
+1,042,020 four/five-halo covers, 310,320 contain one retained-exclusive mutual
+pair. In a full rich-class system each such pair forces an added T4 row
+reusing an endpoint or a T5/T44 deletion certifier. The other 731,700 covers
+are pair-free and already T4-certify every deletion pair using only the
+retained rows, so singleton/two-deletion coverage alone is provably silent on
+that residue.
 
-The missing bridge is now structural and geometric: force the `23=27` core
-from a genuine minimal counterexample, or turn the retained-row/reuse-row
-pairings into a deletion, critical-radius, hinge/splice, or metric obstruction.
+The endpoint-reuse follow-up closes the proposed short forcing step as a
+negative control. All 310,320 triggered covers admit an outside-center
+selected four-witness row that reuses an exclusive endpoint while preserving
+pair capacity, crossing, and the natural-order vertex-circle quotient.
+Preferred core centers supply 301,055 deterministic witnesses; alternate
+outside centers supply the remaining 9,265. This does not construct an exact
+T4 rich class or a full selected extension, but it proves that the checked
+one-row necessary conditions cannot force the T5/T44 branch.
+
+The private-halo reuse pair budget supplies a complementary full-system
+upgrade. Witness-pair capacity proves that a four-halo extension reuses at
+least one of three or two of four retained-private roles, while a five-halo
+extension reuses at least two. Stored abstract full-row guardrails leave one
+and two selected-private halos, so pair/crossing incidence does not force
+total reuse and the lower bounds are not claimed sharp.
+
+The missing bridge is structural and metric: force the `23=27` core from a
+genuine minimal counterexample; use simultaneous full extension, exact
+rich-class type, critical radii, or ordinary-distance geometry to eliminate
+or exploit endpoint reuse; use geometry beyond the current deletion-coverage
+lemmas in the pair-free branch; and combine retained rows with the forced
+reuse rows to obtain a genuine geometric obstruction. Another independent
+one-row incidence filter is lower leverage unless it adds a stronger genuine
+minimal-counterexample hypothesis.
 
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`

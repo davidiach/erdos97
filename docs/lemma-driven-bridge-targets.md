@@ -357,6 +357,17 @@ abstract incidence/crossing contract. Contract F must now force the core or
 combine a retained row with these forced reuse rows to obtain deletion,
 critical-radius, hinge/splice, or metric geometry.
 
+The deletion-profile crosswalk resolves the first full-rich-class fork without
+overclaiming closure. Exactly 310,320 four/five-halo covers contain one
+retained-exclusive mutual T4 pair. Each forces the conditional alternative of
+an added T4 row reusing an endpoint or a T5/T44 certifier for that deletion
+pair. The other 731,700 covers are pair-free and their retained rows already
+T4-certify every two-vertex deletion. They are exact negative controls showing
+that singleton and two-deletion T4 coverage alone do not upgrade the
+retained-private halos. Contract F must exploit the rich alternative in the
+triggered branch and inject metric/full-extension geometry in the pair-free
+branch; the crosswalk does not force either branch outcome or the fixed core.
+
 The deep-frontier packet replaces the final opaque search layers by a local
 catalog. Exactly 13 clean eight-row states survive: 11 have a remaining center
 whose full 126-row option set fails intersection/crossing, while the other two

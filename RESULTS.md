@@ -267,6 +267,50 @@ a contradiction.  See
 `docs/minimal-two-deletion-profile.md` and
 `docs/all-rich-class-pair-budget.md`.
 
+### Exact bounded negative control: retained exclusivity does not force T5/T44
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` / one-row negative control for the fixed
+`23=27` four/five-halo branch.
+
+The retained deletion crosswalk has 310,320 covers with one exclusive mutual
+pair. Every one admits an additional selected four-witness row centered
+outside the retained family, containing an exclusive endpoint, and preserving
+the row-intersection/crossing rules, witness-pair capacity, and natural-order
+vertex-circle quotient. Preferred core centers give 301,055 deterministic
+witnesses and alternate outside centers give 9,265; no triggered cover is
+eliminated.
+
+This proves only that the checked one-row necessary conditions do not force
+the richer T5/T44 deletion-profile branch. A surviving selected row is not an
+exact T4 rich class, a full selected extension, or a Euclidean realization.
+The fixed core is assumed, and no `n=11`, `n=12`, general-proof, or
+counterexample claim is made. See
+`docs/fragile-cycle-halo-endpoint-reuse.md`.
+
+### Exact fixed-core lemma: full extensions must reuse private halos
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` for full selected-row extensions of the
+fixed `23=27` four/five-halo branch.
+
+If `q` retained-private halos remain absent from all non-retained selected
+rows, witness-pair capacity requires
+
+```text
+6(n-4) + sum_i C(4-p_i,2) <= 2 C(n-q,2).
+```
+
+For four halos, three selected-private roles would require `57` pair
+occurrences on `56` available slots, so a full extension reuses at least one
+of three or two of four retained-private roles. For five halos, four
+selected-private roles require `60>56`, so every full extension reuses at
+least two of five.
+
+Stored abstract full-row guardrails still leave one and two selected-private
+roles and contain equilateral-hinge and Kalmanson-splice obstructions. The
+fixed core is assumed; the bounds are not claimed sharp and do not establish
+Euclidean realizability, `n=11`, `n=12`, the general problem, or a
+counterexample. See `docs/fragile-cycle-private-halo-reuse.md`.
+
 ### Lemma: selected-path self-edge obstruction
 
 Status: proved local criterion.

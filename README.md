@@ -229,11 +229,25 @@ proof-facing route is summarized in
 [`docs/fragile-turn-pivot-bridge-audit.md`](docs/fragile-turn-pivot-bridge-audit.md),
 [`docs/minimal-two-deletion-profile.md`](docs/minimal-two-deletion-profile.md),
 [`docs/all-rich-class-pair-budget.md`](docs/all-rich-class-pair-budget.md),
+[`docs/fragile-cycle-halo-endpoint-reuse.md`](docs/fragile-cycle-halo-endpoint-reuse.md),
+[`docs/fragile-cycle-private-halo-reuse.md`](docs/fragile-cycle-private-halo-reuse.md),
 [`docs/bootstrap-core-bridge.md`](docs/bootstrap-core-bridge.md),
 [`docs/bootstrap-t12-bridge-target-map.md`](docs/bootstrap-t12-bridge-target-map.md),
 and the current
 [`next-lemma obligation contract`](docs/bootstrap-t12-151-6-label4-next-lemma-obligations.md).
 These diagnostics do not promote the review-pending `n=9` candidate.
+The fixed-core large-halo endpoint-reuse packet exhausts all 310,320 covers
+with a retained-exclusive pair and finds a compatible five-row
+vertex-circle-feasible partial system for every one. This is an exact
+one-row negative control: the checked incidence/order conditions do not force
+the T5/T44 branch, but no exact rich class, full extension, or Euclidean
+configuration is constructed.
+The fixed-core private-halo reuse packet gives a complementary full-system
+pair budget. A four-halo extension reuses at least one of three or two of four
+retained-private roles; a five-halo extension reuses at least two of five.
+Stored abstract full-row guardrails still leave one and two selected-private
+roles and contain hinge/splice obstructions. Thus the result is not fixed-core
+closure, Euclidean realization, or an `n=11`, `n=12`, or general theorem.
 The complementary
 [`scalable strict-cycle control`](docs/scalable-strict-cycle-bridge-control.md)
 shows why these abstract bridge axioms alone cannot force a bounded
