@@ -309,6 +309,10 @@ put detailed reconciliation in the canonical synthesis.
   splice and every full extension at the first complete two-halo boundary
   contains an equilateral hinge; assumes the fixed 23=27 core and does not
   control arbitrary halo counts.
+- [`fragile-cycle-halo-slot-budget.md`](fragile-cycle-halo-slot-budget.md):
+  exact eight-slot cap on active lifts of the fixed 23=27 retained rows, plus
+  a complete four/five-halo census forcing at least three retained-private
+  halo roles; this is a structural alternative, not full-extension closure.
 - [`fragile-cycle-three-halo-vertex-circle.md`](fragile-cycle-three-halo-vertex-circle.md):
   exact three-halo closure of the same fixed quotient core across 84 canonical
   placements and 141,750 essential covers, with no full vertex-circle-clean

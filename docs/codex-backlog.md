@@ -114,9 +114,16 @@ those six prove that every admissible full extension contains an equilateral
 hinge. This replaces the imported n=9 positive-dual join for that boundary
 with one generic local endgame.
 
-The missing bridge is now structural: force the 23=27 core with at most two
-active halo roles from genuine minimal-counterexample geometry, or show that
-a third active halo forces a separately checked rich-class/deletion alternative.
+The slot-budget follow-up now closes the arbitrary-count question at the
+retained-row incidence level. The eight free witness slots cap every active
+lift at five halos. Four halos force at least three retained-private roles;
+five halos force all five. The exact census also leaves 518,760 motif-free
+four-halo covers and 512,820 motif-free five-halo covers, so this is a named
+private-halo alternative rather than fixed-core closure.
+
+The missing bridge is now structural and geometric: force the `23=27` core
+from a genuine minimal counterexample, or upgrade three retained-private halo
+roles to a full-rich-class/deletion, critical-radius, or metric obstruction.
 
 1. Use the vertex-circle route decision preflight
    `python scripts/check_n9_vertex_circle_route_decision_preflight.py --check --summary-json`

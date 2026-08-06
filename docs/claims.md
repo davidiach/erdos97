@@ -813,6 +813,31 @@ arbitrary-halo reduction or geometric entry lemma is proved. See
 docs/fragile-cycle-halo-motif-forcing.md and
 scripts/check_fragile_cycle_halo_motif_forcing.py.
 
+### Fixed-core halo slot budget
+
+Status: `EXACT_CERTIFICATE_DIAGNOSTIC` for the fixed `23=27` retained-row
+contract.
+
+The four retained rows have two required witnesses each, leaving exactly
+eight free witness slots. Their required pairs cover only four of the seven
+core roles, so the free slots must cover three missing core roles plus every
+active halo. Therefore `3 + halo_count <= 8`, and no active retained-row
+cover can have more than five halos.
+
+With four halos, at most one of the eight mandatory free-slot roles can be
+repeated, so at least three halo roles occur in exactly one retained row.
+With five halos, all five halo roles occur exactly once in the retained rows.
+The exact coverage-first census finds 529,200 essential four-halo covers and
+512,820 essential five-halo covers. It also records 518,760 motif-free
+four-halo covers and 512,820 motif-free five-halo covers, so this is a
+private-halo alternative rather than a local motif closure.
+
+Here `retained-private` concerns only the four retained rows. It does not
+assert privacy in a full selected-row extension or full rich-class system.
+The core is assumed and the four/five-halo full-extension regimes are not
+closed. See docs/fragile-cycle-halo-slot-budget.md and
+scripts/check_fragile_cycle_halo_slot_budget.py.
+
 ### Pair and triple sharing
 
 For an unordered pair `{a,b}`, at most two polygon vertices `x` satisfy

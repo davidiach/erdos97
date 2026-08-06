@@ -341,8 +341,16 @@ geometric argument controlling arbitrary genuine halos and rejecting the
 The three-halo continuation closes the next fixed slice: all 84 canonical
 placements and 141,750 essential retained covers are exhausted, with no full
 selected-row extension surviving the vertex-circle quotient. This is still
-finite proof-mining evidence, not `n=10` or a forcing lemma; four or more halo
-roles remain outside the scan.
+finite proof-mining evidence, not `n=10` or a forcing lemma.
+
+The slot-budget follow-up removes the unbounded halo-count ambiguity for this
+fixed retained-row core: its eight free witness slots prove that an active
+cover has at most five halos. Every four-halo cover has at least three
+retained-private roles and every five-halo cover has five. An exact
+coverage-first census finds large motif-free populations in both regimes, so
+this is a named private-halo alternative rather than full-extension closure.
+Contract F still has to force the core or upgrade retained-private incidence
+to genuine full-rich-class, deletion, critical-radius, or metric geometry.
 
 The deep-frontier packet replaces the final opaque search layers by a local
 catalog. Exactly 13 clean eight-row states survive: 11 have a remaining center

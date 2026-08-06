@@ -1676,6 +1676,55 @@ artifacts:
       - source-of-truth strongest result
       - official/global status update
 
+  - id: fragile_cycle_halo_slot_budget
+    path: data/certificates/fragile_cycle_halo_slot_budget.json
+    sha256: 4b634397398eda28fcbb14af347e2a1f2b82473bd2b7476005e61f6a6ce9b623
+    size_bytes: 5850
+    kind: exact_bounded_halo_slot_budget_artifact
+    generator: scripts/check_fragile_cycle_halo_slot_budget.py
+    command: python scripts/check_fragile_cycle_halo_slot_budget.py --write --assert-expected --summary-json
+    checker: scripts/check_fragile_cycle_halo_slot_budget.py
+    check_command: python scripts/check_fragile_cycle_halo_slot_budget.py --check --assert-expected --summary-json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact incidence-level slot-budget lemma and coverage-first census for
+      four- and five-halo lifts of the fixed 23=27 core. Active retained-row
+      covers have at most five halos; four halos force at least three
+      retained-private roles and five halos force all five. Retained-private
+      is not full-rich-class privacy. Not core forcing, full-extension closure,
+      Euclidean realizability, n=11 or n=12, a general proof, a counterexample,
+      or an official/global status update.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.fragile_cycle_halo_slot_budget.v1
+      status: EXACT_BOUNDED_HALO_SLOT_BUDGET
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      slot_budget_lemma.maximum_active_halo_count: 5
+      slot_budget_lemma.four_halo_minimum_retained_private_halos: 3
+      slot_budget_lemma.five_halo_minimum_retained_private_halos: 5
+      four_halos.placement_count: 210
+      four_halos.aggregate_counts.essential_covers: 529200
+      four_halos.aggregate_counts.splice_only_covers: 10440
+      four_halos.aggregate_counts.motif_free_covers: 518760
+      four_halos.placement_trace_sha256: 5ee7c02529164134b32ec5a26c91c791f2d9dcf6bc6f2e3ff2b4b7766fe37b11
+      five_halos.placement_count: 462
+      five_halos.aggregate_counts.essential_covers: 512820
+      five_halos.aggregate_counts.motif_free_covers: 512820
+      five_halos.placement_trace_sha256: cfb7fab0f26323081d77810065eadf0ed364dcee9589dfe73b2083063623c7f2
+      provenance.command: python scripts/check_fragile_cycle_halo_slot_budget.py --write --assert-expected --summary-json
+    forbidden_claims:
+      - the 23=27 quotient core is forced
+      - retained-private means private in every selected row or rich class
+      - four- or five-halo full selected extensions are closed
+      - Euclidean realization
+      - n=11 or n=12 is proved
+      - general proof of Erdos Problem #97
+      - counterexample to Erdos Problem #97
+      - source-of-truth strongest result
+      - official/global status update
+
   - id: fragile_cycle_three_halo_vertex_circle
     path: data/certificates/fragile_cycle_three_halo_vertex_circle.json
     sha256: a914f9d8dee41f63eb6ef53ee200deb526cf98af7163aeb91e6a238873f6aeff

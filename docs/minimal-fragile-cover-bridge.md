@@ -635,9 +635,17 @@ contains an equilateral hinge. Thus the fixed two-halo regime now has a
 native generic local endgame rather than only an imported n=9 certificate
 join.
 
-This still does not force the quotient core or reduce an arbitrary halo
-system to two active roles. The next bridge obligation is precisely that
-structural reduction, or a checked alternative forced by a third active halo.
+The companion slot-budget lemma in
+`docs/fragile-cycle-halo-slot-budget.md` controls the arbitrary-count part of
+this fixed-core contract. The retained rows have eight free witness slots, so
+an active cover has at most five halos. Every four-halo cover has at least
+three retained-private halo roles, and every five-halo cover has five. The
+exact census shows that most of those retained covers remain motif-free.
+
+This still does not force the quotient core or make a retained-private role
+private in a full selected system or rich class. The next bridge obligation
+is to obtain that genuine rich-class/deletion upgrade, or a metric obstruction
+from the private-halo pattern.
 
 This is a foothold toward a bridge theorem, not the central ear-orderable
 bridge itself.

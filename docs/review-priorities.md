@@ -806,6 +806,14 @@ condition that the surviving multi-block family does not automatically satisfy:
   should verify the dihedral splice occurrence scan, monotonicity of hinge
   pruning, source-cover crosswalk, and the fact that the result assumes the
   23=27 core and does not control three or more active halos.
+- review the fixed-core halo slot-budget packet in
+  docs/fragile-cycle-halo-slot-budget.md. Its direct counting lemma gives the
+  complete active-cover cap `halo_count <= 5`; the coverage-first census
+  forces at least three retained-private roles in every four/five-halo cover.
+  Review should verify the free-slot multiset generator, the optimized motif
+  predicates against the generic scanners, and the narrow meaning of
+  retained-private. The packet does not close full extensions or prove that a
+  role is private in a full rich class.
 - use the exact fragile/turn/pivot audit as the current pivot guardrail. Its
   finite `n=9` side has a two-pivot/`F15` split, but the abstract
   `S_i=i+{2,9,10,13}` system on `Z/16` has a marked three-cycle matching and

@@ -575,6 +575,17 @@
       "claim_scope": "Exact bounded active-halo motif forcing for the stored 23=27 core: all 38 one-halo essential covers contain a hinge or splice, and the exact six-of-7708 two-halo extendability frontier plus six hinge-free exhaustion searches proves every admissible two-halo full extension contains an equilateral hinge; not core forcing, arbitrary-halo control, Euclidean realizability, n=9 or n=10, a general proof, a counterexample, or an official/global status update."
     },
     {
+      "id": "fragile_cycle_halo_slot_budget",
+      "command": [
+        "python",
+        "scripts/check_fragile_cycle_halo_slot_budget.py",
+        "--check",
+        "--assert-expected",
+        "--summary-json"
+      ],
+      "claim_scope": "Exact slot-budget lemma and coverage-first four/five-halo census for the fixed 23=27 core: active retained-row covers have at most five halos, four halos force at least three retained-private roles, and five halos force all five; retained-private is not full-rich-class privacy, and this is not core forcing, full-extension closure, Euclidean realizability, n=11 or n=12, a general proof, a counterexample, or an official/global status update."
+    },
+    {
       "id": "fragile_cycle_three_halo_vertex_circle",
       "command": [
         "python",
@@ -3434,6 +3445,7 @@
       "rich_support_counting_bound",
       "support_saturation_obstruction",
       "near_saturation_support_obstruction",
+      "fragile_cycle_halo_slot_budget",
       "n12_rich_support_determinant",
       "localized_rich_support_counting",
       "minimal_two_deletion_profile",
