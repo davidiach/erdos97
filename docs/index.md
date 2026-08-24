@@ -94,6 +94,12 @@ put detailed reconciliation in the canonical synthesis.
 - [`conversation-frontier-and-failed-routes-2026-08-06.md`](conversation-frontier-and-failed-routes-2026-08-06.md):
   failed-route record, verified upstream crosswalk, and open paired frontier;
   `DIAGNOSTIC_ONLY` / `OPEN_BRIDGE`, with no closure claim.
+- [`conversation-three-defect-deletion-frontier-2026-08-10.md`](conversation-three-defect-deletion-frontier-2026-08-10.md):
+  corrected assignment-independent three-defect deletion theorem candidate;
+  `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING` / `OPEN_BRIDGE`.
+- [`conversation-three-defect-formalization-contract-2026-08-10.md`](conversation-three-defect-formalization-contract-2026-08-10.md):
+  pinned finite-cover and Lean-adapter contract for the same candidate;
+  `FORMALIZATION_TARGET` / `REVIEW_PENDING` / `NO_STATUS_PROMOTION`.
 - [`canonical-synthesis.md`](canonical-synthesis.md): long-form canonical
   synthesis, claim taxonomy, failed-route reconciliation, and source/hash
   inventory.
