@@ -4,10 +4,11 @@ Status: `PAPER_PROOF_CANDIDATE / REVIEW_PENDING / OPEN_BRIDGE`
 
 Date: 2026-08-10.
 
-This note is a correction and continuation of the conversation research ledger
-merged in PR #921. It records one assignment-independent theorem that survived
-the later proof search, identifies the exact overreach in the preceding
-blocker-potential argument, and gives a narrower successor target.
+This note continues the conversation research ledger merged in PR #921. It
+records one assignment-independent theorem that survived the later proof
+search, identifies an overreach from an **unmerged** post-#921 conversation
+round, and gives a narrower successor target. No claim in merged PR #921 is
+being retracted.
 
 It does **not** claim a proof or counterexample to Erdős Problem 97. It does not
 change `STATE.md`, `RESULTS.md`, `docs/claims.md`, or any machine-readable claim
@@ -15,9 +16,10 @@ metadata.
 
 ## 1. Correction to the maximal-blocker-assignment route
 
-A later conversation round chose, for every source `q`, one unique-four blocker
-`beta(q)` and maximized the sum of squared blocker-fiber sizes. The resulting
-exchange inequality is useful for the **chosen** assignment:
+A later, unmerged conversation round chose, for every source `q`, one
+unique-four blocker `beta(q)` and maximized the sum of squared blocker-fiber
+sizes. The resulting exchange inequality is useful for the **chosen**
+assignment:
 
 ```text
 q belongs to the exact row at c,
@@ -34,7 +36,8 @@ particular, it can belong to a row centered at a unique-four center that receive
 no source under the chosen assignment. Deleting `q` destroys every unique-four
 row containing `q`, not merely the selected one.
 
-Therefore the following implication is **withdrawn**:
+Therefore the following implication is **withdrawn from that unmerged
+continuation**:
 
 ```text
 chosen blocker beta(q)
@@ -138,8 +141,13 @@ sum_{q in A} d(q) <= 4|A| - 4 < 4|A|.
 
 Hence some `q` satisfies `d(q) <= 3`. The cover lemma gives `d(q) >= 1`.
 
-The all-large tri-apex residual supplies three distinct fully deletion-robust
-MEC apices, so the hypothesis is available there with room to spare.
+In the intended all-large tri-apex residual, each of the three distinct
+physical MEC apices carries the established `ApexRichClassStructure`: either
+one radius class has at least six points or two distinct radii each have at
+least four. Either alternative makes the center fully deletion-robust, as
+recorded by the pinned Lean theorem
+[`fullyDeletionRobustAt_of_apexRichClassStructure`](https://github.com/mysticflounder/erdos-97-96-formalization/blob/3ee15db22b02f4923da535a7f7a19c4a75fb3030/lean/Erdos9796Proof/P97/ATail/ApexRichClassStructure.lean#L70-L83).
+Thus the hypothesis is available there with room to spare.
 
 ## 4. Three-defect deletion theorem
 
@@ -273,8 +281,15 @@ ambient witness vertices.
 
 ## 8. Formalization crosswalk
 
-The separate Lean project already contains interfaces close to the required
-pieces:
+This crosswalk is pinned to upstream formalization commit
+[`3ee15db`](https://github.com/mysticflounder/erdos-97-96-formalization/commit/3ee15db22b02f4923da535a7f7a19c4a75fb3030),
+the `main` revision at 2026-08-10 10:43 UTC immediately before this note was
+committed. The unique-four interfaces are in
+[`MinimalUniqueFourCover.lean`](https://github.com/mysticflounder/erdos-97-96-formalization/blob/3ee15db22b02f4923da535a7f7a19c4a75fb3030/lean/Erdos9796Proof/P97/ATail/MinimalUniqueFourCover.lean),
+and the U5 interfaces are in
+[`U5GlobalIncidenceBasic.lean`](https://github.com/mysticflounder/erdos-97-96-formalization/blob/3ee15db22b02f4923da535a7f7a19c4a75fb3030/lean/Erdos9796Proof/P97/U5GlobalIncidenceBasic.lean).
+At that revision the separate Lean project contains interfaces close to the
+required pieces:
 
 ```text
 IsUniqueFourCenter / uniqueFourClass

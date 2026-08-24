@@ -8,6 +8,12 @@ This document turns the corrected conversation result into a small,
 independently checkable theorem contract. It is intentionally separated from
 the larger cap, U5, and Kalmanson machinery.
 
+The schematic Lean vocabulary below is pinned to upstream formalization commit
+[`3ee15db`](https://github.com/mysticflounder/erdos-97-96-formalization/commit/3ee15db22b02f4923da535a7f7a19c4a75fb3030),
+the `main` revision at 2026-08-10 10:43 UTC immediately before this document
+was committed. Later implementations should either use that revision or
+explicitly recheck the names and theorem surfaces against a newer source.
+
 ## 1. Pure finite-cover core
 
 The geometric content needed for the first theorem is only the existence of a
@@ -108,7 +114,11 @@ nonrobust center.
 ### C. Proper center set
 
 At least one carrier center is fully deletion-robust. In the intended
-all-large tri-apex application, all three physical MEC apices are robust, so
+all-large tri-apex application, each of the three physical MEC apices carries
+`ApexRichClassStructure`: either one radius class has at least six points or
+two distinct radii each have at least four. The pinned theorem
+[`fullyDeletionRobustAt_of_apexRichClassStructure`](https://github.com/mysticflounder/erdos-97-96-formalization/blob/3ee15db22b02f4923da535a7f7a19c4a75fb3030/lean/Erdos9796Proof/P97/ATail/ApexRichClassStructure.lean#L70-L83)
+makes either alternative fully deletion-robust. Hence
 
 ```text
 (notRobustCenters D).card <= D.A.card - 3.
@@ -141,7 +151,8 @@ noncomputable def deletionDefectFiber
     q ∈ uniqueFourClass D.A c
 ```
 
-The exact argument list of `uniqueFourClass` should follow the live source
+The exact argument list of `uniqueFourClass` should follow the pinned source,
+or a later source revision whose interface has been explicitly rechecked,
 rather than this schematic notation.
 
 Then prove:
