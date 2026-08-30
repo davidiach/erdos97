@@ -12801,8 +12801,8 @@ artifacts:
       - official/global status update
   - id: c3_product_27_nonconvex
     path: data/certificates/c3_product_27_nonconvex.json
-    sha256: bfd30667789a1fddcb2c14124347194414cf224b364d4ba19a5ac5cddfc13be6
-    size_bytes: 4334
+    sha256: 5a929b7daad8221831fcd6af8e53bbcb69285a2302d910b7578e412579e7d8b4
+    size_bytes: 4067
     kind: exact_nonconvex_metric_control
     generator: scripts/check_c3_product_27_nonconvex.py
     command: python scripts/check_c3_product_27_nonconvex.py --write-artifact --assert-expected

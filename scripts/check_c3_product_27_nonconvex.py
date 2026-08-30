@@ -447,6 +447,7 @@ def main() -> int:
         artifact_path.write_text(
             json.dumps(payload, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
+            newline="\n",
         )
     if args.check:
         if not artifact_path.exists():
