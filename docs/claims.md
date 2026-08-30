@@ -3066,6 +3066,36 @@ radius, impossible in a finite directed cycle. See
 This is a narrow mechanism obstruction, not a general exclusion of 3-fold
 symmetric configurations and not a proof of Erdos #97.
 
+### Exact 27-point `C3` product negative control
+
+Status: `EXACT_NONCONVEX_NEGATIVE_CONTROL` / exact algebraic certificate.
+
+Two exact three-step projective multiplier cycles on
+`C={lambda:|lambda-1|^2=3}`, each with monodromy `omega`, produce factor
+nonagons
+
+```text
+A={a_i*omega^k},  B={b_j*omega^k}.
+```
+
+Both factors have nine strict hull vertices and three named equidistant
+partners per point.  Their product lift
+
+```text
+P={a_i*b_j*omega^k : 0 <= i,j,k < 3}
+```
+
+has 27 distinct points, and every point has its two orbit mates plus one
+successor from each factor cycle at squared distance `3*|p|^2`.  The exact
+checker verifies all 108 named equalities in a real algebraic number field.
+
+This is not a counterexample: an exact supporting-half-plane certificate gives
+18 hull vertices and nine strict interior points.  It is a concrete closure
+of one metric product branch only, not a proof that other projective cycles or
+perturbations are nonconvex.  See
+`docs/c3-product-27-nonconvex-control.md` and replay with
+`python scripts/check_c3_product_27_nonconvex.py --artifact data/certificates/c3_product_27_nonconvex.json --check --assert-expected --json`.
+
 ### Four- and five-orbit `C3` obstructions
 
 Status: `LEMMA_DRAFT_REVIEW_PENDING` / exact algebra replay for the restricted

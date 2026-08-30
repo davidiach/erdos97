@@ -1635,6 +1635,19 @@
       "claim_scope": "Float64 boundary-hit diagnostic for the quoted 12-point Barany--Roldan-Pensado seed before A5 insertion with a signed synthetic A5 edge-pocket stress scan; not a finite extraction from the body, not the final 15-gon, not a proof of Erdos Problem #97, not a counterexample, and not an official/global status update."
     },
     {
+      "id": "c3_product_27_nonconvex",
+      "command": [
+        "python",
+        "scripts/check_c3_product_27_nonconvex.py",
+        "--artifact",
+        "data/certificates/c3_product_27_nonconvex.json",
+        "--check",
+        "--assert-expected",
+        "--json"
+      ],
+      "claim_scope": "Exact algebraic replay of one 27-point C3 product configuration with four named equidistant partners per point and exactly 18 convex-hull vertices. Nonconvex metric negative control only; not a counterexample, not an obstruction to other product-template branches, not a proof of Erdos Problem #97, and not an official/global status update."
+    },
+    {
       "id": "four_c3_generic_orbit_obstruction",
       "command": [
         "python",
@@ -3500,6 +3513,7 @@
       "adjacent_closest_pair_nonagon_barrier",
       "brp_boundary_vertexization_probe",
       "fragile_radius_midpoint",
+      "c3_product_27_nonconvex",
       "four_c3_generic_orbit_obstruction",
       "five_c3_tournament_obstruction",
       "five_c3_all_cross_nonreciprocal_obstruction",

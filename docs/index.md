@@ -284,6 +284,13 @@ put detailed reconciliation in the canonical synthesis.
 - [`threefold-pair-lift-obstruction.md`](threefold-pair-lift-obstruction.md):
   narrow Danzer-style 3-fold lift obstruction for rows using same-orbit mates
   plus one other orbit-pair.
+- [`c3-nonconvex-control.md`](c3-nonconvex-control.md): exact nine-point
+  distance-only control, a fixed-step equilateral-circulant obstruction, and
+  the product-template handoff.
+- [`c3-product-27-nonconvex-control.md`](c3-product-27-nonconvex-control.md):
+  exact product of two strictly convex three-rich `C3` nonagons; all 27 points
+  are four-rich, but an exact hull certificate leaves nine strict interior
+  points, so it is not a counterexample.
 - [`four-c3-generic-orbit-obstruction.md`](four-c3-generic-orbit-obstruction.md):
   review-pending exact reciprocal-supplier obstruction draft for four generic concentric
   equilateral-triangle orbits, plus one half-step midpoint degeneration.
