@@ -1,10 +1,16 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
 from typing import Any
 
 import pytest
 
 from scripts.check_c3_product_27_nonconvex import build_payload, validate_payload
+
+
+ROOT = Path(__file__).resolve().parents[1]
+ARTIFACT = ROOT / "data" / "certificates" / "c3_product_27_nonconvex.json"
 
 
 @pytest.fixture(scope="module")
@@ -41,6 +47,12 @@ def test_c3_product_27_pins_the_nonconvex_orbits(payload: dict[str, Any]) -> Non
         [2, 0, 1],
         [2, 0, 2],
     ]
+
+
+def test_c3_product_27_stored_artifact_is_current(payload: dict[str, Any]) -> None:
+    stored = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+
+    assert stored == payload
 
 
 def test_c3_product_27_keeps_nonclaim_scope(payload: dict[str, Any]) -> None:
