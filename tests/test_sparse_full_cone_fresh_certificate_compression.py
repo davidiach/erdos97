@@ -117,6 +117,8 @@ def test_stopping_rule_continues_for_new_small_or_affine_reuse() -> None:
     assert assessment["decision"] == "CONTINUE_CLUSTER_MINING"
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_fresh_compression_packet_replays_exactly() -> None:
     if not ARTIFACT.exists():
         return

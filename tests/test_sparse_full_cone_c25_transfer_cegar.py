@@ -88,6 +88,8 @@ def test_history_identity_omits_full_orders_but_pins_hashes() -> None:
     ]
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_c25_transfer_cegar_replays_exactly() -> None:
     if not ARTIFACT.exists():
         return

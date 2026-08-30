@@ -144,6 +144,8 @@ def test_augmented_cegar_learns_eight_new_exact_wide_certificates() -> None:
     )
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_persistent_augmented_cegar_replays_exactly() -> None:
     assert CEGAR.check_payload(artifact_payload()) == {
         "status": "OK",

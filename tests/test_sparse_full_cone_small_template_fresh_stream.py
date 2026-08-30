@@ -105,6 +105,8 @@ def test_template_coverage_summary_counts_hits() -> None:
     assert summary["by_template"][0]["matching_orbit_clause_occurrences"] == 2
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_fresh_stream_artifact_replays_exactly() -> None:
     module = load_module()
     if not ARTIFACT.exists():

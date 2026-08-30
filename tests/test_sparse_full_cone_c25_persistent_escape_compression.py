@@ -139,6 +139,8 @@ def test_minimum_marginal_cover_selects_only_the_width_four_source() -> None:
     )
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_persistent_escape_compression_replays_exactly() -> None:
     assert COMPRESSION.check_payload(artifact_payload()) == {
         "status": "OK",

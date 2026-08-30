@@ -85,6 +85,8 @@ def test_stored_targets_have_two_exact_positive_circuits() -> None:
     )
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_persistent_escape_screen_replays_exactly() -> None:
     assert SCREEN.check_payload(artifact_payload()) == {
         "status": "OK",

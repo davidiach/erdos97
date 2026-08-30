@@ -151,6 +151,8 @@ def test_width_four_residual_two_replaces_nonmarginal_old_width_three() -> None:
     )
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_selected_residual_escape_compression_replays_exactly() -> None:
     assert COMPRESSION.check_payload(artifact_payload()) == {
         "status": "OK",

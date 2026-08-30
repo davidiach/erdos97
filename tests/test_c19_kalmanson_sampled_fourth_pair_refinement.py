@@ -128,6 +128,7 @@ def test_c19_sampled_fourth_pair_refinement_small_replay() -> None:
 
 @pytest.mark.artifact
 @pytest.mark.slow
+@pytest.mark.exhaustive
 def test_c19_sampled_fourth_pair_refinement_full_replay_matches_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
