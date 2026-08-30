@@ -33,5 +33,7 @@ def test_compatibility_lanes_do_not_run_floating_lint() -> None:
     compatibility = workflow.split("  compatibility:\n", maxsplit=1)[1]
 
     assert "python-version: ['3.10', '3.11']" in compatibility
+    assert 'if [ "${{ matrix.python-version }}" = "3.10" ]; then' in compatibility
+    assert "python -m pip install --no-deps -e ." in compatibility
     assert "python -m pytest -q" in compatibility
     assert "make verify-fast" not in compatibility
