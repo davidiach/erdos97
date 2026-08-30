@@ -71,6 +71,8 @@ jobs:
         if: github.event_name == 'pull_request'
         run: >-
           python -m pytest -q -m "artifact and not exhaustive"
+          -n auto --dist worksteal
+          --durations 20 --durations-min 1.0
           --shard-count 8 --shard-index ${{ matrix.shard }}
       - name: Run full artifact pytest shard
         if: github.event_name != 'pull_request'
