@@ -1,11 +1,13 @@
 # Exact C3 nonconvex control and structured search handoff
 
 Status: `EXACT_NONCONVEX_NEGATIVE_CONTROL` plus one restricted exact
-obstruction and one conditional construction template.
+obstruction, one conditional construction template, and one exact nonconvex
+projective product realization.
 
 This note retains the independently checkable part of the July 23, 2026
-counterexample-search session. It does **not** claim a counterexample, a proof
-of Erdos Problem #97, or a change to the official/global open status.
+counterexample-search session and links the later exact three-by-three product
+closure. It does **not** claim a counterexample, a proof of Erdos Problem #97,
+or a change to the official/global open status.
 
 ## 1. A nine-point common-distance control
 
@@ -238,6 +240,14 @@ A useful next search is therefore an exact cycle search on
 
 followed by exact alias and convex-hull checks on the product configuration.
 
+The three-by-three **projective** closure is now instantiated exactly in
+`docs/c3-product-27-nonconvex-control.md`.  Its wrapped successor advances the
+lift phase by one, so each multiplier cycle has product `omega` rather than
+one.  The resulting product has 27 distinct points and four exact named
+witnesses per point, but an exact algebraic half-plane certificate finds only
+18 hull vertices.  It is a concrete nonconvex negative control, not a
+counterexample and not an obstruction to other product-template branches.
+
 ## 6. Session triage
 
 The session also revisited parabola/ellipse samples, concentric two-orbit
@@ -252,4 +262,5 @@ The retained contribution is therefore narrow:
   equations alone are easy to satisfy;
 - one exact rigidity identity explaining its collapse;
 - one short obstruction eliminating a broad fixed-step circulant design;
-- one exact product template defining a concrete future search space.
+- one exact product template defining a concrete search space, with its
+  three-by-three projective closure now realized only as a nonconvex control.

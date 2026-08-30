@@ -177,6 +177,22 @@ noncentral orbits, four or more exterior-center concentric circles, `n=9`, or
 Erdos Problem #97. See `docs/symmetric-two-orbit-reduction.md` and
 `scripts/check_two_orbit_radius_propagation.py`.
 
+### Exact nonconvex `C3` product control
+
+Status: `EXACT_NONCONVEX_NEGATIVE_CONTROL` / exact algebraic certificate.
+
+Two exact strictly convex three-rich `C3` nonagons, represented by
+three-step multiplier cycles with monodromy `omega`, give a 27-point product
+lift.  All nine product orbit moduli are distinct, and every product point has
+four named partners at squared distance `3*|p|^2`.  The checker replays all
+108 equalities exactly.
+
+The product is not a counterexample: an exact real-algebraic half-plane check
+finds 18 hull vertices and nine strict interior points.  This instantiates one
+projective product-template branch without obstructing other cycles or
+convexifications.  See `docs/c3-product-27-nonconvex-control.md` and
+`data/certificates/c3_product_27_nonconvex.json`.
+
 ### Restricted four- and five-`C3`-orbit obstructions
 
 Status: `LEMMA_DRAFT_REVIEW_PENDING` / exact algebra replay for the stated

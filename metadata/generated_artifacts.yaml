@@ -12799,3 +12799,42 @@ artifacts:
       - general proof of Erdos Problem #97
       - counterexample to Erdos Problem #97
       - official/global status update
+  - id: c3_product_27_nonconvex
+    path: data/certificates/c3_product_27_nonconvex.json
+    sha256: bfd30667789a1fddcb2c14124347194414cf224b364d4ba19a5ac5cddfc13be6
+    size_bytes: 4334
+    kind: exact_nonconvex_metric_control
+    generator: scripts/check_c3_product_27_nonconvex.py
+    command: python scripts/check_c3_product_27_nonconvex.py --write-artifact --assert-expected
+    checker: scripts/check_c3_product_27_nonconvex.py
+    check_command: python scripts/check_c3_product_27_nonconvex.py --artifact data/certificates/c3_product_27_nonconvex.json --check --assert-expected --json
+    direct_edit_allowed: false
+    provenance_mode: embedded
+    trust_class: EXACT_CERTIFICATE_DIAGNOSTIC
+    claim_scope: >
+      Exact algebraic-number-field replay of one 27-point product of two
+      strictly convex three-rich C3 nonagons. Every product point has four
+      named equidistant partners, but the exact hull certificate has only 18
+      vertices and nine strict interior points. Metric negative control only;
+      not a counterexample and not an obstruction to other product-template
+      branches.
+    json_top_level_type: object
+    expected_json:
+      schema: erdos97.c3_product_27_nonconvex.v1
+      status: EXACT_NONCONVEX_NEGATIVE_CONTROL
+      trust: EXACT_CERTIFICATE_DIAGNOSTIC
+      validation_status: passed
+      summary.factor_point_counts: [9, 9]
+      summary.factor_hull_vertex_counts: [9, 9]
+      summary.product_point_count: 27
+      summary.distinct_product_point_count: 27
+      summary.product_named_equality_count: 108
+      summary.product_hull_vertex_count: 18
+      summary.product_interior_point_count: 9
+      provenance.command: python scripts/check_c3_product_27_nonconvex.py --write-artifact --assert-expected
+    forbidden_claims:
+      - the 27-point product is a counterexample to Erdos Problem #97
+      - all product-template realizations are nonconvex
+      - all projective multiplier cycles are classified
+      - general proof of Erdos Problem #97
+      - official/global status update

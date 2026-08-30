@@ -1,0 +1,267 @@
+{
+  "claim_scope": "Exact verification of one 27-point C3 product configuration in which every point has four named partners at one common center-dependent distance. Exactly 18 points are convex-hull vertices, so the object is not a counterexample to Erdos Problem #97. The checker does not classify other projective multiplier cycles or prove an obstruction to convexifying the product template.",
+  "defining_quadratics": {
+    "A": "(-75+44*sqrt(3))*u^2+(-18+6*sqrt(3))*u-33-14*sqrt(3)",
+    "B": "(-162+96*sqrt(3))*u^2+(-32+16*sqrt(3))*u-50-16*sqrt(3)",
+    "root_choice": "lower real root in both cases"
+  },
+  "errors": [],
+  "provenance": {
+    "arithmetic": "exact SymPy algebraic-number-field equality and selected-real-embedding sign checks",
+    "command": "python scripts/check_c3_product_27_nonconvex.py --write-artifact --assert-expected",
+    "generator": "scripts/check_c3_product_27_nonconvex.py"
+  },
+  "schema": "erdos97.c3_product_27_nonconvex.v1",
+  "status": "EXACT_NONCONVEX_NEGATIVE_CONTROL",
+  "summary": {
+    "cycle_monodromies": [
+      "omega",
+      "omega"
+    ],
+    "cycle_parameters_approx": {
+      "A": [
+        2.0,
+        -4.418855668810638
+      ],
+      "B": [
+        3.0,
+        -3.7908411282773677
+      ]
+    },
+    "distinct_product_point_count": 27,
+    "factor_cycle_count": 2,
+    "factor_hull_labels": {
+      "A": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "B": [
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "factor_hull_vertex_counts": [
+      9,
+      9
+    ],
+    "factor_named_witness_count_per_center": 3,
+    "factor_point_counts": [
+      9,
+      9
+    ],
+    "product_hull_labels": [
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "product_hull_vertex_count": 18,
+    "product_interior_labels": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        2,
+        0,
+        2
+      ]
+    ],
+    "product_interior_point_count": 9,
+    "product_named_equality_count": 108,
+    "product_named_witness_count_per_center": 4,
+    "product_point_count": 27
+  },
+  "trust": "EXACT_CERTIFICATE_DIAGNOSTIC",
+  "validation_status": "passed"
+}
