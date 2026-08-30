@@ -4,6 +4,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "exploration" / "screen_sparse_full_cone_fresh_orders.py"
 SOURCE = (
@@ -78,6 +80,8 @@ def test_run_summary_keeps_conclusive_outcomes_separate() -> None:
     assert summary["unresolved_numerical_screen_count"] == 1
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_fresh_order_screen_replays_exactly() -> None:
     module = load_module()
     if not ARTIFACT.exists():

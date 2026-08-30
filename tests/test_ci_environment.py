@@ -22,5 +22,16 @@ def test_python_312_ci_uses_the_checked_dependency_snapshot() -> None:
     )
     assert "python -m pip install -r requirements-lock.txt" in tests_workflow
     assert "python -m pip install --no-deps -e ." in tests_workflow
-    assert artifact_workflow.count("python -m pip install -r requirements-lock.txt") == 3
-    assert artifact_workflow.count("python -m pip install --no-deps -e .") == 3
+    assert artifact_workflow.count("python -m pip install -r requirements-lock.txt") == 2
+    assert artifact_workflow.count("python -m pip install --no-deps -e .") == 2
+    assert "slow-exhaustive-pytest:" not in artifact_workflow
+    assert '-m "artifact and not exhaustive"' in artifact_workflow
+
+
+def test_compatibility_lanes_do_not_run_floating_lint() -> None:
+    workflow = (ROOT / ".github/workflows/tests.yml").read_text(encoding="utf-8")
+    compatibility = workflow.split("  compatibility:\n", maxsplit=1)[1]
+
+    assert "python-version: ['3.10', '3.11']" in compatibility
+    assert "python -m pytest -q" in compatibility
+    assert "make verify-fast" not in compatibility

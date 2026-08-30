@@ -359,7 +359,9 @@ pip install -e . --no-deps
 ```
 
 The snapshot pins direct dependencies only. Python 3.10 and 3.11 compatibility
-CI instead resolves the supported ranges in `pyproject.toml`.
+CI instead resolves the supported ranges in `pyproject.toml` and runs pytest
+without a second floating lint toolchain. The optional `python-flint` exact
+backend requires Python 3.11 or newer; its tests skip on Python 3.10.
 
 ## Artifact checks
 
@@ -402,12 +404,12 @@ For sharded metadata audits, the two global status/provenance preflights belong
 to shard `0` and therefore run exactly once across the complete shard set.
 
 Pull requests run the fast tier and, when artifact-sensitive files change, the
-artifact-marked pytest shards. The direct artifact-command audit and the
-non-artifact slow/exhaustive pytest shards run after merge to `main`, on the
-weekly schedule, or by manual dispatch. Documentation-only and Lean-only pull
-requests use their dedicated fast/status and Lean workflows instead of
-starting the artifact pytest matrix. Superseded runs on the same branch are
-cancelled automatically.
+non-exhaustive artifact-marked pytest shards. Exhaustive artifact replays, the
+direct artifact-command audit, and the non-artifact slow/exhaustive pytest
+shards run after merge to `main`, on the weekly schedule, or by manual
+dispatch. Documentation-only and Lean-only pull requests use their dedicated
+fast/status and Lean workflows instead of starting the artifact pytest matrix.
+Superseded runs on the same branch are cancelled automatically.
 
 Useful exploratory commands:
 

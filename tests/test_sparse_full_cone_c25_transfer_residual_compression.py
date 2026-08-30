@@ -119,6 +119,8 @@ def test_width_three_orbit_is_exact_minimum_residual_cover() -> None:
     )
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_c25_residual_compression_replays_exactly() -> None:
     result = COMPRESSION.check_payload(artifact_payload())
 

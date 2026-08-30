@@ -119,6 +119,8 @@ def test_quotient_vector_reuse_records_pairwise_overlap() -> None:
     ]
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_seeded_compression_packet_replays_exactly() -> None:
     payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
 

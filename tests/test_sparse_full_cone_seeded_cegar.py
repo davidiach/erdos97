@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "exploration" / "run_sparse_full_cone_seeded_cegar.py"
@@ -94,6 +96,8 @@ def test_probe_summary_counts_seed_source_overlap() -> None:
     assert summary["seed_source_overlap_histogram"] == {"0": 1, "1": 1}
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_seeded_cegar_packet_replays_exactly() -> None:
     payload = json.loads(ARTIFACT.read_text(encoding="utf-8"))
 

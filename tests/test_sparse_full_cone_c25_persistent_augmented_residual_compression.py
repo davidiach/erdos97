@@ -155,6 +155,8 @@ def test_width_three_residual_two_orbit_is_exact_minimum_new_cover() -> None:
     )
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_persistent_residual_compression_replays_exactly() -> None:
     assert COMPRESSION.check_payload(artifact_payload()) == {
         "status": "OK",

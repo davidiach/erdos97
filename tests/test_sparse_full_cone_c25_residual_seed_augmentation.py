@@ -148,6 +148,8 @@ def test_stored_probe_has_no_residual_seed_coverage_marginal() -> None:
     }
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_c25_residual_seed_probe_replays_exactly() -> None:
     assert PROBE.check_payload(artifact_payload()) == {
         "status": "OK",

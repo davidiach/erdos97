@@ -129,6 +129,8 @@ def test_transfer_decision_stops_only_after_two_zero_hit_packets() -> None:
     )
 
 
+@pytest.mark.artifact
+@pytest.mark.exhaustive
 def test_stored_transfer_packet_replays_exactly() -> None:
     if not ARTIFACT.exists():
         return
