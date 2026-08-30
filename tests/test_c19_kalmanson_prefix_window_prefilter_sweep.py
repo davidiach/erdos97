@@ -99,6 +99,7 @@ def test_c19_prefilter_window_sweep_small_replay() -> None:
 
 @pytest.mark.artifact
 @pytest.mark.slow
+@pytest.mark.exhaustive
 def test_c19_prefilter_window_sweep_full_replay_matches_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))

@@ -117,6 +117,7 @@ def strip_platform_variant_histograms(payload: dict) -> dict:
 
 @pytest.mark.artifact
 @pytest.mark.slow
+@pytest.mark.exhaustive
 def test_c19_catalog_prefilter_window_sweep_full_replay_matches_artifact() -> None:
     payload = run_script("--assert-expected", "--json")
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
