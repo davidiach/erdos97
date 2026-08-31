@@ -9,6 +9,10 @@ from typing import TypeVar
 
 T = TypeVar("T")
 SHARD_ALGORITHM = "sha256(key) modulo shard_count"
+NAMESPACED_SHARD_ALGORITHM = "sha256(namespace + NUL + key) modulo shard_count"
+# Selected from PR #926 duration telemetry so the eight slowest PR artifact
+# tests occupy eight distinct shards. The focused regression test pins that split.
+ARTIFACT_PR_SHARD_NAMESPACE = "artifact-pr-balanced-v1-1118"
 
 
 def validate_shard(shard_index: int, shard_count: int) -> None:
@@ -21,15 +25,18 @@ def validate_shard(shard_index: int, shard_count: int) -> None:
         )
 
 
-def stable_shard(key: str, shard_count: int) -> int:
+def stable_shard(key: str, shard_count: int, *, namespace: str = "") -> int:
     """Return the stable shard for ``key``.
 
     SHA-256 avoids Python's process-randomized ``hash`` and keeps assignment
-    independent of collection order and platform path separators.
+    independent of collection order and platform path separators. An optional
+    namespace permits a measured workload to use a different stable partition
+    without changing the default assignment used by existing consumers.
     """
     validate_shard(0, shard_count)
     normalized = key.replace("\\", "/")
-    digest = hashlib.sha256(normalized.encode("utf-8")).digest()
+    digest_input = normalized if not namespace else f"{namespace}\0{normalized}"
+    digest = hashlib.sha256(digest_input.encode("utf-8")).digest()
     return int.from_bytes(digest[:8], "big") % shard_count
 
 
@@ -39,7 +46,12 @@ def select_shard(
     key: Callable[[T], str],
     shard_index: int,
     shard_count: int,
+    namespace: str = "",
 ) -> list[T]:
     """Return exactly the items assigned to one deterministic shard."""
     validate_shard(shard_index, shard_count)
-    return [item for item in items if stable_shard(key(item), shard_count) == shard_index]
+    return [
+        item
+        for item in items
+        if stable_shard(key(item), shard_count, namespace=namespace) == shard_index
+    ]

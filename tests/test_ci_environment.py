@@ -39,6 +39,7 @@ def test_python_312_ci_uses_the_checked_dependency_snapshot() -> None:
     )[1].split("- name: Run full artifact pytest shard", maxsplit=1)[0]
     assert "-n auto --dist worksteal" in pr_artifact_step
     assert "--durations 20 --durations-min 1.0" in pr_artifact_step
+    assert "--shard-namespace artifact-pr-balanced-v1-1118" in pr_artifact_step
 
 
 def test_compatibility_lanes_do_not_run_floating_lint() -> None:
