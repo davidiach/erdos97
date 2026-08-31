@@ -22,6 +22,14 @@ def test_python_312_ci_uses_the_checked_dependency_snapshot() -> None:
     )
     assert "python -m pip install -r requirements-lock.txt" in tests_workflow
     assert "python -m pip install --no-deps -e ." in tests_workflow
+    assert "  pytest-shard:\n" in tests_workflow
+    assert "        shard: [0, 1]\n" in tests_workflow
+    assert "make verify-lint" in tests_workflow
+    assert "if: matrix.shard == 0" in tests_workflow
+    assert "--durations 20 --durations-min 1.0" in tests_workflow
+    assert '--shard-count 2 --shard-index ${{ matrix.shard }}' in tests_workflow
+    assert "    name: pytest (3.12)\n" in tests_workflow
+    assert "    needs: pytest-shard\n" in tests_workflow
     assert artifact_workflow.count("python -m pip install -r requirements-lock.txt") == 2
     assert artifact_workflow.count("python -m pip install --no-deps -e .") == 2
     assert "slow-exhaustive-pytest:" not in artifact_workflow

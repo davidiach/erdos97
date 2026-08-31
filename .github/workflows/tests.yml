@@ -16,10 +16,14 @@ permissions:
   contents: read
 
 jobs:
-  pytest:
-    name: pytest (3.12)
+  pytest-shard:
+    name: pytest shard ${{ matrix.shard }} (3.12)
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1]
     steps:
       # Full history so the release-packet provenance tests can resolve the
       # recorded source commit and take their strict verification path.
@@ -37,11 +41,28 @@ jobs:
         run: |
           python -m pip install -r requirements-lock.txt
           python -m pip install --no-deps -e .
-      - run: make verify-fast
+      - name: Run lint
+        if: matrix.shard == 0
+        run: make verify-lint
+      - name: Run fast pytest shard
+        run: >-
+          python -m pytest -q
+          --durations 20 --durations-min 1.0
+          --shard-count 2 --shard-index ${{ matrix.shard }}
         env:
-          # Parallelize the fast pytest tier across all runner cores; the
-          # lint scripts ahead of it are unaffected.
           PYTEST_ADDOPTS: -n auto --dist worksteal
+
+  pytest:
+    if: always()
+    name: pytest (3.12)
+    needs: pytest-shard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check fast tier results
+        env:
+          PYTEST_RESULT: ${{ needs.pytest-shard.result }}
+        run: |
+          test "$PYTEST_RESULT" = success
 
   compatibility:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
