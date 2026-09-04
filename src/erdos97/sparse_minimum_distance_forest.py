@@ -1,4 +1,4 @@
-"""Exact arithmetic spine for the sparse minimum-distance forest lemma.
+"""Exact arithmetic spine for the boundary-detour distance forest lemma.
 
 The geometric proof lives in ``docs/sparse-minimum-distance-forest.md``.
 This module checks only the final normalized turn and cycle-length arithmetic;
@@ -15,7 +15,7 @@ SCHEMA = "erdos97.sparse_minimum_distance_forest.v1"
 STATUS = "REVIEW_PENDING_PAPER_LEMMA_ARITHMETIC_REPLAY"
 TRUST = "PAPER_PROOF_CANDIDATE"
 CLAIM_SCOPE = (
-    "Exact arithmetic replay for the review-pending sparse minimum-distance "
+    "Exact arithmetic replay for the review-pending boundary-detour distance "
     "forest lemma. It checks the normalized triangle turn budget and the "
     "long-cycle coefficient margin after the geometric projection steps. "
     "It is not a formal proof of those projection steps, not a proof or "
@@ -58,16 +58,16 @@ def triangle_turn_arithmetic() -> dict[str, Any]:
     lower_sum = 3 * per_arc_lower
     return {
         "arc_count": 3,
-        "minimum_boundary_edges_per_arc": 2,
+        "minimum_boundary_detour_multiple": 2,
         "normalized_turn_lower_per_arc": str(per_arc_lower),
         "normalized_internal_turn_lower_sum": str(lower_sum),
         "normalized_internal_turn_strict_upper_bound": "<1",
         "contradiction": lower_sum == 1,
         "reason": (
-            "Each r-chord over at least two boundary edges of length at least "
-            "r forces internal turn at least 2*pi/3. The three arcs omit the "
-            "positive turns at their endpoints, so their normalized total is "
-            "strictly less than 1."
+            "Each r-chord whose corresponding boundary detour has length at "
+            "least 2r forces internal turn at least 2*pi/3. The three arcs "
+            "omit the positive turns at their endpoints, so their normalized "
+            "total is strictly less than 1."
         ),
     }
 
@@ -125,6 +125,8 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
     triangle = payload.get("triangle_case")
     if not isinstance(triangle, dict):
         raise AssertionError("triangle_case must be an object")
+    if triangle.get("minimum_boundary_detour_multiple") != 2:
+        raise AssertionError("unexpected minimum boundary detour multiple")
     if triangle.get("normalized_internal_turn_lower_sum") != "1":
         raise AssertionError("unexpected normalized triangle lower sum")
     if triangle.get("contradiction") is not True:
