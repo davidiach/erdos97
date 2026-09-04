@@ -151,7 +151,7 @@ def main() -> int:
 
     if errors:
         for error in errors:
-            print(error)
+            print(error, file=sys.stderr)
         return 1
     if args.assert_expected and payload["validation_status"] != "passed":
         return 1
