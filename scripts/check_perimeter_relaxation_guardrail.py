@@ -18,7 +18,13 @@ from erdos97.perimeter_relaxation_guardrail import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_ARTIFACT = ROOT / "data" / "certificates" / "perimeter_relaxation_guardrail.json"
+DEFAULT_ARTIFACT = (
+    ROOT
+    / "data"
+    / "runs"
+    / "2026-09-04"
+    / "perimeter_relaxation_guardrail.json"
+)
 
 
 def _resolve(path: Path) -> Path:
