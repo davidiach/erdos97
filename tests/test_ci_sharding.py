@@ -4,7 +4,24 @@ from __future__ import annotations
 
 import pytest
 
-from erdos97.ci_sharding import select_shard, stable_shard, validate_shard
+from erdos97.ci_sharding import (
+    ARTIFACT_PR_SHARD_NAMESPACE,
+    select_shard,
+    stable_shard,
+    validate_shard,
+)
+
+
+HEAVIEST_ARTIFACT_PR_TESTS = [
+    "tests/test_bootstrap_t12_151_6_label4_center8_target_sparse_three_row_repairs.py::test_target_sparse_three_row_repairs_cli_json",
+    "tests/test_bootstrap_t12_151_6_label4_center8_target_sparse_three_row_repairs.py::test_target_sparse_three_row_repairs_artifact_matches_generator",
+    "tests/test_c19_fifth_pair_two_row_prefilter.py::test_c19_fifth_pair_two_row_prefilter_replay_matches_artifact",
+    "tests/test_c19_kalmanson_prefix_window_prefilter.py::test_c19_prefilter_window_416_447_replay_matches_artifact",
+    "tests/test_fragile_cycle_halo_slot_budget.py::test_fast_motif_predicates_match_generic_two_halo_frontier",
+    "tests/test_c19_kalmanson_prefix_window_prefilter.py::test_c19_prefilter_window_448_479_replay_matches_artifact",
+    "tests/test_c19_kalmanson_prefix_window.py::test_c19_prefix_window_160_191_replay_matches_artifact",
+    "tests/test_c19_kalmanson_prefix_window_prefilter.py::test_c19_prefilter_window_384_415_replay_matches_artifact",
+]
 
 
 def test_stable_shards_partition_keys_exactly_once() -> None:
@@ -26,6 +43,19 @@ def test_stable_shard_normalizes_platform_path_separators() -> None:
         "tests\\test_a.py::test_x",
         8,
     )
+
+
+def test_artifact_pr_namespace_separates_measured_heavy_tests() -> None:
+    assignments = [
+        stable_shard(
+            nodeid,
+            8,
+            namespace=ARTIFACT_PR_SHARD_NAMESPACE,
+        )
+        for nodeid in HEAVIEST_ARTIFACT_PR_TESTS
+    ]
+
+    assert assignments == [3, 4, 5, 0, 2, 6, 7, 1]
 
 
 @pytest.mark.parametrize(

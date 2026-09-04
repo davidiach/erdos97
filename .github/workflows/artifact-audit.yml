@@ -74,6 +74,7 @@ jobs:
           -n auto --dist worksteal
           --durations 20 --durations-min 1.0
           --shard-count 8 --shard-index ${{ matrix.shard }}
+          --shard-namespace artifact-pr-balanced-v1-1118
       - name: Run full artifact pytest shard
         if: github.event_name != 'pull_request'
         run: >-
