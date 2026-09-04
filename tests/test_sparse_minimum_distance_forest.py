@@ -32,7 +32,7 @@ def test_long_cycle_arithmetic_rejects_triangle_input() -> None:
 def test_triangle_turn_budget_is_exact() -> None:
     triangle = triangle_turn_arithmetic()
 
-    assert triangle["minimum_boundary_edges_per_arc"] == 2
+    assert triangle["minimum_boundary_detour_multiple"] == 2
     assert triangle["normalized_turn_lower_per_arc"] == "1/3"
     assert triangle["normalized_internal_turn_lower_sum"] == "1"
     assert triangle["normalized_internal_turn_strict_upper_bound"] == "<1"
