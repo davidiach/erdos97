@@ -12,23 +12,34 @@ from dataclasses import asdict, dataclass
 from fractions import Fraction
 from typing import Any
 
-SCHEMA = "erdos97.sparse_minimum_distance_forest.v2"
+SCHEMA = "erdos97.sparse_minimum_distance_forest.v3"
 STATUS = "REVIEW_PENDING_PAPER_LEMMA_ARITHMETIC_REPLAY"
 TRUST = "PAPER_PROOF_CANDIDATE"
 CLAIM_SCOPE = (
     "Exact arithmetic replay for the review-pending boundary-detour distance "
-    "forest, common-target fan-in, and radius-level export lemmas. It checks "
-    "the normalized triangle and fan-in turn budgets, the long-cycle "
-    "coefficient margin, and the forest-incidence accounting identity after "
-    "the geometric projection and angular-order steps. It is not a formal "
-    "proof of those geometric steps, not a proof or disproof of Erdős Problem "
-    "#97, and not a source-of-truth status update."
+    "forest, common-target fan-in, one-defect return-cycle, and radius-level "
+    "export lemmas. It checks the normalized turn budgets, cycle coefficient "
+    "margins, and forest-incidence accounting identity after the geometric "
+    "projection and angular-order steps. It is not a formal proof of those "
+    "geometric steps, not a proof or disproof of Erdős Problem #97, and not a "
+    "source-of-truth status update."
 )
 
 
 @dataclass(frozen=True)
 class LongCycleArithmetic:
-    """Integer coefficient comparison for one cycle length."""
+    """Integer coefficient comparison for one detour-controlled cycle."""
+
+    cycle_length: int
+    cycle_tour_coefficient: int
+    perimeter_lower_coefficient: int
+    margin: int
+    contradiction: bool
+
+
+@dataclass(frozen=True)
+class OneDefectCycleArithmetic:
+    """Integer comparison for a cycle with two one-radius detour arcs."""
 
     cycle_length: int
     cycle_tour_coefficient: int
@@ -70,6 +81,23 @@ def long_cycle_arithmetic(cycle_length: int) -> LongCycleArithmetic:
     perimeter = 2 * (cycle_length - 2)
     margin = perimeter - tour
     return LongCycleArithmetic(
+        cycle_length=cycle_length,
+        cycle_tour_coefficient=tour,
+        perimeter_lower_coefficient=perimeter,
+        margin=margin,
+        contradiction=margin >= 0,
+    )
+
+
+def one_defect_cycle_arithmetic(cycle_length: int) -> OneDefectCycleArithmetic:
+    """Return the exact two-weak-arc comparison for ``cycle_length >= 3``."""
+
+    if cycle_length < 3:
+        raise ValueError("one-defect cycle arithmetic requires cycle_length >= 3")
+    tour = cycle_length
+    perimeter = 2 * cycle_length - 6
+    margin = perimeter - tour
+    return OneDefectCycleArithmetic(
         cycle_length=cycle_length,
         cycle_tour_coefficient=tour,
         perimeter_lower_coefficient=perimeter,
@@ -162,11 +190,15 @@ def export_arithmetic(
 def arithmetic_payload(max_cycle_length: int = 128) -> dict[str, Any]:
     """Return a deterministic reviewer-facing replay payload."""
 
-    if max_cycle_length < 4:
-        raise ValueError("max_cycle_length must be at least 4")
+    if max_cycle_length < 6:
+        raise ValueError("max_cycle_length must be at least 6")
     cycle_cases = [
         asdict(long_cycle_arithmetic(length))
         for length in range(4, max_cycle_length + 1)
+    ]
+    one_defect_cases = [
+        asdict(one_defect_cycle_arithmetic(length))
+        for length in range(3, max_cycle_length + 1)
     ]
     fan_in_cases = [asdict(fan_in_arithmetic(count)) for count in range(1, 9)]
     export_cases = [
@@ -186,6 +218,14 @@ def arithmetic_payload(max_cycle_length: int = 128) -> dict[str, Any]:
         "long_cycle_cases": cycle_cases,
         "all_checked_long_cycles_close": all(
             bool(case["contradiction"]) for case in cycle_cases
+        ),
+        "one_defect_cycle_identity": "(2*g-6)-g=g-6",
+        "checked_one_defect_cycle_range": [3, max_cycle_length],
+        "one_defect_cycle_cases": one_defect_cases,
+        "one_defect_first_forbidden_cycle_length": 6,
+        "all_checked_one_defect_cases_match_threshold": all(
+            bool(case["contradiction"]) == (int(case["cycle_length"]) >= 6)
+            for case in one_defect_cases
         ),
         "fan_in_identity": (
             "sum(sigma_i)/(2*pi) > (k-2)/2; k>=4 contradicts total <1"
@@ -207,15 +247,17 @@ def arithmetic_payload(max_cycle_length: int = 128) -> dict[str, Any]:
             "external incidences in aggregate."
         ),
         "general_integer_argument": (
-            "For every integer g>=4, g-4>=0; the strict geometric perimeter "
-            "bound exceeds the length g*r of an r-edge cycle. For k>=4 "
-            "common-target sources, the strict normalized turn lower bound is "
-            "at least 1. Forest edge counting gives the export identity for "
-            "all n>=c>=1 and d>=2."
+            "For every integer g>=4, g-4>=0 closes a fully detour-controlled "
+            "r-edge cycle. With one defect and two one-radius boundary arcs, "
+            "g-6>=0 closes every r-edge cycle of length at least six. For "
+            "k>=4 common-target sources, the strict normalized turn lower "
+            "bound is at least 1. Forest edge counting gives the export "
+            "identity for all n>=c>=1 and d>=2."
         ),
         "limitations": [
             "The projection, angular-order, and convex-hull-perimeter lemmas remain paper proof steps.",
             "The bounded replay tables illustrate unbounded integer identities.",
+            "The one-defect argument leaves return cycles of lengths three, four, and five unresolved.",
             "Outside a fixed E-radius level, a target may have opposite parity without changing radius.",
             "No general proof, disproof, or counterexample for Erdős #97 is claimed.",
         ],
@@ -232,6 +274,9 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
         "claim_scope": CLAIM_SCOPE,
         "long_cycle_identity": "2*(g-2)-g=g-4",
         "all_checked_long_cycles_close": True,
+        "one_defect_cycle_identity": "(2*g-6)-g=g-6",
+        "one_defect_first_forbidden_cycle_length": 6,
+        "all_checked_one_defect_cases_match_threshold": True,
         "fan_in_cap": 3,
         "all_checked_fan_in_cases_match_cap": True,
         "export_identity": "d*n-2*(n-c)=(d-2)*n+2*c",
@@ -259,7 +304,7 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
         and len(raw_range) == 2
         and raw_range[0] == 4
         and isinstance(raw_range[1], int)
-        and raw_range[1] >= 4
+        and raw_range[1] >= 6
     ):
         raise AssertionError("invalid checked cycle-length range")
 
@@ -274,6 +319,19 @@ def assert_expected_payload(payload: dict[str, Any]) -> None:
         length = int(case["cycle_length"])
         if case != asdict(long_cycle_arithmetic(length)):
             raise AssertionError(f"incorrect long-cycle case at g={length}")
+
+    one_defect_range = payload.get("checked_one_defect_cycle_range")
+    if one_defect_range != [3, raw_range[1]]:
+        raise AssertionError("invalid one-defect cycle range")
+    one_defect_cases = payload.get("one_defect_cycle_cases")
+    if not isinstance(one_defect_cases, list):
+        raise AssertionError("one_defect_cycle_cases must be a list")
+    expected_one_defect = [
+        asdict(one_defect_cycle_arithmetic(length))
+        for length in range(3, raw_range[1] + 1)
+    ]
+    if one_defect_cases != expected_one_defect:
+        raise AssertionError("one-defect replay cases differ from regeneration")
 
     fan_in_cases = payload.get("fan_in_cases")
     if not isinstance(fan_in_cases, list):
