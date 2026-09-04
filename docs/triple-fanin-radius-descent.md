@@ -63,7 +63,7 @@ vertex `T`, in boundary order. Hence
 
 \[
 \alpha_1>0,\quad \alpha_2>0,\quad
-\alpha_1+\alpha_2<\pi.                                 \tag{3)
+\alpha_1+\alpha_2<\pi.                                 \tag{3}
 \]
 
 Let `sigma_0,sigma_1,sigma_2,sigma_3` be the sums of the exterior turns at the
@@ -245,6 +245,15 @@ The companion arithmetic replay records the equivalent threshold identities
 ```text
 acos(x)+acos(y)<pi/2  iff  x^2+y^2>1,
 2/(1+s)^2>1          iff  s<sqrt(2)-1.
+```
+
+Run:
+
+```bash
+python scripts/check_radius_level_advanced_arithmetic.py \
+  --max-cycle-length 512 \
+  --assert-expected \
+  --summary-json
 ```
 
 The trigonometric projection and boundary-order argument above remain
