@@ -18,6 +18,7 @@ def summary_payload(payload: dict[str, Any]) -> dict[str, Any]:
 
     compact = dict(payload)
     compact.pop("long_cycle_cases", None)
+    compact.pop("one_defect_cycle_cases", None)
     compact.pop("fan_in_cases", None)
     compact.pop("export_cases", None)
     return compact
@@ -56,10 +57,18 @@ def main(argv: list[str] | None = None) -> int:
             f"{payload['all_checked_long_cycles_close']}"
         )
         print(f"long-cycle identity: {payload['long_cycle_identity']}")
+        print(
+            "one-defect first forbidden cycle length: "
+            f"{payload['one_defect_first_forbidden_cycle_length']}"
+        )
+        print(
+            "one-defect identity: "
+            f"{payload['one_defect_cycle_identity']}"
+        )
         print(f"common-target fan-in cap: {payload['fan_in_cap']}")
         print(f"export identity: {payload['export_identity']}")
         if args.assert_expected:
-            print("OK: forest, fan-in, and export arithmetic matches expected data")
+            print("OK: forest, return, fan-in, and export arithmetic matches expected data")
     return 0
 
 
