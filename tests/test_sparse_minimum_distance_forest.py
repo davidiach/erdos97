@@ -10,6 +10,8 @@ from erdos97.sparse_minimum_distance_forest import (
     CLAIM_SCOPE,
     arithmetic_payload,
     assert_expected_payload,
+    export_arithmetic,
+    fan_in_arithmetic,
     long_cycle_arithmetic,
     triangle_turn_arithmetic,
 )
@@ -39,6 +41,37 @@ def test_triangle_turn_budget_is_exact() -> None:
     assert triangle["contradiction"] is True
 
 
+def test_common_target_fan_in_threshold_is_four() -> None:
+    assert fan_in_arithmetic(3).contradiction is False
+    assert fan_in_arithmetic(3).normalized_strict_lower_bound == ">1/2"
+    assert fan_in_arithmetic(4).contradiction is True
+    assert fan_in_arithmetic(4).normalized_strict_lower_bound == ">1"
+    assert fan_in_arithmetic(100).contradiction is True
+    with pytest.raises(ValueError, match="positive"):
+        fan_in_arithmetic(0)
+
+
+def test_forest_export_formula_and_target_rounding() -> None:
+    threshold = export_arithmetic(10, 3)
+    assert threshold.maximum_forest_edges == 7
+    assert threshold.maximum_internal_incidences == 14
+    assert threshold.minimum_external_incidences == 6
+    assert threshold.minimum_distinct_external_targets == 2
+
+    richer = export_arithmetic(10, 3, 4)
+    assert richer.minimum_external_incidences == 26
+    assert richer.minimum_distinct_external_targets == 9
+
+    rounded = export_arithmetic(5, 2, 3)
+    assert rounded.minimum_external_incidences == 9
+    assert rounded.minimum_distinct_external_targets == 3
+
+    with pytest.raises(ValueError, match="1..vertex_count"):
+        export_arithmetic(4, 5)
+    with pytest.raises(ValueError, match="at least 2"):
+        export_arithmetic(4, 1, 1)
+
+
 def test_payload_preserves_claim_scope_and_complete_range() -> None:
     payload = arithmetic_payload(256)
 
@@ -48,6 +81,9 @@ def test_payload_preserves_claim_scope_and_complete_range() -> None:
     assert len(payload["long_cycle_cases"]) == 253
     assert payload["long_cycle_cases"][0]["margin"] == 0
     assert payload["long_cycle_cases"][-1]["margin"] == 252
+    assert payload["fan_in_cap"] == 3
+    assert payload["all_checked_fan_in_cases_match_cap"] is True
+    assert payload["all_checked_export_cases_nonnegative"] is True
 
 
 def test_cli_summary_json_is_compact() -> None:
@@ -72,4 +108,8 @@ def test_cli_summary_json_is_compact() -> None:
     assert payload["checked_cycle_length_range"] == [4, 512]
     assert payload["all_checked_long_cycles_close"] is True
     assert payload["triangle_case"]["contradiction"] is True
+    assert payload["fan_in_cap"] == 3
+    assert payload["export_identity"] == "d*n-2*(n-c)=(d-2)*n+2*c"
     assert "long_cycle_cases" not in payload
+    assert "fan_in_cases" not in payload
+    assert "export_cases" not in payload
