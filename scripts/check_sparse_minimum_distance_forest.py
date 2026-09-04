@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Replay the exact arithmetic spine of the sparse forest lemma."""
+"""Replay exact arithmetic for the boundary-detour forest and fan-in lemmas."""
 
 from __future__ import annotations
 
@@ -18,6 +18,8 @@ def summary_payload(payload: dict[str, Any]) -> dict[str, Any]:
 
     compact = dict(payload)
     compact.pop("long_cycle_cases", None)
+    compact.pop("fan_in_cases", None)
+    compact.pop("export_cases", None)
     return compact
 
 
@@ -42,7 +44,7 @@ def main(argv: list[str] | None = None) -> int:
     elif args.json:
         print(json.dumps(payload, indent=2, sort_keys=True))
     else:
-        print("sparse minimum-distance forest arithmetic replay")
+        print("boundary-detour forest and fan-in arithmetic replay")
         print(
             "triangle normalized lower sum: "
             f"{payload['triangle_case']['normalized_internal_turn_lower_sum']}"
@@ -53,9 +55,11 @@ def main(argv: list[str] | None = None) -> int:
             "all checked long cycles close: "
             f"{payload['all_checked_long_cycles_close']}"
         )
-        print(f"identity: {payload['long_cycle_identity']}")
+        print(f"long-cycle identity: {payload['long_cycle_identity']}")
+        print(f"common-target fan-in cap: {payload['fan_in_cap']}")
+        print(f"export identity: {payload['export_identity']}")
         if args.assert_expected:
-            print("OK: sparse forest arithmetic matches expected data")
+            print("OK: forest, fan-in, and export arithmetic matches expected data")
     return 0
 
 
