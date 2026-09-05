@@ -1,0 +1,169 @@
+{
+  "graph_certificates_sha256": "d05c4537cca04301e8d740a7f433f8b0acfb86e82d4129e5a0ff72b8d6e003b8",
+  "n5": {
+    "oriented_graphs": 24,
+    "shortcut_obstructions": 24,
+    "survivors": 0
+  },
+  "n6": {
+    "final_survivors": 0,
+    "oriented_graphs": 14490,
+    "phase_cases": 7680,
+    "shortcut_obstructions": 14486,
+    "shortcut_survivors": 4
+  },
+  "phase_certificates_sha256": "3caa82b466acfc5af1c46a942a448f94301c58a3feaf5b54a4f32ffa1f9822d8",
+  "phase_summary": [
+    {
+      "cases": 1920,
+      "graph": [
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "obstructions": {
+        "crossing": 1600,
+        "kalmanson_inverse": 320
+      }
+    },
+    {
+      "cases": 1920,
+      "graph": [
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "obstructions": {
+        "crossing": 1888,
+        "kalmanson_inverse": 32
+      }
+    },
+    {
+      "cases": 1920,
+      "graph": [
+        [
+          4,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "obstructions": {
+        "crossing": 1888,
+        "kalmanson_inverse": 32
+      }
+    },
+    {
+      "cases": 1920,
+      "graph": [
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "obstructions": {
+        "crossing": 1712,
+        "kalmanson_inverse": 208
+      }
+    }
+  ],
+  "positive_control": {
+    "maximum_multiplicities": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "not_a_four_witness_counterexample": true,
+    "passes_exact_filters": true,
+    "points": 9
+  },
+  "schema": "erdos97.own_side_at_most_six_orbits.v1",
+  "scope": "All strictly convex C3 own-side four-witness systems with at most six orbits; NOT arbitrary radii of rich classes.",
+  "status": "EXACT_FINITE_CERTIFICATE_REVIEW_PENDING"
+}

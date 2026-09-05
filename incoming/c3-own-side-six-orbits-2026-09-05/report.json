@@ -1,0 +1,61 @@
+{
+  "certificates_sha256": "721a2a617ada8232ed1aee024061248d41421bd28255b5fe097c4aba12b04e41",
+  "downward_triangle_obstructions": 672,
+  "graph_automorphisms": 24,
+  "positive_control": {
+    "maximum_multiplicities": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "not_a_four_witness_counterexample": true,
+    "passes_exact_filters": true,
+    "points": 9
+  },
+  "radial_audit_sha256": "e5754d0a329c419194fe4ec22613e08c82357f3d491f27a4e9f4b53acb2f52c0",
+  "radial_orders": 720,
+  "radial_types": [
+    {
+      "cases": 1920,
+      "obstructions": {
+        "crossing": 1712,
+        "kalmanson_inverse": 208
+      },
+      "radial_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "cases": 1920,
+      "obstructions": {
+        "crossing": 1600,
+        "kalmanson_inverse": 320
+      },
+      "radial_order": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        1
+      ]
+    }
+  ],
+  "remaining_radial_orders": 48,
+  "schema": "erdos97.six_orbit_radial_obstruction.v1",
+  "scope": "Fixed six-orbit K2,2,2 directed cycle; all radii and phases; review pending.",
+  "status": "EXACT_FINITE_CERTIFICATE_REVIEW_PENDING",
+  "survivors": 0,
+  "total_phase_order_cases": 3840
+}

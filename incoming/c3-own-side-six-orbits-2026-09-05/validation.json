@@ -1,0 +1,96 @@
+{
+  "base_commit": "b86a5737ed447613b140d0e5b85cb0dd3339f36c",
+  "commands": [
+    {
+      "command": "/opt/pyvenv/bin/python all_systems.py --check",
+      "returncode": 0
+    },
+    {
+      "command": "/opt/pyvenv/bin/python certificate.py --check",
+      "returncode": 0
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q test_six_orbit_radial.py test_all_own_side_six.py",
+      "returncode": 0,
+      "stdout": "....................                                                     [100%]\n20 passed in 5.35s"
+    },
+    {
+      "command": "g++ -O3 -std=c++17 -Wall -Wextra -Wpedantic oracle.cpp -o ../oracle",
+      "returncode": 0
+    },
+    {
+      "command": "../oracle --all-systems",
+      "result": {
+        "angle_orders": 720,
+        "crossing": 42528,
+        "expected_counts_match": true,
+        "kalmanson_inverse": 3552,
+        "mode": "all_systems",
+        "oriented_n5": 24,
+        "oriented_n6": 14490,
+        "phase_cases": 46080,
+        "raw_n5": 7776,
+        "raw_n6": 1000000,
+        "shortcut_rejected_n5": 24,
+        "shortcut_rejected_n6": 14486,
+        "survivors": 0
+      },
+      "returncode": 0
+    },
+    {
+      "command": "../oracle --all-angle-orders",
+      "result": {
+        "angle_orders_per_radial_order": 720,
+        "cases": 552960,
+        "crossing": 476928,
+        "expected_counts_match": true,
+        "kalmanson_inverse": 76032,
+        "kalmanson_zero": 0,
+        "radial_orders": 720,
+        "radial_rejected": 672,
+        "radial_retained": 48,
+        "survivors": 0,
+        "two_circle": 0
+      },
+      "returncode": 0
+    },
+    {
+      "command": "g++ -O1 -g -std=c++17 -fsanitize=undefined -fno-sanitize-recover=all oracle.cpp -o ../oracle-ubsan",
+      "returncode": 0
+    },
+    {
+      "command": "../oracle-ubsan --all-systems",
+      "result": {
+        "angle_orders": 720,
+        "crossing": 42528,
+        "expected_counts_match": true,
+        "kalmanson_inverse": 3552,
+        "mode": "all_systems",
+        "oriented_n5": 24,
+        "oriented_n6": 14490,
+        "phase_cases": 46080,
+        "raw_n5": 7776,
+        "raw_n6": 1000000,
+        "shortcut_rejected_n5": 24,
+        "shortcut_rejected_n6": 14486,
+        "survivors": 0
+      },
+      "returncode": 0
+    }
+  ],
+  "limitations": "No full checkout; git ls-remote failed on GitHub DNS resolution; Ruff is not installed. No external mathematical review or Lean formalization.",
+  "not_run": [
+    "repository-wide make verify-fast",
+    "repository-wide make verify-artifacts",
+    "Ruff"
+  ],
+  "python": "3.13.5",
+  "schema": "erdos97.own_side_six.validation.v1",
+  "source_sha256": {
+    "all_systems.py": "0f5972cb7868e492fa8b9787436b08c41863d812757eb8b816e6a0097034ee39",
+    "certificate.py": "6fd87b50271607fea3becc034aafbeadf7762eb44e8b66e248bba1b1976e874f",
+    "oracle.cpp": "1105451f34ecc61037c1295e29463d9aef9cd4fecf3e7fbefbf0ca2333646a11",
+    "test_all_own_side_six.py": "709a3a2303f0599cf17ec820051d1f3b6c931999f618b14c87f44e617461a914",
+    "test_six_orbit_radial.py": "c9e352e25d77d4e590e9383bc613554b8a6fd774ff717d52d31831f64ae675e5"
+  }
+}
