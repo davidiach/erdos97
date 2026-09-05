@@ -14,6 +14,23 @@ from pathlib import Path
 from validate import COLUMNS, ROOT, require, validate
 
 
+
+def validate_oracle(result: dict, n: int) -> None:
+    """Check the sample contract without assuming a std::shuffle implementation.
+
+    All 500 unconstrained runs visit n states; each of the 500 compatible
+    runs visits between one and n states. The exact sample size depends on
+    the C++ standard library even with the same mt19937 seed.
+    """
+    require(result.get("n") == n and result.get("seed") == 970905,
+            "Oracle identity mismatch")
+    require(type(result.get("states_checked")) is int
+            and 500 * (n + 1) <= result["states_checked"] <= 1000 * n,
+            "Oracle sample coverage mismatch")
+    require(type(result.get("predicate_mismatches")) is int
+            and result["predicate_mismatches"] == 0, "Oracle predicate mismatch")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -88,9 +105,13 @@ def main() -> None:
             for n in [9, 11]:
                 oracle = compile_source(n, "oracle.cpp")
                 result = run_json([str(oracle)])
-                require(result["predicate_mismatches"] == 0 and result["states_checked"] == payload["oracle_states"][f"n{n}"],
-                        "Oracle sample mismatch")
-                report["checks"].append({"oracle": result})
+                validate_oracle(result, n)
+                report["checks"].append({
+                    "oracle": result,
+                    "archived_sample_states": payload["oracle_states"][f"n{n}"],
+                    "matches_archived_sample_count":
+                        result["states_checked"] == payload["oracle_states"][f"n{n}"],
+                })
                 if n == 9:
                     calibration = run_json([str(oracle), "--calibrate"])
                     require(calibration["incidence_frontier"] == 184 and calibration["nodes"] == 100818,
@@ -99,7 +120,7 @@ def main() -> None:
         if args.sanitize:
             oracle = compile_source(11, "oracle.cpp", sanitize=True)
             result = run_json([str(oracle)])
-            require(result["predicate_mismatches"] == 0, "Sanitizer oracle mismatch")
+            validate_oracle(result, 11)
             report["checks"].append({"ubsan_oracle": result, "undefined_behavior_errors": 0})
     report["status"] = "all requested checks passed"
     text = json.dumps(report, indent=2) + "\n"

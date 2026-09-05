@@ -168,8 +168,8 @@ least two other E-vertices. Indeed, put
     rho_i = |E_i Q_(i-1)| = |E_i Q_i|.
 
 The E-vertices are boundary-independent and satisfy the theorem's local
-side-length bounds. Thus the entire variable-radius alternating branch is
-excluded, without a Hamiltonian, reciprocal, equal-radius, or fixed-step
+side-length bounds. Thus the variable-radius alternating subbranch with two other E-witnesses
+at every E-center is excluded, without a Hamiltonian, reciprocal, equal-radius, or fixed-step
 assumption. No badness conditions at the Q-vertices are required.
 
 ### Same-length matching corollary

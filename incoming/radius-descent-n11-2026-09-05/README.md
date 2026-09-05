@@ -13,8 +13,9 @@ The complete paper argument in `proofs.md` excludes any nonempty
 boundary-independent center set in which each center has two witnesses in the
 set at a radius no larger than either incident side of the original polygon.
 An equal-leg two-star forces a strictly smaller-radius witness at every center,
-contradicting the minimum radius. This closes the whole variable-radius
-alternating-center branch, not merely its reciprocal or common-radius cases.
+contradicting the minimum radius. This closes the variable-radius alternating-center subbranch where every
+center retains two other E-centers as witnesses. It does not close the
+parity-changing alternatives where additional witnesses are Q-vertices.
 A separate theorem shows that all endpoint-dominated short chords form a
 noncrossing forest, with a matching at each individual edge length.
 
@@ -33,8 +34,8 @@ external review, or an automatic promotion of n=11.
 - `results.json`: all 210 per-slice integer records, aggregate and provenance.
 - `validate.py`: exact artifact, coefficient-identity and rational-control checks.
 - `replay.py`: compile, execute and compare checks without third-party Python packages.
-- `validation.json`: actual quick replay and undefined-behavior-sanitizer report.
-- `full-validation.json`: second full n=11 regeneration report, when present.
+- `validation.json`: archived original quick replay and sanitizer report.
+- `full-validation.json`: archived second full n=11 regeneration report.
 
 Run in this directory with Python 3.10+ and a C++17 compiler:
 
@@ -47,8 +48,8 @@ python replay.py --full-n11 --jobs 8
 The original full run and a later full regeneration are executions of the same
 search source, not independent search implementations. The predicate oracle is
 a second representation of local tests, not a second complete n=11 solver.
-No full repository checkout was available locally, so repository-wide fast and
-artifact CI were not run. Standalone validation must not be called full CI.
+During the original packet preparation no full repository checkout was
+available, so repository-wide fast and artifact CI were not run then. Standalone validation must not be called full CI.
 
 ## Mathematical gap
 
@@ -58,3 +59,10 @@ original incident sides and whose rows retain two witnesses inside that set.
 The new theorem closes that branch conditional on extraction; it does not
 supply the extraction. The 66-point partial construction on main is neither
 completed nor ruled out by this packet.
+
+The archived oracle sample counts depend on the C++ standard library: a fixed
+`mt19937` seed does not specify the implementation of `std::shuffle`. The
+replay checks sample coverage and zero predicate mismatches, records the actual
+counts, and reports whether they match the archive. All exhaustive-search
+integer counters still have to match exactly. Use `--output` to save a new
+report separately from the archived reports.

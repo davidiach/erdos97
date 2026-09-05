@@ -1,14 +1,13 @@
 {
   "schema": "erdos97.radius_descent_n11_manifest.v1",
   "base_commit": "2aae1262af21a2487e2f534f36968bfa1a3c1002",
-  "scope": "Exact research packet inventory; not a mathematical proof certificate.",
-  "all_ten_uploaded_files_match_locally_validated_bytes": true,
+  "scope": "Current research packet inventory after repository review fixes; not a mathematical proof certificate. validation.json and full-validation.json preserve original-run provenance.",
   "files": [
     {
       "file": "README.md",
-      "bytes": 3044,
-      "sha256": "93f19aced201691d0841402b288a9e6858c8fc79cdfaac3f80e71715cef33cd9",
-      "git_blob_sha": "049a2ec48ed304a72a9b2e4ffd8dac9483f2894c"
+      "bytes": 3595,
+      "sha256": "c12a7830f37ff0763e970bb6e9217096094295e5280e71da143406513ff885b5",
+      "git_blob_sha": "495a49915bd74bc5122a134b43cd76bbce5c819a"
     },
     {
       "file": "exact_search.cpp",
@@ -18,9 +17,9 @@
     },
     {
       "file": "finite-search.md",
-      "bytes": 7757,
-      "sha256": "1c4d112bd08a5b17f4520ca6c42562ef0ff1b88c7c04dbd3b69f50bf3fab3a35",
-      "git_blob_sha": "e5ec8d662cf18aee77b0f3790bb3630bb2e14581"
+      "bytes": 8155,
+      "sha256": "bc1ae041bd3610878650b201a2e03c138435fd2aace3a644bb785b5de399ec2f",
+      "git_blob_sha": "f7d48db2b0bc6c70287e34446d05e62bec4dc1a2"
     },
     {
       "file": "full-validation.json",
@@ -36,15 +35,15 @@
     },
     {
       "file": "proofs.md",
-      "bytes": 13332,
-      "sha256": "7e126b9e331aa39b419073d85eac59243b21a53cb01c8163e69d5cf1d6fdd2f2",
-      "git_blob_sha": "93cdda42cd74dd886ba06a5dc7434feaadec2c89"
+      "bytes": 13373,
+      "sha256": "7f630e525bab33722c6c7e5b72c1d552a6ecb5e95af079b3e54eea723fde38b5",
+      "git_blob_sha": "d1a4df8331a8c88d9936ca233e7ef5ad1f42c107"
     },
     {
       "file": "replay.py",
-      "bytes": 5771,
-      "sha256": "7e68ce6b1e7b6dbfa34e45169d9e2a3aafc239e57d7b13ca12039efe324d58ab",
-      "git_blob_sha": "82cff60b86df6a1317a1c893e20d3bc03b81a70e"
+      "bytes": 6627,
+      "sha256": "8216f6d75c0acf5b1f8561b5c753cd1ce16fa6d34d270e4d557e26670ee7d8d8",
+      "git_blob_sha": "6a448279bd464215b81ae979941ef97b7ddb8cdd"
     },
     {
       "file": "results.json",

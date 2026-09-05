@@ -121,6 +121,11 @@ instead of the solver's distance DSU, maps/sets of coefficient vectors
 instead of packed hash-table keys, and brute-force four-interval enumeration
 instead of circular greedy scheduling. With seed 970905 it checks 7,236
 partial states at n=9 and 9,906 at n=11, with zero predicate mismatches.
+These are the archived sample counts. `std::shuffle` may produce a different
+sample on another C++ standard library despite the fixed engine seed. Replay
+requires zero predicate mismatches and the coverage bounds implied by 500 full
+unconstrained runs plus 500 compatible-prefix runs; it reports actual counts
+and agreement with the archive. Exhaustive-search counters remain exact.
 Both compatible-prefix and unconstrained-conflict samples are included.
 This is a predicate cross-check, not an independent full n=11 search.
 
@@ -145,7 +150,7 @@ integer counter and rejecting a timeout, abort, survivor or mismatch.
 Per-slice durations are not compared, because they depend on hardware.
 
 The complete repository `make verify-fast` and `make verify-artifacts` were
-not run in this environment: this packet was built from connector-read source
+not run during original packet preparation: this packet was built from connector-read source
 without a full local repository checkout, and local network/DNS access did
 not permit obtaining one. The packet's standalone checks are recorded
 separately rather than being presented as repository-wide CI.
