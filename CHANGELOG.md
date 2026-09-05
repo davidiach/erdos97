@@ -9,6 +9,17 @@ counterexample are claimed.
 
 ## 2026-09-06
 
+- Simplified repository maintenance: one contributor verification contract,
+  a short state dashboard, topic maps, generated documentation/session indexes,
+  and an incoming-packet lifecycle. Earlier state and catalogue prose remains
+  available at linked paths; mathematical claim scopes are unchanged.
+- Consolidated repeated artifact writers and moved shared n=9 local-core
+  validation into a grouped package, preserving existing CLI/import entry points.
+- Unified compatibility dependencies, added dependency-change collection checks,
+  and made artifact/compatibility gate results available on every PR. Added the
+  reviewed main-ruleset configuration requiring checks and resolved threads.
+
+
 - Hardened documentation-index coverage with CommonMark parsing so comments,
   code examples, and images do not count as navigation. Reference and titled
   links are supported, and regression tests cover missing and dangling entries.

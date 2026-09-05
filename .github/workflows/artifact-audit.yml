@@ -24,20 +24,6 @@ on:
       - 'src/**'
       - 'tests/**'
   pull_request:
-    paths:
-      - '.github/workflows/artifact-audit.yml'
-      - 'Makefile'
-      - 'pyproject.toml'
-      - 'pytest.ini'
-      - 'requirements-lock.txt'
-      - 'certificates/**'
-      - 'cpp/**'
-      - 'data/**'
-      - 'metadata/**'
-      - 'reports/**'
-      - 'scripts/**'
-      - 'src/**'
-      - 'tests/**'
   workflow_dispatch:
   schedule:
     - cron: '17 5 * * 1'
@@ -50,7 +36,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  scope:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact: ${{ steps.scope.outputs.artifact }}
+      compatibility: ${{ steps.scope.outputs.compatibility }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - id: scope
+        env:
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: python3 scripts/ci_scope.py
+
   artifact-pytest:
+    needs: scope
+    if: needs.scope.outputs.artifact == 'true'
     name: artifact pytest shard ${{ matrix.shard }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -115,3 +118,21 @@ jobs:
         with:
           name: artifact-audit-${{ github.sha }}-shard-${{ matrix.shard }}
           path: artifact-audit-results/
+
+  artifact-gate:
+    name: artifact checks
+    if: always()
+    needs: [scope, artifact-pytest]
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          SCOPE_RESULT: ${{ needs.scope.result }}
+          REQUIRED: ${{ needs.scope.outputs.artifact }}
+          RESULT: ${{ needs.artifact-pytest.result }}
+        run: |
+          test "$SCOPE_RESULT" = success
+          if [ "$REQUIRED" = true ]; then
+            test "$RESULT" = success
+          else
+            test "$RESULT" = skipped
+          fi

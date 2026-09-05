@@ -12,11 +12,7 @@ from typing import Any, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 
-SCRIPTS = ROOT / "scripts"
-if str(SCRIPTS) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS))
-
-from check_n9_vertex_circle_local_core_packet import (  # noqa: E402
+from erdos97.finite_cases.n9.local_core_packet import (  # noqa: E402
     DEFAULT_ARTIFACT as DEFAULT_PACKET,
     load_artifact,
     validate_payload as validate_packet_payload,
