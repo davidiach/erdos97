@@ -90,7 +90,6 @@ def right_certificate(record: list) -> dict:
 
 def shortcut(graph: list) -> bool:
     # Exhaust increasing paths recursively, unlike either C++ closure routine.
-    n = len(graph)
     for hi, row in enumerate(graph):
         for lo in row:
             if lo >= hi:
