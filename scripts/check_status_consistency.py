@@ -16,6 +16,14 @@ except ImportError:  # pragma: no cover - exercised only without dev dependencie
     yaml = None
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from scripts.status_transitions import (  # noqa: E402
+    load_reviewed_transition,
+    remove_approved_paragraphs,
+    validate_transition_metadata,
+)
 
 REQUIRED_STATUS_FILES = ["README.md", "STATE.md", "RESULTS.md"]
 ADDITIONAL_OVERCLAIM_SCAN_FILES = ["docs/claims.md"]
@@ -359,15 +367,40 @@ def stale_line_is_archived(lines: list[str], index: int) -> bool:
     return any(marker in window for marker in ARCHIVAL_MARKERS)
 
 
+def reviewed_transition(metadata: dict[str, object] | None = None) -> dict | None:
+    try:
+        proposal = load_reviewed_transition(ROOT)
+        if proposal is not None and metadata is not None:
+            validate_transition_metadata(proposal, metadata)
+        return proposal
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        fail(str(exc))
+
+
+def check_transition_text(label: str, text: str, proposal: dict) -> None:
+    local = proposal["local_repo"]
+    normalized = " ".join(text.split())
+    for value in (local["overall_claim"], local["strongest_result"],
+                  proposal["problem"]["official_status"]):
+        if " ".join(value.split()) not in normalized:
+            fail(f"{label} should include the exact reviewed status: {value!r}")
+    if proposal["local_claim"] == "none":
+        require_pattern(label, text, NO_OVERCLAIM_RE, "no general proof and no counterexample")
+    require_no_forbidden_overclaims(label, remove_approved_paragraphs(text, label, proposal))
+
+
 def validate_metadata(max_official_status_age_days: int | None = None) -> None:
     path = ROOT / "metadata" / "erdos97.yaml"
     if not path.exists():
         fail("metadata/erdos97.yaml is missing")
 
     metadata = load_metadata(path)
+    proposal = reviewed_transition(metadata)
     official_status = metadata_value(metadata, ("problem", "official_status"))
-    if not isinstance(official_status, str) or official_status.lower() != "falsifiable/open":
-        fail("metadata official_status should be falsifiable/open")
+    if proposal is None and (
+        not isinstance(official_status, str) or official_status.lower() != "falsifiable/open"
+    ):
+        fail("metadata official_status should be falsifiable/open or have a reviewed transition")
     official = metadata_value(metadata, ("problem",))
     if not isinstance(official, dict):
         fail("metadata problem should be a mapping")
@@ -376,30 +409,36 @@ def validate_metadata(max_official_status_age_days: int | None = None) -> None:
         "metadata problem.official_page_last_edited",
     )
     validate_official_status_freshness(official, max_official_status_age_days)
-    require_pattern(
-        "metadata local_repo.overall_claim",
-        str(metadata_value(metadata, ("local_repo", "overall_claim"))),
-        NO_OVERCLAIM_RE,
-        "no general proof and no counterexample",
-    )
-    require_no_forbidden_overclaims(
-        "metadata local_repo.overall_claim",
-        str(metadata_value(metadata, ("local_repo", "overall_claim"))),
-    )
-    require_local_n8_status(
-        "metadata local_repo.strongest_result",
-        str(metadata_value(metadata, ("local_repo", "strongest_result"))),
-    )
-    require_local_n8_theorem(
-        "metadata local_repo.strongest_result",
-        str(metadata_value(metadata, ("local_repo", "strongest_result"))),
-    )
-    require_pattern(
-        "metadata local_repo.strongest_result_review_status",
-        str(metadata_value(metadata, ("local_repo", "strongest_result_review_status"))),
-        REVIEW_RE,
-        "independent review before public theorem-style claims",
-    )
+    if proposal is None:
+        require_pattern(
+            "metadata local_repo.overall_claim",
+            str(metadata_value(metadata, ("local_repo", "overall_claim"))),
+            NO_OVERCLAIM_RE,
+            "no general proof and no counterexample",
+        )
+        require_no_forbidden_overclaims(
+            "metadata local_repo.overall_claim",
+            str(metadata_value(metadata, ("local_repo", "overall_claim"))),
+        )
+        require_local_n8_status(
+            "metadata local_repo.strongest_result",
+            str(metadata_value(metadata, ("local_repo", "strongest_result"))),
+        )
+        require_local_n8_theorem(
+            "metadata local_repo.strongest_result",
+            str(metadata_value(metadata, ("local_repo", "strongest_result"))),
+        )
+        require_pattern(
+            "metadata local_repo.strongest_result_review_status",
+            str(metadata_value(metadata, ("local_repo", "strongest_result_review_status"))),
+            REVIEW_RE,
+            "independent review before public theorem-style claims",
+        )
+    elif proposal["local_claim"] == "none":
+        require_pattern("metadata local_repo.overall_claim", proposal["local_repo"]["overall_claim"],
+                        NO_OVERCLAIM_RE, "no general proof and no counterexample")
+        for field in ("overall_claim", "strongest_result"):
+            require_no_forbidden_overclaims(f"metadata local_repo.{field}", proposal["local_repo"][field])
     for key in METADATA_EXPECTED_TRUE:
         if metadata_value(metadata, ("trust_policy", key)) is not True:
             fail(f"metadata trust_policy.{key} should be true")
@@ -509,8 +548,12 @@ def validate_pattern_catalog(metadata: dict[str, object]) -> None:
 
 
 def validate_top_level_status() -> None:
+    proposal = reviewed_transition()
     for rel in REQUIRED_STATUS_FILES:
         text = read_text(rel)
+        if proposal is not None:
+            check_transition_text(rel, text, proposal)
+            continue
         require_no_forbidden_overclaims(rel, text)
         require_pattern(rel, text, NO_OVERCLAIM_RE, "no general proof and no counterexample")
         require_pattern(rel, text, OFFICIAL_OPEN_RE, "official/global falsifiable/open status")
@@ -526,8 +569,12 @@ def validate_top_level_status() -> None:
 def validate_additional_overclaim_scan_files(
     paths: Sequence[str] = ADDITIONAL_OVERCLAIM_SCAN_FILES,
 ) -> None:
+    proposal = reviewed_transition()
     for rel in paths:
-        require_no_forbidden_overclaims(rel, read_text(rel))
+        text = read_text(rel)
+        if proposal is not None:
+            text = remove_approved_paragraphs(text, rel, proposal)
+        require_no_forbidden_overclaims(rel, text)
 
 
 def validate_archived_synthesis() -> None:
