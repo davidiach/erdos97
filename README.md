@@ -346,14 +346,15 @@ If `make` is not available, run the fast tier directly:
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
 python scripts/check_artifact_provenance.py
+python scripts/check_docs_index_coverage.py
 python scripts/generate_makefile_verify_targets.py --check
 git diff --check
 python -m ruff check .
 python -m pytest -q
 ```
 
-`make verify-lint` runs the sub-minute text/status/provenance/ruff tier without
-pytest. The registry-backed Makefile verify targets (`verify-n8`,
+`make verify-lint` runs the sub-minute text/status/provenance/docs-index/ruff
+tier without pytest. The registry-backed Makefile verify targets (`verify-n8`,
 `verify-kalmanson`, `verify-n9-review`, `verify-bridge-frontier`,
 `verify-n10-review`) are generated from
 [`scripts/audit_commands.json`](scripts/audit_commands.json); edit that file

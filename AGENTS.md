@@ -41,6 +41,7 @@ Run the fast tier after documentation or code changes:
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
 python scripts/check_artifact_provenance.py
+python scripts/check_docs_index_coverage.py
 python scripts/generate_makefile_verify_targets.py --check
 git diff --check
 python -m ruff check .
