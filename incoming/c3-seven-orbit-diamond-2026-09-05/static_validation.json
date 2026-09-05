@@ -1,0 +1,7 @@
+{
+  "full_proof_replayed": false,
+  "scope": "Own-triangle-side C3 systems only; not unrestricted Erdos97, not an accepted general finite bound.",
+  "static_checks": "passed",
+  "static_report_sha256": "cbf179223907f4b76a086281dc9309fe258fbda49ea815f4b7b3ed557d2ca09f",
+  "status": "all requested checks passed"
+}
