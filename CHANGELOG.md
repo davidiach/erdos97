@@ -7,6 +7,181 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-09-05
+
+- Backfilled this changelog for the 2026-07-24 through 2026-09-05 window. The
+  entries below were written from the merged notes and certificates, not from
+  commit subjects, and they record no claim that the linked notes do not
+  already make.
+
+- Documented the repository's trust vocabularies and gated the canonical one.
+  `docs/artifact-provenance-policy.md` now enumerates and glosses the twelve
+  `trust_class` values that `scripts/check_artifact_provenance.py` accepts, and
+  states how they relate to the coarse reader-facing labels in `README.md` and
+  to the free-form `Status:` headers on individual notes. The provenance
+  checker fails if the documented set and `KNOWN_TRUST_CLASSES` diverge.
+  Whether note headers should be constrained to the canonical set is left as an
+  open maintainer question. Reviewability only; no claim moves.
+
+- Added `scripts/check_docs_index_coverage.py` to the fast tier and backfilled
+  the 76 documentation files that `docs/index.md` did not list, including the
+  status-transition contract and the artifact provenance policy. `README.md`
+  advertises that index as the complete packet inventory, and nothing had been
+  checking it. Navigation only; no claim moves.
+
+- Recorded a read-only documentation review in
+  `reports/documentation-review-2026-09-05.md`: three Medium, six Low, and
+  three informational findings, no claim-integrity defects, and no status
+  change. Its three Medium findings were the unlisted documentation index,
+  the undocumented trust vocabulary, and the staleness of this changelog;
+  all three are addressed by the entries above and by this backfill.
+
+## 2026-09-04
+
+- Added an exact `66`-point structured partial construction with a strictly
+  convex carrier and the exact multiplicity distribution `60` vertices at four,
+  three at three, and three at two. Exactly `60` of the `66` vertices have four
+  equidistant other vertices, so the configuration satisfies the conclusion of
+  Erdos Problem #97 rather than contradicting it, and the residual deficit at
+  the remaining six vertices is not closed. `EXACT_CERTIFICATE_DIAGNOSTIC`,
+  review pending; the cited multi-precision runs are repeated executions of one
+  verifier, not independent implementations. See
+  `docs/orbit66-exact-partial-construction.md`.
+
+- Added the alternate-vertex perimeter obstruction, a restricted
+  infinite-family result for strictly convex equilateral `2m`-gons, together
+  with one exact negative control for a collection of necessary-condition
+  relaxations. `REVIEW_PENDING_RESTRICTED_THEOREM` plus
+  `EXACT_CERTIFICATE_DIAGNOSTIC`; the geometric argument has not had
+  independent external review. See
+  `docs/alternate-vertex-perimeter-obstruction.md`.
+
+- Added the boundary-detour distance forest and fan-in lemmas strengthening
+  that obstruction, then strengthened them further to every radius level:
+  degree at most two makes each detour-controlled component a path or isolated
+  vertex, with endpoint export bounds, weak-arc return locality, a
+  minimum-radius component injectivity result for the alternating
+  boundary-neighbour branch, and a triple-fan-in radius descent. All are
+  `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING` restricted lemmas and none is a
+  source-of-truth status update. See `docs/sparse-minimum-distance-forest.md`,
+  `docs/radius-level-linear-forest.md`, `docs/radius-level-return-locality.md`,
+  `docs/minimum-radius-component-injectivity.md`, and
+  `docs/triple-fanin-radius-descent.md`.
+
+- Fixed a research-engine audit: the search CLI now requires an explicit
+  pattern rather than defaulting to `C12_pm_2_5`, which is impossible in its
+  own default boundary order, and an exact preflight recomputes the necessary
+  two-circle, crossing-bisector, base-pair-capacity, and Kalmanson tests
+  instead of trusting names or prose statuses. Also added the reviewed
+  status-transition contract in `docs/status-transitions.md`, which supplies no
+  active proposal and cannot promote pending work. Software and workflow
+  changes only: the accepted finite bound, the official status, and every
+  existing certificate are unchanged, and neither the radius-window
+  long-radius gap nor the orbit66 residual deficit is resolved. See
+  `docs/research-engine-audit-fixes.md`.
+
+## 2026-08-30
+
+- Added an exact `27`-point `C3` product negative control. Every one of the
+  `27` distinct points has four exact equidistant partners, but only `18` are
+  convex-hull vertices, so it is not a counterexample and changes no
+  repository or official/global status. `EXACT_NONCONVEX_NEGATIVE_CONTROL`.
+  See `docs/c3-product-27-nonconvex-control.md`.
+
+## 2026-08-24
+
+- Recorded a corrected three-defect deletion frontier and a matching
+  formalization contract. The note keeps one assignment-independent theorem
+  that survived the later proof search, identifies an overreach from an
+  unmerged post-#921 conversation round, and gives a narrower successor
+  target; no claim merged in #921 is retracted. The contract pins a small,
+  independently checkable theorem statement against an upstream formalization
+  commit. `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING` / `OPEN_BRIDGE` and
+  `FORMALIZATION_TARGET` / `REVIEW_PENDING` / `NO_STATUS_PROMOTION`. See
+  `docs/conversation-three-defect-deletion-frontier-2026-08-10.md` and
+  `docs/conversation-three-defect-formalization-contract-2026-08-10.md`.
+
+## 2026-08-07
+
+- Added the fragile-cycle halo wave: the quotient hierarchy and halo-lift
+  frontier, the metric endgame and Kalmanson endgame certificates, an
+  endgame compression with active-halo lift caps, a large-halo
+  deletion-profile crosswalk, the fixed-core endpoint-reuse packet, and the
+  private-halo reuse pair budget. These are exact bounded abstract
+  diagnostics and proof-mining aids under a fixed `23=27` quotient core. None
+  forces that core, a full selected-row extension, Euclidean realizability,
+  `n=11`, `n=12`, or Erdos Problem #97, and none gives a counterexample. See
+  `docs/fragile-cycle-quotient-hierarchy.md`,
+  `docs/fragile-cycle-halo-lift-frontier.md`,
+  `docs/fragile-cycle-halo-deletion-crosswalk.md`,
+  `docs/fragile-cycle-halo-endpoint-reuse.md`, and
+  `docs/fragile-cycle-private-halo-reuse.md`.
+
+- Recorded the conversation proof-search rounds and the current frontier as a
+  research ledger, with its failed-route record and verified upstream
+  crosswalk; `DIAGNOSTIC_ONLY` / `OPEN_BRIDGE`, with no closure claim. See
+  `docs/conversation-research-rounds-2026-08-06.md`,
+  `docs/conversation-frontier-and-failed-routes-2026-08-06.md`, and
+  `docs/conversation-paper-lemma-candidates-2026-08-06.md`.
+
+## 2026-08-01
+
+- Consolidated the sixteen stored `n=9` vertex-circle relation skeletons into
+  exact positive-circuit `0 > 0` identities, every strict term with
+  coefficient `1` and every equality multiplier `+1` or `-1`. This is
+  proof-mining and review material: it forces no skeleton in an arbitrary
+  polygon, does not prove `n=9`, and does not promote the review-pending
+  frontier. `REVIEW_PENDING_DIAGNOSTIC_ONLY`. See
+  `docs/n9-vertex-circle-template-duals.md`.
+
+## 2026-07-31
+
+- Closed out the C25 sparse full-cone wave: fresh-order template transfer and
+  screening, seeded and fresh certificate compression, and a chain of
+  history-blocked CEGAR rounds through `192`-history replacement, each with an
+  exact-clause escape compression. Every packet is a bounded fixed-pattern
+  diagnostic; none claims a general proof, an all-order C25 obstruction, a
+  geometric counterexample, or an official-status change. The accompanying
+  provenance-pinning fixes tie each artifact to the exact source stream it was
+  derived from. See the `docs/sparse-full-cone-*.md` family.
+
+## 2026-07-26
+
+- Added the maximal blocker-fiber hierarchy lemma, which strengthens the
+  positive minimality and fragile-cover information by choosing the blocker
+  assignment extremally; `LEMMA` / proof-facing bridge, not a proof of Erdos
+  Problem #97 and not a counterexample. See
+  `docs/maximal-blocker-fiber-hierarchy.md`.
+
+- Added two conditional rigid `n=15` Moser-geometry deductions at the rigid
+  equality boundary: the Moser triangle cannot have a uniquely shortest side,
+  and the fully symmetric three-full-cap case is impossible because it places
+  the carrier on a Reuleaux-triangle boundary where every non-apex point has
+  distance multiplicity at most two. Both are conditional on all-large-caps
+  tri-apex hypotheses that this packet does not establish, and neither treats
+  `|A| > 15`. A supplementary two-full-cap intersection lemma is recorded
+  separately as `REVIEW_PENDING_LEMMA_PACKET`. See
+  `docs/rigid-n15-moser-geometry.md` and
+  `docs/rigid-n15-two-full-cap-intersection.md`.
+
+## 2026-07-24
+
+- Proved that no bad strictly convex **equilateral** nonagon exists, and
+  recorded it as a restricted repo-local theorem in
+  `metadata/erdos97.yaml` under `restricted_repo_local_theorems`. The
+  base-apex ledger and the length-3 short sides force every degree of the
+  unit-distance chord graph to be `0` or `2`; of the `8712` degree-admissible
+  chord graphs, `8097` survive the ledger, they fall into `534` dihedral
+  classes, and all `534` are refuted by exact integer multiplier certificates
+  against the chord/turn dictionary, `141` of them strictly, leaving no
+  survivor. This is an equilateral sub-case only. Unlike `n = 8`, where the
+  base-apex count saturates and forces equal sides, the `n = 9` ledger has
+  nine units of slack, so equal sides are an extra hypothesis and general
+  `n = 9` remains open. It does not prove Erdos Problem #97, does not
+  promote the review-pending `n=9` artifacts, and does not change the
+  official/global falsifiable/open status. See
+  `docs/n9-equilateral-chord-obstruction.md`.
+
 ## 2026-07-23
 
 - Added a generated `n=9` fragile/turn/inversion-pivot crosswalk over the
