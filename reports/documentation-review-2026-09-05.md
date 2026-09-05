@@ -198,16 +198,27 @@ prevents it drifting again.
 - The repository source itself is clean: `python -m ruff check . --select
   E4,E7,E9,F` passes with no findings.
 - Effect: the documented gate is version-dependent rather than pinned, so a new
-  contributor following `README.md` sees thousands of failures on an unmodified
-  checkout. `.github/workflows/tests.yml:100` installs the same unbounded
-  `ruff>=0.15`, so CI is exposed to the same drift.
+  contributor following `README.md`'s quick start (`pip install -e .[dev]`,
+  which resolves `ruff>=0.15` to the current release) sees thousands of
+  failures on an unmodified checkout.
+- CI is not affected, and deliberately so. The lint lane installs
+  `requirements-lock.txt`, which pins `ruff==0.15.11`, and the compatibility
+  lane that does install an unbounded `ruff>=0.15`
+  (`.github/workflows/tests.yml:100`) runs only pytest, under an explicit
+  comment declining to treat "a floating Ruff version as the repository's lint
+  authority" (`.github/workflows/tests.yml:106-108`). So this is a contributor
+  and reproducibility defect, not a live CI exposure. (Corrected: the first
+  version of this report said CI was exposed to the same drift.)
 - Suggested fix: record the intended rule set explicitly in `pyproject.toml`
   (`[tool.ruff.lint] select = ["E4", "E7", "E9", "F"]`), or bound the dev-extra
   version. Either makes the documented command mean what the docs say it means.
 
 **Resolved in `1207ee9`**: `pyproject.toml` now pins
 `[tool.ruff.lint] select = ["E4", "E7", "E9", "F"]`, and `python -m ruff check .`
-passes on ruff 0.16.6. `E402` was confirmed load-bearing before pinning.
+passes on ruff 0.16.6. `E402` was confirmed load-bearing before pinning, and
+the pinned set is the one the lock file's `ruff==0.15.11` already enforced, so
+the fix makes the documented contributor command agree with CI rather than
+changing what CI checks.
 
 #### D5 - `STATE.md` has outgrown the role every doc assigns it
 
