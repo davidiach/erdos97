@@ -170,3 +170,16 @@ def test_path_escape_rejected(tmp_path):
     save_reviewed(tmp_path, proposal)
     with pytest.raises(ValueError, match="repo-relative"):
         load_reviewed_transition(tmp_path)
+
+
+def test_reviewed_status_cannot_be_a_prefix_of_a_stronger_paragraph(tmp_path, monkeypatch, capsys):
+    proposal = fixture_proposal(tmp_path)
+    monkeypatch.setattr(checker, "ROOT", tmp_path)
+    reviewed = proposal["local_repo"]["strongest_result"]
+    text = "\n\n".join([proposal["local_repo"]["overall_claim"], reviewed,
+                           proposal["problem"]["official_status"]])
+    checker.check_transition_text("README.md", text, proposal)
+    stronger = text.replace(reviewed, reviewed + " The accepted theorem actually holds for n <= 12.")
+    with pytest.raises(SystemExit):
+        checker.check_transition_text("README.md", stronger, proposal)
+    assert "whole paragraph" in capsys.readouterr().err

@@ -379,11 +379,11 @@ def reviewed_transition(metadata: dict[str, object] | None = None) -> dict | Non
 
 def check_transition_text(label: str, text: str, proposal: dict) -> None:
     local = proposal["local_repo"]
-    normalized = " ".join(text.split())
+    paragraphs = {" ".join(block.split()) for block in re.split(r"\n\s*\n", text)}
     for value in (local["overall_claim"], local["strongest_result"],
                   proposal["problem"]["official_status"]):
-        if " ".join(value.split()) not in normalized:
-            fail(f"{label} should include the exact reviewed status: {value!r}")
+        if " ".join(value.split()) not in paragraphs:
+            fail(f"{label} should include the exact reviewed status as a whole paragraph: {value!r}")
     if proposal["local_claim"] == "none":
         require_pattern(label, text, NO_OVERCLAIM_RE, "no general proof and no counterexample")
     require_no_forbidden_overclaims(label, remove_approved_paragraphs(text, label, proposal))

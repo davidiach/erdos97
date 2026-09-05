@@ -94,7 +94,9 @@ and place its reference in the proposal. Changes require renewed review.
 ## Public text and non-overclaiming
 
 The three top-level status documents must include the exact reviewed overall
-claim, strongest-result wording, and externally reported status. Retain accurate
+claim, strongest-result wording, and externally reported status as complete
+standalone paragraphs (ignoring whitespace wrapping). Appending an unreviewed
+claim to one of those paragraphs does not satisfy the contract. Retain accurate
 archival labels for superseded statements and the metadata link.
 
 For finite-only transitions, the no-general-proof/no-counterexample statement
