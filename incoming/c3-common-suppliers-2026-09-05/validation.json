@@ -1,0 +1,128 @@
+{
+  "schema": "erdos97.c3_common_supplier_validation.v1",
+  "date": "2026-09-05",
+  "repository_wide_CI_run": false,
+  "runs": [
+    {
+      "command": [
+        "python",
+        "check_common_suppliers.py",
+        "--check",
+        "--full-product-crosscheck"
+      ],
+      "returncode": 0,
+      "stdout": "{\"exact_certificate_cases\": 486, \"independent_full_product\": {\"copair_survivors\": 0, \"no_shortcut_survivors\": 4, \"raw_row_tuples_tested\": 1000000, \"reciprocal_free_graphs\": 14490}, \"six_orbit_final_survivors\": 0, \"six_orbit_no_shortcut_survivors\": 4, \"status\": \"passed\", \"unrestricted_solution_claimed\": false}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "audit_expanded_model.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"angle_and_metric_disagreements\": 0, \"cases_compared\": 486, \"expanded_chords\": 66, \"folded_chord_classes\": 22, \"scope\": \"two finite encodings agree; geometric soundness remains a written review obligation\", \"status\": \"passed\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_common_suppliers.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_changed_multiplier_is_rejected (test_common_suppliers.CommonSupplierTests.test_changed_multiplier_is_rejected) ... ok\ntest_complete_exact_certificate_coverage (test_common_suppliers.CommonSupplierTests.test_complete_exact_certificate_coverage) ... ok\ntest_exact_positive_geometry_controls (test_common_suppliers.CommonSupplierTests.test_exact_positive_geometry_controls) ... ok\ntest_expanded_encoding_reconstructs_representative_cases (test_common_suppliers.CommonSupplierTests.test_expanded_encoding_reconstructs_representative_cases) ... ok\ntest_indices_are_not_silently_trusted (test_common_suppliers.CommonSupplierTests.test_indices_are_not_silently_trusted) ... ok\ntest_missing_case_is_rejected (test_common_suppliers.CommonSupplierTests.test_missing_case_is_rejected) ... ok\ntest_models_and_domain (test_common_suppliers.CommonSupplierTests.test_models_and_domain) ... ok\ntest_seven_orbit_graph_is_not_overclaimed (test_common_suppliers.CommonSupplierTests.test_seven_orbit_graph_is_not_overclaimed) ... ok\ntest_shortcut_rejects_only_correct_cycle_order (test_common_suppliers.CommonSupplierTests.test_shortcut_rejects_only_correct_cycle_order) ... ok\ntest_six_orbit_frontier_and_obstructions (test_common_suppliers.CommonSupplierTests.test_six_orbit_frontier_and_obstructions) ... ok\ntest_smaller_frontiers (test_common_suppliers.CommonSupplierTests.test_smaller_frontiers) ... ok\ntest_stored_report_replays (test_common_suppliers.CommonSupplierTests.test_stored_report_replays) ... ok\ntest_strictness_is_required (test_common_suppliers.CommonSupplierTests.test_strictness_is_required) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.894s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "core.py",
+        "check_common_suppliers.py",
+        "audit_expanded_model.py",
+        "generate_certificates.py",
+        "test_common_suppliers.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 20226,
+      "sha256": "e7e42c1a071ad419db30f0ed5de57c4352dd5757d9e02ba2473de704c68d4c8f",
+      "git_blob_sha": "7217b07661de85a666382d12351181ddfdbed9c0"
+    },
+    {
+      "file": "audit_expanded_model.py",
+      "bytes": 6645,
+      "sha256": "b9b19ee9cb230840f512228cf11650ac1cc2acafb5a461c5484b25b95fe4cafc",
+      "git_blob_sha": "307b0870ff540b62bf36441fc01d77de307799c3"
+    },
+    {
+      "file": "certificates.json",
+      "bytes": 58906,
+      "sha256": "16c4b51930ee44e04c694bca608e115a58d38099af149b3b9ba0f1778b890f49",
+      "git_blob_sha": "822086cb28328a6fabf5f451ea8ea72b7d37366d"
+    },
+    {
+      "file": "check_common_suppliers.py",
+      "bytes": 13901,
+      "sha256": "aee2b26b838c31b42a389ef2325f4da2485438423191fc4ab680c4fb32a8f808",
+      "git_blob_sha": "e834e8256b2fb9dc3d43e65f10f46664d9718b87"
+    },
+    {
+      "file": "core.py",
+      "bytes": 9061,
+      "sha256": "d13f82b8488f146c2669b3172ac63810810d775790e8fef617c56914036dcee3",
+      "git_blob_sha": "3a1c367c92d7483f87c63ce9f6a330f72dd80e67"
+    },
+    {
+      "file": "generate_certificates.py",
+      "bytes": 2914,
+      "sha256": "5feea1916b701a89668474bdf6730281d45e212081893ba70d3275340228a5d8",
+      "git_blob_sha": "cb1cff719f12c97cd6afc8537e3f292f9fea50fe"
+    },
+    {
+      "file": "report.json",
+      "bytes": 12046,
+      "sha256": "4a6d671bca62c98354c1243fd318b3e78079c688d92dca0c0d75f36782facc3c",
+      "git_blob_sha": "0b37b4071eb88bfa093d286d04635cb34c8ff171"
+    },
+    {
+      "file": "test_common_suppliers.py",
+      "bytes": 4939,
+      "sha256": "56b7581d6671bde230830df78ffe6dd71a4c3bec5746e8e8be499c73c98f9f26",
+      "git_blob_sha": "4541e92a29aa893bda408d5a1078a2e380e35c05"
+    }
+  ],
+  "fresh_zip_replay": {
+    "commands": [
+      [
+        "python",
+        "check_common_suppliers.py",
+        "--check",
+        "--full-product-crosscheck"
+      ],
+      [
+        "python",
+        "audit_expanded_model.py"
+      ],
+      [
+        "python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_common_suppliers.py"
+      ]
+    ],
+    "all_returncodes_zero": true,
+    "source_bytes_match": true
+  },
+  "status": "all requested standalone checks passed"
+}
