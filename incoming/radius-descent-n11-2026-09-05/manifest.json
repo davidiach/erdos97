@@ -1,0 +1,68 @@
+{
+  "schema": "erdos97.radius_descent_n11_manifest.v1",
+  "base_commit": "2aae1262af21a2487e2f534f36968bfa1a3c1002",
+  "scope": "Exact research packet inventory; not a mathematical proof certificate.",
+  "all_ten_uploaded_files_match_locally_validated_bytes": true,
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 3044,
+      "sha256": "93f19aced201691d0841402b288a9e6858c8fc79cdfaac3f80e71715cef33cd9",
+      "git_blob_sha": "049a2ec48ed304a72a9b2e4ffd8dac9483f2894c"
+    },
+    {
+      "file": "exact_search.cpp",
+      "bytes": 7441,
+      "sha256": "c54766f191a022fbc0f8f653266f9373ef02fe8f4de37fcd342848a06877ab48",
+      "git_blob_sha": "719118f52906d88ef2b57b941bd86b1d3d61b9ba"
+    },
+    {
+      "file": "finite-search.md",
+      "bytes": 7757,
+      "sha256": "1c4d112bd08a5b17f4520ca6c42562ef0ff1b88c7c04dbd3b69f50bf3fab3a35",
+      "git_blob_sha": "e5ec8d662cf18aee77b0f3790bb3630bb2e14581"
+    },
+    {
+      "file": "full-validation.json",
+      "bytes": 4037,
+      "sha256": "5cc4b8ac98dba983a1bb576314d39c34af5f2562994e3ffba362509d4dfea8a4",
+      "git_blob_sha": "e471e3a351ade7c605d82815318e1f18a397d861"
+    },
+    {
+      "file": "oracle.cpp",
+      "bytes": 6830,
+      "sha256": "6ae73be3f8bbd7aea45218fd692fb9b3f24dc18d90c1b57b28b02014a4f89b11",
+      "git_blob_sha": "1f1a0be1ddd6b7c55eb7e945de2228fe088531b3"
+    },
+    {
+      "file": "proofs.md",
+      "bytes": 13332,
+      "sha256": "7e126b9e331aa39b419073d85eac59243b21a53cb01c8163e69d5cf1d6fdd2f2",
+      "git_blob_sha": "93cdda42cd74dd886ba06a5dc7434feaadec2c89"
+    },
+    {
+      "file": "replay.py",
+      "bytes": 5771,
+      "sha256": "7e68ce6b1e7b6dbfa34e45169d9e2a3aafc239e57d7b13ca12039efe324d58ab",
+      "git_blob_sha": "82cff60b86df6a1317a1c893e20d3bc03b81a70e"
+    },
+    {
+      "file": "results.json",
+      "bytes": 12894,
+      "sha256": "a72cc679919195f4e0c3bca0c5a8745fc37c5d6bfb6b8e43be96671a70c6c98f",
+      "git_blob_sha": "7a6c4703e498ce1daa12c47b57db9e9df4b8ef0a"
+    },
+    {
+      "file": "validate.py",
+      "bytes": 7235,
+      "sha256": "003dfa73e6c383df5f4dee4b860007253d05de59fa45d1759f3df04cb1dc306b",
+      "git_blob_sha": "34e1fb9700574a1ee39ac4eb6a33651507aba912"
+    },
+    {
+      "file": "validation.json",
+      "bytes": 2231,
+      "sha256": "8f6bb58dbf516669b3548f38215d54778675a134f1201b132a36aeaf0fb7154b",
+      "git_blob_sha": "bccacd4f0ddf511a6adb8a8c07efa3f6c18e2f4f"
+    }
+  ]
+}
