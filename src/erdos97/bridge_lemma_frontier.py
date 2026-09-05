@@ -15,6 +15,7 @@ from typing import Mapping, Sequence
 from erdos97 import n9_vertex_circle_exhaustive as n9
 from erdos97.fragile_hypergraph import rows_from_zero_one_matrix
 from erdos97.search import PatternInfo, result_to_json, search_pattern
+from erdos97.search_preflight import preflight
 from erdos97.stuck_sets import ForwardEarOrderResult, forward_ear_order
 
 
@@ -193,6 +194,15 @@ def _geometry_payload_for_target(
         formula="non-ear proof-mining target",
         notes="numerical smoke probe only",
     )
+    report = preflight(pattern.n, pattern.S)
+    if report["status"] == "obstructed":
+        return {
+            "target_id": target["target_id"],
+            "status": "SKIPPED_EXACT_PREFLIGHT_OBSTRUCTION",
+            "success": False,
+            "preflight": report,
+            "interpretation": "Exact obstruction in the supplied cyclic order only.",
+        }
     try:
         result = search_pattern(
             pattern,
@@ -265,7 +275,7 @@ def _geometry_section(
             "margin": config.margin,
         },
         "records": [_geometry_payload_for_target(target, config) for target in targets],
-        "interpretation": "NUMERICAL_EVIDENCE only.",
+        "interpretation": "Per-target exact preflight skips or numerical evidence; no realization certificate.",
     }
 
 

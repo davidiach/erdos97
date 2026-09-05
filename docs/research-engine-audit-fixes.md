@@ -42,6 +42,10 @@ An obstructed input emits the exact preflight JSON and exits 1 before search;
 an explicit benchmark includes its preflight and benchmark provenance in the
 compact JSON summary as well as the saved result.
 
+The stuck-motif sweep and bridge-frontier geometry stage also record an exact preflight skip for an obstructed
+motif instead of aborting the sweep or starting numerical optimization. Its
+incidence-level `FOUND` status remains separate from this geometry-stage result.
+
 For an intentionally impossible legacy benchmark:
 
 ```sh

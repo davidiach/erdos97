@@ -78,6 +78,8 @@ def main() -> int:
             "mode": f"{args.mode}_{args.optimizer}",
             "success": False,
             "message": str(exc),
+            "preflight": report,
+            "benchmark_only": report["status"] == "obstructed",
             "interpretation": (
                 "The numerical optimizer did not return a usable run. This is not "
                 "an exact obstruction or a counterexample."

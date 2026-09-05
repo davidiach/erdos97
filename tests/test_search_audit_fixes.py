@@ -202,3 +202,20 @@ def test_feasibility_does_not_relax_requested_margin():
     assert search.feasible_at_margin(diag, margin)
     diag["convexity_margin"] = np.nextafter(margin, 0.0)
     assert not search.feasible_at_margin(diag, margin)
+
+
+def test_bridge_geometry_records_preflight_obstruction(monkeypatch):
+    from erdos97 import bridge_lemma_frontier as bridge
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("optimizer called for an obstructed bridge target")
+
+    monkeypatch.setattr(bridge, "search_pattern", forbidden)
+    pattern = search.built_in_patterns()["C12_pm_2_5"]
+    result = bridge._geometry_payload_for_target(
+        {"target_id": "test", "n": pattern.n, "selected_rows": pattern.S},
+        bridge.GeometryConfig(run=True),
+    )
+    assert result["status"] == "SKIPPED_EXACT_PREFLIGHT_OBSTRUCTION"
+    assert result["target_id"] == "test"
+    assert result["preflight"]["reason"] == "crossing_bisector"
