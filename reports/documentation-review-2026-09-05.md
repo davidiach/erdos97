@@ -31,7 +31,7 @@ the `n=9`/`n=10` material. Two findings from earlier reviews are now fixed
 The findings below are consistency, coverage, and staleness items. None of them
 is a claim-integrity defect, and none of them requires a status change.
 
-Counts: **Critical 0, High 0, Medium 3, Low 6, Informational 3.**
+Counts: **Critical 0, High 0, Medium 3, Low 6, Informational 3.** D1 has since been fixed on this branch; the rest remain open.
 
 ---
 
@@ -100,6 +100,10 @@ Counts: **Critical 0, High 0, Medium 3, Low 6, Informational 3.**
 - Suggested fix: add the missing entries, or soften the two `README.md`
   descriptions to say the index is curated rather than complete. A coverage
   test over `docs/*.md` would keep whichever contract is chosen honest.
+
+**Resolved in `596582a`** on this branch: `scripts/check_docs_index_coverage.py`
+now enforces the documented contract in the fast tier, and all 76 entries were
+backfilled. The finding is kept here as the record of why the gate exists.
 
 #### D2 - Three incompatible trust-label vocabularies, none of which maps to the others
 
