@@ -184,6 +184,39 @@ def validate_manifest(payload: dict[str, Any], *, check_tracked_coverage: bool =
         )
     if check_tracked_coverage:
         errors.extend(validate_tracked_artifact_coverage(seen_paths, archived_paths))
+        errors.extend(validate_trust_class_documentation())
+    return errors
+
+
+TRUST_CLASS_POLICY_DOC = REPO_ROOT / "docs" / "artifact-provenance-policy.md"
+
+TRUST_CLASS_DOC_ENTRY_RE = re.compile(r"^- `([A-Z][A-Z0-9_]*)`:", re.MULTILINE)
+
+
+def validate_trust_class_documentation() -> list[str]:
+    """Keep the documented trust-class vocabulary equal to the enforced one.
+
+    The canonical set lives in ``KNOWN_TRUST_CLASSES``. The policy note is the
+    only place a reader can find out what those values mean, so a value added
+    to the checker without a gloss, or a gloss left behind after a value is
+    removed, is a documentation defect rather than a harmless drift.
+    """
+
+    if not TRUST_CLASS_POLICY_DOC.exists():
+        return [f"missing trust-class policy note: {TRUST_CLASS_POLICY_DOC}"]
+
+    text = TRUST_CLASS_POLICY_DOC.read_text(encoding="utf-8")
+    documented = set(TRUST_CLASS_DOC_ENTRY_RE.findall(text))
+
+    errors = []
+    for name in sorted(KNOWN_TRUST_CLASSES - documented):
+        errors.append(
+            f"docs/artifact-provenance-policy.md does not document trust class {name!r}"
+        )
+    for name in sorted(documented - KNOWN_TRUST_CLASSES):
+        errors.append(
+            f"docs/artifact-provenance-policy.md documents unknown trust class {name!r}"
+        )
     return errors
 
 

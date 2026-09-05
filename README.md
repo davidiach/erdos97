@@ -292,7 +292,7 @@ near-misses are not counterexamples.
 ## Trust labels
 
 The repo uses explicit labels so that proof, computation, and exploration do
-not blur together:
+not blur together. The list below is the coarse, reader-facing summary:
 
 - `THEOREM` / `LEMMA`: proved local statements.
 - `MACHINE_CHECKED_FINITE_CASE_ARTIFACT`: checked finite-case result in the
@@ -304,6 +304,16 @@ not blur together:
   mathematics.
 - `COUNTEREXAMPLE_CANDIDATE`: requires independent verification and is not a
   counterexample claim.
+
+These reader-facing names are not the values stored in the artifact manifest.
+Generated artifacts in [`metadata/generated_artifacts.yaml`](metadata/generated_artifacts.yaml)
+carry a canonical `trust_class` drawn from a closed set of twelve values that
+[`scripts/check_artifact_provenance.py`](scripts/check_artifact_provenance.py)
+enforces; those values are listed and glossed in
+[`docs/artifact-provenance-policy.md`](docs/artifact-provenance-policy.md).
+The `Status:` header on an individual note in `docs/` is free-form prose and is
+not validated against either list. Where they differ, an artifact's
+`trust_class` and `claim_scope` govern.
 
 See [`docs/claims.md`](docs/claims.md) and
 [`docs/verification-contract.md`](docs/verification-contract.md) for the

@@ -4,7 +4,10 @@ import json
 from pathlib import Path
 
 from scripts.check_artifact_provenance import (
+    KNOWN_TRUST_CLASSES,
     TRACKED_ARTIFACT_COVERAGE_GLOBS,
+    TRUST_CLASS_DOC_ENTRY_RE,
+    TRUST_CLASS_POLICY_DOC,
     archive_inventory_digest,
     command_mentions_path,
     command_outputs_path,
@@ -24,6 +27,35 @@ def test_generated_artifact_manifest_is_valid() -> None:
     errors = validate_manifest(load_manifest(manifest), check_tracked_coverage=True)
 
     assert errors == []
+
+
+def test_policy_note_documents_every_canonical_trust_class() -> None:
+    documented = set(
+        TRUST_CLASS_DOC_ENTRY_RE.findall(
+            TRUST_CLASS_POLICY_DOC.read_text(encoding="utf-8")
+        )
+    )
+
+    assert documented == KNOWN_TRUST_CLASSES
+
+
+def test_every_manifest_trust_class_is_documented() -> None:
+    manifest = load_manifest(ROOT / "metadata" / "generated_artifacts.yaml")
+    used = {artifact["trust_class"] for artifact in manifest["artifacts"]}
+    documented = set(
+        TRUST_CLASS_DOC_ENTRY_RE.findall(
+            TRUST_CLASS_POLICY_DOC.read_text(encoding="utf-8")
+        )
+    )
+
+    assert used <= documented
+
+
+def test_readme_points_at_the_canonical_trust_class_list() -> None:
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+    assert "docs/artifact-provenance-policy.md" in readme
+    assert "trust_class" in readme
 
 
 def test_tracked_artifact_coverage_includes_legacy_certificate_root() -> None:
