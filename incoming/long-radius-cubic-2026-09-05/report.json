@@ -1,0 +1,508 @@
+{
+  "algebra": {
+    "algebraic_integer_norm_argument_formalized": false,
+    "conjugate_squared_bound": "3/4",
+    "cubic_identity_coefficients_s_t_U": {
+      "0,0,1": "-2",
+      "0,3,0": "1",
+      "1,2,0": "-9",
+      "2,1,0": "18",
+      "3,0,0": "-8"
+    },
+    "cubic_identity_residual": {},
+    "unit_identity_laurent_coefficients": {
+      "-2": "8",
+      "-4": "-4",
+      "0": "-1"
+    },
+    "unit_identity_residual": {}
+  },
+  "checker_sha256": "69d958836dd11edb7f19a2160cc57561feb87050632a6c9a3bba80229d60d920",
+  "claim_scope": "Commensurable own-side cycle obstruction and necessary quotient conditions; not a solution of Erdos97.",
+  "date": "2026-09-05",
+  "irrational_seed_cycle": {
+    "all_distance_classes": [
+      {
+        "11664/18529": 1,
+        "3": 3,
+        "43923/18529": 1,
+        "5808/10927": 1,
+        "59049/10927": 1,
+        "94791/18529": 1
+      },
+      {
+        "1277184/28923769": 1,
+        "146691567/28923769": 1,
+        "3": 1,
+        "5808/10927": 1,
+        "59049/10927": 1,
+        "64857/10927": 3
+      },
+      {
+        "11664/18529": 1,
+        "1277184/28923769": 1,
+        "146691567/28923769": 1,
+        "43923/18529": 1,
+        "64857/10927": 1,
+        "94791/18529": 3
+      },
+      {
+        "11664/18529": 1,
+        "3": 3,
+        "43923/18529": 1,
+        "5808/10927": 1,
+        "59049/10927": 1,
+        "94791/18529": 1
+      },
+      {
+        "1277184/28923769": 1,
+        "146691567/28923769": 1,
+        "3": 1,
+        "5808/10927": 1,
+        "59049/10927": 1,
+        "64857/10927": 3
+      },
+      {
+        "11664/18529": 1,
+        "1277184/28923769": 1,
+        "146691567/28923769": 1,
+        "43923/18529": 1,
+        "64857/10927": 1,
+        "94791/18529": 3
+      },
+      {
+        "11664/18529": 1,
+        "3": 3,
+        "43923/18529": 1,
+        "5808/10927": 1,
+        "59049/10927": 1,
+        "94791/18529": 1
+      },
+      {
+        "1277184/28923769": 1,
+        "146691567/28923769": 1,
+        "3": 1,
+        "5808/10927": 1,
+        "59049/10927": 1,
+        "64857/10927": 3
+      },
+      {
+        "11664/18529": 1,
+        "1277184/28923769": 1,
+        "146691567/28923769": 1,
+        "43923/18529": 1,
+        "64857/10927": 1,
+        "94791/18529": 3
+      }
+    ],
+    "cube_quotient": {
+      "minimum_scaled_area": "44436485657449097457696/24197174315395460365609",
+      "minimum_squared_separation": "12151096596486372096/9141357882657899647",
+      "number_of_points": 3,
+      "order": [
+        2,
+        0,
+        1
+      ],
+      "origin_outside_hull": true,
+      "origin_strictly_inside_hull": false,
+      "points_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "83264872645/1304676467983",
+          "2095704080118/1304676467983"
+        ],
+        [
+          "-5328083070845/6361447449889",
+          "7578184341618/6361447449889"
+        ]
+      ],
+      "supporting_edge_checks": 3
+    },
+    "is_erdos97_counterexample": false,
+    "maximum_multiplicity": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "polygon": {
+      "minimum_scaled_area": "2302872/28923769",
+      "minimum_squared_separation": "1277184/28923769",
+      "number_of_points": 9,
+      "order": [
+        1,
+        2,
+        6,
+        4,
+        5,
+        0,
+        7,
+        8,
+        3
+      ],
+      "origin_outside_hull": false,
+      "origin_strictly_inside_hull": true,
+      "points_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "-26503/21854",
+          "8991/21854"
+        ],
+        [
+          "-44665/37058",
+          "10753/37058"
+        ],
+        [
+          "-1/2",
+          "1/2"
+        ],
+        [
+          "-235/21854",
+          "-17747/21854"
+        ],
+        [
+          "6203/37058",
+          "-27709/37058"
+        ],
+        [
+          "-1/2",
+          "-1/2"
+        ],
+        [
+          "13369/10927",
+          "4378/10927"
+        ],
+        [
+          "19231/18529",
+          "8478/18529"
+        ]
+      ],
+      "supporting_edge_checks": 63
+    },
+    "purpose": "Exact convex irrational-angle cycle; commensurability cannot be removed.",
+    "selected_cycle": [
+      {
+        "rational_noninteger": true,
+        "rotation": 1,
+        "source": 0,
+        "target": 1,
+        "two_cos_two_theta": "-472406401/236230813"
+      },
+      {
+        "rational_noninteger": true,
+        "rotation": 1,
+        "source": 1,
+        "target": 2,
+        "two_cos_two_theta": "-507451129/1020595849"
+      },
+      {
+        "rational_noninteger": true,
+        "rotation": 0,
+        "source": 2,
+        "target": 0,
+        "two_cos_two_theta": "824040599/585460813"
+      }
+    ],
+    "squared_norms": [
+      "1",
+      "21619/10927",
+      "31597/18529"
+    ]
+  },
+  "nonconverse": {
+    "cube_quotient": {
+      "minimum_scaled_area": "21",
+      "minimum_squared_separation": "28",
+      "number_of_points": 3,
+      "order": [
+        2,
+        1,
+        0
+      ],
+      "origin_outside_hull": true,
+      "origin_strictly_inside_hull": false,
+      "points_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "8",
+          "0"
+        ],
+        [
+          "0",
+          "-3"
+        ]
+      ],
+      "supporting_edge_checks": 3
+    },
+    "original_hull_vertices": 6,
+    "original_points": 9,
+    "purpose": "Convexity of the cube quotient is not sufficient for convexity before cubing.",
+    "strict_interior_coefficients": [
+      "2/3",
+      "1/6",
+      "1/6"
+    ]
+  },
+  "note_sha256": "5d9fe6e9d938637e945fb1495292b67bf3d5956e1741f22b79dc3d278298335a",
+  "power_fixture": {
+    "original": {
+      "minimum_scaled_area": "75/4802",
+      "minimum_squared_separation": "3/49",
+      "number_of_points": 21,
+      "order": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "origin_outside_hull": false,
+      "origin_strictly_inside_hull": true,
+      "points_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "95/98",
+          "25/98"
+        ],
+        [
+          "43/49",
+          "22/49"
+        ],
+        [
+          "71/98",
+          "57/98"
+        ],
+        [
+          "25/49",
+          "32/49"
+        ],
+        [
+          "23/98",
+          "65/98"
+        ],
+        [
+          "-5/49",
+          "30/49"
+        ],
+        [
+          "-1/2",
+          "1/2"
+        ],
+        [
+          "-85/98",
+          "5/14"
+        ],
+        [
+          "-109/98",
+          "3/14"
+        ],
+        [
+          "-121/98",
+          "1/14"
+        ],
+        [
+          "-121/98",
+          "-1/14"
+        ],
+        [
+          "-109/98",
+          "-3/14"
+        ],
+        [
+          "-85/98",
+          "-5/14"
+        ],
+        [
+          "-1/2",
+          "-1/2"
+        ],
+        [
+          "-5/49",
+          "-30/49"
+        ],
+        [
+          "23/98",
+          "-65/98"
+        ],
+        [
+          "25/49",
+          "-32/49"
+        ],
+        [
+          "71/98",
+          "-57/98"
+        ],
+        [
+          "43/49",
+          "-22/49"
+        ],
+        [
+          "95/98",
+          "-25/98"
+        ]
+      ],
+      "supporting_edge_checks": 399
+    },
+    "quotient": {
+      "minimum_scaled_area": "167246208/282475249",
+      "minimum_squared_separation": "359313408/282475249",
+      "number_of_points": 7,
+      "order": [
+        4,
+        5,
+        6,
+        0,
+        1,
+        2,
+        3
+      ],
+      "origin_outside_hull": false,
+      "origin_strictly_inside_hull": true,
+      "points_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "40375/117649",
+          "11250/16807"
+        ],
+        [
+          "-107801/117649",
+          "12870/16807"
+        ],
+        [
+          "-214775/117649",
+          "5472/16807"
+        ],
+        [
+          "-214775/117649",
+          "-5472/16807"
+        ],
+        [
+          "-107801/117649",
+          "-12870/16807"
+        ],
+        [
+          "40375/117649",
+          "-11250/16807"
+        ]
+      ],
+      "supporting_edge_checks": 35
+    },
+    "scope": "finite exact fixture, not the arbitrary-size geometric proof",
+    "varying_norms": true
+  },
+  "radial_path_controls": {
+    "downward_shortcuts": [],
+    "euclidean_realization_claimed": false,
+    "outdegrees": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "rejected_control": {
+      "obstructions": [
+        {
+          "downward_edge": [
+            2,
+            0
+          ],
+          "increasing_path": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "rows": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    "seed_cycle_in_increasing_radial_order": [
+      [
+        2
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ]
+    ],
+    "six_label_control": [
+      [
+        4,
+        5
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  "repository_wide_CI_run": false,
+  "schema": "erdos97.long_radius_cubic.v1",
+  "status": "EXACT_CONTROLS_FOR_REVIEW_PENDING_THEOREMS"
+}
