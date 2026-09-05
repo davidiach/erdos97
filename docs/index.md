@@ -939,8 +939,9 @@ put detailed reconciliation in the canonical synthesis.
   at the minimum radius level in the alternating boundary-neighbour branch;
   `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING`.
 - [`triple-fanin-radius-descent.md`](triple-fanin-radius-descent.md):
-  quantitative radius ordering whenever three equal-radius centres share one
-  non-boundary witness; `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING`.
+  conditional radius inequality for three equal-radius centres sharing a
+  witness, with pairwise-nonconsecutive vertices and prescribed incident
+  boundary-side lengths; `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING`.
 - [`orbit66-exact-partial-construction.md`](orbit66-exact-partial-construction.md):
   exact 66-point strictly convex radical construction with its checked
   multiplicity distribution; a partial construction with a residual deficit,

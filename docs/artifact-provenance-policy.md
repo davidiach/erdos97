@@ -36,8 +36,11 @@ Exact certificates:
   reached by an SMT certificate.
 - `EXACT_ROUTE_PRUNING_CERTIFICATE`: exact certificate that prunes a search
   route or index window; route pruning only, not an obstruction for the class.
-- `EXACT_CERTIFICATE_DIAGNOSTIC`: exact structural or coverage diagnostic
-  computed over stored certificates, rather than a new obstruction.
+- `EXACT_CERTIFICATE_DIAGNOSTIC`: exact diagnostic evidence, including
+  certificate analysis, constructions, negative controls, and review-pending
+  bounded obstructions. The artifact's `claim_scope` supplies its precise
+  mathematical scope and review qualifications; this category alone does not
+  establish acceptance as a theorem.
 
 Finite-case artifacts:
 

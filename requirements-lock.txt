@@ -4,6 +4,8 @@
 # compatibility lanes resolve the ranges in pyproject.toml instead.
 # This pins direct dependencies, not every transitive wheel or the host OS.
 # It is a reproducibility aid, not a mathematical certificate.
+# Markdown navigation parser added 2026-09-06.
+markdown-it-py==4.0.0
 numpy==2.4.4
 mpmath==1.3.0
 scipy==1.17.1

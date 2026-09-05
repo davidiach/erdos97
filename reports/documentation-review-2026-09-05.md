@@ -395,3 +395,18 @@ Not run, and why:
 Link and reference checks were performed by scanning all 534 tracked Markdown
 files for relative Markdown links and for backtick-quoted repository paths, then
 resolving each against the working tree.
+
+
+## Follow-up corrections, 2026-09-06
+
+The findings above describe the original review snapshot, not independent
+mathematical validation. Follow-up review found that the initial index checker
+counted links in comments and code examples; it now uses CommonMark tokens and
+has failure-case tests. The canonical diagnostic gloss now includes existing
+bounded-obstruction and construction uses, with each artifact's claim scope
+and review qualifications controlling its interpretation. The triple-fan-in
+navigation summary now states its boundary hypotheses.
+
+Changing LICENSE.md and pyproject.toml also invalidated the n=8 release bundle's
+pinned source snapshot in fresh clones. The release packet is regenerated
+through its builder from a clean source commit; the provenance gates are retained.

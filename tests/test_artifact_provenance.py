@@ -545,3 +545,21 @@ def test_missing_native_trust_requires_explicit_mapping(tmp_path: Path) -> None:
         }
     }
     assert validate_manifest(manifest) == []
+
+
+def test_trust_documentation_gate_rejects_drift(tmp_path, monkeypatch) -> None:
+    from scripts import check_artifact_provenance as checker
+
+    policy = tmp_path / 'policy.md'
+    monkeypatch.setattr(checker, 'TRUST_CLASS_POLICY_DOC', policy)
+    assert checker.validate_trust_class_documentation()
+
+    policy.write_text('\n'.join(f'- `{name}`: explanation' for name in KNOWN_TRUST_CLASSES))
+    assert checker.validate_trust_class_documentation() == []
+
+    removed = sorted(KNOWN_TRUST_CLASSES)[0]
+    policy.write_text(policy.read_text().replace(f'- `{removed}`: explanation', ''))
+    assert any(removed in error for error in checker.validate_trust_class_documentation())
+
+    policy.write_text(policy.read_text() + '\n- `UNREVIEWED_NEW_CLASS`: explanation\n')
+    assert any('unknown trust class' in error for error in checker.validate_trust_class_documentation())

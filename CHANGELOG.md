@@ -7,6 +7,18 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-09-06
+
+- Hardened documentation-index coverage with CommonMark parsing so comments,
+  code examples, and images do not count as navigation. Reference and titled
+  links are supported, and regression tests cover missing and dangling entries.
+- Corrected the diagnostic trust-class gloss to include its existing bounded
+  obstruction and construction uses, while retaining per-artifact claim scopes
+  and review qualifications. Clarified the triple-fan-in summary's hypotheses.
+- Refreshed the generated n=8 release packet after changes to its bundled
+  license and dependency files. This updates reproduction provenance only;
+  no mathematical certificate or accepted claim changes.
+
 ## 2026-09-05
 
 - Backfilled this changelog for the 2026-07-24 through 2026-09-05 window. The
