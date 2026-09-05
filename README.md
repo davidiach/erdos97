@@ -330,6 +330,8 @@ proof-facing standard.
 |   `-- erdos97.yaml          # canonical status metadata snapshot
 |-- docs/                     # proofs, audits, provenance, and planning notes
 |-- src/erdos97/              # reusable search and verification code
+|-- cpp/                      # portable C++ search and replay sources
+|-- lean/                     # Lean proof-sketch pilot; see docs/formalization.md
 |-- scripts/                  # command-line checkers and generators
 |-- tests/                    # pytest coverage for code and artifacts
 |-- data/                     # checked JSON artifacts and numerical runs
@@ -491,9 +493,10 @@ Please avoid presenting numerical near-equalities as counterexamples.
 
 ## License and citation
 
-Code is licensed under the MIT License. Research notes, documentation, data
-artifacts, issue templates, and certificate templates are licensed under
-CC-BY-4.0. See [`LICENSE.md`](LICENSE.md).
+Code is licensed under the MIT License, including the C++ sources in `cpp/`
+and the Lean pilot in `lean/`. Research notes, documentation, data artifacts,
+issue templates, and certificate templates are licensed under CC-BY-4.0. See
+[`LICENSE.md`](LICENSE.md) for the exact split.
 
 If you use this repository, please cite it using
 [`CITATION.cff`](CITATION.cff).

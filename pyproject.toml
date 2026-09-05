@@ -41,3 +41,10 @@ extend-exclude = [
   ".worktrees",
   "data/runs/*/*.py",
 ]
+
+# Pin the rule selection explicitly. These are the rules the repository has
+# been clean under; leaving it implicit meant `ruff check .` - a documented
+# fast-tier gate - changed meaning whenever ruff widened its defaults, which
+# reports thousands of findings on an unmodified checkout.
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

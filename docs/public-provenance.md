@@ -136,6 +136,7 @@ Public references:
 - `docs/canonical-synthesis.md`
 - `contradictions.md`
 - `dropped_kernels.md`
+- `unclassified.md`
 - `inventory.json`
 - `kernels.json`
 

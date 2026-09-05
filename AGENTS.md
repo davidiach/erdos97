@@ -59,6 +59,18 @@ The same fast tier is available as:
 make verify-fast
 ```
 
+After changing anything under `lean/`, or the root `lakefile.lean`,
+`lake-manifest.json`, or `lean-toolchain`, also run the Lean tier:
+
+```bash
+make verify-lean
+```
+
+It checks the sketch boundaries and compiles every Lean source. Without a Lean
+toolchain on `PATH` the compile step is skipped rather than failed, so say so
+if that is what happened; `.github/workflows/lean.yml` runs it with the pinned
+toolchain and `--require-lean`. See `docs/formalization.md`.
+
 For finite-case or public theorem-style artifact changes, also run the
 artifact tier or explain exactly which command could not be run and why:
 
