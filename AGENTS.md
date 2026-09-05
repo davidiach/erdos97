@@ -7,7 +7,12 @@ Erdos Problem #97. It is not a solved-proof repository.
 
 ## Non-overclaiming rules
 
-- Always preserve: no general proof and no counterexample are claimed.
+- Preserve the currently accepted claim scope until an explicit, evidence-backed
+  status transition is reviewed and approved. Do not claim a proof or a
+  counterexample without the required exact evidence and independent review.
+  The current snapshot claims neither; this is a status, not a permanent outcome.
+- Use the reviewed transition contract in `docs/status-transitions.md` for a
+  stronger accepted result. Pending candidates must not silently replace it.
 - The official/global status is falsifiable/open unless manually rechecked and
   updated from the official page.
 - The local `n <= 8` result is repo-local and machine-checked; public
@@ -87,6 +92,9 @@ make audit-artifacts
 ## Research hygiene
 
 - Separate exact proofs from heuristics and numerical evidence.
+- Run exact preflight before numerical search. `--allow-obstructed` is only for
+  deliberately impossible benchmarks, never for claiming a viable pattern.
+  See `docs/research-engine-audit-fixes.md` for objective and scope controls.
 - Label claims using the repo trust taxonomy.
 - Keep fixed-pattern, fixed-order, all-order-for-one-pattern, `n <= 8`
   repo-local, and review-pending `n=9` artifacts in separate claim scopes.

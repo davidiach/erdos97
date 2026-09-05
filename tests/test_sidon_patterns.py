@@ -4,6 +4,7 @@ import json
 import pathlib
 
 import numpy as np
+import pytest
 
 from erdos97.search import (
     built_in_patterns,
@@ -128,8 +129,11 @@ def test_full_convexity_margin_rejects_local_turn_false_positive() -> None:
 def test_slsqp_search_runs_and_returns_feasible_polygon() -> None:
     pat = built_in_patterns()["C13_sidon_1_2_4_10"]
     margin = 1e-3
-    loss, x, _ = slsqp_search(pat, mode="polar", restarts=3, seed=1,
-                              max_nfev=400, margin=margin, verbose=False)
+    # C13 is exactly obstructed; this is only a numerical feasibility benchmark.
+    with pytest.warns(RuntimeWarning, match="obstructed benchmark"):
+        loss, x, _ = slsqp_search(pat, mode="polar", restarts=3, seed=1,
+                                  max_nfev=400, margin=margin, verbose=False,
+                                  allow_obstructed=True)
     P = polygon_from_x(x, pat.n, "polar")
     # Hard-margin feasibility on the returned configuration.
     from erdos97.search import (

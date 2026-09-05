@@ -60,3 +60,11 @@ def test_extract_selected_rows_from_zero_one_matrix() -> None:
 def test_extract_pattern_payload_rejects_missing_rows() -> None:
     with pytest.raises(ValueError, match="selected-witness pattern"):
         extract_pattern_payload({"pattern": "empty"})
+
+
+@pytest.mark.parametrize("label", [1.9, True, "1"])
+def test_selected_labels_are_not_silently_coerced(label):
+    rows = [row[:] for row in TOY_ROWS]
+    rows[0][0] = label
+    with pytest.raises(ValueError, match="selected-witness pattern"):
+        extract_pattern_payload({"S": rows})

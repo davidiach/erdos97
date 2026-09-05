@@ -19,7 +19,11 @@ def test_sweep_finds_motif_in_n9() -> None:
     assert item["radius_status"] == "PASS_ACYCLIC_CHOICE"
 
 
-def test_sweep_can_run_geometry_smoke() -> None:
+def test_sweep_skips_exactly_obstructed_geometry(monkeypatch) -> None:
+    def forbidden(*args, **kwargs):
+        raise AssertionError("optimizer called for an exactly obstructed motif")
+
+    monkeypatch.setattr("erdos97.stuck_motif_sweep.search_pattern", forbidden)
     payload = sweep_stuck_motifs(
         SweepConfig(
             n_values=[9],
@@ -34,8 +38,9 @@ def test_sweep_can_run_geometry_smoke() -> None:
 
     item = payload["items"][0]
     assert item["status"] == "FOUND"
-    assert item["geometry"]["status"] == "RAN"
-    assert "eq_rms" in item["geometry"]
+    assert item["geometry"]["status"] == "SKIPPED_EXACT_PREFLIGHT_OBSTRUCTION"
+    assert item["geometry"]["preflight"]["reason"] == "kalmanson_zero"
+    assert item["geometry"]["preflight"]["realization_certified"] is False
 
 
 def test_sweep_records_stable_item_variable_prefix() -> None:

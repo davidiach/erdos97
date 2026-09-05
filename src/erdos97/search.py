@@ -15,7 +15,7 @@ This script is deliberately research-oriented:
 Dependencies: numpy, scipy. Optional: sympy, z3-solver.
 
 Example:
-  erdos97-search --pattern C12_pm_2_5 --restarts 50 --mode polar --out best.json
+  erdos97-search --pattern-json candidate.json --restarts 50 --mode polar --out best.json
   erdos97-search --list-patterns
   python -m erdos97.search --verify best.json
 """
@@ -26,12 +26,15 @@ import dataclasses
 import json
 import math
 import time
+import warnings
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 from numpy.typing import NDArray
 from scipy.optimize import least_squares, differential_evolution, minimize
+
+from erdos97.search_preflight import preflight, validate_rows
 
 Array = NDArray[np.float64]
 Pattern = List[List[int]]
@@ -87,6 +90,10 @@ class SearchResult:
     pattern_notes: str = ""
     source_pattern_name: str = ""
     cyclic_order: Optional[List[int]] = None
+    preflight: Dict[str, object] = dataclasses.field(default_factory=dict)
+    benchmark_only: bool = False
+    objective: str = "feasibility_hinge"
+    feasible_at_margin: bool = False
 
 
 # ----------------------------- pattern helpers -----------------------------
@@ -266,6 +273,15 @@ def softplus(x: Array, beta: float = 20.0) -> Array:
     bx = beta * x
     safe_bx = np.minimum(bx, 40.0)
     return np.where(bx > 40, x, np.log1p(np.exp(safe_bx)) / beta)
+
+
+def violation_penalty(x: Array, kind: str = "hinge") -> Array:
+    """Zero in the feasible region unless legacy smoothing is requested."""
+    if kind == "hinge":
+        return np.maximum(x, 0.0)
+    if kind == "legacy-softplus":
+        return softplus(x)
+    raise ValueError(f"unknown penalty {kind!r}")
 
 
 def rotate_points(P: Array, theta: float) -> Array:
@@ -513,7 +529,7 @@ def init_direct_x(n: int, rng: np.random.Generator, jitter: float = 0.20) -> Arr
 
 
 def polygon_from_support_x(x: Array, n: int) -> Array:
-    """Fixed-normal support parameterization. Conservative but strongly convex.
+    """Restricted fixed-normal support parameterization; convexity must be checked.
 
     Lines are <u_k, X> = h_k with u_k=(cos theta_k, sin theta_k), theta_k=2pi*k/n.
     Vertex k is intersection of lines k and k+1.
@@ -557,7 +573,7 @@ def init_x(n: int, rng: np.random.Generator, mode: str, jitter: float = 0.20) ->
 
 def residual_vector(x: Array, n: int, S: Pattern, mode: str, weights: LossWeights,
                     convex_margin: float = 1e-3, min_edge: float = 1e-3,
-                    min_pair: float = 1e-3) -> Array:
+                    min_pair: float = 1e-3, penalty: str = "hinge") -> Array:
     P = polygon_from_x(x, n, mode)
     D2 = pairwise_sqdist(P)
     res: List[Array] = []
@@ -572,25 +588,25 @@ def residual_vector(x: Array, n: int, S: Pattern, mode: str, weights: LossWeight
     # Strict convexity: every non-incident vertex stays on the same side of
     # every polygon edge, matching the verifier-grade convexity_margin.
     conv = convexity_margins(P)
-    res.append(math.sqrt(weights.convex) * softplus(convex_margin - conv))
+    res.append(math.sqrt(weights.convex) * violation_penalty(convex_margin - conv, penalty))
 
     # Edge and pair separation.
     ed = np.linalg.norm(np.roll(P, -1, axis=0) - P, axis=1)
-    res.append(math.sqrt(weights.edge) * softplus(min_edge - ed))
+    res.append(math.sqrt(weights.edge) * violation_penalty(min_edge - ed, penalty))
 
     if weights.pair > 0:
         D = pairwise_distances(P)
         iu = np.triu_indices(n, 1)
-        res.append(math.sqrt(weights.pair) * softplus(min_pair - D[iu]))
+        res.append(math.sqrt(weights.pair) * violation_penalty(min_pair - D[iu], penalty))
 
     if weights.concyclic_avoid > 0:
         rr = np.sum(P * P, axis=1)
         # Penalize too-small radial variance around centroid, but only weakly.
-        res.append(np.array([math.sqrt(weights.concyclic_avoid) * softplus(1e-3 - float(np.var(rr)))], dtype=float))
+        res.append(np.array([math.sqrt(weights.concyclic_avoid) * violation_penalty(1e-3 - float(np.var(rr)), penalty)], dtype=float))
 
     if weights.angle_gap > 0 and mode == "polar":
         gaps = softmax(np.asarray(x[:n])) * (2.0 * math.pi)
-        res.append(math.sqrt(weights.angle_gap) * softplus((2.0 * math.pi / n) * 0.03 - gaps))
+        res.append(math.sqrt(weights.angle_gap) * violation_penalty((2.0 * math.pi / n) * 0.03 - gaps, penalty))
 
     return np.concatenate(res) if res else np.zeros(0)
 
@@ -608,8 +624,41 @@ def equality_residual(x: Array, n: int, S: Pattern, mode: str) -> Array:
     return np.concatenate(terms) if terms else np.zeros(0)
 
 
+def feasible_at_margin(diag: Dict[str, object], margin: float) -> bool:
+    return all(
+        math.isfinite(float(diag[key])) and float(diag[key]) >= margin
+        and float(diag[key]) > 0.0
+        for key in ("convexity_margin", "min_edge_length", "min_pair_distance")
+    )
+
+
+def candidate_rank(diag: Dict[str, object], margin: float, loss: float) -> tuple:
+    """Prefer feasible restarts, then equality quality, not mixed objective."""
+    values = [float(diag[k]) for k in (
+        "convexity_margin", "min_edge_length", "min_pair_distance",
+        "max_rel_spread", "max_spread", "eq_rms",
+    )]
+    if not all(math.isfinite(v) for v in values) or not math.isfinite(loss):
+        return (2, math.inf, math.inf, math.inf, math.inf)
+    conv, edge, pair, relative, spread, rms = values
+    if feasible_at_margin(diag, margin):
+        return (0, relative, spread, rms, loss)
+    return (1, max(0.0, margin - min(conv, edge, pair)), relative, spread, loss)
+
+
+def checked_preflight(pat: PatternInfo, allow_obstructed: bool) -> Dict[str, object]:
+    report = preflight(pat.n, pat.S)
+    if report["status"] == "obstructed":
+        message = f"{pat.name}: exact preflight obstruction: {report['reason']}; {report['evidence']}"
+        if not allow_obstructed:
+            raise ValueError(message + "; use --allow-obstructed only for benchmarks")
+        warnings.warn(message + "; running an explicitly obstructed benchmark", RuntimeWarning, stacklevel=2)
+    return report
+
+
 def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
-                 max_nfev: int, margin: float, verbose: bool = False) -> Tuple[float, Array, int]:
+                 max_nfev: int, margin: float, verbose: bool = False,
+                 allow_obstructed: bool = False) -> Tuple[float, Array, int]:
     """Constrained SLSQP: minimise ||eq_residual||^2 subject to strict-convexity,
     edge-length, and pair-distance margins, all >= margin > 0.
 
@@ -618,9 +667,18 @@ def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
     symmetry is imposed on cyclic patterns -- the parameterization gives free
     angles and free radii.
     """
+    if not math.isfinite(margin) or margin <= 0:
+        raise ValueError("margin must be finite and positive")
+    if restarts < 1 or max_nfev < 1:
+        raise ValueError("restarts and max_nfev must be positive")
+    checked_preflight(pat, allow_obstructed)
     rng = np.random.default_rng(seed)
     n = pat.n
     S = pat.S
+    # Optimize slightly inside the requested region so solver roundoff at an
+    # active constraint does not discard every restart. Acceptance below still
+    # checks the original margin without any tolerance relaxation.
+    solver_margin = margin + max(1e-9, margin * 1e-6)
 
     def loss(x: Array) -> float:
         r = equality_residual(x, n, S, mode)
@@ -628,18 +686,18 @@ def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
 
     def convexity_constraint(x: Array) -> Array:
         P = polygon_from_x(x, n, mode)
-        return convexity_margins(P) - margin
+        return convexity_margins(P) - solver_margin
 
     def edge_constraint(x: Array) -> Array:
         P = polygon_from_x(x, n, mode)
         ed = np.linalg.norm(np.roll(P, -1, axis=0) - P, axis=1)
-        return ed - margin
+        return ed - solver_margin
 
     def pair_constraint(x: Array) -> Array:
         P = polygon_from_x(x, n, mode)
         D = pairwise_distances(P)
         iu = np.triu_indices(n, 1)
-        return D[iu] - margin
+        return D[iu] - solver_margin
 
     constraints = [
         {"type": "ineq", "fun": convexity_constraint},
@@ -666,14 +724,14 @@ def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
         if not np.all(np.isfinite(res.x)):
             continue
         # Reject restarts that violate the hard margins; keep only feasible local optima.
-        if (convexity_constraint(res.x).min() < -1e-9
-                or edge_constraint(res.x).min() < -1e-9
-                or pair_constraint(res.x).min() < -1e-9):
+        diag = independent_diagnostics(polygon_from_x(res.x, n, mode), S)
+        if not feasible_at_margin(diag, margin):
             if verbose:
                 print(f"slsqp restart {r}: infeasible at termination", flush=True)
             continue
-        if res.fun < best_loss:
-            best_loss = float(res.fun)
+        equality_loss = loss(res.x)
+        if math.isfinite(equality_loss) and equality_loss < best_loss:
+            best_loss = equality_loss
             best_x = np.asarray(res.x, dtype=float).copy()
             if verbose:
                 print(f"slsqp restart {r}: loss={res.fun:.3e}", flush=True)
@@ -687,16 +745,28 @@ def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
                    seed: int = 0, max_nfev: int = 3000,
                    weights: Optional[LossWeights] = None,
                    use_de: bool = False, verbose: bool = False,
-                   optimizer: str = "trf", margin: float = 1e-3) -> SearchResult:
+                   optimizer: str = "trf", margin: float = 1e-3,
+                   allow_obstructed: bool = False,
+                   penalty: str = "hinge") -> SearchResult:
+    if not math.isfinite(margin) or margin <= 0:
+        raise ValueError("margin must be finite and positive")
+    if restarts < 1 or max_nfev < 1:
+        raise ValueError("restarts and max_nfev must be positive")
+    if optimizer not in {"trf", "slsqp"}:
+        raise ValueError(f"unknown optimizer {optimizer!r}")
+    if penalty not in {"hinge", "legacy-softplus"}:
+        raise ValueError(f"unknown penalty {penalty!r}")
+    preflight_report = checked_preflight(pat, allow_obstructed)
     rng = np.random.default_rng(seed)
     weights = weights or LossWeights()
     n = pat.n
     best = None
+    best_rank = None
     best_x = None
     start = time.time()
 
     if optimizer == "slsqp":
-        loss_value, best_x, _ = slsqp_search(pat, mode, restarts, seed, max_nfev, margin, verbose)
+        loss_value, best_x, _ = slsqp_search(pat, mode, restarts, seed, max_nfev, margin, verbose, allow_obstructed)
         P = polygon_from_x(best_x, n, mode)
         diag = independent_diagnostics(P, pat.S)
         elapsed = time.time() - start
@@ -724,11 +794,15 @@ def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
             pattern_notes=pat.notes,
             source_pattern_name=pat.source_pattern_name,
             cyclic_order=pat.cyclic_order,
+            preflight=preflight_report,
+            benchmark_only=preflight_report["status"] == "obstructed",
+            objective="constrained_equality",
+            feasible_at_margin=feasible_at_margin(diag, margin),
         )
 
     def fun(x: Array) -> Array:
         return residual_vector(x, n, pat.S, mode, weights,
-                               convex_margin=margin, min_edge=margin, min_pair=margin)
+                               convex_margin=margin, min_edge=margin, min_pair=margin, penalty=penalty)
 
     # Optional global pre-search on a modest box. Often too slow for n>16, but useful for smoke tests.
     if use_de:
@@ -747,8 +821,15 @@ def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
         try:
             sol = least_squares(fun, x0, method="trf", max_nfev=max_nfev, x_scale="jac",
                                 ftol=1e-11, xtol=1e-11, gtol=1e-11)
-            score = float(np.sum(sol.fun ** 2))
-            if best is None or score < best[0]:
+            if not np.all(np.isfinite(sol.x)):
+                continue
+            score = float(np.sum(fun(sol.x) ** 2))
+            diag = independent_diagnostics(polygon_from_x(sol.x, n, mode), pat.S)
+            rank = candidate_rank(diag, margin, score)
+            if rank[0] == 2:
+                continue
+            if best_rank is None or rank < best_rank:
+                best_rank = rank
                 best = (score, sol)
                 best_x = sol.x.copy()
                 if verbose:
@@ -789,6 +870,10 @@ def search_pattern(pat: PatternInfo, mode: str = "polar", restarts: int = 20,
         pattern_notes=pat.notes,
         source_pattern_name=pat.source_pattern_name,
         cyclic_order=pat.cyclic_order,
+        preflight=preflight_report,
+        benchmark_only=preflight_report["status"] == "obstructed",
+        objective="feasibility_hinge" if penalty == "hinge" else "legacy_softplus",
+        feasible_at_margin=feasible_at_margin(diag, margin),
     )
 
 
@@ -876,13 +961,15 @@ def incidence_obstruction_stats(S: Pattern) -> Dict[str, object]:
     }
 
 
-def z3_incidence_search(n: int, max_pair_common: int = 2, balance_indegree: bool = True,
-                        symmetry_break: bool = True) -> Optional[Pattern]:
+def z3_incidence_search(n: int, max_pair_common: int = 2, balance_indegree: bool = False,
+                        symmetry_break: bool = False) -> Optional[Pattern]:
     """SAT-style incidence search.
 
     Requires z3-solver. It proves only existence/nonexistence of a Boolean incidence
     matrix satisfying the chosen finite constraints; it says nothing directly about
-    Euclidean realizability.
+    Euclidean realizability. The optional indegree balance and anchored row are
+    heuristic subclass restrictions and are OFF by default. Labels must be
+    explicitly interpreted as a boundary order before geometric preflight.
     """
     if n < 5:
         raise ValueError(f"z3_incidence_search requires n >= 5, got {n}")
@@ -955,7 +1042,12 @@ def write_certificate_template(path: str, result: SearchResult) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--list-patterns", action="store_true")
-    ap.add_argument("--pattern", default="C12_pm_2_5")
+    pattern_group = ap.add_mutually_exclusive_group()
+    pattern_group.add_argument("--pattern", default="", help="explicit legacy pattern name")
+    pattern_group.add_argument("--pattern-json", default="", help="JSON object with n and S in boundary order")
+    ap.add_argument("--allow-obstructed", action="store_true", help="explicitly run an impossible benchmark")
+    ap.add_argument("--penalty", choices=["hinge", "legacy-softplus"], default="hinge")
+    ap.add_argument("--preflight-only", action="store_true", help="report exact preflight without optimization")
     ap.add_argument(
         "--cyclic-order",
         default="",
@@ -978,7 +1070,7 @@ def main() -> None:
     ap.add_argument("--tol", type=float, default=1e-8)
     ap.add_argument("--min-margin", type=float, default=1e-8)
     ap.add_argument("--optimizer", choices=["trf", "slsqp"], default="trf",
-                    help="trf = least_squares trust region (legacy); slsqp = constrained SLSQP with hard margins")
+                    help="trf = least_squares with zero-feasible-region penalties; slsqp = constrained equality objective")
     ap.add_argument("--margin", type=float, default=1e-3,
                     help="strict-convexity, edge-length and pair-distance margin enforced as a hard constraint under slsqp (and as a soft margin under trf)")
     args = ap.parse_args()
@@ -1005,9 +1097,20 @@ def main() -> None:
         print(json.dumps(diag, indent=2))
         raise SystemExit(0 if diag.get("ok_at_tol") is True else 1)
 
-    if args.pattern not in pats:
-        raise SystemExit(f"unknown pattern {args.pattern}; use --list-patterns")
-    pat = pats[args.pattern]
+    if args.pattern_json:
+        try:
+            payload = json.loads(Path(args.pattern_json).read_text(encoding="utf-8"))
+            if not isinstance(payload, dict):
+                raise ValueError("pattern JSON must be an object")
+            validate_rows(payload["n"], payload["S"])
+            pat = PatternInfo(name=str(payload.get("name", "supplied_pattern")),
+                              n=payload["n"], S=payload["S"], family="supplied")
+        except (OSError, KeyError, TypeError, ValueError) as exc:
+            ap.error(f"invalid pattern JSON: {exc}")
+    else:
+        if args.pattern not in pats:
+            ap.error("select --pattern-json or an explicit --pattern; use --list-patterns")
+        pat = pats[args.pattern]
     if args.cyclic_order:
         try:
             order = parse_cyclic_order(args.cyclic_order)
@@ -1018,13 +1121,22 @@ def main() -> None:
             )
         except ValueError as exc:
             raise SystemExit(str(exc)) from exc
-    result = search_pattern(pat, mode=args.mode, restarts=args.restarts, seed=args.seed,
-                            max_nfev=args.max_nfev, use_de=args.use_de, verbose=args.verbose,
-                            optimizer=args.optimizer, margin=args.margin)
+    if args.preflight_only:
+        report = preflight(pat.n, pat.S)
+        print(json.dumps(report, indent=2))
+        raise SystemExit(1 if report["status"] == "obstructed" else 0)
+    try:
+        result = search_pattern(pat, mode=args.mode, restarts=args.restarts, seed=args.seed,
+                                max_nfev=args.max_nfev, use_de=args.use_de, verbose=args.verbose,
+                                optimizer=args.optimizer, margin=args.margin,
+                                allow_obstructed=args.allow_obstructed, penalty=args.penalty)
+    except ValueError as exc:
+        ap.error(str(exc))
     data = result_to_json(result)
     print(json.dumps({k: data[k] for k in [
         "pattern_name", "n", "mode", "loss", "eq_rms", "max_spread", "max_rel_spread",
-        "convexity_margin", "min_edge_length", "min_pair_distance", "success", "elapsed_sec"]}, indent=2))
+        "convexity_margin", "min_edge_length", "min_pair_distance", "success", "elapsed_sec", "preflight", "benchmark_only",
+        "objective", "feasible_at_margin"]}, indent=2))
     if args.out:
         with open(args.out, "w", encoding="utf-8", newline="\n") as f:
             json.dump(data, f, indent=2)

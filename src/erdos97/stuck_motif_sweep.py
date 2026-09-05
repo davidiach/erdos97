@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from typing import Literal, Sequence
 
 from erdos97.search import PatternInfo, result_to_json as geometry_result_to_json, search_pattern
+from erdos97.search_preflight import preflight
 from erdos97.stuck_motif_search import (
     MotifSearchConfig,
     mine_stuck_motif,
@@ -52,6 +53,14 @@ def _geometry_summary(
         formula="stuck motif sweep",
         notes="numerical smoke search only",
     )
+    report = preflight(pattern.n, pattern.S)
+    if report["status"] == "obstructed":
+        return {
+            "status": "SKIPPED_EXACT_PREFLIGHT_OBSTRUCTION",
+            "success": False,
+            "preflight": report,
+            "interpretation": "Exact obstruction in the supplied cyclic order only.",
+        }
     try:
         result = search_pattern(
             pattern,
