@@ -32,3 +32,8 @@ def write_json(payload: Any, path: Path) -> None:
     """
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(dumps_stable(payload), encoding="utf-8", newline="\n")
+
+
+def write_artifact(path: Path, payload: Any) -> None:
+    """Compatibility calling convention for artifact CLIs: path, then payload."""
+    write_json(payload, path)
