@@ -1,0 +1,71 @@
+{
+  "certificates": {
+    "additional_containment_certificates": 369,
+    "angle_certificates": 632,
+    "command": "python c3_eight_check.py --check",
+    "passed": true
+  },
+  "date": "2026-09-05",
+  "environment": {
+    "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "python": "3.13.5"
+  },
+  "full_search": {
+    "completed": true,
+    "eight_orbit_slices_each": 21,
+    "five_to_seven_runs_each": 3,
+    "full_emitted_frontiers_compared": true,
+    "implementations": 2,
+    "nodes_each_at_eight_orbits": 11415572,
+    "records": "runs.json",
+    "source_hashes": {
+      "oracle.cpp": "0893172729a042d99341cb54408e42e0ade7a529e3b95fb786cb08098cad0ea2",
+      "search.cpp": "d8d5cd730500c5a281f6604dd660252cc919920cb45b9515f3a072918d2c9862"
+    },
+    "terminal_cases_each": 632
+  },
+  "mathematical_review": "not externally reviewed",
+  "new_pr_opened": false,
+  "not_run": [
+    "repository-wide make verify-fast",
+    "repository-wide make verify-artifacts",
+    "Ruff (not installed)",
+    "new hosted CI"
+  ],
+  "optional_certificate_regeneration": {
+    "command": "python generate_certificates.py --index 0 --output regenerated-case-zero.json",
+    "fresh_coverage": false,
+    "passed_exact_reverification": true
+  },
+  "publication_limit": "GitHub connector available actions were read-only; no gh executable; git access failed DNS resolution. Patch delivered instead.",
+  "pytest": {
+    "command": "python -m pytest -q test_c3_eight.py",
+    "passed": true,
+    "same_tests_as_unittest": true,
+    "subtests": 17,
+    "tests": 25
+  },
+  "quick_replay": {
+    "command": "python replay.py --quick --check",
+    "full_eight_orbit_coverage": false,
+    "passed": true,
+    "runs": 8
+  },
+  "sanitizer": {
+    "command": "python replay.py --quick --sanitize --check",
+    "coverage": "Both implementations: all of sizes 5,6,7 and only slice 0 at size 8.",
+    "full_eight_orbit_coverage": false,
+    "passed": true,
+    "runs": 8
+  },
+  "schema": 1,
+  "scope": "review-pending restricted own-side C3 obstruction through eight orbits",
+  "status": "completed_local_checks_only",
+  "unittest": {
+    "command": "python -m unittest -v test_c3_eight.py",
+    "compiled_cpp_tests_included": true,
+    "passed": true,
+    "tests": 25
+  }
+}
