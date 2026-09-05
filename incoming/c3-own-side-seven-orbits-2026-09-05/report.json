@@ -1,0 +1,114 @@
+{
+  "frontier": {
+    "certificates": 138,
+    "certificates_sha256": "9aca123a2c1edaf4c14313e9c93d7774654967bc3a568c183a6e91eb0fbc77a5",
+    "controls": {
+      "extreme_center_hypothesis_control": true,
+      "positive_multiplicity_distribution": {
+        "2": 6,
+        "4": 3
+      },
+      "positive_nine_point_hull": [
+        2,
+        6,
+        4,
+        5,
+        0,
+        7,
+        8,
+        3,
+        1
+      ],
+      "symbolic_identity": true,
+      "two_right_angles_and_crossing": true
+    },
+    "earlier_filters_replayed": true,
+    "records": 138,
+    "records_sha256": "9fd6cd70a3f7974b82d6a1b55b77868dbc87ec3d25f820471c9972b490a54a47"
+  },
+  "graphs": {
+    "5": {
+      "list_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "oriented": 24,
+      "raw_tuples": 7776,
+      "remaining": 0,
+      "shortcut_rejections": 24
+    },
+    "6": {
+      "list_sha256": "5296fc51e13628cd9901c503bbca46709c02b320c7d3db7fc1b77b9948eced25",
+      "oriented": 14490,
+      "raw_tuples": 1000000,
+      "remaining": 4,
+      "shortcut_rejections": 14486
+    },
+    "7": {
+      "list_sha256": "4a325292adaa3612b90eb54a0c325e79b343c369b039435d9f06fd35898e3032",
+      "oriented": 4590360,
+      "raw_tuples": 170859375,
+      "remaining": 2755,
+      "shortcut_rejections": 4587605
+    }
+  },
+  "schema": 1,
+  "scope": "C3 own-triangle-side four-witness systems with at most seven orbits only",
+  "seven_deferred": {
+    "angle_orders": 1983600,
+    "cycle_kalmanson_rejections": 3814380,
+    "graphs": 2755,
+    "pair_rejections": 106265912,
+    "phase_cases": 118368000,
+    "phase_dfs_nodes": 198527936,
+    "pre_right_frontier": 138,
+    "radial_kalmanson_rejections": 8287570,
+    "right_angle_rejections": 138,
+    "survivors": 0
+  },
+  "seven_fast": {
+    "angle_orders": 1983600,
+    "cycle_kalmanson_rejections": 314242,
+    "graphs": 2755,
+    "pair_rejections": 21373460,
+    "phase_cases": 118368000,
+    "phase_dfs_nodes": 57372908,
+    "pre_right_frontier": 0,
+    "radial_kalmanson_rejections": 959898,
+    "right_angle_rejections": 95720400,
+    "survivors": 0
+  },
+  "seven_separate_phase_oracle": {
+    "angle_orders": 1983600,
+    "graphs": 2755,
+    "metric_rejections": 1274140,
+    "pair_rejections": 21373460,
+    "phase_cases": 118368000,
+    "right_angle_rejections": 95720400,
+    "survivors": 0
+  },
+  "small_phase_runs": {
+    "5": {
+      "angle_orders": 0,
+      "cycle_kalmanson_rejections": 0,
+      "graphs": 0,
+      "pair_rejections": 0,
+      "phase_cases": 0,
+      "phase_dfs_nodes": 0,
+      "pre_right_frontier": 0,
+      "radial_kalmanson_rejections": 0,
+      "right_angle_rejections": 0,
+      "survivors": 0
+    },
+    "6": {
+      "angle_orders": 480,
+      "cycle_kalmanson_rejections": 10,
+      "graphs": 4,
+      "pair_rejections": 2024,
+      "phase_cases": 7680,
+      "phase_dfs_nodes": 4864,
+      "pre_right_frontier": 0,
+      "radial_kalmanson_rejections": 126,
+      "right_angle_rejections": 5520,
+      "survivors": 0
+    }
+  },
+  "status": "REVIEW_PENDING_RESTRICTED_COMPUTER_ASSISTED_OBSTRUCTION"
+}
