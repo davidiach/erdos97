@@ -217,7 +217,8 @@ This is a genuine metric descent rather than an incidence-only ordering.
 ### Capacity interpretation
 
 At a fixed level `R`, the general fan-in lemma permits at most three source
-centres per target. The present result divides the targets into two classes:
+centres per target. Counting only non-boundary source incidences, the present
+result divides the targets into two classes:
 
 - targets that neither are nor are adjacent to an `E`-centre of radius below
   `(sqrt(2)-1)R` have capacity at most two;
