@@ -4,7 +4,8 @@ Status: `PAPER_PROOF_CANDIDATE / REVIEW_PENDING`.
 
 This note strengthens the fan-in analysis in
 `docs/sparse-minimum-distance-forest.md`. It proves a quantitative radius
-ordering whenever three equal-radius centres share one non-boundary witness.
+ordering for three equal-radius centres sharing a witness, under the
+pairwise-nonconsecutiveness and incident boundary-side hypotheses in section 1.
 It is not a proof or disproof of Erdős Problem #97 and not a source-of-truth
 status update.
 

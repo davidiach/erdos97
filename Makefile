@@ -6,6 +6,7 @@ verify-lint:
 	$(PYTHON) scripts/check_text_clean.py
 	$(PYTHON) scripts/check_status_consistency.py
 	$(PYTHON) scripts/check_artifact_provenance.py
+	$(PYTHON) scripts/check_docs_index_coverage.py
 	$(PYTHON) scripts/generate_makefile_verify_targets.py --check
 	git diff --check
 	$(PYTHON) -m ruff check .

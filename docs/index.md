@@ -107,6 +107,19 @@ put detailed reconciliation in the canonical synthesis.
   claim scopes, exact obstructions, review-pending artifacts, and bridge
   terms; navigation only, not mathematical evidence.
 - [`../RESULTS.md`](../RESULTS.md): compact results ledger.
+- [`status-transitions.md`](status-transitions.md): reviewed transition contract
+  for accepting a stronger local result, with its evidence, hash, and
+  independent-decision requirements; no active proposal is supplied, and the
+  path cannot promote pending work or manufacture a review.
+- [`n9-review-packet.md`](n9-review-packet.md): claim-neutral reviewer packet
+  for the repo-local `n=9` selected-witness finite-case candidate;
+  `REVIEW_PACKET_ONLY`, not a proof and not a status promotion.
+- [`n9-vertex-circle-local-lemma-review-packet.md`](n9-vertex-circle-local-lemma-review-packet.md):
+  reviewer packet for the local-lemma layer behind step A10 of the `n=9`
+  reduction chain; `REVIEW_PACKET_ONLY`.
+- [`n10-vertex-circle-singleton-review-packet.md`](n10-vertex-circle-singleton-review-packet.md):
+  reviewer packet for the repo-local `n=10` singleton-slice draft candidate;
+  `REVIEW_PACKET_ONLY`, and it does not promote the draft.
 
 ## Claims and obstructions
 
@@ -906,6 +919,179 @@ put detailed reconciliation in the canonical synthesis.
   check commands with current environment notes.
 - [`failed-ideas.md`](failed-ideas.md): rejected proof routes and stale claims
   that should not be retried without a genuinely new idea.
+- [`alternate-vertex-perimeter-obstruction.md`](alternate-vertex-perimeter-obstruction.md):
+  restricted infinite-family perimeter obstruction for strictly convex
+  equilateral `2m`-gons, plus one exact negative control for a set of
+  necessary-condition relaxations; `REVIEW_PENDING_RESTRICTED_THEOREM`.
+- [`sparse-minimum-distance-forest.md`](sparse-minimum-distance-forest.md):
+  boundary-detour distance forest and fan-in lemmas strengthening the
+  alternate-vertex perimeter obstruction; `PAPER_PROOF_CANDIDATE` /
+  `REVIEW_PENDING`.
+- [`radius-level-linear-forest.md`](radius-level-linear-forest.md): degree-two
+  strengthening making every detour-controlled distance component a path or an
+  isolated vertex, with endpoint export bounds; `PAPER_PROOF_CANDIDATE` /
+  `REVIEW_PENDING`.
+- [`radius-level-return-locality.md`](radius-level-return-locality.md):
+  weak-arc detour-cycle lemma and return-locality consequences for the same
+  boundary-detour machinery; `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING`.
+- [`minimum-radius-component-injectivity.md`](minimum-radius-component-injectivity.md):
+  closes the three short return motifs left open by return locality, but only
+  at the minimum radius level in the alternating boundary-neighbour branch;
+  `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING`.
+- [`triple-fanin-radius-descent.md`](triple-fanin-radius-descent.md):
+  conditional radius inequality for three equal-radius centres sharing a
+  witness, with pairwise-nonconsecutive vertices and prescribed incident
+  boundary-side lengths; `PAPER_PROOF_CANDIDATE` / `REVIEW_PENDING`.
+- [`orbit66-exact-partial-construction.md`](orbit66-exact-partial-construction.md):
+  exact 66-point strictly convex radical construction with its checked
+  multiplicity distribution; a partial construction with a residual deficit,
+  explicitly not a counterexample and not a solution.
+- [`kalmanson-equilateral-hinge.md`](kalmanson-equilateral-hinge.md):
+  arbitrary-size local hinge obstruction extracted from the review-pending
+  `n=9` Kalmanson three-row compression; its occurrence in every hypothetical
+  counterexample is not proved.
+- [`fragile-critical-radius-midpoint.md`](fragile-critical-radius-midpoint.md):
+  exact radius/midpoint trichotomy for two-overlap selected rows, tested on the
+  standing fragile-cover controls; a partial bridge diagnostic only.
+- [`turn-packing-bridge.md`](turn-packing-bridge.md): the certificate principle
+  behind the `n=9` turn-inequality frontier, in normalized exterior-turn
+  variables; review-pending bridge packet.
+- [`squared-distance-value-rows-2026-07-10.md`](squared-distance-value-rows-2026-07-10.md):
+  arithmetic necessary conditions on squared distances from the semicircle
+  criterion, with exact z3 replay; LEMMA-grade rows, review pending.
+- [`row-circle-ptolemy-nlp.md`](row-circle-ptolemy-nlp.md): nonlinear
+  diagnostic adding the row-circle Ptolemy equality for the four selected
+  witnesses of each center; numerical, so only an exactification target.
+- [`round2/ptolemy_log_method_note.md`](round2/ptolemy_log_method_note.md):
+  Ptolemy-log certificate format retained as a small, auditable worked example;
+  a method note that did not move live pattern status.
+- [`sidon-patterns.md`](sidon-patterns.md): empirical realizability of
+  Sidon-type circulant patterns, with exact Altman and Kalmanson obstructions
+  for the recorded orders and a numerical SLSQP plateau for `C13`.
+- [`selection-lemma-asymmetric-kite-conditional.md`](selection-lemma-asymmetric-kite-conditional.md):
+  salvageable asymmetric-kite algebra for canonical-chord-rule injectivity,
+  conditional on unvalidated cyclic-order assumptions; the companion
+  noncrossing claim is exactly false, so read it with the crossing control.
+- [`danzer18-doubling-census.md`](danzer18-doubling-census.md): float64 SVD
+  collision census with mpmath rank spot-checks for the doubled Danzer-type
+  18-gon; `NUMERICAL_EVIDENCE`, no counterexample candidate claimed.
+- [`n9-all-five-rich-support-obstruction.md`](n9-all-five-rich-support-obstruction.md):
+  generator-independent finite support catalogue for the all-size-five `n=9`
+  subcase under the circle-intersection and crossing filters.
+- [`n9-mixed-rich-support-reduction.md`](n9-mixed-rich-support-reduction.md):
+  extends that catalogue to mixed four/five supports, leaving `184` complete
+  assignments, all exact-four.
+- [`n9-mixed-rich-frontier-crosswalk.md`](n9-mixed-rich-frontier-crosswalk.md):
+  compares those terminal exact-four row systems with the stored
+  pre-vertex-circle frontier as labelled row sets.
+- [`n9-incidence-frontier.md`](n9-incidence-frontier.md): bounded
+  selected-witness incidence/CSP scan in a row0-fixed `n=9` slice; a bounded
+  diagnostic, not an `n=9` completeness theorem.
+- [`n9-hinge-forcing.md`](n9-hinge-forcing.md): exact finite equilateral-hinge
+  implication for selected four-witness rows on nine cyclic labels; a
+  proof-compression candidate for the review-pending `n=9` chain.
+- [`n9-parallel-endpoint-closure.md`](n9-parallel-endpoint-closure.md): lighter
+  second-source closure killing the same `184` frontier assignments by purely
+  combinatorial filters, with no vertex-circle or metric reasoning.
+- [`n9-vertex-circle-motif-families.md`](n9-vertex-circle-motif-families.md):
+  canonicalizes the `184` labelled pre-vertex-circle assignments into `16`
+  dihedral incidence families.
+- [`n9-vertex-circle-obstruction-shapes.md`](n9-vertex-circle-obstruction-shapes.md):
+  classifies the first vertex-circle obstruction in each of the `184`
+  assignments: `158` self-edges and `26` strict cycles.
+- [`n9-vertex-circle-local-cores.md`](n9-vertex-circle-local-cores.md): local
+  row-core certificates for the `16` motif families, each using at most six
+  selected rows.
+- [`n9-vertex-circle-template-duals.md`](n9-vertex-circle-template-duals.md):
+  exact positive-circuit `0 > 0` identities for the sixteen stored relation
+  skeletons; proof-mining only, and it forces no skeleton in an arbitrary
+  polygon.
+- [`n9-vertex-circle-frontier-comparison.md`](n9-vertex-circle-frontier-comparison.md):
+  compares the `n=9` local-core motifs with the P18 and `C19_skew` fixed-pattern
+  frontier checks; no exact core embeds into either.
+- [`n9-groebner-decoders.md`](n9-groebner-decoders.md): replayable
+  Groebner-basis real-root decoders for the F07/F08/F09/F13 follow-up families;
+  an independent second-source algebraic audit target, not a promotion.
+- [`bootstrap-t12-151-6-label4-support-hypothesis-ledger.md`](bootstrap-t12-151-6-label4-support-hypothesis-ledger.md):
+  turns the source-`151` label-`4` transfer components into the centered support
+  hypotheses a future exclusion would need; a proof-target ledger, not an
+  obstruction by itself.
+- [`bootstrap-t12-151-6-label4-transfer-obligations.md`](bootstrap-t12-151-6-label4-transfer-obligations.md):
+  the centered equal-distance statements that positive-length label-`4`
+  transfer paths require.
+- [`bootstrap-t12-151-6-label4-transfer-length-components.md`](bootstrap-t12-151-6-label4-transfer-length-components.md):
+  the undirected segment-length components and cyclic gap profiles those
+  obligations force.
+- [`bootstrap-t12-151-6-label4-transfer-component-feasibility.md`](bootstrap-t12-151-6-label4-transfer-component-feasibility.md):
+  negative control giving each isolated segment-equality target an exact strict
+  cyclic convex `9`-gon witness on a regular-arc grid.
+- [`bootstrap-t12-151-6-label4-cascade-row-criticality.md`](bootstrap-t12-151-6-label4-cascade-row-criticality.md):
+  the stored cascade strict cycle appears only when all three local rows `5`,
+  `6`, and `8` are present.
+- [`bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md`](bootstrap-t12-151-6-label4-cascade-endpoint8-targets.md):
+  how much of row `8` keeps the quotient obstruction once the row-`5`/row-`6`
+  cascade package is fixed.
+- [`bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md`](bootstrap-t12-151-6-label4-center8-rich-triple-preflight.md):
+  gate check asking whether checked support evidence already forces the
+  center-`8` rich triple `[0,4,6]`; it does not.
+- [`bootstrap-t12-151-6-label4-center8-source-crosswalk.md`](bootstrap-t12-151-6-label4-center8-source-crosswalk.md):
+  whether the existing source-`151` row-`8` singleton packet can be reused as
+  the source for that center-`8` triple.
+- [`bootstrap-t12-151-6-label4-center8-core-route.md`](bootstrap-t12-151-6-label4-center8-core-route.md):
+  which local cores in the private-lane strict-core split would supply a
+  center-`8` row containing `[0,4,6]`.
+- [`bootstrap-t12-151-6-label4-center8-residual-target-rows.md`](bootstrap-t12-151-6-label4-center8-residual-target-rows.md):
+  splits the six residual private-lane assignments into four off-center cases
+  and two target-sparse cases.
+- [`bootstrap-t12-151-6-label4-center8-migration-support-crosswalk.md`](bootstrap-t12-151-6-label4-center8-migration-support-crosswalk.md):
+  whether the current centered support hypotheses back those off-center rows in
+  a way that supplies center-`8` migration.
+- [`bootstrap-t12-151-6-label4-center8-target-sparse-completions.md`](bootstrap-t12-151-6-label4-center8-target-sparse-completions.md):
+  one-row completions of a target-pair row to `[0,4,6]` for the two
+  target-sparse assignments; all fail the basic filters.
+- [`bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md`](bootstrap-t12-151-6-label4-center8-target-sparse-two-row-repairs.md):
+  one completion plus one further row replacement; all fail the basic filters.
+- [`bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md`](bootstrap-t12-151-6-label4-center8-target-sparse-three-row-repairs.md):
+  one completion plus two further row replacements; all fail the basic filters.
+- [`bootstrap-t12-151-6-label4-target-sparse-support-cone.md`](bootstrap-t12-151-6-label4-target-sparse-support-cone.md):
+  asks instead whether adding the cascade support equalities yields a bounded
+  one- or two-row Kalmanson/Altman cone certificate on a target-sparse row.
+- [`c19-kalmanson-prefix-pilot.md`](c19-kalmanson-prefix-pilot.md): exact
+  obstruction for 100 sampled three-boundary-prefix branches of the fixed
+  `C19_skew` pattern; a bounded pilot, not an all-order C19 search.
+- [`c19-kalmanson-sampled-fourth-pair-refinement.md`](c19-kalmanson-sampled-fourth-pair-refinement.md):
+  exact obstruction for the 3,643 fourth-pair children below the 28 sampled
+  prefixes the pilot left open.
+- [`c19-kalmanson-sampled-fifth-pair-refinement.md`](c19-kalmanson-sampled-fifth-pair-refinement.md):
+  fifth-pair subdivision closing the remaining 53 sampled fourth-pair children,
+  and with them all 128 sampled prefixes in the bounded pilot.
+- [`c19-kalmanson-prefix-window-128-159.md`](c19-kalmanson-prefix-window-128-159.md):
+  exact obstruction for the deterministic prefix window with canonical branch
+  indices 128 through 159.
+- [`c19-kalmanson-prefix-window-160-191.md`](c19-kalmanson-prefix-window-160-191.md):
+  the same for canonical branch indices 160 through 191.
+- [`c19-kalmanson-prefix-window-sweep.md`](c19-kalmanson-prefix-window-sweep.md):
+  five deterministic prefix windows, branch indices 128 through 287, as one
+  bounded sampled-window artifact.
+- [`c19-kalmanson-sweep-cost-diagnostic.md`](c19-kalmanson-sweep-cost-diagnostic.md):
+  exact branch-attempt cost accounting from the compact prefix-window sweep.
+- [`c19-fourth-pair-frontier-classifier.md`](c19-fourth-pair-frontier-classifier.md):
+  reconstructs the ordered fourth-pair child labels below every direct prefix
+  survivor and reports the current high-cost parent patterns.
+- [`c19-fifth-pair-frontier-classifier.md`](c19-fifth-pair-frontier-classifier.md):
+  the same for the full fifth-pair frontier, with per-window label digests
+  compared against the source sweep artifact.
+- [`c19-branch269-fifth-pair-subfrontier.md`](c19-branch269-fifth-pair-subfrontier.md):
+  fifth-pair children below the nine fourth-pair survivors of the sweep's
+  highest-cost parent.
+- [`c19-fifth-pair-two-row-prefilter.md`](c19-fifth-pair-two-row-prefilter.md):
+  cheap exact one-row/two-row Kalmanson prefilter against the recorded
+  fifth-pair frontier, with the full Farkas routine reserved for its misses.
+- [`c19-prefilter-fallback-supports.md`](c19-prefilter-fallback-supports.md):
+  exact fallback supports for the eight sampled fifth-pair children that miss
+  that prefilter.
+- [`c19-prefilter-small-unit-supports.md`](c19-prefilter-small-unit-supports.md):
+  small unit-coefficient supports found for seven of those eight children.
 
 ## Computation and certification
 
@@ -933,6 +1119,15 @@ put detailed reconciliation in the canonical synthesis.
 - [`transverse-edge-event-and-cap-cut-constraints.md`](transverse-edge-event-and-cap-cut-constraints.md):
   exact local research packets for edge-event and cap-cut necessary
   conditions; not a global obstruction.
+- [`artifact-provenance-policy.md`](artifact-provenance-policy.md): managed and
+  archived artifact inventories, the canonical `trust_class` field, and the
+  native-trust mapping policy enforced by
+  [`../scripts/check_artifact_provenance.py`](../scripts/check_artifact_provenance.py).
+- [`round2/do_not_repeat_round3.md`](round2/do_not_repeat_round3.md): explicit
+  do-not-repeat list carried out of round two, including the scope limits on
+  the C19 Kalmanson certificate.
+- [`index.html`](index.html): published landing page for the GitHub Pages site
+  that serves this directory; explanatory aids only, not proof certificates.
 
 ## Planning and provenance
 
@@ -1185,3 +1380,42 @@ put detailed reconciliation in the canonical synthesis.
 - [`repo-roadmap.md`](repo-roadmap.md): staged repository plan.
 - [`initial-issues.md`](initial-issues.md): seed issue list.
 - [`../AGENTS.md`](../AGENTS.md): repository-level Codex guidance.
+- [`codex-backlog.md`](codex-backlog.md): Codex-ready task backlog with issue
+  links, commands, acceptance criteria, trust deltas, and forbidden
+  overclaiming text; operational planning guidance only.
+- [`public-provenance.md`](public-provenance.md): map from historical private
+  archive labels to public, checked-in references; a reviewability aid that
+  promotes no claim.
+- [`open-issue-resolution-crosswalk.md`](open-issue-resolution-crosswalk.md):
+  historical acceptance-evidence crosswalk for the four legacy GitHub issues
+  closed on 2026-05-17; repository bookkeeping only.
+- [`research-directions-2026-05-19.md`](research-directions-2026-05-19.md):
+  prioritized next directions with deliberately weak trust labels; planning
+  guidance and proof-mining design, not mathematical evidence.
+- [`research-engine-audit-fixes.md`](research-engine-audit-fixes.md): software
+  and workflow changes to the search preflight, feasible-region objective, and
+  scope controls; explicitly not a stronger mathematical claim.
+- [`negative-results-2026-05-06.md`](negative-results-2026-05-06.md): archived
+  CI-clean subset of the 2026-05-06 negative diagnostics;
+  `REVIEW_PENDING_PROVENANCE`.
+- [`erdos97-attack-2026-05-05.md`](erdos97-attack-2026-05-05.md): multi-agent
+  attack report for the `n=8`/`n=9` finite-case work; historical provenance,
+  carrying its own supersession notes.
+- [`erdos97-attack-2026-07-10.md`](erdos97-attack-2026-07-10.md): bounded
+  multi-agent session record; every claim is proved in a linked note,
+  replayable by a linked checker, or labelled a negative search result.
+- [`n8-geometric-proof-review-2026-07-10.md`](n8-geometric-proof-review-2026-07-10.md):
+  written review record for the octagon proof note; review input for the
+  maintainer's decision intake, not an external human review.
+- [`turn-inequality-lemma-proof-2026-07-10.md`](turn-inequality-lemma-proof-2026-07-10.md):
+  written proof record for the turn-inequality lemma, recorded as review input
+  while the lemma note keeps its own review-requested status.
+- [`two-orbit-circulant-obstruction-review-2026-07-10.md`](two-orbit-circulant-obstruction-review-2026-07-10.md):
+  written review record for the two-orbit circulant lemma draft, covering its
+  review-pending prose steps and replaying its machine layer.
+- [`danzer18-doubling-failed-approach.md`](danzer18-doubling-failed-approach.md):
+  `FAILED_APPROACH` certificate for the `C3`-equivariant doubled-Danzer 18-gon
+  route at its 2026-07 base family.
+- [`reports/danzer18-continuation-run-2026-07-22.md`](reports/danzer18-continuation-run-2026-07-22.md):
+  the decisive continuation run behind that failed approach, with the
+  first-order census reproduction and follow-up family diagnostics.

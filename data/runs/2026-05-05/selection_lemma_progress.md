@@ -1,5 +1,21 @@
 # Selection Lemma Progress: Canonical-Chord-Rule Injectivity Analysis
 
+Date: 2026-05-05. Historical run memo, retained as provenance for a route that
+was later closed. Not a live claim.
+
+**Superseded.** The noncrossing half of this memo is now exactly false. The memo
+reports the canonical-chord-rule chord set as "ALWAYS noncrossing (zero failures
+in 1,935 tests)" and treats it as a provable ingredient. An exact rational
+strictly convex decagon with two bad centers whose canonical shortest witness
+chords cross rejects that purely local noncrossing claim for this deterministic
+rule; see `docs/canonical-shortest-chord-crossing-control.md`. The Selection
+Lemma program therefore needs a different assignment or an extra global
+hypothesis, as recorded in `docs/canonical-synthesis.md` (section 5.3) and
+`docs/selection-lemma-asymmetric-kite-conditional.md`. The injectivity analysis
+below is unaffected by that refutation and remains conditional, and the memo's
+own conclusion was already explicitly conditional on both ingredients being
+proven. Numbers and verdicts below are as written on 2026-05-05.
+
 ## Summary of findings
 
 The canonical-chord-rule injectivity conjecture for Erdős #97 (§5.3 of canonical-synthesis.md)

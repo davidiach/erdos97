@@ -41,6 +41,7 @@ Run the fast tier after documentation or code changes:
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
 python scripts/check_artifact_provenance.py
+python scripts/check_docs_index_coverage.py
 python scripts/generate_makefile_verify_targets.py --check
 git diff --check
 python -m ruff check .
@@ -57,6 +58,18 @@ The same fast tier is available as:
 ```bash
 make verify-fast
 ```
+
+After changing anything under `lean/`, or the root `lakefile.lean`,
+`lake-manifest.json`, or `lean-toolchain`, also run the Lean tier:
+
+```bash
+make verify-lean
+```
+
+It checks the sketch boundaries and compiles every Lean source. Without a Lean
+toolchain on `PATH` the compile step is skipped rather than failed, so say so
+if that is what happened; `.github/workflows/lean.yml` runs it with the pinned
+toolchain and `--require-lean`. See `docs/formalization.md`.
 
 For finite-case or public theorem-style artifact changes, also run the
 artifact tier or explain exactly which command could not be run and why:

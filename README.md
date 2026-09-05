@@ -292,7 +292,7 @@ near-misses are not counterexamples.
 ## Trust labels
 
 The repo uses explicit labels so that proof, computation, and exploration do
-not blur together:
+not blur together. The list below is the coarse, reader-facing summary:
 
 - `THEOREM` / `LEMMA`: proved local statements.
 - `MACHINE_CHECKED_FINITE_CASE_ARTIFACT`: checked finite-case result in the
@@ -304,6 +304,16 @@ not blur together:
   mathematics.
 - `COUNTEREXAMPLE_CANDIDATE`: requires independent verification and is not a
   counterexample claim.
+
+These reader-facing names are not the values stored in the artifact manifest.
+Generated artifacts in [`metadata/generated_artifacts.yaml`](metadata/generated_artifacts.yaml)
+carry a canonical `trust_class` drawn from a closed set of twelve values that
+[`scripts/check_artifact_provenance.py`](scripts/check_artifact_provenance.py)
+enforces; those values are listed and glossed in
+[`docs/artifact-provenance-policy.md`](docs/artifact-provenance-policy.md).
+The `Status:` header on an individual note in `docs/` is free-form prose and is
+not validated against either list. Where they differ, an artifact's
+`trust_class` and `claim_scope` govern.
 
 See [`docs/claims.md`](docs/claims.md) and
 [`docs/verification-contract.md`](docs/verification-contract.md) for the
@@ -320,6 +330,8 @@ proof-facing standard.
 |   `-- erdos97.yaml          # canonical status metadata snapshot
 |-- docs/                     # proofs, audits, provenance, and planning notes
 |-- src/erdos97/              # reusable search and verification code
+|-- cpp/                      # portable C++ search and replay sources
+|-- lean/                     # Lean proof-sketch pilot; see docs/formalization.md
 |-- scripts/                  # command-line checkers and generators
 |-- tests/                    # pytest coverage for code and artifacts
 |-- data/                     # checked JSON artifacts and numerical runs
@@ -346,14 +358,15 @@ If `make` is not available, run the fast tier directly:
 python scripts/check_text_clean.py
 python scripts/check_status_consistency.py
 python scripts/check_artifact_provenance.py
+python scripts/check_docs_index_coverage.py
 python scripts/generate_makefile_verify_targets.py --check
 git diff --check
 python -m ruff check .
 python -m pytest -q
 ```
 
-`make verify-lint` runs the sub-minute text/status/provenance/ruff tier without
-pytest. The registry-backed Makefile verify targets (`verify-n8`,
+`make verify-lint` runs the sub-minute text/status/provenance/docs-index/ruff
+tier without pytest. The registry-backed Makefile verify targets (`verify-n8`,
 `verify-kalmanson`, `verify-n9-review`, `verify-bridge-frontier`,
 `verify-n10-review`) are generated from
 [`scripts/audit_commands.json`](scripts/audit_commands.json); edit that file
@@ -480,9 +493,10 @@ Please avoid presenting numerical near-equalities as counterexamples.
 
 ## License and citation
 
-Code is licensed under the MIT License. Research notes, documentation, data
-artifacts, issue templates, and certificate templates are licensed under
-CC-BY-4.0. See [`LICENSE.md`](LICENSE.md).
+Code is licensed under the MIT License, including the C++ sources in `cpp/`
+and the Lean pilot in `lean/`. Research notes, documentation, data artifacts,
+issue templates, and certificate templates are licensed under CC-BY-4.0. See
+[`LICENSE.md`](LICENSE.md) for the exact split.
 
 If you use this repository, please cite it using
 [`CITATION.cff`](CITATION.cff).
