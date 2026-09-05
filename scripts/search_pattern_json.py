@@ -19,6 +19,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, required=True, help="JSON pattern or mined motif artifact")
     parser.add_argument("--name", help="override pattern name")
+    parser.add_argument("--preflight-only", action="store_true")
+    parser.add_argument("--allow-obstructed", action="store_true",
+                        help="explicitly run an impossible benchmark")
+    parser.add_argument("--penalty", choices=["hinge", "legacy-softplus"], default="hinge")
     parser.add_argument("--mode", choices=["polar", "direct", "support"], default="polar")
     parser.add_argument("--optimizer", choices=["trf", "slsqp"], default="slsqp")
     parser.add_argument("--restarts", type=int, default=20)
@@ -30,7 +34,10 @@ def main() -> int:
     parser.add_argument("--json", action="store_true", help="print compact JSON summary")
     args = parser.parse_args()
 
-    name, rows = load_pattern_json(args.input)
+    try:
+        name, rows = load_pattern_json(args.input)
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        parser.error(str(exc))
     if args.name:
         name = args.name
     pattern = PatternInfo(
@@ -41,6 +48,15 @@ def main() -> int:
         formula=str(args.input),
         notes="loaded from selected-witness JSON; numerical evidence only",
     )
+    from erdos97.search_preflight import preflight
+
+    try:
+        report = preflight(pattern.n, pattern.S)
+    except (ValueError, TypeError) as exc:
+        parser.error(str(exc))
+    if args.preflight_only or (report["status"] == "obstructed" and not args.allow_obstructed):
+        print(json.dumps(report, indent=2, sort_keys=True))
+        return 1 if report["status"] == "obstructed" else 0
     try:
         result = search_pattern(
             pattern,
@@ -50,7 +66,11 @@ def main() -> int:
             max_nfev=args.max_nfev,
             optimizer=args.optimizer,
             margin=args.margin,
+            allow_obstructed=args.allow_obstructed,
+            penalty=args.penalty,
         )
+    except ValueError as exc:
+        parser.error(str(exc))
     except RuntimeError as exc:
         summary = {
             "pattern_name": name,
@@ -85,6 +105,10 @@ def main() -> int:
             "min_pair_distance",
             "success",
             "elapsed_sec",
+            "preflight",
+            "benchmark_only",
+            "objective",
+            "feasible_at_margin",
         ]
     }
     summary["interpretation"] = (

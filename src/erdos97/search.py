@@ -667,10 +667,18 @@ def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
     symmetry is imposed on cyclic patterns -- the parameterization gives free
     angles and free radii.
     """
+    if not math.isfinite(margin) or margin <= 0:
+        raise ValueError("margin must be finite and positive")
+    if restarts < 1 or max_nfev < 1:
+        raise ValueError("restarts and max_nfev must be positive")
     checked_preflight(pat, allow_obstructed)
     rng = np.random.default_rng(seed)
     n = pat.n
     S = pat.S
+    # Optimize slightly inside the requested region so solver roundoff at an
+    # active constraint does not discard every restart. Acceptance below still
+    # checks the original margin without any tolerance relaxation.
+    solver_margin = margin + max(1e-9, margin * 1e-6)
 
     def loss(x: Array) -> float:
         r = equality_residual(x, n, S, mode)
@@ -678,18 +686,18 @@ def slsqp_search(pat: PatternInfo, mode: str, restarts: int, seed: int,
 
     def convexity_constraint(x: Array) -> Array:
         P = polygon_from_x(x, n, mode)
-        return convexity_margins(P) - margin
+        return convexity_margins(P) - solver_margin
 
     def edge_constraint(x: Array) -> Array:
         P = polygon_from_x(x, n, mode)
         ed = np.linalg.norm(np.roll(P, -1, axis=0) - P, axis=1)
-        return ed - margin
+        return ed - solver_margin
 
     def pair_constraint(x: Array) -> Array:
         P = polygon_from_x(x, n, mode)
         D = pairwise_distances(P)
         iu = np.triu_indices(n, 1)
-        return D[iu] - margin
+        return D[iu] - solver_margin
 
     constraints = [
         {"type": "ineq", "fun": convexity_constraint},

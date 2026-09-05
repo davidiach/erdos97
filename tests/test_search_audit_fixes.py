@@ -166,3 +166,39 @@ def test_boolean_heuristics_are_opt_in():
     defaults = inspect.signature(search.z3_incidence_search).parameters
     assert defaults["balance_indegree"].default is False
     assert defaults["symmetry_break"].default is False
+
+
+def test_json_wrapper_reports_exact_preflight_without_traceback(tmp_path):
+    path = tmp_path / "pattern.json"
+    pattern = search.circulant_pattern(12, [-5, -2, 2, 5])
+    path.write_text(json.dumps({"n": 12, "S": pattern.S}))
+    for extra in ([], ["--preflight-only"]):
+        result = subprocess.run([sys.executable, "scripts/search_pattern_json.py",
+                                 "--input", str(path), "--json", *extra],
+                                text=True, capture_output=True, check=False)
+        assert result.returncode == 1
+        assert json.loads(result.stdout)["reason"] == "crossing_bisector"
+        assert "Traceback" not in result.stderr
+
+
+def test_json_wrapper_records_explicit_benchmark(tmp_path):
+    path = tmp_path / "pattern.json"
+    pattern = search.circulant_pattern(12, [-5, -2, 2, 5])
+    path.write_text(json.dumps({"S": pattern.S}))
+    result = subprocess.run([sys.executable, "scripts/search_pattern_json.py",
+                             "--input", str(path), "--json", "--allow-obstructed",
+                             "--optimizer", "trf", "--restarts", "1", "--max-nfev", "1"],
+                            text=True, capture_output=True, check=False)
+    assert result.returncode == 0, result.stderr
+    data = json.loads(result.stdout)
+    assert data["benchmark_only"] is True
+    assert data["preflight"]["status"] == "obstructed"
+    assert data["objective"] == "feasibility_hinge"
+
+
+def test_feasibility_does_not_relax_requested_margin():
+    margin = 1e-3
+    diag = dict(convexity_margin=margin, min_edge_length=1.0, min_pair_distance=1.0)
+    assert search.feasible_at_margin(diag, margin)
+    diag["convexity_margin"] = np.nextafter(margin, 0.0)
+    assert not search.feasible_at_margin(diag, margin)

@@ -36,6 +36,12 @@ search entry points preflight before invoking an optimizer. Malformed input
 cannot be bypassed. An explicit `--allow-obstructed` emits a warning and sets
 `benchmark_only=true` in the result, while retaining the obstruction evidence.
 
+The existing `scripts/search_pattern_json.py --input ...` wrapper provides
+the same `--preflight-only`, `--allow-obstructed`, and `--penalty` controls.
+An obstructed input emits the exact preflight JSON and exits 1 before search;
+an explicit benchmark includes its preflight and benchmark provenance in the
+compact JSON summary as well as the saved result.
+
 For an intentionally impossible legacy benchmark:
 
 ```sh
@@ -60,6 +66,9 @@ comparisons. Restart selection now prefers independently measured feasible
 coordinates and then relative/absolute equality error, rather than the combined
 objective alone. It rejects nonfinite results. The SLSQP path rechecks margins
 and recomputes equality loss instead of trusting the optimizer's cached score.
+Its optimizer constraints use a small inward buffer to avoid roundoff at active
+constraints; final acceptance still requires the original requested margin
+without relaxing it.
 `success` remains an optimizer/termination diagnostic, not proof or equality
 certification; `feasible_at_margin`, `objective`, `benchmark_only`, and
 `preflight` make the distinctions explicit in result JSON.

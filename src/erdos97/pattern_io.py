@@ -22,7 +22,9 @@ def _rows_from_candidate(raw: Any) -> Pattern | None:
 
     try:
         if all(len(row) == 4 for row in raw):
-            rows = [[int(label) for label in row] for row in raw]
+            if any(type(label) is not int for row in raw for label in row):
+                return None
+            rows = [list(row) for row in raw]
         elif all(all(value in (0, 1, False, True) for value in row) for row in raw):
             rows = rows_from_zero_one_matrix(raw)
             rows = [rows[center] for center in range(len(rows))]
