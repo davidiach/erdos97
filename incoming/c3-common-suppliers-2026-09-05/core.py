@@ -41,13 +41,13 @@ class OrbitPairs:
         representatives: dict[tuple[int, int, int], tuple[int, int]] = {}
         for a, b in self.pairs:
             i, k = a % m, a // m
-            j, l = b % m, b // m
+            j, ll = b % m, b // m
             if i == j:
                 key = (i, i, 0)
             elif i < j:
-                key = (i, j, (l - k) % 3)
+                key = (i, j, (ll - k) % 3)
             else:
-                key = (j, i, (k - l) % 3)
+                key = (j, i, (k - ll) % 3)
             if key not in self.classes:
                 self.classes[key] = len(self.classes)
                 representatives[key] = (a, b)
