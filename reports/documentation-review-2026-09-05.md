@@ -32,8 +32,9 @@ The findings below are consistency, coverage, and staleness items. None of them
 is a claim-integrity defect, and none of them requires a status change.
 
 Counts: **Critical 0, High 0, Medium 3, Low 6, Informational 3.** All three
-Medium findings have since been fixed on this branch; the Low and
-informational ones remain open.
+Medium findings and five of the six Low ones have since been fixed on this
+branch. D5 (the length of `STATE.md`) and the three informational items
+remain open.
 
 ---
 
@@ -204,6 +205,10 @@ prevents it drifting again.
   (`[tool.ruff.lint] select = ["E4", "E7", "E9", "F"]`), or bound the dev-extra
   version. Either makes the documented command mean what the docs say it means.
 
+**Resolved in `1207ee9`**: `pyproject.toml` now pins
+`[tool.ruff.lint] select = ["E4", "E7", "E9", "F"]`, and `python -m ruff check .`
+passes on ruff 0.16.6. `E402` was confirmed load-bearing before pinning.
+
 #### D5 - `STATE.md` has outgrown the role every doc assigns it
 
 - Location: `STATE.md:5`; `README.md:60`; `README.md:317`; `docs/index.md:3`;
@@ -246,6 +251,9 @@ prevents it drifting again.
 - Suggested fix: add a superseded banner pointing at
   `docs/canonical-shortest-chord-crossing-control.md`.
 
+**Resolved in `1207ee9`**: the memo now carries a dated superseded banner
+naming the refutation. The historical body is unaltered.
+
 #### D7 - `unclassified.md` is orphaned from the provenance layer
 
 - Location: `unclassified.md`; `docs/public-provenance.md:132-143`.
@@ -259,6 +267,8 @@ prevents it drifting again.
   `README.md` nor `docs/index.md`.
 - Suggested fix: add it to the `docs/public-provenance.md` list beside its three
   siblings.
+
+**Resolved in `1207ee9`**.
 
 #### D8 - The Lean subproject is invisible from `README.md` and `AGENTS.md`
 
@@ -278,6 +288,9 @@ prevents it drifting again.
 - Suggested fix: add `make verify-lean` to the `AGENTS.md` test commands and
   name `lean/` in the `README.md` repository map.
 
+**Resolved in `1207ee9`**: both done, with a note that the compile step skips
+rather than fails when no Lean toolchain is on `PATH`.
+
 #### D9 - `LICENSE.md`'s code clause omits `cpp/` and `lean/`
 
 - Location: `LICENSE.md:5-6`; `README.md:483-485`.
@@ -292,6 +305,9 @@ prevents it drifting again.
   not resolve it.
 - `README.md:483-485` repeats the same split, so the gap is reproduced there.
 - Suggested fix: extend the MIT clause to `cpp/` and `lean/`.
+
+**Resolved in `1207ee9`**: the MIT clause now names `cpp/`, `lean/`, and the
+root Lean build files, and `README.md` matches.
 
 ### Informational
 
