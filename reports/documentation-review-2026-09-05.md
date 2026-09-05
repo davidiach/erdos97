@@ -31,8 +31,9 @@ the `n=9`/`n=10` material. Two findings from earlier reviews are now fixed
 The findings below are consistency, coverage, and staleness items. None of them
 is a claim-integrity defect, and none of them requires a status change.
 
-Counts: **Critical 0, High 0, Medium 3, Low 6, Informational 3.** D1 and D2
-have since been fixed on this branch; the rest remain open.
+Counts: **Critical 0, High 0, Medium 3, Low 6, Informational 3.** All three
+Medium findings have since been fixed on this branch; the Low and
+informational ones remain open.
 
 ---
 
@@ -171,6 +172,11 @@ is a maintainer decision and is left open in both the note and the policy.
 - Suggested fix: backfill entries for the claim-scope-relevant changes since
   2026-07-23, starting with the equilateral-nonagon theorem and the
   status-transition contract.
+
+**Resolved in `d76368a`** on this branch: nine dated entries now cover the
+window, written from the merged notes and certificates rather than from commit
+subjects. The changelog remains hand-maintained, so unlike D1 and D2 no gate
+prevents it drifting again.
 
 ### Low
 
