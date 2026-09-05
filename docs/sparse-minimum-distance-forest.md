@@ -284,7 +284,8 @@ two boundary neighbours are already in that class.
 
 The forest has at most `n_R-c_R` internal edges. Internal edges account for at
 most `2(n_R-c_R)` centre-to-witness incidences. Therefore the number `B_R` of
-incidences from centres in `X_R` to vertices outside `X_R` obeys
+non-boundary witness incidences from centres in `X_R` to vertices outside
+`X_R` obeys
 
 \[
 B_R\ge d n_R-2(n_R-c_R)

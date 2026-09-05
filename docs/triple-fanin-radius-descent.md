@@ -25,7 +25,7 @@ assume
 
 Assume also that:
 
-1. `T` is not adjacent on the polygon boundary to any `Y_i`;
+1. `T,Y_1,Y_2,Y_3` are pairwise nonconsecutive on the polygon boundary;
 2. the boundary side at `T` entering the arc from `Y_3` to `T` has length
    `a>0`, while the boundary side at `T` leaving toward `Y_1` has length
    `b>0`;
@@ -74,7 +74,8 @@ T\to Y_1,\quad Y_1\to Y_2,\quad
 Y_2\to Y_3,\quad Y_3\to T.
 \]
 
-The two middle arcs begin and end with boundary sides of length `R`, so each
+The two middle arcs begin and end with distinct boundary sides of length `R`
+by the pairwise nonconsecutiveness hypothesis, so each
 has total length at least `2R`. Since the chord `Y_iY_{i+1}` has length
 
 \[
@@ -165,8 +166,9 @@ radius-`R` witness for three centres in
 X_R=\{E_i:\rho_i=R\}.
 \]
 
-The three source centres all have their two incident sides of length `R`, so
-the hypotheses above hold.
+The three source centres are pairwise nonconsecutive and all have their two
+incident sides of length `R`. Since `T` is extra at all three, it is adjacent
+to none of them, so the hypotheses above hold.
 
 - If `T=E_j`, both incident sides at `T` have length `rho_j`. Therefore
 
@@ -181,8 +183,8 @@ the hypotheses above hold.
   \min(\rho_j,\rho_{j+1})<(\sqrt2-1)R.                 \tag{10}
   \]
 
-Thus every triple-fan-in target identifies an adjacent `E`-centre whose
-selected boundary radius drops by the uniform factor `sqrt(2)-1`.
+Thus every triple-fan-in target identifies an `E`-centre (the target itself
+or a boundary neighbour) whose selected boundary radius drops by the uniform factor `sqrt(2)-1`.
 
 ## 3. Consequences
 
@@ -196,8 +198,8 @@ extra-target cap of two from `docs/radius-level-linear-forest.md`.
 ### No triple-fan-in radius cycle
 
 Create a directed dependency from a radius level `R` to a radius level `S`
-whenever a triple-fan-in target at level `R` selects an adjacent centre of
-radius `S` as supplied by (9) or (10). Every such edge obeys
+whenever a triple-fan-in target at level `R` selects the target centre itself
+or an adjacent centre of radius `S` as supplied by (9) or (10). Every such edge obeys
 
 \[
 S<(\sqrt2-1)R.
@@ -217,10 +219,10 @@ This is a genuine metric descent rather than an incidence-only ordering.
 At a fixed level `R`, the general fan-in lemma permits at most three source
 centres per target. The present result divides the targets into two classes:
 
-- targets not adjacent to a centre of radius below `(sqrt(2)-1)R` have
-  capacity at most two;
-- capacity three is possible only by paying for a uniformly smaller adjacent
-  radius.
+- targets that neither are nor are adjacent to an `E`-centre of radius below
+  `(sqrt(2)-1)R` have capacity at most two;
+- capacity three is possible only by paying for a uniformly smaller radius at
+  the target centre itself or at an adjacent `E`-centre.
 
 This supplies a natural charging rule for future global counting arguments.
 
@@ -229,6 +231,10 @@ This supplies a natural charging rule for future global counting arguments.
 The argument requires all three source incidences to be non-boundary
 incidences. If `T` is a boundary neighbour of one source, one end detour may
 contain only one side and the coefficient in (2) changes.
+
+The source vertices must also be pairwise nonconsecutive: otherwise a middle
+arc can be a single side of length `R`, and the `2R` detour estimate used in
+(4) does not follow. Alternating `E`-centres satisfy this automatically.
 
 The result also says nothing directly about targets receiving only one or two
 incidences. A global proof still needs to control those low-fan-in exports or

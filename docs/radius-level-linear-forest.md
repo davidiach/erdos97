@@ -268,7 +268,7 @@ neighbours.
 
 ## 6. Arithmetic replay
 
-The exact replay in `src/erdos97/sparse_minimum_distance_forest.py` records the
+The exact replay in `src/erdos97/radius_level_advanced_arithmetic.py` records the
 coefficient facts used here:
 
 ```text
@@ -281,7 +281,7 @@ coefficient facts used here:
 Run:
 
 ```bash
-python scripts/check_sparse_minimum_distance_forest.py \
+python scripts/check_radius_level_advanced_arithmetic.py \
   --max-cycle-length 512 \
   --assert-expected \
   --summary-json
