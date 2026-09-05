@@ -1,0 +1,89 @@
+{
+  "certificate_audit": {
+    "angle_terms": 24343,
+    "cases": 632,
+    "certificates_sha256": "85ad0f1f76bcbdc80c63d39fe88d77e91f831756b02ce24a971798c958571fe8",
+    "frontier_sha256": "8c40d0283ca9c7dd6cb29d777d04ad99b84a086e8979b860f8a00a606fca660d",
+    "integer_angle_certificates": 632,
+    "obtuse_base_certificates": 369,
+    "scope": "stored frontier and exact certificate validation, not exhaustive regeneration"
+  },
+  "controls": {
+    "four_orbit_order_inequality": {
+      "arrow_C_to_A": true,
+      "exact_convexity": true,
+      "strict_squared_distance_margin": "108289137/1430637325",
+      "vertices": 12
+    },
+    "irrational_three_cycle": {
+      "exact_convexity": true,
+      "exact_right_angles": true,
+      "maximum_multiplicity_distribution": {
+        "3": 9
+      },
+      "rational_angle_relaxation_feasible": true,
+      "rows": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "vertices": 9
+    },
+    "two_suppliers_one_center": {
+      "exact_convexity": true,
+      "exact_right_angles": true,
+      "maximum_multiplicity_distribution": {
+        "2": 6,
+        "4": 3
+      },
+      "rational_angle_relaxation_feasible": true,
+      "rows": [
+        [
+          1,
+          1,
+          2,
+          1
+        ],
+        [],
+        []
+      ],
+      "vertices": 9
+    }
+  },
+  "eight_orbit_slices_per_implementation": 21,
+  "eight_orbit_totals": {
+    "oracle": {
+      "metric_prunes": 2814662,
+      "nodes": 11415572,
+      "pair_dead": 0,
+      "radius_prunes": 2459965,
+      "shortcut_prunes": 5698856,
+      "survivors": 632
+    },
+    "primary": {
+      "metric_prunes": 2814662,
+      "nodes": 11415572,
+      "pair_dead": 0,
+      "radius_prunes": 2459965,
+      "shortcut_prunes": 5698856,
+      "survivors": 632
+    }
+  },
+  "no_unrestricted_solution_claimed": true,
+  "schema": 1,
+  "scope": "own-side C3 systems through eight orbits only",
+  "source_sha256": {
+    "oracle.cpp": "0893172729a042d99341cb54408e42e0ade7a529e3b95fb786cb08098cad0ea2",
+    "search.cpp": "d8d5cd730500c5a281f6604dd660252cc919920cb45b9515f3a072918d2c9862"
+  },
+  "status": "REVIEW_PENDING_RESTRICTED_COMPUTER_ASSISTED_OBSTRUCTION"
+}

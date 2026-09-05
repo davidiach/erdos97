@@ -1,0 +1,66 @@
+{
+  "files": {
+    "README.md": {
+      "bytes": 18705,
+      "sha256": "36a26231682acaf674d6adfa48bc87bba5412a79d544cf1985d2ddc20c8a08f4"
+    },
+    "build_report.py": {
+      "bytes": 2951,
+      "sha256": "08e0d9ea496ab3e07775ee381e53ac845b2fcb5f7b2b9b26f4f7f04235b8e60e"
+    },
+    "c3_eight_angles.py": {
+      "bytes": 4849,
+      "sha256": "9d95221fe0937283030a792430695f60247e43508aee679011ba9a955b08e849"
+    },
+    "c3_eight_check.py": {
+      "bytes": 13460,
+      "sha256": "386eff84d3d3a6be5554460c088e6fde8b0475195296d9443bf77f0789752c65"
+    },
+    "c3_eight_controls.py": {
+      "bytes": 5783,
+      "sha256": "bb05c67b7425353da6977d77ea7b9613ca7834e31f18b12f7a42ec9fbd8d3a31"
+    },
+    "certificates.json": {
+      "bytes": 898257,
+      "sha256": "4ad3e0846ab131d26c4262b1326181a8659fa78974300abd17893ae770506e4f"
+    },
+    "generate_certificates.py": {
+      "bytes": 2960,
+      "sha256": "aff903402454239ccc66109ccec8e0cb6083f2f525ee1fc840ed6fd7ad5eba27"
+    },
+    "oracle.cpp": {
+      "bytes": 8742,
+      "sha256": "0893172729a042d99341cb54408e42e0ade7a529e3b95fb786cb08098cad0ea2"
+    },
+    "positive_angle_vectors.json": {
+      "bytes": 321,
+      "sha256": "494b7890999ddee465cfb19b12edff14bdb3e71fec8bd4f0c5bc9e7c25f06e2e"
+    },
+    "replay.py": {
+      "bytes": 6649,
+      "sha256": "80103b59c4caac55366f0735bc85582ca7812e74336169c81d2c551caa614362"
+    },
+    "report.json": {
+      "bytes": 2273,
+      "sha256": "9b528d3ce0e5ddf2dbe4ac1c3d881452fef686b6bcbae20761547be6923a6d79"
+    },
+    "runs.json": {
+      "bytes": 23958,
+      "sha256": "993869263f32e98538d373e9072268fd588d2dd472a4158913d0637c90da6765"
+    },
+    "search.cpp": {
+      "bytes": 8930,
+      "sha256": "d8d5cd730500c5a281f6604dd660252cc919920cb45b9515f3a072918d2c9862"
+    },
+    "test_c3_eight.py": {
+      "bytes": 9026,
+      "sha256": "ab9c9113838af31ad4d87a5d36d413f2ed73640787cad732a26ece1261814bc2"
+    },
+    "validation.json": {
+      "bytes": 2303,
+      "sha256": "1f534efedef4f5fd93e481effff0a0b6bc2bcf28c47e94f3e76980d2ce279713"
+    }
+  },
+  "schema": 1,
+  "scope": "byte integrity only; not mathematical validation"
+}
