@@ -31,7 +31,8 @@ the `n=9`/`n=10` material. Two findings from earlier reviews are now fixed
 The findings below are consistency, coverage, and staleness items. None of them
 is a claim-integrity defect, and none of them requires a status change.
 
-Counts: **Critical 0, High 0, Medium 3, Low 6, Informational 3.** D1 has since been fixed on this branch; the rest remain open.
+Counts: **Critical 0, High 0, Medium 3, Low 6, Informational 3.** D1 and D2
+have since been fixed on this branch; the rest remain open.
 
 ---
 
@@ -115,10 +116,12 @@ backfilled. The finding is kept here as the record of why the gate exists.
   `MACHINE_CHECKED_FINITE_CASE_ARTIFACT`, `EXACT_OBSTRUCTION`,
   `NUMERICAL_EVIDENCE`, `HEURISTIC`/`CONJECTURE`, `COUNTEREXAMPLE_CANDIDATE`.
 - `scripts/check_artifact_provenance.py` enforces a different, closed set of 12
-  canonical `trust_class` values across the 274 manifest artifacts in
+  canonical `trust_class` values across the 245 managed artifacts in
   `metadata/generated_artifacts.yaml`. The most common by far,
-  `REVIEW_PENDING_DIAGNOSTIC` (163 artifacts, about 60%), does not appear in the
-  `README.md` taxonomy at all.
+  `REVIEW_PENDING_DIAGNOSTIC` (154 artifacts, 63%), does not appear in the
+  `README.md` taxonomy at all. (Corrected: the first version of this report
+  said 274 artifacts and 163, which counted `trust_class` occurrences in the
+  YAML, including the 29 inside `native_trust_policy` overrides.)
 - The prose notes use a third vocabulary: of the 390 documents under `docs/`
   that carry a `Status:`/`Trust labels:` header, the headers contain 79 distinct
   label tokens. 53 of those are used exactly once, and 67 appear in neither the
@@ -138,6 +141,14 @@ backfilled. The finding is kept here as the record of why the gate exists.
   reader-facing labels are a coarsening of that set, and say explicitly whether
   per-note `Status:` headers are free-form prose or are meant to be drawn from
   the canonical set.
+
+**Resolved in `9bb4ad4`** on this branch, except for one deliberately open
+question. The canonical set is now enumerated and glossed in
+`docs/artifact-provenance-policy.md`, `README.md` records how the three
+vocabularies relate, and `scripts/check_artifact_provenance.py` fails if the
+documented set and `KNOWN_TRUST_CLASSES` ever diverge. Whether per-note
+`Status:` headers should stay free-form or be constrained to the canonical set
+is a maintainer decision and is left open in both the note and the policy.
 
 #### D3 - `CHANGELOG.md` is six weeks and 123 commits stale, and omits a new restricted local theorem
 
