@@ -1,0 +1,587 @@
+{
+  "claim_scope": "Common-supplier radius interlacing; paired-supplier acyclicity; no all-own-side four-bad union of at most six C3 orbits. Not unrestricted Erdos97 or an all-radius n<=18 exclusion.",
+  "date": "2026-09-05",
+  "exact_controls": {
+    "interlacing_common_supplier_rectangle": {
+      "all_distance_classes": [
+        {
+          "12/7": 1,
+          "243/37": 1,
+          "3": 2,
+          "363/148": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "81/148": 1,
+          "84/37": 1,
+          "9/7": 1
+        },
+        {
+          "1053/148": 1,
+          "3627/1036": 1,
+          "363/148": 1,
+          "39/148": 1,
+          "507/1036": 1,
+          "741/148": 4,
+          "81/148": 1,
+          "975/148": 1
+        },
+        {
+          "1053/148": 1,
+          "1872/259": 1,
+          "243/37": 1,
+          "273/37": 2,
+          "39/148": 1,
+          "39/259": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "84/37": 1
+        },
+        {
+          "12/7": 1,
+          "1872/259": 1,
+          "3627/1036": 1,
+          "39/259": 1,
+          "39/7": 4,
+          "507/1036": 1,
+          "9/7": 1,
+          "975/148": 1
+        },
+        {
+          "12/7": 1,
+          "243/37": 1,
+          "3": 2,
+          "363/148": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "81/148": 1,
+          "84/37": 1,
+          "9/7": 1
+        },
+        {
+          "1053/148": 1,
+          "3627/1036": 1,
+          "363/148": 1,
+          "39/148": 1,
+          "507/1036": 1,
+          "741/148": 4,
+          "81/148": 1,
+          "975/148": 1
+        },
+        {
+          "1053/148": 1,
+          "1872/259": 1,
+          "243/37": 1,
+          "273/37": 2,
+          "39/148": 1,
+          "39/259": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "84/37": 1
+        },
+        {
+          "12/7": 1,
+          "1872/259": 1,
+          "3627/1036": 1,
+          "39/259": 1,
+          "39/7": 4,
+          "507/1036": 1,
+          "9/7": 1,
+          "975/148": 1
+        },
+        {
+          "12/7": 1,
+          "243/37": 1,
+          "3": 2,
+          "363/148": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "81/148": 1,
+          "84/37": 1,
+          "9/7": 1
+        },
+        {
+          "1053/148": 1,
+          "3627/1036": 1,
+          "363/148": 1,
+          "39/148": 1,
+          "507/1036": 1,
+          "741/148": 4,
+          "81/148": 1,
+          "975/148": 1
+        },
+        {
+          "1053/148": 1,
+          "1872/259": 1,
+          "243/37": 1,
+          "273/37": 2,
+          "39/148": 1,
+          "39/259": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "84/37": 1
+        },
+        {
+          "12/7": 1,
+          "1872/259": 1,
+          "3627/1036": 1,
+          "39/259": 1,
+          "39/7": 4,
+          "507/1036": 1,
+          "9/7": 1,
+          "975/148": 1
+        }
+      ],
+      "arrows": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          0,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "is_erdos97_counterexample": false,
+      "maximum_multiplicity_by_vertex": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ],
+      "minimum_scaled_orientation": "27/518",
+      "minimum_squared_separation": "39/259",
+      "radial_ranks_in_phase_order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "rational_feasible_angle_vector": [
+        "0",
+        "1",
+        "4",
+        "7",
+        "16",
+        "17",
+        "18",
+        "30",
+        "33",
+        "34",
+        "3",
+        "21/2",
+        "20",
+        "21",
+        "45/2",
+        "34",
+        "35",
+        "19",
+        "23",
+        "25",
+        "36",
+        "26",
+        "12"
+      ],
+      "representatives_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "157/148",
+          "63/148"
+        ],
+        [
+          "71/74",
+          "53/74"
+        ],
+        [
+          "4/7",
+          "5/7"
+        ]
+      ],
+      "squared_radii": [
+        "1",
+        "247/148",
+        "91/37",
+        "13/7"
+      ],
+      "supporting_edge_checks": 120,
+      "vertices": 12
+    },
+    "irrational_three_orbit_cycle_is_permitted": {
+      "all_distance_classes": [
+        {
+          "11664/18529": 1,
+          "3": 3,
+          "43923/18529": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "94791/18529": 1
+        },
+        {
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "3": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "64857/10927": 3
+        },
+        {
+          "11664/18529": 1,
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "43923/18529": 1,
+          "64857/10927": 1,
+          "94791/18529": 3
+        },
+        {
+          "11664/18529": 1,
+          "3": 3,
+          "43923/18529": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "94791/18529": 1
+        },
+        {
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "3": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "64857/10927": 3
+        },
+        {
+          "11664/18529": 1,
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "43923/18529": 1,
+          "64857/10927": 1,
+          "94791/18529": 3
+        },
+        {
+          "11664/18529": 1,
+          "3": 3,
+          "43923/18529": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "94791/18529": 1
+        },
+        {
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "3": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "64857/10927": 3
+        },
+        {
+          "11664/18529": 1,
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "43923/18529": 1,
+          "64857/10927": 1,
+          "94791/18529": 3
+        }
+      ],
+      "arrows": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          2
+        ]
+      ],
+      "is_erdos97_counterexample": false,
+      "maximum_multiplicity_by_vertex": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimum_scaled_orientation": "2302872/28923769",
+      "minimum_squared_separation": "1277184/28923769",
+      "radial_ranks_in_phase_order": [
+        0,
+        2,
+        1
+      ],
+      "rational_feasible_angle_vector": [
+        "0",
+        "4",
+        "17",
+        "18",
+        "19",
+        "31",
+        "34",
+        "17",
+        "22",
+        "24",
+        "35",
+        "25",
+        "12"
+      ],
+      "representatives_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "13369/10927",
+          "4378/10927"
+        ],
+        [
+          "19231/18529",
+          "8478/18529"
+        ]
+      ],
+      "squared_radii": [
+        "1",
+        "21619/10927",
+        "31597/18529"
+      ],
+      "supporting_edge_checks": 63,
+      "two_cos_double_angle_rational_nonintegers": [
+        "-472406401/236230813",
+        "-507451129/1020595849",
+        "824040599/585460813"
+      ],
+      "vertices": 9
+    }
+  },
+  "external_mathematical_review_claimed": false,
+  "graph_replay": {
+    "finite_coverage": [
+      {
+        "copair_obstructions": [],
+        "no_shortcut_survivors": [],
+        "orbits": 3,
+        "stats": {
+          "nodes": 2
+        },
+        "survivors_after_copair": 0
+      },
+      {
+        "copair_obstructions": [],
+        "no_shortcut_survivors": [],
+        "orbits": 4,
+        "stats": {
+          "nodes": 10,
+          "shortcut_prunes": 1
+        },
+        "survivors_after_copair": 0
+      },
+      {
+        "copair_obstructions": [],
+        "no_shortcut_survivors": [],
+        "orbits": 5,
+        "stats": {
+          "nodes": 132,
+          "shortcut_prunes": 67
+        },
+        "survivors_after_copair": 0
+      },
+      {
+        "copair_obstructions": [
+          [
+            {
+              "reason": "a source above both targets",
+              "sources": [
+                0,
+                5
+              ],
+              "targets": [
+                3,
+                4
+              ]
+            },
+            {
+              "reason": "a source above both targets",
+              "sources": [
+                3,
+                4
+              ],
+              "targets": [
+                1,
+                2
+              ]
+            }
+          ],
+          [
+            {
+              "reason": "a source above both targets",
+              "sources": [
+                3,
+                4
+              ],
+              "targets": [
+                1,
+                2
+              ]
+            }
+          ],
+          [
+            {
+              "reason": "a source above both targets",
+              "sources": [
+                3,
+                4
+              ],
+              "targets": [
+                1,
+                2
+              ]
+            }
+          ],
+          [
+            {
+              "reason": "both sources below targets",
+              "sources": [
+                0,
+                1
+              ],
+              "targets": [
+                4,
+                5
+              ]
+            },
+            {
+              "reason": "a source above both targets",
+              "sources": [
+                2,
+                3
+              ],
+              "targets": [
+                0,
+                1
+              ]
+            },
+            {
+              "reason": "a source above both targets",
+              "sources": [
+                4,
+                5
+              ],
+              "targets": [
+                2,
+                3
+              ]
+            }
+          ]
+        ],
+        "no_shortcut_survivors": [
+          [
+            24,
+            33,
+            33,
+            6,
+            6,
+            24
+          ],
+          [
+            40,
+            33,
+            33,
+            6,
+            6,
+            24
+          ],
+          [
+            48,
+            33,
+            33,
+            6,
+            6,
+            24
+          ],
+          [
+            48,
+            48,
+            3,
+            3,
+            12,
+            12
+          ]
+        ],
+        "orbits": 6,
+        "stats": {
+          "nodes": 3854,
+          "shortcut_prunes": 4753
+        },
+        "survivors_after_copair": 0
+      }
+    ],
+    "seven_orbit_guardrail": {
+      "coordinates_or_realization_claimed": false,
+      "outdegree": 2,
+      "rows": [
+        6,
+        80,
+        66,
+        65,
+        12,
+        10,
+        48
+      ],
+      "satisfies_checked_graph_rules": true
+    }
+  },
+  "local_certificate_replay": {
+    "all_integer_residuals_zero": true,
+    "certificate_types": {
+      "angle": 480,
+      "metric": 6
+    },
+    "exact_cases": 486,
+    "maximum_integer_multiplier": 210,
+    "maximum_nonzero_terms": 21
+  },
+  "repository_wide_CI_run": false,
+  "schema": "erdos97.c3_common_supplier_report.v1",
+  "source_hashes": {
+    "README.md": "e7e42c1a071ad419db30f0ed5de57c4352dd5757d9e02ba2473de704c68d4c8f",
+    "certificates.json": "16c4b51930ee44e04c694bca608e115a58d38099af149b3b9ba0f1778b890f49",
+    "check_common_suppliers.py": "aee2b26b838c31b42a389ef2325f4da2485438423191fc4ab680c4fb32a8f808",
+    "core.py": "db62aeeb3e9cf9a367e71002f98effc3c3564230ff49b1c0973e83ff10c1a7e1"
+  },
+  "status": "EXACT_CERTIFICATES_AND_FINITE_REPLAY_FOR_REVIEW_PENDING_RESTRICTED_THEOREMS"
+}

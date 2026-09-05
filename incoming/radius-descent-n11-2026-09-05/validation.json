@@ -1,0 +1,114 @@
+{
+  "artifact_validation": {
+    "scope": "stored-artifact consistency and exact controls, not exhaustive regeneration",
+    "n11_slices": 210,
+    "n11_nodes": 114344315,
+    "source_sha256": "c54766f191a022fbc0f8f653266f9373ef02fe8f4de37fcd342848a06877ab48",
+    "turn_identity": {
+      "multipliers": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "coefficient_residual": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "geometry_controls": {
+      "unequal_radius_kite": true,
+      "independence_required_square": true,
+      "side_cap_required_hexagon": true
+    },
+    "forest_only_metric_control": {
+      "forest_edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "positive_gram_minors": [
+        "10201",
+        "320464415/4",
+        "2227125383159/4",
+        "3647257216075788"
+      ],
+      "affine_dimension": 4,
+      "planar_counterexample": false,
+      "two_star_excludes_locally_bounded_extension_at": 0
+    }
+  },
+  "mode": "quick",
+  "repository_wide_CI_run": false,
+  "checks": [
+    {
+      "n11_slices_compared": [
+        0,
+        1,
+        209
+      ],
+      "counter_mismatches": 0,
+      "nodes_replayed": 740045
+    },
+    {
+      "complete_search_n": 9,
+      "nodes": 18472,
+      "survivors": 0
+    },
+    {
+      "complete_search_n": 10,
+      "nodes": 1100581,
+      "survivors": 0
+    },
+    {
+      "oracle": {
+        "n": 9,
+        "seed": 970905,
+        "states_checked": 7236,
+        "predicate_mismatches": 0
+      }
+    },
+    {
+      "incidence_calibration": {
+        "n": 9,
+        "incidence_frontier": 184,
+        "nodes": 100818
+      }
+    },
+    {
+      "oracle": {
+        "n": 11,
+        "seed": 970905,
+        "states_checked": 9906,
+        "predicate_mismatches": 0
+      }
+    },
+    {
+      "ubsan_oracle": {
+        "n": 11,
+        "seed": 970905,
+        "states_checked": 9906,
+        "predicate_mismatches": 0
+      },
+      "undefined_behavior_errors": 0
+    }
+  ],
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "status": "all requested checks passed"
+}
