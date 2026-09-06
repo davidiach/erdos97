@@ -1,0 +1,945 @@
+{
+  "schema": 1,
+  "source_sha256": {
+    "search.cpp": "d8d5cd730500c5a281f6604dd660252cc919920cb45b9515f3a072918d2c9862",
+    "oracle.cpp": "0893172729a042d99341cb54408e42e0ade7a529e3b95fb786cb08098cad0ea2"
+  },
+  "records": [
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 5,
+        "slice": -1,
+        "row0_count": 6,
+        "inequalities": 910,
+        "nodes": 148,
+        "radius_prunes": 14,
+        "shortcut_prunes": 73,
+        "metric_prunes": 35,
+        "pair_dead": 1,
+        "survivors": 0,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 0.0022909
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 6,
+        "slice": -1,
+        "row0_count": 10,
+        "inequalities": 2040,
+        "nodes": 3432,
+        "radius_prunes": 434,
+        "shortcut_prunes": 1851,
+        "metric_prunes": 779,
+        "pair_dead": 0,
+        "survivors": 0,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 0.0233219
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 7,
+        "slice": -1,
+        "row0_count": 15,
+        "inequalities": 3990,
+        "nodes": 134443,
+        "radius_prunes": 19457,
+        "shortcut_prunes": 71041,
+        "metric_prunes": 35320,
+        "pair_dead": 0,
+        "survivors": 0,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 0.975202
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 5,
+        "slice": -1,
+        "nodes": 148,
+        "survivors": 0,
+        "radius_prunes": 14,
+        "shortcut_prunes": 73,
+        "metric_prunes": 35,
+        "pair_dead": 1,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 0.00237979
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 6,
+        "slice": -1,
+        "nodes": 3432,
+        "survivors": 0,
+        "radius_prunes": 434,
+        "shortcut_prunes": 1851,
+        "metric_prunes": 779,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 0.0336278
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 7,
+        "slice": -1,
+        "nodes": 134443,
+        "survivors": 0,
+        "radius_prunes": 19457,
+        "shortcut_prunes": 71041,
+        "metric_prunes": 35320,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 1.57875
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 0,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 264105,
+        "radius_prunes": 46119,
+        "shortcut_prunes": 134789,
+        "metric_prunes": 73596,
+        "pair_dead": 0,
+        "survivors": 6,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 33.7399
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 1,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 351810,
+        "radius_prunes": 65113,
+        "shortcut_prunes": 178657,
+        "metric_prunes": 94642,
+        "pair_dead": 0,
+        "survivors": 25,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 44.3031
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 2,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 401073,
+        "radius_prunes": 78660,
+        "shortcut_prunes": 200385,
+        "metric_prunes": 106366,
+        "pair_dead": 0,
+        "survivors": 25,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 51.999
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 3,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 413726,
+        "radius_prunes": 84995,
+        "shortcut_prunes": 205319,
+        "metric_prunes": 107081,
+        "pair_dead": 0,
+        "survivors": 24,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 48.8304
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 4,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 396353,
+        "radius_prunes": 81634,
+        "shortcut_prunes": 195846,
+        "metric_prunes": 103457,
+        "pair_dead": 0,
+        "survivors": 4,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 48.8139
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 5,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 332757,
+        "radius_prunes": 62438,
+        "shortcut_prunes": 169551,
+        "metric_prunes": 88533,
+        "pair_dead": 0,
+        "survivors": 1,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 41.495
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 6,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 430756,
+        "radius_prunes": 85467,
+        "shortcut_prunes": 218138,
+        "metric_prunes": 111147,
+        "pair_dead": 0,
+        "survivors": 24,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 53.5398
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 7,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 548652,
+        "radius_prunes": 115938,
+        "shortcut_prunes": 272933,
+        "metric_prunes": 138385,
+        "pair_dead": 0,
+        "survivors": 55,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 56.9061
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 8,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 608785,
+        "radius_prunes": 134626,
+        "shortcut_prunes": 299608,
+        "metric_prunes": 150293,
+        "pair_dead": 0,
+        "survivors": 61,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 67.1129
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 9,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 611364,
+        "radius_prunes": 137122,
+        "shortcut_prunes": 300962,
+        "metric_prunes": 148958,
+        "pair_dead": 0,
+        "survivors": 12,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 67.9818
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 10,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 565995,
+        "radius_prunes": 119868,
+        "shortcut_prunes": 287627,
+        "metric_prunes": 136440,
+        "pair_dead": 0,
+        "survivors": 4,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 63.3598
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 11,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 551708,
+        "radius_prunes": 113631,
+        "shortcut_prunes": 275876,
+        "metric_prunes": 141464,
+        "pair_dead": 0,
+        "survivors": 36,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 65.4759
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 12,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 673773,
+        "radius_prunes": 150059,
+        "shortcut_prunes": 332541,
+        "metric_prunes": 164616,
+        "pair_dead": 0,
+        "survivors": 99,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 68.2028
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 13,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 719030,
+        "radius_prunes": 164955,
+        "shortcut_prunes": 353795,
+        "metric_prunes": 171539,
+        "pair_dead": 0,
+        "survivors": 61,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 70.8491
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 14,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 697426,
+        "radius_prunes": 156548,
+        "shortcut_prunes": 351315,
+        "metric_prunes": 161863,
+        "pair_dead": 0,
+        "survivors": 24,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 67.2239
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 15,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 611015,
+        "radius_prunes": 130041,
+        "shortcut_prunes": 302196,
+        "metric_prunes": 155885,
+        "pair_dead": 0,
+        "survivors": 36,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 68.8263
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 16,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 706326,
+        "radius_prunes": 160362,
+        "shortcut_prunes": 348686,
+        "metric_prunes": 169697,
+        "pair_dead": 0,
+        "survivors": 55,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 69.4978
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 17,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 729388,
+        "radius_prunes": 167643,
+        "shortcut_prunes": 365514,
+        "metric_prunes": 167307,
+        "pair_dead": 0,
+        "survivors": 25,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 73.4373
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 18,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 595715,
+        "radius_prunes": 130777,
+        "shortcut_prunes": 295908,
+        "metric_prunes": 146840,
+        "pair_dead": 0,
+        "survivors": 24,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 66.6356
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 19,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 663661,
+        "radius_prunes": 152421,
+        "shortcut_prunes": 334097,
+        "metric_prunes": 151295,
+        "pair_dead": 0,
+        "survivors": 25,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 68.6679
+      }
+    },
+    {
+      "implementation": "primary",
+      "report": {
+        "orbits": 8,
+        "slice": 20,
+        "row0_count": 21,
+        "inequalities": 7084,
+        "nodes": 542154,
+        "radius_prunes": 121548,
+        "shortcut_prunes": 275113,
+        "metric_prunes": 125258,
+        "pair_dead": 0,
+        "survivors": 6,
+        "exhausted": true,
+        "aborted": false,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "metric_enabled": true,
+        "shortcut_enabled": true,
+        "seconds": 52.394
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 0,
+        "nodes": 542154,
+        "survivors": 6,
+        "radius_prunes": 121548,
+        "shortcut_prunes": 275113,
+        "metric_prunes": 125258,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 71.4408
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 1,
+        "nodes": 663661,
+        "survivors": 25,
+        "radius_prunes": 152421,
+        "shortcut_prunes": 334097,
+        "metric_prunes": 151295,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 79.1669
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 2,
+        "nodes": 729388,
+        "survivors": 25,
+        "radius_prunes": 167643,
+        "shortcut_prunes": 365514,
+        "metric_prunes": 167307,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 81.4899
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 3,
+        "nodes": 697426,
+        "survivors": 24,
+        "radius_prunes": 156548,
+        "shortcut_prunes": 351315,
+        "metric_prunes": 161863,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 80.9926
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 4,
+        "nodes": 565995,
+        "survivors": 4,
+        "radius_prunes": 119868,
+        "shortcut_prunes": 287627,
+        "metric_prunes": 136440,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 77.9543
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 5,
+        "nodes": 332757,
+        "survivors": 1,
+        "radius_prunes": 62438,
+        "shortcut_prunes": 169551,
+        "metric_prunes": 88533,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 60.531
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 6,
+        "nodes": 595715,
+        "survivors": 24,
+        "radius_prunes": 130777,
+        "shortcut_prunes": 295908,
+        "metric_prunes": 146840,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 79.5889
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 7,
+        "nodes": 706326,
+        "survivors": 55,
+        "radius_prunes": 160362,
+        "shortcut_prunes": 348686,
+        "metric_prunes": 169697,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 81.0905
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 8,
+        "nodes": 719030,
+        "survivors": 61,
+        "radius_prunes": 164955,
+        "shortcut_prunes": 353795,
+        "metric_prunes": 171539,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 80.3558
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 9,
+        "nodes": 611364,
+        "survivors": 12,
+        "radius_prunes": 137122,
+        "shortcut_prunes": 300962,
+        "metric_prunes": 148958,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 80.5361
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 10,
+        "nodes": 396353,
+        "survivors": 4,
+        "radius_prunes": 81634,
+        "shortcut_prunes": 195846,
+        "metric_prunes": 103457,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 64.5981
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 11,
+        "nodes": 611015,
+        "survivors": 36,
+        "radius_prunes": 130041,
+        "shortcut_prunes": 302196,
+        "metric_prunes": 155885,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 78.8998
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 12,
+        "nodes": 673773,
+        "survivors": 99,
+        "radius_prunes": 150059,
+        "shortcut_prunes": 332541,
+        "metric_prunes": 164616,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 79.9319
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 13,
+        "nodes": 608785,
+        "survivors": 61,
+        "radius_prunes": 134626,
+        "shortcut_prunes": 299608,
+        "metric_prunes": 150293,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 80.5329
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 14,
+        "nodes": 413726,
+        "survivors": 24,
+        "radius_prunes": 84995,
+        "shortcut_prunes": 205319,
+        "metric_prunes": 107081,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 69.9756
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 15,
+        "nodes": 551708,
+        "survivors": 36,
+        "radius_prunes": 113631,
+        "shortcut_prunes": 275876,
+        "metric_prunes": 141464,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 75.7432
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 16,
+        "nodes": 548652,
+        "survivors": 55,
+        "radius_prunes": 115938,
+        "shortcut_prunes": 272933,
+        "metric_prunes": 138385,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 72.2916
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 17,
+        "nodes": 401073,
+        "survivors": 25,
+        "radius_prunes": 78660,
+        "shortcut_prunes": 200385,
+        "metric_prunes": 106366,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 68.4001
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 18,
+        "nodes": 430756,
+        "survivors": 24,
+        "radius_prunes": 85467,
+        "shortcut_prunes": 218138,
+        "metric_prunes": 111147,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 67.2262
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 19,
+        "nodes": 351810,
+        "survivors": 25,
+        "radius_prunes": 65113,
+        "shortcut_prunes": 178657,
+        "metric_prunes": 94642,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 63.5708
+      }
+    },
+    {
+      "implementation": "oracle",
+      "report": {
+        "orbits": 8,
+        "slice": 20,
+        "nodes": 264105,
+        "survivors": 6,
+        "radius_prunes": 46119,
+        "shortcut_prunes": 134789,
+        "metric_prunes": 73596,
+        "pair_dead": 0,
+        "exhausted": true,
+        "decision_complete": true,
+        "termination_reason": "exhausted",
+        "seconds": 51.1401
+      }
+    }
+  ]
+}
