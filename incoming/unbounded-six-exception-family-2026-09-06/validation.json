@@ -1,0 +1,100 @@
+{
+  "claim_status": "PAPER_PROOF_CANDIDATE_REVIEW_PENDING_WITH_EXACT_FINITE_CONTROLS",
+  "completed_commands": [
+    {
+      "command": "python algebra.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python verify.py --chain-orbits 5 --bits 2048 --output finite_18_2048.json",
+      "exit_code": 0
+    },
+    {
+      "command": "python verify.py --chain-orbits 9 --bits 8192 --output finite_30_8192.json",
+      "exit_code": 0
+    },
+    {
+      "command": "python verify.py --chain-orbits 11 --bits 16384 --output finite_36_16384.json",
+      "exit_code": 0
+    },
+    {
+      "command": "python -m unittest -v test_family.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python -m py_compile algebra.py intervals.py verify.py test_family.py",
+      "exit_code": 0
+    }
+  ],
+  "date": "2026-09-06",
+  "finite_results": [
+    {
+      "bits": 2048,
+      "distance_class_separations": 1767,
+      "distinct_pairs": 153,
+      "good_vertices": 6,
+      "maximum_multiplicity_distribution": {
+        "2": 3,
+        "3": 3,
+        "4": 12
+      },
+      "point_count": 18,
+      "rich_vertices": 12,
+      "support_checks": 288
+    },
+    {
+      "bits": 8192,
+      "distance_class_separations": 9987,
+      "distinct_pairs": 435,
+      "good_vertices": 6,
+      "maximum_multiplicity_distribution": {
+        "2": 3,
+        "3": 3,
+        "4": 24
+      },
+      "point_count": 30,
+      "rich_vertices": 24,
+      "support_checks": 840
+    },
+    {
+      "bits": 16384,
+      "distance_class_separations": 18147,
+      "distinct_pairs": 630,
+      "good_vertices": 6,
+      "maximum_multiplicity_distribution": {
+        "2": 3,
+        "3": 3,
+        "4": 30
+      },
+      "point_count": 36,
+      "rich_vertices": 30,
+      "support_checks": 1224
+    }
+  ],
+  "focused_tests": 28,
+  "not_claimed": [
+    "solution of Erd\u0151s #97",
+    "a finite all-rich counterexample",
+    "exact maximum four for every rich vertex at arbitrary size",
+    "external independent review",
+    "formal verification of the geometry",
+    "published novelty",
+    "repository-wide CI",
+    "a new PR",
+    "direct 66-,72-, or 300-point interval census"
+  ],
+  "provenance": {
+    "git_blob": "f691606b6cb63668a99da2d332a96db74621380f",
+    "new_work": "alternating-conjugate recurrence, all-size strict convexity proof, six-exception all-radius classification",
+    "previous_parameterization": "six-point near-coincidence family in the prior conversation packet",
+    "prior_repository_note": "docs/orbit66-exact-partial-construction.md",
+    "repository": "davidiach/erdos97"
+  },
+  "python_version": "3.13.5",
+  "source_sha256": {
+    "algebra.py": "328107f47ea24a5db12780ddd94d0ff9c0a7ef6b3e9261f533cbe6aeee0a7528",
+    "intervals.py": "9e378c31cf3f2613034663aea3e11f5c4e15d20d56859ec121ca548bbb50999f",
+    "test_family.py": "bcf6878abf2fe6164a4796e5b74f3d4ff4022852d7c9a9652a93551373d2aeff",
+    "verify.py": "4212cad189385b3d9a30f65a8febf55f6951d44f810324f2a3a39ea0443ff660"
+  }
+}

@@ -1,0 +1,33 @@
+test_box_contains_exact_evaluations (test_family.AlgebraTests.test_box_contains_exact_evaluations) ... ok
+test_derivative (test_family.AlgebraTests.test_derivative) ... ok
+test_full_coefficient_replay (test_family.AlgebraTests.test_full_coefficient_replay) ... ok
+test_invalid_exponent (test_family.AlgebraTests.test_invalid_exponent) ... ok
+test_polynomial_cancellation (test_family.AlgebraTests.test_polynomial_cancellation) ... ok
+test_report_matches_regeneration (test_family.AlgebraTests.test_report_matches_regeneration) ... ok
+test_scalar_division_guard (test_family.AlgebraTests.test_scalar_division_guard) ... ok
+test_wrong_identity_rejected (test_family.AlgebraTests.test_wrong_identity_rejected) ... ok
+test_bad_parameters (test_family.GeometricControlTests.test_bad_parameters) ... ok
+test_cli_algebra_only (test_family.GeometricControlTests.test_cli_algebra_only) ... ok
+test_cli_failure_has_no_success_report (test_family.GeometricControlTests.test_cli_failure_has_no_success_report) ... ok
+test_eighteen_points (test_family.GeometricControlTests.test_eighteen_points) ... ok
+test_insufficient_precision_fails (test_family.GeometricControlTests.test_insufficient_precision_fails) ... ok
+test_nine_points (test_family.GeometricControlTests.test_nine_points) ... ok
+test_precision_agreement (test_family.GeometricControlTests.test_precision_agreement) ... ok
+test_recurrence_strict_decrease (test_family.GeometricControlTests.test_recurrence_strict_decrease) ... ok
+test_rotation_exact_rational_control (test_family.GeometricControlTests.test_rotation_exact_rational_control) ... ok
+test_six_points (test_family.GeometricControlTests.test_six_points) ... ok
+test_witness_list (test_family.GeometricControlTests.test_witness_list) ... ok
+test_bad_precision (test_family.IntervalTests.test_bad_precision) ... ok
+test_empty_intersection (test_family.IntervalTests.test_empty_intersection) ... ok
+test_exact_square_root (test_family.IntervalTests.test_exact_square_root) ... ok
+test_mixed_precision (test_family.IntervalTests.test_mixed_precision) ... ok
+test_negative_square_root (test_family.IntervalTests.test_negative_square_root) ... ok
+test_rational_outward_rounding (test_family.IntervalTests.test_rational_outward_rounding) ... ok
+test_sqrt_outward_rounding (test_family.IntervalTests.test_sqrt_outward_rounding) ... ok
+test_square_crossing_zero (test_family.IntervalTests.test_square_crossing_zero) ... ok
+test_zero_divisor (test_family.IntervalTests.test_zero_divisor) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 2.026s
+
+OK
