@@ -1,0 +1,41 @@
+{
+  "compiled": {
+    "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+    "elementary_phase_replay": {
+      "angle_residuals": 230,
+      "cases": 7718400,
+      "crossing": 5754240,
+      "elementary_replay_passed": true,
+      "exhausted_supplied_domain": true,
+      "graphs": 177,
+      "kalmanson_inverse": 1963930,
+      "kalmanson_zero": 0
+    },
+    "fresh_phase_regeneration": true,
+    "full_graph_product": {
+      "after_common_supplier": 1027,
+      "after_diamond": 349,
+      "after_radial_path": 2755,
+      "after_transitive_radius_order": 177,
+      "complete_tuples": 170859375,
+      "exhausted": true,
+      "reciprocal_free": 4590360
+    },
+    "proof_uncompressed_sha256": "f893b7f903123e8898af9021b156d2d66be87988b496fdd1aaa03efd42c6c2f7",
+    "residual_certificate_coverage_exact": true,
+    "undefined_behavior_sanitization": false
+  },
+  "expanded_encodings": {
+    "common_cases": 486,
+    "diamond_cases": 162,
+    "encoding_mismatches": 0,
+    "expanded_seven_chords": 210,
+    "folded_seven_chord_classes": 70,
+    "seven_residuals": 230
+  },
+  "full_proof_replayed": true,
+  "scope": "Own-triangle-side C3 systems only; not unrestricted Erdos97, not an accepted general finite bound.",
+  "static_checks": "passed",
+  "static_report_sha256": "1e73c4e322de9738034e217c9358031861c8607a0115833c850cee83bae4a4f2",
+  "status": "all requested checks passed"
+}

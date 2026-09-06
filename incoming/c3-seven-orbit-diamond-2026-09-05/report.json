@@ -1,0 +1,587 @@
+{
+  "common_supplier_background": {
+    "angle_certificates": 480,
+    "exact_coverage": true,
+    "ordinary_distance_certificates": 6
+  },
+  "diamond": {
+    "cases": 162,
+    "exact_coverage": true,
+    "max_abs_multiplier": 140,
+    "max_nonzero_terms": 19,
+    "radius_comparisons_used": false
+  },
+  "elementary_records_checked_by_this_static_report": false,
+  "other_positive_controls": {
+    "interlacing_common_supplier_rectangle": {
+      "all_distance_classes": [
+        {
+          "12/7": 1,
+          "243/37": 1,
+          "3": 2,
+          "363/148": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "81/148": 1,
+          "84/37": 1,
+          "9/7": 1
+        },
+        {
+          "1053/148": 1,
+          "3627/1036": 1,
+          "363/148": 1,
+          "39/148": 1,
+          "507/1036": 1,
+          "741/148": 4,
+          "81/148": 1,
+          "975/148": 1
+        },
+        {
+          "1053/148": 1,
+          "1872/259": 1,
+          "243/37": 1,
+          "273/37": 2,
+          "39/148": 1,
+          "39/259": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "84/37": 1
+        },
+        {
+          "12/7": 1,
+          "1872/259": 1,
+          "3627/1036": 1,
+          "39/259": 1,
+          "39/7": 4,
+          "507/1036": 1,
+          "9/7": 1,
+          "975/148": 1
+        },
+        {
+          "12/7": 1,
+          "243/37": 1,
+          "3": 2,
+          "363/148": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "81/148": 1,
+          "84/37": 1,
+          "9/7": 1
+        },
+        {
+          "1053/148": 1,
+          "3627/1036": 1,
+          "363/148": 1,
+          "39/148": 1,
+          "507/1036": 1,
+          "741/148": 4,
+          "81/148": 1,
+          "975/148": 1
+        },
+        {
+          "1053/148": 1,
+          "1872/259": 1,
+          "243/37": 1,
+          "273/37": 2,
+          "39/148": 1,
+          "39/259": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "84/37": 1
+        },
+        {
+          "12/7": 1,
+          "1872/259": 1,
+          "3627/1036": 1,
+          "39/259": 1,
+          "39/7": 4,
+          "507/1036": 1,
+          "9/7": 1,
+          "975/148": 1
+        },
+        {
+          "12/7": 1,
+          "243/37": 1,
+          "3": 2,
+          "363/148": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "81/148": 1,
+          "84/37": 1,
+          "9/7": 1
+        },
+        {
+          "1053/148": 1,
+          "3627/1036": 1,
+          "363/148": 1,
+          "39/148": 1,
+          "507/1036": 1,
+          "741/148": 4,
+          "81/148": 1,
+          "975/148": 1
+        },
+        {
+          "1053/148": 1,
+          "1872/259": 1,
+          "243/37": 1,
+          "273/37": 2,
+          "39/148": 1,
+          "39/259": 1,
+          "39/7": 1,
+          "57/37": 1,
+          "741/148": 1,
+          "84/37": 1
+        },
+        {
+          "12/7": 1,
+          "1872/259": 1,
+          "3627/1036": 1,
+          "39/259": 1,
+          "39/7": 4,
+          "507/1036": 1,
+          "9/7": 1,
+          "975/148": 1
+        }
+      ],
+      "arrows": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          0,
+          2
+        ],
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "is_erdos97_counterexample": false,
+      "maximum_multiplicity_by_vertex": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ],
+      "minimum_scaled_orientation": "27/518",
+      "minimum_squared_separation": "39/259",
+      "radial_ranks_in_phase_order": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "rational_feasible_angle_vector": [
+        "0",
+        "1",
+        "4",
+        "7",
+        "16",
+        "17",
+        "18",
+        "30",
+        "33",
+        "34",
+        "3",
+        "21/2",
+        "20",
+        "21",
+        "45/2",
+        "34",
+        "35",
+        "19",
+        "23",
+        "25",
+        "36",
+        "26",
+        "12"
+      ],
+      "representatives_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "157/148",
+          "63/148"
+        ],
+        [
+          "71/74",
+          "53/74"
+        ],
+        [
+          "4/7",
+          "5/7"
+        ]
+      ],
+      "squared_radii": [
+        "1",
+        "247/148",
+        "91/37",
+        "13/7"
+      ],
+      "supporting_edge_checks": 120,
+      "vertices": 12
+    },
+    "irrational_three_orbit_cycle_is_permitted": {
+      "all_distance_classes": [
+        {
+          "11664/18529": 1,
+          "3": 3,
+          "43923/18529": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "94791/18529": 1
+        },
+        {
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "3": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "64857/10927": 3
+        },
+        {
+          "11664/18529": 1,
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "43923/18529": 1,
+          "64857/10927": 1,
+          "94791/18529": 3
+        },
+        {
+          "11664/18529": 1,
+          "3": 3,
+          "43923/18529": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "94791/18529": 1
+        },
+        {
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "3": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "64857/10927": 3
+        },
+        {
+          "11664/18529": 1,
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "43923/18529": 1,
+          "64857/10927": 1,
+          "94791/18529": 3
+        },
+        {
+          "11664/18529": 1,
+          "3": 3,
+          "43923/18529": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "94791/18529": 1
+        },
+        {
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "3": 1,
+          "5808/10927": 1,
+          "59049/10927": 1,
+          "64857/10927": 3
+        },
+        {
+          "11664/18529": 1,
+          "1277184/28923769": 1,
+          "146691567/28923769": 1,
+          "43923/18529": 1,
+          "64857/10927": 1,
+          "94791/18529": 3
+        }
+      ],
+      "arrows": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          0,
+          2
+        ]
+      ],
+      "is_erdos97_counterexample": false,
+      "maximum_multiplicity_by_vertex": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimum_scaled_orientation": "2302872/28923769",
+      "minimum_squared_separation": "1277184/28923769",
+      "radial_ranks_in_phase_order": [
+        0,
+        2,
+        1
+      ],
+      "rational_feasible_angle_vector": [
+        "0",
+        "4",
+        "17",
+        "18",
+        "19",
+        "31",
+        "34",
+        "17",
+        "22",
+        "24",
+        "35",
+        "25",
+        "12"
+      ],
+      "representatives_scaled": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "13369/10927",
+          "4378/10927"
+        ],
+        [
+          "19231/18529",
+          "8478/18529"
+        ]
+      ],
+      "squared_radii": [
+        "1",
+        "21619/10927",
+        "31597/18529"
+      ],
+      "supporting_edge_checks": 63,
+      "two_cos_double_angle_rational_nonintegers": [
+        "-472406401/236230813",
+        "-507451129/1020595849",
+        "824040599/585460813"
+      ],
+      "vertices": 9
+    }
+  },
+  "phase_domain_cases": 7718400,
+  "polynomial_identities": {
+    "coherent_circle_factor": true,
+    "diamond_ratio_rigidity": true,
+    "numerical_tolerances_used": false,
+    "primitive_circle_factor_mod_e2_e_1": true,
+    "transitive_radius_factor": true
+  },
+  "previous_guardrail_diamond": [
+    0,
+    2,
+    1,
+    6
+  ],
+  "proof_stream": {
+    "compressed_bytes": 4344245,
+    "compressed_sha256": "018d90aca54238841fc76a553a77329521bbf3d3b3759423f3d332fc5bddce07",
+    "uncompressed_expected_bytes": 38592008
+  },
+  "radial_domain": {
+    "after_common_supplier": 1027,
+    "after_diamond": 349,
+    "after_radial_path": 2755,
+    "after_transitive_radius_order": 177,
+    "brancher_counters": {
+      "nodes": 208978,
+      "shortcut_prunes": 501597
+    },
+    "orbits": 7
+  },
+  "repository_wide_CI_run": false,
+  "schema": "erdos97.c3_diamond_seven.v1",
+  "scope": "Own-triangle-side C3 systems only; not unrestricted Erdos97, not an accepted general finite bound.",
+  "seven_angle_certificates": {
+    "cases": 230,
+    "exact_residual_identities": true,
+    "max_abs_multiplier": 3302,
+    "max_nonzero_terms": 43,
+    "phase_coverage_checked_only_by_full_replay": true
+  },
+  "smaller_domains": [
+    {
+      "after_common_supplier": 0,
+      "after_diamond": 0,
+      "after_radial_path": 0,
+      "after_transitive_radius_order": 0,
+      "brancher_counters": {
+        "nodes": 2
+      },
+      "orbits": 3
+    },
+    {
+      "after_common_supplier": 0,
+      "after_diamond": 0,
+      "after_radial_path": 0,
+      "after_transitive_radius_order": 0,
+      "brancher_counters": {
+        "nodes": 10,
+        "shortcut_prunes": 1
+      },
+      "orbits": 4
+    },
+    {
+      "after_common_supplier": 0,
+      "after_diamond": 0,
+      "after_radial_path": 0,
+      "after_transitive_radius_order": 0,
+      "brancher_counters": {
+        "nodes": 132,
+        "shortcut_prunes": 67
+      },
+      "orbits": 5
+    },
+    {
+      "after_common_supplier": 0,
+      "after_diamond": 0,
+      "after_radial_path": 4,
+      "after_transitive_radius_order": 0,
+      "brancher_counters": {
+        "nodes": 3854,
+        "shortcut_prunes": 4753
+      },
+      "orbits": 6
+    }
+  ],
+  "status": "REVIEW_PENDING_COMPUTER_ASSISTED_RESTRICTED_THEOREM",
+  "transitive_radius_rule": {
+    "cases": 18,
+    "conclusion_with_elementary_reduction": "r_B < r_A < r_C",
+    "exact_coverage": true,
+    "forbidden_order": "r_A < r_C < r_B",
+    "max_abs_multiplier": 30,
+    "max_nonzero_terms": 12
+  },
+  "transitive_triangle_is_permitted": {
+    "arrows_zero_gain": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "coordinate_convention": "(x,sqrt(3)*y), with x,y in Q(h)",
+    "counterclockwise_order": [
+      6,
+      2,
+      4,
+      0,
+      5,
+      7,
+      3,
+      8,
+      1
+    ],
+    "exact_support_checks": 63,
+    "floating_point_used": false,
+    "h_positive": true,
+    "h_squared": "105/676",
+    "maximum_multiplicities": [
+      4,
+      3,
+      2,
+      4,
+      3,
+      2,
+      4,
+      3,
+      2
+    ],
+    "not_a_counterexample": true,
+    "radial_order": "r_b < r_a < r_c",
+    "representatives": [
+      [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "-19/26",
+          "0"
+        ],
+        [
+          "-1/26",
+          "0"
+        ]
+      ],
+      [
+        [
+          "-179/676",
+          "3/26"
+        ],
+        [
+          "-19/676",
+          "-45/26"
+        ]
+      ]
+    ],
+    "squared_radii": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "7/13",
+        "0"
+      ],
+      [
+        "497/338",
+        "3/13"
+      ]
+    ]
+  }
+}

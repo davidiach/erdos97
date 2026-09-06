@@ -6,7 +6,7 @@ mathematical claim has been accepted. [Current state](../STATE.md).
 
 ## Structured review packets
 
-All seven packets below remain review-pending under their own stated hypotheses.
+All eight packets below remain review-pending under their own stated hypotheses.
 Retain their original reports and pinned source files. Run commands from the
 packet directory; see its README for prerequisites, full replays, and limitations.
 No packet in this table is declared superseded by another here.
@@ -19,6 +19,7 @@ No packet in this table is declared superseded by another here.
 | [Six own-side orbits](c3-own-side-six-orbits-2026-09-05/README.md) | Restricted own-side search and certificates | `python all_systems.py --check`; `python certificate.py --check` |
 | [Seven own-side orbits](c3-own-side-seven-orbits-2026-09-05/README.md) | Restricted search and independent replay | `python verify.py --check`; `python replay.py --quick --check` |
 | [Common suppliers](c3-common-suppliers-2026-09-05/README.md) | Restricted supplier/radius conditions | `python check_common_suppliers.py --check` |
+| [Seven-orbit transitive radius / diamond](c3-seven-orbit-diamond-2026-09-05/README.md) | Restricted transitive-triangle radius rule, forbidden diamond, and own-side seven-orbit closure | `python verify.py --check`; `python -m unittest test_diamond_seven.py` |
 | [Eight own-side orbits](c3-own-side-eight-orbits-2026-09-05/README.md) | Restricted own-side eight-orbit exclusion with exact chord-angle certificates | `python c3_eight_check.py --check`; `python replay.py --quick --check` |
 
 ## Historical imports

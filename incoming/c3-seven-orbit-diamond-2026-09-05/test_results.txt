@@ -1,0 +1,27 @@
+test_invalid_inequality (test_diamond_seven.CompiledTamperingTests.test_invalid_inequality) ... ok
+test_missing_record (test_diamond_seven.CompiledTamperingTests.test_missing_record) ... ok
+test_unknown_record (test_diamond_seven.CompiledTamperingTests.test_unknown_record) ... ok
+test_wrong_header (test_diamond_seven.CompiledTamperingTests.test_wrong_header) ... ok
+test_wrong_residual_index (test_diamond_seven.CompiledTamperingTests.test_wrong_residual_index) ... ok
+test_all_diamond_certificates (test_diamond_seven.ExactTests.test_all_diamond_certificates) ... ok
+test_all_transitive_radius_certificates (test_diamond_seven.ExactTests.test_all_transitive_radius_certificates) ... ok
+test_damaged_integer_certificate_rejected (test_diamond_seven.ExactTests.test_damaged_integer_certificate_rejected) ... ok
+test_duplicate_diamond_case_rejected (test_diamond_seven.ExactTests.test_duplicate_diamond_case_rejected) ... ok
+test_full_graph_oracle_alignment (test_diamond_seven.ExactTests.test_full_graph_oracle_alignment) ... ok
+test_generated_static_report (test_diamond_seven.ExactTests.test_generated_static_report) ... ok
+test_invalid_positive_multiplier_rejected (test_diamond_seven.ExactTests.test_invalid_positive_multiplier_rejected) ... ok
+test_missing_diamond_case_rejected (test_diamond_seven.ExactTests.test_missing_diamond_case_rejected) ... ok
+test_phase_domain_count (test_diamond_seven.ExactTests.test_phase_domain_count) ... ok
+test_polynomial_factorizations (test_diamond_seven.ExactTests.test_polynomial_factorizations) ... ok
+test_positive_transitive_angle_model (test_diamond_seven.ExactTests.test_positive_transitive_angle_model) ... ok
+test_previous_guardrail_has_diamond (test_diamond_seven.ExactTests.test_previous_guardrail_has_diamond) ... ok
+test_proof_stream_record_count (test_diamond_seven.ExactTests.test_proof_stream_record_count) ... ok
+test_quadratic_field_sign (test_diamond_seven.ExactTests.test_quadratic_field_sign) ... ok
+test_seven_residual_certificate (test_diamond_seven.ExactTests.test_seven_residual_certificate) ... ok
+test_transitive_positive_control (test_diamond_seven.ExactTests.test_transitive_positive_control) ... ok
+test_transitive_radius_rule_not_all_transitive_triangles (test_diamond_seven.ExactTests.test_transitive_radius_rule_not_all_transitive_triangles) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 4.300s
+
+OK
