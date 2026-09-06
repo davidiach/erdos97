@@ -1,0 +1,871 @@
+{
+  "algebra": {
+    "arbitrary_length_theorem": "paper proof in README.md; independent review pending",
+    "first_iterate_below": "1/80",
+    "seed_band_perturbation_bound": "969/6400",
+    "seed_distance_functions": [
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "-180",
+          "-50589/320"
+        ],
+        "limit_at_zero": "9/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "9"
+          ],
+          [
+            0,
+            1,
+            "-180"
+          ],
+          [
+            0,
+            2,
+            "900"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 0,
+        "strict_derivative_sign": -1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "-32643/40",
+          "-518157/640"
+        ],
+        "limit_at_zero": "300/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "300"
+          ],
+          [
+            0,
+            1,
+            "-810"
+          ],
+          [
+            0,
+            2,
+            "657"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 1,
+        "strict_derivative_sign": -1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "302211/6400",
+          "63"
+        ],
+        "limit_at_zero": "219/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "219"
+          ],
+          [
+            0,
+            1,
+            "63"
+          ],
+          [
+            0,
+            2,
+            "27"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 2,
+        "strict_derivative_sign": 1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "-8073/40",
+          "-57573/320"
+        ],
+        "limit_at_zero": "300/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "300"
+          ],
+          [
+            0,
+            1,
+            "-180"
+          ],
+          [
+            0,
+            2,
+            "27"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 0,
+        "strict_derivative_sign": -1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "-810",
+          "-514269/640"
+        ],
+        "limit_at_zero": "219/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "219"
+          ],
+          [
+            0,
+            1,
+            "-810"
+          ],
+          [
+            0,
+            2,
+            "900"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 1,
+        "strict_derivative_sign": -1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "403011/6400",
+          "315/4"
+        ],
+        "limit_at_zero": "9/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "9"
+          ],
+          [
+            0,
+            1,
+            "63"
+          ],
+          [
+            0,
+            2,
+            "657"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 2,
+        "strict_derivative_sign": 1
+      }
+    ],
+    "squared_support_factor_lower_bound": "9409/10000",
+    "status": "EXACT_ALGEBRA_CHECKS_PASSED_NOT_FORMAL_GEOMETRIC_PROOF",
+    "support_polynomials": [
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            2,
+            "3"
+          ],
+          [
+            1,
+            1,
+            "-6"
+          ],
+          [
+            2,
+            0,
+            "3"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 0
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            0,
+            "1"
+          ],
+          [
+            0,
+            1,
+            "-3/2"
+          ],
+          [
+            0,
+            2,
+            "3/2"
+          ],
+          [
+            1,
+            1,
+            "3"
+          ],
+          [
+            1,
+            2,
+            "-9"
+          ],
+          [
+            2,
+            1,
+            "9/2"
+          ],
+          [
+            2,
+            2,
+            "9/2"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 1
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            0,
+            "1/2"
+          ],
+          [
+            0,
+            1,
+            "3/2"
+          ],
+          [
+            1,
+            0,
+            "-3"
+          ],
+          [
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            0,
+            "3/2"
+          ],
+          [
+            2,
+            1,
+            "-9/2"
+          ],
+          [
+            2,
+            2,
+            "9"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 2
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            1,
+            "3/2"
+          ],
+          [
+            0,
+            2,
+            "3/2"
+          ],
+          [
+            1,
+            1,
+            "3"
+          ],
+          [
+            1,
+            2,
+            "-9"
+          ],
+          [
+            2,
+            0,
+            "3"
+          ],
+          [
+            2,
+            1,
+            "-9/2"
+          ],
+          [
+            2,
+            2,
+            "9/2"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 0
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            0,
+            "1"
+          ],
+          [
+            1,
+            1,
+            "-6"
+          ],
+          [
+            2,
+            2,
+            "9"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 1
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            0,
+            "1/2"
+          ],
+          [
+            0,
+            1,
+            "-3/2"
+          ],
+          [
+            0,
+            2,
+            "3"
+          ],
+          [
+            1,
+            0,
+            "-3"
+          ],
+          [
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            0,
+            "3/2"
+          ],
+          [
+            2,
+            1,
+            "9/2"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 2
+      }
+    ],
+    "support_uniform_lower_bounds": {
+      "(-1, 2)": "1/20",
+      "(1, 1)": "841/1000",
+      "(1, 2)": "391/2000"
+    }
+  },
+  "finite": {
+    "bits": 2048,
+    "chain_orbits": 5,
+    "cyclic_order": [
+      [
+        0,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        5,
+        2
+      ]
+    ],
+    "distance_class_separations": 1767,
+    "distinct_pairs": 153,
+    "good_vertices": 6,
+    "maximum_multiplicity_distribution": {
+      "2": 3,
+      "3": 3,
+      "4": 12
+    },
+    "point_count": 18,
+    "positive_dyadic_lower_bounds": {
+      "distinct_squared_distance": {
+        "denominator_power_of_two": 2048,
+        "numerator_hex": "0x378f34e65066ff9d0cffec05c3745d752abec32dcbead379b55d1358c28d4c9e1126cbe491b98c3029b6210cd6a5161454d9f17e3bcd8503da4b48aa6c2787b72e72b4d8ad857a215a70652692e158c376ace2c5529132aa4d004d31fae202a5be47b8a7d7064a8ba6dd263ef3c25cbc9530d0be014f25f46503eff3e6674491a359cc78066e28d68be4b3a8a72c85d9a1edb705b32d2a40c387b7a4fb0b51eb460ab8fbd81a04df8affd44eaa4d84d990dfccf519f7a8c3ed8e60326de43a4cdf4920680224391a495745bad4626c63786cb6e73aeb619a83e791afffee6eafc2f4462ecabd8e386ec016b121bf310a32d8177f"
+      },
+      "separation_of_unequal_squared_distances": {
+        "denominator_power_of_two": 2048,
+        "numerator_hex": "0x378f34e65066ff9d0cffec05c3745d752abec32dcbead379b55d1358c28d4c9e1126cbe491b98c3029b6210cd6a5161454d9f17e3bcd8503da4b48aa6c2787b72e72b4d8ad857a215a70652692e158c376ace2c5529132aa4d004d31fae202a5be47b8a7d7064a8ba6dd263ef3c25cbc9530d0be014f25f46503eff3e6674491a359cc78066e28d68be4b3a8a72c85d9a1edb705b32d2a40c387b7a4fb0b51eb460ab8fbd81a04df8affd44eaa4d84d990dfccf519f7a8c3ed8e60326de43a4cdf4920680224391a495745bad4626c63786cb6e73aeb619a83e791afffee6eafc2f4462ecabd8e386ec016b121bf310a32d8175e"
+      },
+      "support_determinant_div_sqrt3": {
+        "denominator_power_of_two": 2048,
+        "numerator_hex": "0x467ebd5c82d4940b9dbe5b6c493b4e0812eef02f16451256cba5f9b4c8c935d20939fd4f7a5a870486b02192703426abdf27b728a71ecee89e6c046c856f3124d0aa4836b8d72c6ebcdc677bd952c4fadf514894945eddc8fdb146614a8cf6486c95b77876098614bbe0362722959b51fea49879c0963c287b69f0258afb07edd5d334d65b3ce09a94a51bd8cbf71120bcaeb3dcba8afea6169dc497b8444497c977d79fe69aab742afe115a1b7e734315d064534fb431ff0979b50cf81806b9dce98a39b2fae44da1bb24c815e37a38ba34b8ff5439d173d8d8f9263d6b52e7ae74d0a604d2278f7680d6c0708d1674d41269877a1b04"
+      }
+    },
+    "rich_vertices": 12,
+    "rows": [
+      {
+        "maximum_multiplicity": 2,
+        "rich_classes": [],
+        "vertex": [
+          0,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 2,
+        "rich_classes": [],
+        "vertex": [
+          0,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 2,
+        "rich_classes": [],
+        "vertex": [
+          0,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 3,
+        "rich_classes": [],
+        "vertex": [
+          1,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 3,
+        "rich_classes": [],
+        "vertex": [
+          1,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 3,
+        "rich_classes": [],
+        "vertex": [
+          1,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          2,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          2,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          2,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          3,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          3,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          3,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          4,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          4,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          4,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          5,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          5,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          5,
+          2
+        ]
+      }
+    ],
+    "status": "EXACT_FINITE_INSTANCE_VERIFIED_NOT_A_COUNTEREXAMPLE",
+    "support_checks": 288,
+    "total_orbits": 6
+  }
+}
