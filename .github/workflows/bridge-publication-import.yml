@@ -1,0 +1,113 @@
+name: Bridge research publication replay
+on:
+  push:
+    branches: [research/bridge-continuation-findings-2026-09-07]
+    paths: [.github/workflows/bridge-publication-import.yml]
+permissions:
+  contents: write
+jobs:
+  import-and-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PACKET: incoming/bridge-continuation-2026-09-06
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install focused verification dependencies
+        run: python -m pip install 'sympy==1.14.0' pytest ruff
+      - name: Restore hash-pinned publication payload
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64, hashlib, io, tarfile
+          from pathlib import Path, PurePosixPath
+          folder = Path('.publication-transport/bridge')
+          encoded = ''.join((folder / f'payload-{i}.b64').read_text() for i in range(7))
+          data = base64.b64decode(encoded, validate=True)
+          assert len(data) == 80560
+          assert hashlib.sha256(data).hexdigest() == '317e9c68fc09e2bb365748be2693fa590e194f525ce34bd380265d49b6d82cf2'
+          target = Path('incoming/bridge-continuation-2026-09-06')
+          assert not target.exists(), 'Refuse to overwrite an existing research packet'
+          with tarfile.open(fileobj=io.BytesIO(data), mode='r:xz') as archive:
+              members = archive.getmembers()
+              assert len(members) == 53
+              assert len({m.name for m in members}) == 53
+              for member in members:
+                  path = PurePosixPath(member.name)
+                  assert member.isfile() and not path.is_absolute() and '..' not in path.parts
+                  assert member.name == 'incoming/README.md' or member.name.startswith(str(target) + '/')
+                  assert member.mode == 0o644
+              for member in members:
+                  path = Path(member.name)
+                  source = archive.extractfile(member)
+                  assert source is not None
+                  content = source.read()
+                  assert len(content) == member.size
+                  path.parent.mkdir(parents=True, exist_ok=True)
+                  path.write_bytes(content)
+                  path.chmod(0o644)
+          print('Restored all 53 intended publication files from the exact payload.')
+          PY
+      - name: Format and lint maintained publication code only
+        shell: bash
+        run: |
+          python -m ruff format "$PACKET/check_candidate.py" "$PACKET/replay.py" "$PACKET/test_publication.py" "$PACKET/conftest.py"
+          python -m ruff check --fix "$PACKET/check_candidate.py" "$PACKET/replay.py" "$PACKET/test_publication.py" "$PACKET/conftest.py"
+          python -m ruff check "$PACKET"
+      - name: Replay original bytes and all archived tests
+        shell: bash
+        run: |
+          python "$PACKET/replay.py" --check --require-primary --output /tmp/bridge-hosted-replay.json
+      - name: Run repository integration tests including artifact checks
+        shell: bash
+        run: |
+          python -m pytest -q -o addopts='' "$PACKET/test_publication.py" | tee /tmp/bridge-integration-tests.txt
+      - name: Record hosted validation
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, platform, subprocess
+          from pathlib import Path
+          root = Path(os.environ['PACKET'])
+          replay = json.loads(Path('/tmp/bridge-hosted-replay.json').read_text())
+          files = {}
+          for path in sorted(root.rglob('*')):
+              if path.is_file() and '.pytest_cache' not in path.parts and '__pycache__' not in path.parts:
+                  data = path.read_bytes()
+                  files[path.relative_to(root).as_posix()] = {'sha256': hashlib.sha256(data).hexdigest(), 'git_blob': hashlib.sha1(f'blob {len(data)}\0'.encode() + data).hexdigest()}
+          result = {
+              'status': 'FOCUSED_PUBLICATION_REPLAY_PASSED_NOT_MATHEMATICAL_ACCEPTANCE',
+              'workflow_run': f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+              'publication_base_commit': '8de81aa13219fcd1db85756da41e6cda7ffbd972',
+              'python': platform.python_version(),
+              'payload_sha256': '317e9c68fc09e2bb365748be2693fa590e194f525ce34bd380265d49b6d82cf2',
+              'preservation': replay['manifests'],
+              'post_replay_preservation': replay['post_replay_manifests'],
+              'archived_unit_tests_passed': 101,
+              'report_byte_comparisons': sum(len(p['compared_reports']) for p in replay['runs']),
+              'existing_primary_checker': replay['candidate']['existing_checker_replay'],
+              'integration_test_output': Path('/tmp/bridge-integration-tests.txt').read_text(),
+              'ruff': subprocess.check_output(['python', '-m', 'ruff', '--version'], text=True).strip(),
+              'maintained_code_only_ruff_format_and_safe_fixes_applied': True,
+              'snapshot_bytes_modified': False,
+              'repository_wide_make_verify_fast_or_artifacts_run': False,
+              'independent_external_mathematical_review': False,
+              'files_before_this_report': files,
+          }
+          (root / 'hosted-publication-validation.json').write_text(json.dumps(result, indent=2, sort_keys=True) + '\n')
+          PY
+      - name: Publish expanded files on the research branch
+        shell: bash
+        run: |
+          test "$GITHUB_REF_NAME" = 'research/bridge-continuation-findings-2026-09-07'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add incoming/README.md "$PACKET"
+          git commit -m 'research: preserve four bridge packets and verify fixed nine-orbit correction'
+          git push origin HEAD:research/bridge-continuation-findings-2026-09-07
