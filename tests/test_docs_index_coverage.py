@@ -20,9 +20,10 @@ def test_index_links_every_documentation_file() -> None:
     assert main() == 0
 
 
-def test_index_does_not_list_itself() -> None:
+def test_inventory_excludes_itself_and_covers_landing_page() -> None:
     covered = {path.relative_to(DOCS_ROOT).as_posix() for path in documentation_files()}
-    assert "index.md" not in covered
+    assert "inventory.md" not in covered
+    assert "index.md" in covered
 
 
 def test_documentation_files_are_markdown_or_html() -> None:
@@ -107,7 +108,7 @@ def test_git_inventory_includes_unicode_and_untracked_but_not_ignored(tmp_path, 
     subprocess.run(['git', 'init', '-q', str(tmp_path)], check=True)
     docs = tmp_path / 'docs'
     docs.mkdir()
-    for name in ['index.md', 'caf\u00e9.md', 'new note.md', 'ignored.md']:
+    for name in ['inventory.md', 'caf\u00e9.md', 'new note.md', 'ignored.md']:
         (docs / name).write_text('# Note\n')
     (tmp_path / '.gitignore').write_text('docs/ignored.md\n')
     subprocess.run(['git', 'add', 'docs/caf\u00e9.md'], cwd=tmp_path, check=True)

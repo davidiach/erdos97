@@ -223,7 +223,7 @@ stated filters. Neither lane proves support existence, row forcing, genuine
 rich-class order, the bootstrap bridge, or `n=9`.
 
 Use [`STATE.md`](STATE.md) for the working frontier and
-[`docs/index.md`](docs/index.md) for the complete packet inventory. The focused
+[`docs/index.md`](docs/index.md) for the topic map and complete packet inventory. The focused
 proof-facing route is summarized in
 [`docs/minimal-fragile-cover-bridge.md`](docs/minimal-fragile-cover-bridge.md),
 [`docs/fragile-turn-pivot-bridge-audit.md`](docs/fragile-turn-pivot-bridge-audit.md),
@@ -352,28 +352,10 @@ pip install -e .[dev]
 make verify-fast
 ```
 
-If `make` is not available, run the fast tier directly:
-
-```bash
-python scripts/check_text_clean.py
-python scripts/check_status_consistency.py
-python scripts/check_artifact_provenance.py
-python scripts/check_docs_index_coverage.py
-python scripts/generate_makefile_verify_targets.py --check
-git diff --check
-python -m ruff check .
-python -m pytest -q
-```
-
-`make verify-lint` runs the sub-minute text/status/provenance/docs-index/ruff
-tier without pytest. The registry-backed Makefile verify targets (`verify-n8`,
-`verify-kalmanson`, `verify-n9-review`, `verify-bridge-frontier`,
-`verify-n10-review`) are generated from
-[`scripts/audit_commands.json`](scripts/audit_commands.json); edit that file
-and run `python scripts/generate_makefile_verify_targets.py --write` instead
-of editing the Makefile block by hand. The default pytest configuration excludes tests marked `artifact`,
-`slow`, or `exhaustive`; run `python -m pytest -q -m ""` only when you
-intentionally want the full marker set.
+[CONTRIBUTING.md](CONTRIBUTING.md) is the canonical setup and verification
+workflow, including raw commands when `make` is unavailable, artifact tiers,
+and Lean checks. Use the [topic map](docs/index.md) to choose a research area
+and the [complete inventory](docs/inventory.md) to locate any documentation file.
 
 For the checked CPython 3.12 direct-dependency snapshot, install the snapshot
 before installing this package:

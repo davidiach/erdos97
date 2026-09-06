@@ -95,7 +95,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "5fc3816d982d390fadbe459beb27a3973e2d25b9cf7594f0d89457ff24c1bcd0",
+      "sha256": "20223ed06fceca6eb7346b35d19ba58dbc998426975e5573ab6b974e11ec059d",
       "size_bytes": 2209
     },
     {
@@ -220,8 +220,8 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "68f771990481005fa7e5a84501bac53b998024082c8cab7bf201f2f8b7b3bcf5",
-      "size_bytes": 1154
+      "sha256": "0a9df868c11ebe635b6736ca5b922d454d690ec11f79c2e423fd811ecfbb5a43",
+      "size_bytes": 1180
     },
     {
       "path": "requirements-lock.txt",
@@ -306,11 +306,11 @@
       "path": "scripts/build_n8_release_packet.py",
       "sha256": "e08a4f7ce681530f54d74967e0df92d91cce0224a84a7497ea5149d20794fc35"
     },
-    "bundle_source_files_sha256": "e4c07f26f5cefa82eb075069a3d040a1506aed42cd99ba7808f8fc385d5058ae",
-    "commit": "88807694cc8eef07e6168b50986a75efc1440032",
-    "commit_url": "https://github.com/davidiach/erdos97/commit/88807694cc8eef07e6168b50986a75efc1440032",
+    "bundle_source_files_sha256": "1a63af1a155aee135a783b5a22bf59424d1549dda9f0d6be492021d4a9244ac0",
+    "commit": "066632e53a95eb89c1a70af9011edab524889cb9",
+    "commit_url": "https://github.com/davidiach/erdos97/commit/066632e53a95eb89c1a70af9011edab524889cb9",
     "repository_url": "https://github.com/davidiach/erdos97",
-    "tree": "28a3ef06a0fc491baf8d17cbd2b04f16019f0c69",
+    "tree": "598d744152b0abf3a85fe4f9fb31db1aa973b957",
     "worktree": {
       "dirty": false,
       "policy": "Build and check require a clean Git worktree. Generated release outputs are committed after, and are not part of, the named source snapshot."

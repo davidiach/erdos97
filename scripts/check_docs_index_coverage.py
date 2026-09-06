@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Check that docs/index.md links every documentation file under docs/.
+"""Check that docs/inventory.md links every documentation file under docs/.
 
-`README.md` advertises `docs/index.md` as the full documentation map and the
-complete packet inventory. This checker keeps that promise mechanical: every
+`docs/index.md` links the complete inventory in `docs/inventory.md`.
+This checker keeps that promise mechanical: every
 tracked `.md`/`.html` file under `docs/` must appear as a relative link target
-in `docs/index.md`, and every relative Markdown link target in `docs/index.md` must
+in `docs/inventory.md`, and every relative Markdown link target there must
 resolve to a file that exists.
 
 This is a navigation-coverage check only. It reads no mathematical content, and
@@ -21,12 +21,12 @@ from markdown_it import MarkdownIt
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DOCS_ROOT = REPO_ROOT / "docs"
-INDEX = DOCS_ROOT / "index.md"
+INDEX = DOCS_ROOT / "inventory.md"
 
 INDEXED_SUFFIXES = {".html", ".md"}
 
-# `index.md` is the map itself, so it does not list itself.
-EXEMPT_RELATIVE_PATHS = {"index.md"}
+# The generated inventory covers the landing page but does not list itself.
+EXEMPT_RELATIVE_PATHS = {"inventory.md"}
 
 MARKDOWN = MarkdownIt("commonmark").enable("table")
 
@@ -106,23 +106,23 @@ def main() -> int:
         if path.resolve() not in linked
     ]
     for relative in missing:
-        errors.append(f"docs/index.md does not link docs/{relative}")
+        errors.append(f"docs/inventory.md does not link docs/{relative}")
 
     for target in sorted(set(targets)):
         if not (DOCS_ROOT / target).is_file():
-            errors.append(f"docs/index.md links a missing file: {target}")
+            errors.append(f"docs/inventory.md links a missing file: {target}")
 
     if errors:
         print("\n".join(errors), file=sys.stderr)
         print(
             f"\n{len(errors)} documentation-index coverage problem(s); "
-            "add the missing entries to docs/index.md",
+            "add the missing entries to docs/inventory.md",
             file=sys.stderr,
         )
         return 1
 
     covered = len(files)
-    print(f"docs/index.md covers all {covered} documentation files under docs/")
+    print(f"docs/inventory.md covers all {covered} documentation files under docs/")
     return 0
 
 
