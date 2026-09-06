@@ -20,7 +20,7 @@ from check_n9_vertex_circle_core_templates import (  # noqa: E402
     DEFAULT_ARTIFACT as DEFAULT_TEMPLATES,
     validate_payload as validate_template_payload,
 )
-from check_n9_vertex_circle_local_core_packet import (  # noqa: E402
+from erdos97.finite_cases.n9.local_core_packet import (  # noqa: E402
     DEFAULT_ARTIFACT as DEFAULT_PACKET,
     validate_payload as validate_packet_payload,
 )

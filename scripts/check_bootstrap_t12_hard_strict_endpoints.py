@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+from erdos97.json_io import write_artifact
+
 import argparse
 import json
 from pathlib import Path
@@ -16,13 +18,6 @@ from erdos97.bootstrap_t12_hard_strict_endpoints import (
 
 ROOT = Path(__file__).resolve().parents[1]
 
-def write_artifact(path: Path, payload: dict[str, object]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
 
 
 def print_summary(payload: dict[str, object]) -> None:

@@ -28,79 +28,21 @@ Erdos Problem #97. It is not a solved-proof repository.
 - Do not edit generated artifacts if a generator exists.
 - Keep archived/provenance statements clearly marked when superseded.
 
-## Test commands
+## Verification and repository layout
 
-Before changing mathematical claims, read `README.md`, `STATE.md`,
-`RESULTS.md`, `metadata/erdos97.yaml`, `docs/claims.md`, and
-`docs/review-priorities.md`. For task selection, also read
-`docs/codex-backlog.md`.
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) for the canonical setup, verification,
+artifact, and Lean commands. Run the fast tier after changes and the artifact
+tier for finite-case or public theorem-style artifact changes; report any
+command that cannot be run and why.
 
-Run the fast tier after documentation or code changes:
+Before changing mathematical claims, read `README.md`, `STATE.md`, `RESULTS.md`,
+`metadata/erdos97.yaml`, `docs/claims.md`, and `docs/review-priorities.md`.
+For task selection, also read `docs/codex-backlog.md`.
 
-```bash
-python scripts/check_text_clean.py
-python scripts/check_status_consistency.py
-python scripts/check_artifact_provenance.py
-python scripts/check_docs_index_coverage.py
-python scripts/generate_makefile_verify_targets.py --check
-git diff --check
-python -m ruff check .
-python -m pytest -q
-```
-
-The registry-backed Makefile verify targets are generated from
-`scripts/audit_commands.json`; edit that file and run
-`python scripts/generate_makefile_verify_targets.py --write` instead of
-editing the generated Makefile block directly.
-
-The same fast tier is available as:
-
-```bash
-make verify-fast
-```
-
-After changing anything under `lean/`, or the root `lakefile.lean`,
-`lake-manifest.json`, or `lean-toolchain`, also run the Lean tier:
-
-```bash
-make verify-lean
-```
-
-It checks the sketch boundaries and compiles every Lean source. Without a Lean
-toolchain on `PATH` the compile step is skipped rather than failed, so say so
-if that is what happened; `.github/workflows/lean.yml` runs it with the pinned
-toolchain and `--require-lean`. See `docs/formalization.md`.
-
-For finite-case or public theorem-style artifact changes, also run the
-artifact tier or explain exactly which command could not be run and why:
-
-```bash
-python scripts/independent_check_n8_artifacts.py --check --json
-python scripts/enumerate_n8_incidence.py --summary
-python scripts/analyze_n8_exact_survivors.py --check --json
-python scripts/check_round2_certificates.py
-python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json
-python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json
-python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat
-python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json
-python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json
-python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json
-python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json
-```
-
-The artifact tier is available as:
-
-```bash
-make verify-artifacts
-```
-
-The scheduled/manual GitHub artifact audit runs the same artifact commands with
-metadata capture. Locally, use:
-
-```bash
-python scripts/check_status_consistency.py --max-official-status-age-days 90
-make audit-artifacts
-```
+Preserve published paths, historical source snapshots, and independent
+mathematical implementations. New reusable code belongs in `src/erdos97/`;
+command scripts should call it. Use the shared JSON/path helpers for plumbing.
+See `docs/repository-maintenance.md` for topic grouping and generated navigation.
 
 ## Research hygiene
 
