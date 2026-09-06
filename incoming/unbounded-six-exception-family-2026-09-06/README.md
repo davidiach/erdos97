@@ -378,6 +378,22 @@ arbitrary-size theorem, with m=21,23,99 respectively.
 `validation.json` records commands, source hashes and scope. The artifact is
 self-contained; repository-wide CI was not run and no PR was opened.
 
+### Repository integration note (2026-09-06)
+
+The statements above describe the preparation session. During publication the
+four Python sources were reformatted onto separate statements to satisfy the
+repository lint gate (`ruff` E701, E702, F401), two unused imports were removed
+from `test_family.py`, and that module now loads `verify.py` under the module
+name `unbounded_six_family_verify` because other incoming packets also ship a
+top-level `verify.py` and a single pytest session would otherwise bind the
+wrong one. The edits are formatting and module loading only: no identity,
+bound, threshold or reported value changed, `algebra_checks.json` and the three
+finite reports regenerate byte-identically from the reformatted sources, and
+the 28-test suite still passes. `manifest.json` and `validation.json` carry the
+updated hashes; `validation.json` also records the delivered source hashes.
+`test_output.txt` keeps the preparation run's bytes; a rerun after the reformat
+differs only in the reported elapsed time.
+
 ## 9. Provenance and review obligations
 
 The repository input re-read in this session is:
