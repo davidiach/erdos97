@@ -6,7 +6,7 @@ mathematical claim has been accepted. [Current state](../STATE.md).
 
 ## Structured review packets
 
-All eight packets below remain review-pending under their own stated hypotheses.
+All nine packets below remain review-pending under their own stated hypotheses.
 Retain their original reports and pinned source files. Run commands from the
 packet directory; see its README for prerequisites, full replays, and limitations.
 No packet in this table is declared superseded by another here.
@@ -21,6 +21,7 @@ No packet in this table is declared superseded by another here.
 | [Common suppliers](c3-common-suppliers-2026-09-05/README.md) | Restricted supplier/radius conditions | `python check_common_suppliers.py --check` |
 | [Seven-orbit transitive radius / diamond](c3-seven-orbit-diamond-2026-09-05/README.md) | Restricted transitive-triangle radius rule, forbidden diamond, and own-side seven-orbit closure | `python verify.py --check`; `python -m unittest test_diamond_seven.py` |
 | [Eight own-side orbits](c3-own-side-eight-orbits-2026-09-05/README.md) | Restricted own-side eight-orbit exclusion with exact chord-angle certificates | `python c3_eight_check.py --check`; `python replay.py --quick --check` |
+| [Unbounded six-exception family](unbounded-six-exception-family-2026-09-06/README.md) | Arbitrarily large strictly convex C3 partial constructions with exactly six good vertices; review-pending paper proof and exact finite controls, not a counterexample | `python verify.py --algebra-only`; `python -m unittest -v test_family.py` |
 
 ## Historical imports
 

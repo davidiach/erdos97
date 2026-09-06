@@ -1,0 +1,1429 @@
+{
+  "algebra": {
+    "arbitrary_length_theorem": "paper proof in README.md; independent review pending",
+    "first_iterate_below": "1/80",
+    "seed_band_perturbation_bound": "969/6400",
+    "seed_distance_functions": [
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "-180",
+          "-50589/320"
+        ],
+        "limit_at_zero": "9/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "9"
+          ],
+          [
+            0,
+            1,
+            "-180"
+          ],
+          [
+            0,
+            2,
+            "900"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 0,
+        "strict_derivative_sign": -1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "-32643/40",
+          "-518157/640"
+        ],
+        "limit_at_zero": "300/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "300"
+          ],
+          [
+            0,
+            1,
+            "-810"
+          ],
+          [
+            0,
+            2,
+            "657"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 1,
+        "strict_derivative_sign": -1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "302211/6400",
+          "63"
+        ],
+        "limit_at_zero": "219/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "219"
+          ],
+          [
+            0,
+            1,
+            "63"
+          ],
+          [
+            0,
+            2,
+            "27"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 2,
+        "strict_derivative_sign": 1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "-8073/40",
+          "-57573/320"
+        ],
+        "limit_at_zero": "300/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "300"
+          ],
+          [
+            0,
+            1,
+            "-180"
+          ],
+          [
+            0,
+            2,
+            "27"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 0,
+        "strict_derivative_sign": -1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "-810",
+          "-514269/640"
+        ],
+        "limit_at_zero": "219/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "219"
+          ],
+          [
+            0,
+            1,
+            "-810"
+          ],
+          [
+            0,
+            2,
+            "900"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 1,
+        "strict_derivative_sign": -1
+      },
+      {
+        "denominator": "103*(1+3*t^2)",
+        "derivative_numerator_range": [
+          "403011/6400",
+          "315/4"
+        ],
+        "limit_at_zero": "9/103",
+        "numerator": [
+          [
+            0,
+            0,
+            "9"
+          ],
+          [
+            0,
+            1,
+            "63"
+          ],
+          [
+            0,
+            2,
+            "657"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 2,
+        "strict_derivative_sign": 1
+      }
+    ],
+    "squared_support_factor_lower_bound": "9409/10000",
+    "status": "EXACT_ALGEBRA_CHECKS_PASSED_NOT_FORMAL_GEOMETRIC_PROOF",
+    "support_polynomials": [
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            2,
+            "3"
+          ],
+          [
+            1,
+            1,
+            "-6"
+          ],
+          [
+            2,
+            0,
+            "3"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 0
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            0,
+            "1"
+          ],
+          [
+            0,
+            1,
+            "-3/2"
+          ],
+          [
+            0,
+            2,
+            "3/2"
+          ],
+          [
+            1,
+            1,
+            "3"
+          ],
+          [
+            1,
+            2,
+            "-9"
+          ],
+          [
+            2,
+            1,
+            "9/2"
+          ],
+          [
+            2,
+            2,
+            "9/2"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 1
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            0,
+            "1/2"
+          ],
+          [
+            0,
+            1,
+            "3/2"
+          ],
+          [
+            1,
+            0,
+            "-3"
+          ],
+          [
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            0,
+            "3/2"
+          ],
+          [
+            2,
+            1,
+            "-9/2"
+          ],
+          [
+            2,
+            2,
+            "9"
+          ]
+        ],
+        "reflection": 1,
+        "rotation": 2
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            1,
+            "3/2"
+          ],
+          [
+            0,
+            2,
+            "3/2"
+          ],
+          [
+            1,
+            1,
+            "3"
+          ],
+          [
+            1,
+            2,
+            "-9"
+          ],
+          [
+            2,
+            0,
+            "3"
+          ],
+          [
+            2,
+            1,
+            "-9/2"
+          ],
+          [
+            2,
+            2,
+            "9/2"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 0
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            0,
+            "1"
+          ],
+          [
+            1,
+            1,
+            "-6"
+          ],
+          [
+            2,
+            2,
+            "9"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 1
+      },
+      {
+        "normalized_polynomial": [
+          [
+            0,
+            0,
+            "1/2"
+          ],
+          [
+            0,
+            1,
+            "-3/2"
+          ],
+          [
+            0,
+            2,
+            "3"
+          ],
+          [
+            1,
+            0,
+            "-3"
+          ],
+          [
+            1,
+            1,
+            "3"
+          ],
+          [
+            2,
+            0,
+            "3/2"
+          ],
+          [
+            2,
+            1,
+            "9/2"
+          ]
+        ],
+        "reflection": -1,
+        "rotation": 2
+      }
+    ],
+    "support_uniform_lower_bounds": {
+      "(-1, 2)": "1/20",
+      "(1, 1)": "841/1000",
+      "(1, 2)": "391/2000"
+    }
+  },
+  "finite": {
+    "bits": 16384,
+    "chain_orbits": 11,
+    "cyclic_order": [
+      [
+        0,
+        0
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        5,
+        0
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        9,
+        0
+      ],
+      [
+        11,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        11,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        10,
+        0
+      ],
+      [
+        8,
+        0
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        7,
+        2
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        11,
+        2
+      ]
+    ],
+    "distance_class_separations": 18147,
+    "distinct_pairs": 630,
+    "good_vertices": 6,
+    "maximum_multiplicity_distribution": {
+      "2": 3,
+      "3": 3,
+      "4": 30
+    },
+    "point_count": 36,
+    "positive_dyadic_lower_bounds": {
+      "distinct_squared_distance": {
+        "denominator_power_of_two": 16384,
+        "numerator_hex": "0x96c28e9394baa768d3aa842247e11d778b4b522eb7d577641723eb12efef2dd1a9aaaadb625527213ebd7dffbde9d3e678572fa853adbb240988523d470206a15476447a0c83fe73130caa35f615f0a19720c0206fe24f5af769fff515876577609a6aa8b68ff84418ba702849095d0f4fd863be2c193903ec06e8211aed6fb14a8a99223f13fb026732e5254e34f05c0d0945b8c7c58003f2be751d7d675dcd3a12a525435c2f1894b2c1395ef71576ba1afe296786a722fa1608a66a7eaccc747fa785f46ec8e4b96af99a586cd45b73c52f69f1c8344d995aa6572575c04ac59898142e46301e1365962de949cc31735c962029277af5af0954f3ea07152fa1094465a2876fa2a233d7adf854f4d046bf914b4d307be7a41632a1e1e54e9540a9008ea019fc72fb1c8e3b30ebb8f4c239e6d5ff8ded3b32f5632a4a02aba1eae840b470a96131b8fb2966284c1ec67e38373e405400364c993e0a56b48b38126ef693b606ead25e1424f99651c4c71077b52b54ba8c46a39f19aeac0822146c138d3d54ec8e51ed921b56ca4169518c8124ee8c736095853dd0abab1293fb0d41785811fe5357d844785030913c16d0a4f27d178ff3364d1e4c157fcaafb249093d30c2ed2a38231b530ba3471e90a1fbee0f6666effede7d9b72a0440e3ce2f496997f554d088516077a5c9e6b7fae33aad15cfe942702a783be7b7b98d0f6bd9c830820536ea34756c4e3d832cd74794eadcc82cdc1365f7bfb558a13a8443b401805d98c83153f5bb4fa8e6eff2ccf23e1c86a7c3d003fe6e226aa420d5f21431cf6c3462aa38c072ac9915ab08ae3ec59f26be8d63296c34419e3118a382d1dda37bed81572fdc070fff044403a18d7a016d784ef23950a5df8946c6fb3e9a0531f098c1100437067ec6121c4293354dd27221c3cb3846056281db77272b48deff655b787b65ea9bf8ef92110b54713e16132ef9f1028b73a3032a109631cc431353549795c24075eb3b89c7febb5c855e1535ebcb0034e321c8e81861947dba8cce80ba1d6b2c96a68a2b3e421ae592b12c91986a43e58ff2b8e42cd937e343dc8f20fb4d377615266d75eda43e4c6dff5fc2879651e208ce2d0635072097a316fd8b20db5cbc0452d2874fb07a1499bc93d84886ff71a6545fcca43baa1284e73159601a99f14421d5e355fad0ab2af903044f444b0afc6d2c9e3b2b231869ba3d793b92b710f0a6a72f568e88bf801316f37fd98cd152f1bf6dbb536fbabece60483bdd5ae93d9de428a1a13b7f2a0202b95af95f227f30aea22a6495653ef558629738bbd3ca08cffc7ec86840908ce193813c5503b35bc7253bf9ebb0271a4b5f1b474bb9e7eb23a7409b54946347fe5a47954fabbd97002532a117a3ad30a02acd70ee6ee234a49f6bf6b71a5444f05764d44df70d7e28a9ca49e1a8d2bee846af15df9477b16f580baf150a4214d5ff7a7552d49aaf439ebbe88aa9520da65d40cdd3d6cacc0a3c8a01c20564eeb9a474580ff701c3d83dc61779b164b64bd90581b0cd483dba1c84c41de4f2da1f77b37c6ebdb050ba760d8b3689382768c3791fbbb02b12b1247119f5bb3e51ba213f6cd3d2739633e539c148c19b15e85a3d868bf5797400c383f031d2d8efe0c4493c743decf961758fd63de91054246c96af027790e81964d450a9ed5a8f44c34ff8d0b94741084c008f10d73189ba90dcd325a0e61cdef0bbf5837271e9ee"
+      },
+      "separation_of_unequal_squared_distances": {
+        "denominator_power_of_two": 16384,
+        "numerator_hex": "0x96c28e9394baa768d3aa842247e11d778b4b522eb7d577641723eb12efef2dd1a9aaaadb625527213ebd7dffbde9d3e678572fa853adbb240988523d470206a15476447a0c83fe73130caa35f615f0a19720c0206fe24f5af769fff515876577609a6aa8b68ff84418ba702849095d0f4fd863be2c193903ec06e8211aed6fb14a8a99223f13fb026732e5254e34f05c0d0945b8c7c58003f2be751d7d675dcd3a12a525435c2f1894b2c1395ef71576ba1afe296786a722fa1608a66a7eaccc747fa785f46ec8e4b96af99a586cd45b73c52f69f1c8344d995aa6572575c04ac59898142e46301e1365962de949cc31735c962029277af5af0954f3ea07152fa1094465a2876fa2a233d7adf854f4d046bf914b4d307be7a41632a1e1e54e9540a9008ea019fc72fb1c8e3b30ebb8f4c239e6d5ff8ded3b32f5632a4a02aba1eae840b470a96131b8fb2966284c1ec67e38373e405400364c993e0a56b48b38126ef693b606ead25e1424f99651c4c71077b52b54ba8c46a39f19aeac0822146c138d3d54ec8e51ed921b56ca4169518c8124ee8c736095853dd0abab1293fb0d41785811fe5357d844785030913c16d0a4f27d178ff3364d1e4c157fcaafb249093d30c2ed2a38231b530ba3471e90a1fbee0f6666effede7d9b72a0440e3ce2f496997f554d088516077a5c9e6b7fae33aad15cfe942702a783be7b7b98d0f6bd9c830820536ea34756c4e3d832cd74794eadcc82cdc1365f7bfb558a13a8443b401805d98c83153f5bb4fa8e6eff2ccf23e1c86a7c3d003fe6e226aa420d5f21431cf6c3462aa38c072ac9915ab08ae3ec59f26be8d63296c34419e3118a382d1dda37bed81572fdc070fff044403a18d7a016d784ef23950a5df8946c6fb3e9a0531f098c1100437067ec6121c4293354dd27221c3cb3846056281db77272b48deff655b787b65ea9bf8ef92110b54713e16132ef9f1028b73a3032a109631cc431353549795c24075eb3b89c7febb5c855e1535ebcb0034e321c8e81861947dba8cce80ba1d6b2c96a68a2b3e421ae592b12c91986a43e58ff2b8e42cd937e343dc8f20fb4d377615266d75eda43e4c6dff5fc2879651e208ce2d0635072097a316fd8b20db5cbc0452d2874fb07a1499bc93d84886ff71a6545fcca43baa1284e73159601a99f14421d5e355fad0ab2af903044f444b0afc6d2c9e3b2b231869ba3d793b92b710f0a6a72f568e88bf801316f37fd98cd152f1bf6dbb536fbabece60483bdd5ae93d9de428a1a13b7f2a0202b95af95f227f30aea22a6495653ef558629738bbd3ca08cffc7ec86840908ce193813c5503b35bc7253bf9ebb0271a4b5f1b474bb9e7eb23a7409b54946347fe5a47954fabbd97002532a117a3ad30a02acd70ee6ee234a49f6bf6b71a5444f05764d44df70d7e28a9ca49e1a8d2bee846af15df9477b16f580baf150a4214d5ff7a7552d49aaf439ebbe88aa9520da65d40cdd3d6cacc0a3c8a01c20564eeb9a474580ff701c3d83dc61779b164b64bd90581b0cd483dba1c84c41de4f2da1f77b37c6ebdb050ba760d8b3689382768c3791fbbb02b12b1247119f5bb3e51ba213f6cd3d2739633e539c148c19b15e85a3d868bf5797400c383f031d2d8efe0c4493c743decf961758fd63de91054246c96af027790e81964d450a9ed5a8f44c34ff8d0b94741084c008f10d73189ba90dcd325a0e61cdef0bbf5837271e9c5"
+      },
+      "support_determinant_div_sqrt3": {
+        "denominator_power_of_two": 16384,
+        "numerator_hex": "0x12a14e4aba1bc2990c41c4cc397c76dacd4a20ea845a42651441e19b04f1076e89163e93c78d8d14dd0e09acf114ed924139b88f5294a3fdf3daf28194193dc4381c94ee929f61beb53d9cac9dbbc8ed08035d612c1e23565052782a50bb9012b8b7c6ff50107a7d2f559a4530a2c52e792051ccc68a035b4ea2f147a81e67e1f345a62934049367b38fea0aef7c9c7ba9ff5aa8d892c76d14f06646b75cae57f3566bb1b1a7a1b4498e21c302311b82e9974c239d34d121aa546d44db34f05e78346c20a4b8c931ac02fc18b54cf679565aac00c25ecbfe140086cce94ecac99e5eb47ddfaacd243bc14ec4d24395b153605f8377ccf3f45629c25199f2b48c59399724acee791c4642a07972cf97ee2fc1ce7bdad2fd4b0ffaf72293a715a1ae5df00972998939308c70be32180b17d4c65b69e652200f5650a1af61ce31682eef8b5a78d1d0b55028d20c3ee9c96552838ed9ce7e8f19c45e79562dfaeaa5f92f14e791f9f3a5c4523c394df52957968ae3a91b3e074c63069c71a0f023bddd08c5d035eef5678e3920e26c9bca36f99b78c643a66e7736760d5b53886c250c8ae359ae50be2e1f2d0655a61bb3f8f61313c88e2d2c4dc482b4c5b836d97073d4f0494592d91826e79bc0a4c00c7a7d7b0ed620fd0e39d9d372da36cc83f137074403b147c09758352c158e6e7056eb159b52aba870409523d075acdb6a05ad30be65be7d48e69a1835b4701ca8800d1e43e83e4e712ee37e68a86c6f79d8fb12f1bafdb8ef77c98e9fc325f064a0d55546ccafcd82b42be7b36b6b29bd64c33bfb78621d3650c7b04579e3443c51f59f39a48bf3c76c897c5e9d9e65b63c1a705926086e66262c50f120192fd52528b695d2645ac3009d969e8b82b99802222a07fd701b4ee7d85a14f37dac5ac7c085708a4ade837f9ea2d23e44998054aea9d889bdd2ba083df623a2a7f57df2dfcdabd716b3216d508ee6c11878fb5aa776a8f4c17caec8a2981d7611959c06d5670da3e93b0ab317752acd9f85d1e1a161a0224d52794a56672386a9d9fec1cac6692b726b8400dda43d0269355eb0ffef9616b06c15b5ad13a649dcf6de07f460e7295510dc0d0f6287e2d3abb831989b55ac2ef72b96ad283da301388044844ad339d7e9de66e65ee7838e961295160a1e7cadb225621ed3330194f9ac8f244b3e36a20707f366c185084de4f26b345d71a12e475e7f1b7a7f5848c7b3dc4ffa8734458667cec8e739260c1e98735442a15b42dcf15a662ffbab9032ef6262caad187adacadb5e99504b1d3e70abda000d767d8f00787e184352098818c3e4da144f1a58fccb4fdbf095eb47ef08eb19e5d419c51627f73562c2530e94bf0dd441715b3400a2d28f793f278f15548e6f9c2608c8c7727325a996dd6bb592d8b18006397d95a7a75df97b88f3f6f6b543a080ea363d448fe443b7c68798255ecb656a1fea0cc3d89d4a45a9ff0dfec185d18055ea67eb9867f90c0b160dcdcf5db38a09cb86b488a83c9b16120c7880312b21430d815e79934631506b2456aa22f9058d1c4358aa780d7e1421fb4b04b1203d68027f751a855339a2a02df60bb5dafa1d8471931850235095fb70fdcd2f4a50d354e33388f1a67e0bf2116681404402cb64e5e98a755df01004aa0ca9f7c209d7c94ba311f0051a466e747e7d189de49e00ffaa75ca5c4ac0e666bfe8380fc4f922f628b662f927b054e361ada9ce4dcfe0879e4b73d707e86da963864e7d199ac32aa181c9cf0c9d8962f7d97d030a04a56395307191b02372780d3fc41693786d30711a004789f6859576a5b71ec9577bba8e35a4366fed19807552249318ed7de9a0faf4c302dce1b8c4273a124c4210987b412d3bbedc39648642da68b0063e8e5f72b31d958ca95939cf2203d5664080173a046fb86cbb11acbb2072e9cec6170bc5499d67d48db3900b41d8010107833a5521a3fe6a49693731f08310c6adfa95d355386418ceb397bea78d81d49f4a53af9e4f03f14a5c600"
+      }
+    },
+    "rich_vertices": 30,
+    "rows": [
+      {
+        "maximum_multiplicity": 2,
+        "rich_classes": [],
+        "vertex": [
+          0,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 2,
+        "rich_classes": [],
+        "vertex": [
+          0,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 2,
+        "rich_classes": [],
+        "vertex": [
+          0,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 3,
+        "rich_classes": [],
+        "vertex": [
+          1,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 3,
+        "rich_classes": [],
+        "vertex": [
+          1,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 3,
+        "rich_classes": [],
+        "vertex": [
+          1,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          2,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          2,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          2,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          3,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          3,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          3,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          4,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          4,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          4,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          5,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          5,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          5,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          6,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              6,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          6,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              6,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          6,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          7,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              7,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          7,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              7,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          7,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          8,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              8,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          8,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              8,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          8,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              9,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          9,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              8,
+              1
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              9,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          9,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              9,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          9,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              9,
+              0
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              10,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          10,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              9,
+              1
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              10,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          10,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              9,
+              2
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              10,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          10,
+          2
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              10,
+              0
+            ],
+            [
+              11,
+              1
+            ],
+            [
+              11,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          11,
+          0
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              1
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              11,
+              2
+            ]
+          ]
+        ],
+        "vertex": [
+          11,
+          1
+        ]
+      },
+      {
+        "maximum_multiplicity": 4,
+        "rich_classes": [
+          [
+            [
+              0,
+              2
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              11,
+              0
+            ],
+            [
+              11,
+              1
+            ]
+          ]
+        ],
+        "vertex": [
+          11,
+          2
+        ]
+      }
+    ],
+    "status": "EXACT_FINITE_INSTANCE_VERIFIED_NOT_A_COUNTEREXAMPLE",
+    "support_checks": 1224,
+    "total_orbits": 12
+  }
+}

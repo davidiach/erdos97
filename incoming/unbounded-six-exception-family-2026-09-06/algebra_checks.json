@@ -1,0 +1,390 @@
+{
+  "status": "EXACT_ALGEBRA_CHECKS_PASSED_NOT_FORMAL_GEOMETRIC_PROOF",
+  "support_polynomials": [
+    {
+      "reflection": 1,
+      "rotation": 0,
+      "normalized_polynomial": [
+        [
+          0,
+          2,
+          "3"
+        ],
+        [
+          1,
+          1,
+          "-6"
+        ],
+        [
+          2,
+          0,
+          "3"
+        ]
+      ]
+    },
+    {
+      "reflection": 1,
+      "rotation": 1,
+      "normalized_polynomial": [
+        [
+          0,
+          0,
+          "1"
+        ],
+        [
+          0,
+          1,
+          "-3/2"
+        ],
+        [
+          0,
+          2,
+          "3/2"
+        ],
+        [
+          1,
+          1,
+          "3"
+        ],
+        [
+          1,
+          2,
+          "-9"
+        ],
+        [
+          2,
+          1,
+          "9/2"
+        ],
+        [
+          2,
+          2,
+          "9/2"
+        ]
+      ]
+    },
+    {
+      "reflection": 1,
+      "rotation": 2,
+      "normalized_polynomial": [
+        [
+          0,
+          0,
+          "1/2"
+        ],
+        [
+          0,
+          1,
+          "3/2"
+        ],
+        [
+          1,
+          0,
+          "-3"
+        ],
+        [
+          1,
+          1,
+          "3"
+        ],
+        [
+          2,
+          0,
+          "3/2"
+        ],
+        [
+          2,
+          1,
+          "-9/2"
+        ],
+        [
+          2,
+          2,
+          "9"
+        ]
+      ]
+    },
+    {
+      "reflection": -1,
+      "rotation": 0,
+      "normalized_polynomial": [
+        [
+          0,
+          1,
+          "3/2"
+        ],
+        [
+          0,
+          2,
+          "3/2"
+        ],
+        [
+          1,
+          1,
+          "3"
+        ],
+        [
+          1,
+          2,
+          "-9"
+        ],
+        [
+          2,
+          0,
+          "3"
+        ],
+        [
+          2,
+          1,
+          "-9/2"
+        ],
+        [
+          2,
+          2,
+          "9/2"
+        ]
+      ]
+    },
+    {
+      "reflection": -1,
+      "rotation": 1,
+      "normalized_polynomial": [
+        [
+          0,
+          0,
+          "1"
+        ],
+        [
+          1,
+          1,
+          "-6"
+        ],
+        [
+          2,
+          2,
+          "9"
+        ]
+      ]
+    },
+    {
+      "reflection": -1,
+      "rotation": 2,
+      "normalized_polynomial": [
+        [
+          0,
+          0,
+          "1/2"
+        ],
+        [
+          0,
+          1,
+          "-3/2"
+        ],
+        [
+          0,
+          2,
+          "3"
+        ],
+        [
+          1,
+          0,
+          "-3"
+        ],
+        [
+          1,
+          1,
+          "3"
+        ],
+        [
+          2,
+          0,
+          "3/2"
+        ],
+        [
+          2,
+          1,
+          "9/2"
+        ]
+      ]
+    }
+  ],
+  "support_uniform_lower_bounds": {
+    "(1, 1)": "841/1000",
+    "(1, 2)": "391/2000",
+    "(-1, 2)": "1/20"
+  },
+  "squared_support_factor_lower_bound": "9409/10000",
+  "seed_distance_functions": [
+    {
+      "reflection": 1,
+      "rotation": 0,
+      "numerator": [
+        [
+          0,
+          0,
+          "9"
+        ],
+        [
+          0,
+          1,
+          "-180"
+        ],
+        [
+          0,
+          2,
+          "900"
+        ]
+      ],
+      "denominator": "103*(1+3*t^2)",
+      "limit_at_zero": "9/103",
+      "strict_derivative_sign": -1,
+      "derivative_numerator_range": [
+        "-180",
+        "-50589/320"
+      ]
+    },
+    {
+      "reflection": 1,
+      "rotation": 1,
+      "numerator": [
+        [
+          0,
+          0,
+          "300"
+        ],
+        [
+          0,
+          1,
+          "-810"
+        ],
+        [
+          0,
+          2,
+          "657"
+        ]
+      ],
+      "denominator": "103*(1+3*t^2)",
+      "limit_at_zero": "300/103",
+      "strict_derivative_sign": -1,
+      "derivative_numerator_range": [
+        "-32643/40",
+        "-518157/640"
+      ]
+    },
+    {
+      "reflection": 1,
+      "rotation": 2,
+      "numerator": [
+        [
+          0,
+          0,
+          "219"
+        ],
+        [
+          0,
+          1,
+          "63"
+        ],
+        [
+          0,
+          2,
+          "27"
+        ]
+      ],
+      "denominator": "103*(1+3*t^2)",
+      "limit_at_zero": "219/103",
+      "strict_derivative_sign": 1,
+      "derivative_numerator_range": [
+        "302211/6400",
+        "63"
+      ]
+    },
+    {
+      "reflection": -1,
+      "rotation": 0,
+      "numerator": [
+        [
+          0,
+          0,
+          "300"
+        ],
+        [
+          0,
+          1,
+          "-180"
+        ],
+        [
+          0,
+          2,
+          "27"
+        ]
+      ],
+      "denominator": "103*(1+3*t^2)",
+      "limit_at_zero": "300/103",
+      "strict_derivative_sign": -1,
+      "derivative_numerator_range": [
+        "-8073/40",
+        "-57573/320"
+      ]
+    },
+    {
+      "reflection": -1,
+      "rotation": 1,
+      "numerator": [
+        [
+          0,
+          0,
+          "219"
+        ],
+        [
+          0,
+          1,
+          "-810"
+        ],
+        [
+          0,
+          2,
+          "900"
+        ]
+      ],
+      "denominator": "103*(1+3*t^2)",
+      "limit_at_zero": "219/103",
+      "strict_derivative_sign": -1,
+      "derivative_numerator_range": [
+        "-810",
+        "-514269/640"
+      ]
+    },
+    {
+      "reflection": -1,
+      "rotation": 2,
+      "numerator": [
+        [
+          0,
+          0,
+          "9"
+        ],
+        [
+          0,
+          1,
+          "63"
+        ],
+        [
+          0,
+          2,
+          "657"
+        ]
+      ],
+      "denominator": "103*(1+3*t^2)",
+      "limit_at_zero": "9/103",
+      "strict_derivative_sign": 1,
+      "derivative_numerator_range": [
+        "403011/6400",
+        "315/4"
+      ]
+    }
+  ],
+  "seed_band_perturbation_bound": "969/6400",
+  "first_iterate_below": "1/80",
+  "arbitrary_length_theorem": "paper proof in README.md; independent review pending"
+}
