@@ -1,0 +1,126 @@
+{
+  "all_pattern_exhaustion_claimed": false,
+  "circle_pairs_checked": 351,
+  "earlier_filter_failures": {
+    "circle_overlap_or_crossing": [],
+    "increasing_path_shortcuts": [],
+    "metric_comparison_cycles": [],
+    "metric_radial_domination": [],
+    "metric_zero_rows": [],
+    "own_length_collision": false,
+    "radius_cycles": [],
+    "reciprocal_arrows": [],
+    "right_interlacing": []
+  },
+  "euclidean_realization_claimed": false,
+  "full_chord_angle_feasibility_checked": false,
+  "kalmanson_inequalities_checked": 35100,
+  "length_quotient_classes": 99,
+  "orbit_count": 9,
+  "physical_vertex_count": 27,
+  "right_angle_containment_obstructions": [
+    [
+      7,
+      15,
+      16,
+      18,
+      0
+    ],
+    [
+      7,
+      15,
+      17,
+      18,
+      0
+    ],
+    [
+      16,
+      24,
+      25,
+      0,
+      9
+    ],
+    [
+      16,
+      24,
+      26,
+      0,
+      9
+    ],
+    [
+      25,
+      6,
+      7,
+      9,
+      18
+    ],
+    [
+      25,
+      6,
+      8,
+      9,
+      18
+    ]
+  ],
+  "rows": [
+    [
+      1,
+      1,
+      2,
+      1
+    ],
+    [
+      3,
+      1,
+      4,
+      1
+    ],
+    [
+      4,
+      1,
+      7,
+      1
+    ],
+    [
+      2,
+      1,
+      5,
+      1
+    ],
+    [
+      6,
+      2,
+      8,
+      1
+    ],
+    [
+      0,
+      0,
+      7,
+      2
+    ],
+    [
+      0,
+      0,
+      3,
+      2
+    ],
+    [
+      6,
+      1,
+      8,
+      1
+    ],
+    [
+      1,
+      0,
+      5,
+      2
+    ]
+  ],
+  "schema": 1,
+  "scope": "One nine-orbit fixed-order pattern; selected necessary filters only",
+  "selected_directed_spokes": 108,
+  "selected_orbit_arrows": 18,
+  "survives_earlier_filters": true
+}

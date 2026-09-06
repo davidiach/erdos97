@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "scope": "Packet-local validation; no repository-wide CI or external mathematical review.",
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "verify.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 4.8211,
+      "stdout": "{\n  \"result\": \"PASS\",\n  \"mode\": \"check\",\n  \"counts\": {\n    \"all_rich_minimum_layer_checks\": 129,\n    \"ascending_selected_edges_checked\": 582,\n    \"convex_quadrilaterals\": 20379,\n    \"cycle_ear_charges_checked\": 136,\n    \"exported_incidences_checked\": 582,\n    \"fixed_radius_checks\": 5873,\n    \"fixed_radius_unit_edges_counted\": 3611,\n    \"geometries\": 639,\n    \"multiple_minimum_center_checks\": 33,\n    \"non_gabriel_unit_edges_checked\": 475,\n    \"short_cycle_components_checked\": 741,\n    \"supporting_line_checks\": 16963,\n    \"variable_radius_assignments\": 6429\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "oracle.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.3194,
+      "stdout": "{\n  \"result\": \"PASS\",\n  \"scope\": \"Second representation on stored named controls only.\",\n  \"counts\": {\n    \"all_radius_deletion_controls\": 1,\n    \"assigned_radius_controls\": 3,\n    \"fixed_radius_certificates\": 14,\n    \"geometric_controls\": 12,\n    \"point_pairs\": 114,\n    \"supporting_line_checks\": 178\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_bridge.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.4299,
+      "stdout": "",
+      "stderr": "test_center_equal_nested (test_bridge.DiskTests.test_center_equal_nested) ... ok\ntest_four_closer_bound_sharp (test_bridge.DiskTests.test_four_closer_bound_sharp) ... ok\ntest_internal_tangency_included (test_bridge.DiskTests.test_internal_tangency_included) ... ok\ntest_invalid_disk_data (test_bridge.DiskTests.test_invalid_disk_data) ... ok\ntest_overlap_not_containment (test_bridge.DiskTests.test_overlap_not_containment) ... ok\ntest_strict_containment (test_bridge.DiskTests.test_strict_containment) ... ok\ntest_wrong_direction (test_bridge.DiskTests.test_wrong_direction) ... ok\ntest_band_is_not_about_every_higher_center (test_bridge.ExportTests.test_band_is_not_about_every_higher_center) ... ok\ntest_four_target_equality (test_bridge.ExportTests.test_four_target_equality) ... ok\ntest_nonrich_minimum_is_not_rejected (test_bridge.ExportTests.test_nonrich_minimum_is_not_rejected) ... ok\ntest_radii_really_third_nearest (test_bridge.ExportTests.test_radii_really_third_nearest) ... ok\ntest_return_all_radius_profiles (test_bridge.ExportTests.test_return_all_radius_profiles) ... ok\ntest_return_center_has_actual_four_tie (test_bridge.ExportTests.test_return_center_has_actual_four_tie) ... ok\ntest_return_has_nonempty_mutual_short_triangle (test_bridge.ExportTests.test_return_has_nonempty_mutual_short_triangle) ... ok\ntest_return_supporting_margin (test_bridge.ExportTests.test_return_supporting_margin) ... ok\ntest_return_whole_minimum_layer_rich (test_bridge.ExportTests.test_return_whole_minimum_layer_rich) ... ok\ntest_six_export_equality (test_bridge.ExportTests.test_six_export_equality) ... ok\ntest_two_center_exact_cyclic_order (test_bridge.ExportTests.test_two_center_exact_cyclic_order) ... ok\ntest_unequal_radii_symmetric_closer_relation_is_possible (test_bridge.ExportTests.test_unequal_radii_symmetric_closer_relation_is_possible) ... ok\ntest_acute_short_triangle_no_blocked_edge (test_bridge.GeometryTests.test_acute_short_triangle_no_blocked_edge) ... ok\ntest_closed_diameter_disk_right_angle (test_bridge.GeometryTests.test_closed_diameter_disk_right_angle) ... ok\ntest_common_threshold_rank_three_rejected (test_bridge.GeometryTests.test_common_threshold_rank_three_rejected) ... ok\ntest_crossing_diagonal_lemma (test_bridge.GeometryTests.test_crossing_diagonal_lemma) ... ok\ntest_crossing_graph_not_triangulated (test_bridge.GeometryTests.test_crossing_graph_not_triangulated) ... ok\ntest_cycle_not_forest (test_bridge.GeometryTests.test_cycle_not_forest) ... ok\ntest_hereditary_constant_radius_condition (test_bridge.GeometryTests.test_hereditary_constant_radius_condition) ... ok\ntest_hexagon_long_cycle (test_bridge.GeometryTests.test_hexagon_long_cycle) ... ok\ntest_obtuse_short_triangle_one_blocked_edge (test_bridge.GeometryTests.test_obtuse_short_triangle_one_blocked_edge) ... ok\ntest_one_point_convention (test_bridge.GeometryTests.test_one_point_convention) ... ok\ntest_rank_three_cannot_enter_checker (test_bridge.GeometryTests.test_rank_three_cannot_enter_checker) ... ok\ntest_rational_unit_identity (test_bridge.GeometryTests.test_rational_unit_identity) ... ok\ntest_rhombus_exact_base_bound (test_bridge.GeometryTests.test_rhombus_exact_base_bound) ... ok\ntest_short_graph_not_whole_threshold_graph (test_bridge.GeometryTests.test_short_graph_not_whole_threshold_graph) ... ok\ntest_square_duplicate_ear_base_resources (test_bridge.GeometryTests.test_square_duplicate_ear_base_resources) ... ok\ntest_support_sign_isometry (test_bridge.GeometryTests.test_support_sign_isometry) ... ok\ntest_triangle_exact_base_bound (test_bridge.GeometryTests.test_triangle_exact_base_bound) ... ok\ntest_two_point_short_path_penalty (test_bridge.GeometryTests.test_two_point_short_path_penalty) ... ok\ntest_bad_coordinate_dimension (test_bridge.InputTests.test_bad_coordinate_dimension) ... ok\ntest_bool_rejected (test_bridge.InputTests.test_bool_rejected) ... ok\ntest_collinear_rejected (test_bridge.InputTests.test_collinear_rejected) ... ok\ntest_coordinate_float_rejected (test_bridge.InputTests.test_coordinate_float_rejected) ... ok\ntest_degenerate_edge_rejected (test_bridge.InputTests.test_degenerate_edge_rejected) ... ok\ntest_duplicate_rejected (test_bridge.InputTests.test_duplicate_rejected) ... ok\ntest_empty_rejected (test_bridge.InputTests.test_empty_rejected) ... ok\ntest_insufficient_third_nearest (test_bridge.InputTests.test_insufficient_third_nearest) ... ok\ntest_interior_point_rejected (test_bridge.InputTests.test_interior_point_rejected) ... ok\ntest_negative_threshold_rejected (test_bridge.InputTests.test_negative_threshold_rejected) ... ok\ntest_radius_float_rejected (test_bridge.InputTests.test_radius_float_rejected) ... ok\ntest_wrong_radius_count (test_bridge.InputTests.test_wrong_radius_count) ... ok\ntest_zero_assigned_radius (test_bridge.InputTests.test_zero_assigned_radius) ... ok\ntest_zero_scale_rejected (test_bridge.InputTests.test_zero_scale_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 51 tests in 0.020s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "python",
+        "-m",
+        "py_compile",
+        "geometry.py",
+        "fixtures.py",
+        "verify.py",
+        "combinatorial.py",
+        "oracle.py",
+        "test_bridge.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 1.5412,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "original_archives": [
+    {
+      "archive": "erdos97_chain_conic_obstructions_2026_09_06.zip",
+      "file_count": 6,
+      "files": {
+        "README.md": {
+          "bytes": 2970,
+          "sha256": "3fb15d1692b57e02df383e0bbf4cb653f8a73c04939fa44229d83f02aa72f8fa"
+        },
+        "manifest.json": {
+          "bytes": 888,
+          "sha256": "e5d05d53c64490bef72f7f67c77f7d4b64c51fd3770867234773f3d87c355cf7"
+        },
+        "proofs.md": {
+          "bytes": 18782,
+          "sha256": "91e5f7a808f30be0522700ded7577eeb7e499182118707dd561b2c7cf379b18a"
+        },
+        "provenance.md": {
+          "bytes": 3255,
+          "sha256": "bd1f0950e45d5299ebafec7ae21fd8904ef31099ef38c5ef5e98968de18ae0ec"
+        },
+        "verification.json": {
+          "bytes": 4193,
+          "sha256": "8fc0a2a20b956123f035a3eb28c30a61f99c19d0cc28c886f7eb9b9e771e270a"
+        },
+        "verify.py": {
+          "bytes": 14430,
+          "sha256": "0d73fba9f79c20647322b55280fc047ca97d1a7e77495a31a9cf2ebab7ae06db"
+        }
+      },
+      "path": "snapshots/chain-conic-obstructions-2026-09-06",
+      "sha256": "bc26a6413a59f0b5fb4f8b9d80c1fa1acf4da3f7d542d3b9eeb505d89d4d10fc"
+    },
+    {
+      "archive": "erdos97_rank_one_bridge_2026_09_06.zip",
+      "file_count": 12,
+      "files": {
+        "MANIFEST.sha256": {
+          "bytes": 886,
+          "sha256": "83dc5fa9b58d3ae12ca007acf2d713ff320a0319079a47b8cb4135d54bfdbc67"
+        },
+        "PROVENANCE.md": {
+          "bytes": 4603,
+          "sha256": "502e030abd7437b7c6717b5627f430834c2d24befa73f7dfc93489512d6489bd"
+        },
+        "README.md": {
+          "bytes": 4229,
+          "sha256": "411f0021a5a99c849932fe1d314dea683ee603a451d9337da9fff9358b3e7c08"
+        },
+        "checker.py": {
+          "bytes": 9426,
+          "sha256": "fcf86efb2ed4868b5cc5a9f7f3bf5b0257d1523273920c553e8821ece9ac7115"
+        },
+        "fixtures.py": {
+          "bytes": 2286,
+          "sha256": "9015dfb330fdc1f3676a45fd0f1cfc053b881914afcb411458786c0fef6427eb"
+        },
+        "proofs.md": {
+          "bytes": 18387,
+          "sha256": "c27f927bef3d02b3b41703d693dc3fa2f0352c3513ba610156a0bb18852a0f9d"
+        },
+        "rank_two_exact_control.json": {
+          "bytes": 1197,
+          "sha256": "0cf04b5f899923bb77d8fa9299dea1f6e1e8026dfada363b0fc41b4bfeeff0bb"
+        },
+        "test_bridge.py": {
+          "bytes": 8404,
+          "sha256": "87c6b8653eae46eebef893ed7b97c49070c73e9b7fc7426fc085016038676e19"
+        },
+        "test_output.txt": {
+          "bytes": 3226,
+          "sha256": "6841cf59779a75dcb75b43dbd3898a522351651a6dbd1d2ecad665b6e1be013c"
+        },
+        "validation.json": {
+          "bytes": 3122,
+          "sha256": "02ba72d0e352c1457289c121efda366f916fb2c5895b240091add5e56a2b401e"
+        },
+        "verification.json": {
+          "bytes": 20662,
+          "sha256": "1044c2e0c30c964a1ea24064742de82c96737d2ee857b956a7c756ff031ce3f9"
+        },
+        "verify.py": {
+          "bytes": 12713,
+          "sha256": "5a01132fd1540a0e7d2a90b60fabe5d811f14d10f0a6e89de67a99a9976cd13e"
+        }
+      },
+      "path": "snapshots/rank-one-bridge-2026-09-06",
+      "sha256": "52a7cb7813ea05abd6e6fbf41ffcdafa7ca031e94c1e8885b0d65da69709975e"
+    },
+    {
+      "archive": "erdos97_rank_two_layer_escape_2026_09_06.zip",
+      "file_count": 16,
+      "files": {
+        "PROVENANCE.md": {
+          "bytes": 2530,
+          "sha256": "39c991f51eb4d064c42bee51fc574bc5dc1c4f123b3e83cfdb7c7d9b7c00cabe"
+        },
+        "README.md": {
+          "bytes": 3484,
+          "sha256": "748c327b5458e360cdfa96b4ae05aa0de6011287b939f0a60d828d9b85ee9f69"
+        },
+        "combinatorial.py": {
+          "bytes": 2855,
+          "sha256": "e2d6949b7db1a019cb8bdd3b473b20cd7c48e7012fb18ac048f249a8cf19f117"
+        },
+        "exact_controls.json": {
+          "bytes": 33956,
+          "sha256": "90ac83c29229fda408d188c4edee43de0ee813d48a088d1cd196ad01a907ed5b"
+        },
+        "fixtures.py": {
+          "bytes": 3479,
+          "sha256": "2b90b476d9fba0004ee86cac8b343f4e1cb537ae1951d932ce4d8c2185eea307"
+        },
+        "geometry.py": {
+          "bytes": 14023,
+          "sha256": "04361143bd100eafdb032493dbcc4070c7d2a47248b1b894ab4670dfc356ec73"
+        },
+        "manifest.json": {
+          "bytes": 1460,
+          "sha256": "302c76e2201696d773dec55e5ee565f2ebe5d8fa5c6d0fc7c0b33e2ca222127f"
+        },
+        "oracle.py": {
+          "bytes": 5502,
+          "sha256": "63385fca230f48de23e292eb586f1be0eac1b3cb9e7a4c201d4ac74661970015"
+        },
+        "oracle_report.json": {
+          "bytes": 308,
+          "sha256": "c8e234306a705388cff8be92563763e20c874a330edf012bd8b01f75b186da53"
+        },
+        "proofs.md": {
+          "bytes": 25445,
+          "sha256": "378bb19df4db462fdbf660c0bd6b4bc6c9f1e47aa857cc8ea61a9b8d936a1344"
+        },
+        "return_control.json": {
+          "bytes": 3620,
+          "sha256": "87444bf428fcb33abc177eabc3e761623a1bc9409a2b00f6a4a17462fd129595"
+        },
+        "test_bridge.py": {
+          "bytes": 9349,
+          "sha256": "f4978a7d51425a7a83766994b5e4b8029bf28787f18a9b3c7e552ab33b22f77d"
+        },
+        "test_output.txt": {
+          "bytes": 5018,
+          "sha256": "c4aeb875360ac3f044c6876d3c7ce8f5c309e6a5892751dfc4abd7450a0b588b"
+        },
+        "validation.json": {
+          "bytes": 7154,
+          "sha256": "6ca952fb562e6c8d82cf3b90ffecb7d3e2320470e545cf1c2a919f654b4a7cdd"
+        },
+        "verification.json": {
+          "bytes": 8771,
+          "sha256": "268f9cf2c8ae441bf3900387ce1801f393f3107ce8dc8848e4f77d8d7ea2871b"
+        },
+        "verify.py": {
+          "bytes": 11252,
+          "sha256": "b0472eacc1f37c20b6c1f329f8db3b03e70244af555b36d83da1e3243560665e"
+        }
+      },
+      "path": "snapshots/rank-two-layer-escape-2026-09-06",
+      "sha256": "91593b93905da3f59d88cd51ece3182fae7564cf7518ef38a3541b7d0bcadb14"
+    },
+    {
+      "archive": "erdos97_bridge_closure_audit_2026_09_06.zip",
+      "file_count": 7,
+      "files": {
+        "README.md": {
+          "bytes": 1862,
+          "sha256": "6e40f5b20a2ee7628f7b93104febc7a5a3a9b722fec903037fc7300435de306f"
+        },
+        "manifest.json": {
+          "bytes": 519,
+          "sha256": "7a5f1a7849716adda843f2ed0f96e8cde38c403cbecc521e2793273d743e9d41"
+        },
+        "proofs.md": {
+          "bytes": 10783,
+          "sha256": "5b77b9e399b651bfd95c1e157f3170e3164f8a6cff81cbc4bc2c8a9f646af4db"
+        },
+        "test_audit.py": {
+          "bytes": 3750,
+          "sha256": "336084ea65c690cfbbf3ec9bb30196201ee6cf547298fd922d711dcb96923079"
+        },
+        "test_output.txt": {
+          "bytes": 1588,
+          "sha256": "4c95020eb105b9aa6295797351a509ba3b6f9d70020b1ea232b8dd7562421a80"
+        },
+        "verification.json": {
+          "bytes": 11710,
+          "sha256": "8fbb834123a6daf6ba4778ba1976af2073fe1b5d77d98b206d26c75537b5b3ee"
+        },
+        "verify.py": {
+          "bytes": 11407,
+          "sha256": "b57ddafa62623e3df98569c50168c3c57aac4412609bb1580cdc68161b400907"
+        }
+      },
+      "path": "snapshots/bridge-closure-audit-2026-09-06",
+      "sha256": "50f7a68d254aa28c28c369c85d51c940f01d3fea9ebc75d489bbc74e56980263"
+    }
+  ],
+  "preservation": "All 41 files below retain exactly their originally delivered bytes. Original manifests and historical no-PR fields are unchanged.",
+  "publication_base_commit": "8de81aa13219fcd1db85756da41e6cda7ffbd972",
+  "publication_date": "2026-09-07",
+  "research_date": "2026-09-06",
+  "schema": 1
+}

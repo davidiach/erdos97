@@ -1,0 +1,2080 @@
+[
+  {
+    "all_radius_maximum_multiplicities": [
+      0
+    ],
+    "cyclic_order": [
+      0
+    ],
+    "minimum_support_coefficient": null,
+    "name": "one_point",
+    "points": [
+      [
+        0,
+        0
+      ]
+    ],
+    "supporting_line_checks": 0,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 1,
+        "radius_squared": "1",
+        "short_components": [
+          {
+            "kind": "isolated",
+            "vertices": [
+              0
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          0
+        ],
+        "short_edges": [],
+        "strict_gabriel_edges": [],
+        "triangulation_added_edges": [],
+        "unit_edge_bound": 0,
+        "unit_edge_count": 0,
+        "unit_edges": [],
+        "unused_blocker_vertices": []
+      }
+    ],
+    "thresholds_squared": [
+      1
+    ]
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      1,
+      1
+    ],
+    "cyclic_order": [
+      0,
+      1
+    ],
+    "minimum_support_coefficient": null,
+    "name": "two_points",
+    "points": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "supporting_line_checks": 0,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 2,
+        "radius_squared": "1/2",
+        "short_components": [
+          {
+            "kind": "isolated",
+            "vertices": [
+              0
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              1
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          0,
+          0
+        ],
+        "short_edges": [],
+        "strict_gabriel_edges": [],
+        "triangulation_added_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "unit_edge_bound": 1,
+        "unit_edge_count": 0,
+        "unit_edges": [],
+        "unused_blocker_vertices": []
+      },
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 2,
+        "radius_squared": "1",
+        "short_components": [
+          {
+            "kind": "isolated",
+            "vertices": [
+              0
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              1
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          0,
+          0
+        ],
+        "short_edges": [],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "triangulation_added_edges": [],
+        "unit_edge_bound": 1,
+        "unit_edge_count": 1,
+        "unit_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "unused_blocker_vertices": []
+      },
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 1,
+        "point_count": 2,
+        "radius_squared": "2",
+        "short_components": [
+          {
+            "kind": "path",
+            "vertices": [
+              0,
+              1
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          1,
+          1
+        ],
+        "short_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "triangulation_added_edges": [],
+        "unit_edge_bound": 0,
+        "unit_edge_count": 0,
+        "unit_edges": [],
+        "unused_blocker_vertices": []
+      }
+    ],
+    "thresholds_squared": [
+      "1/2",
+      1,
+      2
+    ]
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      2,
+      2,
+      2
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2
+    ],
+    "minimum_support_coefficient": "1/2",
+    "name": "equilateral_triangle",
+    "points": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        "1/2",
+        "1/2"
+      ]
+    ],
+    "supporting_line_checks": 3,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 3,
+        "radius_squared": "1",
+        "short_components": [
+          {
+            "kind": "isolated",
+            "vertices": [
+              0
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              1
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              2
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          0,
+          0,
+          0
+        ],
+        "short_edges": [],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "triangulation_added_edges": [],
+        "unit_edge_bound": 3,
+        "unit_edge_count": 3,
+        "unit_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "unused_blocker_vertices": []
+      },
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 3,
+        "radius_squared": "2",
+        "short_components": [
+          {
+            "kind": "cycle",
+            "vertices": [
+              0,
+              1,
+              2
+            ]
+          }
+        ],
+        "short_cycles": 1,
+        "short_degrees": [
+          2,
+          2,
+          2
+        ],
+        "short_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "triangulation_added_edges": [],
+        "unit_edge_bound": 1,
+        "unit_edge_count": 0,
+        "unit_edges": [],
+        "unused_blocker_vertices": []
+      }
+    ],
+    "thresholds_squared": [
+      1,
+      2
+    ],
+    "vertical_scale_squared": 3
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      3,
+      3,
+      2,
+      2
+    ],
+    "cyclic_order": [
+      0,
+      3,
+      1,
+      2
+    ],
+    "minimum_support_coefficient": "1/2",
+    "name": "equilateral_rhombus",
+    "points": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        "1/2",
+        "1/2"
+      ],
+      [
+        "1/2",
+        "-1/2"
+      ]
+    ],
+    "supporting_line_checks": 8,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 4,
+        "radius_squared": "1",
+        "short_components": [
+          {
+            "kind": "isolated",
+            "vertices": [
+              0
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              1
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              2
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              3
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "short_edges": [],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "triangulation_added_edges": [],
+        "unit_edge_bound": 5,
+        "unit_edge_count": 5,
+        "unit_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "unused_blocker_vertices": []
+      }
+    ],
+    "thresholds_squared": [
+      1
+    ],
+    "vertical_scale_squared": 3
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "minimum_support_coefficient": "1",
+    "name": "square_closed_disk_boundary",
+    "points": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "supporting_line_checks": 8,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 4,
+        "radius_squared": "1",
+        "short_components": [
+          {
+            "kind": "isolated",
+            "vertices": [
+              0
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              1
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              2
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              3
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "short_edges": [],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "triangulation_added_edges": [
+          [
+            0,
+            2
+          ]
+        ],
+        "unit_edge_bound": 5,
+        "unit_edge_count": 4,
+        "unit_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "unused_blocker_vertices": []
+      },
+      {
+        "cycle_ear_charges": [
+          {
+            "charged_added_edge": [
+              0,
+              2
+            ],
+            "ear_vertex": 1
+          },
+          {
+            "charged_unused_blocker": 3,
+            "ear_vertex": 3
+          }
+        ],
+        "non_gabriel_unit_blockers": [
+          [
+            [
+              1,
+              3
+            ],
+            0
+          ],
+          [
+            [
+              0,
+              2
+            ],
+            1
+          ]
+        ],
+        "nontrivial_short_paths": 0,
+        "point_count": 4,
+        "radius_squared": "2",
+        "short_components": [
+          {
+            "kind": "cycle",
+            "vertices": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ],
+        "short_cycles": 1,
+        "short_degrees": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "short_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "triangulation_added_edges": [
+          [
+            0,
+            2
+          ]
+        ],
+        "unit_edge_bound": 3,
+        "unit_edge_count": 2,
+        "unit_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "unused_blocker_vertices": [
+          2,
+          3
+        ]
+      }
+    ],
+    "thresholds_squared": [
+      1,
+      2
+    ]
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "cyclic_order": [
+      3,
+      4,
+      5,
+      0,
+      1,
+      2
+    ],
+    "minimum_support_coefficient": "1/2",
+    "name": "regular_hexagon",
+    "points": [
+      [
+        1,
+        0
+      ],
+      [
+        "1/2",
+        "1/2"
+      ],
+      [
+        "-1/2",
+        "1/2"
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        "-1/2",
+        "-1/2"
+      ],
+      [
+        "1/2",
+        "-1/2"
+      ]
+    ],
+    "supporting_line_checks": 24,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 6,
+        "radius_squared": "1",
+        "short_components": [
+          {
+            "kind": "isolated",
+            "vertices": [
+              0
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              1
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              2
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              3
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              4
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              5
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "short_edges": [],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "triangulation_added_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "unit_edge_bound": 9,
+        "unit_edge_count": 6,
+        "unit_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "unused_blocker_vertices": []
+      },
+      {
+        "cycle_ear_charges": [
+          {
+            "charged_added_edge": [
+              0,
+              4
+            ],
+            "ear_vertex": 5
+          },
+          {
+            "charged_added_edge": [
+              0,
+              2
+            ],
+            "ear_vertex": 1
+          }
+        ],
+        "non_gabriel_unit_blockers": [
+          [
+            [
+              1,
+              5
+            ],
+            0
+          ],
+          [
+            [
+              0,
+              2
+            ],
+            1
+          ],
+          [
+            [
+              1,
+              3
+            ],
+            2
+          ],
+          [
+            [
+              2,
+              4
+            ],
+            3
+          ],
+          [
+            [
+              3,
+              5
+            ],
+            4
+          ],
+          [
+            [
+              0,
+              4
+            ],
+            5
+          ]
+        ],
+        "nontrivial_short_paths": 0,
+        "point_count": 6,
+        "radius_squared": "3",
+        "short_components": [
+          {
+            "kind": "cycle",
+            "vertices": [
+              3,
+              4,
+              5,
+              0,
+              1,
+              2
+            ]
+          }
+        ],
+        "short_cycles": 1,
+        "short_degrees": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "short_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "triangulation_added_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "unit_edge_bound": 7,
+        "unit_edge_count": 6,
+        "unit_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "unused_blocker_vertices": []
+      }
+    ],
+    "thresholds_squared": [
+      1,
+      3
+    ],
+    "vertical_scale_squared": 3
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      1,
+      1,
+      1
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2
+    ],
+    "minimum_support_coefficient": "3",
+    "name": "obtuse_short_triangle",
+    "points": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "supporting_line_checks": 3,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 3,
+        "radius_squared": "10",
+        "short_components": [
+          {
+            "kind": "cycle",
+            "vertices": [
+              0,
+              1,
+              2
+            ]
+          }
+        ],
+        "short_cycles": 1,
+        "short_degrees": [
+          2,
+          2,
+          2
+        ],
+        "short_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "strict_gabriel_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "triangulation_added_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "unit_edge_bound": 1,
+        "unit_edge_count": 0,
+        "unit_edges": [],
+        "unused_blocker_vertices": []
+      }
+    ],
+    "thresholds_squared": [
+      10
+    ]
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      1,
+      1,
+      1
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2
+    ],
+    "minimum_support_coefficient": "12",
+    "name": "right_short_triangle",
+    "points": [
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "supporting_line_checks": 3,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 3,
+        "radius_squared": "26",
+        "short_components": [
+          {
+            "kind": "cycle",
+            "vertices": [
+              0,
+              1,
+              2
+            ]
+          }
+        ],
+        "short_cycles": 1,
+        "short_degrees": [
+          2,
+          2,
+          2
+        ],
+        "short_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "triangulation_added_edges": [
+          [
+            1,
+            2
+          ]
+        ],
+        "unit_edge_bound": 1,
+        "unit_edge_count": 0,
+        "unit_edges": [],
+        "unused_blocker_vertices": []
+      }
+    ],
+    "thresholds_squared": [
+      26
+    ]
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      1,
+      1,
+      2
+    ],
+    "cyclic_order": [
+      0,
+      1,
+      2
+    ],
+    "minimum_support_coefficient": "4",
+    "name": "acute_short_triangle",
+    "points": [
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "supporting_line_checks": 3,
+    "threshold_certificates": [
+      {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 3,
+        "radius_squared": "6",
+        "short_components": [
+          {
+            "kind": "cycle",
+            "vertices": [
+              0,
+              1,
+              2
+            ]
+          }
+        ],
+        "short_cycles": 1,
+        "short_degrees": [
+          2,
+          2,
+          2
+        ],
+        "short_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "triangulation_added_edges": [],
+        "unit_edge_bound": 1,
+        "unit_edge_count": 0,
+        "unit_edges": [],
+        "unused_blocker_vertices": []
+      }
+    ],
+    "thresholds_squared": [
+      6
+    ]
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      4,
+      1,
+      1,
+      1,
+      1
+    ],
+    "assigned_rows": {
+      "closer": [
+        [],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "radii_squared": [
+        "1",
+        "338/125",
+        "36/25",
+        "36/25",
+        "338/125"
+      ],
+      "witnesses": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "cyclic_order": [
+      4,
+      0,
+      1,
+      2,
+      3
+    ],
+    "minimum_layer_certificate": {
+      "all_minimum_vertices_rich": true,
+      "export_count": 4,
+      "export_lower_bound": 4,
+      "exported_incidences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "higher_radius_targets": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "minimum_layer": [
+        0
+      ],
+      "minimum_radius_squared": "1",
+      "rich_minimum_vertices": [
+        0
+      ],
+      "target_radii_squared": [
+        "338/125",
+        "36/25",
+        "36/25",
+        "338/125"
+      ]
+    },
+    "minimum_support_coefficient": "336/625",
+    "mutual_short_certificate": {
+      "crossings": [],
+      "degrees": [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    "name": "five_point_four_target_equality",
+    "note": "Reused rank-two control from the preceding rank-one packet; not globally rich.",
+    "points": [
+      [
+        0,
+        0
+      ],
+      [
+        "24/25",
+        "7/25"
+      ],
+      [
+        "3/5",
+        "4/5"
+      ],
+      [
+        "-3/5",
+        "4/5"
+      ],
+      [
+        "-24/25",
+        "7/25"
+      ]
+    ],
+    "radii_squared": [
+      1,
+      "338/125",
+      "36/25",
+      "36/25",
+      "338/125"
+    ],
+    "supporting_line_checks": 15
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      4,
+      4,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "assigned_rows": {
+      "closer": [
+        [],
+        [],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "radii_squared": [
+        "1",
+        "1",
+        "162/125",
+        "162/125",
+        "23716/10025",
+        "162/125",
+        "162/125",
+        "23716/10025"
+      ],
+      "witnesses": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          5,
+          6,
+          7
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          6
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ]
+    },
+    "cyclic_order": [
+      4,
+      0,
+      1,
+      7,
+      6,
+      5,
+      2,
+      3
+    ],
+    "minimum_layer_certificate": {
+      "all_minimum_vertices_rich": true,
+      "export_count": 6,
+      "export_lower_bound": 6,
+      "exported_incidences": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "higher_radius_targets": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "layer_threshold_certificate": {
+        "cycle_ear_charges": [],
+        "non_gabriel_unit_blockers": [],
+        "nontrivial_short_paths": 0,
+        "point_count": 2,
+        "radius_squared": "1",
+        "short_components": [
+          {
+            "kind": "isolated",
+            "vertices": [
+              0
+            ]
+          },
+          {
+            "kind": "isolated",
+            "vertices": [
+              1
+            ]
+          }
+        ],
+        "short_cycles": 0,
+        "short_degrees": [
+          0,
+          0
+        ],
+        "short_edges": [],
+        "strict_gabriel_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "triangulation_added_edges": [],
+        "unit_edge_bound": 1,
+        "unit_edge_count": 1,
+        "unit_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "unused_blocker_vertices": []
+      },
+      "minimum_layer": [
+        0,
+        1
+      ],
+      "minimum_radius_squared": "1",
+      "rich_minimum_vertices": [
+        0,
+        1
+      ],
+      "target_radii_squared": [
+        "162/125",
+        "162/125",
+        "23716/10025",
+        "162/125",
+        "162/125",
+        "23716/10025"
+      ]
+    },
+    "minimum_support_coefficient": "40/401",
+    "mutual_short_certificate": {
+      "crossings": [],
+      "degrees": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "edges": [
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    "name": "eight_point_six_export_equality",
+    "note": "Two rich minimum-radius centers and exactly six exported incidences; not globally rich.",
+    "points": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "0"
+      ],
+      [
+        "7/25",
+        "24/25"
+      ],
+      [
+        "-4/5",
+        "3/5"
+      ],
+      [
+        "-399/401",
+        "40/401"
+      ],
+      [
+        "18/25",
+        "24/25"
+      ],
+      [
+        "9/5",
+        "3/5"
+      ],
+      [
+        "800/401",
+        "40/401"
+      ]
+    ],
+    "radii_squared": [
+      1,
+      1,
+      "162/125",
+      "162/125",
+      "23716/10025",
+      "162/125",
+      "162/125",
+      "23716/10025"
+    ],
+    "supporting_line_checks": 48
+  },
+  {
+    "all_radius_maximum_multiplicities": [
+      4,
+      1,
+      1,
+      1,
+      1,
+      4,
+      1,
+      1,
+      1
+    ],
+    "assigned_rows": {
+      "closer": [
+        [],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "radii_squared": [
+        "1",
+        "4356/2533",
+        "1058/745",
+        "1058/745",
+        "138338/113389",
+        "4",
+        "4",
+        "4",
+        "4"
+      ],
+      "witnesses": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          0,
+          6,
+          7,
+          8
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ]
+    },
+    "coordinate_parameters": {
+      "minimum_witness_parameters": [
+        "1/4",
+        "1/3",
+        "10/7",
+        "39"
+      ],
+      "return_center": "2*u(29)",
+      "return_witnesses": [
+        "q+2*u(16/5)",
+        "q+2*u(22/3)",
+        "q+2*u(19/3)"
+      ],
+      "unit_parameterization": "u(t)=((1-t^2)/(1+t^2),2t/(1+t^2))"
+    },
+    "cyclic_order": [
+      7,
+      5,
+      4,
+      0,
+      1,
+      2,
+      3,
+      6,
+      8
+    ],
+    "delete_minimum_layer": {
+      "all_radius_maximum_multiplicities": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1
+      ],
+      "deleted_labels": [
+        0
+      ],
+      "remaining_original_labels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "return_center_maximum_after": 3,
+      "return_center_maximum_before": 4
+    },
+    "minimum_layer_certificate": {
+      "all_minimum_vertices_rich": true,
+      "export_count": 4,
+      "export_lower_bound": 4,
+      "exported_incidences": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "higher_radius_targets": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "minimum_layer": [
+        0
+      ],
+      "minimum_radius_squared": "1",
+      "rich_minimum_vertices": [
+        0
+      ],
+      "target_radii_squared": [
+        "4356/2533",
+        "1058/745",
+        "1058/745",
+        "138338/113389"
+      ]
+    },
+    "minimum_support_coefficient": "209808/25628605",
+    "mutual_short_certificate": {
+      "crossings": [],
+      "degrees": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    "name": "nine_point_rational_return",
+    "note": "The whole minimum layer is rich; deleting it destroys the only rich class at a higher center. Seven vertices are not rich.",
+    "points": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "15/17",
+        "8/17"
+      ],
+      [
+        "4/5",
+        "3/5"
+      ],
+      [
+        "-51/149",
+        "140/149"
+      ],
+      [
+        "-760/761",
+        "39/761"
+      ],
+      [
+        "-840/421",
+        "58/421"
+      ],
+      [
+        "-430542/118301",
+        "151018/118301"
+      ],
+      [
+        "-814070/207553",
+        "139738/207553"
+      ],
+      [
+        "-303592/77885",
+        "58724/77885"
+      ]
+    ],
+    "radii_squared": [
+      1,
+      "4356/2533",
+      "1058/745",
+      "1058/745",
+      "138338/113389",
+      4,
+      4,
+      4,
+      4
+    ],
+    "return_center": 5,
+    "source": 0,
+    "supporting_line_checks": 63
+  },
+  {
+    "base_fixture": "five_point_four_target_equality",
+    "contained_radius_squared": 1,
+    "container_center": 1,
+    "container_radius_squared": 4,
+    "name": "disk_containment_four_closer_equality",
+    "note": "Exactly four closer points: this is outside the at-most-three hypothesis.",
+    "rich_center": 0,
+    "strictly_closer_vertices_at_container": [
+      0,
+      2,
+      3,
+      4
+    ]
+  }
+]

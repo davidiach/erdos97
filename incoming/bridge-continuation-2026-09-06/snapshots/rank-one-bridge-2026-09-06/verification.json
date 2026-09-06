@@ -1,0 +1,1186 @@
+{
+  "claim_scope": "Assigned radii with at most one strictly closer point at each center; arbitrary strictly convex finite sets.",
+  "controls": {
+    "equilateral_triangle": {
+      "certificate": {
+        "assignments": [],
+        "closer_counts": [
+          0,
+          0,
+          0
+        ],
+        "graph": {
+          "face_budget": 1,
+          "short_base_triangles": [],
+          "short_edges": [],
+          "triangles": [
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "unit_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "vertices": [
+            0,
+            1,
+            2
+          ]
+        },
+        "minimum_layer": [
+          0,
+          1,
+          2
+        ],
+        "minimum_radius_squared": "1",
+        "nonrich_centers_in_minimum_layer": [
+          0,
+          1,
+          2
+        ],
+        "point_count": 3,
+        "radii_squared": [
+          "1",
+          "1",
+          "1"
+        ],
+        "rich_centers_in_minimum_layer": []
+      },
+      "geometry": {
+        "closer_counts": [
+          0,
+          0,
+          0
+        ],
+        "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+        "cyclic_order": [
+          0,
+          1,
+          2
+        ],
+        "maximum_multiplicities": [
+          2,
+          2,
+          2
+        ],
+        "minimum_support_determinant_coefficient": "1/2",
+        "points": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ]
+        ],
+        "radii_squared": [
+          "1",
+          "1",
+          "1"
+        ],
+        "selected_witnesses": [
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "supporting_line_checks": 3,
+        "vertical_scale_squared": "3"
+      }
+    },
+    "rank_two_eight": {
+      "closer_counts": [
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+      "cyclic_order": [
+        5,
+        7,
+        6,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "maximum_multiplicities": [
+        4,
+        1,
+        1,
+        1,
+        4,
+        1,
+        1,
+        1
+      ],
+      "minimum_layer": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "minimum_support_determinant_coefficient": "162432/247911157",
+      "points": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "99/101",
+          "20/101"
+        ],
+        [
+          "5/13",
+          "12/13"
+        ],
+        [
+          "19/181",
+          "180/181"
+        ],
+        [
+          "-119/169",
+          "120/169"
+        ],
+        [
+          "-415195/252317",
+          "31052/252317"
+        ],
+        [
+          "-13579/8957",
+          "-412/8957"
+        ],
+        [
+          "-62815/40729",
+          "-684/40729"
+        ]
+      ],
+      "radii_squared": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "16/13",
+        "1",
+        "1",
+        "1"
+      ],
+      "rank_one_checker_rejection": "One-closer-point hypothesis fails",
+      "selected_witnesses": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          2,
+          5,
+          6,
+          7
+        ],
+        [],
+        [],
+        []
+      ],
+      "supporting_line_checks": 48,
+      "vertical_scale_squared": "1"
+    },
+    "rank_two_pentagon": {
+      "closer_counts": [
+        0,
+        2,
+        2,
+        2,
+        2
+      ],
+      "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+      "cyclic_order": [
+        4,
+        0,
+        1,
+        2,
+        3
+      ],
+      "maximum_multiplicities": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "minimum_layer": [
+        0
+      ],
+      "minimum_support_determinant_coefficient": "336/625",
+      "points": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "24/25",
+          "7/25"
+        ],
+        [
+          "3/5",
+          "4/5"
+        ],
+        [
+          "-3/5",
+          "4/5"
+        ],
+        [
+          "-24/25",
+          "7/25"
+        ]
+      ],
+      "radii_squared": [
+        "1",
+        "338/125",
+        "36/25",
+        "36/25",
+        "338/125"
+      ],
+      "rank_one_checker_rejection": "One-closer-point hypothesis fails",
+      "selected_witnesses": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "supporting_line_checks": 15,
+      "vertical_scale_squared": "1"
+    },
+    "rank_two_square": {
+      "closer_counts": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+      "cyclic_order": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "maximum_multiplicities": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "minimum_layer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "minimum_support_determinant_coefficient": "1",
+      "points": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "radii_squared": [
+        "2",
+        "2",
+        "2",
+        "2"
+      ],
+      "rank_one_checker_rejection": "One-closer-point hypothesis fails",
+      "selected_witnesses": [
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "supporting_line_checks": 8,
+      "vertical_scale_squared": "1"
+    },
+    "regular_hexagon": {
+      "certificate": {
+        "assignments": [],
+        "closer_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "graph": {
+          "face_budget": 4,
+          "short_base_triangles": [],
+          "short_edges": [],
+          "triangles": [],
+          "unit_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "vertices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "minimum_layer": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "minimum_radius_squared": "1",
+        "nonrich_centers_in_minimum_layer": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "point_count": 6,
+        "radii_squared": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "rich_centers_in_minimum_layer": []
+      },
+      "geometry": {
+        "closer_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+        "cyclic_order": [
+          3,
+          4,
+          5,
+          0,
+          1,
+          2
+        ],
+        "maximum_multiplicities": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "minimum_support_determinant_coefficient": "1/2",
+        "points": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "-1/2",
+            "1/2"
+          ],
+          [
+            "-1",
+            "0"
+          ],
+          [
+            "-1/2",
+            "-1/2"
+          ],
+          [
+            "1/2",
+            "-1/2"
+          ]
+        ],
+        "radii_squared": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "selected_witnesses": [
+          [
+            1,
+            5
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "supporting_line_checks": 24,
+        "vertical_scale_squared": "3"
+      }
+    },
+    "rich_radius_larger_than_incident_side": {
+      "certificate": {
+        "assignments": [],
+        "closer_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "graph": {
+          "face_budget": 0,
+          "short_base_triangles": [],
+          "short_edges": [],
+          "triangles": [],
+          "unit_edges": [],
+          "vertices": [
+            1
+          ]
+        },
+        "minimum_layer": [
+          1
+        ],
+        "minimum_radius_squared": "8101/10000",
+        "nonrich_centers_in_minimum_layer": [
+          1
+        ],
+        "point_count": 6,
+        "radii_squared": [
+          "1",
+          "8101/10000",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "rich_centers_in_minimum_layer": []
+      },
+      "geometry": {
+        "closer_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+        "cyclic_order": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "maximum_multiplicities": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "minimum_support_determinant_coefficient": "1/100",
+        "points": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1/10",
+            "-1/100"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "5/13",
+            "12/13"
+          ],
+          [
+            "-4/5",
+            "3/5"
+          ],
+          [
+            "-24/25",
+            "7/25"
+          ]
+        ],
+        "radii_squared": [
+          "1",
+          "8101/10000",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "selected_witnesses": [
+          [
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            2
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "supporting_line_checks": 24,
+        "vertical_scale_squared": "1"
+      }
+    },
+    "sharp_variable_minimum_layer": {
+      "certificate": {
+        "assignments": [
+          {
+            "center": 0,
+            "short_pair": [
+              3,
+              4
+            ],
+            "triangle": [
+              0,
+              3,
+              4
+            ],
+            "witnesses": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "closer_counts": [
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "graph": {
+          "face_budget": 1,
+          "short_base_triangles": [
+            {
+              "apex": 0,
+              "base": [
+                3,
+                4
+              ],
+              "vertices": [
+                0,
+                3,
+                4
+              ]
+            }
+          ],
+          "short_edges": [
+            [
+              3,
+              4
+            ]
+          ],
+          "triangles": [
+            [
+              0,
+              3,
+              4
+            ]
+          ],
+          "unit_edges": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "vertices": [
+            0,
+            3,
+            4
+          ]
+        },
+        "minimum_layer": [
+          0,
+          3,
+          4
+        ],
+        "minimum_radius_squared": "1",
+        "nonrich_centers_in_minimum_layer": [
+          3,
+          4
+        ],
+        "point_count": 5,
+        "radii_squared": [
+          "1",
+          "16/13",
+          "16/13",
+          "1",
+          "1"
+        ],
+        "rich_centers_in_minimum_layer": [
+          0
+        ]
+      },
+      "geometry": {
+        "closer_counts": [
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+        "cyclic_order": [
+          4,
+          0,
+          1,
+          2,
+          3
+        ],
+        "maximum_multiplicities": [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "minimum_support_determinant_coefficient": "7/25",
+        "points": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "5/13",
+            "12/13"
+          ],
+          [
+            "-4/5",
+            "3/5"
+          ],
+          [
+            "-24/25",
+            "7/25"
+          ]
+        ],
+        "radii_squared": [
+          "1",
+          "16/13",
+          "16/13",
+          "1",
+          "1"
+        ],
+        "selected_witnesses": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2
+          ],
+          [
+            1
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "supporting_line_checks": 15,
+        "vertical_scale_squared": "1"
+      }
+    },
+    "three_witnesses_no_short_pair": {
+      "closer_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+      "cyclic_order": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "maximum_multiplicities": [
+        3,
+        1,
+        1,
+        1
+      ],
+      "minimum_support_determinant_coefficient": "3/5",
+      "points": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "5/13",
+          "12/13"
+        ],
+        [
+          "-4/5",
+          "3/5"
+        ]
+      ],
+      "radii_squared": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "selected_witnesses": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "supporting_line_checks": 8,
+      "vertical_scale_squared": "1"
+    },
+    "two_short_pairs_at_one_center": {
+      "certificate": {
+        "assignments": [
+          {
+            "center": 0,
+            "short_pair": [
+              1,
+              2
+            ],
+            "triangle": [
+              0,
+              1,
+              2
+            ],
+            "witnesses": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "closer_counts": [
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "graph": {
+          "face_budget": 3,
+          "short_base_triangles": [
+            {
+              "apex": 0,
+              "base": [
+                1,
+                2
+              ],
+              "vertices": [
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "apex": 0,
+              "base": [
+                3,
+                4
+              ],
+              "vertices": [
+                0,
+                3,
+                4
+              ]
+            }
+          ],
+          "short_edges": [
+            [
+              1,
+              2
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "triangles": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              4
+            ]
+          ],
+          "unit_edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "vertices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "minimum_layer": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "minimum_radius_squared": "1",
+        "nonrich_centers_in_minimum_layer": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "point_count": 5,
+        "radii_squared": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "rich_centers_in_minimum_layer": [
+          0
+        ]
+      },
+      "geometry": {
+        "closer_counts": [
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        "coordinate_encoding": "(x, sqrt(vertical_scale_squared)*y)",
+        "cyclic_order": [
+          4,
+          0,
+          1,
+          2,
+          3
+        ],
+        "maximum_multiplicities": [
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "minimum_support_determinant_coefficient": "336/625",
+        "points": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "24/25",
+            "7/25"
+          ],
+          [
+            "3/5",
+            "4/5"
+          ],
+          [
+            "-3/5",
+            "4/5"
+          ],
+          [
+            "-24/25",
+            "7/25"
+          ]
+        ],
+        "radii_squared": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "selected_witnesses": [
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "supporting_line_checks": 15,
+        "vertical_scale_squared": "1"
+      }
+    }
+  },
+  "date": "2026-09-06",
+  "geometry_regression": {
+    "assignments_with_rich_minimum_layer": 130,
+    "common_scale_planarity_checks": 861,
+    "crossing_quadrilateral_checks": 3207,
+    "geometric_fixtures": 381,
+    "integer_hull_fixtures": 36,
+    "matching_short_chord_stars": 82,
+    "nonempty_eight_point_subsets": 255,
+    "radius_assignments": 12902,
+    "rich_minimum_layer_centers_checked": 130,
+    "supporting_line_checks": 5270
+  },
+  "independent_external_review": false,
+  "not_an_unrestricted_solution": true,
+  "outerplanar_combinatorial_regression": [
+    {
+      "face_budget": 1,
+      "matchings": 4,
+      "maximum_distinct_apices": 1,
+      "triangulations": 1,
+      "vertices": 3
+    },
+    {
+      "face_budget": 2,
+      "matchings": 16,
+      "maximum_distinct_apices": 2,
+      "triangulations": 2,
+      "vertices": 4
+    },
+    {
+      "face_budget": 3,
+      "matchings": 75,
+      "maximum_distinct_apices": 3,
+      "triangulations": 5,
+      "vertices": 5
+    },
+    {
+      "face_budget": 4,
+      "matchings": 396,
+      "maximum_distinct_apices": 4,
+      "triangulations": 14,
+      "vertices": 6
+    },
+    {
+      "face_budget": 5,
+      "matchings": 2219,
+      "maximum_distinct_apices": 5,
+      "triangulations": 42,
+      "vertices": 7
+    },
+    {
+      "face_budget": 6,
+      "matchings": 13016,
+      "maximum_distinct_apices": 6,
+      "triangulations": 132,
+      "vertices": 8
+    }
+  ],
+  "schema": 1,
+  "status": "REVIEW_PENDING_RESTRICTED_PAPER_PROOF_WITH_EXACT_REGRESSION_CHECKS"
+}

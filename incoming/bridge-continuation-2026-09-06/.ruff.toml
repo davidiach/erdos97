@@ -1,0 +1,4 @@
+# Historical, hash-pinned snapshots are replay inputs, not maintained modules.
+# The publication harness itself remains subject to the repository lint rules.
+extend = "../../pyproject.toml"
+extend-exclude = ["snapshots"]

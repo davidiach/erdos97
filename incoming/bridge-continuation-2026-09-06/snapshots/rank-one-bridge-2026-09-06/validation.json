@@ -1,0 +1,109 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "verify.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "055a84217044fe33a3e946e243c7bc06e42406497e0be44776b21a802173efb2",
+      "summary": {
+        "combinatorial": [
+          {
+            "face_budget": 1,
+            "matchings": 4,
+            "maximum_distinct_apices": 1,
+            "triangulations": 1,
+            "vertices": 3
+          },
+          {
+            "face_budget": 2,
+            "matchings": 16,
+            "maximum_distinct_apices": 2,
+            "triangulations": 2,
+            "vertices": 4
+          },
+          {
+            "face_budget": 3,
+            "matchings": 75,
+            "maximum_distinct_apices": 3,
+            "triangulations": 5,
+            "vertices": 5
+          },
+          {
+            "face_budget": 4,
+            "matchings": 396,
+            "maximum_distinct_apices": 4,
+            "triangulations": 14,
+            "vertices": 6
+          },
+          {
+            "face_budget": 5,
+            "matchings": 2219,
+            "maximum_distinct_apices": 5,
+            "triangulations": 42,
+            "vertices": 7
+          },
+          {
+            "face_budget": 6,
+            "matchings": 13016,
+            "maximum_distinct_apices": 6,
+            "triangulations": 132,
+            "vertices": 8
+          }
+        ],
+        "geometry": {
+          "assignments_with_rich_minimum_layer": 130,
+          "common_scale_planarity_checks": 861,
+          "crossing_quadrilateral_checks": 3207,
+          "geometric_fixtures": 381,
+          "integer_hull_fixtures": 36,
+          "matching_short_chord_stars": 82,
+          "nonempty_eight_point_subsets": 255,
+          "radius_assignments": 12902,
+          "rich_minimum_layer_centers_checked": 130,
+          "supporting_line_checks": 5270
+        },
+        "mode": "check",
+        "passed": true
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_bridge.py"
+      ],
+      "exit_code": 0,
+      "stderr_sha256": "6841cf59779a75dcb75b43dbd3898a522351651a6dbd1d2ecad665b6e1be013c",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tests_passed": 33
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "checker.py",
+        "fixtures.py",
+        "verify.py",
+        "test_bridge.py"
+      ],
+      "exit_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "date": "2026-09-06",
+  "independent_external_review": false,
+  "proof_assistant_formalization": false,
+  "python_version": "3.13.5",
+  "repository_wide_ci_run": false,
+  "scope": "Exact finite checks and written restricted paper proof only.",
+  "status": "ALL_STANDALONE_CHECKS_PASSED",
+  "unrestricted_solution_claimed": false
+}

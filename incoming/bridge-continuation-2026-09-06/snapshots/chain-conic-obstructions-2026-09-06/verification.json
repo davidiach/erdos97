@@ -1,0 +1,214 @@
+{
+  "claim_scope": "Paper proofs of restricted all-size obstructions; no general solution claimed.",
+  "controls": {
+    "ellipse_four_rich_control": {
+      "conic_coefficients_x2_xy_y2_x_y_1": [
+        80,
+        0,
+        15,
+        -64,
+        0,
+        0
+      ],
+      "maximum_multiplicities": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "minimum_support_determinant": "16/65",
+      "points": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "3/5",
+          "4/5"
+        ],
+        [
+          "3/5",
+          "-4/5"
+        ],
+        [
+          "5/13",
+          "12/13"
+        ],
+        [
+          "5/13",
+          "-12/13"
+        ]
+      ],
+      "support_determinants_checked": 15
+    },
+    "ellipse_plus_one_sharpness": {
+      "maximum_multiplicity_at_selected_center": 3,
+      "points": [
+        [
+          "2",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "2"
+        ]
+      ],
+      "selected_center_index": 0,
+      "selected_squared_radius": "5"
+    },
+    "hyperbola_four_rich_control": {
+      "conic_coefficients_x2_xy_y2_x_y_1": [
+        192,
+        220,
+        57,
+        -288,
+        -48,
+        0
+      ],
+      "maximum_multiplicities": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "minimum_support_determinant": "8/1625",
+      "points": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "9/41",
+          "-40/41"
+        ],
+        [
+          "3/5",
+          "4/5"
+        ],
+        [
+          "5/13",
+          "12/13"
+        ],
+        [
+          "7/25",
+          "24/25"
+        ]
+      ],
+      "quadratic_discriminant": 4624,
+      "support_determinants_checked": 15
+    },
+    "nonconic_nonchain_bridge_control": {
+      "conic_evaluation_ranks_after_each_deletion": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "graph_chain_deletion_survivors": 0,
+      "maximum_multiplicities": [
+        2,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "one_point_deletions_tested_for_graph_chain": 8,
+      "points": [
+        [
+          "5",
+          "0"
+        ],
+        [
+          "3",
+          "4"
+        ],
+        [
+          "0",
+          "51/10"
+        ],
+        [
+          "-3",
+          "4"
+        ],
+        [
+          "-5",
+          "0"
+        ],
+        [
+          "-3",
+          "-41/10"
+        ],
+        [
+          "0",
+          "-5"
+        ],
+        [
+          "3",
+          "-4"
+        ]
+      ],
+      "status": "NOT_A_COUNTEREXAMPLE_TO_ERDOS97",
+      "turn_test_cross_products": [
+        "-6",
+        "-10",
+        "-81/5",
+        "-51/5",
+        "-63/10",
+        "-49/5",
+        "-16",
+        "-101/10"
+      ]
+    }
+  },
+  "rational_regressions": {
+    "convex_graph_subsets": 1533,
+    "ellipse_plus_one_checks": 5115,
+    "ellipse_subsets": 5115,
+    "graph_plus_one_checks": 1533,
+    "hyperbola_subsets": 765,
+    "hyperbola_subsets_meeting_both_branches": 675,
+    "isometric_ellipse_checks": 5115,
+    "isometric_graph_checks": 1533,
+    "strictly_convex_both_branch_plus_one_checks": 300,
+    "strictly_convex_both_branch_subsets": 300,
+    "triple_turn_certificates": 763,
+    "two_line_subsets": 511,
+    "weak_convex_chain_checks": 11540
+  },
+  "status": "EXACT_REGRESSIONS_PASS_NOT_A_PROOF_OF_UNRESTRICTED_ERDOS97",
+  "symbolic_checks": {
+    "bridge_control_no_conic_plus_one": "PASS",
+    "ellipse_distance_derivative_identity": "PASS",
+    "ellipse_third_quadrant_bracket_derivative": "PASS",
+    "ellipse_third_quadrant_factorization": "PASS",
+    "ellipse_vieta_identity": "PASS",
+    "hyperbola_orientation_determinant_identity": "PASS",
+    "quartic_distance_fiber_identity": "PASS",
+    "quartic_distinct_roots_in_minus1_plus1": 4,
+    "quartic_isolating_intervals": [
+      "(-3/10,-1/4)",
+      "{0}",
+      "(2/5,1/2)",
+      "(7/10,4/5)"
+    ],
+    "quartic_second_derivative_discriminant": "-36/25",
+    "sympy_version": "1.14.0"
+  }
+}
