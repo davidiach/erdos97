@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "scope": "Second representation on stored named controls only.",
+  "counts": {
+    "all_radius_deletion_controls": 1,
+    "assigned_radius_controls": 3,
+    "fixed_radius_certificates": 14,
+    "geometric_controls": 12,
+    "point_pairs": 114,
+    "supporting_line_checks": 178
+  }
+}

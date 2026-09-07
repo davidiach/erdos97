@@ -1,0 +1,127 @@
+{
+  "all_commands_passed": true,
+  "archived_unit_tests_passed": 101,
+  "chain_report_equal": true,
+  "isolated_harness": {
+    "all_original_sources_unchanged": true,
+    "candidate_containment_obstructions": 6,
+    "candidate_earlier_filters_pass": true,
+    "generated_report_byte_comparisons": 6,
+    "integration_tests_passed": 16,
+    "integration_tests_skipped": 1,
+    "skip_reason": "Standalone copy lacks the existing repository containment verifier; the hosted publication replay must require it."
+  },
+  "kind": "Fresh focused publication replay of all four original packets; not repository-wide CI or mathematical review",
+  "not_run": [
+    "make verify-fast",
+    "make verify-artifacts"
+  ],
+  "not_run_reason": "A complete local checkout was unavailable; attempted GitHub git access failed DNS resolution. Hosted repository checks are separate.",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "preserved_packet_files": 41,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "runs": [
+    {
+      "command": [
+        "verify.py",
+        "--output",
+        "<temporary-directory>/chain-fresh.json"
+      ],
+      "kind": "report",
+      "packet": "chain-conic-obstructions-2026-09-06",
+      "returncode": 0,
+      "seconds": 3.191,
+      "stderr": "",
+      "stdout": "{\n  \"claim_scope\": \"Paper proofs of restricted all-size obstructions; no general solution claimed.\",\n  \"controls\": {\n    \"ellipse_four_rich_control\": {\n      \"conic_coefficients_x2_xy_y2_x_y_1\": [\n        80,\n        0,\n        15,\n        -64,\n        0,\n        0\n      ],\n      \"maximum_multiplicities\": [\n        4,\n        1,\n        1,\n        1,\n        1\n      ],\n      \"minimum_support_determinant\": \"16/65\",\n      \"points\": [\n        [\n          \"0\",\n          \"0\"\n        ],\n        [\n          \"3/5\",\n          \"4/5\"\n        ],\n        [\n          \"3/5\",\n          \"-4/5\"\n        ],\n        [\n          \"5/13\",\n          \"12/13\"\n        ],\n        [\n          \"5/13\",\n          \"-12/13\"\n        ]\n      ],\n      \"support_determinants_checked\": 15\n    },\n    \"ellipse_plus_one_sharpness\": {\n      \"maximum_multiplicity_at_selected_center\": 3,\n      \"points\": [\n        [\n          \"2\",\n          \"0\"\n        ],\n        [\n          \"0\",\n          \"1\"\n        ],\n        [\n          \"0\",\n          \"-1\"\n        ],\n        [\n          \"1\",\n          \"2\"\n        ]\n      ],\n      \"selected_center_index\": 0,\n      \"selected_squared_radius\": \"5\"\n    },\n    \"hyperbola_four_rich_control\": {\n      \"conic_coefficients_x2_xy_y2_x_y_1\": [\n        192,\n        220,\n        57,\n        -288,\n        -48,\n        0\n      ],\n      \"maximum_multiplicities\": [\n        4,\n        1,\n        1,\n        1,\n        1\n      ],\n      \"minimum_support_determinant\": \"8/1625\",\n      \"points\": [\n        [\n          \"0\",\n          \"0\"\n        ],\n        [\n          \"9/41\",\n          \"-40/41\"\n        ],\n        [\n          \"3/5\",\n          \"4/5\"\n        ],\n        [\n          \"5/13\",\n          \"12/13\"\n        ],\n        [\n          \"7/25\",\n          \"24/25\"\n        ]\n      ],\n      \"quadratic_discriminant\": 4624,\n      \"support_determinants_checked\": 15\n    },\n    \"nonconic_nonchain_bridge_control\": {\n      \"conic_evaluation_ranks_after_each_deletion\": [\n        6,\n        6,\n        6,\n        6,\n        6,\n        6,\n        6,\n        6\n      ],\n      \"graph_chain_deletion_survivors\": 0,\n      \"maximum_multiplicities\": [\n        2,\n        1,\n        2,\n        1,\n        2,\n        1,\n        2,\n        1\n      ],\n      \"one_point_deletions_tested_for_graph_chain\": 8,\n      \"points\": [\n        [\n          \"5\",\n          \"0\"\n        ],\n        [\n          \"3\",\n          \"4\"\n        ],\n        [\n          \"0\",\n          \"51/10\"\n        ],\n        [\n          \"-3\",\n          \"4\"\n        ],\n        [\n          \"-5\",\n          \"0\"\n        ],\n        [\n          \"-3\",\n          \"-41/10\"\n        ],\n        [\n          \"0\",\n          \"-5\"\n        ],\n        [\n          \"3\",\n          \"-4\"\n        ]\n      ],\n      \"status\": \"NOT_A_COUNTEREXAMPLE_TO_ERDOS97\",\n      \"turn_test_cross_products\": [\n        \"-6\",\n        \"-10\",\n        \"-81/5\",\n        \"-51/5\",\n        \"-63/10\",\n        \"-49/5\",\n        \"-16\",\n        \"-101/10\"\n      ]\n    }\n  },\n  \"rational_regressions\": {\n    \"convex_graph_subsets\": 1533,\n    \"ellipse_plus_one_checks\": 5115,\n    \"ellipse_subsets\": 5115,\n    \"graph_plus_one_checks\": 1533,\n    \"hyperbola_subsets\": 765,\n    \"hyperbola_subsets_meeting_both_branches\": 675,\n    \"isometric_ellipse_checks\": 5115,\n    \"isometric_graph_checks\": 1533,\n    \"strictly_convex_both_branch_plus_one_checks\": 300,\n    \"strictly_convex_both_branch_subsets\": 300,\n    \"triple_turn_certificates\": 763,\n    \"two_line_subsets\": 511,\n    \"weak_convex_chain_checks\": 11540\n  },\n  \"status\": \"EXACT_REGRESSIONS_PASS_NOT_A_PROOF_OF_UNRESTRICTED_ERDOS97\",\n  \"symbolic_checks\": {\n    \"bridge_control_no_conic_plus_one\": \"PASS\",\n    \"ellipse_distance_derivative_identity\": \"PASS\",\n    \"ellipse_third_quadrant_bracket_derivative\": \"PASS\",\n    \"ellipse_third_quadrant_factorization\": \"PASS\",\n    \"ellipse_vieta_identity\": \"PASS\",\n    \"hyperbola_orientation_determinant_identity\": \"PASS\",\n    \"quartic_distance_fiber_identity\": \"PASS\",\n    \"quartic_distinct_roots_in_minus1_plus1\": 4,\n    \"quartic_isolating_intervals\": [\n      \"(-3/10,-1/4)\",\n      \"{0}\",\n      \"(2/5,1/2)\",\n      \"(7/10,4/5)\"\n    ],\n    \"quartic_second_derivative_discriminant\": \"-36/25\",\n    \"sympy_version\": \"1.14.0\"\n  }\n}\n"
+    },
+    {
+      "command": [
+        "verify.py",
+        "--check"
+      ],
+      "kind": "report",
+      "packet": "rank-one-bridge-2026-09-06",
+      "returncode": 0,
+      "seconds": 1.949,
+      "stderr": "",
+      "stdout": "{\n  \"passed\": true,\n  \"mode\": \"check\",\n  \"geometry\": {\n    \"geometric_fixtures\": 381,\n    \"integer_hull_fixtures\": 36,\n    \"matching_short_chord_stars\": 82,\n    \"nonempty_eight_point_subsets\": 255,\n    \"radius_assignments\": 12902,\n    \"assignments_with_rich_minimum_layer\": 130,\n    \"rich_minimum_layer_centers_checked\": 130,\n    \"supporting_line_checks\": 5270,\n    \"common_scale_planarity_checks\": 861,\n    \"crossing_quadrilateral_checks\": 3207\n  },\n  \"combinatorial\": [\n    {\n      \"vertices\": 3,\n      \"triangulations\": 1,\n      \"matchings\": 4,\n      \"maximum_distinct_apices\": 1,\n      \"face_budget\": 1\n    },\n    {\n      \"vertices\": 4,\n      \"triangulations\": 2,\n      \"matchings\": 16,\n      \"maximum_distinct_apices\": 2,\n      \"face_budget\": 2\n    },\n    {\n      \"vertices\": 5,\n      \"triangulations\": 5,\n      \"matchings\": 75,\n      \"maximum_distinct_apices\": 3,\n      \"face_budget\": 3\n    },\n    {\n      \"vertices\": 6,\n      \"triangulations\": 14,\n      \"matchings\": 396,\n      \"maximum_distinct_apices\": 4,\n      \"face_budget\": 4\n    },\n    {\n      \"vertices\": 7,\n      \"triangulations\": 42,\n      \"matchings\": 2219,\n      \"maximum_distinct_apices\": 5,\n      \"face_budget\": 5\n    },\n    {\n      \"vertices\": 8,\n      \"triangulations\": 132,\n      \"matchings\": 13016,\n      \"maximum_distinct_apices\": 6,\n      \"face_budget\": 6\n    }\n  ]\n}\n"
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "-v",
+        "test_bridge.py"
+      ],
+      "kind": "tests",
+      "packet": "rank-one-bridge-2026-09-06",
+      "returncode": 0,
+      "seconds": 0.887,
+      "stderr": "test_all_nonempty_sharp_subsets (test_bridge.BridgeTests.test_all_nonempty_sharp_subsets) ... ok\ntest_boolean_coordinates_rejected (test_bridge.BridgeTests.test_boolean_coordinates_rejected) ... ok\ntest_collinear_rejected (test_bridge.BridgeTests.test_collinear_rejected) ... ok\ntest_distinct_close_distances_not_merged (test_bridge.BridgeTests.test_distinct_close_distances_not_merged) ... ok\ntest_duplicate_rejected (test_bridge.BridgeTests.test_duplicate_rejected) ... ok\ntest_empty_rejected (test_bridge.BridgeTests.test_empty_rejected) ... ok\ntest_equilateral_all_blue_face (test_bridge.BridgeTests.test_equilateral_all_blue_face) ... ok\ntest_exact_similarity (test_bridge.BridgeTests.test_exact_similarity) ... ok\ntest_float_coordinates_rejected (test_bridge.BridgeTests.test_float_coordinates_rejected) ... ok\ntest_float_radius_rejected (test_bridge.BridgeTests.test_float_radius_rejected) ... ok\ntest_four_ties_do_not_count_as_closer (test_bridge.BridgeTests.test_four_ties_do_not_count_as_closer) ... ok\ntest_hexagon_radical_coordinates (test_bridge.BridgeTests.test_hexagon_radical_coordinates) ... ok\ntest_interior_rejected (test_bridge.BridgeTests.test_interior_rejected) ... ok\ntest_nonpositive_radii_rejected (test_bridge.BridgeTests.test_nonpositive_radii_rejected) ... ok\ntest_permutation_invariance (test_bridge.BridgeTests.test_permutation_invariance) ... ok\ntest_radius_length_rejected (test_bridge.BridgeTests.test_radius_length_rejected) ... ok\ntest_rank_two_eight_has_exactly_two_rich_vertices (test_bridge.BridgeTests.test_rank_two_eight_has_exactly_two_rich_vertices) ... ok\ntest_rank_two_genuine_propagation_failure (test_bridge.BridgeTests.test_rank_two_genuine_propagation_failure) ... ok\ntest_rank_two_pentagon_blocks_layer_extension (test_bridge.BridgeTests.test_rank_two_pentagon_blocks_layer_extension) ... ok\ntest_reflection (test_bridge.BridgeTests.test_reflection) ... ok\ntest_scale_invalid (test_bridge.BridgeTests.test_scale_invalid) ... ok\ntest_semicircle_boundary_equality_rejected (test_bridge.BridgeTests.test_semicircle_boundary_equality_rejected) ... ok\ntest_shared_endpoint_not_crossing (test_bridge.BridgeTests.test_shared_endpoint_not_crossing) ... ok\ntest_sharp_control_radii_are_realized (test_bridge.BridgeTests.test_sharp_control_radii_are_realized) ... ok\ntest_sharp_deficit (test_bridge.BridgeTests.test_sharp_deficit) ... ok\ntest_short_incident_side_allowed (test_bridge.BridgeTests.test_short_incident_side_allowed) ... ok\ntest_singleton (test_bridge.BridgeTests.test_singleton) ... ok\ntest_square_diagonals_cross (test_bridge.BridgeTests.test_square_diagonals_cross) ... ok\ntest_square_sides_pass (test_bridge.BridgeTests.test_square_sides_pass) ... ok\ntest_three_witness_threshold_not_silently_strengthened (test_bridge.BridgeTests.test_three_witness_threshold_not_silently_strengthened) ... ok\ntest_two_points_equal_radii (test_bridge.BridgeTests.test_two_points_equal_radii) ... ok\ntest_two_points_unequal_radii (test_bridge.BridgeTests.test_two_points_unequal_radii) ... ok\ntest_two_triangles_same_center (test_bridge.BridgeTests.test_two_triangles_same_center) ... ok\n\n----------------------------------------------------------------------\nRan 33 tests in 0.010s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "verify.py",
+        "--check"
+      ],
+      "kind": "report",
+      "packet": "rank-two-layer-escape-2026-09-06",
+      "returncode": 0,
+      "seconds": 3.378,
+      "stderr": "",
+      "stdout": "{\n  \"result\": \"PASS\",\n  \"mode\": \"check\",\n  \"counts\": {\n    \"all_rich_minimum_layer_checks\": 129,\n    \"ascending_selected_edges_checked\": 582,\n    \"convex_quadrilaterals\": 20379,\n    \"cycle_ear_charges_checked\": 136,\n    \"exported_incidences_checked\": 582,\n    \"fixed_radius_checks\": 5873,\n    \"fixed_radius_unit_edges_counted\": 3611,\n    \"geometries\": 639,\n    \"multiple_minimum_center_checks\": 33,\n    \"non_gabriel_unit_edges_checked\": 475,\n    \"short_cycle_components_checked\": 741,\n    \"supporting_line_checks\": 16963,\n    \"variable_radius_assignments\": 6429\n  }\n}\n"
+    },
+    {
+      "command": [
+        "oracle.py"
+      ],
+      "kind": "oracle",
+      "packet": "rank-two-layer-escape-2026-09-06",
+      "returncode": 0,
+      "seconds": 0.621,
+      "stderr": "",
+      "stdout": "{\n  \"result\": \"PASS\",\n  \"scope\": \"Second representation on stored named controls only.\",\n  \"counts\": {\n    \"all_radius_deletion_controls\": 1,\n    \"assigned_radius_controls\": 3,\n    \"fixed_radius_certificates\": 14,\n    \"geometric_controls\": 12,\n    \"point_pairs\": 114,\n    \"supporting_line_checks\": 178\n  }\n}\n"
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "-v",
+        "test_bridge.py"
+      ],
+      "kind": "tests",
+      "packet": "rank-two-layer-escape-2026-09-06",
+      "returncode": 0,
+      "seconds": 0.808,
+      "stderr": "test_center_equal_nested (test_bridge.DiskTests.test_center_equal_nested) ... ok\ntest_four_closer_bound_sharp (test_bridge.DiskTests.test_four_closer_bound_sharp) ... ok\ntest_internal_tangency_included (test_bridge.DiskTests.test_internal_tangency_included) ... ok\ntest_invalid_disk_data (test_bridge.DiskTests.test_invalid_disk_data) ... ok\ntest_overlap_not_containment (test_bridge.DiskTests.test_overlap_not_containment) ... ok\ntest_strict_containment (test_bridge.DiskTests.test_strict_containment) ... ok\ntest_wrong_direction (test_bridge.DiskTests.test_wrong_direction) ... ok\ntest_band_is_not_about_every_higher_center (test_bridge.ExportTests.test_band_is_not_about_every_higher_center) ... ok\ntest_four_target_equality (test_bridge.ExportTests.test_four_target_equality) ... ok\ntest_nonrich_minimum_is_not_rejected (test_bridge.ExportTests.test_nonrich_minimum_is_not_rejected) ... ok\ntest_radii_really_third_nearest (test_bridge.ExportTests.test_radii_really_third_nearest) ... ok\ntest_return_all_radius_profiles (test_bridge.ExportTests.test_return_all_radius_profiles) ... ok\ntest_return_center_has_actual_four_tie (test_bridge.ExportTests.test_return_center_has_actual_four_tie) ... ok\ntest_return_has_nonempty_mutual_short_triangle (test_bridge.ExportTests.test_return_has_nonempty_mutual_short_triangle) ... ok\ntest_return_supporting_margin (test_bridge.ExportTests.test_return_supporting_margin) ... ok\ntest_return_whole_minimum_layer_rich (test_bridge.ExportTests.test_return_whole_minimum_layer_rich) ... ok\ntest_six_export_equality (test_bridge.ExportTests.test_six_export_equality) ... ok\ntest_two_center_exact_cyclic_order (test_bridge.ExportTests.test_two_center_exact_cyclic_order) ... ok\ntest_unequal_radii_symmetric_closer_relation_is_possible (test_bridge.ExportTests.test_unequal_radii_symmetric_closer_relation_is_possible) ... ok\ntest_acute_short_triangle_no_blocked_edge (test_bridge.GeometryTests.test_acute_short_triangle_no_blocked_edge) ... ok\ntest_closed_diameter_disk_right_angle (test_bridge.GeometryTests.test_closed_diameter_disk_right_angle) ... ok\ntest_common_threshold_rank_three_rejected (test_bridge.GeometryTests.test_common_threshold_rank_three_rejected) ... ok\ntest_crossing_diagonal_lemma (test_bridge.GeometryTests.test_crossing_diagonal_lemma) ... ok\ntest_crossing_graph_not_triangulated (test_bridge.GeometryTests.test_crossing_graph_not_triangulated) ... ok\ntest_cycle_not_forest (test_bridge.GeometryTests.test_cycle_not_forest) ... ok\ntest_hereditary_constant_radius_condition (test_bridge.GeometryTests.test_hereditary_constant_radius_condition) ... ok\ntest_hexagon_long_cycle (test_bridge.GeometryTests.test_hexagon_long_cycle) ... ok\ntest_obtuse_short_triangle_one_blocked_edge (test_bridge.GeometryTests.test_obtuse_short_triangle_one_blocked_edge) ... ok\ntest_one_point_convention (test_bridge.GeometryTests.test_one_point_convention) ... ok\ntest_rank_three_cannot_enter_checker (test_bridge.GeometryTests.test_rank_three_cannot_enter_checker) ... ok\ntest_rational_unit_identity (test_bridge.GeometryTests.test_rational_unit_identity) ... ok\ntest_rhombus_exact_base_bound (test_bridge.GeometryTests.test_rhombus_exact_base_bound) ... ok\ntest_short_graph_not_whole_threshold_graph (test_bridge.GeometryTests.test_short_graph_not_whole_threshold_graph) ... ok\ntest_square_duplicate_ear_base_resources (test_bridge.GeometryTests.test_square_duplicate_ear_base_resources) ... ok\ntest_support_sign_isometry (test_bridge.GeometryTests.test_support_sign_isometry) ... ok\ntest_triangle_exact_base_bound (test_bridge.GeometryTests.test_triangle_exact_base_bound) ... ok\ntest_two_point_short_path_penalty (test_bridge.GeometryTests.test_two_point_short_path_penalty) ... ok\ntest_bad_coordinate_dimension (test_bridge.InputTests.test_bad_coordinate_dimension) ... ok\ntest_bool_rejected (test_bridge.InputTests.test_bool_rejected) ... ok\ntest_collinear_rejected (test_bridge.InputTests.test_collinear_rejected) ... ok\ntest_coordinate_float_rejected (test_bridge.InputTests.test_coordinate_float_rejected) ... ok\ntest_degenerate_edge_rejected (test_bridge.InputTests.test_degenerate_edge_rejected) ... ok\ntest_duplicate_rejected (test_bridge.InputTests.test_duplicate_rejected) ... ok\ntest_empty_rejected (test_bridge.InputTests.test_empty_rejected) ... ok\ntest_insufficient_third_nearest (test_bridge.InputTests.test_insufficient_third_nearest) ... ok\ntest_interior_point_rejected (test_bridge.InputTests.test_interior_point_rejected) ... ok\ntest_negative_threshold_rejected (test_bridge.InputTests.test_negative_threshold_rejected) ... ok\ntest_radius_float_rejected (test_bridge.InputTests.test_radius_float_rejected) ... ok\ntest_wrong_radius_count (test_bridge.InputTests.test_wrong_radius_count) ... ok\ntest_zero_assigned_radius (test_bridge.InputTests.test_zero_assigned_radius) ... ok\ntest_zero_scale_rejected (test_bridge.InputTests.test_zero_scale_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 51 tests in 0.016s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "verify.py",
+        "--check"
+      ],
+      "kind": "report",
+      "packet": "bridge-closure-audit-2026-09-06",
+      "returncode": 0,
+      "seconds": 0.966,
+      "stderr": "",
+      "stdout": "Exact report reproduced. Erd\u0151s #97 remains unsolved in this packet.\n{\"geometry_instances\": 1011, \"global_fixed_radius_checks\": 3621, \"local_degree_lifting_checks\": 15748, \"low_degree_rich_vertex_descent_checks\": 2}\n"
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "-v",
+        "test_audit.py"
+      ],
+      "kind": "tests",
+      "packet": "bridge-closure-audit-2026-09-06",
+      "returncode": 0,
+      "seconds": 0.822,
+      "stderr": "test_closed_disk_square_boundary (test_audit.AuditTests.test_closed_disk_square_boundary) ... ok\ntest_collinear_circle_rejected (test_audit.AuditTests.test_collinear_circle_rejected) ... ok\ntest_collinear_rejected (test_audit.AuditTests.test_collinear_rejected) ... ok\ntest_cycle_detector_tree (test_audit.AuditTests.test_cycle_detector_tree) ... ok\ntest_duplicate_rejected (test_audit.AuditTests.test_duplicate_rejected) ... ok\ntest_ear_delaunay_certificate (test_audit.AuditTests.test_ear_delaunay_certificate) ... ok\ntest_ear_deletion_loses_richness (test_audit.AuditTests.test_ear_deletion_loses_richness) ... ok\ntest_fan_capacity_failure (test_audit.AuditTests.test_fan_capacity_failure) ... ok\ntest_fan_not_full_counterexample (test_audit.AuditTests.test_fan_not_full_counterexample) ... ok\ntest_floats_rejected (test_audit.AuditTests.test_floats_rejected) ... ok\ntest_interior_rejected (test_audit.AuditTests.test_interior_rejected) ... ok\ntest_invalid_radius_rejected (test_audit.AuditTests.test_invalid_radius_rejected) ... ok\ntest_invalid_scale_rejected (test_audit.AuditTests.test_invalid_scale_rejected) ... ok\ntest_lifting_hypothesis_not_silently_removed (test_audit.AuditTests.test_lifting_hypothesis_not_silently_removed) ... ok\ntest_middle_cycle_scope (test_audit.AuditTests.test_middle_cycle_scope) ... ok\ntest_rational_rotations (test_audit.AuditTests.test_rational_rotations) ... ok\ntest_unit_rhombus_sharpness (test_audit.AuditTests.test_unit_rhombus_sharpness) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.016s\n\nOK\n",
+      "stdout": ""
+    }
+  ]
+}

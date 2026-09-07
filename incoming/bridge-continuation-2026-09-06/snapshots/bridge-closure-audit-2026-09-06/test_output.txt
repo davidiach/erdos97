@@ -1,0 +1,22 @@
+test_closed_disk_square_boundary (test_audit.AuditTests.test_closed_disk_square_boundary) ... ok
+test_collinear_circle_rejected (test_audit.AuditTests.test_collinear_circle_rejected) ... ok
+test_collinear_rejected (test_audit.AuditTests.test_collinear_rejected) ... ok
+test_cycle_detector_tree (test_audit.AuditTests.test_cycle_detector_tree) ... ok
+test_duplicate_rejected (test_audit.AuditTests.test_duplicate_rejected) ... ok
+test_ear_delaunay_certificate (test_audit.AuditTests.test_ear_delaunay_certificate) ... ok
+test_ear_deletion_loses_richness (test_audit.AuditTests.test_ear_deletion_loses_richness) ... ok
+test_fan_capacity_failure (test_audit.AuditTests.test_fan_capacity_failure) ... ok
+test_fan_not_full_counterexample (test_audit.AuditTests.test_fan_not_full_counterexample) ... ok
+test_floats_rejected (test_audit.AuditTests.test_floats_rejected) ... ok
+test_interior_rejected (test_audit.AuditTests.test_interior_rejected) ... ok
+test_invalid_radius_rejected (test_audit.AuditTests.test_invalid_radius_rejected) ... ok
+test_invalid_scale_rejected (test_audit.AuditTests.test_invalid_scale_rejected) ... ok
+test_lifting_hypothesis_not_silently_removed (test_audit.AuditTests.test_lifting_hypothesis_not_silently_removed) ... ok
+test_middle_cycle_scope (test_audit.AuditTests.test_middle_cycle_scope) ... ok
+test_rational_rotations (test_audit.AuditTests.test_rational_rotations) ... ok
+test_unit_rhombus_sharpness (test_audit.AuditTests.test_unit_rhombus_sharpness) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.027s
+
+OK

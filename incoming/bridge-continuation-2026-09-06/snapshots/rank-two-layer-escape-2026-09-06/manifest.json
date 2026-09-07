@@ -1,0 +1,21 @@
+{
+  "algorithm": "sha256",
+  "files": {
+    "PROVENANCE.md": "39c991f51eb4d064c42bee51fc574bc5dc1c4f123b3e83cfdb7c7d9b7c00cabe",
+    "README.md": "748c327b5458e360cdfa96b4ae05aa0de6011287b939f0a60d828d9b85ee9f69",
+    "combinatorial.py": "e2d6949b7db1a019cb8bdd3b473b20cd7c48e7012fb18ac048f249a8cf19f117",
+    "exact_controls.json": "90ac83c29229fda408d188c4edee43de0ee813d48a088d1cd196ad01a907ed5b",
+    "fixtures.py": "2b90b476d9fba0004ee86cac8b343f4e1cb537ae1951d932ce4d8c2185eea307",
+    "geometry.py": "04361143bd100eafdb032493dbcc4070c7d2a47248b1b894ab4670dfc356ec73",
+    "oracle.py": "63385fca230f48de23e292eb586f1be0eac1b3cb9e7a4c201d4ac74661970015",
+    "oracle_report.json": "c8e234306a705388cff8be92563763e20c874a330edf012bd8b01f75b186da53",
+    "proofs.md": "378bb19df4db462fdbf660c0bd6b4bc6c9f1e47aa857cc8ea61a9b8d936a1344",
+    "return_control.json": "87444bf428fcb33abc177eabc3e761623a1bc9409a2b00f6a4a17462fd129595",
+    "test_bridge.py": "f4978a7d51425a7a83766994b5e4b8029bf28787f18a9b3c7e552ab33b22f77d",
+    "test_output.txt": "c4aeb875360ac3f044c6876d3c7ce8f5c309e6a5892751dfc4abd7450a0b588b",
+    "validation.json": "6ca952fb562e6c8d82cf3b90ffecb7d3e2320470e545cf1c2a919f654b4a7cdd",
+    "verification.json": "268f9cf2c8ae441bf3900387ce1801f393f3107ce8dc8848e4f77d8d7ea2871b",
+    "verify.py": "b0472eacc1f37c20b6c1f329f8db3b03e70244af555b36d83da1e3243560665e"
+  },
+  "scope": "All delivered regular files except manifest.json itself."
+}

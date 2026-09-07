@@ -1,0 +1,29 @@
+{
+  "external_review_performed": false,
+  "files": {
+    "README.md": {
+      "bytes": 2970,
+      "sha256": "3fb15d1692b57e02df383e0bbf4cb653f8a73c04939fa44229d83f02aa72f8fa"
+    },
+    "proofs.md": {
+      "bytes": 18782,
+      "sha256": "91e5f7a808f30be0522700ded7577eeb7e499182118707dd561b2c7cf379b18a"
+    },
+    "provenance.md": {
+      "bytes": 3255,
+      "sha256": "bd1f0950e45d5299ebafec7ae21fd8904ef31099ef38c5ef5e98968de18ae0ec"
+    },
+    "verification.json": {
+      "bytes": 4193,
+      "sha256": "8fc0a2a20b956123f035a3eb28c30a61f99c19d0cc28c886f7eb9b9e771e270a"
+    },
+    "verify.py": {
+      "bytes": 14430,
+      "sha256": "0d73fba9f79c20647322b55280fc047ca97d1a7e77495a31a9cf2ebab7ae06db"
+    }
+  },
+  "repository_write_performed": false,
+  "research_date": "2026-09-06",
+  "status": "RESTRICTED_PAPER_PROOFS_REVIEW_PENDING",
+  "unrestricted_problem_solved": false
+}

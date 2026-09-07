@@ -1,0 +1,38 @@
+test_all_nonempty_sharp_subsets (test_bridge.BridgeTests.test_all_nonempty_sharp_subsets) ... ok
+test_boolean_coordinates_rejected (test_bridge.BridgeTests.test_boolean_coordinates_rejected) ... ok
+test_collinear_rejected (test_bridge.BridgeTests.test_collinear_rejected) ... ok
+test_distinct_close_distances_not_merged (test_bridge.BridgeTests.test_distinct_close_distances_not_merged) ... ok
+test_duplicate_rejected (test_bridge.BridgeTests.test_duplicate_rejected) ... ok
+test_empty_rejected (test_bridge.BridgeTests.test_empty_rejected) ... ok
+test_equilateral_all_blue_face (test_bridge.BridgeTests.test_equilateral_all_blue_face) ... ok
+test_exact_similarity (test_bridge.BridgeTests.test_exact_similarity) ... ok
+test_float_coordinates_rejected (test_bridge.BridgeTests.test_float_coordinates_rejected) ... ok
+test_float_radius_rejected (test_bridge.BridgeTests.test_float_radius_rejected) ... ok
+test_four_ties_do_not_count_as_closer (test_bridge.BridgeTests.test_four_ties_do_not_count_as_closer) ... ok
+test_hexagon_radical_coordinates (test_bridge.BridgeTests.test_hexagon_radical_coordinates) ... ok
+test_interior_rejected (test_bridge.BridgeTests.test_interior_rejected) ... ok
+test_nonpositive_radii_rejected (test_bridge.BridgeTests.test_nonpositive_radii_rejected) ... ok
+test_permutation_invariance (test_bridge.BridgeTests.test_permutation_invariance) ... ok
+test_radius_length_rejected (test_bridge.BridgeTests.test_radius_length_rejected) ... ok
+test_rank_two_eight_has_exactly_two_rich_vertices (test_bridge.BridgeTests.test_rank_two_eight_has_exactly_two_rich_vertices) ... ok
+test_rank_two_genuine_propagation_failure (test_bridge.BridgeTests.test_rank_two_genuine_propagation_failure) ... ok
+test_rank_two_pentagon_blocks_layer_extension (test_bridge.BridgeTests.test_rank_two_pentagon_blocks_layer_extension) ... ok
+test_reflection (test_bridge.BridgeTests.test_reflection) ... ok
+test_scale_invalid (test_bridge.BridgeTests.test_scale_invalid) ... ok
+test_semicircle_boundary_equality_rejected (test_bridge.BridgeTests.test_semicircle_boundary_equality_rejected) ... ok
+test_shared_endpoint_not_crossing (test_bridge.BridgeTests.test_shared_endpoint_not_crossing) ... ok
+test_sharp_control_radii_are_realized (test_bridge.BridgeTests.test_sharp_control_radii_are_realized) ... ok
+test_sharp_deficit (test_bridge.BridgeTests.test_sharp_deficit) ... ok
+test_short_incident_side_allowed (test_bridge.BridgeTests.test_short_incident_side_allowed) ... ok
+test_singleton (test_bridge.BridgeTests.test_singleton) ... ok
+test_square_diagonals_cross (test_bridge.BridgeTests.test_square_diagonals_cross) ... ok
+test_square_sides_pass (test_bridge.BridgeTests.test_square_sides_pass) ... ok
+test_three_witness_threshold_not_silently_strengthened (test_bridge.BridgeTests.test_three_witness_threshold_not_silently_strengthened) ... ok
+test_two_points_equal_radii (test_bridge.BridgeTests.test_two_points_equal_radii) ... ok
+test_two_points_unequal_radii (test_bridge.BridgeTests.test_two_points_unequal_radii) ... ok
+test_two_triangles_same_center (test_bridge.BridgeTests.test_two_triangles_same_center) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.010s
+
+OK
