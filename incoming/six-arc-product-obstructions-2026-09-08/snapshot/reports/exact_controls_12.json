@@ -1,0 +1,27 @@
+{
+  "status": "PASS_EXACT_ALGEBRAIC_CONTROLS",
+  "controls": {
+    "convex_diamond_12": {
+      "kind": "exact_convex_same_half_plane_diamond_control",
+      "multiplier_parameters": [
+        "8/3",
+        "11/4"
+      ],
+      "hull": [
+        9,
+        4,
+        7,
+        2,
+        10,
+        5,
+        8,
+        0,
+        11,
+        3,
+        6,
+        1
+      ],
+      "strict_supporting_signs_verified": 120
+    }
+  }
+}

@@ -6,7 +6,7 @@ mathematical claim has been accepted. [Current state](../STATE.md).
 
 ## Structured review packets
 
-All ten entries below remain review-pending under their own stated hypotheses.
+All eleven entries below remain review-pending under their own stated hypotheses.
 Retain their original reports and pinned source files. Run commands from the
 packet directory; see its README for prerequisites, full replays, and limitations.
 No packet in this table is declared superseded by another here.
@@ -23,6 +23,7 @@ No packet in this table is declared superseded by another here.
 | [Eight own-side orbits](c3-own-side-eight-orbits-2026-09-05/README.md) | Restricted own-side eight-orbit exclusion with exact chord-angle certificates | `python c3_eight_check.py --check`; `python replay.py --quick --check` |
 | [Unbounded six-exception family](unbounded-six-exception-family-2026-09-06/README.md) | Arbitrarily large strictly convex C3 partial constructions with exactly six good vertices; review-pending paper proof and exact finite controls, not a counterexample | `python verify.py --algebra-only`; `python -m unittest -v test_family.py` |
 | [Bridge continuation and closure audit](bridge-continuation-2026-09-06/README.md) | Four preserved chain/conic and radius-rank packets, exact return/deletion controls, and fixed nine-orbit candidate correction; no unrestricted solution | `python replay.py --check --require-primary`; `python -m pytest -q -o addopts='' test_publication.py` |
+| [Six-arc carrier and fixed-product obstructions](six-arc-product-obstructions-2026-09-08/README.md) | Review-pending six-arc good-point theorem, matched-equilateral certificates, fixed 27-point witness-system obstruction, and exact convex/nonconvex controls | `python replay.py --check`; `python -m pytest -q -o addopts='' test_six_arc_product_publication.py` |
 
 ## Historical imports
 

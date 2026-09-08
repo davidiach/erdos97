@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "source": "18 files delivered in the preceding 2026-09-08 research response",
+  "publication_base": "d6ca181df32bb6fd5445280c049384da5d21ed01",
+  "original_archive_supplied": false,
+  "original_files": [
+    {
+      "path": "candidate_counterexamples/convex_diamond_12.json",
+      "bytes": 3652,
+      "sha256": "2c895e8e0e8bc7615e62ae2f38a1aa744d40c4cabbc8a8cad57eb008bfb5faf3",
+      "git_blob_sha1": "587851a6e608636dbb0ff473fc2b458c663db29c"
+    },
+    {
+      "path": "candidate_counterexamples/opposite_triangle_contradictions.json",
+      "bytes": 35970,
+      "sha256": "cb49d23322aef9b789492162cf7a25dd3f8c88b60c3e47113b8d70e7dbb18434",
+      "git_blob_sha1": "b421f602865531cb76fc467256e484556182d582"
+    },
+    {
+      "path": "proof_attempts/matched_equilateral_orientation.md",
+      "bytes": 7122,
+      "sha256": "52d4ae7f48bfd6e0f847f5ef3a5b64e94866b9619bd42b2c5790ff456e82eb3a",
+      "git_blob_sha1": "c031544e3c04cd126a4a13d4640454afccdddaa5"
+    },
+    {
+      "path": "proof_attempts/product_component.md",
+      "bytes": 13787,
+      "sha256": "e331fa59f1095d7b0f64a05e8c26f80a9f9c08dbe1435b8e6214f18834031a4f",
+      "git_blob_sha1": "2ccb3e6eb195eaad77f780d2fc56c4dd744636d0"
+    },
+    {
+      "path": "proof_attempts/six_arc_carrier.md",
+      "bytes": 7117,
+      "sha256": "23278f6bf1c132aa8be186b3aa3a02fb00f4c6bceff449dc0c7e4139ddb63ff7",
+      "git_blob_sha1": "0bb48556304662a602ce3fbd2bd8b629f00b1eef"
+    },
+    {
+      "path": "reports/exact_controls_12.json",
+      "bytes": 440,
+      "sha256": "97b10a07fda4f8d7055fa84545fcf8f212b37d1f19cab46b5b64707b9f362902",
+      "git_blob_sha1": "c31c8b89b775022da9c429475fb45bf127ff3b7b"
+    },
+    {
+      "path": "reports/nonsymmetric_circulant_probe.json",
+      "bytes": 24326,
+      "sha256": "27b217b40c9fdf6714b57192e6816be725ff7375f3bcf53c0ddc389f06cf3239",
+      "git_blob_sha1": "335474dca7e1beafcdc4f09896e50fc5f78b8f54"
+    },
+    {
+      "path": "reports/off_carrier_caps.json",
+      "bytes": 147736,
+      "sha256": "c7076d1015a987f7198ef9039d3e701a89d960054346f69c152b07bc9f24038c",
+      "git_blob_sha1": "1f46c873dea2c7bd3b824aa03e08a2186f10262e"
+    },
+    {
+      "path": "reports/opposite_triangle_exact_verification.json",
+      "bytes": 323,
+      "sha256": "b334e2e67234df90da7ffed4bff06af5a61990c44f7b53592683ee691f157a82",
+      "git_blob_sha1": "1fa5141ac0da2e0698f25fc8e08b08ede5709fbc"
+    },
+    {
+      "path": "reports/product_probe.json",
+      "bytes": 5452,
+      "sha256": "2f054dfd1673e027a10078d167d0b5ddd70f7ce4dfa17607b1a6ff522a99f370",
+      "git_blob_sha1": "5e23965527c1171b1880931896069425ab93b5ca"
+    },
+    {
+      "path": "reports/symbolic_checks.json",
+      "bytes": 1674,
+      "sha256": "67916096f8ef7f3cac402bac37d36c6013eb67c353ee46c7845725ab8990c170",
+      "git_blob_sha1": "fae5e579a51efc44a2adb7d831a92f41e58a4103"
+    },
+    {
+      "path": "research_log.md",
+      "bytes": 6577,
+      "sha256": "b30f0f66fe6d380931fee6b2133a162e065452bd35334158e062d2b1fcad88c9",
+      "git_blob_sha1": "261e2ef857489cc6184ea2eb8e7b5634f3c9d9b8"
+    },
+    {
+      "path": "search/nonsymmetric_circulant_probe.py",
+      "bytes": 5701,
+      "sha256": "3ae19359cdb1046071f68d1a70092956e7245656d80560fc4d9a9ab6f1058d66",
+      "git_blob_sha1": "abb0008d662c7767116039063d9a2f939f7bc62d"
+    },
+    {
+      "path": "search/off_carrier_cap_probe.py",
+      "bytes": 2449,
+      "sha256": "0082a18f02357fca6e58b811035a6c0b9871261c63c4f61c3fd11fe45050b2a6",
+      "git_blob_sha1": "fdcdb0b22d0f8eb17465a9ffb10bb44fd6dcb8a7"
+    },
+    {
+      "path": "search/product_probe.py",
+      "bytes": 2827,
+      "sha256": "08bd41c23f5196795e1085cc919f1abb2c16018eaa78f7cbe9a9b026e400ad63",
+      "git_blob_sha1": "6b4f5b8682c24ab3c27aec88ca52b51a02658661"
+    },
+    {
+      "path": "verify/check_opposite_triangles.py",
+      "bytes": 3627,
+      "sha256": "b9e9c7fa835d0adbed9a1423a475cd33ce8185b605a6004aa45609618e596b29",
+      "git_blob_sha1": "b5901fa7fd0f9b9fa430c0f35afa1d498a3b56ae"
+    },
+    {
+      "path": "verify/exact_controls.py",
+      "bytes": 8447,
+      "sha256": "ed6edcc0585dcc0143431fd9e8da1ff4797248bbb0ebc7ae490e2ee2ca0035cc",
+      "git_blob_sha1": "fe6153ee771201f6371619cad8f22d3480982499"
+    },
+    {
+      "path": "verify/symbolic_checks.py",
+      "bytes": 5914,
+      "sha256": "09493e83bdaf6675b3732644b2d03e335d6089b1d2ef476311333ddc4929ed28",
+      "git_blob_sha1": "9500ebe860487fcf22a531f5b5fdec38ddaeeed8"
+    }
+  ],
+  "generated_at_publication": [
+    {
+      "path": "generated/product_27_exact_nonconvex.json",
+      "generator": "snapshot/verify/exact_controls.py --which 27"
+    },
+    {
+      "path": "generated/exact_controls_27.json",
+      "generator": "snapshot/verify/exact_controls.py --which 27"
+    }
+  ],
+  "independent_external_mathematical_review": false,
+  "unrestricted_solution": false
+}
