@@ -60,8 +60,13 @@ From this packet directory:
 ```sh
 python replay.py --manifest-only
 python replay.py --check --output /tmp/six-arc-product-replay.json
-python -m pytest -q -o addopts='' test_publication.py
+python -m pytest -q -o addopts='' test_six_arc_product_publication.py
 ```
+
+The test module has a packet-specific basename so repository-wide pytest
+collection does not collide with the earlier bridge packet's
+`test_publication.py`. The test contents are unchanged by that rename;
+historical validation reports retain the command actually run at publication.
 
 The explicit empty pytest `addopts` includes the artifact-marked complete
 replay. In ordinary repository fast pytest, that one test is intentionally
