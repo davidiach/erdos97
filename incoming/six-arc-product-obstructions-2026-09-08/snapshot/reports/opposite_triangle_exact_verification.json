@@ -1,0 +1,13 @@
+{
+  "status": "PASS_EXACT_RATIONAL_CERTIFICATES",
+  "orders": 30,
+  "contradiction_bounds": {
+    "-1/18": 6,
+    "-1/4": 3,
+    "0": 15,
+    "-1/12": 6
+  },
+  "arithmetic": "fractions.Fraction",
+  "relies_on_search_implementation": false,
+  "scope": "Six-point opposite-orientation matched-equilateral obstruction only"
+}
