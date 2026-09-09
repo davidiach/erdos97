@@ -17,14 +17,14 @@ def arrow_gain(rows, i, j):
     require(type(hits[0]) is int and 0 <= hits[0] < 3, 'bad rotation gain')
     return hits[0]
 
-def relation(rows, i, j, k, l):
-    require(len({i, j, k, l}) == 4, 'diamond needs four distinct orbits')
-    a, b, c, d = (arrow_gain(rows, i, j), arrow_gain(rows, i, k), arrow_gain(rows, j, l), arrow_gain(rows, k, l))
+def relation(rows, i, j, k, tip):
+    require(len({i, j, k, tip}) == 4, 'diamond needs four distinct orbits')
+    a, b, c, d = (arrow_gain(rows, i, j), arrow_gain(rows, i, k), arrow_gain(rows, j, tip), arrow_gain(rows, k, tip))
     require((a + c - b - d) % 3 == 0, 'unmatched total gains')
     g = (b - c) % 3
     sigma = (0, 1, -1)[g]
     v = defaultdict(int)
-    for x, s in [(i, 1), (l, 1), (j, -1), (k, -1)]:
+    for x, s in [(i, 1), (tip, 1), (j, -1), (k, -1)]:
         v[x] += s
     v['L'] -= sigma
     return {x: s for x, s in v.items() if s}
@@ -33,14 +33,14 @@ def diamonds(rows):
     out = []
     for i, row in enumerate(rows):
         for j, k in combinations(row[::2], 2):
-            for l in set(rows[j][::2]) & set(rows[k][::2]):
-                if len({i, j, k, l}) < 4:
+            for tip in set(rows[j][::2]) & set(rows[k][::2]):
+                if len({i, j, k, tip}) < 4:
                     continue
                 try:
-                    v = relation(rows, i, j, k, l)
+                    v = relation(rows, i, j, k, tip)
                 except ValueError:
                     continue
-                out.append({'labels': [i, j, k, l], 'coefficients': [[str(x), s] for x, s in v.items()]})
+                out.append({'labels': [i, j, k, tip], 'coefficients': [[str(x), s] for x, s in v.items()]})
     return out
 
 def check(rows, certificate):

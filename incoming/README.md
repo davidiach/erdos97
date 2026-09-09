@@ -6,7 +6,7 @@ mathematical claim has been accepted. [Current state](../STATE.md).
 
 ## Structured review packets
 
-All twelve entries below remain review-pending under their own stated hypotheses.
+All thirteen entries below remain review-pending under their own stated hypotheses.
 Retain their original reports and pinned source files. Run commands from the
 packet directory; see its README for prerequisites, full replays, and limitations.
 No packet in this table is declared superseded by another here.
@@ -25,6 +25,7 @@ No packet in this table is declared superseded by another here.
 | [Bridge continuation and closure audit](bridge-continuation-2026-09-06/README.md) | Four preserved chain/conic and radius-rank packets, exact return/deletion controls, and fixed nine-orbit candidate correction; no unrestricted solution | `python replay.py --check --require-primary`; `python -m pytest -q -o addopts='' test_publication.py` |
 | [Six-arc carrier and fixed-product obstructions](six-arc-product-obstructions-2026-09-08/README.md) | Review-pending six-arc good-point theorem, matched-equilateral certificates, fixed 27-point witness-system obstruction, and exact convex/nonconvex controls | `python replay.py --check`; `python -m pytest -q -o addopts='' test_six_arc_product_publication.py` |
 | [Research continuation: repairs, cap closure, and lens theorems](research-continuation-2026-09-09/README.md) | Six original September 8–9 packets: fixed-seed repairs and zero/one/two-internal-support obstructions, parabola/lens theorems, and exact controls; restricted and review-pending | `python publication.py`; `python publication.py --scoped`; `python publication.py --full` |
+| [Overlapping diamond phase obstruction](diamond-phase-obstruction-2026-09-09/README.md) | Gain-labelled circle-completion phase rule and exact seven-arrow obstruction for three fixed nine-orbit systems; restricted and review-pending, not a nine-orbit exclusion | `python -S verify.py`; `python -S -m unittest -v test_diamond_phase_obstruction_20260909.py` |
 
 ## Historical imports
 
