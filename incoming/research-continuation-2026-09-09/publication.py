@@ -213,6 +213,17 @@ def run_packet(key: str, *, full: bool = False, timeout: int = 3600) -> dict[str
     return result
 
 
+def write_report(path: Path, result: Any) -> None:
+    """Write portable JSON without Windows newline conversion."""
+    if path.resolve().is_relative_to((ROOT / "snapshots").resolve()):
+        raise ValueError("report cannot overwrite an immutable snapshot")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(result, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8", newline="\n",
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scoped", action="store_true")
@@ -244,10 +255,7 @@ def main() -> int:
     result["source_integrity_after"] = check_provenance()
     rendered = json.dumps(result, indent=2, sort_keys=True) + "\n"
     if args.output:
-        if args.output.resolve().is_relative_to((ROOT / "snapshots").resolve()):
-            raise ValueError("report cannot overwrite an immutable snapshot")
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(rendered, encoding="utf-8")
+        write_report(args.output, result)
     print(rendered if not args.output else json.dumps({"status": result["status"], "report": str(args.output)}))
     return 0 if result["status"] == "passed" else 1
 

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 from pathlib import Path
 import sys
 
@@ -87,6 +88,16 @@ def test_replay_exposes_skipped_test_class(tmp_path: Path, monkeypatch) -> None:
     assert result["status"] == "passed"
     assert result["unit_tests_run"] == 0
     assert result["unittest_reported_skips"] == 1
+
+
+def test_report_has_portable_line_endings(tmp_path: Path) -> None:
+    path = tmp_path / "report.json"
+    value = {"label": "Erd\u0151s", "status": "passed"}
+    PUB.write_report(path, value)
+    assert b"\r" not in path.read_bytes()
+    assert json.loads(path.read_text(encoding="utf-8")) == value
+    with pytest.raises(ValueError, match="immutable snapshot"):
+        PUB.write_report(ROOT / "snapshots" / "new-report.json", value)
 
 
 @pytest.mark.artifact

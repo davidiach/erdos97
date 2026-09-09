@@ -15,10 +15,12 @@ links verify. Original snapshot files and preparation reports are unchanged.
 
 - Disable Git text conversion within the immutable snapshots.
 - Force UTF-8 for replay subprocesses and captured output on Windows.
+- Serialize fresh reports with LF line endings to satisfy repository checks.
 - Report unittest skip events explicitly. A skipped test class is one event,
   not necessarily one omitted test method.
 - Add real-subprocess regression tests for Unicode, failure exit codes, and
-  skipped test classes. The focused publication suite now has eleven tests.
+  skipped test classes and report line endings. The focused publication suite
+  now has twelve tests.
 - Link the mixed-lens proof and two-free reduction as separate review targets.
 
 ## Fresh scoped replay
@@ -38,7 +40,7 @@ reports that class-level omission as one skip event. The
 updated wrapper exposes that event: 62 tests run, one skip event. The other
 five packet counts are 31, 30, 40, 37, and 58.
 
-The eleven focused publication tests pass. The six complete packet replays
+The twelve focused publication tests pass. The six complete packet replays
 also collect successfully under the artifact marker. The scoped run does not
 replace the complete two-free or exhaustive C++ metric replays.
 
@@ -56,13 +58,21 @@ test, blocked by Windows named-pipe permissions. The release-packet check
 requires a clean committed worktree and rejected the staged import. These
 failures must be distinguished from a successful full fast-tier run.
 
+After committing the import, the release check and multiprocessing test both
+passed when rerun outside the sandbox (14 passes across those two tests and
+the CI-scope module). The two Bash tests still fail because the WSL launcher
+cannot start, including on the unmodified base. No failing test was disabled
+or weakened. The final publication suite separately passes all twelve tests.
+
 The current registry-wide command `python scripts/run_artifact_audit.py
 --verify-only` was attempted. Its first nine commands passed; it was interrupted
 during command 10, `python
 scripts/sweep_c19_kalmanson_prefix_windows_catalog_prefilter.py --json
 --assert-expected`, a prolonged unchanged C19 search. The 306-command tier is
 not reported as passed. The shorter artifact tier supplied with the task is
-checked separately; it is not a substitute for the current full registry.
+checked separately; all eleven commands passed, as recorded in
+[the command results](reports/integration-artifact-commands-windows.json).
+This shorter tier is not a substitute for the current full registry.
 
 The command `python publication.py --full --packet final-push` requires `g++`
 and GMP and cannot complete in this environment. The historical exhaustive

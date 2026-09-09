@@ -1,0 +1,57 @@
+[
+  {
+    "command": "python scripts/independent_check_n8_artifacts.py --check --json",
+    "returncode": 0,
+    "seconds": 17.95
+  },
+  {
+    "command": "python scripts/enumerate_n8_incidence.py --summary",
+    "returncode": 0,
+    "seconds": 22.97
+  },
+  {
+    "command": "python scripts/analyze_n8_exact_survivors.py --check --json",
+    "returncode": 0,
+    "seconds": 2.48
+  },
+  {
+    "command": "python scripts/check_round2_certificates.py",
+    "returncode": 0,
+    "seconds": 0.08
+  },
+  {
+    "command": "python scripts/check_kalmanson_certificate.py data/certificates/round2/c19_kalmanson_known_order_two_unsat.json --summary-json",
+    "returncode": 0,
+    "seconds": 0.08
+  },
+  {
+    "command": "python scripts/check_kalmanson_two_order_search.py --name C13_sidon_1_2_4_10 --n 13 --offsets 1,2,4,10 --assert-obstructed --assert-c13-expected --json",
+    "returncode": 0,
+    "seconds": 80.53
+  },
+  {
+    "command": "python scripts/check_kalmanson_two_order_z3.py --certificate data/certificates/c19_skew_all_orders_kalmanson_z3.json --assert-unsat",
+    "returncode": 0,
+    "seconds": 3.05
+  },
+  {
+    "command": "python scripts/check_n9_base_apex_low_excess_escape_crosswalk.py --check --json",
+    "returncode": 0,
+    "seconds": 3.59
+  },
+  {
+    "command": "python scripts/check_n9_base_apex_d3_p19_incidence_capacity_pilot.py --check --json",
+    "returncode": 0,
+    "seconds": 0.16
+  },
+  {
+    "command": "python scripts/check_n9_base_apex_d3_incidence_capacity_packet.py --check --json",
+    "returncode": 0,
+    "seconds": 0.11
+  },
+  {
+    "command": "python scripts/check_n9_vertex_circle_exhaustive.py --assert-expected --json",
+    "returncode": 0,
+    "seconds": 26.5
+  }
+]
