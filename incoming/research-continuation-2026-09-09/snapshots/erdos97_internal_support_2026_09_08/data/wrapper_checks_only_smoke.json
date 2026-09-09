@@ -1,0 +1,48 @@
+{
+  "Lean_formalization": false,
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "controls.py"
+      ],
+      "directory": "new packet",
+      "elapsed_seconds": 0.036,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"passed\",\n  \"arithmetic\": \"integer homogeneous determinants and squared-distance ratios\",\n  \"vertices\": 14,\n  \"supporting_checks\": 168,\n  \"maxima\": [\n    4,\n    4,\n    4,\n    4,\n    1,\n    1,\n    1,\n    1,\n    1,\n    1,\n    1,\n    1,\n    1,\n    1\n  ]\n}\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "kalmanson.py"
+      ],
+      "directory": "new packet",
+      "elapsed_seconds": 0.031,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"fixed_patterns\": 3,\n  \"certificates\": 14,\n  \"status\": \"all checked exactly; fixed-pattern fixed-order only\"\n}\n"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "combinatorics.py"
+      ],
+      "directory": "new packet",
+      "elapsed_seconds": 0.057,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"initial_distinct_fixed_patterns\": 3,\n  \"initial_exact_certificates\": 14,\n  \"filtered_patterns_checked\": 12,\n  \"filtered_exact_certificates\": 119,\n  \"status\": \"passed; no family infeasibility inferred\"\n}\n"
+    }
+  ],
+  "external_mathematical_review": false,
+  "inherited_full_replay_requested": false,
+  "manifest_entries_before_and_after": 61,
+  "mode": "checks-only",
+  "python": "3.13.5",
+  "repository_wide_ci": false,
+  "status": "passed"
+}

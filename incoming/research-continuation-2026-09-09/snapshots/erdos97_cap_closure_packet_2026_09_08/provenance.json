@@ -1,0 +1,16 @@
+{
+  "base_sha": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "baseline_resolved_through_connected_GitHub": true,
+  "date": "2026-09-08",
+  "external_review": false,
+  "mathematical_status": "restricted written proof and exact finite certificates; review pending",
+  "new_PR": false,
+  "official_external_status_reverified": false,
+  "previous_packet_zip_sha256": "bd71f647f395a42ecf704e9ae6b750ed5cdbfb35b2e125ba3af0744e7d76b240",
+  "repository": "davidiach/erdos97",
+  "repository_files_modified": false,
+  "unchanged_inherited_arithmetic": {
+    "extensions.py": "b6d40110ebf65c734d52eef82b52913e9862510e1acffb0e303d0cc1ac584204",
+    "quadratic.py": "1932061cbe5a856dc9c9adb1c5b3bc5a877ae4886cf336c45ac68f51e9b77054"
+  }
+}

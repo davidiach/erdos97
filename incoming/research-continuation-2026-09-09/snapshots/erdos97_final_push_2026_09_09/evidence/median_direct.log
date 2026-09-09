@@ -1,0 +1,13 @@
+source vars 39366 target vars 1512
+round 0 constraints 531 nonzero 872100
+exact obstruction certificates 7
+round 1 constraints 538 nonzero 873595
+exact obstruction certificates 16
+round 2 constraints 554 nonzero 877943
+exact obstruction certificates 4
+round 3 constraints 558 nonzero 878869
+exact obstruction certificates 7
+round 4 constraints 565 nonzero 880279
+exact obstruction certificates 20
+round 5 constraints 585 nonzero 885444
+{'round': 5, 'status': 1, 'message': 'Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)', 'seconds': 30.31563456699996}

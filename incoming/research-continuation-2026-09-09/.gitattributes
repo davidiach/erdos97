@@ -1,0 +1,25 @@
+# Preserve original source/output bytes; whitespace exceptions use exact paths.
+# Disable checkout/check-in text conversion for hash-pinned archival evidence.
+snapshots/** -text
+# Two Markdown hard-breaks in the retained proof header:
+snapshots/erdos97_cap_closure_packet_2026_09_08/proofs.md whitespace=-blank-at-eol
+# Captured historical stdout intentionally retains its terminal blank line:
+snapshots/erdos97_final_push_2026_09_09/evidence/prior_replay.stdout whitespace=-blank-at-eof
+snapshots/erdos97_internal_support_2026_09_08/data/one_free_oracle_stdout.txt whitespace=-blank-at-eof
+snapshots/erdos97_mixed_support_2026_09_09/data/check_1.stdout whitespace=-blank-at-eof
+snapshots/erdos97_mixed_support_2026_09_09/data/check_2.stdout whitespace=-blank-at-eof
+snapshots/erdos97_mixed_support_2026_09_09/data/oracle.stdout whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/last_leaf_stdout.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/oracle_shards/00.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/oracle_shards/01.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/oracle_shards/02.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/oracle_shards/03.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/oracle_stdout.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/primary_stdout.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/sharpness_oracle_stdout.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/sharpness_stdout.json whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/validation_inherited.stdout.txt whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/validation_last_leaf_cancellations.stdout.txt whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/validation_primary.stdout.txt whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/validation_sharpness.stdout.txt whitespace=-blank-at-eof
+snapshots/erdos97_two_free_2026_09_09/data/validation_sharpness_independent.stdout.txt whitespace=-blank-at-eof

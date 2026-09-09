@@ -1,0 +1,17 @@
+test_circle_fit_rejects_collinearity (test_parabola.ParabolaTests.test_circle_fit_rejects_collinearity) ... ok
+test_complete_saved_controls (test_parabola.ParabolaTests.test_complete_saved_controls) ... ok
+test_extremal_average_forces_all_terms_equal (test_parabola.ParabolaTests.test_extremal_average_forces_all_terms_equal) ... ok
+test_float_rejected (test_parabola.ParabolaTests.test_float_rejected) ... ok
+test_nonzero_parameter_sum_rejected (test_parabola.ParabolaTests.test_nonzero_parameter_sum_rejected) ... ok
+test_positive_control (test_parabola.ParabolaTests.test_positive_control) ... ok
+test_repeated_parameters_rejected (test_parabola.ParabolaTests.test_repeated_parameters_rejected) ... ok
+test_simple_row (test_parabola.ParabolaTests.test_simple_row) ... ok
+test_square_level_has_at_most_two_grid_parameters (test_parabola.ParabolaTests.test_square_level_has_at_most_two_grid_parameters) ... ok
+test_two_step_zero_drift_exactly_opposite_curvatures (test_parabola.ParabolaTests.test_two_step_zero_drift_exactly_opposite_curvatures) ... ok
+test_zero_curvature_rejected (test_parabola.ParabolaTests.test_zero_curvature_rejected) ... ok
+test_zero_drift_three_cycle_is_allowed_arithmetically (test_parabola.ParabolaTests.test_zero_drift_three_cycle_is_allowed_arithmetically) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.020s
+
+OK

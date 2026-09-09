@@ -1,0 +1,310 @@
+{
+  "status": "numerical scouting only, not an exclusion",
+  "raw_count": 26,
+  "admissible_count": 4,
+  "admissible": [
+    {
+      "repair_source": 0,
+      "old_supplier": 7,
+      "branch": 1,
+      "q": [
+        -0.5002298176724876,
+        -0.8656272258694124
+      ],
+      "admissible_numeric": true
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 0,
+      "branch": 1,
+      "q": [
+        0.11951051391402256,
+        -0.6051501657853062
+      ],
+      "admissible_numeric": true
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 7,
+      "branch": 1,
+      "q": [
+        0.12258503862964909,
+        -0.6044363139713365
+      ],
+      "admissible_numeric": true
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 8,
+      "branch": 1,
+      "q": [
+        0.9997524501477113,
+        -0.00036676471132029986
+      ],
+      "admissible_numeric": true
+    }
+  ],
+  "near_edges": [],
+  "raw": [
+    {
+      "repair_source": 0,
+      "old_supplier": 0,
+      "branch": 0,
+      "q": [
+        -0.5,
+        0.8660254037844384
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 0,
+      "branch": 1,
+      "q": [
+        -0.5,
+        -0.8660254037844384
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 1,
+      "branch": 0,
+      "q": [
+        -0.5000000000000004,
+        -0.8660254037844388
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 1,
+      "branch": 1,
+      "q": [
+        -0.5000000000000004,
+        -0.8660254037844388
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 2,
+      "branch": 0,
+      "q": [
+        -0.5000000000000004,
+        0.8660254037844388
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 2,
+      "branch": 1,
+      "q": [
+        -0.5000000000000004,
+        0.8660254037844388
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 5,
+      "branch": 0,
+      "q": [
+        -0.5181464264999154,
+        0.8338053895877241
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 5,
+      "branch": 1,
+      "q": [
+        -0.6322856656797493,
+        -0.5793474826185206
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 7,
+      "branch": 0,
+      "q": [
+        -0.5181128116927826,
+        0.8338665906331986
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 0,
+      "old_supplier": 7,
+      "branch": 1,
+      "q": [
+        -0.5002298176724876,
+        -0.8656272258694124
+      ],
+      "admissible_numeric": true
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 0,
+      "branch": 0,
+      "q": [
+        -1.362700258470531,
+        -0.07581730696139788
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 0,
+      "branch": 1,
+      "q": [
+        0.11951051391402256,
+        -0.6051501657853062
+      ],
+      "admissible_numeric": true
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 1,
+      "branch": 0,
+      "q": [
+        -0.601941747572815,
+        -0.5885609540282593
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 1,
+      "branch": 1,
+      "q": [
+        0.9999999999999996,
+        -2.220446049250313e-16
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 2,
+      "branch": 0,
+      "q": [
+        0.8106796116504866,
+        -0.22701636798232708
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 2,
+      "branch": 1,
+      "q": [
+        0.9999999999999989,
+        -1.4155343563970746e-15
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 3,
+      "branch": 0,
+      "q": [
+        -0.6019417475728155,
+        -0.588560954028259
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 3,
+      "branch": 1,
+      "q": [
+        0.8106796116504853,
+        -0.22701636798232847
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 4,
+      "branch": 0,
+      "q": [
+        0.8106795903415495,
+        -0.2270163888175792
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 4,
+      "branch": 1,
+      "q": [
+        0.8106796329594205,
+        -0.2270163471470771
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 5,
+      "branch": 0,
+      "q": [
+        -0.6019417762711399,
+        -0.588560945991805
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 5,
+      "branch": 1,
+      "q": [
+        -0.6019417188744909,
+        -0.5885609620647129
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 7,
+      "branch": 0,
+      "q": [
+        -1.3352120031693784,
+        -0.1103112275409241
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 7,
+      "branch": 1,
+      "q": [
+        0.12258503862964909,
+        -0.6044363139713365
+      ],
+      "admissible_numeric": true
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 8,
+      "branch": 0,
+      "q": [
+        -0.5719617156199681,
+        -0.5966131842256592
+      ],
+      "admissible_numeric": false
+    },
+    {
+      "repair_source": 3,
+      "old_supplier": 8,
+      "branch": 1,
+      "q": [
+        0.9997524501477113,
+        -0.00036676471132029986
+      ],
+      "admissible_numeric": true
+    }
+  ]
+}

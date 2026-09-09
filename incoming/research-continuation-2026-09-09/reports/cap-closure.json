@@ -1,0 +1,56 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "verify.py"
+      ],
+      "elapsed_seconds": 2.988,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "84 old triples replayed; 42 slots; 1722 directed interval pairs; 123 possible edges.\nPeeling layer sizes: [21, 15, 3]\nCore: [6, 14, 22]\nUnique cap extension maxima: [2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4]\nPositive control: [2, 11, 20]\n"
+    },
+    {
+      "command": [
+        "python",
+        "oracle.py"
+      ],
+      "elapsed_seconds": 24.859,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"arithmetic\": \"flattened radical algebra and rational enclosures\",\n  \"directed_interval_pairs\": 1722,\n  \"external_mathematical_review\": false,\n  \"formalized_in_Lean\": false,\n  \"graph_method\": \"endpoint interpolation and reverse sequential peeling\",\n  \"largest_enclosure_precision_bits\": 32,\n  \"old_triples\": 84,\n  \"possible_edges\": 123,\n  \"remaining_core\": [\n    6,\n    14,\n    22\n  ],\n  \"slot_method\": \"first and second ray exit times\",\n  \"slots\": 42,\n  \"status\": \"passed\"\n}\n\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_closure.py"
+      ],
+      "elapsed_seconds": 33.193,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "test_01_full_primary_report (test_closure.ClosureTests.test_01_full_primary_report) ... ok\ntest_02_full_independent_report (test_closure.ClosureTests.test_02_full_independent_report) ... ok\ntest_03_exact_input_rejects_float (test_closure.ClosureTests.test_03_exact_input_rejects_float) ... ok\ntest_04_reversed_boundary_rejected (test_closure.ClosureTests.test_04_reversed_boundary_rejected) ... ok\ntest_05_duplicate_boundary_rejected (test_closure.ClosureTests.test_05_duplicate_boundary_rejected) ... ok\ntest_06_duplicate_point_rejected (test_closure.ClosureTests.test_06_duplicate_point_rejected) ... ok\ntest_07_all_slots_are_on_one_ray (test_closure.ClosureTests.test_07_all_slots_are_on_one_ray) ... ok\ntest_08_insertion_cell_midpoints (test_closure.ClosureTests.test_08_insertion_cell_midpoints) ... ok\ntest_09_pair_ray_capacity_triangle (test_closure.ClosureTests.test_09_pair_ray_capacity_triangle) ... ok\ntest_10_range_contains_exact_grid (test_closure.ClosureTests.test_10_range_contains_exact_grid) ... ok\ntest_11_two_slot_builders_agree (test_closure.ClosureTests.test_11_two_slot_builders_agree) ... ok\ntest_12_two_range_implementations_agree (test_closure.ClosureTests.test_12_two_range_implementations_agree) ... ok\ntest_13_graph_peeling_control (test_closure.ClosureTests.test_13_graph_peeling_control) ... ok\ntest_14_missing_slot_rejected (test_closure.ClosureTests.test_14_missing_slot_rejected) ... ok\ntest_15_changed_slot_endpoint_rejected (test_closure.ClosureTests.test_15_changed_slot_endpoint_rejected) ... ok\ntest_16_missing_graph_edge_rejected (test_closure.ClosureTests.test_16_missing_graph_edge_rejected) ... ok\ntest_17_invented_graph_edge_rejected (test_closure.ClosureTests.test_17_invented_graph_edge_rejected) ... ok\ntest_18_changed_range_digest_rejected (test_closure.ClosureTests.test_18_changed_range_digest_rejected) ... ok\ntest_19_invalid_peeling_rejected (test_closure.ClosureTests.test_19_invalid_peeling_rejected) ... ok\ntest_20_incomplete_peeling_rejected (test_closure.ClosureTests.test_20_incomplete_peeling_rejected) ... ok\ntest_21_wrong_core_rejected (test_closure.ClosureTests.test_21_wrong_core_rejected) ... ok\ntest_22_changed_quadratic_rejected (test_closure.ClosureTests.test_22_changed_quadratic_rejected) ... ok\ntest_23_changed_radical_rejected (test_closure.ClosureTests.test_23_changed_radical_rejected) ... ok\ntest_24_wrong_root_branch_rejected (test_closure.ClosureTests.test_24_wrong_root_branch_rejected) ... ok\ntest_25_inexact_new_coordinate_rejected (test_closure.ClosureTests.test_25_inexact_new_coordinate_rejected) ... ok\ntest_26_false_all_rich_claim_rejected (test_closure.ClosureTests.test_26_false_all_rich_claim_rejected) ... ok\ntest_27_false_witness_rejected (test_closure.ClosureTests.test_27_false_witness_rejected) ... ok\ntest_28_invalid_extension_field_rejected (test_closure.ClosureTests.test_28_invalid_extension_field_rejected) ... ok\ntest_29_positive_cap_control (test_closure.ClosureTests.test_29_positive_cap_control) ... ok\ntest_30_unbounded_input_fails_closed (test_closure.ClosureTests.test_30_unbounded_input_fails_closed) ... ok\n\n----------------------------------------------------------------------\nRan 30 tests in 32.395s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "python",
+        "exploratory/one_free_relaxation.py"
+      ],
+      "elapsed_seconds": 2.663,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "coarse exact necessary-condition relaxation; all nine cases survive\nCore sizes including the free vertex: [13, 13, 16, 13, 13, 16, 13, 13, 16]\n"
+    }
+  ],
+  "full": false,
+  "packet": "cap-closure",
+  "source_integrity_unchanged": true,
+  "status": "passed",
+  "unit_tests_run": 30
+}

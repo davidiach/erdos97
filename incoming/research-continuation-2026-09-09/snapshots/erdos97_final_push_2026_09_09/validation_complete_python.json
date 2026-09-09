@@ -1,0 +1,151 @@
+{
+  "Lean_formalization": false,
+  "commands": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "grid_metric.py",
+        "--check"
+      ],
+      "directory": ".",
+      "elapsed_seconds": 0.884,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"n\": 138,\n  \"fiber_size_histogram\": {\n    \"4\": 52,\n    \"5\": 20,\n    \"6\": 20,\n    \"7\": 12,\n    \"8\": 34\n  },\n  \"nonplanar_gram_determinant\": \"6052449518192\",\n  \"margin_bounds\": {\n    \"within_monotonicity\": \"290\",\n    \"cross_positivity\": \"781570222193/1000602\",\n    \"triangle_short_side\": \"282670058/500301\",\n    \"triangle_long_sides\": \"742492711685/500301\",\n    \"kalmanson_three_one\": \"145087283/500301\",\n    \"kalmanson_two_two_noncrossing\": \"703415201177/500301\",\n    \"ptolemy_three_one\": \"86841044674/55589\",\n    \"ptolemy_two_two_cross_products\": \"159793789311097601/500602181202\",\n    \"ptolemy_two_two_within_product\": \"607797908563809688893121/500602181202\"\n  }\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "grid_oracle.py"
+      ],
+      "directory": ".",
+      "elapsed_seconds": 0.88,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"passed\",\n  \"matrix_entries_reconstructed\": 19044,\n  \"full_radius_fiber_pairs_with_overlap_at_most_one\": 9453,\n  \"cayley_menger_determinant\": \"48419596145536\",\n  \"grid_lines_reconstructed\": 74,\n  \"fiber_histogram\": {\n    \"4\": 52,\n    \"5\": 20,\n    \"6\": 20,\n    \"7\": 12,\n    \"8\": 34\n  },\n  \"uses_primary_code\": false,\n  \"external_review\": false\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "circle_star_metric.py",
+        "--check"
+      ],
+      "directory": ".",
+      "elapsed_seconds": 2.478,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"n\": 138,\n  \"degree_histogram\": {\n    \"4\": 52,\n    \"5\": 20,\n    \"6\": 20,\n    \"7\": 12,\n    \"8\": 34\n  },\n  \"no_repeated_nonunit_distance_at_any_vertex\": true,\n  \"all_radius_two_center_max_fiber_intersection\": 1,\n  \"full_rich_stars_realized_locally\": 138,\n  \"local_star_squared_distance_checks\": 2800,\n  \"local_star_strict_supporting_signs\": 4678,\n  \"witness_quad_ptolemy_equalities_checked\": 3252\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "circle_star_oracle.py"
+      ],
+      "directory": ".",
+      "elapsed_seconds": 1.89,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"cayley_menger_determinant\": \"128148374623207479053030007521364157575354428655370877304602698255679318270600757612059622147659427408014117533738307400067550940831420527940832019247624579886498403632643512631464820010109109739699952234006434848644771949871085913133218899606871498441442025211816020946375409509824216900456902819796688740579525244000856571078735255447883778714367256121650751806700773803752033306181135404401735939775036938281353330585215532571083180578947394869566936996604783969/62573700005343494283994293490126545399417550371818466625434999084725541277582762604097072236648059726502379435824891372680664062500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\n  \"external_review\": false,\n  \"global_planar_realization\": false,\n  \"local_squared_distance_identities\": 2800,\n  \"local_stars\": 138,\n  \"matrix_entries_reconstructed\": 19044,\n  \"primary_star_code_imported\": false,\n  \"prior_input_oracle_status\": \"passed\",\n  \"status\": \"passed\",\n  \"strict_local_ordered_triple_orientations\": 5148,\n  \"witness_circle_equalities\": 3252\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "turn_control.py",
+        "--check"
+      ],
+      "directory": ".",
+      "elapsed_seconds": 1.774,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"locally_planar_star_metric\": {\n    \"distinct_supports\": 760,\n    \"exact_total_normalized_turn\": \"4\",\n    \"maximum_normalized_turn\": \"46/83\",\n    \"minimum_forced_support_sum\": \"84/83\",\n    \"minimum_normalized_turn\": \"1/83\",\n    \"n\": 138,\n    \"normalization\": \"t_i=2*tau_i/pi; sum(t_i)=4\",\n    \"repeated_distance_fibers\": 138,\n    \"scope\": \"scalar necessary inequalities only; no globally compatible Euclidean angles claimed\",\n    \"status\": \"passed\",\n    \"strict_pair_turn_inequalities_checked\": 4032\n  },\n  \"strict_ptolemy_metric\": {\n    \"distinct_supports\": 3887,\n    \"exact_total_normalized_turn\": \"4\",\n    \"maximum_normalized_turn\": \"46/83\",\n    \"minimum_forced_support_sum\": \"84/83\",\n    \"minimum_normalized_turn\": \"1/83\",\n    \"n\": 138,\n    \"normalization\": \"t_i=2*tau_i/pi; sum(t_i)=4\",\n    \"repeated_distance_fibers\": 2465,\n    \"scope\": \"scalar necessary inequalities only; no globally compatible Euclidean angles claimed\",\n    \"status\": \"passed\",\n    \"strict_pair_turn_inequalities_checked\": 8686\n  }\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "audit_medians.py",
+        "--check"
+      ],
+      "directory": ".",
+      "elapsed_seconds": 1.35,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"fixed_patterns\": 5,\n  \"exact_certificates\": 54,\n  \"full_family_excluded\": false\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_final_push.py",
+        "test_star_extension.py"
+      ],
+      "directory": ".",
+      "elapsed_seconds": 6.315,
+      "returncode": 0,
+      "stderr": "test_17_count_forces_three_five_point_blocks (test_final_push.BlockTests.test_17_count_forces_three_five_point_blocks) ... ok\ntest_18_pair_cost_equality_forces_two_plus_two (test_final_push.BlockTests.test_18_pair_cost_equality_forces_two_plus_two) ... ok\ntest_19_incidence_square_identity (test_final_push.BlockTests.test_19_incidence_square_identity) ... ok\ntest_20_all_five_cycles_excluded_as_inversion_graphs (test_final_push.BlockTests.test_20_all_five_cycles_excluded_as_inversion_graphs) ... ok\ntest_21_even_cycle_positive_control (test_final_push.BlockTests.test_21_even_cycle_positive_control) ... ok\ntest_22_every_inversion_orientation_is_transitive (test_final_push.BlockTests.test_22_every_inversion_orientation_is_transitive) ... ok\ntest_23_invalid_permutation_rejected (test_final_push.BlockTests.test_23_invalid_permutation_rejected) ... ok\ntest_33_simplex_control_is_rich_but_not_strict_kalmanson (test_final_push.CppDefensiveTests.test_33_simplex_control_is_rich_but_not_strict_kalmanson) ... ok\ntest_34_trailing_data_rejected (test_final_push.CppDefensiveTests.test_34_trailing_data_rejected) ... ok\ntest_35_truncated_data_rejected (test_final_push.CppDefensiveTests.test_35_truncated_data_rejected) ... ok\ntest_36_noninteger_data_rejected (test_final_push.CppDefensiveTests.test_36_noninteger_data_rejected) ... ok\ntest_24_complete_local_domain_census (test_final_push.MedianTests.test_24_complete_local_domain_census) ... ok\ntest_25_all_five_saved_patterns_pass_both_medians (test_final_push.MedianTests.test_25_all_five_saved_patterns_pass_both_medians) ... ok\ntest_26_all_fifty_four_certificates_pass_two_checkers (test_final_push.MedianTests.test_26_all_fifty_four_certificates_pass_two_checkers) ... ok\ntest_27_negative_weight_rejected (test_final_push.MedianTests.test_27_negative_weight_rejected) ... ok\ntest_28_missing_strict_inequality_rejected (test_final_push.MedianTests.test_28_missing_strict_inequality_rejected) ... ok\ntest_29_wrong_cyclic_order_rejected (test_final_push.MedianTests.test_29_wrong_cyclic_order_rejected) ... ok\ntest_30_omitted_equality_premise_rejected (test_final_push.MedianTests.test_30_omitted_equality_premise_rejected) ... ok\ntest_31_prior_pattern_is_not_a_median_survivor (test_final_push.MedianTests.test_31_prior_pattern_is_not_a_median_survivor) ... ok\ntest_32_prior_archive_unchanged (test_final_push.MedianTests.test_32_prior_archive_unchanged) ... ok\ntest_01_every_label_is_rich_at_common_radius (test_final_push.MetricTests.test_01_every_label_is_rich_at_common_radius) ... ok\ntest_02_every_selected_row_has_four_exact_distances (test_final_push.MetricTests.test_02_every_selected_row_has_four_exact_distances) ... ok\ntest_03_full_fibers_are_linear (test_final_push.MetricTests.test_03_full_fibers_are_linear) ... ok\ntest_04_all_analytic_margins_are_strict (test_final_push.MetricTests.test_04_all_analytic_margins_are_strict) ... ok\ntest_05_degree_histogram_and_incidence_count (test_final_push.MetricTests.test_05_degree_histogram_and_incidence_count) ... ok\ntest_06_all_elementary_cyclic_constraints_checked (test_final_push.MetricTests.test_06_all_elementary_cyclic_constraints_checked) ... ok\ntest_07_nonplanarity_is_exact (test_final_push.MetricTests.test_07_nonplanarity_is_exact) ... ok\ntest_08_saved_primary_certificate_matches (test_final_push.MetricTests.test_08_saved_primary_certificate_matches) ... ok\ntest_09_different_representation_reconstructs_entire_matrix (test_final_push.MetricTests.test_09_different_representation_reconstructs_entire_matrix) ... ok\ntest_10_false_gram_determinant_rejected (test_final_push.MetricTests.test_10_false_gram_determinant_rejected) ... ok\ntest_11_omitted_radius_witness_rejected (test_final_push.MetricTests.test_11_omitted_radius_witness_rejected) ... ok\ntest_12_wrong_point_order_rejected (test_final_push.MetricTests.test_12_wrong_point_order_rejected) ... ok\ntest_13_altered_integer_entry_rejected (test_final_push.MetricTests.test_13_altered_integer_entry_rejected) ... ok\ntest_14_unit_radius_normalization (test_final_push.MetricTests.test_14_unit_radius_normalization) ... ok\ntest_15_general_grid_direction_argument_finite_controls (test_final_push.MetricTests.test_15_general_grid_direction_argument_finite_controls) ... ok\ntest_16_exhaustive_checker_inventory (test_final_push.MetricTests.test_16_exhaustive_checker_inventory) ... ok\ntest_all_circle_coordinates_unit (test_star_extension.StarExtension.test_all_circle_coordinates_unit) ... ok\ntest_all_rich_and_no_other_ties (test_star_extension.StarExtension.test_all_rich_and_no_other_ties) ... ok\ntest_circle_ptolemy_not_all_strict (test_star_extension.StarExtension.test_circle_ptolemy_not_all_strict) ... ok\ntest_exact_turns_both_controls (test_star_extension.StarExtension.test_exact_turns_both_controls) ... ok\ntest_general_index_tie_bound (test_star_extension.StarExtension.test_general_index_tie_bound) ... ok\ntest_local_star_gram_zero (test_star_extension.StarExtension.test_local_star_gram_zero) ... ok\ntest_nonplanar_but_each_circle_quad_planar (test_star_extension.StarExtension.test_nonplanar_but_each_circle_quad_planar) ... ok\ntest_nonpositive_turn_rejected (test_star_extension.StarExtension.test_nonpositive_turn_rejected) ... ok\ntest_saved_star_certificate (test_star_extension.StarExtension.test_saved_star_certificate) ... ok\ntest_separate_matrix_star_oracle (test_star_extension.StarExtension.test_separate_matrix_star_oracle) ... ok\ntest_size_reduction_not_overextended (test_star_extension.StarExtension.test_size_reduction_not_overextended) ... ok\ntest_star_counts (test_star_extension.StarExtension.test_star_counts) ... ok\ntest_strict_mixed_margins (test_star_extension.StarExtension.test_strict_mixed_margins) ... ok\ntest_three_block_size_reduction_through_16 (test_star_extension.StarExtension.test_three_block_size_reduction_through_16) ... ok\ntest_turn_total_tampering_rejected (test_star_extension.StarExtension.test_turn_total_tampering_rejected) ... ok\ntest_turns_are_not_geometrically_compatible (test_star_extension.StarExtension.test_turns_are_not_geometrically_compatible) ... ok\ntest_two_representations_of_circle (test_star_extension.StarExtension.test_two_representations_of_circle) ... ok\ntest_uniform_turn_does_not_pass (test_star_extension.StarExtension.test_uniform_turn_does_not_pass) ... ok\n\n----------------------------------------------------------------------\nRan 54 tests in 5.512s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "verify.py",
+        "--check"
+      ],
+      "directory": "parabola",
+      "elapsed_seconds": 0.86,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"passed\",\n  \"rational_rows\": 96,\n  \"positive_control\": {\n    \"points\": [\n      [\n        \"9\",\n        \"12\"\n      ],\n      [\n        \"-4\",\n        \"16\"\n      ],\n      [\n        \"-2\",\n        \"4\"\n      ],\n      [\n        \"1\",\n        \"1\"\n      ],\n      [\n        \"5\",\n        \"25\"\n      ]\n    ],\n    \"order\": [\n      0,\n      4,\n      1,\n      2,\n      3\n    ],\n    \"squared_radius\": \"185\",\n    \"max_multiplicities\": [\n      4,\n      1,\n      1,\n      1,\n      1\n    ],\n    \"strict_support_signs\": [\n      \"153\",\n      \"175\",\n      \"148\",\n      \"153\",\n      \"126\",\n      \"180\",\n      \"148\",\n      \"126\",\n      \"30\",\n      \"57\",\n      \"84\",\n      \"30\",\n      \"148\",\n      \"175\",\n      \"57\"\n    ],\n    \"all_vertices_rich\": false\n  },\n  \"cycles\": [\n    {\n      \"length\": 1,\n      \"coefficient_tuples\": 6,\n      \"drift_counts\": {\n        \"positive\": 3,\n        \"negative\": 3\n      }\n    },\n    {\n      \"length\": 2,\n      \"coefficient_tuples\": 36,\n      \"drift_counts\": {\n        \"positive\": 15,\n        \"negative\": 15,\n        \"zero\": 6\n      }\n    },\n    {\n      \"length\": 3,\n      \"coefficient_tuples\": 216,\n      \"drift_counts\": {\n        \"positive\": 105,\n        \"negative\": 105,\n        \"zero\": 6\n      }\n    },\n    {\n      \"length\": 4,\n      \"coefficient_tuples\": 1296,\n      \"drift_counts\": {\n        \"positive\": 599,\n        \"zero\": 98,\n        \"negative\": 599\n      }\n    }\n  ]\n}\n"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_parabola.py"
+      ],
+      "directory": "parabola",
+      "elapsed_seconds": 0.864,
+      "returncode": 0,
+      "stderr": "test_circle_fit_rejects_collinearity (test_parabola.ParabolaTests.test_circle_fit_rejects_collinearity) ... ok\ntest_complete_saved_controls (test_parabola.ParabolaTests.test_complete_saved_controls) ... ok\ntest_extremal_average_forces_all_terms_equal (test_parabola.ParabolaTests.test_extremal_average_forces_all_terms_equal) ... ok\ntest_float_rejected (test_parabola.ParabolaTests.test_float_rejected) ... ok\ntest_nonzero_parameter_sum_rejected (test_parabola.ParabolaTests.test_nonzero_parameter_sum_rejected) ... ok\ntest_positive_control (test_parabola.ParabolaTests.test_positive_control) ... ok\ntest_repeated_parameters_rejected (test_parabola.ParabolaTests.test_repeated_parameters_rejected) ... ok\ntest_simple_row (test_parabola.ParabolaTests.test_simple_row) ... ok\ntest_square_level_has_at_most_two_grid_parameters (test_parabola.ParabolaTests.test_square_level_has_at_most_two_grid_parameters) ... ok\ntest_two_step_zero_drift_exactly_opposite_curvatures (test_parabola.ParabolaTests.test_two_step_zero_drift_exactly_opposite_curvatures) ... ok\ntest_zero_curvature_rejected (test_parabola.ParabolaTests.test_zero_curvature_rejected) ... ok\ntest_zero_drift_three_cycle_is_allowed_arithmetically (test_parabola.ParabolaTests.test_zero_drift_three_cycle_is_allowed_arithmetically) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.089s\n\nOK\n",
+      "stdout": ""
+    }
+  ],
+  "external_mathematical_review": false,
+  "full_metric_requested": false,
+  "inherited_replay_requested": false,
+  "pull_request_opened": false,
+  "python": "3.13.5",
+  "repository_baseline": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "repository_wide_ci": false,
+  "repository_write": false,
+  "schema": "erdos97.final_push.validation.v1",
+  "source_and_archive_hashes_before_and_after": {
+    "audit_medians.py": "327bb50954ce4dcfcfe753ac1e0af6add719aa34d6948c8c42f645190c971335",
+    "blocks.py": "3c02b3c930dc8560fd25b7a9f8d0d6bec44e1b87c89ce9d63097fa72131ce7d0",
+    "cap_probe.py": "74c44b54c7adaa5d8bdb56451ea2ac6fd6cbb94bf73864203b4fa069c71067c3",
+    "check_circle_metric.cpp": "39ef67aa85f985af781382c68d29443b1ada09bb2e8cbff3a7c646b58b6ca1f9",
+    "check_metric.cpp": "47810e6fb824b18d5b66aa1f28ee05b1be46c6de8e06579c63e6f50b9d2bb562",
+    "circle_star_metric.py": "7966d8afdd5f1b73140cfe655bd97bb3817f9a04fbd15f053caec3efec8a912c",
+    "circle_star_oracle.py": "8528bf5d72bf0351e36c08514376ce14d68a40e00e93e433da1f45efadd095b6",
+    "grid_metric.py": "cabd4945e05ace576302bb21b1b0f60d23a5325783b4d3e514e1f1b790d422bb",
+    "grid_metric_probe.py": "5b815ad5e2d6b22a4de5e9701f559f00d58e724321026cce2be810a93929fd21",
+    "grid_oracle.py": "b5c91e71a062385b95dd6dcbc085245aa8be8bc18e212dca519911c2552fe25b",
+    "inputs/internal_support.zip": "dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1",
+    "median_direct.py": "f281b607a3162c5ce1496f158c498f77b82e5995c4019438def29e620d142c88",
+    "median_probe.py": "30912169c60883eeec9d171bb30276660959e89e532a3e8addd39af3f82b3dc0",
+    "median_search.py": "dbe134bb24c2025681093ece03ef1f02d2a1e675d8da8f5608aa34e36fd59e4e",
+    "metric_probe.py": "c03a763e728278d72396da8607ce907ba74e305fcffa24c56fad46883a999925",
+    "parabola/test_parabola.py": "ddbf979c47340f93b72214870ab050d2ea6a278de366d401eed0473852fa03e3",
+    "parabola/verify.py": "3d206b52b7d0ac9fec9c9ec0da40f88d6b5206bd5313eafecbf826f79447cb71",
+    "previous.py": "c4fcf430aab2b68798d82361bdff0e1f435f7b90b5939ae190601d36d3b7f4fa",
+    "product_cycle_probe.py": "ea6149292701c920cb06713e82301f442f88c0b8196339474ac6daff5c56e018",
+    "replay.py": "27c0048a9f6848c14f59cb760c950737bcb112b6108bdd547508afb04f7593ad",
+    "test_final_push.py": "7e6d2c5a8e5ba4e0654789e3a5f72c81ed16f84aeb76517d9ee8988a65901065",
+    "test_star_extension.py": "2e4a8309d028d5786042acb070ac7cb60e493c359b6eec9cf000eca3bba623f7",
+    "turn_control.py": "33b84e51daeb669e1be71c3070484c11c465949c7d45a0305fc3460c27b01af0"
+  },
+  "status": "passed"
+}

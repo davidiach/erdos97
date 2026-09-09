@@ -1,0 +1,35 @@
+test_01_full_primary_report (test_closure.ClosureTests.test_01_full_primary_report) ... ok
+test_02_full_independent_report (test_closure.ClosureTests.test_02_full_independent_report) ... ok
+test_03_exact_input_rejects_float (test_closure.ClosureTests.test_03_exact_input_rejects_float) ... ok
+test_04_reversed_boundary_rejected (test_closure.ClosureTests.test_04_reversed_boundary_rejected) ... ok
+test_05_duplicate_boundary_rejected (test_closure.ClosureTests.test_05_duplicate_boundary_rejected) ... ok
+test_06_duplicate_point_rejected (test_closure.ClosureTests.test_06_duplicate_point_rejected) ... ok
+test_07_all_slots_are_on_one_ray (test_closure.ClosureTests.test_07_all_slots_are_on_one_ray) ... ok
+test_08_insertion_cell_midpoints (test_closure.ClosureTests.test_08_insertion_cell_midpoints) ... ok
+test_09_pair_ray_capacity_triangle (test_closure.ClosureTests.test_09_pair_ray_capacity_triangle) ... ok
+test_10_range_contains_exact_grid (test_closure.ClosureTests.test_10_range_contains_exact_grid) ... ok
+test_11_two_slot_builders_agree (test_closure.ClosureTests.test_11_two_slot_builders_agree) ... ok
+test_12_two_range_implementations_agree (test_closure.ClosureTests.test_12_two_range_implementations_agree) ... ok
+test_13_graph_peeling_control (test_closure.ClosureTests.test_13_graph_peeling_control) ... ok
+test_14_missing_slot_rejected (test_closure.ClosureTests.test_14_missing_slot_rejected) ... ok
+test_15_changed_slot_endpoint_rejected (test_closure.ClosureTests.test_15_changed_slot_endpoint_rejected) ... ok
+test_16_missing_graph_edge_rejected (test_closure.ClosureTests.test_16_missing_graph_edge_rejected) ... ok
+test_17_invented_graph_edge_rejected (test_closure.ClosureTests.test_17_invented_graph_edge_rejected) ... ok
+test_18_changed_range_digest_rejected (test_closure.ClosureTests.test_18_changed_range_digest_rejected) ... ok
+test_19_invalid_peeling_rejected (test_closure.ClosureTests.test_19_invalid_peeling_rejected) ... ok
+test_20_incomplete_peeling_rejected (test_closure.ClosureTests.test_20_incomplete_peeling_rejected) ... ok
+test_21_wrong_core_rejected (test_closure.ClosureTests.test_21_wrong_core_rejected) ... ok
+test_22_changed_quadratic_rejected (test_closure.ClosureTests.test_22_changed_quadratic_rejected) ... ok
+test_23_changed_radical_rejected (test_closure.ClosureTests.test_23_changed_radical_rejected) ... ok
+test_24_wrong_root_branch_rejected (test_closure.ClosureTests.test_24_wrong_root_branch_rejected) ... ok
+test_25_inexact_new_coordinate_rejected (test_closure.ClosureTests.test_25_inexact_new_coordinate_rejected) ... ok
+test_26_false_all_rich_claim_rejected (test_closure.ClosureTests.test_26_false_all_rich_claim_rejected) ... ok
+test_27_false_witness_rejected (test_closure.ClosureTests.test_27_false_witness_rejected) ... ok
+test_28_invalid_extension_field_rejected (test_closure.ClosureTests.test_28_invalid_extension_field_rejected) ... ok
+test_29_positive_cap_control (test_closure.ClosureTests.test_29_positive_cap_control) ... ok
+test_30_unbounded_input_fails_closed (test_closure.ClosureTests.test_30_unbounded_input_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 50.184s
+
+OK

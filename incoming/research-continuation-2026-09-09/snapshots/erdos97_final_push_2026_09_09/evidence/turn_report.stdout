@@ -1,0 +1,28 @@
+{
+  "locally_planar_star_metric": {
+    "distinct_supports": 760,
+    "exact_total_normalized_turn": "4",
+    "maximum_normalized_turn": "46/83",
+    "minimum_forced_support_sum": "84/83",
+    "minimum_normalized_turn": "1/83",
+    "n": 138,
+    "normalization": "t_i=2*tau_i/pi; sum(t_i)=4",
+    "repeated_distance_fibers": 138,
+    "scope": "scalar necessary inequalities only; no globally compatible Euclidean angles claimed",
+    "status": "passed",
+    "strict_pair_turn_inequalities_checked": 4032
+  },
+  "strict_ptolemy_metric": {
+    "distinct_supports": 3887,
+    "exact_total_normalized_turn": "4",
+    "maximum_normalized_turn": "46/83",
+    "minimum_forced_support_sum": "84/83",
+    "minimum_normalized_turn": "1/83",
+    "n": 138,
+    "normalization": "t_i=2*tau_i/pi; sum(t_i)=4",
+    "repeated_distance_fibers": 2465,
+    "scope": "scalar necessary inequalities only; no globally compatible Euclidean angles claimed",
+    "status": "passed",
+    "strict_pair_turn_inequalities_checked": 8686
+  }
+}

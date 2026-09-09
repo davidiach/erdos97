@@ -1,0 +1,20 @@
+{
+  "arithmetic": "independent polynomial radical ring with rational square-root enclosures",
+  "cases": 1125,
+  "external_mathematical_review": false,
+  "formalization": false,
+  "geometry": "Minkowski difference hulls and interpolated quadratics",
+  "input_sha256": "dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1",
+  "largest_sign_enclosure_bits": 32,
+  "leaves": 2121,
+  "maximum_depth": 18,
+  "metric_inverse_rejections": 0,
+  "metric_zero_rejections": 0,
+  "partition_nodes": 3117,
+  "primary_mathematical_code_imported": false,
+  "row_models": 2505,
+  "row_search_nodes": 298484,
+  "search": "sets, reverse variable ties and candidate orders, cyclic descents",
+  "status": "passed"
+}
+

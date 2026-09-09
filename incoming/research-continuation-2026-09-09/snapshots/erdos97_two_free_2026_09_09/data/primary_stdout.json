@@ -1,0 +1,27 @@
+{
+  "base_edge_count": 123,
+  "cases": 4500,
+  "external_mathematical_review": false,
+  "formalization": false,
+  "input_sha256": "dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1",
+  "leaf_digest": "4fc8fe8f19a241738a74f8e13d68d2434b4753029cf3a40758c720f2fb6ffe17",
+  "leaves": 14621,
+  "maximum_depth": 36,
+  "metric_inverse_rejections": 22,
+  "metric_zero_rejections": 2,
+  "old_ceiling": {
+    "centers": 64,
+    "certificate_sha256": "753f31b4c80dcb044025ef35dfcdd7172bbb31d7fd7ebe2a0ff092a03ce9e941",
+    "closed_containment": 3,
+    "old": 6,
+    "strict_containment": 55,
+    "triples": 84
+  },
+  "partition_nodes": 24742,
+  "row_models": 14146,
+  "row_search_nodes": 1170689,
+  "scope": "fixed-seed two-internally-supported-vertex exclusion",
+  "slot_count": 42,
+  "status": "passed"
+}
+

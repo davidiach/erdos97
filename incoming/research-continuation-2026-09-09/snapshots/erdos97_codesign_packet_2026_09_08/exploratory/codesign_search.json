@@ -1,0 +1,2638 @@
+{
+  "seed": 970908,
+  "status": "numerical exploration, not an exclusion or exact realization",
+  "runs": [
+    {
+      "run": 0,
+      "n": 12,
+      "start": "randomized ellipse",
+      "stages": [
+        {
+          "stage": 0,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              1,
+              2,
+              4,
+              9
+            ],
+            [
+              2,
+              3,
+              5,
+              10
+            ],
+            [
+              3,
+              4,
+              6,
+              11
+            ],
+            [
+              0,
+              4,
+              5,
+              7
+            ],
+            [
+              1,
+              5,
+              6,
+              8
+            ],
+            [
+              2,
+              6,
+              7,
+              9
+            ],
+            [
+              3,
+              7,
+              8,
+              10
+            ],
+            [
+              4,
+              8,
+              9,
+              11
+            ],
+            [
+              0,
+              5,
+              9,
+              10
+            ],
+            [
+              1,
+              6,
+              10,
+              11
+            ],
+            [
+              0,
+              2,
+              7,
+              11
+            ],
+            [
+              0,
+              1,
+              3,
+              8
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.46092653757625,
+            "min_support_determinant": 0.09977083730735893,
+            "min_pair_distance": 0.3251191298029129,
+            "rms_radius": 1.0
+          },
+          "solver": {
+            "nfev": 455,
+            "nit": 160,
+            "status": 9,
+            "success": false,
+            "cost": 38.08680082216743,
+            "message": "Iteration limit reached",
+            "hard_support_floor": 0.0001,
+            "hard_separation": 0.06,
+            "min_inequality_slack": -7.936355255223618e-05,
+            "max_equality_residual": 0.0011330205715549546
+          },
+          "after": {
+            "max_squared_distance_spread": 3.0888152120408465,
+            "min_support_determinant": 2.0636447447763828e-05,
+            "min_pair_distance": 0.06003367654558126,
+            "rms_radius": 1.0005663499096673
+          }
+        },
+        {
+          "stage": 1,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              2,
+              4,
+              5,
+              9
+            ],
+            [
+              3,
+              5,
+              6,
+              10
+            ],
+            [
+              4,
+              6,
+              7,
+              11
+            ],
+            [
+              0,
+              5,
+              7,
+              8
+            ],
+            [
+              1,
+              6,
+              8,
+              9
+            ],
+            [
+              2,
+              7,
+              9,
+              10
+            ],
+            [
+              3,
+              8,
+              10,
+              11
+            ],
+            [
+              0,
+              4,
+              9,
+              11
+            ],
+            [
+              0,
+              1,
+              5,
+              10
+            ],
+            [
+              1,
+              2,
+              6,
+              11
+            ],
+            [
+              0,
+              2,
+              3,
+              7
+            ],
+            [
+              1,
+              3,
+              4,
+              8
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 4.308066443787813,
+            "min_support_determinant": 2.0636447447763828e-05,
+            "min_pair_distance": 0.06003367654558126,
+            "rms_radius": 1.0005663499096673
+          },
+          "solver": {
+            "nfev": 30,
+            "nit": 19,
+            "status": 0,
+            "success": true,
+            "cost": 38.21892729203337,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 5.159111861940957e-06,
+            "hard_separation": 0.03001683827279063,
+            "min_inequality_slack": -7.012168623532489e-13,
+            "max_equality_residual": 2.4868995751603507e-14
+          },
+          "after": {
+            "max_squared_distance_spread": 2.802482653619922,
+            "min_support_determinant": 5.159111160724095e-06,
+            "min_pair_distance": 0.03001683827216684,
+            "rms_radius": 1.0000000000000124
+          }
+        }
+      ],
+      "final_coordinates": [
+        [
+          -0.1638501380627892,
+          -0.9331413564098661
+        ],
+        [
+          0.800960309334194,
+          -0.3472466083731266
+        ],
+        [
+          0.9913246098105423,
+          -0.23163985548722382
+        ],
+        [
+          1.2057234580641851,
+          -0.10141000819467669
+        ],
+        [
+          0.2103856698499488,
+          0.9271497746309849
+        ],
+        [
+          0.18950918908695294,
+          0.948717879110476
+        ],
+        [
+          0.16385017941324206,
+          0.9331414288594775
+        ],
+        [
+          -0.8009603815019122,
+          0.3472465324173156
+        ],
+        [
+          -0.9913246320504805,
+          0.23163979417132988
+        ],
+        [
+          -1.2057234835427606,
+          0.10140992724431973
+        ],
+        [
+          -0.21038563172676697,
+          -0.9271497028526626
+        ],
+        [
+          -0.18950914867435653,
+          -0.9487178051163476
+        ]
+      ]
+    },
+    {
+      "run": 1,
+      "n": 12,
+      "start": "randomized ellipse",
+      "stages": [
+        {
+          "stage": 0,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              2,
+              8,
+              9,
+              11
+            ],
+            [
+              0,
+              3,
+              9,
+              10
+            ],
+            [
+              1,
+              4,
+              10,
+              11
+            ],
+            [
+              0,
+              2,
+              5,
+              11
+            ],
+            [
+              0,
+              1,
+              3,
+              6
+            ],
+            [
+              1,
+              2,
+              4,
+              7
+            ],
+            [
+              2,
+              3,
+              5,
+              8
+            ],
+            [
+              3,
+              4,
+              6,
+              9
+            ],
+            [
+              4,
+              5,
+              7,
+              10
+            ],
+            [
+              5,
+              6,
+              8,
+              11
+            ],
+            [
+              0,
+              6,
+              7,
+              9
+            ],
+            [
+              1,
+              7,
+              8,
+              10
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.803433697500696,
+            "min_support_determinant": 0.08635821568496095,
+            "min_pair_distance": 0.3817103811255186,
+            "rms_radius": 1.0
+          },
+          "solver": {
+            "nfev": 401,
+            "nit": 160,
+            "status": 9,
+            "success": false,
+            "cost": 40.66616661566797,
+            "message": "Iteration limit reached",
+            "hard_support_floor": 0.0001,
+            "hard_separation": 0.06,
+            "min_inequality_slack": -7.681970299250245e-06,
+            "max_equality_residual": 6.184133329445451e-05
+          },
+          "after": {
+            "max_squared_distance_spread": 2.7755213103046676,
+            "min_support_determinant": 9.231802970074976e-05,
+            "min_pair_distance": 0.06000177682651468,
+            "rms_radius": 1.0000309201886182
+          }
+        },
+        {
+          "stage": 1,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              2,
+              3,
+              8,
+              11
+            ],
+            [
+              0,
+              3,
+              4,
+              9
+            ],
+            [
+              1,
+              4,
+              5,
+              10
+            ],
+            [
+              2,
+              5,
+              6,
+              11
+            ],
+            [
+              0,
+              3,
+              6,
+              7
+            ],
+            [
+              1,
+              4,
+              7,
+              8
+            ],
+            [
+              2,
+              5,
+              8,
+              9
+            ],
+            [
+              3,
+              6,
+              9,
+              10
+            ],
+            [
+              4,
+              7,
+              10,
+              11
+            ],
+            [
+              0,
+              5,
+              8,
+              11
+            ],
+            [
+              0,
+              1,
+              6,
+              9
+            ],
+            [
+              1,
+              2,
+              7,
+              10
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 4.744246818348828,
+            "min_support_determinant": 9.231802970074976e-05,
+            "min_pair_distance": 0.06000177682651468,
+            "rms_radius": 1.0000309201886182
+          },
+          "solver": {
+            "nfev": 95,
+            "nit": 43,
+            "status": 0,
+            "success": true,
+            "cost": 36.90786319998706,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 2.307950742518744e-05,
+            "hard_separation": 0.03000088841325734,
+            "min_inequality_slack": -4.954505555820887e-12,
+            "max_equality_residual": 5.880407272229604e-12
+          },
+          "after": {
+            "max_squared_distance_spread": 3.6718681581524373,
+            "min_support_determinant": 2.3079502470681884e-05,
+            "min_pair_distance": 0.03000088841820325,
+            "rms_radius": 1.00000000000294
+          }
+        }
+      ],
+      "final_coordinates": [
+        [
+          0.8268418232490679,
+          -1.114170294761834
+        ],
+        [
+          0.7081909073614046,
+          -0.21355494201131478
+        ],
+        [
+          0.5469090067365306,
+          0.23525266269065395
+        ],
+        [
+          0.5367176791084108,
+          0.2634695042406539
+        ],
+        [
+          0.5235637851597293,
+          0.2976242136642686
+        ],
+        [
+          0.034446769830799896,
+          1.565885163259868
+        ],
+        [
+          -0.8268432152036216,
+          1.1141699833098373
+        ],
+        [
+          -0.7081900073799446,
+          0.21355465169366453
+        ],
+        [
+          -0.5469086474320244,
+          -0.23525252323034784
+        ],
+        [
+          -0.5367173412543489,
+          -0.26346937252878544
+        ],
+        [
+          -0.5235635909635348,
+          -0.29762376608703495
+        ],
+        [
+          -0.034447169212469285,
+          -1.5658852802396297
+        ]
+      ]
+    },
+    {
+      "run": 2,
+      "n": 15,
+      "start": "randomized ellipse",
+      "stages": [
+        {
+          "stage": 0,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              5,
+              7,
+              11,
+              12
+            ],
+            [
+              6,
+              8,
+              12,
+              13
+            ],
+            [
+              7,
+              9,
+              13,
+              14
+            ],
+            [
+              0,
+              8,
+              10,
+              14
+            ],
+            [
+              0,
+              1,
+              9,
+              11
+            ],
+            [
+              1,
+              2,
+              10,
+              12
+            ],
+            [
+              2,
+              3,
+              11,
+              13
+            ],
+            [
+              3,
+              4,
+              12,
+              14
+            ],
+            [
+              0,
+              4,
+              5,
+              13
+            ],
+            [
+              1,
+              5,
+              6,
+              14
+            ],
+            [
+              0,
+              2,
+              6,
+              7
+            ],
+            [
+              1,
+              3,
+              7,
+              8
+            ],
+            [
+              2,
+              4,
+              8,
+              9
+            ],
+            [
+              3,
+              5,
+              9,
+              10
+            ],
+            [
+              4,
+              6,
+              10,
+              11
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.785657491451508,
+            "min_support_determinant": 0.044151815685181776,
+            "min_pair_distance": 0.3108955850044215,
+            "rms_radius": 1.0
+          },
+          "solver": {
+            "nfev": 157,
+            "nit": 85,
+            "status": 0,
+            "success": true,
+            "cost": 38.5320113808308,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 0.0001,
+            "hard_separation": 0.06,
+            "min_inequality_slack": -3.6009999778048585e-14,
+            "max_equality_residual": 7.127631818093505e-14
+          },
+          "after": {
+            "max_squared_distance_spread": 3.5831034773856865,
+            "min_support_determinant": 9.999999996399e-05,
+            "min_pair_distance": 0.05999999999987283,
+            "rms_radius": 1.0000000000000355
+          }
+        },
+        {
+          "stage": 1,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              4,
+              5,
+              7,
+              12
+            ],
+            [
+              5,
+              6,
+              8,
+              13
+            ],
+            [
+              6,
+              7,
+              9,
+              14
+            ],
+            [
+              0,
+              7,
+              8,
+              10
+            ],
+            [
+              1,
+              8,
+              9,
+              11
+            ],
+            [
+              2,
+              9,
+              10,
+              12
+            ],
+            [
+              3,
+              10,
+              11,
+              13
+            ],
+            [
+              4,
+              11,
+              12,
+              14
+            ],
+            [
+              0,
+              5,
+              12,
+              13
+            ],
+            [
+              1,
+              6,
+              13,
+              14
+            ],
+            [
+              0,
+              2,
+              7,
+              14
+            ],
+            [
+              0,
+              1,
+              3,
+              8
+            ],
+            [
+              1,
+              2,
+              4,
+              9
+            ],
+            [
+              2,
+              3,
+              5,
+              10
+            ],
+            [
+              3,
+              4,
+              6,
+              11
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.7693988487834034,
+            "min_support_determinant": 9.999999996399e-05,
+            "min_pair_distance": 0.05999999999987283,
+            "rms_radius": 1.0000000000000355
+          },
+          "solver": {
+            "nfev": 127,
+            "nit": 61,
+            "status": 0,
+            "success": true,
+            "cost": 52.184611829159905,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 2.49999999909975e-05,
+            "hard_separation": 0.029999999999936414,
+            "min_inequality_slack": -4.98659707276472e-13,
+            "max_equality_residual": 5.10702591327572e-15
+          },
+          "after": {
+            "max_squared_distance_spread": 2.9252748894953204,
+            "min_support_determinant": 2.4999999492337794e-05,
+            "min_pair_distance": 0.030921525970646832,
+            "rms_radius": 1.0000000000000024
+          }
+        }
+      ],
+      "final_coordinates": [
+        [
+          0.31564909883979514,
+          0.8774478859322724
+        ],
+        [
+          0.29002684862693695,
+          0.8947580432556409
+        ],
+        [
+          -0.038122950625040675,
+          1.1154773244891816
+        ],
+        [
+          -0.7369616631106365,
+          0.5713464632269774
+        ],
+        [
+          -0.7613423074744378,
+          0.5523273951962028
+        ],
+        [
+          -1.0726626252264786,
+          0.3084444930787402
+        ],
+        [
+          -0.771116451253704,
+          -0.5243364128824031
+        ],
+        [
+          -0.7605622571317115,
+          -0.5534010540518493
+        ],
+        [
+          -0.6248190703822657,
+          -0.9248483638882644
+        ],
+        [
+          0.2603854667886677,
+          -0.8954041786049584
+        ],
+        [
+          0.29128895393462323,
+          -0.8943480068823121
+        ],
+        [
+          0.686503328045301,
+          -0.8800320093210503
+        ],
+        [
+          0.9320435211479334,
+          -0.029053738520137852
+        ],
+        [
+          0.9405887491706076,
+          0.0006636094777370215
+        ],
+        [
+          1.0491013586504105,
+          0.3809585494942239
+        ]
+      ]
+    },
+    {
+      "run": 3,
+      "n": 15,
+      "start": "randomized ellipse",
+      "stages": [
+        {
+          "stage": 0,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              6,
+              7,
+              10,
+              12
+            ],
+            [
+              7,
+              8,
+              11,
+              13
+            ],
+            [
+              8,
+              9,
+              12,
+              14
+            ],
+            [
+              0,
+              9,
+              10,
+              13
+            ],
+            [
+              1,
+              10,
+              11,
+              14
+            ],
+            [
+              0,
+              2,
+              11,
+              12
+            ],
+            [
+              1,
+              3,
+              12,
+              13
+            ],
+            [
+              2,
+              4,
+              13,
+              14
+            ],
+            [
+              0,
+              3,
+              5,
+              14
+            ],
+            [
+              0,
+              1,
+              4,
+              6
+            ],
+            [
+              1,
+              2,
+              5,
+              7
+            ],
+            [
+              2,
+              3,
+              6,
+              8
+            ],
+            [
+              3,
+              4,
+              7,
+              9
+            ],
+            [
+              4,
+              5,
+              8,
+              10
+            ],
+            [
+              5,
+              6,
+              9,
+              11
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 2.7547687223740756,
+            "min_support_determinant": 0.0400639135891911,
+            "min_pair_distance": 0.2892077753448443,
+            "rms_radius": 0.9999999999999999
+          },
+          "solver": {
+            "nfev": 116,
+            "nit": 62,
+            "status": 0,
+            "success": true,
+            "cost": 40.5512191887424,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 0.0001,
+            "hard_separation": 0.06,
+            "min_inequality_slack": -2.0375157033032838e-11,
+            "max_equality_residual": 4.207900694552791e-11
+          },
+          "after": {
+            "max_squared_distance_spread": 3.2403063180616067,
+            "min_support_determinant": 9.999997962484297e-05,
+            "min_pair_distance": 0.05999999999955107,
+            "rms_radius": 1.0000000000210394
+          }
+        },
+        {
+          "stage": 1,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              5,
+              6,
+              8,
+              13
+            ],
+            [
+              6,
+              7,
+              9,
+              14
+            ],
+            [
+              0,
+              7,
+              8,
+              10
+            ],
+            [
+              1,
+              8,
+              9,
+              11
+            ],
+            [
+              2,
+              9,
+              10,
+              12
+            ],
+            [
+              3,
+              10,
+              11,
+              13
+            ],
+            [
+              4,
+              11,
+              12,
+              14
+            ],
+            [
+              0,
+              5,
+              12,
+              13
+            ],
+            [
+              1,
+              6,
+              13,
+              14
+            ],
+            [
+              0,
+              2,
+              7,
+              14
+            ],
+            [
+              0,
+              1,
+              3,
+              8
+            ],
+            [
+              1,
+              2,
+              4,
+              9
+            ],
+            [
+              2,
+              3,
+              5,
+              10
+            ],
+            [
+              3,
+              4,
+              6,
+              11
+            ],
+            [
+              4,
+              5,
+              7,
+              12
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 4.097427542020349,
+            "min_support_determinant": 9.999997962484297e-05,
+            "min_pair_distance": 0.05999999999955107,
+            "rms_radius": 1.0000000000210394
+          },
+          "solver": {
+            "nfev": 148,
+            "nit": 68,
+            "status": 0,
+            "success": true,
+            "cost": 66.51618888035058,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 2.4999994906210743e-05,
+            "hard_separation": 0.029999999999775536,
+            "min_inequality_slack": -7.167322291223854e-13,
+            "max_equality_residual": 4.958256027975949e-13
+          },
+          "after": {
+            "max_squared_distance_spread": 3.9052588332664566,
+            "min_support_determinant": 2.4999994189478514e-05,
+            "min_pair_distance": 0.029999999998893863,
+            "rms_radius": 1.0000000000002478
+          }
+        }
+      ],
+      "final_coordinates": [
+        [
+          0.7172583315183243,
+          0.5319920007843475
+        ],
+        [
+          0.6874238926016184,
+          0.5351394210754874
+        ],
+        [
+          0.6575135377780174,
+          0.537456892605152
+        ],
+        [
+          0.6275503504688257,
+          0.5389426268557618
+        ],
+        [
+          -1.1398383788083344,
+          0.6257448067427849
+        ],
+        [
+          -1.1698029522038835,
+          0.6272023187505453
+        ],
+        [
+          -0.9729247529477089,
+          0.32626506907782854
+        ],
+        [
+          -0.9564426237550229,
+          0.3011983697084637
+        ],
+        [
+          -0.0378183099499109,
+          -1.094366441342367
+        ],
+        [
+          -0.021311183827425896,
+          -1.1194166865929085
+        ],
+        [
+          0.056912427422105644,
+          -0.9575837347679267
+        ],
+        [
+          0.06984271220706618,
+          -0.9305133129879086
+        ],
+        [
+          0.08201605148824496,
+          -0.9030941625508266
+        ],
+        [
+          0.6937389209823445,
+          0.476800128649333
+        ],
+        [
+          0.7058819770257394,
+          0.5042327039922334
+        ]
+      ]
+    },
+    {
+      "run": 4,
+      "n": 18,
+      "start": "randomized ellipse",
+      "stages": [
+        {
+          "stage": 0,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              5,
+              14,
+              15,
+              17
+            ],
+            [
+              0,
+              6,
+              15,
+              16
+            ],
+            [
+              1,
+              7,
+              16,
+              17
+            ],
+            [
+              0,
+              2,
+              8,
+              17
+            ],
+            [
+              0,
+              1,
+              3,
+              9
+            ],
+            [
+              1,
+              2,
+              4,
+              10
+            ],
+            [
+              2,
+              3,
+              5,
+              11
+            ],
+            [
+              3,
+              4,
+              6,
+              12
+            ],
+            [
+              4,
+              5,
+              7,
+              13
+            ],
+            [
+              5,
+              6,
+              8,
+              14
+            ],
+            [
+              6,
+              7,
+              9,
+              15
+            ],
+            [
+              7,
+              8,
+              10,
+              16
+            ],
+            [
+              8,
+              9,
+              11,
+              17
+            ],
+            [
+              0,
+              9,
+              10,
+              12
+            ],
+            [
+              1,
+              10,
+              11,
+              13
+            ],
+            [
+              2,
+              11,
+              12,
+              14
+            ],
+            [
+              3,
+              12,
+              13,
+              15
+            ],
+            [
+              4,
+              13,
+              14,
+              16
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 2.87286805752773,
+            "min_support_determinant": 0.025613339923895747,
+            "min_pair_distance": 0.2537297847968957,
+            "rms_radius": 1.0000000000000002
+          },
+          "solver": {
+            "nfev": 143,
+            "nit": 76,
+            "status": 0,
+            "success": true,
+            "cost": 37.69020386823718,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 0.0001,
+            "hard_separation": 0.06,
+            "min_inequality_slack": -6.119590104840603e-13,
+            "max_equality_residual": 6.794564910705958e-14
+          },
+          "after": {
+            "max_squared_distance_spread": 2.915462852608065,
+            "min_support_determinant": 9.9999999388041e-05,
+            "min_pair_distance": 0.05999999999969553,
+            "rms_radius": 1.000000000000034
+          }
+        },
+        {
+          "stage": 1,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              3,
+              14,
+              16,
+              17
+            ],
+            [
+              0,
+              4,
+              15,
+              17
+            ],
+            [
+              0,
+              1,
+              5,
+              16
+            ],
+            [
+              1,
+              2,
+              6,
+              17
+            ],
+            [
+              0,
+              2,
+              3,
+              7
+            ],
+            [
+              1,
+              3,
+              4,
+              8
+            ],
+            [
+              2,
+              4,
+              5,
+              9
+            ],
+            [
+              3,
+              5,
+              6,
+              10
+            ],
+            [
+              4,
+              6,
+              7,
+              11
+            ],
+            [
+              5,
+              7,
+              8,
+              12
+            ],
+            [
+              6,
+              8,
+              9,
+              13
+            ],
+            [
+              7,
+              9,
+              10,
+              14
+            ],
+            [
+              8,
+              10,
+              11,
+              15
+            ],
+            [
+              9,
+              11,
+              12,
+              16
+            ],
+            [
+              10,
+              12,
+              13,
+              17
+            ],
+            [
+              0,
+              11,
+              13,
+              14
+            ],
+            [
+              1,
+              12,
+              14,
+              15
+            ],
+            [
+              2,
+              13,
+              15,
+              16
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.771101731354506,
+            "min_support_determinant": 9.9999999388041e-05,
+            "min_pair_distance": 0.05999999999969553,
+            "rms_radius": 1.000000000000034
+          },
+          "solver": {
+            "nfev": 73,
+            "nit": 43,
+            "status": 0,
+            "success": true,
+            "cost": 22.59948546530049,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 2.499999984701025e-05,
+            "hard_separation": 0.029999999999847766,
+            "min_inequality_slack": -1.998597468078067e-12,
+            "max_equality_residual": 1.7186252421197423e-13
+          },
+          "after": {
+            "max_squared_distance_spread": 2.2625600300362887,
+            "min_support_determinant": 2.499999784841278e-05,
+            "min_pair_distance": 0.02999999999903935,
+            "rms_radius": 1.000000000000086
+          }
+        }
+      ],
+      "final_coordinates": [
+        [
+          0.5511604644859628,
+          -0.5288942245379523
+        ],
+        [
+          0.6161414742468468,
+          -0.46075714701634934
+        ],
+        [
+          0.726227110176085,
+          -0.3449400254362584
+        ],
+        [
+          1.4524494335524731,
+          0.4193193478432096
+        ],
+        [
+          1.0468132829820231,
+          0.5332585236956944
+        ],
+        [
+          0.5723932550966901,
+          0.6664567776268007
+        ],
+        [
+          0.21411436028117392,
+          0.766994529843017
+        ],
+        [
+          0.18521196350278762,
+          0.77503514302903
+        ],
+        [
+          -0.16801604125394926,
+          0.8724377831779652
+        ],
+        [
+          -0.8519247870076879,
+          1.060954878541954
+        ],
+        [
+          -0.8384175411666215,
+          0.38979933033238906
+        ],
+        [
+          -0.8295253340885355,
+          -0.05019074512212919
+        ],
+        [
+          -0.8287066368724447,
+          -0.08788877079758811
+        ],
+        [
+          -0.8272226433417663,
+          -0.12568494957993137
+        ],
+        [
+          -0.7820128963908408,
+          -1.2602961478082564
+        ],
+        [
+          -0.3372249154287344,
+          -1.0166367827058076
+        ],
+        [
+          -0.2571398271158405,
+          -0.9727091528933526
+        ],
+        [
+          0.3556792783423787,
+          -0.6362583681924339
+        ]
+      ]
+    },
+    {
+      "run": 5,
+      "n": 18,
+      "start": "randomized ellipse",
+      "stages": [
+        {
+          "stage": 0,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              4,
+              5,
+              7,
+              12
+            ],
+            [
+              5,
+              6,
+              8,
+              13
+            ],
+            [
+              6,
+              7,
+              9,
+              14
+            ],
+            [
+              7,
+              8,
+              10,
+              15
+            ],
+            [
+              8,
+              9,
+              11,
+              16
+            ],
+            [
+              9,
+              10,
+              12,
+              17
+            ],
+            [
+              0,
+              10,
+              11,
+              13
+            ],
+            [
+              1,
+              11,
+              12,
+              14
+            ],
+            [
+              2,
+              12,
+              13,
+              15
+            ],
+            [
+              3,
+              13,
+              14,
+              16
+            ],
+            [
+              4,
+              14,
+              15,
+              17
+            ],
+            [
+              0,
+              5,
+              15,
+              16
+            ],
+            [
+              1,
+              6,
+              16,
+              17
+            ],
+            [
+              0,
+              2,
+              7,
+              17
+            ],
+            [
+              0,
+              1,
+              3,
+              8
+            ],
+            [
+              1,
+              2,
+              4,
+              9
+            ],
+            [
+              2,
+              3,
+              5,
+              10
+            ],
+            [
+              3,
+              4,
+              6,
+              11
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 2.4796088755894,
+            "min_support_determinant": 0.02410227063164161,
+            "min_pair_distance": 0.2250526396087514,
+            "rms_radius": 1.0
+          },
+          "solver": {
+            "nfev": 71,
+            "nit": 42,
+            "status": 0,
+            "success": true,
+            "cost": 25.46787350177553,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 0.0001,
+            "hard_separation": 0.06,
+            "min_inequality_slack": -1.954952719889283e-13,
+            "max_equality_residual": 7.993605777301127e-15
+          },
+          "after": {
+            "max_squared_distance_spread": 2.265696936277602,
+            "min_support_determinant": 9.999999980450473e-05,
+            "min_pair_distance": 0.08627026617248447,
+            "rms_radius": 1.000000000000004
+          }
+        },
+        {
+          "stage": 1,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              4,
+              6,
+              10,
+              11
+            ],
+            [
+              5,
+              7,
+              11,
+              12
+            ],
+            [
+              6,
+              8,
+              12,
+              13
+            ],
+            [
+              7,
+              9,
+              13,
+              14
+            ],
+            [
+              8,
+              10,
+              14,
+              15
+            ],
+            [
+              9,
+              11,
+              15,
+              16
+            ],
+            [
+              10,
+              12,
+              16,
+              17
+            ],
+            [
+              0,
+              11,
+              13,
+              17
+            ],
+            [
+              0,
+              1,
+              12,
+              14
+            ],
+            [
+              1,
+              2,
+              13,
+              15
+            ],
+            [
+              2,
+              3,
+              14,
+              16
+            ],
+            [
+              3,
+              4,
+              15,
+              17
+            ],
+            [
+              0,
+              4,
+              5,
+              16
+            ],
+            [
+              1,
+              5,
+              6,
+              17
+            ],
+            [
+              0,
+              2,
+              6,
+              7
+            ],
+            [
+              1,
+              3,
+              7,
+              8
+            ],
+            [
+              2,
+              4,
+              8,
+              9
+            ],
+            [
+              3,
+              5,
+              9,
+              10
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.3509963303616215,
+            "min_support_determinant": 9.999999980450473e-05,
+            "min_pair_distance": 0.08627026617248447,
+            "rms_radius": 1.000000000000004
+          },
+          "solver": {
+            "nfev": 151,
+            "nit": 55,
+            "status": 0,
+            "success": true,
+            "cost": 36.70616292505946,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 2.4999999951126183e-05,
+            "hard_separation": 0.043135133086242235,
+            "min_inequality_slack": -1.303007181319149e-13,
+            "max_equality_residual": 3.064215547965432e-14
+          },
+          "after": {
+            "max_squared_distance_spread": 3.1461712288682477,
+            "min_support_determinant": 2.4999999820825465e-05,
+            "min_pair_distance": 0.043135133085984885,
+            "rms_radius": 1.0000000000000153
+          }
+        }
+      ],
+      "final_coordinates": [
+        [
+          0.6925528388608042,
+          0.4852861464998367
+        ],
+        [
+          0.7414387285638863,
+          0.700354830803298
+        ],
+        [
+          0.7508890556647438,
+          0.7424420144112598
+        ],
+        [
+          0.75977303622068,
+          0.7846523756498357
+        ],
+        [
+          0.7680890663114506,
+          0.826978293833275
+        ],
+        [
+          -0.7253058971168436,
+          0.3697680350902735
+        ],
+        [
+          -0.7665466454728984,
+          0.3571252355028295
+        ],
+        [
+          -0.9772443934848469,
+          0.291927354554417
+        ],
+        [
+          -1.01841812692361,
+          0.27906798516632797
+        ],
+        [
+          -1.0594153620350748,
+          0.2656565564717969
+        ],
+        [
+          -1.1002286971514177,
+          0.2516954897780164
+        ],
+        [
+          0.042424376609210404,
+          -0.8130172932055115
+        ],
+        [
+          0.07399373591324282,
+          -0.8424114296873888
+        ],
+        [
+          0.23580569974878546,
+          -0.9922821604738109
+        ],
+        [
+          0.26752910647878403,
+          -1.0215099755102262
+        ],
+        [
+          0.2996423614368589,
+          -1.0503089088657405
+        ],
+        [
+          0.3321396668759054,
+          -1.0786737611612645
+        ],
+        [
+          0.6828814495003392,
+          0.4432492111427758
+        ]
+      ]
+    },
+    {
+      "run": 6,
+      "n": 18,
+      "start": "perturbed exact off-carrier repair",
+      "stages": [
+        {
+          "stage": 0,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 3
+          },
+          "rows": [
+            [
+              6,
+              8,
+              11,
+              15
+            ],
+            [
+              7,
+              9,
+              12,
+              16
+            ],
+            [
+              0,
+              1,
+              4,
+              5
+            ],
+            [
+              0,
+              9,
+              11,
+              14
+            ],
+            [
+              1,
+              10,
+              12,
+              15
+            ],
+            [
+              10,
+              11,
+              13,
+              17
+            ],
+            [
+              3,
+              12,
+              14,
+              17
+            ],
+            [
+              0,
+              4,
+              13,
+              15
+            ],
+            [
+              1,
+              5,
+              14,
+              16
+            ],
+            [
+              2,
+              6,
+              15,
+              17
+            ],
+            [
+              0,
+              3,
+              7,
+              16
+            ],
+            [
+              1,
+              4,
+              8,
+              17
+            ],
+            [
+              0,
+              2,
+              5,
+              9
+            ],
+            [
+              1,
+              3,
+              6,
+              10
+            ],
+            [
+              2,
+              4,
+              7,
+              11
+            ],
+            [
+              13,
+              14,
+              16,
+              17
+            ],
+            [
+              4,
+              6,
+              9,
+              13
+            ],
+            [
+              5,
+              7,
+              10,
+              14
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.4339421609215637,
+            "min_support_determinant": 1.3543149292725998e-05,
+            "min_pair_distance": 0.006313410979420849,
+            "rms_radius": 1.0
+          },
+          "solver": {
+            "nfev": 119,
+            "nit": 55,
+            "status": 0,
+            "success": true,
+            "cost": 42.002778151906455,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 3.3857873231814994e-06,
+            "hard_separation": 0.0031567054897104247,
+            "min_inequality_slack": -1.5725338525372952e-11,
+            "max_equality_residual": 1.929745252482462e-11
+          },
+          "after": {
+            "max_squared_distance_spread": 3.3706073149425695,
+            "min_support_determinant": 3.385771597842974e-06,
+            "min_pair_distance": 0.0031567054445991428,
+            "rms_radius": 1.0000000000096487
+          }
+        },
+        {
+          "stage": 1,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 1
+          },
+          "rows": [
+            [
+              6,
+              8,
+              11,
+              15
+            ],
+            [
+              7,
+              9,
+              12,
+              16
+            ],
+            [
+              8,
+              10,
+              13,
+              17
+            ],
+            [
+              0,
+              9,
+              11,
+              14
+            ],
+            [
+              1,
+              10,
+              12,
+              15
+            ],
+            [
+              2,
+              11,
+              13,
+              16
+            ],
+            [
+              3,
+              12,
+              14,
+              17
+            ],
+            [
+              0,
+              4,
+              13,
+              15
+            ],
+            [
+              1,
+              5,
+              14,
+              16
+            ],
+            [
+              2,
+              6,
+              15,
+              17
+            ],
+            [
+              0,
+              3,
+              7,
+              16
+            ],
+            [
+              1,
+              4,
+              8,
+              17
+            ],
+            [
+              0,
+              2,
+              5,
+              9
+            ],
+            [
+              1,
+              3,
+              6,
+              10
+            ],
+            [
+              2,
+              4,
+              7,
+              11
+            ],
+            [
+              12,
+              13,
+              16,
+              17
+            ],
+            [
+              4,
+              6,
+              9,
+              13
+            ],
+            [
+              5,
+              7,
+              10,
+              14
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.3706073149425695,
+            "min_support_determinant": 3.385771597842974e-06,
+            "min_pair_distance": 0.0031567054445991428,
+            "rms_radius": 1.0000000000096487
+          },
+          "solver": {
+            "nfev": 115,
+            "nit": 47,
+            "status": 0,
+            "success": true,
+            "cost": 47.58206078219847,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 8.464428994607435e-07,
+            "hard_separation": 0.0015783527222995714,
+            "min_inequality_slack": -2.5116001401044585e-12,
+            "max_equality_residual": 2.927569298094568e-11
+          },
+          "after": {
+            "max_squared_distance_spread": 3.3328023341887714,
+            "min_support_determinant": 8.464403878606034e-07,
+            "min_pair_distance": 0.0015783526312422855,
+            "rms_radius": 1.0000000000146378
+          }
+        }
+      ],
+      "final_coordinates": [
+        [
+          -0.8566187043729747,
+          -0.6431093514758923
+        ],
+        [
+          -0.8550553016645743,
+          -0.6433260755790088
+        ],
+        [
+          -0.8525898703010343,
+          -0.6431264312827407
+        ],
+        [
+          -0.6788498954890265,
+          -0.6287140898410255
+        ],
+        [
+          -0.6674112810879658,
+          -0.6277603446824572
+        ],
+        [
+          -0.6579664438639946,
+          -0.6268988408091664
+        ],
+        [
+          1.0374305115560052,
+          -0.4721648359906023
+        ],
+        [
+          1.03694348128708,
+          -0.47066350373367183
+        ],
+        [
+          1.0359753127706601,
+          -0.4694169698375391
+        ],
+        [
+          0.8405276598947652,
+          -0.21864897256016727
+        ],
+        [
+          0.8343521391648241,
+          -0.21072983666951692
+        ],
+        [
+          0.8256026429392934,
+          -0.19964704547992054
+        ],
+        [
+          -0.14783807379192537,
+          1.0332917970744337
+        ],
+        [
+          -0.14881655598879637,
+          1.0345302518070512
+        ],
+        [
+          -0.14973777566458382,
+          1.0332486310189963
+        ],
+        [
+          -0.15069617691133924,
+          1.0309964539460288
+        ],
+        [
+          -0.2219800727812681,
+          0.8626010149787116
+        ],
+        [
+          -0.22327159569514515,
+          0.8595381491164881
+        ]
+      ]
+    },
+    {
+      "run": 7,
+      "n": 18,
+      "start": "perturbed exact off-carrier repair",
+      "stages": [
+        {
+          "stage": 0,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 4
+          },
+          "rows": [
+            [
+              4,
+              6,
+              10,
+              13
+            ],
+            [
+              5,
+              7,
+              11,
+              14
+            ],
+            [
+              6,
+              8,
+              12,
+              15
+            ],
+            [
+              0,
+              1,
+              4,
+              5
+            ],
+            [
+              8,
+              10,
+              14,
+              17
+            ],
+            [
+              0,
+              9,
+              11,
+              15
+            ],
+            [
+              1,
+              10,
+              12,
+              16
+            ],
+            [
+              2,
+              11,
+              13,
+              17
+            ],
+            [
+              0,
+              3,
+              12,
+              14
+            ],
+            [
+              7,
+              8,
+              10,
+              11
+            ],
+            [
+              2,
+              5,
+              14,
+              16
+            ],
+            [
+              3,
+              6,
+              15,
+              17
+            ],
+            [
+              0,
+              4,
+              7,
+              16
+            ],
+            [
+              1,
+              5,
+              8,
+              17
+            ],
+            [
+              0,
+              2,
+              6,
+              9
+            ],
+            [
+              13,
+              14,
+              16,
+              17
+            ],
+            [
+              2,
+              4,
+              8,
+              11
+            ],
+            [
+              3,
+              5,
+              9,
+              12
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.337042205241126,
+            "min_support_determinant": 1.3542566773766117e-05,
+            "min_pair_distance": 0.006313412063959486,
+            "rms_radius": 1.0
+          },
+          "solver": {
+            "nfev": 97,
+            "nit": 49,
+            "status": 0,
+            "success": true,
+            "cost": 34.37004019536423,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 3.3856416934415292e-06,
+            "hard_separation": 0.003156706031979743,
+            "min_inequality_slack": -9.848939616337662e-12,
+            "max_equality_residual": 1.4477308241112041e-13
+          },
+          "after": {
+            "max_squared_distance_spread": 2.9911312651382187,
+            "min_support_determinant": 3.385631844501913e-06,
+            "min_pair_distance": 0.04612293831445996,
+            "rms_radius": 1.0000000000000724
+          }
+        },
+        {
+          "stage": 1,
+          "preflight_counts": {
+            "three common circle witnesses": 120,
+            "label-valid fallback templates": 12,
+            "accepted individual row mutations": 0
+          },
+          "rows": [
+            [
+              4,
+              5,
+              10,
+              12
+            ],
+            [
+              5,
+              6,
+              11,
+              13
+            ],
+            [
+              6,
+              7,
+              12,
+              14
+            ],
+            [
+              7,
+              8,
+              13,
+              15
+            ],
+            [
+              8,
+              9,
+              14,
+              16
+            ],
+            [
+              9,
+              10,
+              15,
+              17
+            ],
+            [
+              0,
+              10,
+              11,
+              16
+            ],
+            [
+              1,
+              11,
+              12,
+              17
+            ],
+            [
+              0,
+              2,
+              12,
+              13
+            ],
+            [
+              1,
+              3,
+              13,
+              14
+            ],
+            [
+              2,
+              4,
+              14,
+              15
+            ],
+            [
+              3,
+              5,
+              15,
+              16
+            ],
+            [
+              4,
+              6,
+              16,
+              17
+            ],
+            [
+              0,
+              5,
+              7,
+              17
+            ],
+            [
+              0,
+              1,
+              6,
+              8
+            ],
+            [
+              1,
+              2,
+              7,
+              9
+            ],
+            [
+              2,
+              3,
+              8,
+              10
+            ],
+            [
+              3,
+              4,
+              9,
+              11
+            ]
+          ],
+          "before": {
+            "max_squared_distance_spread": 3.5644764824485606,
+            "min_support_determinant": 3.385631844501913e-06,
+            "min_pair_distance": 0.04612293831445996,
+            "rms_radius": 1.0000000000000724
+          },
+          "solver": {
+            "nfev": 53,
+            "nit": 32,
+            "status": 0,
+            "success": true,
+            "cost": 34.9738058894405,
+            "message": "Optimization terminated successfully",
+            "hard_support_floor": 8.464079611254782e-07,
+            "hard_separation": 0.012,
+            "min_inequality_slack": -8.68677525744932e-13,
+            "max_equality_residual": 2.0954349366775205e-12
+          },
+          "after": {
+            "max_squared_distance_spread": 3.0970005131713214,
+            "min_support_determinant": 8.464070924479525e-07,
+            "min_pair_distance": 0.011999999997276748,
+            "rms_radius": 1.0000000000010476
+          }
+        }
+      ],
+      "final_coordinates": [
+        [
+          -0.800382250765966,
+          -0.696439814731929
+        ],
+        [
+          -0.8165784654655313,
+          -0.7477713017996647
+        ],
+        [
+          -0.8048469847801989,
+          -0.7452469482391963
+        ],
+        [
+          -0.7931305444785665,
+          -0.7426536825988944
+        ],
+        [
+          0.5445421078606401,
+          -0.44650682868092784
+        ],
+        [
+          0.7834598504201367,
+          -0.39361228524283015
+        ],
+        [
+          1.0033249192951186,
+          -0.34493231397028734
+        ],
+        [
+          1.0558773935091372,
+          -0.3332929055093151
+        ],
+        [
+          1.0478255059741874,
+          -0.32439531554711254
+        ],
+        [
+          1.0397214589812442,
+          -0.31554520693750554
+        ],
+        [
+          0.11441555426884144,
+          0.6948402651418709
+        ],
+        [
+          -0.050853517581185725,
+          0.875304500719665
+        ],
+        [
+          -0.20294263875655827,
+          1.0413718736258484
+        ],
+        [
+          -0.23929883924850845,
+          1.0810639452894732
+        ],
+        [
+          -0.2429784251559216,
+          1.0696420081733529
+        ],
+        [
+          -0.24659081125937105,
+          1.0581986403724337
+        ],
+        [
+          -0.6589562357060164,
+          -0.24833269162188068
+        ],
+        [
+          -0.7326080771114808,
+          -0.48169193844309993
+        ]
+      ]
+    }
+  ]
+}

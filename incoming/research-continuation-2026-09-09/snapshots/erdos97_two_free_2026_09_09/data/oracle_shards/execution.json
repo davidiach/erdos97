@@ -1,0 +1,37 @@
+{
+  "cases": 4500,
+  "combined_sha256": "7c7d7d02f7449a38b87456bee98099692f0ee74f73dc2d87ca5e6b2cb49554eb",
+  "complete_disjoint_coverage": true,
+  "jobs": 4,
+  "status": "passed",
+  "workers": [
+    {
+      "first_case": 0,
+      "returncode": 0,
+      "stderr": "data/oracle_shards/00.stderr.txt",
+      "stdout": "data/oracle_shards/00.json",
+      "stop_case": 1125
+    },
+    {
+      "first_case": 1125,
+      "returncode": 0,
+      "stderr": "data/oracle_shards/01.stderr.txt",
+      "stdout": "data/oracle_shards/01.json",
+      "stop_case": 2250
+    },
+    {
+      "first_case": 2250,
+      "returncode": 0,
+      "stderr": "data/oracle_shards/02.stderr.txt",
+      "stdout": "data/oracle_shards/02.json",
+      "stop_case": 3375
+    },
+    {
+      "first_case": 3375,
+      "returncode": 0,
+      "stderr": "data/oracle_shards/03.stderr.txt",
+      "stdout": "data/oracle_shards/03.json",
+      "stop_case": 4500
+    }
+  ]
+}

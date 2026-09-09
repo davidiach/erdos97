@@ -1,0 +1,6 @@
+{
+  "rounds": 1,
+  "cuts": 0,
+  "optimization_run": false,
+  "final_outcome": "no integral assignment returned; not an exclusion"
+}

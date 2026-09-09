@@ -1,0 +1,11 @@
+{
+  "source": "retained optimizer result object from this research session",
+  "complete_solver_log_retained": false,
+  "original_wall_time_not_reconstructed": true,
+  "status": 1,
+  "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+  "fun": 0.0012510911037779979,
+  "mip_gap": 0.23444513401153075,
+  "mip_node_count": 3,
+  "mip_dual_bound": 0.0009577788822921312
+}

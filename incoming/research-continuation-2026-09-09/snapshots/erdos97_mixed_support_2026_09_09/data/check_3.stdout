@@ -1,0 +1,41 @@
+{
+  "schema": "erdos97.two_free_coarse_probe.v1",
+  "status": "inconclusive necessary relaxation",
+  "base_sha": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "input_archive_sha256": "dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1",
+  "slot_count": 42,
+  "insertion_cell_count": 9,
+  "cell_pair_count": 45,
+  "cases": 4500,
+  "counts": {
+    "zero-zero": {
+      "cases": 45,
+      "rejected": 0,
+      "survived": 45
+    },
+    "zero-one": {
+      "cases": 405,
+      "rejected": 111,
+      "survived": 294
+    },
+    "one-zero": {
+      "cases": 405,
+      "rejected": 114,
+      "survived": 291
+    },
+    "one-one": {
+      "cases": 3645,
+      "rejected": 1599,
+      "survived": 2046
+    }
+  },
+  "omitted_constraints": [
+    "one common radius for each zero-old free row",
+    "simultaneous realization of possible graph edges",
+    "mutual strict convexity of new points",
+    "richness of old vertices",
+    "distance equalities beyond range feasibility"
+  ],
+  "not_a_geometric_candidate": true,
+  "not_an_exclusion_of_all_two_free_caps": true
+}

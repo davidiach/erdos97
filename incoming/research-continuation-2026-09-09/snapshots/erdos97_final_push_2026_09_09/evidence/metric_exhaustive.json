@@ -1,0 +1,12 @@
+{
+  "status": "all exact checks passed",
+  "n": 138,
+  "common_radius_incidences": 784,
+  "minimum_common_radius_degree": 4,
+  "strict_triangle_inequalities": 1285608,
+  "quadruples": 14463090,
+  "strict_kalmanson_inequalities": 28926180,
+  "strict_ptolemy_inequalities": 43389270,
+  "normalized_gram_determinant": "6052449518192",
+  "planar_euclidean": false
+}

@@ -1,0 +1,6 @@
+{
+  "rounds": 12,
+  "cuts": 117,
+  "optimization_run": false,
+  "final_outcome": "exactly rejected before optimization"
+}

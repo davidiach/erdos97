@@ -1,0 +1,16 @@
+{
+  "cayley_menger_determinant": "48419596145536",
+  "external_review": false,
+  "fiber_histogram": {
+    "4": 52,
+    "5": 20,
+    "6": 20,
+    "7": 12,
+    "8": 34
+  },
+  "full_radius_fiber_pairs_with_overlap_at_most_one": 9453,
+  "grid_lines_reconstructed": 74,
+  "matrix_entries_reconstructed": 19044,
+  "status": "passed",
+  "uses_primary_code": false
+}

@@ -1,0 +1,10 @@
+{
+  "arithmetic": "independent flattened polynomial arithmetic and rational square-root enclosures",
+  "circle_intersection_branches": 30,
+  "circle_pairs": 15,
+  "circumcenter_triples": 84,
+  "external_mathematical_review": false,
+  "largest_enclosure_precision_bits": 32,
+  "status": "passed",
+  "supporting_signs": 414
+}

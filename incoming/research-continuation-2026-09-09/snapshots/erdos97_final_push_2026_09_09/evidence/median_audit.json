@@ -1,0 +1,67 @@
+{
+  "domain_counts": {
+    "0": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    },
+    "1": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    },
+    "2": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    },
+    "3": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    },
+    "4": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    },
+    "5": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    },
+    "6": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    },
+    "7": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    },
+    "8": {
+      "pairwise_and_cover": 13122,
+      "raw": 531441,
+      "source_median": 4374,
+      "target_median_internal": 4374
+    }
+  },
+  "each_certificate_checked_by_two_representations": true,
+  "exact_certificates": 54,
+  "final_solver_attempt": {
+    "message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+    "status": 1
+  },
+  "fixed_patterns": 5,
+  "full_family_excluded": false,
+  "schema": "erdos97.median_audit.v1"
+}
