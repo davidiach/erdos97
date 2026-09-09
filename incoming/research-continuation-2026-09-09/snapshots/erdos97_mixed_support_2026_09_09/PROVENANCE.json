@@ -1,0 +1,24 @@
+{
+  "base_sha": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "baseline_retrieved_via": "connected GitHub branches/main GET",
+  "global_status_rechecked": false,
+  "input_sources": {
+    "erdos97_final_push_research_2026_09_09.zip": {
+      "bytes": 14044505,
+      "sha256": "59e3b0d37f64c21959054fd30440ae8f525b7e66a6a4916e9045318598d1c7a1"
+    },
+    "erdos97_internal_support_research_2026_09_08.zip": {
+      "bytes": 223361,
+      "sha256": "dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1"
+    },
+    "proof.md": {
+      "bytes": 7117,
+      "sha256": "a53d0e7ee96bc740ffcc85e43f8b67c16851343283e7ca954bff67d447934318"
+    }
+  },
+  "pr_opened": false,
+  "prior_full_test_suite_rerun": false,
+  "repository_write_performed": false,
+  "research_date": "2026-09-09",
+  "web_status_attempt": "Official problem page returned HTTP 403; no current global-status claim or literature novelty claim is made."
+}

@@ -1,0 +1,20 @@
+{
+  "status": "restricted one-free-vertex exclusion; written reduction review pending",
+  "not_an_erdos97_solution": true,
+  "inherited_archive_sha256": "0a81018d0cb791362dda69506bc5044b260ef8d21d8627820dcf5f86234cc33c",
+  "base_sha": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "old_ceiling": {
+    "triples": 84,
+    "centers": 64,
+    "old": 6,
+    "strict_containment": 55,
+    "closed_containment": 3,
+    "certificate_sha256": "753f31b4c80dcb044025ef35dfcdd7172bbb31d7fd7ebe2a0ff092a03ce9e941"
+  },
+  "slot_count": 42,
+  "base_edge_count": 123,
+  "case_count": 90,
+  "nodes": 360,
+  "leaves": 225,
+  "maximum_depth": 7
+}

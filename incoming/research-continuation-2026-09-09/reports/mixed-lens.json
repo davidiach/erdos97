@@ -1,0 +1,70 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "verify.py",
+        "--check"
+      ],
+      "elapsed_seconds": 6.276,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"claim\": \"all-size symmetric parabolic-lens theorem has a written proof in proof.md\",\n  \"control_support_count\": 30,\n  \"finite_regression_is_not_the_proof\": true,\n  \"formalized\": false,\n  \"grid_case_count\": 1825,\n  \"independent_external_review\": false,\n  \"maximum_grid_witness_count\": 3,\n  \"not_an_unrestricted_solution\": true,\n  \"schema\": \"erdos97.mixed_parabolic_lens.v1\",\n  \"status\": \"passed\"\n}\n\n"
+    },
+    {
+      "command": [
+        "python",
+        "oracle.py",
+        "--check"
+      ],
+      "elapsed_seconds": 8.208,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"controls\": [\n    {\n      \"exact_root_interval\": [\n        \"-390672716605610758/458998648083270197\",\n        \"-197063116205280863/231528079849539314\"\n      ],\n      \"max_multiplicities\": [\n        4,\n        1,\n        1,\n        1,\n        1\n      ],\n      \"method\": \"SymPy exact isolation plus Bernstein coefficient signs\",\n      \"name\": \"shallow_minimum_is_rich\",\n      \"support_signs\": 15\n    },\n    {\n      \"exact_root_interval\": [\n        \"-410398410694886872/350985007379857285\",\n        \"-521296310515538011/445828211380225163\"\n      ],\n      \"max_multiplicities\": [\n        4,\n        1,\n        1,\n        1,\n        1\n      ],\n      \"method\": \"SymPy exact isolation plus Bernstein coefficient signs\",\n      \"name\": \"deep_maximum_is_rich\",\n      \"support_signs\": 15\n    }\n  ],\n  \"exact_level_counts\": 1825,\n  \"schema\": \"erdos97.mixed_lens_oracle.v1\",\n  \"separate_implementation_not_external_review\": true,\n  \"status\": \"passed\",\n  \"universal_symbolic_identities\": 15\n}\n\n"
+    },
+    {
+      "command": [
+        "python",
+        "cap_pair_probe.py",
+        "--check"
+      ],
+      "elapsed_seconds": 13.379,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"schema\": \"erdos97.two_free_coarse_probe.v1\",\n  \"status\": \"inconclusive necessary relaxation\",\n  \"base_sha\": \"047d05149382e48b602b292df4b8fc9e2da560bb\",\n  \"input_archive_sha256\": \"dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1\",\n  \"slot_count\": 42,\n  \"insertion_cell_count\": 9,\n  \"cell_pair_count\": 45,\n  \"cases\": 4500,\n  \"counts\": {\n    \"zero-zero\": {\n      \"cases\": 45,\n      \"rejected\": 0,\n      \"survived\": 45\n    },\n    \"zero-one\": {\n      \"cases\": 405,\n      \"rejected\": 111,\n      \"survived\": 294\n    },\n    \"one-zero\": {\n      \"cases\": 405,\n      \"rejected\": 114,\n      \"survived\": 291\n    },\n    \"one-one\": {\n      \"cases\": 3645,\n      \"rejected\": 1599,\n      \"survived\": 2046\n    }\n  },\n  \"omitted_constraints\": [\n    \"one common radius for each zero-old free row\",\n    \"simultaneous realization of possible graph edges\",\n    \"mutual strict convexity of new points\",\n    \"richness of old vertices\",\n    \"distance equalities beyond range feasibility\"\n  ],\n  \"not_a_geometric_candidate\": true,\n  \"not_an_exclusion_of_all_two_free_caps\": true\n}\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_mixed_lens.py"
+      ],
+      "elapsed_seconds": 5.586,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "test_rational_samples (test_mixed_lens.ConstructiveSelector.test_rational_samples) ... ok\ntest_selector_rejects_inexact_input (test_mixed_lens.ConstructiveSelector.test_selector_rejects_inexact_input) ... ok\ntest_selector_rejects_nonboundary (test_mixed_lens.ConstructiveSelector.test_selector_rejects_nonboundary) ... ok\ntest_single_vertex (test_mixed_lens.ConstructiveSelector.test_single_vertex) ... ok\ntest_duplicate_formal_witness_rejected (test_mixed_lens.LensControls.test_duplicate_formal_witness_rejected) ... ok\ntest_false_selector_rejected (test_mixed_lens.LensControls.test_false_selector_rejected) ... ok\ntest_float_input_rejected (test_mixed_lens.LensControls.test_float_input_rejected) ... ok\ntest_invalid_order_rejected (test_mixed_lens.LensControls.test_invalid_order_rejected) ... ok\ntest_reversed_orientation_rejected (test_mixed_lens.LensControls.test_reversed_orientation_rejected) ... ok\ntest_two_controls (test_mixed_lens.LensControls.test_two_controls) ... ok\ntest_wrong_isolation_rejected (test_mixed_lens.LensControls.test_wrong_isolation_rejected) ... ok\ntest_claim_scope_flags (test_mixed_lens.LensRegression.test_claim_scope_flags) ... ok\ntest_common_junction_deduplication (test_mixed_lens.LensRegression.test_common_junction_deduplication) ... ok\ntest_complete_report_replay (test_mixed_lens.LensRegression.test_complete_report_replay) ... ok\ntest_deep_three_witnesses_attained (test_mixed_lens.LensRegression.test_deep_three_witnesses_attained) ... ok\ntest_exact_switch_height (test_mixed_lens.LensRegression.test_exact_switch_height) ... ok\ntest_outside_lens_rejected (test_mixed_lens.LensRegression.test_outside_lens_rejected) ... ok\ntest_tangent_root_not_four_points (test_mixed_lens.LensRegression.test_tangent_root_not_four_points) ... ok\ntest_wrong_regime_rejected (test_mixed_lens.LensRegression.test_wrong_regime_rejected) ... ok\ntest_zero_radius_rejected (test_mixed_lens.LensRegression.test_zero_radius_rejected) ... ok\ntest_algebraic_sign (test_mixed_lens.PolynomialKernel.test_algebraic_sign) ... ok\ntest_arithmetic (test_mixed_lens.PolynomialKernel.test_arithmetic) ... ok\ntest_constant_polynomial (test_mixed_lens.PolynomialKernel.test_constant_polynomial) ... ok\ntest_distinct_not_multiplicity (test_mixed_lens.PolynomialKernel.test_distinct_not_multiplicity) ... ok\ntest_float_coefficient_rejected (test_mixed_lens.PolynomialKernel.test_float_coefficient_rejected) ... ok\ntest_gcd (test_mixed_lens.PolynomialKernel.test_gcd) ... ok\ntest_multiple_root_isolation_rejected (test_mixed_lens.PolynomialKernel.test_multiple_root_isolation_rejected) ... ok\ntest_reversed_interval (test_mixed_lens.PolynomialKernel.test_reversed_interval) ... ok\ntest_singleton_interval (test_mixed_lens.PolynomialKernel.test_singleton_interval) ... ok\ntest_sturm_endpoint_inclusion (test_mixed_lens.PolynomialKernel.test_sturm_endpoint_inclusion) ... ok\ntest_zero_polynomial_rejected (test_mixed_lens.PolynomialKernel.test_zero_polynomial_rejected) ... ok\ntest_altered_root_count_rejected (test_mixed_lens.SeparateOracle.test_altered_root_count_rejected) ... ok\ntest_separate_controls (test_mixed_lens.SeparateOracle.test_separate_controls) ... ok\ntest_separate_endpoint_convention (test_mixed_lens.SeparateOracle.test_separate_endpoint_convention) ... ok\ntest_universal_symbolic_identities (test_mixed_lens.SeparateOracle.test_universal_symbolic_identities) ... ok\ntest_archive_hash (test_mixed_lens.TwoFreeScope.test_archive_hash) ... ok\ntest_probe_is_inconclusive (test_mixed_lens.TwoFreeScope.test_probe_is_inconclusive) ... ok\n\n----------------------------------------------------------------------\nRan 37 tests in 4.679s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "python",
+        "check_manifest.py"
+      ],
+      "elapsed_seconds": 1.478,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"passed\", \"verified_files\": 50}\n"
+    }
+  ],
+  "full": false,
+  "packet": "mixed-lens",
+  "source_integrity_unchanged": true,
+  "status": "passed",
+  "unit_tests_run": 37
+}

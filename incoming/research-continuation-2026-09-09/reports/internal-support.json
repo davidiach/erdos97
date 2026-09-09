@@ -1,0 +1,56 @@
+{
+  "commands": [
+    {
+      "command": [
+        "python",
+        "one_free.py"
+      ],
+      "elapsed_seconds": 58.221,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"status\": \"restricted one-free-vertex exclusion; written reduction review pending\",\n  \"not_an_erdos97_solution\": true,\n  \"inherited_archive_sha256\": \"0a81018d0cb791362dda69506bc5044b260ef8d21d8627820dcf5f86234cc33c\",\n  \"base_sha\": \"047d05149382e48b602b292df4b8fc9e2da560bb\",\n  \"old_ceiling\": {\n    \"triples\": 84,\n    \"centers\": 64,\n    \"old\": 6,\n    \"strict_containment\": 55,\n    \"closed_containment\": 3,\n    \"certificate_sha256\": \"753f31b4c80dcb044025ef35dfcdd7172bbb31d7fd7ebe2a0ff092a03ce9e941\"\n  },\n  \"slot_count\": 42,\n  \"base_edge_count\": 123,\n  \"case_count\": 90,\n  \"nodes\": 360,\n  \"leaves\": 225,\n  \"maximum_depth\": 7\n}\n"
+    },
+    {
+      "command": [
+        "python",
+        "audit_one_free.py"
+      ],
+      "elapsed_seconds": 211.408,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"cases\": 90,\n  \"distance_minima\": \"origin projections onto Minkowski-difference convex hulls\",\n  \"external_mathematical_review\": false,\n  \"graph_check\": \"reverse sequential deletion plus full four-subset conflict coverage\",\n  \"largest_sign_enclosure_bits\": 32,\n  \"leaves\": 225,\n  \"maximum_depth\": 7,\n  \"nodes\": 360,\n  \"primary_code_imported\": false,\n  \"quadratic_coefficients\": \"interpolation at zero and plus/minus one\",\n  \"status\": \"passed\"\n}\n\n"
+    },
+    {
+      "command": [
+        "python",
+        "combinatorics.py"
+      ],
+      "elapsed_seconds": 0.827,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"initial_distinct_fixed_patterns\": 3,\n  \"initial_exact_certificates\": 14,\n  \"filtered_patterns_checked\": 12,\n  \"filtered_exact_certificates\": 119,\n  \"status\": \"passed; no family infeasibility inferred\"\n}\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_internal_support.py"
+      ],
+      "elapsed_seconds": 248.064,
+      "relative_directory": ".",
+      "returncode": 0,
+      "stderr": "test_01_full_primary_replay (test_internal_support.InternalSupportTests.test_01_full_primary_replay) ... ok\ntest_02_full_second_representation (test_internal_support.InternalSupportTests.test_02_full_second_representation) ... ok\ntest_03_archive_identity (test_internal_support.InternalSupportTests.test_03_archive_identity) ... ok\ntest_04_changed_archive_rejected_before_load (test_internal_support.InternalSupportTests.test_04_changed_archive_rejected_before_load) ... ok\ntest_05_exact_field_rejects_float (test_internal_support.InternalSupportTests.test_05_exact_field_rejects_float) ... ok\ntest_06_optimized_mode_rejected (test_internal_support.InternalSupportTests.test_06_optimized_mode_rejected) ... ok\ntest_07_all_ninety_cases_present (test_internal_support.InternalSupportTests.test_07_all_ninety_cases_present) ... ok\ntest_08_omitted_case_rejected (test_internal_support.InternalSupportTests.test_08_omitted_case_rejected) ... ok\ntest_09_changed_source_hash_rejected (test_internal_support.InternalSupportTests.test_09_changed_source_hash_rejected) ... ok\ntest_10_false_solution_status_rejected (test_internal_support.InternalSupportTests.test_10_false_solution_status_rejected) ... ok\ntest_11_illegal_domain_split_rejected (test_internal_support.InternalSupportTests.test_11_illegal_domain_split_rejected) ... ok\ntest_12_missing_split_child_rejected (test_internal_support.InternalSupportTests.test_12_missing_split_child_rejected) ... ok\ntest_13_tampered_incoming_edge_rejected (test_internal_support.InternalSupportTests.test_13_tampered_incoming_edge_rejected) ... ok\ntest_14_tampered_outgoing_edge_rejected (test_internal_support.InternalSupportTests.test_14_tampered_outgoing_edge_rejected) ... ok\ntest_15_false_graph_core_rejected (test_internal_support.InternalSupportTests.test_15_false_graph_core_rejected) ... ok\ntest_16_missing_peeling_layer_rejected (test_internal_support.InternalSupportTests.test_16_missing_peeling_layer_rejected) ... ok\ntest_17_changed_distance_range_rejected (test_internal_support.InternalSupportTests.test_17_changed_distance_range_rejected) ... ok\ntest_18_omitted_radius_target_set_rejected (test_internal_support.InternalSupportTests.test_18_omitted_radius_target_set_rejected) ... ok\ntest_19_omitted_conflict_rejected (test_internal_support.InternalSupportTests.test_19_omitted_conflict_rejected) ... ok\ntest_20_omitted_four_subset_rejected (test_internal_support.InternalSupportTests.test_20_omitted_four_subset_rejected) ... ok\ntest_21_false_conflict_pair_rejected (test_internal_support.InternalSupportTests.test_21_false_conflict_pair_rejected) ... ok\ntest_22_projection_interior_boundary_and_exterior (test_internal_support.InternalSupportTests.test_22_projection_interior_boundary_and_exterior) ... ok\ntest_23_distance_minima_agree_on_all_root_domains (test_internal_support.InternalSupportTests.test_23_distance_minima_agree_on_all_root_domains) ... ok\ntest_24_graph_peeling_independent_random_controls (test_internal_support.InternalSupportTests.test_24_graph_peeling_independent_random_controls) ... ok\ntest_25_positive_control_full_replay (test_internal_support.InternalSupportTests.test_25_positive_control_full_replay) ... ok\ntest_26_positive_control_wrong_rich_row_rejected (test_internal_support.InternalSupportTests.test_26_positive_control_wrong_rich_row_rejected) ... ok\ntest_27_positive_control_duplicate_point_rejected (test_internal_support.InternalSupportTests.test_27_positive_control_duplicate_point_rejected) ... ok\ntest_28_positive_control_float_rejected (test_internal_support.InternalSupportTests.test_28_positive_control_float_rejected) ... ok\ntest_29_positive_control_false_all_rich_rejected (test_internal_support.InternalSupportTests.test_29_positive_control_false_all_rich_rejected) ... ok\ntest_30_positive_control_wrong_internal_count_rejected (test_internal_support.InternalSupportTests.test_30_positive_control_wrong_internal_count_rejected) ... ok\ntest_31_all_saved_pattern_certificates_two_checkers (test_internal_support.InternalSupportTests.test_31_all_saved_pattern_certificates_two_checkers) ... ok\ntest_32_negative_inequality_weight_rejected (test_internal_support.InternalSupportTests.test_32_negative_inequality_weight_rejected) ... ok\ntest_33_incorrect_cyclic_order_rejected (test_internal_support.InternalSupportTests.test_33_incorrect_cyclic_order_rejected) ... ok\ntest_34_missing_required_equality_row_rejected (test_internal_support.InternalSupportTests.test_34_missing_required_equality_row_rejected) ... ok\ntest_35_missing_strict_inequality_rejected (test_internal_support.InternalSupportTests.test_35_missing_strict_inequality_rejected) ... ok\ntest_36_tripled_patterns_saturate_pair_resources (test_internal_support.InternalSupportTests.test_36_tripled_patterns_saturate_pair_resources) ... ok\ntest_37_two_copy_pigeonhole_domain (test_internal_support.InternalSupportTests.test_37_two_copy_pigeonhole_domain) ... ok\ntest_38_three_copy_saturation_domain (test_internal_support.InternalSupportTests.test_38_three_copy_saturation_domain) ... ok\ntest_39_convex_control_strict_quadrilateral_inequalities (test_internal_support.InternalSupportTests.test_39_convex_control_strict_quadrilateral_inequalities) ... ok\ntest_40_filtered_reports_discrete_audit (test_internal_support.InternalSupportTests.test_40_filtered_reports_discrete_audit) ... ok\n\n----------------------------------------------------------------------\nRan 40 tests in 247.246s\n\nOK\n",
+      "stdout": ""
+    }
+  ],
+  "full": false,
+  "packet": "internal-support",
+  "source_integrity_unchanged": true,
+  "status": "passed",
+  "unit_tests_run": 40
+}

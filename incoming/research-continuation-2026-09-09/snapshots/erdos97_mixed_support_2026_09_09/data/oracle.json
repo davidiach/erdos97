@@ -1,0 +1,41 @@
+{
+  "controls": [
+    {
+      "exact_root_interval": [
+        "-390672716605610758/458998648083270197",
+        "-197063116205280863/231528079849539314"
+      ],
+      "max_multiplicities": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "method": "SymPy exact isolation plus Bernstein coefficient signs",
+      "name": "shallow_minimum_is_rich",
+      "support_signs": 15
+    },
+    {
+      "exact_root_interval": [
+        "-410398410694886872/350985007379857285",
+        "-521296310515538011/445828211380225163"
+      ],
+      "max_multiplicities": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "method": "SymPy exact isolation plus Bernstein coefficient signs",
+      "name": "deep_maximum_is_rich",
+      "support_signs": 15
+    }
+  ],
+  "exact_level_counts": 1825,
+  "schema": "erdos97.mixed_lens_oracle.v1",
+  "separate_implementation_not_external_review": true,
+  "status": "passed",
+  "universal_symbolic_identities": 15
+}

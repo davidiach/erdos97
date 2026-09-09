@@ -1,0 +1,13 @@
+{
+  "claim": "all-size symmetric parabolic-lens theorem has a written proof in proof.md",
+  "control_support_count": 30,
+  "finite_regression_is_not_the_proof": true,
+  "formalized": false,
+  "grid_case_count": 1825,
+  "independent_external_review": false,
+  "maximum_grid_witness_count": 3,
+  "not_an_unrestricted_solution": true,
+  "schema": "erdos97.mixed_parabolic_lens.v1",
+  "status": "passed"
+}
+

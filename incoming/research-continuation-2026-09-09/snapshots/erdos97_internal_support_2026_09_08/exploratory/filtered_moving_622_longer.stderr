@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File [35m"/mnt/data/erdos97_internal_support_2026_09_08/exploratory/filtered_moving.py"[0m, line [35m81[0m, in [35m<module>[0m
+    if __name__=='__main__':[31mmain[0m[1;31m()[0m
+                            [31m~~~~[0m[1;31m^^[0m
+  File [35m"/mnt/data/erdos97_internal_support_2026_09_08/exploratory/filtered_moving.py"[0m, line [35m77[0m, in [35mmain[0m
+    r=run(seed=a.seed,max_rounds=a.rounds,time_limit=a.time_limit)
+  File [35m"/mnt/data/erdos97_internal_support_2026_09_08/exploratory/filtered_moving.py"[0m, line [35m58[0m, in [35mrun[0m
+    if cut in cuts:[1;31mraise RuntimeError('repeated excluded row assignment')[0m
+                   [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mRuntimeError[0m: [35mrepeated excluded row assignment[0m

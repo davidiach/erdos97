@@ -1,0 +1,98 @@
+{
+  "status": "passed",
+  "rational_rows": 96,
+  "positive_control": {
+    "points": [
+      [
+        "9",
+        "12"
+      ],
+      [
+        "-4",
+        "16"
+      ],
+      [
+        "-2",
+        "4"
+      ],
+      [
+        "1",
+        "1"
+      ],
+      [
+        "5",
+        "25"
+      ]
+    ],
+    "order": [
+      0,
+      4,
+      1,
+      2,
+      3
+    ],
+    "squared_radius": "185",
+    "max_multiplicities": [
+      4,
+      1,
+      1,
+      1,
+      1
+    ],
+    "strict_support_signs": [
+      "153",
+      "175",
+      "148",
+      "153",
+      "126",
+      "180",
+      "148",
+      "126",
+      "30",
+      "57",
+      "84",
+      "30",
+      "148",
+      "175",
+      "57"
+    ],
+    "all_vertices_rich": false
+  },
+  "cycles": [
+    {
+      "length": 1,
+      "coefficient_tuples": 6,
+      "drift_counts": {
+        "positive": 3,
+        "negative": 3
+      }
+    },
+    {
+      "length": 2,
+      "coefficient_tuples": 36,
+      "drift_counts": {
+        "positive": 15,
+        "negative": 15,
+        "zero": 6
+      }
+    },
+    {
+      "length": 3,
+      "coefficient_tuples": 216,
+      "drift_counts": {
+        "positive": 105,
+        "negative": 105,
+        "zero": 6
+      }
+    },
+    {
+      "length": 4,
+      "coefficient_tuples": 1296,
+      "drift_counts": {
+        "positive": 599,
+        "zero": 98,
+        "negative": 599
+      }
+    }
+  ]
+}

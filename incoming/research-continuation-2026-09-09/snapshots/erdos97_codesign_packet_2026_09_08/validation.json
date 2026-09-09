@@ -1,0 +1,139 @@
+{
+  "baseline": {
+    "last_merged_pr": 942,
+    "main_sha": "047d05149382e48b602b292df4b8fc9e2da560bb",
+    "repository": "davidiach/erdos97"
+  },
+  "claim_status": "written proof / exact certificate candidates; review pending; no unrestricted solution",
+  "completed_commands": [
+    {
+      "command": "python generate_certificates.py",
+      "evidence": "Both exhaustive input certificates regenerated in memory with exact byte equality.",
+      "status": "passed"
+    },
+    {
+      "command": "python verify.py",
+      "evidence": "All geometric checks and byte-for-byte verification.json report regeneration passed.",
+      "status": "passed"
+    },
+    {
+      "command": "python oracle.py",
+      "evidence": "Separate polynomial/enclosure implementation; byte-for-byte oracle_report.json regeneration passed.",
+      "status": "passed"
+    },
+    {
+      "command": "python -m unittest -v test_research.py",
+      "log": "test_output.txt",
+      "status": "passed",
+      "tests": 31
+    },
+    {
+      "command": "python -m py_compile quadratic.py extensions.py generate_certificates.py verify.py oracle.py test_research.py exploratory/search_codesign.py",
+      "status": "passed"
+    },
+    {
+      "command": "OPENBLAS_NUM_THREADS=1 python exploratory/search_codesign.py",
+      "evidence": "Complete JSON report reproduced byte-for-byte after self-contained import/path adjustment.",
+      "log": "exploratory/replay_output.txt",
+      "status": "completed; not an exact proof"
+    }
+  ],
+  "counts": {
+    "added_point_off_carrier_inequalities": 27,
+    "circle_pairs": 15,
+    "circumcenter_triples": 84,
+    "closed_circumcenter_containment_certificates": 3,
+    "distinct_circumcenters": 64,
+    "old_circle_intersections": 12,
+    "old_circumcenters": 6,
+    "real_circle_intersection_branches": 30,
+    "repair_pairwise_nonzero_separations": 153,
+    "strict_circle_intersection_containment_certificates": 18,
+    "strict_circumcenter_containment_certificates": 55,
+    "supporting_half_plane_inequalities": 414
+  },
+  "data_sha256": {
+    "base9_circumcenters.json": "753f31b4c80dcb044025ef35dfcdd7172bbb31d7fd7ebe2a0ff092a03ce9e941",
+    "oracle_report.json": "dc6f1782b57c51214933c1dd1847af4f0b08d234b5a39ac92d3630bbd317165d",
+    "prescribed_circle_pairs.json": "b22da192bd765b201971d6f7a77ea7c7883d5b812b1457892ea15ae2f6142ca3",
+    "verification.json": "fcc3b223b92bd7e6026567590e56599b6f7d3724710c32280ac2a0c5c47435e5"
+  },
+  "date": "2026-09-08",
+  "environment": {
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "scipy": "1.17.0"
+  },
+  "exact_distributions": {
+    "middle_cycle9": [
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "repair18": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "seed9": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4
+    ]
+  },
+  "limits": {
+    "connected_github_reads": "succeeded",
+    "direct_git_failure": "Could not resolve host: github.com",
+    "external_mathematical_review": false,
+    "formal_lean_proof": false,
+    "lean_build_run": false,
+    "novelty_relative_to_published_literature_claimed": false,
+    "pr_opened": false,
+    "repository_files_modified": false,
+    "repository_wide_make_verify_artifacts_run": false,
+    "repository_wide_make_verify_fast_run": false,
+    "ruff_available": false
+  },
+  "numerical_exploration": {
+    "all_rich_exact_solution": false,
+    "completed_stages": 16,
+    "infeasibility_claim": false,
+    "maximum_final_max_squared_distance_spread": 3.9052588332664566,
+    "minimum_final_max_squared_distance_spread": 2.2625600300362887,
+    "seed": 970908,
+    "sizes": [
+      12,
+      15,
+      18
+    ],
+    "trajectories": 8
+  }
+}

@@ -1,0 +1,618 @@
+{
+  "boundary_order": [
+    6,
+    7,
+    8,
+    12,
+    13,
+    14,
+    24,
+    25,
+    26,
+    0,
+    1,
+    2,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    3,
+    4,
+    5,
+    9,
+    10,
+    11,
+    21,
+    22,
+    23
+  ],
+  "copies_per_cluster": 3,
+  "epsilon": 0.03,
+  "geometric_hypotheses": [
+    "fixed three-original-target-cluster pools",
+    "fixed cluster boundary order"
+  ],
+  "initial_coordinates": [
+    [
+      1.0196714687801447,
+      -0.022650238763240314
+    ],
+    [
+      1.0226375096144409,
+      -0.019686115880388853
+    ],
+    [
+      1.0249843943047603,
+      -0.016606626425143173
+    ],
+    [
+      -0.48996601527343486,
+      0.8942976366376653
+    ],
+    [
+      -0.4942418417950396,
+      0.8954676118213141
+    ],
+    [
+      -0.4983832839202901,
+      0.8959818092616919
+    ],
+    [
+      -0.5294015797958483,
+      -0.871987543124339
+    ],
+    [
+      -0.5283130778638029,
+      -0.8759435498752287
+    ],
+    [
+      -0.5268263042088303,
+      -0.8794548267986754
+    ],
+    [
+      -0.5549132561375512,
+      0.893707236547381
+    ],
+    [
+      -0.5660795069149482,
+      0.8879728727628048
+    ],
+    [
+      -0.5723477629985639,
+      0.8809393472328924
+    ],
+    [
+      -0.49669704536375786,
+      -0.9272412208343989
+    ],
+    [
+      -0.4876372669158816,
+      -0.9335350664662586
+    ],
+    [
+      -0.4759335946662303,
+      -0.9361642046413938
+    ],
+    [
+      1.0513430405288002,
+      0.03339624233404348
+    ],
+    [
+      1.0522872088054,
+      0.044426731036423084
+    ],
+    [
+      1.0480752202641568,
+      0.057005401295935385
+    ],
+    [
+      0.8151160354377859,
+      0.3064217076113743
+    ],
+    [
+      0.8125022997957472,
+      0.3085177583313118
+    ],
+    [
+      0.8097257971833417,
+      0.31027876805370985
+    ],
+    [
+      -0.6728281904936361,
+      0.5531509190113245
+    ],
+    [
+      -0.6734369911059835,
+      0.5493719085369173
+    ],
+    [
+      -0.6735619810365874,
+      0.545622503965594
+    ],
+    [
+      -0.14253885833447458,
+      -0.8592338307904801
+    ],
+    [
+      -0.13923680609003683,
+      -0.8579831962523303
+    ],
+    [
+      -0.13622258244752272,
+      -0.8564234181035797
+    ]
+  ],
+  "initial_geometry": {
+    "minimum_pair_distance": 0.003287874997483167,
+    "minimum_supporting_area": 1.216876422232217e-06,
+    "strict_hull_numeric": true
+  },
+  "numpy": "2.3.5",
+  "old_base_vertices": 9,
+  "pattern_search": [
+    {
+      "cuts": 0,
+      "elapsed_seconds": 0.0165,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0007871820503056499,
+      "preflight_violations": 25,
+      "round": 0,
+      "solver_status": 0
+    },
+    {
+      "cuts": 25,
+      "elapsed_seconds": 0.0149,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0007902188020377515,
+      "preflight_violations": 26,
+      "round": 1,
+      "solver_status": 0
+    },
+    {
+      "cuts": 51,
+      "elapsed_seconds": 0.0167,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008182655546673947,
+      "preflight_violations": 23,
+      "round": 2,
+      "solver_status": 0
+    },
+    {
+      "cuts": 74,
+      "elapsed_seconds": 0.0163,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008190724138005707,
+      "preflight_violations": 25,
+      "round": 3,
+      "solver_status": 0
+    },
+    {
+      "cuts": 99,
+      "elapsed_seconds": 0.0278,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008229097309627191,
+      "preflight_violations": 24,
+      "round": 4,
+      "solver_status": 0
+    },
+    {
+      "cuts": 123,
+      "elapsed_seconds": 0.0197,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008251148095392046,
+      "preflight_violations": 21,
+      "round": 5,
+      "solver_status": 0
+    },
+    {
+      "cuts": 144,
+      "elapsed_seconds": 0.0356,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008334154470249119,
+      "preflight_violations": 22,
+      "round": 6,
+      "solver_status": 0
+    },
+    {
+      "cuts": 166,
+      "elapsed_seconds": 0.0328,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008342740530968433,
+      "preflight_violations": 23,
+      "round": 7,
+      "solver_status": 0
+    },
+    {
+      "cuts": 189,
+      "elapsed_seconds": 0.0228,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008378466586738607,
+      "preflight_violations": 27,
+      "round": 8,
+      "solver_status": 0
+    },
+    {
+      "cuts": 216,
+      "elapsed_seconds": 0.1416,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008397345904684732,
+      "preflight_violations": 20,
+      "round": 9,
+      "solver_status": 0
+    },
+    {
+      "cuts": 236,
+      "elapsed_seconds": 0.0989,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008419193823962025,
+      "preflight_violations": 19,
+      "round": 10,
+      "solver_status": 0
+    },
+    {
+      "cuts": 255,
+      "elapsed_seconds": 0.067,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008428310323911077,
+      "preflight_violations": 19,
+      "round": 11,
+      "solver_status": 0
+    },
+    {
+      "cuts": 274,
+      "elapsed_seconds": 0.0579,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008442383342698109,
+      "preflight_violations": 20,
+      "round": 12,
+      "solver_status": 0
+    },
+    {
+      "cuts": 294,
+      "elapsed_seconds": 0.1371,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008470192879779227,
+      "preflight_violations": 18,
+      "round": 13,
+      "solver_status": 0
+    },
+    {
+      "cuts": 312,
+      "elapsed_seconds": 0.1122,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008485745788093744,
+      "preflight_violations": 20,
+      "round": 14,
+      "solver_status": 0
+    },
+    {
+      "cuts": 332,
+      "elapsed_seconds": 0.0558,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008560043408538761,
+      "preflight_violations": 20,
+      "round": 15,
+      "solver_status": 0
+    },
+    {
+      "cuts": 352,
+      "elapsed_seconds": 0.4593,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008593014611221633,
+      "preflight_violations": 23,
+      "round": 16,
+      "solver_status": 0
+    },
+    {
+      "cuts": 375,
+      "elapsed_seconds": 0.6642,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008591373795829726,
+      "preflight_violations": 20,
+      "round": 17,
+      "solver_status": 0
+    },
+    {
+      "cuts": 395,
+      "elapsed_seconds": 0.2864,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008597533235512355,
+      "preflight_violations": 19,
+      "round": 18,
+      "solver_status": 0
+    },
+    {
+      "cuts": 414,
+      "elapsed_seconds": 1.1812,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008654875878176129,
+      "preflight_violations": 17,
+      "round": 19,
+      "solver_status": 0
+    },
+    {
+      "cuts": 431,
+      "elapsed_seconds": 0.8723,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008651438376801693,
+      "preflight_violations": 24,
+      "round": 20,
+      "solver_status": 0
+    },
+    {
+      "cuts": 455,
+      "elapsed_seconds": 0.7135,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008674317618792958,
+      "preflight_violations": 20,
+      "round": 21,
+      "solver_status": 0
+    },
+    {
+      "cuts": 475,
+      "elapsed_seconds": 0.5695,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008696737980231059,
+      "preflight_violations": 16,
+      "round": 22,
+      "solver_status": 0
+    },
+    {
+      "cuts": 491,
+      "elapsed_seconds": 0.9007,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008721406274903455,
+      "preflight_violations": 18,
+      "round": 23,
+      "solver_status": 0
+    },
+    {
+      "cuts": 509,
+      "elapsed_seconds": 0.9203,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008720854019193677,
+      "preflight_violations": 20,
+      "round": 24,
+      "solver_status": 0
+    },
+    {
+      "cuts": 529,
+      "elapsed_seconds": 0.9404,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008752588826341867,
+      "preflight_violations": 15,
+      "round": 25,
+      "solver_status": 0
+    },
+    {
+      "cuts": 544,
+      "elapsed_seconds": 0.1715,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008748997980049647,
+      "preflight_violations": 15,
+      "round": 26,
+      "solver_status": 0
+    },
+    {
+      "cuts": 559,
+      "elapsed_seconds": 0.9065,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.000878114915825943,
+      "preflight_violations": 15,
+      "round": 27,
+      "solver_status": 0
+    },
+    {
+      "cuts": 574,
+      "elapsed_seconds": 0.7706,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008787491939462719,
+      "preflight_violations": 15,
+      "round": 28,
+      "solver_status": 0
+    },
+    {
+      "cuts": 589,
+      "elapsed_seconds": 0.5551,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008809175295306726,
+      "preflight_violations": 13,
+      "round": 29,
+      "solver_status": 0
+    },
+    {
+      "cuts": 602,
+      "elapsed_seconds": 0.8202,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008828107320909364,
+      "preflight_violations": 13,
+      "round": 30,
+      "solver_status": 0
+    },
+    {
+      "cuts": 615,
+      "elapsed_seconds": 1.7081,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008821341605273021,
+      "preflight_violations": 18,
+      "round": 31,
+      "solver_status": 0
+    },
+    {
+      "cuts": 633,
+      "elapsed_seconds": 1.0581,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008818951637363316,
+      "preflight_violations": 15,
+      "round": 32,
+      "solver_status": 0
+    },
+    {
+      "cuts": 648,
+      "elapsed_seconds": 0.6965,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008815561794283754,
+      "preflight_violations": 15,
+      "round": 33,
+      "solver_status": 0
+    },
+    {
+      "cuts": 663,
+      "elapsed_seconds": 0.9443,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008823642406094771,
+      "preflight_violations": 14,
+      "round": 34,
+      "solver_status": 0
+    },
+    {
+      "cuts": 677,
+      "elapsed_seconds": 0.9199,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008838357963725128,
+      "preflight_violations": 13,
+      "round": 35,
+      "solver_status": 0
+    },
+    {
+      "cuts": 690,
+      "elapsed_seconds": 1.1465,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008852537743332243,
+      "preflight_violations": 16,
+      "round": 36,
+      "solver_status": 0
+    },
+    {
+      "cuts": 706,
+      "elapsed_seconds": 0.8754,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008845794348451013,
+      "preflight_violations": 16,
+      "round": 37,
+      "solver_status": 0
+    },
+    {
+      "cuts": 722,
+      "elapsed_seconds": 0.8076,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008963137031750568,
+      "preflight_violations": 15,
+      "round": 38,
+      "solver_status": 0
+    },
+    {
+      "cuts": 737,
+      "elapsed_seconds": 1.0686,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.000886394927991672,
+      "preflight_violations": 22,
+      "round": 39,
+      "solver_status": 0
+    },
+    {
+      "cuts": 759,
+      "elapsed_seconds": 0.789,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008865209076916003,
+      "preflight_violations": 13,
+      "round": 40,
+      "solver_status": 0
+    },
+    {
+      "cuts": 772,
+      "elapsed_seconds": 1.0587,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008881462007356506,
+      "preflight_violations": 14,
+      "round": 41,
+      "solver_status": 0
+    },
+    {
+      "cuts": 786,
+      "elapsed_seconds": 1.7441,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008884741361440456,
+      "preflight_violations": 16,
+      "round": 42,
+      "solver_status": 0
+    },
+    {
+      "cuts": 802,
+      "elapsed_seconds": 1.13,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008890714511052107,
+      "preflight_violations": 12,
+      "round": 43,
+      "solver_status": 0
+    },
+    {
+      "cuts": 814,
+      "elapsed_seconds": 0.927,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008894362665676503,
+      "preflight_violations": 15,
+      "round": 44,
+      "solver_status": 0
+    },
+    {
+      "cuts": 829,
+      "elapsed_seconds": 0.9032,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.000892155947172835,
+      "preflight_violations": 18,
+      "round": 45,
+      "solver_status": 0
+    },
+    {
+      "cuts": 847,
+      "elapsed_seconds": 2.0249,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "objective": 0.0008917021713983249,
+      "preflight_violations": 15,
+      "round": 46,
+      "solver_status": 1
+    },
+    {
+      "cuts": 862,
+      "elapsed_seconds": 2.0149,
+      "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+      "objective": 0.0008935703992360179,
+      "preflight_violations": 11,
+      "round": 47,
+      "solver_status": 1
+    },
+    {
+      "cuts": 873,
+      "elapsed_seconds": 0.9745,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008916034662772953,
+      "preflight_violations": 13,
+      "round": 48,
+      "solver_status": 0
+    },
+    {
+      "cuts": 886,
+      "elapsed_seconds": 0.8658,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0008917003333190331,
+      "preflight_violations": 14,
+      "round": 49,
+      "solver_status": 0
+    }
+  ],
+  "preflight_scope": [
+    "four distinct witnesses",
+    "two-circle intersection cap",
+    "two-overlap cyclic crossing",
+    "internal-cluster-pair capacity"
+  ],
+  "python": "3.13.5",
+  "scipy": "1.17.0",
+  "seed": 271,
+  "selected_rows": null,
+  "status": "exploratory only; no infeasibility or exact solution claim",
+  "vertices": 27
+}

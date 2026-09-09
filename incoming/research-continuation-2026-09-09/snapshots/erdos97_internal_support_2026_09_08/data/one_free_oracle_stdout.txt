@@ -1,0 +1,14 @@
+{
+  "cases": 90,
+  "distance_minima": "origin projections onto Minkowski-difference convex hulls",
+  "external_mathematical_review": false,
+  "graph_check": "reverse sequential deletion plus full four-subset conflict coverage",
+  "largest_sign_enclosure_bits": 32,
+  "leaves": 225,
+  "maximum_depth": 7,
+  "nodes": 360,
+  "primary_code_imported": false,
+  "quadratic_coefficients": "interpolation at zero and plus/minus one",
+  "status": "passed"
+}
+

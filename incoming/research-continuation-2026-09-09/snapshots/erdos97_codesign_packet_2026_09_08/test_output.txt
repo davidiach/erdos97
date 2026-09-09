@@ -1,0 +1,36 @@
+test_01_quadratic_operations (test_research.ExactResearchTests.test_01_quadratic_operations) ... ok
+test_02_quadratic_signs (test_research.ExactResearchTests.test_02_quadratic_signs) ... ok
+test_03_fraction_hash_contract (test_research.ExactResearchTests.test_03_fraction_hash_contract) ... ok
+test_04_float_rejection (test_research.ExactResearchTests.test_04_float_rejection) ... ok
+test_05_zero_division (test_research.ExactResearchTests.test_05_zero_division) ... ok
+test_06_rotations (test_research.ExactResearchTests.test_06_rotations) ... ok
+test_07_extension_signs (test_research.ExactResearchTests.test_07_extension_signs) ... ok
+test_08_extension_zero_is_semantic (test_research.ExactResearchTests.test_08_extension_zero_is_semantic) ... ok
+test_09_negative_radicand (test_research.ExactResearchTests.test_09_negative_radicand) ... ok
+test_10_distinct_extensions_rejected (test_research.ExactResearchTests.test_10_distinct_extensions_rejected) ... ok
+test_11_base_supports (test_research.ExactResearchTests.test_11_base_supports) ... ok
+test_12_repair_exact_census (test_research.ExactResearchTests.test_12_repair_exact_census) ... ok
+test_13_middle_cycle (test_research.ExactResearchTests.test_13_middle_cycle) ... ok
+test_14_all_circumcenters (test_research.ExactResearchTests.test_14_all_circumcenters) ... ok
+test_15_all_circle_pairs (test_research.ExactResearchTests.test_15_all_circle_pairs) ... ok
+test_16_independent_replay (test_research.ExactResearchTests.test_16_independent_replay) ... ok
+test_17_report_matches (test_research.ExactResearchTests.test_17_report_matches) ... ok
+test_18_missing_triple (test_research.ExactResearchTests.test_18_missing_triple) ... ok
+test_19_duplicate_triple (test_research.ExactResearchTests.test_19_duplicate_triple) ... ok
+test_20_changed_center_coordinate (test_research.ExactResearchTests.test_20_changed_center_coordinate) ... ok
+test_21_reversed_containment_triangle (test_research.ExactResearchTests.test_21_reversed_containment_triangle) ... ok
+test_22_false_coincidence (test_research.ExactResearchTests.test_22_false_coincidence) ... ok
+test_23_missing_intersection_branch (test_research.ExactResearchTests.test_23_missing_intersection_branch) ... ok
+test_24_wrong_intersection_branch (test_research.ExactResearchTests.test_24_wrong_intersection_branch) ... ok
+test_25_wrong_radicand (test_research.ExactResearchTests.test_25_wrong_radicand) ... ok
+test_26_wrong_radius (test_research.ExactResearchTests.test_26_wrong_radius) ... ok
+test_27_bad_boundary_order (test_research.ExactResearchTests.test_27_bad_boundary_order) ... ok
+test_28_float_certificate (test_research.ExactResearchTests.test_28_float_certificate) ... ok
+test_29_wrong_base_sha (test_research.ExactResearchTests.test_29_wrong_base_sha) ... ok
+test_30_oracle_radical_reductions (test_research.ExactResearchTests.test_30_oracle_radical_reductions) ... ok
+test_31_outside_circumcenter_positive_control (test_research.ExactResearchTests.test_31_outside_circumcenter_positive_control) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.668s
+
+OK

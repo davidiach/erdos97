@@ -1,0 +1,38 @@
+test_duplicate_formal_witness_rejected (test_mixed_lens.LensControls.test_duplicate_formal_witness_rejected) ... ok
+test_false_selector_rejected (test_mixed_lens.LensControls.test_false_selector_rejected) ... ok
+test_float_input_rejected (test_mixed_lens.LensControls.test_float_input_rejected) ... ok
+test_invalid_order_rejected (test_mixed_lens.LensControls.test_invalid_order_rejected) ... ok
+test_reversed_orientation_rejected (test_mixed_lens.LensControls.test_reversed_orientation_rejected) ... ok
+test_two_controls (test_mixed_lens.LensControls.test_two_controls) ... ok
+test_wrong_isolation_rejected (test_mixed_lens.LensControls.test_wrong_isolation_rejected) ... ok
+test_claim_scope_flags (test_mixed_lens.LensRegression.test_claim_scope_flags) ... ok
+test_common_junction_deduplication (test_mixed_lens.LensRegression.test_common_junction_deduplication) ... ok
+test_complete_report_replay (test_mixed_lens.LensRegression.test_complete_report_replay) ... ok
+test_deep_three_witnesses_attained (test_mixed_lens.LensRegression.test_deep_three_witnesses_attained) ... ok
+test_exact_switch_height (test_mixed_lens.LensRegression.test_exact_switch_height) ... ok
+test_outside_lens_rejected (test_mixed_lens.LensRegression.test_outside_lens_rejected) ... ok
+test_tangent_root_not_four_points (test_mixed_lens.LensRegression.test_tangent_root_not_four_points) ... ok
+test_wrong_regime_rejected (test_mixed_lens.LensRegression.test_wrong_regime_rejected) ... ok
+test_zero_radius_rejected (test_mixed_lens.LensRegression.test_zero_radius_rejected) ... ok
+test_algebraic_sign (test_mixed_lens.PolynomialKernel.test_algebraic_sign) ... ok
+test_arithmetic (test_mixed_lens.PolynomialKernel.test_arithmetic) ... ok
+test_constant_polynomial (test_mixed_lens.PolynomialKernel.test_constant_polynomial) ... ok
+test_distinct_not_multiplicity (test_mixed_lens.PolynomialKernel.test_distinct_not_multiplicity) ... ok
+test_float_coefficient_rejected (test_mixed_lens.PolynomialKernel.test_float_coefficient_rejected) ... ok
+test_gcd (test_mixed_lens.PolynomialKernel.test_gcd) ... ok
+test_multiple_root_isolation_rejected (test_mixed_lens.PolynomialKernel.test_multiple_root_isolation_rejected) ... ok
+test_reversed_interval (test_mixed_lens.PolynomialKernel.test_reversed_interval) ... ok
+test_singleton_interval (test_mixed_lens.PolynomialKernel.test_singleton_interval) ... ok
+test_sturm_endpoint_inclusion (test_mixed_lens.PolynomialKernel.test_sturm_endpoint_inclusion) ... ok
+test_zero_polynomial_rejected (test_mixed_lens.PolynomialKernel.test_zero_polynomial_rejected) ... ok
+test_altered_root_count_rejected (test_mixed_lens.SeparateOracle.test_altered_root_count_rejected) ... ok
+test_separate_controls (test_mixed_lens.SeparateOracle.test_separate_controls) ... ok
+test_separate_endpoint_convention (test_mixed_lens.SeparateOracle.test_separate_endpoint_convention) ... ok
+test_universal_symbolic_identities (test_mixed_lens.SeparateOracle.test_universal_symbolic_identities) ... ok
+test_archive_hash (test_mixed_lens.TwoFreeScope.test_archive_hash) ... ok
+test_probe_is_inconclusive (test_mixed_lens.TwoFreeScope.test_probe_is_inconclusive) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 4.785s
+
+OK

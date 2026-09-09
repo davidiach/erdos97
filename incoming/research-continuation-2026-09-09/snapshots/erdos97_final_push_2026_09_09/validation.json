@@ -1,0 +1,154 @@
+{
+  "Lean_formalization": false,
+  "accepted_bound_promotion": false,
+  "data_sha256": {
+    "evidence/block_certificate.json": "0a17938609220d2c822c289be37277213e7a811f56ab6ff03bfe3f92b74788ac",
+    "evidence/cap_probe.json": "39681e0142bc6e2e9b16ce1b63c1f7c39a2b57188574e46b7ef91288110c13ed",
+    "evidence/circle_metric_exhaustive.json": "8a5c13a391d0f81c2e2b229cb5f962684121a313ef0051f90a1e924376f26632",
+    "evidence/circle_star_matrix.txt": "e31db43de258d1f645999e7a8b76b97ea0cada11bbb6cd28bf544c6300b0b06f",
+    "evidence/circle_star_metric.json": "a97542849132d373dd27217d29c44b65eec8704437a211b4a399f13238da4ee6",
+    "evidence/circle_star_oracle.json": "c2ba86c20b7d63fe4cb919410c931d30aca40c3da7f3663111a9854c333cdc15",
+    "evidence/grid7_core.json": "caf3fc722eb6a59abbd4f53b4c4ceb6ee5cfa96610f348022272595dae746174",
+    "evidence/grid_metric_7.json": "9629719c6c2c4947dd7236b1dc5dddb00719a7d5585dab1aa93dab6370857e86",
+    "evidence/grid_metric_8.json": "91c3b376f94d1fb1bc88c173c625b65f5e9d9740e16abfcbe7a59890fbfa9b82",
+    "evidence/grid_metric_certificate.json": "e96536c2cd983166abe9ec700a78027731bb845021b3493ec9d955e9dcdff2f5",
+    "evidence/grid_metric_integer_matrix.txt": "079f1c6ed1912b3811aa0d50e0ecda70cb07e3df6e4019a156670dd02a9a9ee9",
+    "evidence/grid_oracle.json": "fbe4226936b2ac5ac236a548c30bc5a87fa67de4a9c9fb0ec5ac305e48b08620",
+    "evidence/median_audit.json": "d8cd59680f972e6be592d3847f82d0386e79b1d9568828d18db91b1ab0cf7968",
+    "evidence/median_direct_1.json": "23c6933f2bc86cec24d18cf9fb32a11d58bf0c61859d84176c5ebfc3ce5ee975",
+    "evidence/median_domains.json": "2533221bae3053abc3d75bb272cee4d5af80bd4d130b8a8a81123d4c549a35e6",
+    "evidence/median_search_1.json": "6b46aa464fd98ded6d1d98e680878c2ee9e72edfb283305e4b7ddd8183638ec3",
+    "evidence/metric18_1.json": "9147a75b342d3ed3d30df89f0deae530f59f71b1c892ff1fda9cb2366ad1afe4",
+    "evidence/metric24_2.json": "046d9a42b42d0bcc5b44d07a02de138a97bcb74f6f7d33f5fba6c8ce29043ad9",
+    "evidence/metric30_3.json": "a3391abf4e59cd2d637c9d95e0ebac324546755ebabf238d523bf671af1fb240",
+    "evidence/metric39_4.json": "11a93bc49fe6eb1fd61b6afb03d95b5f01c007010a9a6dafa3d09c9c6e3c1343",
+    "evidence/metric48_5.json": "00212a196be5547e2b25eed0564101bc81d38aa4c4c63669ea49856e06629d06",
+    "evidence/metric_exhaustive.json": "a07da780a7f2f95e023d877a8a25c0e5747759366e04edf4ec9c4f86e493bc31",
+    "evidence/prior_replay.json": "b75c9532a6d20c37ecb214c03107182824619bf7a79642ad56c3c3d81eeeb47e",
+    "evidence/product_cycle_probe.json": "12fa6f2b33b44bb9592483af484b594d2c1e840480a663498a25c0c326fc0a55",
+    "evidence/turn_discovery_full.json": "57d7c8b4443ebeb821b5a95e377cf6fa91cec8777d823ea6669d19ffb566922f",
+    "evidence/turn_report.json": "a0c401bbd43bb1cf3ad8714c8e6530795452f811c061cb36fcfddd9e60d09d02",
+    "evidence/turn_values.json": "a5362c0a2cc7ee0b66094864113d145b4c4fc7555f0bd55b4dd7f3196c78044b"
+  },
+  "exhaustive_reports": {
+    "evidence/circle_metric_exhaustive.json": {
+      "matches_full_run_stdout_byte_for_byte": true,
+      "report": {
+        "common_radius_incidences": 784,
+        "minimum_common_radius_degree": 4,
+        "n": 138,
+        "normalized_gram_determinant": "128148374623207479053030007521364157575354428655370877304602698255679318270600757612059622147659427408014117533738307400067550940831420527940832019247624579886498403632643512631464820010109109739699952234006434848644771949871085913133218899606871498441442025211816020946375409509824216900456902819796688740579525244000856571078735255447883778714367256121650751806700773803752033306181135404401735939775036938281353330585215532571083180578947394869566936996604783969/500589600042747954271954347921012363195340402974547733003479992677804330220662100832776577893184477812019035486599130981445312500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "planar_euclidean": false,
+        "ptolemy_equalities": 1786002,
+        "ptolemy_inequalities": 43389270,
+        "quadruples": 14463090,
+        "status": "all exact checks passed",
+        "strict_kalmanson_inequalities": 28926180,
+        "strict_triangle_inequalities": 1285608
+      },
+      "sha256": "8a5c13a391d0f81c2e2b229cb5f962684121a313ef0051f90a1e924376f26632"
+    },
+    "evidence/metric_exhaustive.json": {
+      "matches_full_run_stdout_byte_for_byte": true,
+      "report": {
+        "common_radius_incidences": 784,
+        "minimum_common_radius_degree": 4,
+        "n": 138,
+        "normalized_gram_determinant": "6052449518192",
+        "planar_euclidean": false,
+        "quadruples": 14463090,
+        "status": "all exact checks passed",
+        "strict_kalmanson_inequalities": 28926180,
+        "strict_ptolemy_inequalities": 43389270,
+        "strict_triangle_inequalities": 1285608
+      },
+      "sha256": "a07da780a7f2f95e023d877a8a25c0e5747759366e04edf4ec9c4f86e493bc31"
+    }
+  },
+  "external_mathematical_review": false,
+  "limitations": [
+    "The arbitrary-size paper arguments and geometric reductions are not independently externally reviewed or formally verified.",
+    "The metric controls are not globally planar Euclidean point sets and are not counterexamples to Erdos #97.",
+    "The parabola theorem excludes deterministic target-carrier systems, not mixed witness rows or arbitrary convex polygons.",
+    "The three-block theorem assumes four witnesses outside each source block and does not improve the accepted unrestricted finite bound.",
+    "The tripled-Danzer search is bounded, and the two-internally-supported fixed-seed escape remains unexcluded.",
+    "Repository-wide make verify-fast, make verify-artifacts, and Lean checks were not run for this standalone packet."
+  ],
+  "parabola_certificate_sha256": "6216f447260565f4f2e6bd77ade79c23a8e3111770832a37cef9d7a333ce95de",
+  "published_novelty_established": false,
+  "pull_request_opened": false,
+  "repository_baseline": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "repository_wide_ci": false,
+  "repository_write": false,
+  "research_date": "2026-09-09",
+  "schema": "erdos97.final_push.consolidated_validation.v1",
+  "source_comparison": {
+    "added_sources": [
+      "parabola/test_parabola.py",
+      "parabola/verify.py"
+    ],
+    "all_final_source_and_archive_hashes_match_completed_python_replay": true,
+    "changed_existing_files": [
+      "replay.py"
+    ],
+    "final_source_and_archive_sha256": {
+      "audit_medians.py": "327bb50954ce4dcfcfe753ac1e0af6add719aa34d6948c8c42f645190c971335",
+      "blocks.py": "3c02b3c930dc8560fd25b7a9f8d0d6bec44e1b87c89ce9d63097fa72131ce7d0",
+      "cap_probe.py": "74c44b54c7adaa5d8bdb56451ea2ac6fd6cbb94bf73864203b4fa069c71067c3",
+      "check_circle_metric.cpp": "39ef67aa85f985af781382c68d29443b1ada09bb2e8cbff3a7c646b58b6ca1f9",
+      "check_metric.cpp": "47810e6fb824b18d5b66aa1f28ee05b1be46c6de8e06579c63e6f50b9d2bb562",
+      "circle_star_metric.py": "7966d8afdd5f1b73140cfe655bd97bb3817f9a04fbd15f053caec3efec8a912c",
+      "circle_star_oracle.py": "8528bf5d72bf0351e36c08514376ce14d68a40e00e93e433da1f45efadd095b6",
+      "grid_metric.py": "cabd4945e05ace576302bb21b1b0f60d23a5325783b4d3e514e1f1b790d422bb",
+      "grid_metric_probe.py": "5b815ad5e2d6b22a4de5e9701f559f00d58e724321026cce2be810a93929fd21",
+      "grid_oracle.py": "b5c91e71a062385b95dd6dcbc085245aa8be8bc18e212dca519911c2552fe25b",
+      "inputs/internal_support.zip": "dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1",
+      "median_direct.py": "f281b607a3162c5ce1496f158c498f77b82e5995c4019438def29e620d142c88",
+      "median_probe.py": "30912169c60883eeec9d171bb30276660959e89e532a3e8addd39af3f82b3dc0",
+      "median_search.py": "dbe134bb24c2025681093ece03ef1f02d2a1e675d8da8f5608aa34e36fd59e4e",
+      "metric_probe.py": "c03a763e728278d72396da8607ce907ba74e305fcffa24c56fad46883a999925",
+      "parabola/test_parabola.py": "ddbf979c47340f93b72214870ab050d2ea6a278de366d401eed0473852fa03e3",
+      "parabola/verify.py": "3d206b52b7d0ac9fec9c9ec0da40f88d6b5206bd5313eafecbf826f79447cb71",
+      "previous.py": "c4fcf430aab2b68798d82361bdff0e1f435f7b90b5939ae190601d36d3b7f4fa",
+      "product_cycle_probe.py": "ea6149292701c920cb06713e82301f442f88c0b8196339474ac6daff5c56e018",
+      "replay.py": "27c0048a9f6848c14f59cb760c950737bcb112b6108bdd547508afb04f7593ad",
+      "test_final_push.py": "7e6d2c5a8e5ba4e0654789e3a5f72c81ed16f84aeb76517d9ee8988a65901065",
+      "test_star_extension.py": "2e4a8309d028d5786042acb070ac7cb60e493c359b6eec9cf000eca3bba623f7",
+      "turn_control.py": "33b84e51daeb669e1be71c3070484c11c465949c7d45a0305fc3460c27b01af0"
+    },
+    "unchanged_existing_source_and_archive_entries": 20,
+    "wrapper_change": "Added the standalone parabola verifier/tests, recursive source hashing, and accurate relative working-directory labels. No existing mathematical checker changed."
+  },
+  "stages": [
+    {
+      "completed_checks": "54 core/star tests, both complete C++/GMP metric scans, exact Python reports/oracles/turn audit, and all 101 inherited tests",
+      "file": "validation_full_before_parabola.json",
+      "note": "Executed before addition of the standalone parabola verifier. Source and input hashes were equal before and after this run.",
+      "sha256": "6076350300079e77a3d539e21ce6fe059dbe97a742ba9f2ecbe0f9ec12390f22",
+      "status": "passed",
+      "top_level_commands": 12
+    },
+    {
+      "completed_checks": "Final complete Python replay: 54 core/star tests, 12 parabola tests, exact metric reconstruction/oracles, scalar turn and median certificate audit, parabola controls",
+      "file": "validation_complete_python.json",
+      "note": "This final Python stage did not rerun the C++ scans or inherited tests. Those successful runs are retained in the preceding component report, and their mathematical sources and input archive are unchanged.",
+      "sha256": "23bfc066b87ede7e99aa3473206a2563151e1a4aa083859b7a3727a832fbe086",
+      "status": "passed",
+      "top_level_commands": 9
+    }
+  ],
+  "status": "passed",
+  "tests": {
+    "all_passed": true,
+    "inherited_cap_closure": 30,
+    "inherited_codesign": 31,
+    "inherited_internal_support": 40,
+    "inherited_total": 101,
+    "new_core_and_star": 54,
+    "new_parabola": 12,
+    "new_total": 66,
+    "repeated_executions_counted_as_new_tests": false,
+    "unique_new_and_inherited_total": 167
+  },
+  "unrestricted_solution": false
+}

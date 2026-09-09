@@ -1,0 +1,168 @@
+{
+  "commands": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "verify.py",
+        "--check"
+      ],
+      "elapsed_seconds": 293.321,
+      "name": "primary",
+      "returncode": 0,
+      "stderr": "data/validation_primary.stderr.txt",
+      "stdout": "data/validation_primary.stdout.txt",
+      "working_directory": "packet"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "oracle_parallel.py",
+        "--jobs",
+        "4",
+        "--check"
+      ],
+      "elapsed_seconds": 567.628,
+      "name": "independent",
+      "returncode": 0,
+      "stderr": "data/validation_independent.stderr.txt",
+      "stdout": "data/validation_independent.stdout.txt",
+      "working_directory": "packet"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "build_certificate.py",
+        "--check"
+      ],
+      "elapsed_seconds": 0.149,
+      "name": "partition_generator",
+      "returncode": 0,
+      "stderr": "data/validation_partition_generator.stderr.txt",
+      "stdout": "data/validation_partition_generator.stdout.txt",
+      "working_directory": "packet"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "last_leaf_audit.py",
+        "--check"
+      ],
+      "elapsed_seconds": 1.858,
+      "name": "last_leaf_cancellations",
+      "returncode": 0,
+      "stderr": "data/validation_last_leaf_cancellations.stderr.txt",
+      "stdout": "data/validation_last_leaf_cancellations.stdout.txt",
+      "working_directory": "packet"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "sharpness.py",
+        "--check"
+      ],
+      "elapsed_seconds": 0.265,
+      "name": "sharpness",
+      "returncode": 0,
+      "stderr": "data/validation_sharpness.stderr.txt",
+      "stdout": "data/validation_sharpness.stdout.txt",
+      "working_directory": "packet"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "audit_sharpness.py",
+        "--check"
+      ],
+      "elapsed_seconds": 0.04,
+      "name": "sharpness_independent",
+      "returncode": 0,
+      "stderr": "data/validation_sharpness_independent.stderr.txt",
+      "stdout": "data/validation_sharpness_independent.stdout.txt",
+      "working_directory": "packet"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_two_free.py"
+      ],
+      "elapsed_seconds": 15.198,
+      "name": "new_tests",
+      "returncode": 0,
+      "stderr": "data/validation_new_tests.stderr.txt",
+      "stdout": "data/validation_new_tests.stdout.txt",
+      "working_directory": "packet"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "replay.py",
+        "--with-inherited",
+        "--output",
+        "/mnt/data/erdos97_two_free_2026_09_09/data/inherited_replay.json"
+      ],
+      "elapsed_seconds": 272.897,
+      "name": "inherited",
+      "returncode": 0,
+      "stderr": "data/validation_inherited.stderr.txt",
+      "stdout": "data/validation_inherited.stdout.txt",
+      "working_directory": "hash-bound inherited packet"
+    }
+  ],
+  "external_mathematical_review": false,
+  "input_archive_after": "dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1",
+  "input_archive_before": "dfd032636763cf67c45338c22f24334eb9e5b17367a0de57b00eb074cdfea0e1",
+  "lean_formalization": false,
+  "mathematical_sources_unchanged": true,
+  "pull_request_opened": false,
+  "python": "3.13.5",
+  "repository_baseline": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "repository_wide_ci_performed": false,
+  "repository_write_performed": false,
+  "source_hashes_after": {
+    "audit_sharpness.py": "751dc9ecadd5e48f2cd874ac3c441a930987ee3295a47434fb27a276c27e16af",
+    "build_certificate.py": "12a311fbc7b4c47b4d7d0f05e65b5c779bd4fc2652029b5d9dbde2a19b83c51b",
+    "certificate_arithmetic.py": "7d67f93abc8d9b0458b71f44a0949db03e544d05c3af81fb8d0c2dc5ad041e29",
+    "discover.py": "03ad1b3fb603e6fc53f997b83c795a1f9a9b904d6555e632925862c5fc314841",
+    "geometry.py": "882813103de0e6ab94370d6a53fd02bfce812411ff3045c0e427935c2cb06a04",
+    "last_leaf_audit.py": "afd7ffe042492d1210477d6b65f3fcd48810d78200d59aee89cd59bdc05f9c5c",
+    "metric_filter.py": "7035de45d06243a36865fe8dc0c79ae0ffb6b83aaf3368c1f1f3b893d26275e5",
+    "oracle.py": "c5767fc77d90ebf9bdc56900cc11c01aafe5770659b0209ca5c1436f89e2858a",
+    "oracle_parallel.py": "b416fdfdaa2687988ea867ebbffeb7c2e3bc48b00c86bf0f50394122aa72b4ea",
+    "prior.py": "e93a5b896b87366e7cb4a5711bc2a100be8609bd7e230ab654beec8d3fa14a21",
+    "row_search.py": "2fea3a532d99a530d2df9e5712fcc3b3c8631124e9217acf4309b04a01e556fe",
+    "run_validation.py": "4bd4ce237c0df9e4f1b4471d705ba84dccab86626c8c2f50b971e40ce1926b83",
+    "sharpness.py": "b0afe2850aace1ef5010eacdf925fea44e599910eb6160f92fe105237f050165",
+    "test_two_free.py": "e3af9a0ccde46cc4d5dffb8d3a4a07d1b33679ba1bf59f75e1b6c203f0597268",
+    "verify.py": "93e31ff579f85a6894fdf70e2eaf4eb04452e7689b6c4decff0988f53ad73b8b"
+  },
+  "source_hashes_before": {
+    "audit_sharpness.py": "751dc9ecadd5e48f2cd874ac3c441a930987ee3295a47434fb27a276c27e16af",
+    "build_certificate.py": "12a311fbc7b4c47b4d7d0f05e65b5c779bd4fc2652029b5d9dbde2a19b83c51b",
+    "certificate_arithmetic.py": "7d67f93abc8d9b0458b71f44a0949db03e544d05c3af81fb8d0c2dc5ad041e29",
+    "discover.py": "03ad1b3fb603e6fc53f997b83c795a1f9a9b904d6555e632925862c5fc314841",
+    "geometry.py": "882813103de0e6ab94370d6a53fd02bfce812411ff3045c0e427935c2cb06a04",
+    "last_leaf_audit.py": "afd7ffe042492d1210477d6b65f3fcd48810d78200d59aee89cd59bdc05f9c5c",
+    "metric_filter.py": "7035de45d06243a36865fe8dc0c79ae0ffb6b83aaf3368c1f1f3b893d26275e5",
+    "oracle.py": "c5767fc77d90ebf9bdc56900cc11c01aafe5770659b0209ca5c1436f89e2858a",
+    "oracle_parallel.py": "b416fdfdaa2687988ea867ebbffeb7c2e3bc48b00c86bf0f50394122aa72b4ea",
+    "prior.py": "e93a5b896b87366e7cb4a5711bc2a100be8609bd7e230ab654beec8d3fa14a21",
+    "row_search.py": "2fea3a532d99a530d2df9e5712fcc3b3c8631124e9217acf4309b04a01e556fe",
+    "run_validation.py": "4bd4ce237c0df9e4f1b4471d705ba84dccab86626c8c2f50b971e40ce1926b83",
+    "sharpness.py": "b0afe2850aace1ef5010eacdf925fea44e599910eb6160f92fe105237f050165",
+    "test_two_free.py": "e3af9a0ccde46cc4d5dffb8d3a4a07d1b33679ba1bf59f75e1b6c203f0597268",
+    "verify.py": "93e31ff579f85a6894fdf70e2eaf4eb04452e7689b6c4decff0988f53ad73b8b"
+  },
+  "status": "passed",
+  "unrestricted_solution_claimed": false
+}

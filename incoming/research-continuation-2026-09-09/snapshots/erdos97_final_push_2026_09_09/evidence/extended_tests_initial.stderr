@@ -1,0 +1,69 @@
+test_17_count_forces_three_five_point_blocks (test_final_push.BlockTests.test_17_count_forces_three_five_point_blocks) ... ok
+test_18_pair_cost_equality_forces_two_plus_two (test_final_push.BlockTests.test_18_pair_cost_equality_forces_two_plus_two) ... ok
+test_19_incidence_square_identity (test_final_push.BlockTests.test_19_incidence_square_identity) ... ok
+test_20_all_five_cycles_excluded_as_inversion_graphs (test_final_push.BlockTests.test_20_all_five_cycles_excluded_as_inversion_graphs) ... ok
+test_21_even_cycle_positive_control (test_final_push.BlockTests.test_21_even_cycle_positive_control) ... ok
+test_22_every_inversion_orientation_is_transitive (test_final_push.BlockTests.test_22_every_inversion_orientation_is_transitive) ... ok
+test_23_invalid_permutation_rejected (test_final_push.BlockTests.test_23_invalid_permutation_rejected) ... ok
+test_33_simplex_control_is_rich_but_not_strict_kalmanson (test_final_push.CppDefensiveTests.test_33_simplex_control_is_rich_but_not_strict_kalmanson) ... ok
+test_34_trailing_data_rejected (test_final_push.CppDefensiveTests.test_34_trailing_data_rejected) ... ok
+test_35_truncated_data_rejected (test_final_push.CppDefensiveTests.test_35_truncated_data_rejected) ... ok
+test_36_noninteger_data_rejected (test_final_push.CppDefensiveTests.test_36_noninteger_data_rejected) ... ok
+test_24_complete_local_domain_census (test_final_push.MedianTests.test_24_complete_local_domain_census) ... ok
+test_25_all_five_saved_patterns_pass_both_medians (test_final_push.MedianTests.test_25_all_five_saved_patterns_pass_both_medians) ... ok
+test_26_all_fifty_four_certificates_pass_two_checkers (test_final_push.MedianTests.test_26_all_fifty_four_certificates_pass_two_checkers) ... ok
+test_27_negative_weight_rejected (test_final_push.MedianTests.test_27_negative_weight_rejected) ... ok
+test_28_missing_strict_inequality_rejected (test_final_push.MedianTests.test_28_missing_strict_inequality_rejected) ... ok
+test_29_wrong_cyclic_order_rejected (test_final_push.MedianTests.test_29_wrong_cyclic_order_rejected) ... ok
+test_30_omitted_equality_premise_rejected (test_final_push.MedianTests.test_30_omitted_equality_premise_rejected) ... ok
+test_31_prior_pattern_is_not_a_median_survivor (test_final_push.MedianTests.test_31_prior_pattern_is_not_a_median_survivor) ... ok
+test_32_prior_archive_unchanged (test_final_push.MedianTests.test_32_prior_archive_unchanged) ... ok
+test_01_every_label_is_rich_at_common_radius (test_final_push.MetricTests.test_01_every_label_is_rich_at_common_radius) ... ok
+test_02_every_selected_row_has_four_exact_distances (test_final_push.MetricTests.test_02_every_selected_row_has_four_exact_distances) ... ok
+test_03_full_fibers_are_linear (test_final_push.MetricTests.test_03_full_fibers_are_linear) ... ok
+test_04_all_analytic_margins_are_strict (test_final_push.MetricTests.test_04_all_analytic_margins_are_strict) ... ok
+test_05_degree_histogram_and_incidence_count (test_final_push.MetricTests.test_05_degree_histogram_and_incidence_count) ... ok
+test_06_all_elementary_cyclic_constraints_checked (test_final_push.MetricTests.test_06_all_elementary_cyclic_constraints_checked) ... ok
+test_07_nonplanarity_is_exact (test_final_push.MetricTests.test_07_nonplanarity_is_exact) ... ok
+test_08_saved_primary_certificate_matches (test_final_push.MetricTests.test_08_saved_primary_certificate_matches) ... ok
+test_09_different_representation_reconstructs_entire_matrix (test_final_push.MetricTests.test_09_different_representation_reconstructs_entire_matrix) ... ok
+test_10_false_gram_determinant_rejected (test_final_push.MetricTests.test_10_false_gram_determinant_rejected) ... ok
+test_11_omitted_radius_witness_rejected (test_final_push.MetricTests.test_11_omitted_radius_witness_rejected) ... ok
+test_12_wrong_point_order_rejected (test_final_push.MetricTests.test_12_wrong_point_order_rejected) ... ok
+test_13_altered_integer_entry_rejected (test_final_push.MetricTests.test_13_altered_integer_entry_rejected) ... ok
+test_14_unit_radius_normalization (test_final_push.MetricTests.test_14_unit_radius_normalization) ... ok
+test_15_general_grid_direction_argument_finite_controls (test_final_push.MetricTests.test_15_general_grid_direction_argument_finite_controls) ... ok
+test_16_exhaustive_checker_inventory (test_final_push.MetricTests.test_16_exhaustive_checker_inventory) ... ok
+test_all_circle_coordinates_unit (test_star_extension.StarExtension.test_all_circle_coordinates_unit) ... ok
+test_all_rich_and_no_other_ties (test_star_extension.StarExtension.test_all_rich_and_no_other_ties) ... ok
+test_circle_ptolemy_not_all_strict (test_star_extension.StarExtension.test_circle_ptolemy_not_all_strict) ... ok
+test_exact_turns_both_controls (test_star_extension.StarExtension.test_exact_turns_both_controls) ... ok
+test_general_index_tie_bound (test_star_extension.StarExtension.test_general_index_tie_bound) ... ok
+test_local_star_gram_zero (test_star_extension.StarExtension.test_local_star_gram_zero) ... ok
+test_nonplanar_but_each_circle_quad_planar (test_star_extension.StarExtension.test_nonplanar_but_each_circle_quad_planar) ... ok
+test_nonpositive_turn_rejected (test_star_extension.StarExtension.test_nonpositive_turn_rejected) ... ok
+test_saved_star_certificate (test_star_extension.StarExtension.test_saved_star_certificate) ... FAIL
+test_separate_matrix_star_oracle (test_star_extension.StarExtension.test_separate_matrix_star_oracle) ... ok
+test_size_reduction_not_overextended (test_star_extension.StarExtension.test_size_reduction_not_overextended) ... ok
+test_star_counts (test_star_extension.StarExtension.test_star_counts) ... ok
+test_strict_mixed_margins (test_star_extension.StarExtension.test_strict_mixed_margins) ... ok
+test_three_block_size_reduction_through_16 (test_star_extension.StarExtension.test_three_block_size_reduction_through_16) ... ok
+test_turn_total_tampering_rejected (test_star_extension.StarExtension.test_turn_total_tampering_rejected) ... ok
+test_turns_are_not_geometrically_compatible (test_star_extension.StarExtension.test_turns_are_not_geometrically_compatible) ... ok
+test_two_representations_of_circle (test_star_extension.StarExtension.test_two_representations_of_circle) ... ok
+test_uniform_turn_does_not_pass (test_star_extension.StarExtension.test_uniform_turn_does_not_pass) ... ok
+
+======================================================================
+FAIL: test_saved_star_certificate (test_star_extension.StarExtension.test_saved_star_certificate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/data/erdos97_final_push_2026_09_09/test_star_extension.py", line 16, in test_saved_star_certificate
+    self.assertEqual(self.r,json.loads((ROOT/'evidence/circle_star_metric.json').read_text()))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'schema': 'erdos97.locally_planar_rich_sta[11472 chars]alse} != {'all_radius_two_center_max_fiber_intersect[11482 chars]3252}
+Diff is 18977 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 54 tests in 6.122s
+
+FAILED (failures=1)

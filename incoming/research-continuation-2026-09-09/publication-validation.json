@@ -1,0 +1,149 @@
+{
+  "base_sha": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "date": "2026-09-09",
+  "elapsed_seconds": 519.834,
+  "exhaustive_cpp_metric_replay_repeated": false,
+  "explicit_archival_whitespace_exceptions": {
+    "captured_stdout_terminal_blank_line_files": 19,
+    "markdown_hard_break_files": 1,
+    "mathematical_python_cpp_files_exempted": 0
+  },
+  "full_two_free_replay_repeated": false,
+  "git_diff_cached_check_passed": true,
+  "independent_mathematical_review": false,
+  "mode": "scoped",
+  "packets": [
+    {
+      "commands": 4,
+      "log": "reports/cap-closure.json",
+      "packet": "cap-closure",
+      "status": "passed",
+      "unit_tests_run": 30
+    },
+    {
+      "commands": 3,
+      "log": "reports/codesign.json",
+      "packet": "codesign",
+      "status": "passed",
+      "unit_tests_run": 31
+    },
+    {
+      "commands": 9,
+      "log": "reports/final-push.json",
+      "packet": "final-push",
+      "status": "passed",
+      "unit_tests_run": 66
+    },
+    {
+      "commands": 4,
+      "log": "reports/internal-support.json",
+      "packet": "internal-support",
+      "status": "passed",
+      "unit_tests_run": 40
+    },
+    {
+      "commands": 5,
+      "log": "reports/mixed-lens.json",
+      "packet": "mixed-lens",
+      "status": "passed",
+      "unit_tests_run": 37
+    },
+    {
+      "commands": 5,
+      "log": "reports/two-free.json",
+      "packet": "two-free",
+      "status": "passed",
+      "unit_tests_run": 58
+    }
+  ],
+  "publication_python_syntax_compatible_with_310": true,
+  "publication_unit_tests": {
+    "artifact_replays_deselected": 6,
+    "command": "python -m pytest -q -o addopts='' -m 'not artifact' test_research_continuation_publication.py",
+    "passed": 8,
+    "report": "reports/publication-tests.txt"
+  },
+  "pull_request_opened": false,
+  "python": "3.13.5",
+  "repository_wide_ci_performed": false,
+  "repository_write_performed": false,
+  "schema": "erdos97.research_continuation_publication_validation.v1",
+  "source_integrity_after": {
+    "nested_archives_matched": [
+      {
+        "matches_archive": "erdos97_codesign_research_2026_09_08.zip",
+        "path": "erdos97_cap_closure_packet_2026_09_08/inputs/previous_packet.zip"
+      },
+      {
+        "matches_archive": "erdos97_internal_support_research_2026_09_08.zip",
+        "path": "erdos97_final_push_2026_09_09/inputs/internal_support.zip"
+      },
+      {
+        "matches_archive": "erdos97_cap_closure_research_2026_09_08.zip",
+        "path": "erdos97_internal_support_2026_09_08/inputs/cap_closure.zip"
+      },
+      {
+        "matches_archive": "erdos97_internal_support_research_2026_09_08.zip",
+        "path": "erdos97_mixed_support_2026_09_09/inputs/prior_internal_support.zip"
+      },
+      {
+        "matches_archive": "erdos97_internal_support_research_2026_09_08.zip",
+        "path": "erdos97_two_free_2026_09_09/inputs/internal_support.zip"
+      }
+    ],
+    "original_manifest_entries": 319,
+    "source_archives": 6,
+    "source_files": 325,
+    "status": "passed"
+  },
+  "source_integrity_before": {
+    "nested_archives_matched": [
+      {
+        "matches_archive": "erdos97_codesign_research_2026_09_08.zip",
+        "path": "erdos97_cap_closure_packet_2026_09_08/inputs/previous_packet.zip"
+      },
+      {
+        "matches_archive": "erdos97_internal_support_research_2026_09_08.zip",
+        "path": "erdos97_final_push_2026_09_09/inputs/internal_support.zip"
+      },
+      {
+        "matches_archive": "erdos97_cap_closure_research_2026_09_08.zip",
+        "path": "erdos97_internal_support_2026_09_08/inputs/cap_closure.zip"
+      },
+      {
+        "matches_archive": "erdos97_internal_support_research_2026_09_08.zip",
+        "path": "erdos97_mixed_support_2026_09_09/inputs/prior_internal_support.zip"
+      },
+      {
+        "matches_archive": "erdos97_internal_support_research_2026_09_08.zip",
+        "path": "erdos97_two_free_2026_09_09/inputs/internal_support.zip"
+      }
+    ],
+    "original_manifest_entries": 319,
+    "source_archives": 6,
+    "source_files": 325,
+    "status": "passed"
+  },
+  "standalone_attachments_all_match": true,
+  "standalone_attachments_compared": 36,
+  "status": "passed",
+  "unit_tests_run": 262,
+  "unperformed_gates": [
+    {
+      "command": "make verify-fast",
+      "reason": "No complete repository checkout; direct GitHub git access failed DNS resolution."
+    },
+    {
+      "command": "make verify-artifacts",
+      "reason": "No complete repository checkout; direct GitHub git access failed DNS resolution."
+    },
+    {
+      "command": "python -m ruff check .",
+      "reason": "No complete checkout and Ruff not installed."
+    },
+    {
+      "command": "python scripts/generate_navigation.py --check",
+      "reason": "No complete checkout; only exact incoming inventory was retrieved."
+    }
+  ]
+}

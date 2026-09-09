@@ -1,0 +1,45 @@
+test_01_full_primary_replay (test_internal_support.InternalSupportTests.test_01_full_primary_replay) ... ok
+test_02_full_second_representation (test_internal_support.InternalSupportTests.test_02_full_second_representation) ... ok
+test_03_archive_identity (test_internal_support.InternalSupportTests.test_03_archive_identity) ... ok
+test_04_changed_archive_rejected_before_load (test_internal_support.InternalSupportTests.test_04_changed_archive_rejected_before_load) ... ok
+test_05_exact_field_rejects_float (test_internal_support.InternalSupportTests.test_05_exact_field_rejects_float) ... ok
+test_06_optimized_mode_rejected (test_internal_support.InternalSupportTests.test_06_optimized_mode_rejected) ... ok
+test_07_all_ninety_cases_present (test_internal_support.InternalSupportTests.test_07_all_ninety_cases_present) ... ok
+test_08_omitted_case_rejected (test_internal_support.InternalSupportTests.test_08_omitted_case_rejected) ... ok
+test_09_changed_source_hash_rejected (test_internal_support.InternalSupportTests.test_09_changed_source_hash_rejected) ... ok
+test_10_false_solution_status_rejected (test_internal_support.InternalSupportTests.test_10_false_solution_status_rejected) ... ok
+test_11_illegal_domain_split_rejected (test_internal_support.InternalSupportTests.test_11_illegal_domain_split_rejected) ... ok
+test_12_missing_split_child_rejected (test_internal_support.InternalSupportTests.test_12_missing_split_child_rejected) ... ok
+test_13_tampered_incoming_edge_rejected (test_internal_support.InternalSupportTests.test_13_tampered_incoming_edge_rejected) ... ok
+test_14_tampered_outgoing_edge_rejected (test_internal_support.InternalSupportTests.test_14_tampered_outgoing_edge_rejected) ... ok
+test_15_false_graph_core_rejected (test_internal_support.InternalSupportTests.test_15_false_graph_core_rejected) ... ok
+test_16_missing_peeling_layer_rejected (test_internal_support.InternalSupportTests.test_16_missing_peeling_layer_rejected) ... ok
+test_17_changed_distance_range_rejected (test_internal_support.InternalSupportTests.test_17_changed_distance_range_rejected) ... ok
+test_18_omitted_radius_target_set_rejected (test_internal_support.InternalSupportTests.test_18_omitted_radius_target_set_rejected) ... ok
+test_19_omitted_conflict_rejected (test_internal_support.InternalSupportTests.test_19_omitted_conflict_rejected) ... ok
+test_20_omitted_four_subset_rejected (test_internal_support.InternalSupportTests.test_20_omitted_four_subset_rejected) ... ok
+test_21_false_conflict_pair_rejected (test_internal_support.InternalSupportTests.test_21_false_conflict_pair_rejected) ... ok
+test_22_projection_interior_boundary_and_exterior (test_internal_support.InternalSupportTests.test_22_projection_interior_boundary_and_exterior) ... ok
+test_23_distance_minima_agree_on_all_root_domains (test_internal_support.InternalSupportTests.test_23_distance_minima_agree_on_all_root_domains) ... ok
+test_24_graph_peeling_independent_random_controls (test_internal_support.InternalSupportTests.test_24_graph_peeling_independent_random_controls) ... ok
+test_25_positive_control_full_replay (test_internal_support.InternalSupportTests.test_25_positive_control_full_replay) ... ok
+test_26_positive_control_wrong_rich_row_rejected (test_internal_support.InternalSupportTests.test_26_positive_control_wrong_rich_row_rejected) ... ok
+test_27_positive_control_duplicate_point_rejected (test_internal_support.InternalSupportTests.test_27_positive_control_duplicate_point_rejected) ... ok
+test_28_positive_control_float_rejected (test_internal_support.InternalSupportTests.test_28_positive_control_float_rejected) ... ok
+test_29_positive_control_false_all_rich_rejected (test_internal_support.InternalSupportTests.test_29_positive_control_false_all_rich_rejected) ... ok
+test_30_positive_control_wrong_internal_count_rejected (test_internal_support.InternalSupportTests.test_30_positive_control_wrong_internal_count_rejected) ... ok
+test_31_all_saved_pattern_certificates_two_checkers (test_internal_support.InternalSupportTests.test_31_all_saved_pattern_certificates_two_checkers) ... ok
+test_32_negative_inequality_weight_rejected (test_internal_support.InternalSupportTests.test_32_negative_inequality_weight_rejected) ... ok
+test_33_incorrect_cyclic_order_rejected (test_internal_support.InternalSupportTests.test_33_incorrect_cyclic_order_rejected) ... ok
+test_34_missing_required_equality_row_rejected (test_internal_support.InternalSupportTests.test_34_missing_required_equality_row_rejected) ... ok
+test_35_missing_strict_inequality_rejected (test_internal_support.InternalSupportTests.test_35_missing_strict_inequality_rejected) ... ok
+test_36_tripled_patterns_saturate_pair_resources (test_internal_support.InternalSupportTests.test_36_tripled_patterns_saturate_pair_resources) ... ok
+test_37_two_copy_pigeonhole_domain (test_internal_support.InternalSupportTests.test_37_two_copy_pigeonhole_domain) ... ok
+test_38_three_copy_saturation_domain (test_internal_support.InternalSupportTests.test_38_three_copy_saturation_domain) ... ok
+test_39_convex_control_strict_quadrilateral_inequalities (test_internal_support.InternalSupportTests.test_39_convex_control_strict_quadrilateral_inequalities) ... ok
+test_40_filtered_reports_discrete_audit (test_internal_support.InternalSupportTests.test_40_filtered_reports_discrete_audit) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 233.115s
+
+OK

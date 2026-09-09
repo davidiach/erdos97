@@ -1,0 +1,7 @@
+{
+  "initial_distinct_fixed_patterns": 3,
+  "initial_exact_certificates": 14,
+  "filtered_patterns_checked": 12,
+  "filtered_exact_certificates": 119,
+  "status": "passed; no family infeasibility inferred"
+}

@@ -1,0 +1,8 @@
+0 12 False optimized stages 2 {'max_squared_distance_spread': 2.802482653619922, 'min_support_determinant': 5.159111160724095e-06, 'min_pair_distance': 0.03001683827216684, 'rms_radius': 1.0000000000000124}
+1 12 False optimized stages 2 {'max_squared_distance_spread': 3.6718681581524373, 'min_support_determinant': 2.3079502470681884e-05, 'min_pair_distance': 0.03000088841820325, 'rms_radius': 1.00000000000294}
+2 15 False optimized stages 2 {'max_squared_distance_spread': 2.9252748894953204, 'min_support_determinant': 2.4999999492337794e-05, 'min_pair_distance': 0.030921525970646832, 'rms_radius': 1.0000000000000024}
+3 15 False optimized stages 2 {'max_squared_distance_spread': 3.9052588332664566, 'min_support_determinant': 2.4999994189478514e-05, 'min_pair_distance': 0.029999999998893863, 'rms_radius': 1.0000000000002478}
+4 18 False optimized stages 2 {'max_squared_distance_spread': 2.2625600300362887, 'min_support_determinant': 2.499999784841278e-05, 'min_pair_distance': 0.02999999999903935, 'rms_radius': 1.000000000000086}
+5 18 False optimized stages 2 {'max_squared_distance_spread': 3.1461712288682477, 'min_support_determinant': 2.4999999820825465e-05, 'min_pair_distance': 0.043135133085984885, 'rms_radius': 1.0000000000000153}
+6 18 True optimized stages 2 {'max_squared_distance_spread': 3.3328023341887714, 'min_support_determinant': 8.464403878606034e-07, 'min_pair_distance': 0.0015783526312422855, 'rms_radius': 1.0000000000146378}
+7 18 True optimized stages 2 {'max_squared_distance_spread': 3.0970005131713214, 'min_support_determinant': 8.464070924479525e-07, 'min_pair_distance': 0.011999999997276748, 'rms_radius': 1.0000000000010476}

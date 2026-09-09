@@ -1,0 +1,18 @@
+{
+  "arithmetic": "flattened radical algebra and rational enclosures",
+  "directed_interval_pairs": 1722,
+  "external_mathematical_review": false,
+  "formalized_in_Lean": false,
+  "graph_method": "endpoint interpolation and reverse sequential peeling",
+  "largest_enclosure_precision_bits": 32,
+  "old_triples": 84,
+  "possible_edges": 123,
+  "remaining_core": [
+    6,
+    14,
+    22
+  ],
+  "slot_method": "first and second ray exit times",
+  "slots": 42,
+  "status": "passed"
+}

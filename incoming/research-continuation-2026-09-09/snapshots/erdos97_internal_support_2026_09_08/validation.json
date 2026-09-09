@@ -1,0 +1,189 @@
+{
+  "Lean_formalization": false,
+  "additional_targeted_test_repetitions": 1,
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_internal_support.py"
+      ],
+      "covers": [
+        "complete primary one-free regeneration",
+        "complete second representation",
+        "malformed certificate rejection",
+        "rational control",
+        "initial pattern proofs"
+      ],
+      "reported_test_runtime_seconds": 233.115,
+      "returncode": 0,
+      "stderr_file": "data/test_internal_support.stderr",
+      "stdout_file": "data/test_internal_support.stdout"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_internal_support.InternalSupportTests.test_40_filtered_reports_discrete_audit"
+      ],
+      "covers": [
+        "completed filtered scan after all final pattern data existed"
+      ],
+      "returncode": 0,
+      "stderr_file": "data/final_filtered_test.stderr",
+      "stdout_file": "data/final_filtered_test.stdout"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-S",
+        "combinatorics.py"
+      ],
+      "covers": [
+        "15 distinct fixed patterns",
+        "133 exact convex-quadrilateral certificates"
+      ],
+      "returncode": 0,
+      "stdout_file": "data/final_pattern_audit.json"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "replay.py"
+      ],
+      "covers": [
+        "30 cap-closure tests",
+        "31 earlier code-design tests",
+        "both inherited exact verifiers"
+      ],
+      "directory": "preceding cap packet",
+      "report_file": "data/prior_replay_current.json",
+      "returncode": 0,
+      "stderr_file": "data/prior_replay_current.stderr",
+      "warning": "Unrelated spreadsheet startup hook warnings are retained in captured stderr."
+    }
+  ],
+  "exploratory_invocations": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "exploratory/filtered_moving.py",
+        "--rounds",
+        "20",
+        "--time-limit",
+        "5",
+        "--output",
+        "exploratory/filtered_moving_622.json"
+      ],
+      "outcome": "no integral assignment returned before short solver limit; no exclusion",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "exploratory/filtered_moving.py",
+        "--rounds",
+        "12",
+        "--time-limit",
+        "20",
+        "--output",
+        "exploratory/filtered_moving_622_longer.json"
+      ],
+      "outcome": "duplicate-new-cut guard error; no completed result JSON",
+      "returncode": 1,
+      "source_snapshot": "exploratory/history/filtered_moving_before_duplicate_cut_fix.py"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-S",
+        "exploratory/filtered_moving.py",
+        "--rounds",
+        "12",
+        "--time-limit",
+        "20",
+        "--output",
+        "exploratory/filtered_moving_622_repaired.json"
+      ],
+      "exact_certificates": 119,
+      "learned_cuts": 117,
+      "outcome": "12 patterns exactly rejected before coordinate optimization",
+      "returncode": 0
+    }
+  ],
+  "external_mathematical_review": false,
+  "independent_one_free_report": {
+    "cases": 90,
+    "distance_minima": "origin projections onto Minkowski-difference convex hulls",
+    "external_mathematical_review": false,
+    "graph_check": "reverse sequential deletion plus full four-subset conflict coverage",
+    "largest_sign_enclosure_bits": 32,
+    "leaves": 225,
+    "maximum_depth": 7,
+    "nodes": 360,
+    "primary_code_imported": false,
+    "quadratic_coefficients": "interpolation at zero and plus/minus one",
+    "status": "passed"
+  },
+  "inherited_archive_sha256": "0a81018d0cb791362dda69506bc5044b260ef8d21d8627820dcf5f86234cc33c",
+  "inherited_test_count": 61,
+  "maintained_python_sha256": {
+    "audit_one_free.py": "1798c56b9f91b6f80e484a43c36f679eef9b8953380c7155e265436bb5d19b4b",
+    "combinatorics.py": "45bf9e30514b01abc789b7f1b6320fce0933f34e95eea1175cf2cdd44db69c62",
+    "controls.py": "4511502ef4c1f5cdffe8b73b9e2f43ace869f70bc5b435bb0fa5a8ea74355c7f",
+    "inherited.py": "29e73b8b537f3f37dc27e20d0bf00f74980668c4b11110ab5dd5c1274475d880",
+    "kalmanson.py": "04c10d43c7f2786045a67cd201a258a5783e9fe9d54bcefc4711e35b535016f7",
+    "one_free.py": "f3ac7fc9a4dc4467b0f474f8f318475cd44aa46c6ceb026bedff5d8fef7766bd",
+    "replay.py": "cac1b02f86ffe1d3acd482180a0a5758704cb2702f4dc9cf19bd47684e904988",
+    "test_internal_support.py": "a64a05386eb63f3f821705c73afdc1f49528e66e8a6fea8dfc7cb95cb9d55a32"
+  },
+  "moving_pattern_audit": {
+    "filtered_exact_certificates": 119,
+    "filtered_patterns_checked": 12,
+    "initial_distinct_fixed_patterns": 3,
+    "initial_exact_certificates": 14,
+    "status": "passed; no family infeasibility inferred"
+  },
+  "new_pr_opened": false,
+  "new_test_count": 40,
+  "one_free_case_count": 90,
+  "one_free_leaves": 225,
+  "one_free_maximum_depth": 7,
+  "one_free_nodes": 360,
+  "python": "3.13.5",
+  "repository_base_sha": "047d05149382e48b602b292df4b8fc9e2da560bb",
+  "repository_wide_ci": false,
+  "repository_write_performed": false,
+  "research_date": "2026-09-08",
+  "status": "passed for the recorded exact replays and tests; written geometry review pending",
+  "unrestricted_solution": false,
+  "validation_limits": [
+    "Two implementations in one session are not independent external mathematical review.",
+    "The geometric domain reduction and theorem statements require expert review.",
+    "The full replay.py wrapper was not run again after being added; its test suite was run directly. A wrapper checks-only smoke test is recorded separately.",
+    "All numerical optimizations retain their restricted witness pools and boundary order.",
+    "No all-pattern or all-order exhaustion is claimed by the moving-seed scan."
+  ],
+  "wrapper_smoke_test": {
+    "command": [
+      "/usr/bin/python3",
+      "-S",
+      "replay.py",
+      "--checks-only",
+      "--output",
+      "/mnt/data/internal_support_wrapper_smoke.json"
+    ],
+    "manifest_record_note": "Smoke test covered 61 entries before this smoke report itself was added.",
+    "report_file": "data/wrapper_checks_only_smoke.json",
+    "returncode": 0,
+    "scope": "controls and all discrete pattern certificates; full one-free checks were covered by the recorded 40-test run"
+  }
+}

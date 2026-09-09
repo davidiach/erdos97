@@ -1,0 +1,57 @@
+{
+  "status": "exploratory only; no infeasibility or exact solution claim",
+  "seed": 912,
+  "epsilon": 0.15,
+  "vertices": 27,
+  "old_base_vertices": 9,
+  "copies_per_cluster": 3,
+  "boundary_order": [
+    6,
+    7,
+    8,
+    12,
+    13,
+    14,
+    24,
+    25,
+    26,
+    0,
+    1,
+    2,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    3,
+    4,
+    5,
+    9,
+    10,
+    11,
+    21,
+    22,
+    23
+  ],
+  "initial_geometry": {
+    "minimum_supporting_area": 3.69771840685284e-05,
+    "minimum_pair_distance": 0.015994846680904437,
+    "strict_hull_numeric": true
+  },
+  "preflight_scope": [
+    "four distinct witnesses",
+    "two-circle intersection cap",
+    "two-overlap cyclic crossing",
+    "internal-cluster-pair capacity"
+  ],
+  "geometric_hypotheses": [
+    "fixed three-original-target-cluster pools",
+    "fixed cluster boundary order"
+  ],
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "python": "3.13.5"
+}
+preflight pattern True
+maximum residual 0.0033088061034499414

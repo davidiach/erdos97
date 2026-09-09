@@ -1,0 +1,191 @@
+{
+  "distinct_pair_checks": 91,
+  "internally_supported_new_vertices": [
+    0
+  ],
+  "maxima": [
+    4,
+    4,
+    4,
+    4,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "minimum_supporting_determinant": "2000000/250350122509",
+  "new_labels": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "old_labels": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "order": [
+    7,
+    0,
+    11,
+    12,
+    13,
+    1,
+    8,
+    9,
+    10,
+    2,
+    4,
+    3,
+    5,
+    6
+  ],
+  "points": [
+    [
+      "0",
+      "0"
+    ],
+    [
+      "1",
+      "0"
+    ],
+    [
+      "3/5",
+      "4/5"
+    ],
+    [
+      "0",
+      "1"
+    ],
+    [
+      "29197/50005",
+      "40596/50005"
+    ],
+    [
+      "-198/10001",
+      "9799/10001"
+    ],
+    [
+      "-98/2501",
+      "2399/2501"
+    ],
+    [
+      "-582/10009",
+      "9391/10009"
+    ],
+    [
+      "10199/10001",
+      "202/10001"
+    ],
+    [
+      "2599/2501",
+      "102/2501"
+    ],
+    [
+      "10591/10009",
+      "618/10009"
+    ],
+    [
+      "806/50005",
+      "-592/50005"
+    ],
+    [
+      "406/12505",
+      "-292/12505"
+    ],
+    [
+      "2454/50045",
+      "-1728/50045"
+    ]
+  ],
+  "rich_classes": [
+    {
+      "center": 0,
+      "new_witnesses": [
+        1,
+        2,
+        3
+      ],
+      "old_witnesses": [
+        4
+      ],
+      "squared_radius": "1",
+      "witnesses": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "center": 1,
+      "new_witnesses": [
+        3
+      ],
+      "old_witnesses": [
+        5,
+        6,
+        7
+      ],
+      "squared_radius": "2",
+      "witnesses": [
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "center": 2,
+      "new_witnesses": [
+        0
+      ],
+      "old_witnesses": [
+        11,
+        12,
+        13
+      ],
+      "squared_radius": "1",
+      "witnesses": [
+        0,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "center": 3,
+      "new_witnesses": [
+        1
+      ],
+      "old_witnesses": [
+        8,
+        9,
+        10
+      ],
+      "squared_radius": "2",
+      "witnesses": [
+        1,
+        8,
+        9,
+        10
+      ]
+    }
+  ],
+  "status": "exact positive control on a different seed; not a counterexample",
+  "supporting_checks": 168
+}

@@ -1,0 +1,101 @@
+{
+  "algebraic_controls": 2,
+  "cap_probe_cases": 4500,
+  "cap_probe_survivors": 2676,
+  "commands": [
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "verify.py",
+        "--check"
+      ],
+      "elapsed_seconds": 4.8304,
+      "returncode": 0,
+      "stderr": "data/check_1.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "data/check_1.stdout",
+      "stdout_sha256": "53db8cc46542e4df2c454d89662033ac34365580de8112b99401771e9add7abd"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "oracle.py",
+        "--check"
+      ],
+      "elapsed_seconds": 6.9214,
+      "returncode": 0,
+      "stderr": "data/check_2.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "data/check_2.stdout",
+      "stdout_sha256": "b1a287ae3d2bbbb87e74d4e400ad2a63963b5d6b475d31cca64e9145c2e1f956"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "cap_pair_probe.py",
+        "--check"
+      ],
+      "elapsed_seconds": 10.7927,
+      "returncode": 0,
+      "stderr": "data/check_3.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "data/check_3.stdout",
+      "stdout_sha256": "29fbe993966183d2812ba4f03ed1a099b23ce10440492eed10d9ce2685336b39"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_mixed_lens.py"
+      ],
+      "elapsed_seconds": 5.8015,
+      "returncode": 0,
+      "stderr": "data/check_4.stderr",
+      "stderr_sha256": "d6945b3c1bc653b1a51b2f57b5adf4b8d83fe5b98917cb24e054c6f3645926d2",
+      "stdout": "data/check_4.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "/opt/pyvenv/bin/python",
+        "-m",
+        "py_compile",
+        "exact.py",
+        "verify.py",
+        "oracle.py",
+        "cap_pair_probe.py",
+        "select_good.py",
+        "test_mixed_lens.py",
+        "check_manifest.py"
+      ],
+      "elapsed_seconds": 1.4738,
+      "returncode": 0,
+      "stderr": "data/check_5.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout": "data/check_5.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "control_support_signs": 30,
+  "environment": {
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "sympy": "1.14.0"
+  },
+  "exact_level_count_cases": 1825,
+  "formalized": false,
+  "independent_external_review": false,
+  "inherited_full_test_suite_run": false,
+  "mathematical_scope": "all-size symmetric parabolic-lens theorem only; written proof in proof.md",
+  "not_an_unrestricted_solution": true,
+  "pr_opened": false,
+  "repository_wide_ci_run": false,
+  "repository_writes": false,
+  "research_date": "2026-09-09",
+  "schema": "erdos97.mixed_lens_validation.v1",
+  "status": "passed",
+  "tests_passed": 37,
+  "universal_symbolic_identity_checks": 15
+}

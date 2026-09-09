@@ -1,0 +1,19 @@
+{
+  "schema": "erdos97.parabolic_lens_selector_controls.v1",
+  "controls": [
+    {
+      "name": "shallow_minimum_is_rich",
+      "invalid_selector": "minimum",
+      "upper_parameters": ["-17/20", "-849/1000", "29/100"],
+      "lower_root_interval": ["-932/1095", "-1641/1928"],
+      "order": [4, 0, 3, 2, 1]
+    },
+    {
+      "name": "deep_maximum_is_rich",
+      "invalid_selector": "maximum",
+      "upper_parameters": ["-9/10", "-3/4", "-3/8"],
+      "lower_root_interval": ["-1568/1341", "-1195/1022"],
+      "order": [4, 0, 3, 2, 1]
+    }
+  ]
+}
