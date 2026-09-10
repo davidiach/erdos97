@@ -1,0 +1,27 @@
+name: external audit input export
+
+on:
+  pull_request:
+    paths: ['.github/workflows/external-audit-input-export.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Export versioned repository data only
+        run: git bundle create "$RUNNER_TEMP/erdos97.bundle" HEAD --branches --tags
+      - uses: actions/upload-artifact@v4
+        with:
+          name: local-audit-source-${{ github.run_id }}
+          path: ${{ runner.temp }}/erdos97.bundle
+          retention-days: 7
+          if-no-files-found: error
