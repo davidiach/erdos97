@@ -9,6 +9,7 @@ Status: navigation only. These routes retain open geometric forcing obligations;
 - [Bootstrap core](../bootstrap-core-bridge.md)
 - [T12 target map](../bootstrap-t12-bridge-target-map.md)
 - [Specific remaining lemma obligations](../bootstrap-t12-151-6-label4-next-lemma-obligations.md)
+- [External B1 card-six research target](../external-n9-reproduction-2026-09-10.md#one-bounded-target-the-b1-card-six-blocker-between-branch)
 - [Failed approaches](../failed-ideas.md)
 
 Focused entry commands, from the repository root:
