@@ -26,6 +26,7 @@ No packet in this table is declared superseded by another here.
 | [Six-arc carrier and fixed-product obstructions](six-arc-product-obstructions-2026-09-08/README.md) | Review-pending six-arc good-point theorem, matched-equilateral certificates, fixed 27-point witness-system obstruction, and exact convex/nonconvex controls | `python replay.py --check`; `python -m pytest -q -o addopts='' test_six_arc_product_publication.py` |
 | [Research continuation: repairs, cap closure, and lens theorems](research-continuation-2026-09-09/README.md) | Six original September 8–9 packets: fixed-seed repairs and zero/one/two-internal-support obstructions, parabola/lens theorems, and exact controls; restricted and review-pending | `python publication.py`; `python publication.py --scoped`; `python publication.py --full` |
 | [General stars, Gabriel controls, and product-cycle audit](research-publication-2026-09-10/README.md) | Exact stored angle/phase certificates, geometric negative controls, supplier-arc and diamond proof candidates, and historical search evidence; no global reduction or accepted-bound change | `python -S publication.py`; `python -S publication.py --scoped` |
+| [External general-n9 and D2 audit](external-n9-d2-audit-2026-09-10/README.md) | Source-pinned external Lean consumers, exact hypothesis mapping, and fail-closed core-axiom audit tooling; no accepted-bound change | `PYTHONPATH=src python -m pytest -q tests/test_external_lean_audit.py`; see packet for isolated Lean replay |
 
 ## Historical imports
 
