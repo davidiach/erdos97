@@ -1,0 +1,86 @@
+name: external n9 and D2 audit
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/external-n9-d2-audit.yml'
+      - 'incoming/external-n9-d2-audit-2026-09-10/**'
+      - 'src/erdos97/external_lean_audit.py'
+      - 'scripts/audit_external_n9_d2.py'
+      - 'tests/test_external_lean_audit.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-n9-d2-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: mysticflounder/erdos-97-96-formalization
+          ref: d6b8e128af554eb430d060a31f26f863cea97c14
+          path: upstream
+          persist-credentials: false
+      - name: Export pinned audit inputs
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/external-audit-inputs"
+          git bundle create "$RUNNER_TEMP/external-audit-inputs/erdos97.bundle" HEAD --branches --tags
+          git -C upstream archive --format=tar.gz HEAD lean lean-toolchain comparator proof-status .blueprint.toml > "$RUNNER_TEMP/external-audit-inputs/upstream-sources.tar.gz"
+          git rev-parse HEAD > "$RUNNER_TEMP/external-audit-inputs/local-head.txt"
+          git -C upstream rev-parse HEAD > "$RUNNER_TEMP/external-audit-inputs/upstream-head.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: external-n9-d2-audit-inputs-${{ github.run_id }}
+          path: ${{ runner.temp }}/external-audit-inputs/
+          retention-days: 7
+          if-no-files-found: error
+
+  fresh-target-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: mysticflounder/erdos-97-96-formalization
+          ref: d6b8e128af554eb430d060a31f26f863cea97c14
+          persist-credentials: false
+      - name: Install upstream toolchain without project build caching
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: lean
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-github-cache: 'false'
+          use-mathlib-cache: 'true'
+      - name: Build exact target modules from source
+        working-directory: lean
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = d6b8e128af554eb430d060a31f26f863cea97c14
+          git diff --exit-code
+          mkdir -p "$RUNNER_TEMP/external-audit-logs"
+          lean --version | tee "$RUNNER_TEMP/external-audit-logs/lean-version.txt"
+          lake build +Erdos9796Proof.P97.SmallCardinality +Erdos9796Proof.P97.ATail.TwoRadiusGridNestedEscapeTerminal 2>&1 | tee "$RUNNER_TEMP/external-audit-logs/target-build.log"
+          git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: external-n9-d2-build-logs-${{ github.run_id }}
+          path: ${{ runner.temp }}/external-audit-logs/
+          retention-days: 14
+          if-no-files-found: warn
