@@ -1,0 +1,61 @@
+{
+  "status": "PASS_EXACT_RATIONAL_RELAXATION_CONTROLS",
+  "cases": [
+    {
+      "index": 321,
+      "base_angle": {
+        "triangle_angles_checked": 8775,
+        "equal_side_rows_checked": 162,
+        "strict_side_orders_checked": 219,
+        "right_angles_checked": 18,
+        "minimum_positive_value": "1/282"
+      },
+      "ordinary_distance": {
+        "positive_distance_classes": 99,
+        "strict_Kalmanson_inequalities": 35100,
+        "minimum_Kalmanson_slack": "1/13856",
+        "strict_triangle_inequalities": 8775,
+        "minimum_triangle_slack": "1/13856",
+        "supplier_arc_orders": 1
+      }
+    },
+    {
+      "index": 322,
+      "base_angle": {
+        "triangle_angles_checked": 8775,
+        "equal_side_rows_checked": 162,
+        "strict_side_orders_checked": 219,
+        "right_angles_checked": 18,
+        "minimum_positive_value": "1/265"
+      },
+      "ordinary_distance": {
+        "positive_distance_classes": 99,
+        "strict_Kalmanson_inequalities": 35100,
+        "minimum_Kalmanson_slack": "1/14045",
+        "strict_triangle_inequalities": 8775,
+        "minimum_triangle_slack": "1/14045",
+        "supplier_arc_orders": 1
+      }
+    },
+    {
+      "index": 323,
+      "base_angle": {
+        "triangle_angles_checked": 8775,
+        "equal_side_rows_checked": 162,
+        "strict_side_orders_checked": 219,
+        "right_angles_checked": 18,
+        "minimum_positive_value": "1/261"
+      },
+      "ordinary_distance": {
+        "positive_distance_classes": 99,
+        "strict_Kalmanson_inequalities": 35100,
+        "minimum_Kalmanson_slack": "1/22123",
+        "strict_triangle_inequalities": 8775,
+        "minimum_triangle_slack": "1/22123",
+        "supplier_arc_orders": 1
+      }
+    }
+  ],
+  "joint_Euclidean_realization_claimed": false,
+  "diamond_phase_equations_not_assumed": true
+}

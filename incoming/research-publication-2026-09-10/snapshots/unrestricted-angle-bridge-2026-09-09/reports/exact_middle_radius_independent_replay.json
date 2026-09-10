@@ -1,0 +1,964 @@
+{
+  "n": 13,
+  "distinct_pairs_checked": 78,
+  "global_supports_checked": 143,
+  "minimum_squared_separation": "2033984000000/20017711835837037",
+  "minimum_global_support": "3254374400000000/3202853911445761757037",
+  "named_equalities_checked": 9,
+  "multiplicity_by_center": [
+    4,
+    1,
+    4,
+    4,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "multiplicity_histogram": {
+    "4": 3,
+    "1": 10
+  },
+  "good_vertices": [
+    1,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "rich_vertices": [
+    0,
+    2,
+    3
+  ],
+  "all_actual_distance_classes": [
+    [
+      {
+        "radius_squared": "1",
+        "witnesses": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "radius_squared": "971553987713/443480944400",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "984238198457/443458771600",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "997025705657/443458771600",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "1009916509313/443480944400",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "314205184592/125109917037",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "316631182288/125103661893",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "319066510288/125103661893",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "321511168592/125109917037",
+        "witnesses": [
+          9
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "16/3485",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "1296/3349",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "1",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "144/85",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "19918584435881/7539176054800",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "19924421781409/7538799117200",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "1172418258577/443458771600",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "19938650279081/7539176054800",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "5645554224661/2126868589629",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "332173731037/125103661893",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "5648368659629/2126762252181",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "5649799920661/2126868589629",
+        "witnesses": [
+          9
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "16/3485",
+        "witnesses": [
+          1
+        ]
+      },
+      {
+        "radius_squared": "12544/40385",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "1",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "64/41",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "6780113/2771600",
+        "witnesses": [
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      {
+        "radius_squared": "62829416464769/25647532992585",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "62834687603641/25646250688065",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "62840219507641/25646250688065",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "62846012176769/25647532992585",
+        "witnesses": [
+          9
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "12544/40385",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "1296/3349",
+        "witnesses": [
+          1
+        ]
+      },
+      {
+        "radius_squared": "576/985",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "1",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "794525/781893",
+        "witnesses": [
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "radius_squared": "89316778546301/87365746046800",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "89472861138389/87361378005200",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "89648550251989/87361378005200",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "89843845887101/87365746046800",
+        "witnesses": [
+          8
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "102938320729/443480944400",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "107501187281/443458771600",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "112236265681/443458771600",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "117143555929/443480944400",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "228217186201/625549585185",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "234007548689/625518309465",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "239886204689/625518309465",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "245853154201/625549585185",
+        "witnesses": [
+          9
+        ]
+      },
+      {
+        "radius_squared": "576/985",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "1",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "64/41",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "144/85",
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "43392723200/177393486462361",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "173570892800/177393486462361",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "390534508800/177402356081249",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "838541307924343036621/55483864161374409742800",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "981526450362701084069/55481090124205931749200",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "1135768410647040284069/55481090124205931749200",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "8132462478844069/346754646059749200",
+        "witnesses": [
+          9
+        ]
+      },
+      {
+        "radius_squared": "117143555929/443480944400",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "89316778546301/87365746046800",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "1009916509313/443480944400",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "6780113/2771600",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "19938650279081/7539176054800",
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "43392723200/177393486462361",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "43392723200/177384617286929",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "173570892800/177393486462361",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "1065287902736020968869/55481090124205931749200",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "1225696314761170116541/55478316225731510638800",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "8733436232356541/346737309302638800",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "1580274550292347368869/55481090124205931749200",
+        "witnesses": [
+          9
+        ]
+      },
+      {
+        "radius_squared": "112236265681/443458771600",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "89472861138389/87361378005200",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "997025705657/443458771600",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "6780113/2771600",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "1172418258577/443458771600",
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "43392723200/177393486462361",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "43392723200/177384617286929",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "173570892800/177393486462361",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "1319138465656852354469/55481090124205931749200",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "9355954982154941/346737309302638800",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "1686036802710601514941/55478316225731510638800",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "46008839377788750109/1353197320102583701200",
+        "witnesses": [
+          9
+        ]
+      },
+      {
+        "radius_squared": "107501187281/443458771600",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "89648550251989/87361378005200",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "984238198457/443458771600",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "6780113/2771600",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "19924421781409/7538799117200",
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "43392723200/177393486462361",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "173570892800/177393486462361",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "390534508800/177402356081249",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "10000018728239269/346754646059749200",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "1795323965378508879269/55481090124205931749200",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "2001803226939008079269/55481090124205931749200",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "2219530781368334793421/55483864161374409742800",
+        "witnesses": [
+          9
+        ]
+      },
+      {
+        "radius_squared": "102938320729/443480944400",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "89843845887101/87365746046800",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "971553987713/443480944400",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "6780113/2771600",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "19918584435881/7539176054800",
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "2033984000000/20017711835837037",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "8135936000000/20017711835837037",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "2033984000000/2224301412797037",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "8132462478844069/346754646059749200",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "1580274550292347368869/55481090124205931749200",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "46008839377788750109/1353197320102583701200",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "2219530781368334793421/55483864161374409742800",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "245853154201/625549585185",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "794525/781893",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "62846012176769/25647532992585",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "321511168592/125109917037",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "5649799920661/2126868589629",
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "2033984000000/20017711835837037",
+        "witnesses": [
+          9
+        ]
+      },
+      {
+        "radius_squared": "2033984000000/20016711006541893",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "8135936000000/20017711835837037",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "1135768410647040284069/55481090124205931749200",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "8733436232356541/346737309302638800",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "1686036802710601514941/55478316225731510638800",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "2001803226939008079269/55481090124205931749200",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "239886204689/625518309465",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "794525/781893",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "62840219507641/25646250688065",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "319066510288/125103661893",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "5648368659629/2126762252181",
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "2033984000000/20017711835837037",
+        "witnesses": [
+          12
+        ]
+      },
+      {
+        "radius_squared": "2033984000000/20016711006541893",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "8135936000000/20017711835837037",
+        "witnesses": [
+          9
+        ]
+      },
+      {
+        "radius_squared": "981526450362701084069/55481090124205931749200",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "1225696314761170116541/55478316225731510638800",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "9355954982154941/346737309302638800",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "1795323965378508879269/55481090124205931749200",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "234007548689/625518309465",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "794525/781893",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "62834687603641/25646250688065",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "316631182288/125103661893",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "332173731037/125103661893",
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": "2033984000000/20017711835837037",
+        "witnesses": [
+          11
+        ]
+      },
+      {
+        "radius_squared": "8135936000000/20017711835837037",
+        "witnesses": [
+          10
+        ]
+      },
+      {
+        "radius_squared": "2033984000000/2224301412797037",
+        "witnesses": [
+          9
+        ]
+      },
+      {
+        "radius_squared": "838541307924343036621/55483864161374409742800",
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": "1065287902736020968869/55481090124205931749200",
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": "1319138465656852354469/55481090124205931749200",
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": "10000018728239269/346754646059749200",
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": "228217186201/625549585185",
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": "794525/781893",
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": "62829416464769/25647532992585",
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": "314205184592/125109917037",
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": "5645554224661/2126868589629",
+        "witnesses": [
+          1
+        ]
+      }
+    ]
+  ],
+  "all_rich": false
+}

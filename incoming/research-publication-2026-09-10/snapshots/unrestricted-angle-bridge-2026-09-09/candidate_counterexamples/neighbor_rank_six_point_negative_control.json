@@ -1,0 +1,54 @@
+{
+  "kind": "exact_rational_neighbor_rank_negative_control_not_erdos_counterexample",
+  "coordinates": [
+    [
+      "0",
+      "0"
+    ],
+    [
+      "10/13",
+      "0"
+    ],
+    [
+      "5/13",
+      "12/13"
+    ],
+    [
+      "5/13",
+      "-12/13"
+    ],
+    [
+      "15/17",
+      "8/17"
+    ],
+    [
+      "91/109",
+      "60/109"
+    ]
+  ],
+  "cyclic_order": [
+    0,
+    3,
+    1,
+    4,
+    5,
+    2
+  ],
+  "witness_rows": {
+    "0": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "assigned_radius_squared": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1"
+  ],
+  "unrestricted_counterexample": false
+}

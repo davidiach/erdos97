@@ -1,0 +1,542 @@
+{
+  "status": "PASS_EXACT_CONTROL",
+  "n": 9,
+  "distinct_pairs": 36,
+  "global_supports": 63,
+  "minimum_support": [
+    "11880/10201",
+    "-60/101"
+  ],
+  "all_actual_distance_classes": [
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          5,
+          7
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          4,
+          8
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          1,
+          2,
+          3,
+          6
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          3,
+          8
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          5,
+          6
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          0,
+          2,
+          4,
+          7
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          4,
+          6
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          3,
+          7
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          0,
+          1,
+          5,
+          8
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          1
+        ]
+      },
+      {
+        "radius_squared": [
+          "4800/10201",
+          "0"
+        ],
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": [
+          "132132/10201",
+          "-71874/10201"
+        ],
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": [
+          "12",
+          "-594/101"
+        ],
+        "witnesses": [
+          4,
+          5
+        ]
+      },
+      {
+        "radius_squared": [
+          "107892/10201",
+          "-48114/10201"
+        ],
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": [
+          "4800/10201",
+          "0"
+        ],
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": [
+          "132132/10201",
+          "-71874/10201"
+        ],
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": [
+          "12",
+          "-594/101"
+        ],
+        "witnesses": [
+          3,
+          5
+        ]
+      },
+      {
+        "radius_squared": [
+          "107892/10201",
+          "-48114/10201"
+        ],
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": [
+          "4800/10201",
+          "0"
+        ],
+        "witnesses": [
+          8
+        ]
+      },
+      {
+        "radius_squared": [
+          "132132/10201",
+          "-71874/10201"
+        ],
+        "witnesses": [
+          7
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          1
+        ]
+      },
+      {
+        "radius_squared": [
+          "12",
+          "-594/101"
+        ],
+        "witnesses": [
+          3,
+          4
+        ]
+      },
+      {
+        "radius_squared": [
+          "107892/10201",
+          "-48114/10201"
+        ],
+        "witnesses": [
+          6
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          2
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": [
+          "4800/10201",
+          "0"
+        ],
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": [
+          "132132/10201",
+          "-71874/10201"
+        ],
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          1
+        ]
+      },
+      {
+        "radius_squared": [
+          "12",
+          "-594/101"
+        ],
+        "witnesses": [
+          7,
+          8
+        ]
+      },
+      {
+        "radius_squared": [
+          "107892/10201",
+          "-48114/10201"
+        ],
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": [
+          "4800/10201",
+          "0"
+        ],
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": [
+          "132132/10201",
+          "-71874/10201"
+        ],
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          2
+        ]
+      },
+      {
+        "radius_squared": [
+          "12",
+          "-594/101"
+        ],
+        "witnesses": [
+          6,
+          8
+        ]
+      },
+      {
+        "radius_squared": [
+          "107892/10201",
+          "-48114/10201"
+        ],
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "radius_squared": [
+          "546/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          1
+        ]
+      },
+      {
+        "radius_squared": [
+          "4800/10201",
+          "0"
+        ],
+        "witnesses": [
+          5
+        ]
+      },
+      {
+        "radius_squared": [
+          "132132/10201",
+          "-71874/10201"
+        ],
+        "witnesses": [
+          3
+        ]
+      },
+      {
+        "radius_squared": [
+          "666/101",
+          "-297/101"
+        ],
+        "witnesses": [
+          0
+        ]
+      },
+      {
+        "radius_squared": [
+          "12",
+          "-594/101"
+        ],
+        "witnesses": [
+          6,
+          7
+        ]
+      },
+      {
+        "radius_squared": [
+          "107892/10201",
+          "-48114/10201"
+        ],
+        "witnesses": [
+          4
+        ]
+      },
+      {
+        "radius_squared": [
+          "3",
+          "0"
+        ],
+        "witnesses": [
+          2
+        ]
+      }
+    ]
+  ],
+  "multiplicity_by_center": [
+    4,
+    4,
+    4,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "histogram": {
+    "4": 3,
+    "2": 6
+  },
+  "good_vertices": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "rich_vertices": [
+    0,
+    1,
+    2
+  ],
+  "unique_minimum_enclosing_disk_verified": true,
+  "all_mec_supports_rich": true,
+  "all_rich": false,
+  "external_review": false
+}

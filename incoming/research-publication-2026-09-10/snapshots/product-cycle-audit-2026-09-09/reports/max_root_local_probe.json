@@ -1,0 +1,88 @@
+{
+  "scope": "float64 local-star construction search",
+  "args": {
+    "seeds": 100,
+    "grid": 240,
+    "seed": 970909,
+    "output": "reports/max_root_local_probe.json"
+  },
+  "records": [
+    {
+      "seed_index": 0,
+      "root_circle_parameters": [
+        0.14365321118437901,
+        -0.4042815621482353
+      ],
+      "individual_supplier_counts": [
+        8,
+        20
+      ],
+      "compatible_sampled_pair_counts": [
+        64,
+        243
+      ]
+    }
+  ],
+  "hit": {
+    "orbits": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        -0.7142100073641195,
+        -0.24795977627975238
+      ],
+      [
+        -0.5924219438313263,
+        0.6813166318272731
+      ],
+      [
+        -0.0826372427605881,
+        0.8991478031679356
+      ],
+      [
+        -0.11288144278390783,
+        0.9152873656617972
+      ],
+      [
+        0.23685654361805294,
+        -0.6444908682517205
+      ],
+      [
+        -0.4147022254472779,
+        -0.8723512988160597
+      ]
+    ],
+    "source_rows": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "parameters": {
+      "seed_index": 0,
+      "root_circle_parameters": [
+        0.14365321118437901,
+        -0.4042815621482353
+      ],
+      "individual_supplier_counts": [
+        8,
+        20
+      ],
+      "compatible_sampled_pair_counts": [
+        64,
+        243
+      ]
+    }
+  },
+  "seconds": 0.049038446000167824
+}

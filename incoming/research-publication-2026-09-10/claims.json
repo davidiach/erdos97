@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+  "claims": [
+    {
+      "id": "product-corpus",
+      "statement": "333 stored fixed-order C3 systems have exact contradiction certificates",
+      "hypotheses": "C3 own-side witness/gain systems in specified sector orders; finite stored corpus only",
+      "evidence_level": "EXACT_STORED_CERTIFICATES_REVIEW_PENDING",
+      "source": "snapshots/product-cycle-audit-2026-09-09/claims.json",
+      "fresh_replay": true,
+      "verification_command": "python -S publication.py --scoped",
+      "dependencies": [
+        "Each cited snapshot statement retains its own geometric hypotheses and review status"
+      ],
+      "accepted_status_changed": false
+    },
+    {
+      "id": "old-angle-corpus",
+      "statement": "912 stored two-star contradictions; 1354 strictly positive rational angle vectors; 799+487 fixed-order certificates",
+      "hypotheses": "Angle relaxation of stated witness rows; no enumeration-completeness or Euclidean feasibility inference",
+      "evidence_level": "EXACT_STORED_CERTIFICATES_AND_RELAXATIONS",
+      "source": "verify_attachment_angles.py",
+      "fresh_replay": true,
+      "verification_command": "python -S publication.py --scoped",
+      "dependencies": [
+        "Each cited snapshot statement retains its own geometric hypotheses and review status"
+      ],
+      "accepted_status_changed": false
+    },
+    {
+      "id": "nine-controls",
+      "statement": "Nine retained exact geometric controls are checked; none is a counterexample to Erdos 97",
+      "hypotheses": "Each explicit finite coordinate set and the exact named/all-radius claims in its checker",
+      "evidence_level": "EXACT_GEOMETRIC_CONTROLS",
+      "source": "reports/fresh_publication_replay.json",
+      "fresh_replay": true,
+      "verification_command": "python -S publication.py --scoped",
+      "dependencies": [
+        "Each cited snapshot statement retains its own geometric hypotheses and review status"
+      ],
+      "accepted_status_changed": false
+    },
+    {
+      "id": "mec-cap",
+      "statement": "No new circumcenter of an old triple is convexly addable over the specified nine-point MEC seed",
+      "hypotheses": "Fixed coordinates; complete 84 old triples, not additions with fewer than three old witnesses",
+      "evidence_level": "FINITE_EXACT_REPLAY_REVIEW_PENDING",
+      "source": "snapshots/global-bridge-stress-2026-09-09/reports/mec_circumcenter_completion.json",
+      "fresh_replay": true,
+      "verification_command": "python -S publication.py --scoped",
+      "dependencies": [
+        "Each cited snapshot statement retains its own geometric hypotheses and review status"
+      ],
+      "accepted_status_changed": false
+    },
+    {
+      "id": "gabriel-defect",
+      "statement": "Local Gabriel inequality, exact slack formula and cubic-growth defect argument",
+      "hypotheses": "All-size statements in the written note; cited family hypotheses remain dependencies",
+      "evidence_level": "WRITTEN_PROOF_CANDIDATE_NO_GENERAL_SCRIPT_REPLAY",
+      "source": "snapshots/global-bridge-stress-2026-09-09/proof_attempts/gabriel_defect.md",
+      "fresh_replay": false,
+      "verification_command": null,
+      "dependencies": [
+        "Each cited snapshot statement retains its own geometric hypotheses and review status"
+      ],
+      "accepted_status_changed": false
+    },
+    {
+      "id": "exploration",
+      "statement": "Bounded changed-witness, higher-product and supplier-subset diagnostics",
+      "hypotheses": "Incomplete or numerical discovery records; no finite-exclusion or general-resolution claim",
+      "evidence_level": "EXPLORATORY_HISTORICAL_EVIDENCE",
+      "source": "PUBLICATION_AUDIT.md",
+      "fresh_replay": false,
+      "verification_command": null,
+      "dependencies": [
+        "Each cited snapshot statement retains its own geometric hypotheses and review status"
+      ],
+      "accepted_status_changed": false
+    }
+  ],
+  "unrestricted_solution": false,
+  "external_review": false
+}

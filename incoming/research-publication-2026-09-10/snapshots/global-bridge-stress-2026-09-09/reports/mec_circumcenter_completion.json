@@ -1,0 +1,3406 @@
+{
+  "scope": "complete old-triple circumcenter universe, with exact convex compatibility",
+  "old_vertices": 9,
+  "triples": 84,
+  "distinct_centers": 37,
+  "new_compatible_centers": 0,
+  "candidates": [
+    {
+      "coordinates": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          4,
+          7
+        ],
+        [
+          3,
+          4,
+          8
+        ],
+        [
+          3,
+          5,
+          6
+        ],
+        [
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          6,
+          7
+        ],
+        [
+          3,
+          6,
+          8
+        ],
+        [
+          3,
+          7,
+          8
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          5,
+          7
+        ],
+        [
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          6,
+          7
+        ],
+        [
+          4,
+          6,
+          8
+        ],
+        [
+          4,
+          7,
+          8
+        ],
+        [
+          5,
+          6,
+          7
+        ],
+        [
+          5,
+          6,
+          8
+        ],
+        [
+          5,
+          7,
+          8
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "4",
+            "-198/101"
+          ],
+          "witnesses": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "1",
+            "0"
+          ],
+          "witnesses": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "37/47",
+          "-33/94"
+        ],
+        [
+          "-99/94",
+          "37/47"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          7
+        ],
+        [
+          0,
+          3,
+          7
+        ],
+        [
+          1,
+          3,
+          7
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "3399329/223109",
+            "-1932612/223109"
+          ],
+          "witnesses": [
+            5,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "7474/2209",
+            "-3333/2209"
+          ],
+          "witnesses": [
+            0,
+            1,
+            3,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "1172234/223109",
+            "-522753/223109"
+          ],
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "17908/2209",
+            "-7986/2209"
+          ],
+          "witnesses": [
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "91/61",
+          "-99/122"
+        ],
+        [
+          "-297/122",
+          "91/61"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          6
+        ],
+        [
+          0,
+          4,
+          6
+        ],
+        [
+          1,
+          4,
+          6
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "13648281/375821",
+            "-7794468/375821"
+          ],
+          "witnesses": [
+            5,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "4237506/375821",
+            "-2305017/375821"
+          ],
+          "witnesses": [
+            3,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "55146/3721",
+            "-29997/3721"
+          ],
+          "witnesses": [
+            0,
+            1,
+            4,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "88452/3721",
+            "-48114/3721"
+          ],
+          "witnesses": [
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-1/2",
+          "0"
+        ],
+        [
+          "0",
+          "-1/2"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          0,
+          5,
+          8
+        ],
+        [
+          1,
+          5,
+          8
+        ]
+      ],
+      "alias": 2,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "0",
+            "0"
+          ],
+          "witnesses": [
+            2
+          ]
+        },
+        {
+          "radius_squared": [
+            "546/101",
+            "-297/101"
+          ],
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "666/101",
+            "-297/101"
+          ],
+          "witnesses": [
+            3,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "0"
+          ],
+          "witnesses": [
+            0,
+            1,
+            5,
+            8
+          ]
+        }
+      ],
+      "hull": [],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "91/61",
+          "-99/122"
+        ],
+        [
+          "297/122",
+          "-91/61"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          8
+        ],
+        [
+          0,
+          3,
+          8
+        ],
+        [
+          2,
+          3,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "13648281/375821",
+            "-7794468/375821"
+          ],
+          "witnesses": [
+            4,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "4237506/375821",
+            "-2305017/375821"
+          ],
+          "witnesses": [
+            5,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "55146/3721",
+            "-29997/3721"
+          ],
+          "witnesses": [
+            0,
+            2,
+            3,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "88452/3721",
+            "-48114/3721"
+          ],
+          "witnesses": [
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-1/2",
+          "0"
+        ],
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          2,
+          7
+        ],
+        [
+          0,
+          4,
+          7
+        ],
+        [
+          2,
+          4,
+          7
+        ]
+      ],
+      "alias": 1,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "0",
+            "0"
+          ],
+          "witnesses": [
+            1
+          ]
+        },
+        {
+          "radius_squared": [
+            "546/101",
+            "-297/101"
+          ],
+          "witnesses": [
+            3,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "666/101",
+            "-297/101"
+          ],
+          "witnesses": [
+            5,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "0"
+          ],
+          "witnesses": [
+            0,
+            2,
+            4,
+            7
+          ]
+        }
+      ],
+      "hull": [],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "37/47",
+          "-33/94"
+        ],
+        [
+          "99/94",
+          "-37/47"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          2,
+          5
+        ],
+        [
+          0,
+          2,
+          6
+        ],
+        [
+          0,
+          5,
+          6
+        ],
+        [
+          2,
+          5,
+          6
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "3399329/223109",
+            "-1932612/223109"
+          ],
+          "witnesses": [
+            4,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "7474/2209",
+            "-3333/2209"
+          ],
+          "witnesses": [
+            0,
+            2,
+            5,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "1172234/223109",
+            "-522753/223109"
+          ],
+          "witnesses": [
+            3,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "17908/2209",
+            "-7986/2209"
+          ],
+          "witnesses": [
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "71/101",
+          "-729/2222"
+        ],
+        [
+          "-297/202",
+          "91/101"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          3,
+          4
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "222741/12221",
+            "-11448/1111"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "22206441/1234321",
+            "-1134648/112211"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "3829566/1234321",
+            "-1647/1111"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "606/121",
+            "-27/11"
+          ],
+          "witnesses": [
+            0,
+            3,
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "8824446/1234321",
+            "-406107/112211"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "53946/12221",
+            "-2187/1111"
+          ],
+          "witnesses": [
+            1
+          ]
+        },
+        {
+          "radius_squared": [
+            "120012/12221",
+            "-54/11"
+          ],
+          "witnesses": [
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "131/101",
+          "-1331/1818"
+        ],
+        [
+          "297/202",
+          "-111/101"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          3,
+          5
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "66167/2727",
+            "-1408/101"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "6618067/275427",
+            "-417824/30603"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "22022/2727",
+            "-1331/303"
+          ],
+          "witnesses": [
+            2
+          ]
+        },
+        {
+          "radius_squared": [
+            "1341322/275427",
+            "-76571/30603"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "202/27",
+            "-11/3"
+          ],
+          "witnesses": [
+            0,
+            3,
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "2844682/275427",
+            "-517/101"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "40004/2727",
+            "-22/3"
+          ],
+          "witnesses": [
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1",
+          "-101/198"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          3,
+          6
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "10145231/1319868",
+            "-9261/2222"
+          ],
+          "witnesses": [
+            5,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "11713391/1319868",
+            "-2893/606"
+          ],
+          "witnesses": [
+            4,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "10201/13068",
+            "0"
+          ],
+          "witnesses": [
+            0,
+            3,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "49405/13068",
+            "-101/66"
+          ],
+          "witnesses": [
+            1,
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-1/2",
+          "99/202"
+        ],
+        [
+          "0",
+          "-10/101"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          4,
+          5
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "37863/10201",
+            "-41877/20402"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "-297/202"
+          ],
+          "witnesses": [
+            0,
+            4,
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "25743/10201",
+            "-18117/20402"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "89409/10201",
+            "-891/202"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "243/202",
+            "0"
+          ],
+          "witnesses": [
+            2
+          ]
+        },
+        {
+          "radius_squared": [
+            "9",
+            "-891/202"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "363/202",
+            "0"
+          ],
+          "witnesses": [
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-1/2",
+          "9/22"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          4,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "40893/12221",
+            "-3807/2222"
+          ],
+          "witnesses": [
+            5,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "333/121",
+            "-27/22"
+          ],
+          "witnesses": [
+            0,
+            4,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "99699/12221",
+            "-9261/2222"
+          ],
+          "witnesses": [
+            3,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "303/242",
+            "0"
+          ],
+          "witnesses": [
+            1,
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-1/2",
+          "11/18"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          5,
+          7
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "91/27",
+            "-11/6"
+          ],
+          "witnesses": [
+            0,
+            5,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "7571/2727",
+            "-671/606"
+          ],
+          "witnesses": [
+            4,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "27173/2727",
+            "-2893/606"
+          ],
+          "witnesses": [
+            3,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "101/54",
+            "0"
+          ],
+          "witnesses": [
+            1,
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "131/101",
+          "-1331/1818"
+        ],
+        [
+          "-297/202",
+          "111/101"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          6,
+          7
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "66167/2727",
+            "-1408/101"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "6618067/275427",
+            "-417824/30603"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "22022/2727",
+            "-1331/303"
+          ],
+          "witnesses": [
+            1
+          ]
+        },
+        {
+          "radius_squared": [
+            "1341322/275427",
+            "-76571/30603"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "202/27",
+            "-11/3"
+          ],
+          "witnesses": [
+            0,
+            6,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "2844682/275427",
+            "-517/101"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "40004/2727",
+            "-22/3"
+          ],
+          "witnesses": [
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "71/101",
+          "-729/2222"
+        ],
+        [
+          "297/202",
+          "-91/101"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          6,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "222741/12221",
+            "-11448/1111"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "22206441/1234321",
+            "-1134648/112211"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "3829566/1234321",
+            "-1647/1111"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "606/121",
+            "-27/11"
+          ],
+          "witnesses": [
+            0,
+            6,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "8824446/1234321",
+            "-406107/112211"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "53946/12221",
+            "-2187/1111"
+          ],
+          "witnesses": [
+            2
+          ]
+        },
+        {
+          "radius_squared": [
+            "120012/12221",
+            "-54/11"
+          ],
+          "witnesses": [
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-1/2",
+          "99/202"
+        ],
+        [
+          "0",
+          "10/101"
+        ]
+      ],
+      "triples": [
+        [
+          0,
+          7,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "37863/10201",
+            "-41877/20402"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "-297/202"
+          ],
+          "witnesses": [
+            0,
+            7,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "25743/10201",
+            "-18117/20402"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "89409/10201",
+            "-891/202"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "243/202",
+            "0"
+          ],
+          "witnesses": [
+            1
+          ]
+        },
+        {
+          "radius_squared": [
+            "9",
+            "-891/202"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "363/202",
+            "0"
+          ],
+          "witnesses": [
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          1,
+          3,
+          6
+        ],
+        [
+          2,
+          3,
+          6
+        ]
+      ],
+      "alias": 0,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "0",
+            "0"
+          ],
+          "witnesses": [
+            0
+          ]
+        },
+        {
+          "radius_squared": [
+            "546/101",
+            "-297/101"
+          ],
+          "witnesses": [
+            5,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "666/101",
+            "-297/101"
+          ],
+          "witnesses": [
+            4,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "0"
+          ],
+          "witnesses": [
+            1,
+            2,
+            3,
+            6
+          ]
+        }
+      ],
+      "hull": [],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-74/47",
+          "33/47"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          8
+        ],
+        [
+          1,
+          4,
+          8
+        ],
+        [
+          2,
+          4,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "3399329/223109",
+            "-1932612/223109"
+          ],
+          "witnesses": [
+            3,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "7474/2209",
+            "-3333/2209"
+          ],
+          "witnesses": [
+            1,
+            2,
+            4,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "1172234/223109",
+            "-522753/223109"
+          ],
+          "witnesses": [
+            5,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "17908/2209",
+            "-7986/2209"
+          ],
+          "witnesses": [
+            0
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-182/61",
+          "99/61"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          2,
+          7
+        ],
+        [
+          1,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          7
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "13648281/375821",
+            "-7794468/375821"
+          ],
+          "witnesses": [
+            3,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "4237506/375821",
+            "-2305017/375821"
+          ],
+          "witnesses": [
+            4,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "55146/3721",
+            "-29997/3721"
+          ],
+          "witnesses": [
+            1,
+            2,
+            5,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "88452/3721",
+            "-48114/3721"
+          ],
+          "witnesses": [
+            0
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1",
+          "-671/1818"
+        ],
+        [
+          "-11/6",
+          "121/101"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          3,
+          4
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "66167/2727",
+            "-1408/101"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "6618067/275427",
+            "-417824/30603"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "22022/2727",
+            "-1331/303"
+          ],
+          "witnesses": [
+            0
+          ]
+        },
+        {
+          "radius_squared": [
+            "1341322/275427",
+            "-76571/30603"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "202/27",
+            "-11/3"
+          ],
+          "witnesses": [
+            1,
+            3,
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "2844682/275427",
+            "-517/101"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "40004/2727",
+            "-22/3"
+          ],
+          "witnesses": [
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "161/404",
+          "-99/404"
+        ],
+        [
+          "297/404",
+          "-81/404"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "37863/10201",
+            "-41877/20402"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "-297/202"
+          ],
+          "witnesses": [
+            1,
+            3,
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "25743/10201",
+            "-18117/20402"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "89409/10201",
+            "-891/202"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "243/202",
+            "0"
+          ],
+          "witnesses": [
+            0
+          ]
+        },
+        {
+          "radius_squared": [
+            "9",
+            "-891/202"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "363/202",
+            "0"
+          ],
+          "witnesses": [
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1/4",
+          "-11/36"
+        ],
+        [
+          "11/12",
+          "-1/4"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          3,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "91/27",
+            "-11/6"
+          ],
+          "witnesses": [
+            1,
+            3,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "7571/2727",
+            "-671/606"
+          ],
+          "witnesses": [
+            5,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "27173/2727",
+            "-2893/606"
+          ],
+          "witnesses": [
+            4,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "101/54",
+            "0"
+          ],
+          "witnesses": [
+            0,
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-172/101",
+          "999/1111"
+        ],
+        [
+          "270/1111",
+          "-10/101"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          4,
+          5
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "222741/12221",
+            "-11448/1111"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "22206441/1234321",
+            "-1134648/112211"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "3829566/1234321",
+            "-1647/1111"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "606/121",
+            "-27/11"
+          ],
+          "witnesses": [
+            1,
+            4,
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "8824446/1234321",
+            "-406107/112211"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "53946/12221",
+            "-2187/1111"
+          ],
+          "witnesses": [
+            2
+          ]
+        },
+        {
+          "radius_squared": [
+            "120012/12221",
+            "-54/11"
+          ],
+          "witnesses": [
+            0
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-1/2",
+          "101/396"
+        ],
+        [
+          "-101/132",
+          "1/2"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          4,
+          7
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "10145231/1319868",
+            "-9261/2222"
+          ],
+          "witnesses": [
+            3,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "11713391/1319868",
+            "-2893/606"
+          ],
+          "witnesses": [
+            5,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "10201/13068",
+            "0"
+          ],
+          "witnesses": [
+            1,
+            4,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "49405/13068",
+            "-101/66"
+          ],
+          "witnesses": [
+            0,
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1/4",
+          "-9/44"
+        ],
+        [
+          "27/44",
+          "-1/4"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          5,
+          6
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "40893/12221",
+            "-3807/2222"
+          ],
+          "witnesses": [
+            3,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "333/121",
+            "-27/22"
+          ],
+          "witnesses": [
+            1,
+            5,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "99699/12221",
+            "-9261/2222"
+          ],
+          "witnesses": [
+            4,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "303/242",
+            "0"
+          ],
+          "witnesses": [
+            0,
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1",
+          "-1269/2222"
+        ],
+        [
+          "-27/22",
+          "81/101"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          6,
+          7
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "222741/12221",
+            "-11448/1111"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "22206441/1234321",
+            "-1134648/112211"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "3829566/1234321",
+            "-1647/1111"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "606/121",
+            "-27/11"
+          ],
+          "witnesses": [
+            1,
+            6,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "8824446/1234321",
+            "-406107/112211"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "53946/12221",
+            "-2187/1111"
+          ],
+          "witnesses": [
+            0
+          ]
+        },
+        {
+          "radius_squared": [
+            "120012/12221",
+            "-54/11"
+          ],
+          "witnesses": [
+            2
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "41/404",
+          "-99/404"
+        ],
+        [
+          "297/404",
+          "-121/404"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          6,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "37863/10201",
+            "-41877/20402"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "-297/202"
+          ],
+          "witnesses": [
+            1,
+            6,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "25743/10201",
+            "-18117/20402"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "89409/10201",
+            "-891/202"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "243/202",
+            "0"
+          ],
+          "witnesses": [
+            2
+          ]
+        },
+        {
+          "radius_squared": [
+            "9",
+            "-891/202"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "363/202",
+            "0"
+          ],
+          "witnesses": [
+            0
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-232/101",
+          "1001/909"
+        ],
+        [
+          "-110/303",
+          "10/101"
+        ]
+      ],
+      "triples": [
+        [
+          1,
+          7,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "66167/2727",
+            "-1408/101"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "6618067/275427",
+            "-417824/30603"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "22022/2727",
+            "-1331/303"
+          ],
+          "witnesses": [
+            2
+          ]
+        },
+        {
+          "radius_squared": [
+            "1341322/275427",
+            "-76571/30603"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "202/27",
+            "-11/3"
+          ],
+          "witnesses": [
+            1,
+            7,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "2844682/275427",
+            "-517/101"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "40004/2727",
+            "-22/3"
+          ],
+          "witnesses": [
+            0
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "41/404",
+          "-99/404"
+        ],
+        [
+          "-297/404",
+          "121/404"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "37863/10201",
+            "-41877/20402"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "-297/202"
+          ],
+          "witnesses": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "25743/10201",
+            "-18117/20402"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "89409/10201",
+            "-891/202"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "243/202",
+            "0"
+          ],
+          "witnesses": [
+            1
+          ]
+        },
+        {
+          "radius_squared": [
+            "9",
+            "-891/202"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "363/202",
+            "0"
+          ],
+          "witnesses": [
+            0
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1",
+          "-1269/2222"
+        ],
+        [
+          "27/22",
+          "-81/101"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          3,
+          5
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "222741/12221",
+            "-11448/1111"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "22206441/1234321",
+            "-1134648/112211"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "3829566/1234321",
+            "-1647/1111"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "606/121",
+            "-27/11"
+          ],
+          "witnesses": [
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "8824446/1234321",
+            "-406107/112211"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "53946/12221",
+            "-2187/1111"
+          ],
+          "witnesses": [
+            0
+          ]
+        },
+        {
+          "radius_squared": [
+            "120012/12221",
+            "-54/11"
+          ],
+          "witnesses": [
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1/4",
+          "-9/44"
+        ],
+        [
+          "-27/44",
+          "1/4"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          3,
+          7
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "40893/12221",
+            "-3807/2222"
+          ],
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "333/121",
+            "-27/22"
+          ],
+          "witnesses": [
+            2,
+            3,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "99699/12221",
+            "-9261/2222"
+          ],
+          "witnesses": [
+            5,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "303/242",
+            "0"
+          ],
+          "witnesses": [
+            0,
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-232/101",
+          "1001/909"
+        ],
+        [
+          "110/303",
+          "-10/101"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          4,
+          5
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "66167/2727",
+            "-1408/101"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "6618067/275427",
+            "-417824/30603"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "22022/2727",
+            "-1331/303"
+          ],
+          "witnesses": [
+            1
+          ]
+        },
+        {
+          "radius_squared": [
+            "1341322/275427",
+            "-76571/30603"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "202/27",
+            "-11/3"
+          ],
+          "witnesses": [
+            2,
+            4,
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "2844682/275427",
+            "-517/101"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "40004/2727",
+            "-22/3"
+          ],
+          "witnesses": [
+            0
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1/4",
+          "-11/36"
+        ],
+        [
+          "-11/12",
+          "1/4"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          4,
+          6
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "91/27",
+            "-11/6"
+          ],
+          "witnesses": [
+            2,
+            4,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "7571/2727",
+            "-671/606"
+          ],
+          "witnesses": [
+            3,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "27173/2727",
+            "-2893/606"
+          ],
+          "witnesses": [
+            5,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "101/54",
+            "0"
+          ],
+          "witnesses": [
+            0,
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-1/2",
+          "101/396"
+        ],
+        [
+          "101/132",
+          "-1/2"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          5,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "10145231/1319868",
+            "-9261/2222"
+          ],
+          "witnesses": [
+            4,
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "11713391/1319868",
+            "-2893/606"
+          ],
+          "witnesses": [
+            3,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "10201/13068",
+            "0"
+          ],
+          "witnesses": [
+            2,
+            5,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "49405/13068",
+            "-101/66"
+          ],
+          "witnesses": [
+            0,
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "161/404",
+          "-99/404"
+        ],
+        [
+          "-297/404",
+          "81/404"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          6,
+          7
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "37863/10201",
+            "-41877/20402"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "3",
+            "-297/202"
+          ],
+          "witnesses": [
+            2,
+            6,
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "25743/10201",
+            "-18117/20402"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "89409/10201",
+            "-891/202"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "243/202",
+            "0"
+          ],
+          "witnesses": [
+            0
+          ]
+        },
+        {
+          "radius_squared": [
+            "9",
+            "-891/202"
+          ],
+          "witnesses": [
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "363/202",
+            "0"
+          ],
+          "witnesses": [
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "1",
+          "-671/1818"
+        ],
+        [
+          "11/6",
+          "-121/101"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          6,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "66167/2727",
+            "-1408/101"
+          ],
+          "witnesses": [
+            7
+          ]
+        },
+        {
+          "radius_squared": [
+            "6618067/275427",
+            "-417824/30603"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "22022/2727",
+            "-1331/303"
+          ],
+          "witnesses": [
+            0
+          ]
+        },
+        {
+          "radius_squared": [
+            "1341322/275427",
+            "-76571/30603"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "202/27",
+            "-11/3"
+          ],
+          "witnesses": [
+            2,
+            6,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "2844682/275427",
+            "-517/101"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "40004/2727",
+            "-22/3"
+          ],
+          "witnesses": [
+            1
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    },
+    {
+      "coordinates": [
+        [
+          "-172/101",
+          "999/1111"
+        ],
+        [
+          "-270/1111",
+          "10/101"
+        ]
+      ],
+      "triples": [
+        [
+          2,
+          7,
+          8
+        ]
+      ],
+      "alias": null,
+      "old_classes": [
+        {
+          "radius_squared": [
+            "222741/12221",
+            "-11448/1111"
+          ],
+          "witnesses": [
+            6
+          ]
+        },
+        {
+          "radius_squared": [
+            "22206441/1234321",
+            "-1134648/112211"
+          ],
+          "witnesses": [
+            3
+          ]
+        },
+        {
+          "radius_squared": [
+            "3829566/1234321",
+            "-1647/1111"
+          ],
+          "witnesses": [
+            4
+          ]
+        },
+        {
+          "radius_squared": [
+            "606/121",
+            "-27/11"
+          ],
+          "witnesses": [
+            2,
+            7,
+            8
+          ]
+        },
+        {
+          "radius_squared": [
+            "8824446/1234321",
+            "-406107/112211"
+          ],
+          "witnesses": [
+            5
+          ]
+        },
+        {
+          "radius_squared": [
+            "53946/12221",
+            "-2187/1111"
+          ],
+          "witnesses": [
+            1
+          ]
+        },
+        {
+          "radius_squared": [
+            "120012/12221",
+            "-54/11"
+          ],
+          "witnesses": [
+            0
+          ]
+        }
+      ],
+      "hull": [
+        6,
+        2,
+        4,
+        7,
+        0,
+        5,
+        8,
+        1,
+        3
+      ],
+      "convex_compatible": false
+    }
+  ],
+  "unrestricted_solution": false
+}

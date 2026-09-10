@@ -1,0 +1,54 @@
+{
+  "status": "PASS_SCOPED_CORE_VALIDATION",
+  "python": "3.13.5",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_DIAMOND_PHASE_CERTIFICATES\",\n  \"fixed_systems\": 3,\n  \"diamonds_per_certificate\": 2,\n  \"strict_terms_per_certificate\": 2,\n  \"all_nine_orbit_systems_exhausted\": false,\n  \"unrestricted_solution\": false,\n  \"external_mathematical_review\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_diamond_phase_obstruction_20260909.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_all_three (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_all_three) ... ok\ntest_corrupt_equality_weight (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_corrupt_equality_weight) ... ok\ntest_disabled_assertions (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_disabled_assertions) ... ok\ntest_duplicate_case (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_duplicate_case) ... ok\ntest_missing_arrow (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_missing_arrow) ... ok\ntest_missing_strictness (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_missing_strictness) ... ok\ntest_negative_strict_weight (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_negative_strict_weight) ... ok\ntest_noninteger_weight (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_noninteger_weight) ... ok\ntest_positive_single_diamond_phase_control (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_positive_single_diamond_phase_control) ... ok\ntest_repeated_orbit (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_repeated_orbit) ... ok\ntest_unmatched_gain (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_unmatched_gain) ... ok\ntest_wrong_phase_order (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_wrong_phase_order) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.709s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-o",
+        "addopts=",
+        "test_diamond_phase_obstruction_20260909.py"
+      ],
+      "returncode": 0,
+      "stdout": "............                                                             [100%]\n12 passed in 0.88s\n",
+      "stderr": ""
+    }
+  ],
+  "unittest_cases": 12,
+  "pytest_cases": 12,
+  "same_tests_not_24_distinct_tests": true,
+  "base_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+  "unrun_gates": {
+    "make verify-fast": "scoped export, no full checkout",
+    "make verify-artifacts": "scoped export, no full checkout",
+    "python -m ruff check .": "Ruff unavailable locally",
+    "Python 3.10/3.11 compatibility collection": "interpreters unavailable"
+  },
+  "external_review": false
+}

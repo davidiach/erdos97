@@ -1,0 +1,10 @@
+{
+  "status": "PASS_ALL_STORED_FIXED_SYSTEM_CERTIFICATES",
+  "unique_cases": 333,
+  "base_angle_certificates": 330,
+  "diamond_phase_certificates": 3,
+  "integer_terms": 10291,
+  "all_nine_orbit_patterns_exhausted": false,
+  "unrestricted_solution": false,
+  "external_review": false
+}
