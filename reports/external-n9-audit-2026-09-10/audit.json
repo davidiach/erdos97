@@ -1,0 +1,270 @@
+{
+  "acquisition": {
+    "all_source_hashes_rechecked_after_build": true,
+    "external_project_precompiled_artifacts_used": false,
+    "method": "Pinned Git blobs for exact transitive project import closure; unchanged Lake configuration; shallow pinned dependency Git checkouts",
+    "original_files_including_configuration": 90,
+    "original_project_modules": 87,
+    "source_bytes": 2837603,
+    "upstream_mathlib_cache_used": true
+  },
+  "commands": [
+    {
+      "cache": "Official upstream mathlib cache",
+      "command": "lake exe cache get",
+      "exit_code": 0,
+      "working_directory": "external checkout / lean"
+    },
+    {
+      "command": "lake build Erdos9796Proof.P97.SmallCardinality",
+      "exit_code": 0,
+      "jobs_reported_by_lake": 8983,
+      "log": "n9-build.log.gz",
+      "working_directory": "external checkout / lean"
+    },
+    {
+      "command": "lake env lean N9Audit.lean",
+      "exit_code": 0,
+      "log": "n9-axioms.log",
+      "working_directory": "external checkout / lean"
+    },
+    {
+      "command": "make verify-n9-candidate",
+      "exit_code": 0,
+      "finite_summary": {
+        "kalmanson_self_edge_killed": 184,
+        "regenerated_terminal_assignments": 184,
+        "unkilled_terminal_assignments": 0
+      },
+      "log": "local-n9-candidate.log.gz",
+      "python": "3.11.15",
+      "skip": "lake not found; skipped Lean compilation",
+      "working_directory": "local comparison checkout"
+    }
+  ],
+  "dependencies": [
+    {
+      "configFile": "lakefile.toml",
+      "inherited": false,
+      "inputRev": "8323e878b83fcd7f4a448256069352a265460d75",
+      "manifestFile": "lake-manifest.json",
+      "name": "formal_conjectures",
+      "rev": "8323e878b83fcd7f4a448256069352a265460d75",
+      "scope": "",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/google-deepmind/formal-conjectures.git",
+      "verified_head": "8323e878b83fcd7f4a448256069352a265460d75"
+    },
+    {
+      "configFile": "lakefile.lean",
+      "inherited": false,
+      "inputRev": "v4.33.1",
+      "manifestFile": "lake-manifest.json",
+      "name": "mathlib",
+      "rev": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "scope": "leanprover-community",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover-community/mathlib4",
+      "verified_head": "0df444a360eaa60ab8c11dca51a86af692955474"
+    },
+    {
+      "configFile": "lakefile.toml",
+      "inherited": true,
+      "inputRev": "main",
+      "manifestFile": "lake-manifest.json",
+      "name": "plausible",
+      "rev": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "scope": "leanprover-community",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover-community/plausible",
+      "verified_head": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb"
+    },
+    {
+      "configFile": "lakefile.toml",
+      "inherited": true,
+      "inputRev": "main",
+      "manifestFile": "lake-manifest.json",
+      "name": "LeanSearchClient",
+      "rev": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "scope": "leanprover-community",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "verified_head": "5f4d51b81cbd3f6b32b156bfad9056621a040404"
+    },
+    {
+      "configFile": "lakefile.toml",
+      "inherited": true,
+      "inputRev": "main",
+      "manifestFile": "lake-manifest.json",
+      "name": "importGraph",
+      "rev": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "scope": "leanprover-community",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "verified_head": "16f02aa7642864af59f1ff0e384a015994db9118"
+    },
+    {
+      "configFile": "lakefile.lean",
+      "inherited": true,
+      "inputRev": "main",
+      "manifestFile": "lake-manifest.json",
+      "name": "proofwidgets",
+      "rev": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "scope": "leanprover-community",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "verified_head": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+    },
+    {
+      "configFile": "lakefile.toml",
+      "inherited": true,
+      "inputRev": "master",
+      "manifestFile": "lake-manifest.json",
+      "name": "aesop",
+      "rev": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "scope": "leanprover-community",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover-community/aesop",
+      "verified_head": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e"
+    },
+    {
+      "configFile": "lakefile.toml",
+      "inherited": true,
+      "inputRev": "master",
+      "manifestFile": "lake-manifest.json",
+      "name": "Qq",
+      "rev": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "scope": "leanprover-community",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover-community/quote4",
+      "verified_head": "92c15be17b7caf78c2ad767ec40f89052d908d81"
+    },
+    {
+      "configFile": "lakefile.toml",
+      "inherited": true,
+      "inputRev": "main",
+      "manifestFile": "lake-manifest.json",
+      "name": "batteries",
+      "rev": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "scope": "leanprover-community",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover-community/batteries",
+      "verified_head": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d"
+    },
+    {
+      "configFile": "lakefile.toml",
+      "inherited": true,
+      "inputRev": "v4.33.0",
+      "manifestFile": "lake-manifest.json",
+      "name": "Cli",
+      "rev": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "scope": "leanprover",
+      "subDir": null,
+      "tracked_source_changes": false,
+      "type": "git",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "verified_head": "6130a47896ce867c6a4a55373441e59e565bad0f"
+    }
+  ],
+  "evidence_files": {
+    "N9Audit.lean": {
+      "bytes": 1080,
+      "sha256": "a025ab9725da08c671a9fadfbe8cc6767ee3cfe803fae85ad2450bb7f3b8049a"
+    },
+    "local-n9-candidate.log.gz": {
+      "bytes": 10376,
+      "sha256": "5e12d173f589fee56fac41b72eb17ca0d9be15506a2a5c1f3ac8682f20763828"
+    },
+    "n9-axioms.log": {
+      "bytes": 515,
+      "sha256": "52007ad094e1e998f3bf12f66d09e8023c3eba2c14318461bf4c78961f427d2f"
+    },
+    "n9-build.log.gz": {
+      "bytes": 27139,
+      "sha256": "696bea18b113892dddaee913ef68f3c9499ca564acdb39f05f873c62807ef32e"
+    },
+    "source-manifest.json": {
+      "bytes": 39603,
+      "sha256": "fcafda2471a7252d2dcbc86caa7bc7a38f5813dea796eb4862ebc18221f7c5f8"
+    }
+  },
+  "execution_environment": {
+    "external_cache_home": "/private/tmp/erdos97-lean-runtime-20260910/cache",
+    "external_lean_bin": "/private/tmp/erdos97-lean-runtime-20260910/lean-4.33.1-darwin_aarch64/bin",
+    "fresh_external_source_build": true,
+    "original_checkout_modified": false,
+    "platform": "macOS arm64"
+  },
+  "external_repository": "https://github.com/mysticflounder/erdos-97-96-formalization",
+  "external_source_head": "d6b8e128af554eb430d060a31f26f863cea97c14",
+  "limitations": [
+    "No full external repository build",
+    "No comparator or independent second-kernel audit",
+    "Upstream mathlib compiled cache trusted; not all dependencies rebuilt from source",
+    "No fresh native-decide n=10 or n=11 verification",
+    "No independent human mathematical review",
+    "No successful refresh of the official problem page",
+    "B1 frontier comparison is source inspection, not a formal verification of that subtree",
+    "Local n=9 command passed with its Lean compilation step skipped"
+  ],
+  "local_comparison_head": "982e5a363be60cfd805db5ae40d4b258e53f9dfb",
+  "observed_axioms": {
+    "IndependentN9Audit.no_four_equidistant_up_to_nine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Problem97.FiniteN9Closure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Problem97.counterexample_card_ge_nine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Problem97.counterexample_card_ge_ten": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Problem97.not_hasNEquidistantProperty_four_of_card_le_nine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "recorded_at_utc": "2026-09-10T20:36:52.237389+00:00",
+  "result": "EXTERNAL_FINITE_STATEMENT_REPRODUCED_CORE_AXIOMS",
+  "schema": "external_n9_reproduction_v1",
+  "scope": "External finite-statement reproducibility only; accepted local n<=8 and review-pending n=9 scopes unchanged. No general proof or counterexample claimed.",
+  "toolchain": {
+    "archive": {
+      "browser_download_url": "https://github.com/leanprover/lean4/releases/download/v4.33.1/lean-4.33.1-darwin_aarch64.tar.zst",
+      "digest": "sha256:88c45aad985b5d2a8d925fe10bd1296bd35f66f408480ab182d3facccd065a9d",
+      "name": "lean-4.33.1-darwin_aarch64.tar.zst",
+      "size": 556491708
+    },
+    "release_digest_verified": true,
+    "version_output": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)"
+  }
+}
