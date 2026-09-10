@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "repository": "davidiach/erdos97",
+  "repository_base_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+  "inputs": [
+    {
+      "path": "inputs/filter9_all.json",
+      "bytes": 25856,
+      "sha256": "6d046b3d048a43977b9debda5c4bd3ad514dec1d5fe86b0f3cd63cf6be404544",
+      "git_blob_sha1": "8140d5d385eb92d4240717f77b7e73fdc4da6099",
+      "origin": "prior conversation attachment; immutable copy, not a full repository export"
+    },
+    {
+      "path": "inputs/filter9_slices.json",
+      "bytes": 5378,
+      "sha256": "52bef478357d36a8424549c2072026baf47bd9246c30f3cd40ab564c7ad5bf80",
+      "git_blob_sha1": "2dd3d4a90c1cd4ea99d772223ebfcdc3610aae39",
+      "origin": "prior conversation attachment; immutable copy, not a full repository export"
+    },
+    {
+      "path": "inputs/product6_best.json",
+      "bytes": 1138,
+      "sha256": "047d4a69c577745a76f5adc4853a1f2b25e9fa3834f2434a4fdae2162462907e",
+      "git_blob_sha1": "dce41a465fed33e35733a40aa5ca1341622ae9d8",
+      "origin": "prior conversation attachment; immutable copy, not a full repository export"
+    },
+    {
+      "path": "inputs/q3_field_original.py",
+      "bytes": 2204,
+      "sha256": "96a038c3511d1bd028395a30c17bb76dbe66c65cc17c286703f74d81a043f76f",
+      "git_blob_sha1": "967688412a793b46ab6ef16ee2aadddafadb8457",
+      "origin": "prior conversation attachment; immutable copy, not a full repository export"
+    },
+    {
+      "path": "inputs/search9.cpp",
+      "bytes": 6284,
+      "sha256": "be35f9d44b919a1af68b514fa2c65ce46661ab096c4ede5b8b00ffdd3115bd3c",
+      "git_blob_sha1": "e5f222fa106245a7d022a87fb9b902da33b80da7",
+      "origin": "prior conversation attachment; immutable copy, not a full repository export"
+    }
+  ],
+  "primary_repository_reading_anchors": [
+    {
+      "path": "incoming/six-arc-product-obstructions-2026-09-08/snapshot/proof_attempts/product_component.md",
+      "blob": "2ccb3e6eb195eaad77f780d2fc56c4dd744636d0",
+      "role": "existing circle-completion identity, restated with explicit gain and phase derivation"
+    },
+    {
+      "path": "incoming/c3-own-side-eight-orbits-2026-09-05/c3_eight_check.py",
+      "blob": "5129c71381353f70c6a30f4b151f1f3a5a1ff86f",
+      "role": "primary physical-chord/BFS certificate method; local check_c3.py is an adaptation, not byte-identical"
+    },
+    {
+      "path": "incoming/c3-own-side-eight-orbits-2026-09-05/c3_eight_angles.py",
+      "blob": "36eef642c590c1a94b2a3827ad1ac97403924fc2",
+      "role": "necessary chord-angle model adapted in local c3_model.py"
+    },
+    {
+      "path": "incoming/c3-common-suppliers-2026-09-05/README.md",
+      "blob": "7217b07661de85a666382d12351181ddfdbed9c0",
+      "role": "scope/overlap audit; supplier interlacing is not global diamond extraction"
+    },
+    {
+      "path": "incoming/long-radius-cubic-2026-09-05/README.md",
+      "blob": "ab0d4b15d44752172f0515a33cbfc854aa811fc3",
+      "role": "later targeted reading of power-quotient and commensurable-angle hypotheses; no new claim depends on acceptance"
+    }
+  ],
+  "arithmetic_input_copy": {
+    "input": "inputs/q3_field_original.py",
+    "working_copy": "verify/q3_field.py",
+    "byte_identical": true
+  },
+  "external_mathematical_review": false,
+  "literature_novelty_claimed": false,
+  "complete_historical_snapshot": false
+}

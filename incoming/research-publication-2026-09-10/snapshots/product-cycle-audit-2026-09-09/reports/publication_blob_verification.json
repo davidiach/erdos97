@@ -1,0 +1,31 @@
+{
+  "status": "PASS_LOCAL_TESTED_BYTES_EQUAL_REMOTE_GIT_BLOBS",
+  "commit": "de2ce5a5e6a391103fa011b9697533d002ce8f00",
+  "files": {
+    "README.md": {
+      "bytes": 6042,
+      "git_blob": "b3eeb1514ac93d684fae7b1af2f4a46b4f16fa97",
+      "sha256": "136b3424cbbf157f9f5c0af9671a2fbe13ba781e43bed41b4594161b5fb47a09"
+    },
+    "cases.json": {
+      "bytes": 2766,
+      "git_blob": "48f22b997964093b7d5c432815a22087c95536cc",
+      "sha256": "8611c39684e4eee813564184dee996e3aafd980171940dc7b382142d6139e4ff"
+    },
+    "test_diamond_phase_obstruction_20260909.py": {
+      "bytes": 2993,
+      "git_blob": "ebcd1b29682e7c8e5603811ba1655dacd983f2e8",
+      "sha256": "1cca2087cd1ba0cb9daa4dd76f21e045fdec72e5f23985bdef5c2ea448e504bb"
+    },
+    "validation.json": {
+      "bytes": 896,
+      "git_blob": "ee14da7b1c797b3e3a4300af1e2687453145622f",
+      "sha256": "c801a1962630154587430b298a4b1e9fce8d60c1d199c7b1cf2a2a4a7963f0fe"
+    },
+    "verify.py": {
+      "bytes": 4643,
+      "git_blob": "ad87afdabce009a54b457b3ed7814414c46a8648",
+      "sha256": "bbb4f5c6edca7a7e0877f70a89f48a0158ec437afe2cf2a0baa6738f5f0cf128"
+    }
+  }
+}

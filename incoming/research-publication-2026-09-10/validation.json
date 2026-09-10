@@ -1,0 +1,29 @@
+{
+  "status": "PASS_SCOPED_IMPORT_PREPARATION",
+  "python": "3.13.5",
+  "snapshot_files": 168,
+  "archived_product_tests_passed": 50,
+  "new_defensive_unittest_cases_passed": 19,
+  "pytest_items_passed": 20,
+  "pytest_overlap_note": "19 are the same importer tests; one is the full replay wrapper",
+  "pytest_warnings": [
+    "artifact marker registration absent in scoped export; existing repo defines this marker"
+  ],
+  "exact_certificate_records": 2531,
+  "positive_two_star_vectors": 1354,
+  "exact_geometric_controls": 9,
+  "full_exact_report_comparisons": 5,
+  "remote_branch_created": false,
+  "new_pr_created": false,
+  "required_gates_not_run": {
+    "make verify-fast": "Full checkout unavailable: direct Git DNS failure",
+    "make verify-artifacts": "Full checkout unavailable: direct Git DNS failure",
+    "python -m ruff check .": "Ruff not installed; no complete checkout",
+    "Python 3.10/3.11 compatibility collection": "Those interpreters unavailable"
+  },
+  "external_mathematical_review": false,
+  "unrestricted_solution": false,
+  "staged_diff_whitespace": "PASS_GIT_STAGED_DIFF_CHECK_NEW_PACKET",
+  "publisher_pure_helpers_tested": true,
+  "publisher_remote_execution_tested": false
+}

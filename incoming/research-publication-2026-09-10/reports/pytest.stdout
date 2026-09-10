@@ -1,0 +1,8 @@
+....................                                                     [100%]
+=============================== warnings summary ===============================
+test_research_publication_replay_20260910.py:7
+  /mnt/data/erdos97_publication_work/pr-ready/incoming/research-publication-2026-09-10/test_research_publication_replay_20260910.py:7: PytestUnknownMarkWarning: Unknown pytest.mark.artifact - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html
+    @pytest.mark.artifact
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+20 passed, 1 warning in 14.03s

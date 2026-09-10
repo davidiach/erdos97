@@ -1,0 +1,19 @@
+314 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+315 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+316 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+317 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+318 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+319 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+320 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+321 False {'status': 2, 'message': 'The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)'}
+322 False {'status': 2, 'message': 'The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)'}
+323 False {'status': 2, 'message': 'The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)'}
+324 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+325 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+326 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+327 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+328 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+329 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+330 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+331 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}
+332 True {'status': 0, 'method': 'direct homogeneous dual, exact reconstruction'}

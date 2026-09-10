@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/mnt/data/nine_with_phase",
+    "--all",
+    "--limit",
+    "100000",
+    "--output",
+    "reports/phase_100k.jsonl"
+  ],
+  "returncode": 3,
+  "duration_seconds": 0.7299944179994782,
+  "source_sha256": "f24087d7fe06a86c0ae36b43f065f254e22f8b7b6ab09af3d9321b726f3cfd7d",
+  "guard_is_not_unsat": true
+}

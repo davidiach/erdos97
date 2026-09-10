@@ -1,0 +1,19 @@
+{
+  "status": "PASS_SCOPED_EXACT_REPLAY",
+  "python": "3.13.5",
+  "immutable_input_sha256": {
+    "inputs/filter9_all.json": "6d046b3d048a43977b9debda5c4bd3ad514dec1d5fe86b0f3cd63cf6be404544",
+    "inputs/filter9_slices.json": "52bef478357d36a8424549c2072026baf47bd9246c30f3cd40ab564c7ad5bf80",
+    "inputs/product6_best.json": "047d4a69c577745a76f5adc4853a1f2b25e9fa3834f2434a4fdae2162462907e",
+    "inputs/q3_field_original.py": "96a038c3511d1bd028395a30c17bb76dbe66c65cc17c286703f74d81a043f76f",
+    "inputs/search9.cpp": "be35f9d44b919a1af68b514fa2c65ce46661ab096c4ede5b8b00ffdd3115bd3c"
+  },
+  "defensive_tests": 38,
+  "publication_core_tests": 12,
+  "fixed_system_certificates": 333,
+  "exact_geometry_controls": 4,
+  "all_nine_orbit_systems_exhausted": false,
+  "repository_wide_gates_run": false,
+  "external_review": false,
+  "unrestricted_solution": false
+}

@@ -1,0 +1,12 @@
+{
+  "status": "PASS_CPP_PYTHON_PHASE_FILTER_CROSSCHECK",
+  "cases": 333,
+  "phase_rejected": 200,
+  "phase_survived": 133,
+  "three_positive_angle_cases": {
+    "321": 0,
+    "322": 0,
+    "323": 0
+  },
+  "all_nine_orbit_patterns_exhausted": false
+}

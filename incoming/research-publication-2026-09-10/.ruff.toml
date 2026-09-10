@@ -1,0 +1,3 @@
+# Original research inputs are immutable; maintained publication code remains linted.
+extend = "../../pyproject.toml"
+extend-exclude = ["snapshots"]

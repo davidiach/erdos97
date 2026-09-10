@@ -1,0 +1,7 @@
+{
+  "input": "search/nine_with_supplier_arc.cpp",
+  "input_sha256": "f2be2bb5941da1eef822333cd3d933dfdc02ff6fe157a34d12e6cd5980c0a2b3",
+  "output": "search/nine_with_phase.cpp",
+  "output_sha256": "f24087d7fe06a86c0ae36b43f065f254e22f8b7b6ab09af3d9321b726f3cfd7d",
+  "scope": "one/two-diamond necessary phase filter; no new exhaustive theorem"
+}

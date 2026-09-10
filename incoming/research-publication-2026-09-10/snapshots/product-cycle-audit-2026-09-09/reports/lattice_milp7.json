@@ -1,0 +1,21 @@
+{
+  "scope": "finite integer-coordinate pool search; no global or exact infeasibility claim",
+  "side": 7,
+  "minimum_size": 9,
+  "pool_size": 49,
+  "active_distance_groups": 123,
+  "collinear_triples": 824,
+  "nonconvex_quadruples": 45184,
+  "variables": 172,
+  "constraints": 46304,
+  "solver_status": 2,
+  "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+  "solver_time_limit": 20.0,
+  "objective": null,
+  "selected_labels": [],
+  "exact_positive_certificate": null,
+  "build_seconds": 0.17583823699987988,
+  "total_seconds": 0.342891550999866,
+  "scipy": "1.17.0",
+  "python": "3.13.5"
+}
