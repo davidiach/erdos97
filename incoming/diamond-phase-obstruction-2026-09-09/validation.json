@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SCOPED_CORE_VALIDATION",
+  "python": "3.13.5",
+  "commands": [
+    {
+      "command": "python -S verify.py",
+      "returncode": 0,
+      "fixed_systems": 3
+    },
+    {
+      "command": "python -S -m unittest -v test_diamond_phase_obstruction_20260909.py",
+      "returncode": 0,
+      "tests": 12
+    },
+    {
+      "command": "python -m pytest -q -o addopts='' test_diamond_phase_obstruction_20260909.py",
+      "returncode": 0,
+      "tests": 12
+    }
+  ],
+  "same_tests_not_24_distinct_tests": true,
+  "base_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+  "unrun_gates": {
+    "make verify-fast": "scoped export, no full checkout",
+    "make verify-artifacts": "scoped export, no full checkout",
+    "python -m ruff check .": "Ruff unavailable locally",
+    "Python 3.10/3.11 compatibility collection": "interpreters unavailable"
+  },
+  "external_review": false
+}
