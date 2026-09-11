@@ -1,0 +1,987 @@
+{
+  "external_imports": [
+    "FormalConjectures.ErdosProblems.\u00ab97\u00bb",
+    "FormalConjecturesForMathlib.Geometry.\u00ab2d\u00bb",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Piecewise",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Sigma",
+    "Mathlib.Algebra.BigOperators.Intervals",
+    "Mathlib.Algebra.Group.Nat.Even",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Analysis.Convex.Between",
+    "Mathlib.Analysis.Convex.Caratheodory",
+    "Mathlib.Analysis.Convex.Combination",
+    "Mathlib.Analysis.Convex.Extreme",
+    "Mathlib.Analysis.Convex.Hull",
+    "Mathlib.Analysis.Convex.Independent",
+    "Mathlib.Analysis.Convex.Join",
+    "Mathlib.Analysis.Convex.StrictConvexSpace",
+    "Mathlib.Analysis.Convex.Topology",
+    "Mathlib.Analysis.InnerProductSpace.Basic",
+    "Mathlib.Analysis.InnerProductSpace.Orthonormal",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.InnerProductSpace.Projection.Minimal",
+    "Mathlib.Analysis.InnerProductSpace.TwoDim",
+    "Mathlib.Analysis.LocallyConvex.Separation",
+    "Mathlib.Analysis.Normed.Affine.AddTorsorBases",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Angle",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Data.Finset.Filter",
+    "Mathlib.Data.Finset.Powerset",
+    "Mathlib.Data.Finset.SDiff",
+    "Mathlib.Data.Finset.Sigma",
+    "Mathlib.Data.Finset.Sort",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.Data.Nat.Choose.Basic",
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Geometry.Euclidean.Angle.Oriented.Basic",
+    "Mathlib.Geometry.Euclidean.Angle.Oriented.RightAngle",
+    "Mathlib.Geometry.Euclidean.Angle.Sphere",
+    "Mathlib.Geometry.Euclidean.PerpBisector",
+    "Mathlib.Geometry.Euclidean.Simplex",
+    "Mathlib.Geometry.Euclidean.Sphere.Basic",
+    "Mathlib.Geometry.Euclidean.Triangle",
+    "Mathlib.LinearAlgebra.AffineSpace.FiniteDimensional",
+    "Mathlib.Logic.Equiv.Fin.Rotate",
+    "Mathlib.Order.Interval.Finset.Fin",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Topology.MetricSpace.ProperSpace",
+    "Mathlib.Topology.Order.Lattice"
+  ],
+  "files": {
+    "lean/Erdos9796Proof/P97/A1B2FrameNormalization.lean": {
+      "bytes": 33149,
+      "git_blob": "d86a49aed6f3ba9f31a217e6a1c649c4c398871f",
+      "imports": [
+        "Erdos9796Proof.P97.A1ContextProducers"
+      ],
+      "sha256": "0e3ad0cec9f666a758cad58c5bc7bbd32ddde34fec54601da91cd6076394a658"
+    },
+    "lean/Erdos9796Proof/P97/A1ContextProducers.lean": {
+      "bytes": 10483,
+      "git_blob": "4ed50b14f6bfeacdc681042b285b18041585df03",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e"
+      ],
+      "sha256": "0f22e617dfdbf248c4e8a0fcf0b9ec484bb73e6b3cce0d5bfeb2eb10c0d847cc"
+    },
+    "lean/Erdos9796Proof/P97/ArcBlockContiguity.lean": {
+      "bytes": 12577,
+      "git_blob": "1ee5ea439da4a90424d7a8010bef857c7d4f5706",
+      "imports": [
+        "Erdos9796Proof.P97.ConvexCyclicOrder.Basic",
+        "Erdos9796Proof.P97.Cap.Structure"
+      ],
+      "sha256": "d029f87259baa8ff52a4f0c23cad5d98853efa31154d779d3e041dc697c24e98"
+    },
+    "lean/Erdos9796Proof/P97/ArcPartitionCount.lean": {
+      "bytes": 33014,
+      "git_blob": "d9c92131103712997add2cc3c73ab49b7c077376",
+      "imports": [
+        "Erdos9796Proof.P97.Cap.PartitionFromMEC",
+        "Erdos9796Proof.P97.ConvexIndepHelpers",
+        "Erdos9796Proof.P97.Moser.NonDeg",
+        "Mathlib.Analysis.Convex.Between",
+        "Mathlib.Analysis.Convex.Hull"
+      ],
+      "sha256": "572f8bf0c2c29f5db2afe9ef8dfa5a179cea8a5fabea8a5ecd5dcd76c653030d"
+    },
+    "lean/Erdos9796Proof/P97/Bridge/A1SpineWiring.lean": {
+      "bytes": 4103,
+      "git_blob": "a75e968510420505a1db93bb0a006a2ab9885095",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e"
+      ],
+      "sha256": "d0a2bcd318a9fd24709725542042043d2962a927c04674d3c13f9aabdeca591d"
+    },
+    "lean/Erdos9796Proof/P97/CGN/CGN.lean": {
+      "bytes": 17414,
+      "git_blob": "e47d676469fb8781c622acc0a0b1d4e37e9551fb",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.Dumitrescu.L6",
+        "Erdos9796Proof.P97.Dumitrescu.Lc3",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Powerset",
+        "Mathlib.Order.Interval.Finset.Fin"
+      ],
+      "sha256": "b5d96fc34dfa966554ae269649b8433955cfd6c4249b5d429e393b43b0a35ba8"
+    },
+    "lean/Erdos9796Proof/P97/CGN/CGN4g.lean": {
+      "bytes": 81862,
+      "git_blob": "9cefa7ab15e83d757b6621fed6997b3290b271ad",
+      "imports": [
+        "Erdos9796Proof.P97.CGN.CGN",
+        "Erdos9796Proof.P97.CircumcenterSide",
+        "Erdos9796Proof.P97.CircumscribedMECPacket",
+        "Erdos9796Proof.P97.ConvexIndepHelpers",
+        "Erdos9796Proof.P97.ConvexCyclicOrder.Construct",
+        "Erdos9796Proof.P97.OangleBridge",
+        "Mathlib.Data.Finset.Sort",
+        "Mathlib.Logic.Equiv.Fin.Rotate",
+        "Mathlib.Order.Interval.Finset.Fin"
+      ],
+      "sha256": "c412b95ca627805e0db3a1f0d192f80b93891249e4eb1369844d4f8206dcba79"
+    },
+    "lean/Erdos9796Proof/P97/CGN/CGN6.lean": {
+      "bytes": 97426,
+      "git_blob": "e1bcd67881e3b1df5e8b7ba670a9660fdec713bf",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.CGN.CGN",
+        "Erdos9796Proof.P97.Dumitrescu.Lc1Strict",
+        "Erdos9796Proof.P97.Dumitrescu.L1",
+        "Erdos9796Proof.P97.ConvexIndepHelpers",
+        "Erdos9796Proof.P97.SignedAreaOangle",
+        "Erdos9796Proof.P97.OangleBridge",
+        "Mathlib.Order.Interval.Finset.Fin",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Analysis.InnerProductSpace.Orthonormal",
+        "Mathlib.Analysis.InnerProductSpace.TwoDim",
+        "Mathlib.Analysis.Convex.Hull",
+        "Mathlib.Geometry.Euclidean.PerpBisector"
+      ],
+      "sha256": "658f219e47fff10f5060a4f4f972642116365332b27db788dea899ae27c77555"
+    },
+    "lean/Erdos9796Proof/P97/CGN/CGN7.lean": {
+      "bytes": 9565,
+      "git_blob": "bdc9c0d3e451474f1c1b034a3f715e427b178ea8",
+      "imports": [
+        "Erdos9796Proof.P97.CGN.CGN6",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Powerset",
+        "Mathlib.Data.Finset.Sigma"
+      ],
+      "sha256": "4ee86b0437e8fded52466bee32c2a59a76bcfc3cc81fd3b5fc0a7f95fce56e18"
+    },
+    "lean/Erdos9796Proof/P97/CGN/CGN8.lean": {
+      "bytes": 33259,
+      "git_blob": "193f68bf841b09bd94d104ddbffc2a7f15358c93",
+      "imports": [
+        "Erdos9796Proof.P97.CGN.CGN4g",
+        "Erdos9796Proof.P97.CGN.CGN7",
+        "Erdos9796Proof.P97.CircumscribedMECPacket",
+        "Erdos9796Proof.P97.Dumitrescu.L4",
+        "Erdos9796Proof.P97.Dumitrescu.L10",
+        "Erdos9796Proof.P97.Dumitrescu.L10c",
+        "Erdos9796Proof.P97.Moser.TriangleNonObtuse",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+      ],
+      "sha256": "e0d08238ab808e6b673b9006abffb488ad895fb6cf431ea389289a83884af65d"
+    },
+    "lean/Erdos9796Proof/P97/Cap/ArcInscribedAngle.lean": {
+      "bytes": 5951,
+      "git_blob": "6b9797b45ac6b993002a7b2ec8d0ecb3420007cd",
+      "imports": [
+        "Erdos9796Proof.P97.MidpointInequality",
+        "Mathlib.Analysis.InnerProductSpace.Basic"
+      ],
+      "sha256": "229631a65f8abd10a13cc09e09bfa34327c4b03427c96d3053e9f4b1fef392da"
+    },
+    "lean/Erdos9796Proof/P97/Cap/ArcInteriorPoints.lean": {
+      "bytes": 26176,
+      "git_blob": "e4a6e314e6e9b91638aa2d2249ffaa44d3be0d73",
+      "imports": [
+        "Erdos9796Proof.P97.Cap.ArcInscribedAngle",
+        "Erdos9796Proof.P97.Cap.ConeContainment",
+        "Mathlib.Analysis.InnerProductSpace.Basic"
+      ],
+      "sha256": "9592b9dc198e26938e1830ef4cec6f56d7574f1c3d105767534f84af5d9dac75"
+    },
+    "lean/Erdos9796Proof/P97/Cap/ConeContainment.lean": {
+      "bytes": 11762,
+      "git_blob": "78b622b3bccb871f99a7deb16431f454dbc40f4f",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Mathlib.Analysis.InnerProductSpace.Basic"
+      ],
+      "sha256": "5a7bde2d2be45ae1e96675417cca7b8fe1932ad74c709c2585dd7831ab0eca47"
+    },
+    "lean/Erdos9796Proof/P97/Cap/Partition.lean": {
+      "bytes": 5154,
+      "git_blob": "2f987cfec45eb8e97806ebe99a06ae58a3d031f3",
+      "imports": [
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Piecewise",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.SDiff"
+      ],
+      "sha256": "baaf503023695b8e0b1c19f8745478e6ec02a514e175bd113f5346c7d25a5e27"
+    },
+    "lean/Erdos9796Proof/P97/Cap/PartitionFromMEC.lean": {
+      "bytes": 24753,
+      "git_blob": "1c61f11383df2d52b98821ecaed3bf793b5df19d",
+      "imports": [
+        "Erdos9796Proof.P97.Cap.Structure",
+        "Erdos9796Proof.P97.Moser.Triangle",
+        "Erdos9796Proof.P97.Moser.TriangleNonObtuse"
+      ],
+      "sha256": "cb2a5ce1101a74572ab57000424dc5f4df662f147fba1a7de73bfcf938646f93"
+    },
+    "lean/Erdos9796Proof/P97/Cap/Structure.lean": {
+      "bytes": 11300,
+      "git_blob": "df8a25fb31d389f8e9479c4aa34fb0e4c853ebe2",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.SmallerCounterexample",
+        "Erdos9796Proof.P97.Cap.Partition"
+      ],
+      "sha256": "c37032098ca734b3732823b68f086b864f33a605fab97f4d15fc1010f9faeb11"
+    },
+    "lean/Erdos9796Proof/P97/CircumcenterSide.lean": {
+      "bytes": 10061,
+      "git_blob": "6383276515de4a53dcd61f7e65e8db61cb08aa7a",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.Cap.ArcInscribedAngle",
+        "Mathlib.Analysis.InnerProductSpace.Basic"
+      ],
+      "sha256": "29ad9a32acf8129d66c4663579b3568047794eff971aa9120aac73db7971f861"
+    },
+    "lean/Erdos9796Proof/P97/CircumscribedMECPacket.lean": {
+      "bytes": 9730,
+      "git_blob": "d1242f59549f85c6e5a940d5d771be04ce491102",
+      "imports": [
+        "Erdos9796Proof.P97.Cap.Structure",
+        "Erdos9796Proof.P97.Moser.Triangle",
+        "Erdos9796Proof.P97.Moser.TriangleNonObtuse",
+        "Erdos9796Proof.P97.Cap.PartitionFromMEC",
+        "Erdos9796Proof.P97.Cap.ArcInteriorPoints"
+      ],
+      "sha256": "02ff1f784964432d89d8cbd6166a30cc8417a7b0d3b72247d0f8c6a610ba54d4"
+    },
+    "lean/Erdos9796Proof/P97/ConvexCyclicOrder/Basic.lean": {
+      "bytes": 17312,
+      "git_blob": "9dfc013a5aaf5b76b734ad0cf337dafc63aad3c3",
+      "imports": [
+        "FormalConjecturesForMathlib.Geometry.\u00ab2d\u00bb",
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.SignedAreaOangle"
+      ],
+      "sha256": "f8a5a50e94a54b0b92de35d28ca491e447ba3cc3f4e643b3ebf84a6254ee83de"
+    },
+    "lean/Erdos9796Proof/P97/ConvexCyclicOrder/Construct.lean": {
+      "bytes": 90761,
+      "git_blob": "dbd52e6e5f3d8033ee1a961b381100a5d8073c32",
+      "imports": [
+        "Erdos9796Proof.P97.ConvexCyclicOrder.Basic",
+        "Erdos9796Proof.P97.MEC.ArcAngle",
+        "Erdos9796Proof.P97.ConvexIndepHelpers",
+        "Erdos9796Proof.P97.Moser.NonDeg",
+        "Erdos9796Proof.P97.SignedAreaOangle",
+        "Mathlib.Analysis.Normed.Affine.AddTorsorBases",
+        "Mathlib.Analysis.Convex.Independent",
+        "Mathlib.Analysis.Convex.Extreme",
+        "Mathlib.Analysis.Convex.Join",
+        "Mathlib.Analysis.LocallyConvex.Separation",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Angle",
+        "Mathlib.Data.Finset.Sort"
+      ],
+      "sha256": "ded7bdf5bdbd90cbf117eef102f546d568df41608cc46f28645234221bf38de1"
+    },
+    "lean/Erdos9796Proof/P97/ConvexIndepHelpers.lean": {
+      "bytes": 6759,
+      "git_blob": "47f580ec0ad91f0c1ec6cc6565d6cf624e2cfa15",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation"
+      ],
+      "sha256": "58fea6fdfc458ff582e9e12c324d10b6e51a5653a6daa5dc80f586642be49129"
+    },
+    "lean/Erdos9796Proof/P97/Counting.lean": {
+      "bytes": 4608,
+      "git_blob": "63ff61026b51292c6c82ffdf60032a3020bbe4e5",
+      "imports": [
+        "Erdos9796Proof.P97.IsoscelesCount",
+        "Erdos9796Proof.P97.CountingArithmetic",
+        "Erdos9796Proof.P97.ConvexIndepHelpers",
+        "Erdos9796Proof.P97.NoDiameterUnderK4",
+        "Erdos9796Proof.P97.CGN.CGN8"
+      ],
+      "sha256": "1bc8e15663c147d582d82d71a22bf654f8becdb1003f0aef828d47271d204523"
+    },
+    "lean/Erdos9796Proof/P97/CountingArithmetic.lean": {
+      "bytes": 1672,
+      "git_blob": "e6c1a8ca05e3dbbafa889dadc64daf27ec3703bf",
+      "imports": [
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Data.Real.Basic"
+      ],
+      "sha256": "fbcea1f88d69889eb703a9666ba5be87cc47b69941cbca63e4dba5d53dd10763"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L1.lean": {
+      "bytes": 8591,
+      "git_blob": "f8a805903c4ad98b5a80ed2ef8f618f58ce60b27",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.ConvexIndepHelpers",
+        "Mathlib.Geometry.Euclidean.PerpBisector",
+        "Mathlib.LinearAlgebra.AffineSpace.FiniteDimensional",
+        "Mathlib.Analysis.Convex.Between",
+        "Mathlib.Analysis.Convex.Hull"
+      ],
+      "sha256": "170e1886e820b6afa033edfc08e0c4f73057cb7f3c71cc97552cede97ff21fbf"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L10.lean": {
+      "bytes": 14233,
+      "git_blob": "7cf486fdebc8720aa196ae8c28e668a4fbc182f7",
+      "imports": [
+        "Erdos9796Proof.P97.IsoscelesCount",
+        "Erdos9796Proof.P97.Dumitrescu.L6",
+        "Erdos9796Proof.P97.Dumitrescu.L7",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+      ],
+      "sha256": "02026039f0b36ebf12c5fd42a39cfae659da0a191c1eae2ebecb572320b3f76f"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L10c.lean": {
+      "bytes": 2469,
+      "git_blob": "cabe35efb7e23c51c3cfa8a3680d6e318f15ba2b",
+      "imports": [
+        "Erdos9796Proof.P97.Dumitrescu.L9",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "sha256": "5aa520b1c04392498c794459f80b2aa16f92be66b37143939e64f72fc3578c78"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L2.lean": {
+      "bytes": 6980,
+      "git_blob": "9080d7175b603e5e3323224dbe378b573605275b",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.IsoscelesCount",
+        "Erdos9796Proof.P97.Dumitrescu.L1",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Sigma",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Piecewise",
+        "Mathlib.Algebra.Group.Nat.Even",
+        "Mathlib.Data.Nat.Choose.Basic"
+      ],
+      "sha256": "6e987faa8f6d927f696d52a3108bd045cb06563eeab02043b7017496c2f8e88e"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L3.lean": {
+      "bytes": 3495,
+      "git_blob": "e31f18cf7c07b6ec0c8b48357143e7b645952e8b",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.Dumitrescu.L1",
+        "Mathlib.Data.Finset.Filter",
+        "Mathlib.Data.Finset.Card"
+      ],
+      "sha256": "26c1b07fe4e05707f22f498cfd8a3606d92084c27d0a2f7cb7580cf88c86e5fa"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L4.lean": {
+      "bytes": 4815,
+      "git_blob": "383c110fe6e7f0bd89a780382a774c09aa4768d9",
+      "imports": [
+        "Erdos9796Proof.P97.ArcPartitionCount",
+        "Erdos9796Proof.P97.Moser.NonDeg",
+        "Erdos9796Proof.P97.Cap.PartitionFromMEC",
+        "Erdos9796Proof.P97.Cap.Structure"
+      ],
+      "sha256": "e83e9f54d8942578d2c5ed7d0655ace7578bc914fb411a46c1c9edcd9760b89a"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L5.lean": {
+      "bytes": 9689,
+      "git_blob": "9378a2b6d86fac5134f3812bc453fcccdda9fbb6",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.Cap.Structure",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Powerset",
+        "Mathlib.Data.Nat.Choose.Basic"
+      ],
+      "sha256": "b61ee43094322b2e31831a4cd9ae3bf9c2b3a901aab6259ea182e714f4006b56"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L6.lean": {
+      "bytes": 12394,
+      "git_blob": "8f2e4912b81bbcc2cf56cb72887d4a1b960020e3",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.Cap.Structure",
+        "Erdos9796Proof.P97.Dumitrescu.L3",
+        "Erdos9796Proof.P97.Dumitrescu.L5",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Powerset",
+        "Mathlib.Data.Nat.Choose.Basic"
+      ],
+      "sha256": "5734bd5bf1734a3ac1aec799aa89c43c6d0b026d07909ee8e7389ee71d40d90e"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L7.lean": {
+      "bytes": 15798,
+      "git_blob": "927b577facc63ed604291a665cbeed0e1cb34148",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.Cap.Structure",
+        "Erdos9796Proof.P97.Dumitrescu.L5",
+        "Mathlib.Data.Finset.Card",
+        "Mathlib.Data.Finset.Powerset"
+      ],
+      "sha256": "a87e38fcc958631fd8f245c7a51f96ff70f7f4235214960c0cce4ff416be0483"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/L9.lean": {
+      "bytes": 3067,
+      "git_blob": "9c7c7f4d9ed173982956576b4f6c2e5569049af0",
+      "imports": [
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Data.Real.Basic"
+      ],
+      "sha256": "778a25db99de269bade0811a06f0e0c94fef00a8934b475bd97d07407461d4bf"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/Lc1Strict.lean": {
+      "bytes": 24342,
+      "git_blob": "f1546d90b8d2a4b6ec5c6e7736162911a7d0a11e",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.CircumscribedMECPacket",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Geometry.Euclidean.PerpBisector",
+        "Mathlib.Geometry.Euclidean.Triangle"
+      ],
+      "sha256": "79552d47d9473f42104d5850f982510576893e85ddd7347652348a1f8b91502b"
+    },
+    "lean/Erdos9796Proof/P97/Dumitrescu/Lc3.lean": {
+      "bytes": 18112,
+      "git_blob": "a3b0e5705ca153717c514630d692c75607431a79",
+      "imports": [
+        "Erdos9796Proof.P97.CircumscribedMECPacket",
+        "Erdos9796Proof.P97.ConvexIndepHelpers",
+        "Erdos9796Proof.P97.Dumitrescu.L2",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Algebra.BigOperators.Intervals",
+        "Mathlib.Data.Real.Basic",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "sha256": "b2da9a0610fa56db34d79cd9a30e8c812ed7feff3d0f6345aea81fb7298fe167"
+    },
+    "lean/Erdos9796Proof/P97/Foundation.lean": {
+      "bytes": 3732,
+      "git_blob": "0337ad5ad619f34969cdcf9d670aa23a5df693c8",
+      "imports": [
+        "FormalConjectures.ErdosProblems.\u00ab97\u00bb"
+      ],
+      "sha256": "a391c93c43d33614d2c04166d97d6a5d88b750a5691b6c682233c1d1c9de9bd3"
+    },
+    "lean/Erdos9796Proof/P97/IsoscelesCount.lean": {
+      "bytes": 10876,
+      "git_blob": "31882a4838efe39e74d626fc74f16a243ed765a8",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Data.Finset.Powerset"
+      ],
+      "sha256": "207564b11a38e9270192c8e5de3202b113b7f89c7ece5af3bc12954928d3013c"
+    },
+    "lean/Erdos9796Proof/P97/MEC/ArcAngle.lean": {
+      "bytes": 40336,
+      "git_blob": "127c6fdc486402934040d87e873fbc4e333a5574",
+      "imports": [
+        "Erdos9796Proof.P97.SignedAreaOangle"
+      ],
+      "sha256": "4d7ceebcbb8adcb5f2581ad54e00ef84ce109370fabe4fdf83c165b1fc179150"
+    },
+    "lean/Erdos9796Proof/P97/MEC/Basic.lean": {
+      "bytes": 13445,
+      "git_blob": "5f52fd1a9ca59bcaee0eed92a5be414fc078b6e9",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Mathlib.Geometry.Euclidean.Triangle",
+        "Mathlib.Geometry.Euclidean.Sphere.Basic",
+        "Mathlib.Topology.Order.Lattice",
+        "Mathlib.Topology.MetricSpace.ProperSpace"
+      ],
+      "sha256": "2949757c48f82fbe9a3ec27ad6d510348411fcb9804fc3565a6c6622d9701a3e"
+    },
+    "lean/Erdos9796Proof/P97/MEC/Boundary.lean": {
+      "bytes": 27434,
+      "git_blob": "5164d2918a51e433df9be92aaac35ced2d581e8a",
+      "imports": [
+        "Erdos9796Proof.P97.MEC.Basic"
+      ],
+      "sha256": "5ecc5da63dcd43fb238d76a177ee18def3220508139585a48fd40d00e7b994b8"
+    },
+    "lean/Erdos9796Proof/P97/MidpointInequality.lean": {
+      "bytes": 4924,
+      "git_blob": "bd1dabd12cc46f3f8ebd2d83537de2188e2152d7",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Mathlib.Geometry.Euclidean.Triangle",
+        "Mathlib.Analysis.InnerProductSpace.Basic"
+      ],
+      "sha256": "4f2981c4ef9acd2ec1e687ac3d9d832982b54141b25e3ee661ec5358871638a8"
+    },
+    "lean/Erdos9796Proof/P97/Moser/NonDeg.lean": {
+      "bytes": 8346,
+      "git_blob": "44b5f3b85d02e2c69eff6f2d6425e6f768d5f7a5",
+      "imports": [
+        "Erdos9796Proof.P97.Cap.PartitionFromMEC"
+      ],
+      "sha256": "dd0335fd4a8de1d4d259bdc5a1fcac46e7a179fe1304481d159a516764ebdac7"
+    },
+    "lean/Erdos9796Proof/P97/Moser/Triangle.lean": {
+      "bytes": 6303,
+      "git_blob": "e4d3275f2cb09e945527de75aef1dd88a430cc1e",
+      "imports": [
+        "Erdos9796Proof.P97.MEC.Boundary"
+      ],
+      "sha256": "7c78d8a21f64e82cf408a3c1b2e026298d6173838f6b91484d8386f31cf2a392"
+    },
+    "lean/Erdos9796Proof/P97/Moser/TriangleNonObtuse.lean": {
+      "bytes": 36493,
+      "git_blob": "0a57f694e9dba7698f59ddb6c4280637be0c67fc",
+      "imports": [
+        "Erdos9796Proof.P97.Moser.Triangle",
+        "Erdos9796Proof.P97.CircumcenterSide",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Minimal",
+        "Mathlib.Analysis.Convex.Caratheodory",
+        "Mathlib.Analysis.Convex.Combination",
+        "Mathlib.Analysis.Convex.Topology"
+      ],
+      "sha256": "2a8d00cd1d6b2290156c6085675919cde734d3890ca0877876d719ff756a7348"
+    },
+    "lean/Erdos9796Proof/P97/N4d/BisectorKill.lean": {
+      "bytes": 7869,
+      "git_blob": "cf2af78d2f0118413f04281222673fc8916cdc47",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.Shell"
+      ],
+      "sha256": "571bb5be97c5993fe232e1b79b43ba34202a0d499dd3d691356a4521171b9ac6"
+    },
+    "lean/Erdos9796Proof/P97/N4d/CyclicTransport.lean": {
+      "bytes": 16061,
+      "git_blob": "ebfbb614702a3c2188fda800065fdf28f1b44eb7",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.ExcludesFormAv1",
+        "Erdos9796Proof.P97.N4d.ExcludesFormBv1",
+        "Erdos9796Proof.P97.N4d.ExcludesFormCv1"
+      ],
+      "sha256": "feea1d1bc926bdbdb3e6f2739f7f5bc8bc3240a8bedbc9ad2ab9217383c6ce62"
+    },
+    "lean/Erdos9796Proof/P97/N4d/ExcludesFormAv1.lean": {
+      "bytes": 28231,
+      "git_blob": "758fe491144378b6f8b847715219b9ae2cb378cd",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.FormAEndpointPairKill",
+        "Erdos9796Proof.P97.N9Endpoint.N4e",
+        "Erdos9796Proof.P97.U2.WitnessReflectionKernel"
+      ],
+      "sha256": "72867f10f5c751be9c75325dec565cade5cad1de82ce5f7f27aece0532eb323b"
+    },
+    "lean/Erdos9796Proof/P97/N4d/ExcludesFormBv1.lean": {
+      "bytes": 41979,
+      "git_blob": "fed31e1aa46f63b00cc9a6b69ff71446f6185561",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e",
+        "Erdos9796Proof.P97.N4d.FormBLowerForcesV3",
+        "Erdos9796Proof.P97.N4d.FormBPEqBProducer",
+        "Erdos9796Proof.P97.N4d.FormBXb2UpperArc",
+        "Erdos9796Proof.P97.Bridge.A1SpineWiring",
+        "Erdos9796Proof.P97.N4d.QeqEb2PinClash"
+      ],
+      "sha256": "b6d99f6dac195465f030d57eb1cb2d508fbcdbd1b45e81c155727ecf4cb7119a"
+    },
+    "lean/Erdos9796Proof/P97/N4d/ExcludesFormCv1.lean": {
+      "bytes": 40695,
+      "git_blob": "9253a55cdaea3331e2348c8692823eeb40f684d4",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.FormCPEqCProducer",
+        "Erdos9796Proof.P97.N4d.FormCLowerForcesV2",
+        "Erdos9796Proof.P97.N4d.FormBXb2UpperArc",
+        "Erdos9796Proof.P97.N4d.FormCcB1UpperArc",
+        "Erdos9796Proof.P97.N4d.FormCcA3QeqC",
+        "Erdos9796Proof.P97.N4d.FormCQeqEb3PinClash"
+      ],
+      "sha256": "4a84dd775a158ba07cd2671ea881aa7060b1eaa4d1fdb8876aa468e4967da1e2"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FaithfulFrame.lean": {
+      "bytes": 80742,
+      "git_blob": "fe263f6eb7a576ea22eb131fd48200ac45c3183f",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.BisectorKill",
+        "Erdos9796Proof.P97.A1B2FrameNormalization",
+        "Erdos9796Proof.P97.N4d.ExcludesFormAv1"
+      ],
+      "sha256": "e5d968b97d89b0955575a7cc331d60552ee303afdb75a00a95c9ccf88493e432"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormAEndpointPairKill.lean": {
+      "bytes": 234290,
+      "git_blob": "70d8105234c584e232ab6425d98c3ef41af6466f",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e",
+        "Erdos9796Proof.P97.U2.WitnessReflectionKernel"
+      ],
+      "sha256": "b4da75a891550af47b4c7fcaabdcb08bea705ee77166c6f6e632a78e909b495d"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormBLowerForcesV3.lean": {
+      "bytes": 17426,
+      "git_blob": "77a37676c024afd50576f021f6e6cb7ce4ec4c8d",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e"
+      ],
+      "sha256": "4221411571130185105e5d957fec2e5479911ccc196c0601a457092e865fa151"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormBPEqBProducer.lean": {
+      "bytes": 12899,
+      "git_blob": "52e25b1a7865250e726b00afc3a3c66cb3c8d94e",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e"
+      ],
+      "sha256": "b1308d88af8fcb02e82374e27d0d9360ae45d4d34421ac03862ca7021c3e46ad"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormBXb2UpperArc.lean": {
+      "bytes": 13630,
+      "git_blob": "701306058117c7c866fc2514da9afb2c1df13684",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e",
+        "Erdos9796Proof.P97.N4d.BisectorKill",
+        "Erdos9796Proof.P97.N4d.FaithfulFrame",
+        "Erdos9796Proof.P97.N4d.Qa2Cover"
+      ],
+      "sha256": "e57b8617b98dfe3d3601b59d25ced1f0d8bd6d25ccc9004560ff4794e956f60d"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormCLowerForcesV2.lean": {
+      "bytes": 16791,
+      "git_blob": "4c0bba297027a789a00d7c9ddb724be616570538",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e"
+      ],
+      "sha256": "c699fcd77317640540a1346dfb1dadea10899b4e630da5c5b0ab5b806ffa7a09"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormCPEqCProducer.lean": {
+      "bytes": 49922,
+      "git_blob": "7d69f77977c767df46ad530a351a533cf41ade38",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e"
+      ],
+      "sha256": "c89af7d0119fd97a19f7833b0754f61c13b0209b98c2c04d796199da8ef017b6"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormCQeqEb3PinClash.lean": {
+      "bytes": 49053,
+      "git_blob": "565eedf45dd43d3307b8bb7c386a94090eefcc72",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.FormCPEqCProducer",
+        "Erdos9796Proof.P97.N4d.FormCLowerForcesV2"
+      ],
+      "sha256": "b13584fb6654f1901d9a8ed6b8e0b9138c0143006954e3608daf96fbd93c15b5"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormCcA3QeqC.lean": {
+      "bytes": 77840,
+      "git_blob": "a2d62b4a3576a1a98769bab4078237d5b7ff997a",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.FormCPEqCProducer",
+        "Erdos9796Proof.P97.N4d.FormCLowerForcesV2"
+      ],
+      "sha256": "1fdbee36bf4b8c93fa955a3a08ba480a37996cda98020cb5577affdf77804149"
+    },
+    "lean/Erdos9796Proof/P97/N4d/FormCcB1UpperArc.lean": {
+      "bytes": 149710,
+      "git_blob": "3f46a83c0865687ee9d7ab1ea1d5277c5d214438",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.FormCPEqCProducer",
+        "Erdos9796Proof.P97.N4d.FormCLowerForcesV2",
+        "Erdos9796Proof.P97.N4d.FormBXb2UpperArc"
+      ],
+      "sha256": "fbf3bdec4dfa72cf84449205d1ff60ebf20ff9cba420ef2d25b62cbad5f7a44a"
+    },
+    "lean/Erdos9796Proof/P97/N4d/Qa2Cover.lean": {
+      "bytes": 27645,
+      "git_blob": "660e03ff837ffddd259d5dd4916490b717aac0b1",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.FaithfulFrame"
+      ],
+      "sha256": "92484706909f2a52fc31fd94093ef884d505058707173a14e96f0f1456352f2b"
+    },
+    "lean/Erdos9796Proof/P97/N4d/QeqEb2PinClash.lean": {
+      "bytes": 35018,
+      "git_blob": "cf478e1c3b7bcdc941ba7f72c526933ca4327e33",
+      "imports": [
+        "Erdos9796Proof.P97.N4d.FaithfulFrame",
+        "Erdos9796Proof.P97.N4d.SmallSReductions",
+        "Erdos9796Proof.P97.Bridge.A1SpineWiring"
+      ],
+      "sha256": "c314532946233713eea6aa1eb902f76e5f4e295edf95c1c0ef1b7fc10c83b7b4"
+    },
+    "lean/Erdos9796Proof/P97/N4d/SmallSReductions.lean": {
+      "bytes": 107524,
+      "git_blob": "86754fc2d12a7766e0533e8831378de7f123ceb1",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.TwoCircleCrossing",
+        "Mathlib.Analysis.Convex.Extreme",
+        "Mathlib.Analysis.Convex.StrictConvexSpace",
+        "Mathlib.Analysis.Convex.Combination"
+      ],
+      "sha256": "39a47db759f4108de9d4606aa2ec67763574701881cae2de9f372d7f910513c5"
+    },
+    "lean/Erdos9796Proof/P97/N4d/TrackBPilotSupport.lean": {
+      "bytes": 10394,
+      "git_blob": "2bca6f6f005eb99e26cc49ec0bf03cf3f1452579",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.U2.WitnessReflectionKernel"
+      ],
+      "sha256": "41a8166909d9389ef50c19b0f6335cd805b54101af182b2fa3291bcb705c5d1a"
+    },
+    "lean/Erdos9796Proof/P97/N4d/TrackBRows.lean": {
+      "bytes": 11226,
+      "git_blob": "1c107706b6c54f9997b1eb72ebd6c745eee2d1c7",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N4e"
+      ],
+      "sha256": "b076ca1a7141d9ecd3edfe8f581f0edebfd75c4466dd66bf1bf98acae50745ee"
+    },
+    "lean/Erdos9796Proof/P97/N8/FourSubpacket.lean": {
+      "bytes": 27141,
+      "git_blob": "82f4384f3a3db40a64575a4702ea5eb446a64b1b",
+      "imports": [
+        "Erdos9796Proof.P97.N8.N8bEndpointPair"
+      ],
+      "sha256": "50720220293bf906c1ab6f032352665676db94b98171b05db7f579686811d0e1"
+    },
+    "lean/Erdos9796Proof/P97/N8/N8CapCoordNorm.lean": {
+      "bytes": 59546,
+      "git_blob": "c19d020ac37afc206744f75ecc4510dfc4ed5ffe",
+      "imports": [
+        "Erdos9796Proof.P97.N8.N8aArcTwoCircle",
+        "Erdos9796Proof.P97.N8.N8bEndpointPair",
+        "Erdos9796Proof.P97.U2.SimilarityNormalization"
+      ],
+      "sha256": "625a70cbe373641d3357673c4db8f2a00e333f3056e2e66e33abd8f8cde3c8cc"
+    },
+    "lean/Erdos9796Proof/P97/N8/N8aArcTwoCircle.lean": {
+      "bytes": 7867,
+      "git_blob": "1100a3039b75c65c6dd1e63027c1c9aaaec99fc0",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N67",
+        "Erdos9796Proof.P97.U2.OneHitRealization"
+      ],
+      "sha256": "f79649d66c22ecdd3f66c350ff8efdfea2fcc372c6ea8e7ce59f4fdea1c1246b"
+    },
+    "lean/Erdos9796Proof/P97/N8/N8bEndpointPair.lean": {
+      "bytes": 18975,
+      "git_blob": "9525c82b75aad8053cbcc37e1937f66d3e52e722",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N67",
+        "Erdos9796Proof.P97.U2.OneHitBound",
+        "Erdos9796Proof.P97.N8.N8aArcTwoCircle"
+      ],
+      "sha256": "b10afbc189d9db85cf7a87d5b9e2ccd85462fc182e5933371edfb195385d9a95"
+    },
+    "lean/Erdos9796Proof/P97/N8/N8hiSameCap.lean": {
+      "bytes": 6660,
+      "git_blob": "25d0387f80ca4fa90e8c905801a130486e1db3aa",
+      "imports": [
+        "Erdos9796Proof.P97.MEC.ArcAngle",
+        "Erdos9796Proof.P97.N9Endpoint.N67",
+        "Erdos9796Proof.P97.TwoCircleCrossing"
+      ],
+      "sha256": "0f6dbf757d0bd412e6d6cfec497b53ba21a7d5dadeb84824fd6061f1834f627b"
+    },
+    "lean/Erdos9796Proof/P97/N8/N8kDistribution.lean": {
+      "bytes": 129433,
+      "git_blob": "3007fbba96d15541951d7b1086ecfdef00d0cf4e",
+      "imports": [
+        "Erdos9796Proof.P97.N8.N8aArcTwoCircle",
+        "Erdos9796Proof.P97.N8.N8bEndpointPair",
+        "Erdos9796Proof.P97.N8.FourSubpacket",
+        "Erdos9796Proof.P97.N8.N8hiSameCap",
+        "Erdos9796Proof.P97.N8.N8CapCoordNorm",
+        "Erdos9796Proof.P97.U2.WitnessReflectionKernel"
+      ],
+      "sha256": "4f530df02554f559783b155b757bbf45e96f98d2fdf86155e03521952733ba70"
+    },
+    "lean/Erdos9796Proof/P97/N9Endpoint/Closure.lean": {
+      "bytes": 4561,
+      "git_blob": "f3f7f9762c849462c54becf2661dccdc56bdbbc1",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.N9Endpoint.Shell",
+        "Erdos9796Proof.P97.N9Endpoint.N4a",
+        "Erdos9796Proof.P97.N9Endpoint.N67",
+        "Erdos9796Proof.P97.N9Endpoint.N4e",
+        "Erdos9796Proof.P97.N4d.TrackBRows",
+        "Erdos9796Proof.P97.N4d.ExcludesFormAv1",
+        "Erdos9796Proof.P97.N4d.ExcludesFormBv1",
+        "Erdos9796Proof.P97.N4d.ExcludesFormCv1",
+        "Erdos9796Proof.P97.N4d.CyclicTransport",
+        "Erdos9796Proof.P97.N8.N8kDistribution"
+      ],
+      "sha256": "d11de45dc1ebcd594ca3ed16bc972dc0aebf9cd9471de069f5a71f2914473049"
+    },
+    "lean/Erdos9796Proof/P97/N9Endpoint/N4a.lean": {
+      "bytes": 22882,
+      "git_blob": "922a57041de2ff1dc8d98f5902b12e241ff28b54",
+      "imports": [
+        "Erdos9796Proof.P97.CGN.CGN4g",
+        "Erdos9796Proof.P97.CGN.CGN6"
+      ],
+      "sha256": "7007bde838c1e36517020490b0a2a426ac946f26d0a7ee759b79ca2e214c8ee3"
+    },
+    "lean/Erdos9796Proof/P97/N9Endpoint/N4e.lean": {
+      "bytes": 449821,
+      "git_blob": "d00c853615232287fce536b54ec11d860954aea0",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.N67",
+        "Erdos9796Proof.P97.CircumcenterSide",
+        "Erdos9796Proof.P97.N4d.TrackBPilotSupport"
+      ],
+      "sha256": "112db3d80aa55e9c6f8679db4d44198124d34ffcedd30859efa3d1015d92741c"
+    },
+    "lean/Erdos9796Proof/P97/N9Endpoint/N67.lean": {
+      "bytes": 8674,
+      "git_blob": "2cd56d2b3bbdfa22bae00f8c067344a5a45b42a1",
+      "imports": [
+        "Erdos9796Proof.P97.N9Endpoint.Shell"
+      ],
+      "sha256": "ca662f122228902decd7ad8bd0ffa5f8aa0003e3ea6580a09b9df61f749d1ab4"
+    },
+    "lean/Erdos9796Proof/P97/N9Endpoint/Shell.lean": {
+      "bytes": 25964,
+      "git_blob": "087ded3ee827842ca44915f6e20ba774809428b6",
+      "imports": [
+        "Erdos9796Proof.P97.Counting",
+        "Erdos9796Proof.P97.CircumscribedMECPacket",
+        "Erdos9796Proof.P97.Dumitrescu.L4",
+        "Erdos9796Proof.P97.Moser.TriangleNonObtuse",
+        "Erdos9796Proof.P97.N9Endpoint.N4a"
+      ],
+      "sha256": "bcfdbac40da285aa73b6104e52cfe756648812628f2804905d41cd29c2affacb"
+    },
+    "lean/Erdos9796Proof/P97/NoDiameterUnderK4.lean": {
+      "bytes": 48214,
+      "git_blob": "404fd10b415545b4ca470a75ccdbaa84a1079612",
+      "imports": [
+        "Erdos9796Proof.P97.Moser.Triangle",
+        "Erdos9796Proof.P97.ConvexIndepHelpers"
+      ],
+      "sha256": "c68c51700b6f9c4eaf6bb3668f9ca3717a14845832a28d25efcbe373df12f45e"
+    },
+    "lean/Erdos9796Proof/P97/OangleBridge.lean": {
+      "bytes": 26867,
+      "git_blob": "830ea0a262bacf61b31a9cacf01ba4593cf1de7a",
+      "imports": [
+        "Erdos9796Proof.P97.SignedAreaOangle",
+        "Erdos9796Proof.P97.Cap.PartitionFromMEC",
+        "Erdos9796Proof.P97.Moser.NonDeg",
+        "Mathlib.Geometry.Euclidean.Angle.Sphere",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.RightAngle",
+        "Mathlib.Geometry.Euclidean.Simplex"
+      ],
+      "sha256": "f9fbffddedb8e5ece4b3223e436c1d63e2482969b22da45c8d09d8cf9cefcef1"
+    },
+    "lean/Erdos9796Proof/P97/SignedAreaOangle.lean": {
+      "bytes": 5483,
+      "git_blob": "05b5a601f334b1a1a45c0a161868b3b47c07ce75",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Mathlib.Geometry.Euclidean.Angle.Oriented.Basic",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ],
+      "sha256": "b3d7d5da8bb313997dd505e15b0ba2823db075ab8d863e995246ecbcce8f4fa9"
+    },
+    "lean/Erdos9796Proof/P97/SmallCardinality.lean": {
+      "bytes": 1880,
+      "git_blob": "395b6a4d87704547a8f369311c15133df84e0e49",
+      "imports": [
+        "Erdos9796Proof.P97.Counting",
+        "Erdos9796Proof.P97.N9Endpoint.Closure"
+      ],
+      "sha256": "db376f4685db2a986d2bda4470e3ef95c98507c00249457bbcf8cf0c968ad751"
+    },
+    "lean/Erdos9796Proof/P97/SmallerCounterexample.lean": {
+      "bytes": 1618,
+      "git_blob": "c06bdb988030cc58e83a9c3409d6fdeab3c0c436",
+      "imports": [
+        "Erdos9796Proof.P97.ConvexIndepHelpers"
+      ],
+      "sha256": "adc5c40f30e7bba8e2722551e407e80d114443f1559496f2e187e7e13860cc85"
+    },
+    "lean/Erdos9796Proof/P97/TwoCircleCrossing.lean": {
+      "bytes": 9596,
+      "git_blob": "d68c61186279f8724d5eb8e9308a55dcc0b24d59",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Mathlib.Geometry.Euclidean.Sphere.Basic"
+      ],
+      "sha256": "28880cee7b78086daa2d3446c0ad28f351e15b5dac17330ac7016380086f295c"
+    },
+    "lean/Erdos9796Proof/P97/U2/OneHitBound.lean": {
+      "bytes": 6302,
+      "git_blob": "6a1d7feece574e634efaa1285686435cf5f70b54",
+      "imports": [
+        "Erdos9796Proof.P97.WitnessPacketInterface",
+        "Erdos9796Proof.P97.N9Endpoint.N4a"
+      ],
+      "sha256": "196c96b7b63309344d76e253d562ed3479a3bfc6f20cc58b869959ec71f6d3b0"
+    },
+    "lean/Erdos9796Proof/P97/U2/OneHitMonotone.lean": {
+      "bytes": 16422,
+      "git_blob": "3fca6366576295e94048f5640224f08495f2e7ef",
+      "imports": [
+        "Erdos9796Proof.P97.U2.OneHitBound"
+      ],
+      "sha256": "06adccf9c7272971216eeaeda98b75d9b9bbcc34173770d549c323dbaa9ea424"
+    },
+    "lean/Erdos9796Proof/P97/U2/OneHitRealization.lean": {
+      "bytes": 7284,
+      "git_blob": "021bae9492863547195cafeb5bf6fcb0e49d268a",
+      "imports": [
+        "Erdos9796Proof.P97.U2.OneHitMonotone"
+      ],
+      "sha256": "34341684708199671e58e0ad990f5c55db927c82d8f742d3fa55ffc9ebdaca8f"
+    },
+    "lean/Erdos9796Proof/P97/U2/SimilarityNormalization.lean": {
+      "bytes": 41270,
+      "git_blob": "8b8ab769b3cafc0ce323b0927cb4dc158f2a38a4",
+      "imports": [
+        "Erdos9796Proof.P97.U2.OneHitRealization"
+      ],
+      "sha256": "d184319525aa0ab95bc10b140cf7715d5e35af4c5587e2b648ed7f99dfa99fd8"
+    },
+    "lean/Erdos9796Proof/P97/U2/WitnessReflectionKernel.lean": {
+      "bytes": 21341,
+      "git_blob": "9d99e7e728e0174646f7227658210c99f4a6cf5a",
+      "imports": [
+        "Erdos9796Proof.P97.Foundation",
+        "Erdos9796Proof.P97.TwoCircleCrossing",
+        "Erdos9796Proof.P97.ArcBlockContiguity",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Geometry.Euclidean.PerpBisector"
+      ],
+      "sha256": "55345ed8d39abbd44ed1a877fee4be45f9eb83441a66b38d73c089595a87e2d0"
+    },
+    "lean/Erdos9796Proof/P97/WitnessPacketInterface.lean": {
+      "bytes": 19809,
+      "git_blob": "d5a08dbdcb6a935e2e379b59a9a281fbcdb50d70",
+      "imports": [
+        "Erdos9796Proof.P97.TwoCircleCrossing"
+      ],
+      "sha256": "bafbd7c55c52690e8cb34ff24ef4b260cd8ac21212a0f27e3824f87389b96c0b"
+    },
+    "lean/lake-manifest.json": {
+      "bytes": 3512,
+      "git_blob": "947fa6b1885c04ee457589b9ad3efda139cf7407",
+      "imports": [],
+      "sha256": "9de4a69fdebf0ff09647ae11adb312a5a2e12ac0aa3603f2c8ab618d57967f13"
+    },
+    "lean/lakefile.toml": {
+      "bytes": 2786,
+      "git_blob": "da9e694189f2ebb668745d5b7dfd3423f1019492",
+      "imports": [],
+      "sha256": "9fe53b03999279b1a753f5663478b33ab25ea7b43db6aeab53df3286209e550f"
+    },
+    "lean/lean-toolchain": {
+      "bytes": 25,
+      "git_blob": "a8afa7d1b02d96f0671eba854a8dc4b416beb473",
+      "imports": [],
+      "sha256": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+    }
+  },
+  "repository": "https://github.com/mysticflounder/erdos-97-96-formalization",
+  "source_head": "d6b8e128af554eb430d060a31f26f863cea97c14",
+  "target": "Erdos9796Proof.P97.SmallCardinality"
+}

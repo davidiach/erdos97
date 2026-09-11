@@ -21,7 +21,8 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # Two builds (60 min each), two consumers (5 min each), and setup/upload.
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v7
         with:
@@ -84,6 +85,7 @@ jobs:
           python scripts/audit_external_n9_d2.py \
             --checkout "$GITHUB_WORKSPACE/upstream" \
             --packet incoming/external-n9-d2-audit-2026-09-10 \
+            --timeout 3600 \
             --output "$RUNNER_TEMP/external-n9-d2-evidence/audit"
       - uses: actions/upload-artifact@v4
         if: always()

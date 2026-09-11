@@ -86,6 +86,15 @@ Missing, duplicate, malformed, unexpected, `sorryAx`, custom-axiom, and
 compiler-trusted reports fail closed. The source and dependency pins are checked
 again after the build. Logs and harnesses receive SHA-256 identifiers in the
 receipt, and an existing evidence directory cannot be silently reused.
+Both harnesses are hashed before any external command runs and checked before
+use and after all commands. The manifest must retain all six named declarations.
+Complete report lines are required; trailing malformed text is not accepted.
+
+An interim `NOT_VERIFIED` receipt is saved before execution and after each
+target stage. Cancellation therefore leaves an explicit incomplete record.
+Only a completed run with `inputs_rechecked_after_execution: true` can pass.
+Each build uses `--timeout` seconds; each consumer has at most 300 seconds.
+The hosted run allows 60 minutes per build plus setup and evidence upload.
 
 `CORE_AXIOM_AUDIT_PASSED` means that these particular consumers compiled and
 met that axiom budget in the recorded run. It does not mean a full-project
@@ -123,6 +132,11 @@ The hosted workflow is
 It uses a fresh runner, does not persist checkout credentials, has read-only
 repository permission, pins the external source, and uploads logs even when
 verification fails. Bootstrap failures remain non-verification, not a pass.
+
+On Windows, timeout cleanup uses `taskkill /T /F` on the child PID created by
+the audit; a restricted process sandbox may deny that operation. Run the audit
+where it can manage its own child processes. Failure to clean up is an audit
+error, not a verification pass. Lean source and output text use UTF-8.
 
 Observed executions and remaining limitations belong in
 [EXECUTION.md](EXECUTION.md). Any stronger accepted claim must follow the

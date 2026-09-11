@@ -1,0 +1,5 @@
+'Problem97.counterexample_card_ge_nine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Problem97.FiniteN9Closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Problem97.counterexample_card_ge_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Problem97.not_hasNEquidistantProperty_four_of_card_le_nine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'IndependentN9Audit.no_four_equidistant_up_to_nine' depends on axioms: [propext, Classical.choice, Quot.sound]

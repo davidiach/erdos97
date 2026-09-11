@@ -22,8 +22,18 @@ NAME = re.compile(r'[A-Za-z_][A-Za-z_0-9]*(?:\.[A-Za-z_][A-Za-z_0-9]*)*\Z')
 SHA = re.compile(r'[0-9a-f]{40}\Z')
 AXIOM_REPORT = re.compile(
     r"^'([^'\n]+)' (?:depends on axioms:\s*\[([^\]]*)\]|"
-    r"does not depend on any axioms)", re.MULTILINE,
+    r"does not depend on any axioms)[ \t]*\r?$", re.MULTILINE,
 )
+DECLARATIONS = {
+    'n9': {
+        'ExternalN9D2Audit.general_nine', 'ExternalN9D2Audit.through_nine',
+        'Problem97.FiniteN9Closure', 'Problem97.counterexample_card_ge_ten',
+    },
+    'd2': {
+        'Problem97.ATailTwoRadiusGridNestedEscapeTerminal.false_of_nestedEscape_packet',
+        'Problem97.ATailTwoRadiusGridNestedEscapeTerminal.false_of_twoRadiusGrid_zeroCut_nestedEscape',
+    },
+}
 
 
 class AuditError(ValueError):
@@ -106,13 +116,15 @@ def read_manifest(path: Path) -> dict[str, Any]:
         raise AuditError('This audit does not permit a compiler-trusted tier')
     if set(manifest['groups']) != {'n9', 'd2'}:
         raise AuditError('The n9/D2 audit group roster changed')
-    for group in manifest['groups'].values():
+    for name, group in manifest['groups'].items():
         names = group['declarations']
         modules = group['modules']
         if not names or len(names) != len(set(names)) or not modules:
             raise AuditError('Empty or duplicate target roster')
         if any(not isinstance(n, str) or not NAME.fullmatch(n) for n in names + modules):
             raise AuditError('Invalid Lean declaration or module name')
+        if set(names) != DECLARATIONS[name]:
+            raise AuditError(f'The required declaration roster changed: {name}')
         confined_file(path.parent, group['harness'])
     if any(value is not False for value in manifest['scope'].values()):
         raise AuditError('This audit cannot promote or broaden a claim')
@@ -194,17 +206,28 @@ def run_logged(command: list[str], cwd: Path, log: Path, timeout: int) -> int:
     with log.open('w', encoding='utf-8', newline='\n') as stream:
         process = subprocess.Popen(
             command, cwd=cwd, stdout=stream, stderr=subprocess.STDOUT,
-            start_new_session=True,
+            start_new_session=os.name != 'nt',
+            creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == 'nt' else 0,
         )
         try:
             return process.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
-            os.killpg(process.pid, signal.SIGTERM)
-            try:
+            if os.name == 'nt':
+                subprocess.run(
+                    ['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                    stdout=stream, stderr=subprocess.STDOUT, check=True, timeout=30,
+                )
                 process.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                os.killpg(process.pid, signal.SIGKILL)
-                process.wait()
+            else:
+                try:
+                    os.killpg(process.pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+                try:
+                    process.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    process.wait()
             stream.write('\nAUDIT COMMAND TIMED OUT\n')
             return 124
 
@@ -222,12 +245,20 @@ def run_audit(checkout: Path, packet: Path, output: Path, timeout: int) -> int:
         'status': 'NOT_VERIFIED',
         'accepted_claims_changed': False,
         'independent_second_kernel_replay': False,
+        'inputs_rechecked_after_execution': False,
         'groups': {},
     }
     try:
         manifest_path = packet / 'manifest.json'
         manifest = read_manifest(manifest_path)
         report['manifest_sha256'] = sha256(manifest_path)
+        # Pin every local consumer before running any external build command.
+        harnesses = {
+            name: confined_file(packet, group['harness'])
+            for name, group in manifest['groups'].items()
+        }
+        report['harness_sha256'] = {name: sha256(path) for name, path in harnesses.items()}
+        write_json(report, output / 'receipt.json')
         report['source'] = source_preflight(checkout, manifest)
         lean_root = checkout / 'lean'
         report['dependencies'] = check_dependencies(lean_root)
@@ -240,30 +271,38 @@ def run_audit(checkout: Path, packet: Path, output: Path, timeout: int) -> int:
             group = manifest['groups'][name]
             result: dict[str, Any] = {'status': 'NOT_VERIFIED'}
             report['groups'][name] = result
-            harness = confined_file(packet, group['harness'])
-            result['harness_sha256'] = sha256(harness)
+            harness = harnesses[name]
+            result['harness_sha256'] = report['harness_sha256'][name]
+            if sha256(harness) != result['harness_sha256']:
+                raise AuditError('A statement harness changed before compilation')
             build_log, axiom_log = output / f'{name}-build.log', output / f'{name}-axioms.log'
             build_command = ['lake', 'build', *('+' + module for module in group['modules'])]
             result['build_command'] = build_command
+            write_json(report, output / 'receipt.json')
             result['build_exit_code'] = run_logged(build_command, lean_root, build_log, timeout)
             result['build_log_sha256'] = sha256(build_log)
             if result['build_exit_code'] != 0:
                 result['status'] = 'BUILD_FAILED'
+                write_json(report, output / 'receipt.json')
                 continue
+            if sha256(harness) != result['harness_sha256']:
+                raise AuditError('A statement harness changed during the module build')
             lean_command = ['lake', 'env', 'lean', str(harness)]
             result['harness_command'] = lean_command
-            result['harness_exit_code'] = run_logged(lean_command, lean_root, axiom_log, timeout)
+            result['harness_exit_code'] = run_logged(lean_command, lean_root, axiom_log, min(timeout, 300))
             result['axiom_log_sha256'] = sha256(axiom_log)
             if sha256(harness) != result['harness_sha256']:
                 raise AuditError('A statement harness changed during compilation')
             if result['harness_exit_code'] != 0:
                 result['status'] = 'HARNESS_FAILED'
+                write_json(report, output / 'receipt.json')
                 continue
             try:
-                result['axioms'] = check_axioms(axiom_log.read_text(), group['declarations'])
+                result['axioms'] = check_axioms(axiom_log.read_text(encoding='utf-8'), group['declarations'])
                 result['status'] = 'CORE_AXIOM_AUDIT_PASSED'
             except AuditError as exc:
                 result['status'], result['error'] = 'AXIOM_AUDIT_FAILED', str(exc)
+            write_json(report, output / 'receipt.json')
         # Recheck source and lock stability after executing external build code.
         if git_text(checkout, 'rev-parse', 'HEAD') != manifest['upstream']['commit']:
             raise AuditError('Upstream commit changed during the build')
@@ -271,15 +310,18 @@ def run_audit(checkout: Path, packet: Path, output: Path, timeout: int) -> int:
             check_blob(confined_file(checkout, relative), expected)
         if sha256(manifest_path) != report['manifest_sha256']:
             raise AuditError('The audit manifest changed during the build')
+        if any(sha256(path) != report['harness_sha256'][name] for name, path in harnesses.items()):
+            raise AuditError('A statement harness changed during the audit')
         if git_text(checkout, 'status', '--porcelain', '--untracked-files=all'):
             raise AuditError('Upstream sources changed during the build')
         if check_dependencies(lean_root) != report['dependencies']:
             raise AuditError('Dependency pins changed during the build')
         if sha256(lean_root / 'lake-manifest.json') != report['source']['lake_manifest_sha256']:
             raise AuditError('Lake manifest changed during the build')
+        report['inputs_rechecked_after_execution'] = True
         if all(row['status'] == 'CORE_AXIOM_AUDIT_PASSED' for row in report['groups'].values()):
             report['status'] = 'CORE_AXIOM_AUDIT_PASSED'
-    except (ValueError, OSError, KeyError, TypeError, subprocess.CalledProcessError) as exc:
+    except (ValueError, OSError, KeyError, TypeError, subprocess.SubprocessError) as exc:
         report['status'], report['error'] = 'NOT_VERIFIED', str(exc)
     report['finished_utc'] = datetime.now(timezone.utc).isoformat()
     write_json(report, output / 'receipt.json')

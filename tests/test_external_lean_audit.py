@@ -34,6 +34,8 @@ def test_axiom_free_reports():
     axiom_line('A') + axiom_line('Extra'),
     "'A' depends on axioms: [propext\n",
     axiom_line('A') + "'B' depends on axioms: [\n",
+    "'A' depends on axioms: [propext] trailing text\n",
+    "'A' does not depend on any axioms trailing text\n",
 ])
 def test_missing_unexpected_or_incomplete_report_fails(text):
     with pytest.raises(audit.AuditError):
@@ -110,11 +112,11 @@ def test_manifest_is_readable():
     assert set(manifest['groups']) == {'n9', 'd2'}
 
 
-@pytest.mark.parametrize('mutation', ['native_axiom', 'zero_pin', 'missing_group', 'duplicate_root', 'scope_change'])
+@pytest.mark.parametrize('mutation', ['native_axiom', 'zero_pin', 'missing_group', 'duplicate_root', 'scope_change', 'missing_declaration', 'substituted_declaration'])
 def test_manifest_mutations_fail(tmp_path, mutation):
     manifest = json.loads((PACKET / 'manifest.json').read_text())
     for harness in ('N9Audit.lean', 'D2Audit.lean'):
-        (tmp_path / harness).write_text((PACKET / harness).read_text())
+        (tmp_path / harness).write_bytes((PACKET / harness).read_bytes())
     if mutation == 'native_axiom':
         manifest['permitted_axioms'].append('Lean.trustCompiler')
     elif mutation == 'zero_pin':
@@ -123,6 +125,10 @@ def test_manifest_mutations_fail(tmp_path, mutation):
         del manifest['groups']['n9']
     elif mutation == 'scope_change':
         manifest['scope']['accepted_claims_changed'] = True
+    elif mutation == 'missing_declaration':
+        manifest['groups']['n9']['declarations'].pop()
+    elif mutation == 'substituted_declaration':
+        manifest['groups']['n9']['declarations'][0] = 'Different.statement'
     else:
         manifest['groups']['n9']['declarations'] *= 2
     path = tmp_path / 'manifest.json'
@@ -157,7 +163,7 @@ def test_preflight_failure_writes_nonverification_receipt(tmp_path, monkeypatch)
     assert receipt['groups'] == {}
 
 
-@pytest.mark.parametrize('failure', [None, 'build', 'missing_report', 'sorry', 'lock_change', 'head_change'])
+@pytest.mark.parametrize('failure', [None, 'build', 'missing_report', 'sorry', 'lock_change', 'head_change', 'harness_during_build', 'later_harness', 'earlier_harness', 'cancelled'])
 def test_receipt_requires_both_groups_and_stable_inputs(tmp_path, monkeypatch, failure):
     checkout = tmp_path / 'checkout'
     (checkout / 'lean').mkdir(parents=True)
@@ -165,6 +171,10 @@ def test_receipt_requires_both_groups_and_stable_inputs(tmp_path, monkeypatch, f
     lock.write_text('{}')
     source = {'lake_manifest_sha256': audit.sha256(lock)}
     raw_manifest = json.loads((PACKET / 'manifest.json').read_text())
+    packet = tmp_path / 'packet'
+    packet.mkdir()
+    for name in ('manifest.json', 'N9Audit.lean', 'D2Audit.lean'):
+        (packet / name).write_bytes((PACKET / name).read_bytes())
     for relative in raw_manifest['source_blobs']:
         source_file = checkout / relative
         source_file.parent.mkdir(parents=True, exist_ok=True)
@@ -182,6 +192,14 @@ def test_receipt_requires_both_groups_and_stable_inputs(tmp_path, monkeypatch, f
     manifest = audit.read_manifest(PACKET / 'manifest.json')
     def fake_run(command, cwd, log, timeout):
         name = log.name.split('-')[0]
+        if failure == 'cancelled':
+            raise KeyboardInterrupt
+        if name == 'n9' and 'build' in log.name and failure == 'harness_during_build':
+            (packet / 'N9Audit.lean').write_text('changed consumer')
+        if name == 'n9' and failure == 'later_harness':
+            (packet / 'D2Audit.lean').write_text('changed later consumer')
+        if name == 'd2' and failure == 'earlier_harness':
+            (packet / 'N9Audit.lean').write_text('changed earlier consumer')
         if 'build' in log.name:
             log.write_text('synthetic build result\n')
             return 1 if name == 'n9' and failure == 'build' else 0
@@ -197,10 +215,21 @@ def test_receipt_requires_both_groups_and_stable_inputs(tmp_path, monkeypatch, f
         return 0
     monkeypatch.setattr(audit, 'run_logged', fake_run)
     output = tmp_path / 'out'
-    result = audit.run_audit(checkout, PACKET, output, 5)
+    if failure == 'cancelled':
+        with pytest.raises(KeyboardInterrupt):
+            audit.run_audit(checkout, packet, output, 5)
+        receipt = json.loads((output / 'receipt.json').read_text())
+        assert receipt['status'] == 'NOT_VERIFIED'
+        assert receipt['inputs_rechecked_after_execution'] is False
+        assert receipt['groups']['n9']['status'] == 'NOT_VERIFIED'
+        assert 'finished_utc' not in receipt
+        return
+    result = audit.run_audit(checkout, packet, output, 5)
     receipt = json.loads((output / 'receipt.json').read_text())
     assert (result == 0) == (failure is None)
-    assert set(receipt['groups']) == {'n9', 'd2'}
+    if failure != 'harness_during_build':
+        assert set(receipt['groups']) == {'n9', 'd2'}
+    assert receipt['inputs_rechecked_after_execution'] == (failure in (None, 'build', 'missing_report', 'sorry'))
     assert receipt['accepted_claims_changed'] is False
     assert receipt['independent_second_kernel_replay'] is False
 
