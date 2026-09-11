@@ -1,0 +1,26 @@
+{
+  "status": "PASS_STORED_ATTACHMENT_ANGLE_EVIDENCE",
+  "two_star_cases": 2266,
+  "two_star_counts": {
+    "EXACT_ANGLE_RELAXATION_FEASIBLE": 1354,
+    "EXACT_ANGLE_OBSTRUCTION": 912
+  },
+  "bounded_runs": [
+    {
+      "file": "angle_minconflicts_n20_exact.json",
+      "verified_certificate_records": 799,
+      "distinct_stored_row_systems": 799,
+      "search_rerun": false
+    },
+    {
+      "file": "angle_minconflicts_n30.json",
+      "verified_certificate_records": 487,
+      "distinct_stored_row_systems": 487,
+      "search_rerun": false
+    }
+  ],
+  "enumeration_completeness_checked": false,
+  "geometric_realizations_certified": 0,
+  "unrestricted_solution": false,
+  "external_review": false
+}

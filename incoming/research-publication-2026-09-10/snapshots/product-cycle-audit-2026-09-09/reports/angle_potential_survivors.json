@@ -1,0 +1,212 @@
+[
+  {
+    "rows": [
+      [
+        1,
+        1,
+        2,
+        1
+      ],
+      [
+        4,
+        1,
+        6,
+        1
+      ],
+      [
+        6,
+        1,
+        8,
+        1
+      ],
+      [
+        0,
+        1,
+        5,
+        1
+      ],
+      [
+        2,
+        1,
+        5,
+        1
+      ],
+      [
+        0,
+        0,
+        8,
+        2
+      ],
+      [
+        3,
+        2,
+        7,
+        2
+      ],
+      [
+        0,
+        0,
+        4,
+        2
+      ],
+      [
+        1,
+        0,
+        3,
+        2
+      ]
+    ],
+    "sources": [
+      {
+        "file": "stronger_all_systems.json",
+        "index": 209
+      }
+    ],
+    "index": 321,
+    "certificate": null,
+    "discovery_status": {
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)"
+    }
+  },
+  {
+    "rows": [
+      [
+        1,
+        1,
+        2,
+        1
+      ],
+      [
+        4,
+        1,
+        6,
+        1
+      ],
+      [
+        6,
+        1,
+        8,
+        1
+      ],
+      [
+        1,
+        1,
+        5,
+        1
+      ],
+      [
+        2,
+        1,
+        5,
+        1
+      ],
+      [
+        0,
+        0,
+        8,
+        2
+      ],
+      [
+        3,
+        2,
+        7,
+        2
+      ],
+      [
+        0,
+        0,
+        4,
+        2
+      ],
+      [
+        1,
+        0,
+        3,
+        2
+      ]
+    ],
+    "sources": [
+      {
+        "file": "stronger_all_systems.json",
+        "index": 210
+      }
+    ],
+    "index": 322,
+    "certificate": null,
+    "discovery_status": {
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)"
+    }
+  },
+  {
+    "rows": [
+      [
+        1,
+        1,
+        2,
+        1
+      ],
+      [
+        4,
+        1,
+        6,
+        1
+      ],
+      [
+        6,
+        1,
+        8,
+        1
+      ],
+      [
+        5,
+        1,
+        7,
+        0
+      ],
+      [
+        2,
+        1,
+        5,
+        1
+      ],
+      [
+        0,
+        0,
+        8,
+        2
+      ],
+      [
+        3,
+        2,
+        7,
+        2
+      ],
+      [
+        0,
+        0,
+        4,
+        2
+      ],
+      [
+        1,
+        0,
+        3,
+        2
+      ]
+    ],
+    "sources": [
+      {
+        "file": "stronger_all_systems.json",
+        "index": 211
+      }
+    ],
+    "index": 323,
+    "certificate": null,
+    "discovery_status": {
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is Infeasible)"
+    }
+  }
+]

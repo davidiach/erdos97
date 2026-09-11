@@ -1,0 +1,10 @@
+{
+  "status": "PASS_EXACT_PHASE_FILTER_CROSSCHECK",
+  "input_systems": 333,
+  "phase_rejections": 200,
+  "one_diamond_certificates": 5,
+  "two_diamond_certificates": 195,
+  "bounded_new_run_leaves": 15,
+  "new_leaves_already_exactly_rejected": 15,
+  "all_nine_orbit_patterns_exhausted": false
+}

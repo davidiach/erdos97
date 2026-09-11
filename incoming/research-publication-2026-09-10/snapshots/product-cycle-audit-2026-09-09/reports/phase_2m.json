@@ -1,0 +1,34 @@
+{
+  "command": [
+    "/mnt/data/nine_with_phase",
+    "--all",
+    "--limit",
+    "2000000",
+    "--output",
+    "/mnt/data/erdos97-research/incoming/product-cycle-audit-2026-09-09/reports/phase_2m.jsonl"
+  ],
+  "source_sha256": "f24087d7fe06a86c0ae36b43f065f254e22f8b7b6ab09af3d9321b726f3cfd7d",
+  "returncode": 3,
+  "external_timeout": false,
+  "elapsed_seconds": 13.302959282999836,
+  "timeout_seconds": 25.0,
+  "saved_complete_rows": 15,
+  "truncated_output_line": false,
+  "exhausted": false,
+  "scope": "bounded necessary-condition search; no mathematical exclusion from a guard",
+  "search_report": {
+    "slice": -1,
+    "limit": 2000000,
+    "nodes": 2000001,
+    "radius_prunes": 720667,
+    "shortcut_prunes": 823070,
+    "metric_prunes": 350184,
+    "phase_prunes": 55504,
+    "pair_dead": 0,
+    "leaves": 15,
+    "aborted": true,
+    "exhausted": false,
+    "termination": "node_limit",
+    "seconds": 13.2953
+  }
+}

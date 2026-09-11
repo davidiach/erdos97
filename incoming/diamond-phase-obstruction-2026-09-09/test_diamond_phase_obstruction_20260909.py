@@ -21,6 +21,18 @@ class DiamondPhaseTests(unittest.TestCase):
     def test_all_three(self):
         self.assertEqual(V.verify_packet(self.data)['fixed_systems'], 3)
 
+    def test_report_counts_actual_certificate_terms(self):
+        self.data['certificate']['strict'] *= 2
+        self.data['certificate']['equal'] *= 2
+        result = V.verify_packet(self.data)
+        self.assertEqual(result['diamonds_per_certificate'], 4)
+        self.assertEqual(result['strict_terms_per_certificate'], 4)
+
+    def test_boolean_schema_is_not_an_integer_version(self):
+        self.data['schema'] = True
+        with self.assertRaises(ValueError):
+            V.verify_packet(self.data)
+
     def test_missing_arrow(self):
         self.rows[0] = self.rows[0][2:]
         with self.assertRaises(ValueError):

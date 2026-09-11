@@ -71,7 +71,7 @@ def check(rows, certificate):
 TWO_DIAMOND_CERTIFICATE = {'strict': [[['phase_gap', 1, 3], 1], [['sector_span', 0, 8], 1]], 'equal': [[['diamond', 0, 1, 2, 6], -1], [['diamond', 2, 6, 8, 3], -1]]}
 
 def verify_packet(data):
-    require(data.get('schema') == 1, 'unsupported schema')
+    require(type(data.get('schema')) is int and data['schema'] == 1, 'unsupported schema')
     require(len(data['cases']) == 3, 'expected three fixed systems')
     seen = set()
     for case in data['cases']:
@@ -87,7 +87,7 @@ def verify_packet(data):
         require(key not in seen, 'duplicate case')
         seen.add(key)
         check(rows, data['certificate'])
-    return {'status': 'PASS_EXACT_DIAMOND_PHASE_CERTIFICATES', 'fixed_systems': 3, 'diamonds_per_certificate': 2, 'strict_terms_per_certificate': 2, 'all_nine_orbit_systems_exhausted': False, 'unrestricted_solution': False, 'external_mathematical_review': False}
+    return {'status': 'PASS_EXACT_DIAMOND_PHASE_CERTIFICATES', 'fixed_systems': len(seen), 'diamonds_per_certificate': len(data['certificate']['equal']), 'strict_terms_per_certificate': len(data['certificate']['strict']), 'all_nine_orbit_systems_exhausted': False, 'unrestricted_solution': False, 'external_mathematical_review': False}
 if __name__ == '__main__':
     import argparse
     import json

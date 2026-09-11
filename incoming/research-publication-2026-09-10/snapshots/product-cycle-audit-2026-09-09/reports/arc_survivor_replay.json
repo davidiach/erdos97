@@ -1,0 +1,8 @@
+{
+  "status": "PASS_EXACT_FIXED_SYSTEM_CERTIFICATES",
+  "cases": 36,
+  "integer_terms": 644,
+  "geometric_scope": "strictly convex concentric equilateral triples in specified repeated-sector order, with the listed source-side arrows",
+  "exhaustive_nine_orbit_claim": false,
+  "external_review": false
+}

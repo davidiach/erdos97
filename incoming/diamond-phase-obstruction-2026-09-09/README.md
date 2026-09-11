@@ -50,8 +50,12 @@ Suppose |A-x|^2=|B-x|^2=3|x|^2 and C has distance sqrt(3)|A| from A and
 sqrt(3)|B| from B. Normalize x=1 by a similarity. Both AB and -2 lie on the
 last two circles: |AB-A|^2=|A|^2|B-1|^2=3|A|^2, and the first equation also
 gives |A+2|^2=3|A|^2; likewise for B. Distinct centers give at most two
-intersection points. Therefore C=AB or C=-2. Tangency or coincident displayed
-roots create no additional branch.
+intersection points. If AB differs from -2, these are both intersection
+points, so C=AB or C=-2. If AB=-2, use |A|^2=2*Re(A)+2 to obtain
+B+2=2*(A+2)/|A|^2. Thus the distinct centers A,B and the common point -2
+are collinear. Both positive-radius circles have the same tangent there;
+subtracting their circle equations gives the tangent line as their radical
+axis, which meets either circle only at -2. This also leaves only C=-2.
 
 The second branch is impossible in a strictly convex orbit union, because
 x=(omega*C+omega^2*C)/2 when C=-2x. Thus C=AB/x.
@@ -126,11 +130,13 @@ No argument forces arbitrary globally four-rich convex polygons to have these
 orbits or these diamonds. Even within C3, the full nine-orbit search was not
 exhausted. These three fixed systems are excluded, not every 27-point polygon.
 
-This core was prepared against main
+Historical preparation record: this core was prepared against main
 `9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7`, which includes merged PR #943.
 No accepted claims, existing certificates, root configuration or workflow are
 changed. Repository-wide `make verify-fast`, `make verify-artifacts`, and
 compatibility gates were not run locally: this session has a scoped file export,
 not a complete checkout. No Lean source changed. Scoped checks are reported in
 `validation.json`; normal PR CI and independent mathematical review remain
-separate outstanding gates. Keep the PR draft; no merge is requested.
+separate gates. These are the original preparation limitations, not a claim
+about later integration runs. Repository review and integration evidence are
+recorded separately in `REVIEW.md`; external mathematical review remains pending.

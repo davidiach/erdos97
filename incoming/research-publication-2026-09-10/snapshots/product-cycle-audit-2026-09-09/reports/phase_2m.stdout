@@ -1,0 +1,1 @@
+{"slice":-1,"limit":2000000,"nodes":2000001,"radius_prunes":720667,"shortcut_prunes":823070,"metric_prunes":350184,"phase_prunes":55504,"pair_dead":0,"leaves":15,"aborted":true,"exhausted":false,"termination":"node_limit","seconds":13.2953}

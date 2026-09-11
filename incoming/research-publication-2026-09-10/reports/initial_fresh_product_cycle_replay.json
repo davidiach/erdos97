@@ -1,0 +1,159 @@
+{
+  "status": "PASS_SCOPED_EXACT_REPLAY",
+  "python": "3.13.5",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify/check_combined.py",
+        "reports/all_fixed_system_certificates.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.3702330540000105,
+      "stdout": "{\n  \"status\": \"PASS_ALL_STORED_FIXED_SYSTEM_CERTIFICATES\",\n  \"unique_cases\": 333,\n  \"base_angle_certificates\": 330,\n  \"diamond_phase_certificates\": 3,\n  \"integer_terms\": 10291,\n  \"all_nine_orbit_patterns_exhausted\": false,\n  \"unrestricted_solution\": false,\n  \"external_review\": false\n}\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify/check_positive_relaxations.py",
+        "reports/angle_survivor_preflight.json",
+        "reports/full_metric_preflight.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.7181573250000213,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_RATIONAL_RELAXATION_CONTROLS\",\n  \"cases\": [\n    {\n      \"index\": 321,\n      \"base_angle\": {\n        \"triangle_angles_checked\": 8775,\n        \"equal_side_rows_checked\": 162,\n        \"strict_side_orders_checked\": 219,\n        \"right_angles_checked\": 18,\n        \"minimum_positive_value\": \"1/282\"\n      },\n      \"ordinary_distance\": {\n        \"positive_distance_classes\": 99,\n        \"strict_Kalmanson_inequalities\": 35100,\n        \"minimum_Kalmanson_slack\": \"1/13856\",\n        \"strict_triangle_inequalities\": 8775,\n        \"minimum_triangle_slack\": \"1/13856\",\n        \"supplier_arc_orders\": 1\n      }\n    },\n    {\n      \"index\": 322,\n      \"base_angle\": {\n        \"triangle_angles_checked\": 8775,\n        \"equal_side_rows_checked\": 162,\n        \"strict_side_orders_checked\": 219,\n        \"right_angles_checked\": 18,\n        \"minimum_positive_value\": \"1/265\"\n      },\n      \"ordinary_distance\": {\n        \"positive_distance_classes\": 99,\n        \"strict_Kalmanson_inequalities\": 35100,\n        \"minimum_Kalmanson_slack\": \"1/14045\",\n        \"strict_triangle_inequalities\": 8775,\n        \"minimum_triangle_slack\": \"1/14045\",\n        \"supplier_arc_orders\": 1\n      }\n    },\n    {\n      \"index\": 323,\n      \"base_angle\": {\n        \"triangle_angles_checked\": 8775,\n        \"equal_side_rows_checked\": 162,\n        \"strict_side_orders_checked\": 219,\n        \"right_angles_checked\": 18,\n        \"minimum_positive_value\": \"1/261\"\n      },\n      \"ordinary_distance\": {\n        \"positive_distance_classes\": 99,\n        \"strict_Kalmanson_inequalities\": 35100,\n        \"minimum_Kalmanson_slack\": \"1/22123\",\n        \"strict_triangle_inequalities\": 8775,\n        \"minimum_triangle_slack\": \"1/22123\",\n        \"supplier_arc_orders\": 1\n      }\n    }\n  ],\n  \"joint_Euclidean_realization_claimed\": false,\n  \"diamond_phase_equations_not_assumed\": true\n}\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify/check_geometry.py",
+        "candidate_counterexamples/c3_maximum_root_rich_neighborhood_21.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.10211873599999421,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_GEOMETRY_CONTROL\",\n  \"kind\": \"c3_maximum_root_rich_neighborhood_21\",\n  \"points\": 21,\n  \"distinct_pairs\": 210,\n  \"global_support_checks\": 399,\n  \"minimum_support\": [\n    \"33722636781286517353016010/89060305943944086588549469\",\n    \"-19412897679814676011579470/89060305943944086588549469\"\n  ],\n  \"all_radius_maximum_multiplicities\": [\n    4,\n    4,\n    4,\n    4,\n    4,\n    4,\n    4,\n    4,\n    4,\n    2,\n    2,\n    2,\n    2,\n    2,\n    2,\n    2,\n    2,\n    2,\n    2,\n    2,\n    2\n  ],\n  \"claims\": {\n    \"root_norm_squared\": \"1\",\n    \"global_maximum_actual_rich_radius_squared\": \"3\",\n    \"all_root_named_witnesses_rich\": true,\n    \"only_root_orbit_on_unit_circle\": true\n  },\n  \"all_rich\": false,\n  \"external_review\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify/check_geometry.py",
+        "candidate_counterexamples/supplier_arc_positive_12.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.05289603599999282,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_GEOMETRY_CONTROL\",\n  \"kind\": \"supplier_arc_positive_12\",\n  \"points\": 12,\n  \"distinct_pairs\": 66,\n  \"global_support_checks\": 120,\n  \"minimum_support\": [\n    \"3000075127527/125175061254500000\",\n    \"1/125125011250\"\n  ],\n  \"all_radius_maximum_multiplicities\": [\n    2,\n    2,\n    2,\n    4,\n    4,\n    4,\n    2,\n    2,\n    2,\n    2,\n    2,\n    2\n  ],\n  \"claims\": {\n    \"strict_C_D_A_norm_order\": true,\n    \"required_sector_order_checked\": true,\n    \"radial_gap_D_minus_C\": [\n      \"450005014501425072507/250125010000000000000000\",\n      \"49990002000200010001/2501250100000000000000\"\n    ],\n    \"forbidden_third_arrow_squared_gap\": [\n      \"750007520252125072507/250125010000000000000000\",\n      \"150030003500800010001/2501250100000000000000\"\n    ]\n  },\n  \"all_rich\": false,\n  \"external_review\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify/check_geometry.py",
+        "candidate_counterexamples/convex_product_diamond_positive_12.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.05083095599999865,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_GEOMETRY_CONTROL\",\n  \"kind\": \"convex_product_diamond_positive_12\",\n  \"points\": 12,\n  \"distinct_pairs\": 66,\n  \"global_support_checks\": 120,\n  \"minimum_support\": [\n    \"183/2117\",\n    \"-102/2117\"\n  ],\n  \"all_radius_maximum_multiplicities\": [\n    4,\n    4,\n    4,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    2,\n    2,\n    2\n  ],\n  \"claims\": {\n    \"genuine_convex_diamond\": true,\n    \"all_diamonds_forbidden_shortcut_refuted\": true\n  },\n  \"all_rich\": false,\n  \"external_review\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify/check_six_cycle.py",
+        "candidate_counterexamples/upper_six_cycle_exact_nonconvex_18.json"
+      ],
+      "returncode": 0,
+      "seconds": 0.1910725799999966,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_UPPER_SIX_CYCLE\",\n  \"root_embedding\": \"unique real root in (536/1000,537/1000)\",\n  \"point_count\": 18,\n  \"distinct_pairs\": 153,\n  \"hull_vertices\": 6,\n  \"strict_interior_points\": 12,\n  \"global_hull_support_checks\": 96,\n  \"all_radius_maximum_multiplicities\": [\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3,\n    3\n  ],\n  \"all_multipliers_strictly_upper\": true,\n  \"exact_monodromy\": \"omega\",\n  \"all_rich\": false,\n  \"strictly_convex\": false,\n  \"external_review\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify/diamond_free_incidence.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.014656000999991647,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_ABSTRACT_NEGATIVE_CONTROL\",\n  \"states\": 60,\n  \"outdegree\": 2,\n  \"reciprocal_pairs\": 0,\n  \"directed_diamonds\": 0,\n  \"generators\": [\n    [\n      1,\n      2,\n      0,\n      3,\n      4\n    ],\n    [\n      1,\n      2,\n      3,\n      4,\n      0\n    ]\n  ],\n  \"permutations\": [\n    [\n      0,\n      1,\n      2,\n      3,\n      4\n    ],\n    [\n      0,\n      1,\n      3,\n      4,\n      2\n    ],\n    [\n      0,\n      1,\n      4,\n      2,\n      3\n    ],\n    [\n      0,\n      2,\n      1,\n      4,\n      3\n    ],\n    [\n      0,\n      2,\n      3,\n      1,\n      4\n    ],\n    [\n      0,\n      2,\n      4,\n      3,\n      1\n    ],\n    [\n      0,\n      3,\n      1,\n      2,\n      4\n    ],\n    [\n      0,\n      3,\n      2,\n      4,\n      1\n    ],\n    [\n      0,\n      3,\n      4,\n      1,\n      2\n    ],\n    [\n      0,\n      4,\n      1,\n      3,\n      2\n    ],\n    [\n      0,\n      4,\n      2,\n      1,\n      3\n    ],\n    [\n      0,\n      4,\n      3,\n      2,\n      1\n    ],\n    [\n      1,\n      0,\n      2,\n      4,\n      3\n    ],\n    [\n      1,\n      0,\n      3,\n      2,\n      4\n    ],\n    [\n      1,\n      0,\n      4,\n      3,\n      2\n    ],\n    [\n      1,\n      2,\n      0,\n      3,\n      4\n    ],\n    [\n      1,\n      2,\n      3,\n      4,\n      0\n    ],\n    [\n      1,\n      2,\n      4,\n      0,\n      3\n    ],\n    [\n      1,\n      3,\n      0,\n      4,\n      2\n    ],\n    [\n      1,\n      3,\n      2,\n      0,\n      4\n    ],\n    [\n      1,\n      3,\n      4,\n      2,\n      0\n    ],\n    [\n      1,\n      4,\n      0,\n      2,\n      3\n    ],\n    [\n      1,\n      4,\n      2,\n      3,\n      0\n    ],\n    [\n      1,\n      4,\n      3,\n      0,\n      2\n    ],\n    [\n      2,\n      0,\n      1,\n      3,\n      4\n    ],\n    [\n      2,\n      0,\n      3,\n      4,\n      1\n    ],\n    [\n      2,\n      0,\n      4,\n      1,\n      3\n    ],\n    [\n      2,\n      1,\n      0,\n      4,\n      3\n    ],\n    [\n      2,\n      1,\n      3,\n      0,\n      4\n    ],\n    [\n      2,\n      1,\n      4,\n      3,\n      0\n    ],\n    [\n      2,\n      3,\n      0,\n      1,\n      4\n    ],\n    [\n      2,\n      3,\n      1,\n      4,\n      0\n    ],\n    [\n      2,\n      3,\n      4,\n      0,\n      1\n    ],\n    [\n      2,\n      4,\n      0,\n      3,\n      1\n    ],\n    [\n      2,\n      4,\n      1,\n      0,\n      3\n    ],\n    [\n      2,\n      4,\n      3,\n      1,\n      0\n    ],\n    [\n      3,\n      0,\n      1,\n      4,\n      2\n    ],\n    [\n      3,\n      0,\n      2,\n      1,\n      4\n    ],\n    [\n      3,\n      0,\n      4,\n      2,\n      1\n    ],\n    [\n      3,\n      1,\n      0,\n      2,\n      4\n    ],\n    [\n      3,\n      1,\n      2,\n      4,\n      0\n    ],\n    [\n      3,\n      1,\n      4,\n      0,\n      2\n    ],\n    [\n      3,\n      2,\n      0,\n      4,\n      1\n    ],\n    [\n      3,\n      2,\n      1,\n      0,\n      4\n    ],\n    [\n      3,\n      2,\n      4,\n      1,\n      0\n    ],\n    [\n      3,\n      4,\n      0,\n      1,\n      2\n    ],\n    [\n      3,\n      4,\n      1,\n      2,\n      0\n    ],\n    [\n      3,\n      4,\n      2,\n      0,\n      1\n    ],\n    [\n      4,\n      0,\n      1,\n      2,\n      3\n    ],\n    [\n      4,\n      0,\n      2,\n      3,\n      1\n    ],\n    [\n      4,\n      0,\n      3,\n      1,\n      2\n    ],\n    [\n      4,\n      1,\n      0,\n      3,\n      2\n    ],\n    [\n      4,\n      1,\n      2,\n      0,\n      3\n    ],\n    [\n      4,\n      1,\n      3,\n      2,\n      0\n    ],\n    [\n      4,\n      2,\n      0,\n      1,\n      3\n    ],\n    [\n      4,\n      2,\n      1,\n      3,\n      0\n    ],\n    [\n      4,\n      2,\n      3,\n      0,\n      1\n    ],\n    [\n      4,\n      3,\n      0,\n      2,\n      1\n    ],\n    [\n      4,\n      3,\n      1,\n      0,\n      2\n    ],\n    [\n      4,\n      3,\n      2,\n      1,\n      0\n    ]\n  ],\n  \"rows\": [\n    [\n      15,\n      16\n    ],\n    [\n      18,\n      20\n    ],\n    [\n      21,\n      22\n    ],\n    [\n      27,\n      29\n    ],\n    [\n      30,\n      31\n    ],\n    [\n      33,\n      35\n    ],\n    [\n      39,\n      40\n    ],\n    [\n      42,\n      44\n    ],\n    [\n      45,\n      46\n    ],\n    [\n      51,\n      53\n    ],\n    [\n      54,\n      55\n    ],\n    [\n      57,\n      59\n    ],\n    [\n      3,\n      5\n    ],\n    [\n      6,\n      7\n    ],\n    [\n      9,\n      11\n    ],\n    [\n      24,\n      25\n    ],\n    [\n      31,\n      32\n    ],\n    [\n      34,\n      33\n    ],\n    [\n      36,\n      38\n    ],\n    [\n      43,\n      42\n    ],\n    [\n      46,\n      47\n    ],\n    [\n      48,\n      49\n    ],\n    [\n      55,\n      56\n    ],\n    [\n      58,\n      57\n    ],\n    [\n      0,\n      1\n    ],\n    [\n      7,\n      8\n    ],\n    [\n      10,\n      9\n    ],\n    [\n      12,\n      14\n    ],\n    [\n      19,\n      18\n    ],\n    [\n      22,\n      23\n    ],\n    [\n      37,\n      36\n    ],\n    [\n      40,\n      41\n    ],\n    [\n      47,\n      45\n    ],\n    [\n      49,\n      50\n    ],\n    [\n      52,\n      51\n    ],\n    [\n      59,\n      58\n    ],\n    [\n      1,\n      2\n    ],\n    [\n      4,\n      3\n    ],\n    [\n      11,\n      10\n    ],\n    [\n      13,\n      12\n    ],\n    [\n      16,\n      17\n    ],\n    [\n      23,\n      21\n    ],\n    [\n      25,\n      26\n    ],\n    [\n      28,\n      27\n    ],\n    [\n      35,\n      34\n    ],\n    [\n      50,\n      48\n    ],\n    [\n      53,\n      52\n    ],\n    [\n      56,\n      54\n    ],\n    [\n      2,\n      0\n    ],\n    [\n      5,\n      4\n    ],\n    [\n      8,\n      6\n    ],\n    [\n      14,\n      13\n    ],\n    [\n      17,\n      15\n    ],\n    [\n      20,\n      19\n    ],\n    [\n      26,\n      24\n    ],\n    [\n      29,\n      28\n    ],\n    [\n      32,\n      30\n    ],\n    [\n      38,\n      37\n    ],\n    [\n      41,\n      39\n    ],\n    [\n      44,\n      43\n    ]\n  ],\n  \"convex_order_claimed\": false,\n  \"Euclidean_realization_claimed\": false,\n  \"meaning\": \"outdegree two and no reciprocity alone do not force the diamond pattern\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "verify/check_phase_filter.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.0722931940000251,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_PHASE_FILTER_CROSSCHECK\",\n  \"input_systems\": 333,\n  \"phase_rejections\": 200,\n  \"one_diamond_certificates\": 5,\n  \"two_diamond_certificates\": 195,\n  \"bounded_new_run_leaves\": 15,\n  \"new_leaves_already_exactly_rejected\": 15,\n  \"all_nine_orbit_patterns_exhausted\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "-m",
+        "unittest",
+        "-v",
+        "test_product_cycle_audit_20260909.py"
+      ],
+      "returncode": 0,
+      "seconds": 3.753693014999982,
+      "stdout": "",
+      "stderr": "test_all_fixed_certificates (test_product_cycle_audit_20260909.ExactAuditTests.test_all_fixed_certificates) ... ok\ntest_all_two_diamond_cancellations (test_product_cycle_audit_20260909.ExactAuditTests.test_all_two_diamond_cancellations) ... ok\ntest_angle_vector_corruption (test_product_cycle_audit_20260909.ExactAuditTests.test_angle_vector_corruption) ... ok\ntest_assertion_disabled_cli_rejected (test_product_cycle_audit_20260909.ExactAuditTests.test_assertion_disabled_cli_rejected) ... ok\ntest_bad_named_witness (test_product_cycle_audit_20260909.ExactAuditTests.test_bad_named_witness) ... ok\ntest_bad_target (test_product_cycle_audit_20260909.ExactAuditTests.test_bad_target) ... ok\ntest_coefficient_corruption (test_product_cycle_audit_20260909.ExactAuditTests.test_coefficient_corruption) ... ok\ntest_coincident_diamond_orbits (test_product_cycle_audit_20260909.ExactAuditTests.test_coincident_diamond_orbits) ... ok\ntest_collided_vertices (test_product_cycle_audit_20260909.ExactAuditTests.test_collided_vertices) ... ok\ntest_duplicate_system_rejected (test_product_cycle_audit_20260909.ExactAuditTests.test_duplicate_system_rejected) ... ok\ntest_exact_base_angle_controls (test_product_cycle_audit_20260909.ExactAuditTests.test_exact_base_angle_controls) ... ok\ntest_exact_convex_controls (test_product_cycle_audit_20260909.ExactAuditTests.test_exact_convex_controls) ... ok\ntest_exact_metric_controls (test_product_cycle_audit_20260909.ExactAuditTests.test_exact_metric_controls) ... ok\ntest_exact_phase_filter_crosscheck (test_product_cycle_audit_20260909.ExactAuditTests.test_exact_phase_filter_crosscheck) ... ok\ntest_exact_six_cycle_and_nonconvexity (test_product_cycle_audit_20260909.ExactAuditTests.test_exact_six_cycle_and_nonconvexity) ... ok\ntest_incidence_only_no_diamond_control (test_product_cycle_audit_20260909.ExactAuditTests.test_incidence_only_no_diamond_control) ... ok\ntest_metric_vector_corruption (test_product_cycle_audit_20260909.ExactAuditTests.test_metric_vector_corruption) ... ok\ntest_mismatched_diamond_gains (test_product_cycle_audit_20260909.ExactAuditTests.test_mismatched_diamond_gains) ... ok\ntest_missing_certificate_rejected (test_product_cycle_audit_20260909.ExactAuditTests.test_missing_certificate_rejected) ... ok\ntest_missing_control_premises (test_product_cycle_audit_20260909.ExactAuditTests.test_missing_control_premises) ... ok\ntest_missing_diamond_arrow (test_product_cycle_audit_20260909.ExactAuditTests.test_missing_diamond_arrow) ... ok\ntest_negative_strict_multiplier (test_product_cycle_audit_20260909.ExactAuditTests.test_negative_strict_multiplier) ... ok\ntest_no_strict_term (test_product_cycle_audit_20260909.ExactAuditTests.test_no_strict_term) ... ok\ntest_noninteger_multiplier (test_product_cycle_audit_20260909.ExactAuditTests.test_noninteger_multiplier) ... ok\ntest_one_diamond_can_have_positive_phase_gaps (test_product_cycle_audit_20260909.ExactAuditTests.test_one_diamond_can_have_positive_phase_gaps) ... ok\ntest_q3_exact_signs (test_product_cycle_audit_20260909.ExactAuditTests.test_q3_exact_signs) ... ok\ntest_quartic_field_identities (test_product_cycle_audit_20260909.ExactAuditTests.test_quartic_field_identities) ... ok\ntest_quartic_root_isolation (test_product_cycle_audit_20260909.ExactAuditTests.test_quartic_root_isolation) ... ok\ntest_reversed_global_order (test_product_cycle_audit_20260909.ExactAuditTests.test_reversed_global_order) ... ok\ntest_six_cycle_wrong_hull (test_product_cycle_audit_20260909.ExactAuditTests.test_six_cycle_wrong_hull) ... ok\ntest_six_cycle_wrong_root (test_product_cycle_audit_20260909.ExactAuditTests.test_six_cycle_wrong_root) ... ok\ntest_three_arrow_certificate (test_product_cycle_audit_20260909.ExactAuditTests.test_three_arrow_certificate) ... ok\ntest_unforced_premise (test_product_cycle_audit_20260909.ExactAuditTests.test_unforced_premise) ... ok\ntest_unknown_control_kind (test_product_cycle_audit_20260909.ExactAuditTests.test_unknown_control_kind) ... ok\ntest_wrong_control_row_count (test_product_cycle_audit_20260909.ExactAuditTests.test_wrong_control_row_count) ... ok\ntest_wrong_phase_multiplier (test_product_cycle_audit_20260909.ExactAuditTests.test_wrong_phase_multiplier) ... ok\ntest_wrong_phase_order (test_product_cycle_audit_20260909.ExactAuditTests.test_wrong_phase_order) ... ok\ntest_zero_strict_multiplier (test_product_cycle_audit_20260909.ExactAuditTests.test_zero_strict_multiplier) ... ok\n\n----------------------------------------------------------------------\nRan 38 tests in 3.691s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "publication_core/verify.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.024188602000009496,
+      "stdout": "{\n  \"status\": \"PASS_EXACT_DIAMOND_PHASE_CERTIFICATES\",\n  \"fixed_systems\": 3,\n  \"diamonds_per_certificate\": 2,\n  \"strict_terms_per_certificate\": 2,\n  \"all_nine_orbit_systems_exhausted\": false,\n  \"unrestricted_solution\": false,\n  \"external_mathematical_review\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "publication_core",
+        "-p",
+        "test_diamond_phase_obstruction_20260909.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "seconds": 1.9483849730000031,
+      "stdout": "",
+      "stderr": "test_all_three (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_all_three) ... ok\ntest_corrupt_equality_weight (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_corrupt_equality_weight) ... ok\ntest_disabled_assertions (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_disabled_assertions) ... ok\ntest_duplicate_case (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_duplicate_case) ... ok\ntest_missing_arrow (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_missing_arrow) ... ok\ntest_missing_strictness (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_missing_strictness) ... ok\ntest_negative_strict_weight (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_negative_strict_weight) ... ok\ntest_noninteger_weight (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_noninteger_weight) ... ok\ntest_positive_single_diamond_phase_control (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_positive_single_diamond_phase_control) ... ok\ntest_repeated_orbit (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_repeated_orbit) ... ok\ntest_unmatched_gain (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_unmatched_gain) ... ok\ntest_wrong_phase_order (test_diamond_phase_obstruction_20260909.DiamondPhaseTests.test_wrong_phase_order) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 1.900s\n\nOK\n"
+    }
+  ],
+  "immutable_input_sha256": {
+    "inputs/filter9_all.json": "6d046b3d048a43977b9debda5c4bd3ad514dec1d5fe86b0f3cd63cf6be404544",
+    "inputs/filter9_slices.json": "52bef478357d36a8424549c2072026baf47bd9246c30f3cd40ab564c7ad5bf80",
+    "inputs/product6_best.json": "047d4a69c577745a76f5adc4853a1f2b25e9fa3834f2434a4fdae2162462907e",
+    "inputs/q3_field_original.py": "96a038c3511d1bd028395a30c17bb76dbe66c65cc17c286703f74d81a043f76f",
+    "inputs/search9.cpp": "be35f9d44b919a1af68b514fa2c65ce46661ab096c4ede5b8b00ffdd3115bd3c"
+  },
+  "defensive_tests": 38,
+  "publication_core_tests": 12,
+  "fixed_system_certificates": 333,
+  "exact_geometry_controls": 4,
+  "all_nine_orbit_systems_exhausted": false,
+  "repository_wide_gates_run": false,
+  "external_review": false,
+  "unrestricted_solution": false
+}

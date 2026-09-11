@@ -7,6 +7,7 @@ Status: navigation only. Keep accepted small-case results and review-pending can
 - [Octagon proof and independent corroboration](../n8-proof-trail.md)
 - [Restricted equilateral nonagon result](../n9-equilateral-chord-obstruction.md)
 - [General n=9 candidate review packet](../n9-review-packet.md)
+- [External n=9 reproduction and comparison](../external-n9-reproduction-2026-09-10.md)
 - [Local lemma review obligations](../n9-vertex-circle-local-lemma-review-packet.md)
 - [n=10 draft review packet](../n10-vertex-circle-singleton-review-packet.md)
 

@@ -1,0 +1,24 @@
+test_bad_witness (test_research_publication_20260910.PublicationTests.test_bad_witness) ... ok
+test_changed_positive_vector (test_research_publication_20260910.PublicationTests.test_changed_positive_vector) ... ok
+test_disabled_assertions_rejected (test_research_publication_20260910.PublicationTests.test_disabled_assertions_rejected) ... ok
+test_duplicate_weights (test_research_publication_20260910.PublicationTests.test_duplicate_weights) ... ok
+test_floating_and_boolean_rationals (test_research_publication_20260910.PublicationTests.test_floating_and_boolean_rationals) ... ok
+test_integrity (test_research_publication_20260910.PublicationTests.test_integrity) ... ok
+test_larger_cases_both_implementations (test_research_publication_20260910.PublicationTests.test_larger_cases_both_implementations) ... ok
+test_lf_report_serialization (test_research_publication_20260910.PublicationTests.test_lf_report_serialization) ... ok
+test_manifest_tampering (test_research_publication_20260910.PublicationTests.test_manifest_tampering) ... ok
+test_missing_strictness (test_research_publication_20260910.PublicationTests.test_missing_strictness) ... ok
+test_negative_strict_multiplier (test_research_publication_20260910.PublicationTests.test_negative_strict_multiplier) ... ok
+test_nonzero_subprocess_rejected (test_research_publication_20260910.PublicationTests.test_nonzero_subprocess_rejected) ... ok
+test_snapshot_report_write_rejected (test_research_publication_20260910.PublicationTests.test_snapshot_report_write_rejected) ... ok
+test_sparse_and_original_rows (test_research_publication_20260910.PublicationTests.test_sparse_and_original_rows) ... ok
+test_stored_contradiction_both_implementations (test_research_publication_20260910.PublicationTests.test_stored_contradiction_both_implementations) ... ok
+test_stored_positive_vector_both_implementations (test_research_publication_20260910.PublicationTests.test_stored_positive_vector_both_implementations) ... ok
+test_unicode_subprocess (test_research_publication_20260910.PublicationTests.test_unicode_subprocess) ... ok
+test_unverified_case_rejected (test_research_publication_20260910.PublicationTests.test_unverified_case_rejected) ... ok
+test_wrong_constant (test_research_publication_20260910.PublicationTests.test_wrong_constant) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.610s
+
+OK

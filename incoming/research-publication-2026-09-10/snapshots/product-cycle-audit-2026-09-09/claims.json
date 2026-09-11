@@ -1,0 +1,250 @@
+{
+  "schema": 1,
+  "scope": "research checkpoint; every mathematical claim retains its stated hypotheses",
+  "claims": [
+    {
+      "id": "diamond-phase",
+      "statement": "A gain-aligned four-arrow own-side C3 diamond forces z_i*z_tip=omega^(b-c)*z_j*z_k and the branch-resolved phase equality with sigma(0,1,2)=(0,1,-1).",
+      "hypotheses": [
+        "four distinct nonzero C3 orbits",
+        "strictly convex full union",
+        "source-side radii sqrt(3)*|z_i|",
+        "aligned total gains modulo three",
+        "representative phases in one strict 120-degree sector"
+      ],
+      "evidence_level": "SELF_CONTAINED_RESTRICTED_WRITTEN_PROOF_REVIEW_PENDING",
+      "verification_commands": [
+        "python -S publication_core/verify.py"
+      ],
+      "files": [
+        "proof_attempts/diamond_phase.md",
+        "publication_core/README.md"
+      ],
+      "dependencies": [
+        "existing #942 circle-completion identity, rederived in proof"
+      ],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "two-diamond-seven-arrow",
+      "statement": "Two specified overlapping diamonds force a phase-order contradiction; all three stored positive-relaxation systems are impossible in the given sector order.",
+      "hypotheses": [
+        "diamond-phase hypotheses",
+        "seven stated arrows",
+        "sector order 0<1<3<8"
+      ],
+      "evidence_level": "EXACT_FIXED_PATTERN_FIXED_ORDER_CERTIFICATES_WITH_WRITTEN_GEOMETRIC_REDUCTION",
+      "verification_commands": [
+        "python -S publication_core/verify.py"
+      ],
+      "files": [
+        "publication_core/cases.json",
+        "verify/diamond_phase.py"
+      ],
+      "dependencies": [
+        "diamond-phase"
+      ],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "stored-333",
+      "statement": "All 333 distinct stored nine-orbit systems are exactly rejected: 330 by base-angle certificates and three by the two-diamond certificate.",
+      "hypotheses": [
+        "precisely the input systems and their repeated-sector boundary order",
+        "C3 source-side equalities",
+        "no exhaustive nine-orbit coverage asserted"
+      ],
+      "evidence_level": "EXACT_FINITE_STORED_CORPUS_REPLAY",
+      "verification_commands": [
+        "python -S verify/check_combined.py reports/all_fixed_system_certificates.json"
+      ],
+      "files": [
+        "reports/all_fixed_system_certificates.json",
+        "reports/all_fixed_system_replay.json"
+      ],
+      "dependencies": [
+        "two-diamond-seven-arrow",
+        "positive convex-triangle angles, forced isosceles and right-angle equations"
+      ],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "positive-relaxations",
+      "statement": "Each of the three specified systems admits an exact positive base-angle vector and separately an exact positive full ordinary-distance cone vector.",
+      "hypotheses": [
+        "models and fixed systems in the two input reports",
+        "separate relaxations, not jointly consistent Euclidean data",
+        "diamond phase equations omitted from those older models"
+      ],
+      "evidence_level": "EXACT_RATIONAL_FEASIBILITY_NEGATIVE_CONTROL_FOR_RELAXATION_COMPLETENESS",
+      "verification_commands": [
+        "python -S verify/check_positive_relaxations.py reports/angle_survivor_preflight.json reports/full_metric_preflight.json"
+      ],
+      "files": [
+        "reports/positive_relaxations_independent_replay.json",
+        "reports/angle_survivor_preflight.json",
+        "reports/full_metric_preflight.json"
+      ],
+      "dependencies": [],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "supplier-arc",
+      "statement": "For A,B,C,D ordered in one C3 sector, B->A gain 0 and B->C gain 2 force |C|<|A|, |D|>|C|, and |C-omega*D|^2>3|C|^2.",
+      "hypotheses": [
+        "four distinct concentric equilateral-triangle orbits",
+        "strictly convex union",
+        "specified sector order and source-side arrows",
+        "no richness assumption at D needed"
+      ],
+      "evidence_level": "ALL_SIZE_RESTRICTED_WRITTEN_PROOF_REVIEW_PENDING_WITH_EXACT_CONTROL",
+      "verification_commands": [
+        "python -S verify/check_geometry.py candidate_counterexamples/supplier_arc_positive_12.json"
+      ],
+      "files": [
+        "proof_attempts/supplier_arc.md",
+        "reports/supplier_arc_positive_12_exact.json"
+      ],
+      "dependencies": [],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "six-cycle-exact",
+      "statement": "There is an exact six-step upper-half-plane own-side multiplier cycle with product omega; its 18-point orbit set has six hull vertices, 12 strict interior points, and every maximum multiplicity equals three.",
+      "hypotheses": [
+        "specified real root of 7s^4-24s^3+44s^2-42s+13 in (536/1000,537/1000)",
+        "specified u,v and cycle order"
+      ],
+      "evidence_level": "EXACT_ALGEBRAIC_NONCONVEX_CONTROL",
+      "verification_commands": [
+        "python -S verify/check_six_cycle.py candidate_counterexamples/upper_six_cycle_exact_nonconvex_18.json"
+      ],
+      "files": [
+        "proof_attempts/six_cycle.md",
+        "candidate_counterexamples/upper_six_cycle_exact_nonconvex_18.json",
+        "reports/upper_six_cycle_exact_18.json"
+      ],
+      "dependencies": [],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "maximum-root-c3-control",
+      "statement": "A strictly convex exact C3 21-point set has a maximum-radius rich root with every named witness rich and no larger actual rich radius, while 12 other points remain good.",
+      "hypotheses": [
+        "specified Q(sqrt(3)) coordinates",
+        "all-radius classes reconstructed",
+        "only the stated local extremal-selection implication is refuted"
+      ],
+      "evidence_level": "EXACT_GEOMETRIC_LOCAL_NEGATIVE_CONTROL",
+      "verification_commands": [
+        "python -S verify/check_geometry.py candidate_counterexamples/c3_maximum_root_rich_neighborhood_21.json"
+      ],
+      "files": [
+        "candidate_counterexamples/c3_maximum_root_rich_neighborhood_21.json",
+        "reports/c3_maximum_root_rich_neighborhood_21_exact.json"
+      ],
+      "dependencies": [],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "convex-diamond-control",
+      "statement": "The specified 12-point product diamond is strictly convex with maximum multiplicities (4,4,4,3,3,3,3,3,3,2,2,2).",
+      "hypotheses": [
+        "specified exact coordinates",
+        "does not assert all-richness"
+      ],
+      "evidence_level": "EXACT_GEOMETRIC_POSITIVE_CONTROL",
+      "verification_commands": [
+        "python -S verify/check_geometry.py candidate_counterexamples/convex_product_diamond_positive_12.json"
+      ],
+      "files": [
+        "candidate_counterexamples/convex_product_diamond_positive_12.json",
+        "reports/convex_product_diamond_positive_12_exact.json"
+      ],
+      "dependencies": [],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "diamond-free-incidence",
+      "statement": "A 60-state directed graph has outdegree two, no reciprocal pair, and no directed diamond.",
+      "hypotheses": [
+        "permutation-group construction with given generators",
+        "no convex order, rotation gains, or Euclidean realization supplied"
+      ],
+      "evidence_level": "EXACT_ABSTRACT_INCIDENCE_NEGATIVE_CONTROL",
+      "verification_commands": [
+        "python -S verify/diamond_free_incidence.py"
+      ],
+      "files": [
+        "reports/diamond_free_incidence.json"
+      ],
+      "dependencies": [],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "phase-filter-200",
+      "statement": "Within the same 333 stored systems, 200 have separately checked one/two-diamond phase certificates; C++ and Python filter decisions agree. A guarded fresh run leaves 15 already-rejected systems.",
+      "hypotheses": [
+        "fixed stored corpus",
+        "single/two-row phase-gap filter only",
+        "node/time guards do not imply nonexistence"
+      ],
+      "evidence_level": "EXACT_CERTIFICATE_AND_IMPLEMENTATION_CROSSCHECK_PLUS_BOUNDED_SEARCH_DIAGNOSTIC",
+      "verification_commands": [
+        "python -S verify/check_phase_filter.py"
+      ],
+      "files": [
+        "reports/phase_filter_certificates.json",
+        "reports/phase_filter_independent_replay.json",
+        "reports/phase_2m.json"
+      ],
+      "dependencies": [
+        "diamond-phase"
+      ],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    },
+    {
+      "id": "coordinate-and-grid-searches",
+      "statement": "The retained numerical searches produced no certified all-rich strictly convex configuration.",
+      "hypotheses": [
+        "90 coordinate attempts on three now-obstructed systems",
+        "7x7 and 9x9 integer pools with arbitrary witness classes",
+        "all saved limits and tolerances apply"
+      ],
+      "evidence_level": "NUMERICAL_DIAGNOSTICS_ONLY_NO_UNSAT_CERTIFICATE",
+      "verification_commands": [],
+      "files": [
+        "reports/nine_phase_realization.json",
+        "reports/lattice_milp7.json",
+        "reports/lattice_milp9.json"
+      ],
+      "dependencies": [],
+      "source_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+      "external_mathematical_review": false,
+      "unrestricted_solution": false
+    }
+  ],
+  "global_extraction_obligation": "No proof forces an arbitrary all-rich strictly convex polygon to contain these equilateral orbits or aligned diamonds.",
+  "all_nine_orbit_systems_exhausted": false,
+  "solution_md_created": false
+}

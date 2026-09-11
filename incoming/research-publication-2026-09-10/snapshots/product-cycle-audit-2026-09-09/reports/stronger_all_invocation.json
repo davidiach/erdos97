@@ -1,0 +1,15 @@
+{
+  "pid": 809,
+  "command": [
+    "/mnt/data/nine_three_arrow",
+    "--all",
+    "--limit",
+    "10000000",
+    "--output",
+    "reports/stronger_all.jsonl"
+  ],
+  "source_sha256": "6d25a03a52415092efddc7df20b030e51fdca9acc18af861ac5dc72ac172b127",
+  "started_epoch": 1788984290.9899035,
+  "python": "3.13.5",
+  "termination_record": "reports/stronger_all_run.json"
+}

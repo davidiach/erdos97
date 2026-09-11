@@ -1,0 +1,58 @@
+{
+  "status": "DRAFT_PR_OPENED_WITH_FAST_FORWARD_CI_REPAIR",
+  "pull_request": 944,
+  "url": "https://github.com/davidiach/erdos97/pull/944",
+  "base_commit": "9b8b8f807ae8b21f10780a7d11f6c5cec65f26e7",
+  "initial_commit": "de2ce5a5e6a391103fa011b9697533d002ce8f00",
+  "head_commit": "832fe620583488b5c4a1169c75b486b2debf4bad",
+  "branch": "research/diamond-phase-obstruction-2026-09-09",
+  "draft": true,
+  "merged": false,
+  "scope": "five new core files plus navigation-only incoming/README.md update; the broader archive is separate",
+  "repair_verifier_ast_equivalent_up_to_l_to_tip_rename": true,
+  "repaired_verifier_git_blob": "b2c56e08206f68b79db0c5a6eb056545f2cec277",
+  "initial_hosted_tests": {
+    "run_id": 34403808158,
+    "status": "completed",
+    "conclusion": "failure",
+    "lint_job": 102641818640,
+    "lint_failure": "two E741 ambiguous variable names l; other prior lint/navigation/provenance checks passed",
+    "pytest_job": 102641818946,
+    "pytest_summary": "1 failed, 1069 passed",
+    "pytest_failure": "test_incoming_index_covers_retained_packet_directories: missing new packet link"
+  },
+  "initial_hosted_artifact": {
+    "run_id": 34403808176,
+    "last_observed_status": "in_progress",
+    "conclusion": null
+  },
+  "latest_head_hosted_checks": [
+    {
+      "name": "tests",
+      "run_id": 34404917603,
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "name": "artifact audit",
+      "run_id": 34404917668,
+      "status": "in_progress",
+      "conclusion": null
+    }
+  ],
+  "root_workflow_or_check_weakening": false,
+  "main_ref_changed": false,
+  "accepted_status_changed": false,
+  "full_local_repository_gates_run": false,
+  "external_mathematical_review": false,
+  "repair_comment_id": 5608791854,
+  "latest_compare": {
+    "ahead_by": 2,
+    "behind_by": 0,
+    "changed_files": 6,
+    "new_core_files": 5,
+    "existing_navigation_changes": 1
+  },
+  "repaired_verifier_remote_blob": "b2c56e08206f68b79db0c5a6eb056545f2cec277",
+  "repaired_verifier_bytes_verified": true
+}
