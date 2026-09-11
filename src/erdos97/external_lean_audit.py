@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 import signal
 import subprocess
-from typing import Any
+from typing import Any, TextIO
 
 from erdos97.json_io import load_json, write_json
 
@@ -200,8 +200,33 @@ def check_dependencies(lean_root: Path) -> dict[str, str]:
     return packages
 
 
+def stop_process_tree(process: subprocess.Popen, stream: TextIO) -> None:
+    """Stop a command and its workers even if the group leader exits first."""
+    if os.name == 'nt':
+        subprocess.run(
+            ['taskkill', '/PID', str(process.pid), '/T', '/F'],
+            stdout=stream, stderr=subprocess.STDOUT, check=True, timeout=30,
+        )
+    else:
+        try:
+            os.killpg(process.pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+        try:
+            process.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            pass
+        # A reaped leader does not imply its workers have exited. Always stop
+        # the remaining group before closing or hashing its shared log.
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    process.wait(timeout=5)
+
+
 def run_logged(command: list[str], cwd: Path, log: Path, timeout: int) -> int:
-    """Capture complete output and terminate subprocess trees on timeout."""
+    """Capture output and clean up subprocess trees on timeout or interruption."""
     print('Running: ' + ' '.join(command), flush=True)
     with log.open('w', encoding='utf-8', newline='\n') as stream:
         process = subprocess.Popen(
@@ -212,24 +237,12 @@ def run_logged(command: list[str], cwd: Path, log: Path, timeout: int) -> int:
         try:
             return process.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
-            if os.name == 'nt':
-                subprocess.run(
-                    ['taskkill', '/PID', str(process.pid), '/T', '/F'],
-                    stdout=stream, stderr=subprocess.STDOUT, check=True, timeout=30,
-                )
-                process.wait(timeout=5)
-            else:
-                try:
-                    os.killpg(process.pid, signal.SIGTERM)
-                except ProcessLookupError:
-                    pass
-                try:
-                    process.wait(timeout=5)
-                except subprocess.TimeoutExpired:
-                    os.killpg(process.pid, signal.SIGKILL)
-                    process.wait()
+            stop_process_tree(process, stream)
             stream.write('\nAUDIT COMMAND TIMED OUT\n')
             return 124
+        except BaseException:
+            stop_process_tree(process, stream)
+            raise
 
 
 def run_audit(checkout: Path, packet: Path, output: Path, timeout: int) -> int:

@@ -66,5 +66,48 @@ process can terminate its own timeout-test child. The existing workflow-gate
 tests also needed explicit shell resolution and preservation of the OS
 environment. They now prefer Bash bundled with Git on Windows, avoiding the
 system32 WSL launcher; all 14 tests in that module pass without a PATH override. These
-are tooling results only. The pinned D2 source errors remain a merge blocker
-for verified-import acceptance; no failing external check is bypassed.
+are tooling results only. At that original pin the D2 source errors remained a
+merge blocker for verified-import acceptance; no failing check was bypassed.
+
+## Completed original-pin audit and upstream repair
+
+Hosted run [34576340728](https://github.com/davidiach/erdos97/actions/runs/34576340728)
+finished on local head `270bc182daad426fac4e845bd9fb9b3ece424913` with
+`NOT_VERIFIED`, after rechecking the source, consumers, and dependency pins.
+The original receipt and provenance are retained byte-for-byte under
+[`evidence/34576340728/`](evidence/34576340728/receipt.json).
+
+- n9: the module and both independent statement adapters compiled. All four
+  named declarations passed with exactly `propext`, `Classical.choice`, and
+  `Quot.sound`. The complete axiom output is retained beside the receipt.
+- D2: the module build completed with exit code 1 and the same four parser
+  errors in `SurplusCOMPGBank.lean`. Its consumer was not executed.
+
+Downloaded evidence SHA-256 identifiers:
+
+| File | SHA-256 |
+|---|---|
+| `receipt.json` | `1fa89088cc76d7c6d2928608831ba406b805bd3790b0f7e647f480911c4188f7` |
+| `n9-build.log` | `284fae7ab9454d49e508a6c9b4a67f4a4adbd558337a9251c39f869bdcde0390` |
+| `n9-axioms.log` | `02b38df37020ed6fbd27155907269ff3aa618793f126f57aa6f0cb2062c40a24` |
+| `d2-build.log` | `d5f4139b86cea7047ddf3cdd5d2399f603853d07a2c4260d1ff46ea9a3fc827e` |
+
+The full build logs were inspected in the downloaded
+[artifact 10192053739](https://github.com/davidiach/erdos97/actions/runs/34576340728/artifacts/10192053739).
+They are subject to its 14-day retention limit; only the compact receipt,
+bootstrap provenance, and complete n9 axiom output are retained in this packet.
+
+Upstream then published
+[`76559d59f934d81e5081b40e0e621b39f759f7fa`](https://github.com/mysticflounder/erdos-97-96-formalization/commit/76559d59f934d81e5081b40e0e621b39f759f7fa),
+the immediate child of the original pin. Review of its complete five-file diff
+confirmed ten redundant docstring removals and two docstring/attribute
+reorderings. There are no statement, proof, binder, toolchain, or dependency
+changes. The manifest now pins that published repair and additionally pins
+`SurplusCOMPGBank.lean` at blob `99c520da9308497f5064d8bea639cb408d46e41b`.
+No local patch is applied to upstream. The retained original-pin receipt does
+not verify the repaired pin; a fresh complete run remains required.
+
+The local review also repaired POSIX subprocess cleanup: timeout and Python
+interruption now stop any remaining workers even when the group leader exits
+first. Both new regression controls failed before the fix and pass afterward.
+These process-lifecycle tests are separate from Lean verification.

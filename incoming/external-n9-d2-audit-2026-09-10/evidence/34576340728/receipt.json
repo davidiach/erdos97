@@ -1,0 +1,96 @@
+{
+  "accepted_claims_changed": false,
+  "compiler_version": "Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "dependencies": {
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "formal_conjectures": "8323e878b83fcd7f4a448256069352a265460d75",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957"
+  },
+  "finished_utc": "2026-09-11T09:02:49.084583+00:00",
+  "groups": {
+    "d2": {
+      "build_command": [
+        "lake",
+        "build",
+        "+Erdos9796Proof.P97.ATail.TwoRadiusGridNestedEscapeTerminal"
+      ],
+      "build_exit_code": 1,
+      "build_log_sha256": "d5f4139b86cea7047ddf3cdd5d2399f603853d07a2c4260d1ff46ea9a3fc827e",
+      "harness_sha256": "74dfd267cd5042125c586d2f53478d040b31648a3880f7d2e07a5e79b5a09081",
+      "status": "BUILD_FAILED"
+    },
+    "n9": {
+      "axiom_log_sha256": "02b38df37020ed6fbd27155907269ff3aa618793f126f57aa6f0cb2062c40a24",
+      "axioms": {
+        "ExternalN9D2Audit.general_nine": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ExternalN9D2Audit.through_nine": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Problem97.FiniteN9Closure": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Problem97.counterexample_card_ge_ten": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "build_command": [
+        "lake",
+        "build",
+        "+Erdos9796Proof.P97.SmallCardinality"
+      ],
+      "build_exit_code": 0,
+      "build_log_sha256": "284fae7ab9454d49e508a6c9b4a67f4a4adbd558337a9251c39f869bdcde0390",
+      "harness_command": [
+        "lake",
+        "env",
+        "lean",
+        "/home/runner/work/erdos97/erdos97/incoming/external-n9-d2-audit-2026-09-10/N9Audit.lean"
+      ],
+      "harness_exit_code": 0,
+      "harness_sha256": "5c8361bd8645c610a4fd9b1d533805370653c7af29c7ae4e84941ba0b27f7a14",
+      "status": "CORE_AXIOM_AUDIT_PASSED"
+    }
+  },
+  "harness_sha256": {
+    "d2": "74dfd267cd5042125c586d2f53478d040b31648a3880f7d2e07a5e79b5a09081",
+    "n9": "5c8361bd8645c610a4fd9b1d533805370653c7af29c7ae4e84941ba0b27f7a14"
+  },
+  "independent_second_kernel_replay": false,
+  "inputs_rechecked_after_execution": true,
+  "manifest_sha256": "bf1de08850ea2a1dde7908fddbd77c31f3dc4ca563a0272086cfdff3deef8a51",
+  "schema": "external-n9-d2-receipt/v1",
+  "source": {
+    "commit": "d6b8e128af554eb430d060a31f26f863cea97c14",
+    "lake_manifest_sha256": "9de4a69fdebf0ff09647ae11adb312a5a2e12ac0aa3603f2c8ab618d57967f13",
+    "project_outputs_initially_absent": true,
+    "source_blobs": {
+      "lean-toolchain": "a8afa7d1b02d96f0671eba854a8dc4b416beb473",
+      "lean/Erdos9796Proof/P97/ATail/TwoRadiusGridNestedEscapeTerminal.lean": "9eb56438f0ec8acbf68b5d20347760f35e2ddc52",
+      "lean/Erdos9796Proof/P97/N9Endpoint/Closure.lean": "f3f7f9762c849462c54becf2661dccdc56bdbbc1",
+      "lean/Erdos9796Proof/P97/SmallCardinality.lean": "395b6a4d87704547a8f369311c15133df84e0e49",
+      "lean/lake-manifest.json": "947fa6b1885c04ee457589b9ad3efda139cf7407",
+      "lean/lakefile.toml": "da9e694189f2ebb668745d5b7dfd3423f1019492"
+    },
+    "toolchain": "leanprover/lean4:v4.33.1",
+    "tree": "ea52812d77fe4ed4db94e3692282b50fa23b6490"
+  },
+  "started_utc": "2026-09-11T07:54:55.732034+00:00",
+  "status": "NOT_VERIFIED"
+}

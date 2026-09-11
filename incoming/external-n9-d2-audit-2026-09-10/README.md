@@ -11,9 +11,13 @@ synthetic compiler output and do not verify the mathematical theorems.
 Local base: `982e5a363be60cfd805db5ae40d4b258e53f9dfb`.
 
 External project: `mysticflounder/erdos-97-96-formalization`, by Adam McKenna.
-Pinned source: `d6b8e128af554eb430d060a31f26f863cea97c14`.
+Pinned source: `76559d59f934d81e5081b40e0e621b39f759f7fa`.
 Upstream toolchain: `leanprover/lean4:v4.33.1`.
 The local pilot remains on its existing toolchain and gains no Lake dependency.
+This pin is the immediate successor of the original audited source. Its five-file
+diff only removes or repositions declaration documentation; the statements,
+proofs, toolchain, and dependency lock are unchanged. The original failed
+execution remains recorded in [EXECUTION.md](EXECUTION.md).
 
 [manifest.json](manifest.json) is the machine-readable target and source-pin
 roster. Upstream proof bodies are not copied into this packet. The initial
@@ -95,6 +99,8 @@ target stage. Cancellation therefore leaves an explicit incomplete record.
 Only a completed run with `inputs_rechecked_after_execution: true` can pass.
 Each build uses `--timeout` seconds; each consumer has at most 300 seconds.
 The hosted run allows 60 minutes per build plus setup and evidence upload.
+On POSIX, timeout and Python interruption cleanup also stops workers whose
+group leader has already exited, before closing the shared command log.
 
 `CORE_AXIOM_AUDIT_PASSED` means that these particular consumers compiled and
 met that axiom budget in the recorded run. It does not mean a full-project
@@ -144,7 +150,7 @@ Observed executions and remaining limitations belong in
 
 ## Pinned primary sources
 
-- [General n9 assembly](https://github.com/mysticflounder/erdos-97-96-formalization/blob/d6b8e128af554eb430d060a31f26f863cea97c14/lean/Erdos9796Proof/P97/N9Endpoint/Closure.lean).
-- [General small-cardinality consumers](https://github.com/mysticflounder/erdos-97-96-formalization/blob/d6b8e128af554eb430d060a31f26f863cea97c14/lean/Erdos9796Proof/P97/SmallCardinality.lean).
-- [D2 nested-escape terminals and algebra](https://github.com/mysticflounder/erdos-97-96-formalization/blob/d6b8e128af554eb430d060a31f26f863cea97c14/lean/Erdos9796Proof/P97/ATail/TwoRadiusGridNestedEscapeTerminal.lean).
-- [Nesting/orientation assembly](https://github.com/mysticflounder/erdos-97-96-formalization/blob/d6b8e128af554eb430d060a31f26f863cea97c14/lean/Erdos9796Proof/P97/ATail/TwoRadiusGridZeroCutAssembly.lean).
+- [General n9 assembly](https://github.com/mysticflounder/erdos-97-96-formalization/blob/76559d59f934d81e5081b40e0e621b39f759f7fa/lean/Erdos9796Proof/P97/N9Endpoint/Closure.lean).
+- [General small-cardinality consumers](https://github.com/mysticflounder/erdos-97-96-formalization/blob/76559d59f934d81e5081b40e0e621b39f759f7fa/lean/Erdos9796Proof/P97/SmallCardinality.lean).
+- [D2 nested-escape terminals and algebra](https://github.com/mysticflounder/erdos-97-96-formalization/blob/76559d59f934d81e5081b40e0e621b39f759f7fa/lean/Erdos9796Proof/P97/ATail/TwoRadiusGridNestedEscapeTerminal.lean).
+- [Nesting/orientation assembly](https://github.com/mysticflounder/erdos-97-96-formalization/blob/76559d59f934d81e5081b40e0e621b39f759f7fa/lean/Erdos9796Proof/P97/ATail/TwoRadiusGridZeroCutAssembly.lean).

@@ -3,9 +3,12 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 from pathlib import Path
+import signal
 import subprocess
 import sys
+from unittest.mock import Mock
 
 import pytest
 
@@ -151,6 +154,27 @@ def test_run_logged_times_out(tmp_path):
     assert 'AUDIT COMMAND TIMED OUT' in log.read_text()
 
 
+@pytest.mark.skipif(os.name == 'nt', reason='POSIX process-group cleanup')
+@pytest.mark.parametrize('interruption', ['timeout', 'cancelled'])
+def test_interrupted_run_cleans_workers_after_parent_exits(tmp_path, monkeypatch, interruption):
+    # The leader exits on TERM; workers can still be alive in its process group.
+    # Waiting only for the leader does not establish process-tree cleanup.
+    error = subprocess.TimeoutExpired('build', 1) if interruption == 'timeout' else KeyboardInterrupt()
+    process = Mock(pid=12345)
+    process.wait.side_effect = [error, 0, 0]
+    monkeypatch.setattr(subprocess, 'Popen', Mock(return_value=process))
+    signals = []
+    monkeypatch.setattr(os, 'killpg', lambda pid, sig: signals.append((pid, sig)))
+    log = tmp_path / 'log'
+    if interruption == 'timeout':
+        assert audit.run_logged(['build'], tmp_path, log, 1) == 124
+        assert 'AUDIT COMMAND TIMED OUT' in log.read_text()
+    else:
+        with pytest.raises(KeyboardInterrupt):
+            audit.run_logged(['build'], tmp_path, log, 1)
+    assert signals == [(process.pid, signal.SIGTERM), (process.pid, signal.SIGKILL)]
+
+
 def test_preflight_failure_writes_nonverification_receipt(tmp_path, monkeypatch):
     def fail(*args):
         raise audit.AuditError('wrong pin')
@@ -184,7 +208,7 @@ def test_receipt_requires_both_groups_and_stable_inputs(tmp_path, monkeypatch, f
     monkeypatch.setattr(audit, 'check_dependencies', lambda *args: {'mathlib': 'a' * 40})
     def fake_git(_checkout, *args):
         if args == ('rev-parse', 'HEAD'):
-            return 'b' * 40 if failure == 'head_change' else 'd6b8e128af554eb430d060a31f26f863cea97c14'
+            return 'b' * 40 if failure == 'head_change' else raw_manifest['upstream']['commit']
         return ''
     monkeypatch.setattr(audit, 'git_text', fake_git)
     monkeypatch.setattr(audit, 'check_blob', lambda *args: None)

@@ -1,0 +1,12 @@
+{
+  "status": "BOOTSTRAP_ONLY_NOT_VERIFIED",
+  "local_head": "270bc182daad426fac4e845bd9fb9b3ece424913",
+  "upstream": {
+    "commit": "d6b8e128af554eb430d060a31f26f863cea97c14",
+    "repository": "mysticflounder/erdos-97-96-formalization",
+    "toolchain": "leanprover/lean4:v4.33.1"
+  },
+  "manifest_sha256": "bf1de08850ea2a1dde7908fddbd77c31f3dc4ca563a0272086cfdff3deef8a51",
+  "workflow_run_id": "34576340728",
+  "accepted_claims_changed": false
+}
