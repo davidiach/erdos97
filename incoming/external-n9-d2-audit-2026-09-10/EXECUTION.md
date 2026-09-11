@@ -63,7 +63,8 @@ and the revised hosted execution are tracked on PR #946.
 
 All 45 focused audit-tool regressions pass on Windows/Python 3.12.2 when the
 process can terminate its own timeout-test child. The existing workflow-gate
-tests also needed explicit PATH resolution for Bash and preservation of the OS
-environment; all 14 tests in that module pass with Git Bash configured. These
+tests also needed explicit shell resolution and preservation of the OS
+environment. They now prefer Bash bundled with Git on Windows, avoiding the
+system32 WSL launcher; all 14 tests in that module pass without a PATH override. These
 are tooling results only. The pinned D2 source errors remain a merge blocker
 for verified-import acceptance; no failing external check is bypassed.

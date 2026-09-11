@@ -43,6 +43,10 @@ def test_aggregate_fails_closed_and_accepts_only_intended_skips(workflow, job, d
     # system32 WSL launcher over a configured Git Bash. Preserve the OS
     # environment (including SystemRoot) required by the selected shell.
     bash = shutil.which('bash')
+    if os.name == 'nt' and (git := shutil.which('git')):
+        git_bash = Path(git).resolve().parent.parent / 'bin' / 'bash.exe'
+        if git_bash.is_file():
+            bash = str(git_bash)
     assert bash is not None, 'Bash is required to validate the workflow gates'
     for required, result, scope, passes in [
         ('true', 'success', 'success', True),
