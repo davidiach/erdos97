@@ -27,6 +27,7 @@ No packet in this table is declared superseded by another here.
 | [Research continuation: repairs, cap closure, and lens theorems](research-continuation-2026-09-09/README.md) | Six original September 8–9 packets: fixed-seed repairs and zero/one/two-internal-support obstructions, parabola/lens theorems, and exact controls; restricted and review-pending | `python publication.py`; `python publication.py --scoped`; `python publication.py --full` |
 | [Overlapping diamond phase obstruction](diamond-phase-obstruction-2026-09-09/README.md) | Gain-labelled circle-completion phase rule and exact seven-arrow obstruction for three fixed nine-orbit systems; restricted and review-pending, not a nine-orbit exclusion | `python -S verify.py`; `python -S -m unittest -v test_diamond_phase_obstruction_20260909.py` |
 | [General stars, Gabriel controls, and product-cycle audit](research-publication-2026-09-10/README.md) | Exact stored angle/phase certificates, geometric negative controls, supplier-arc and diamond proof candidates, and historical search evidence; no global reduction or accepted-bound change | `python -S publication.py`; `python -S publication.py --scoped` |
+| [External general-n9 and D2 audit](external-n9-d2-audit-2026-09-10/README.md) | Source-pinned external Lean consumers, exact hypothesis mapping, and fail-closed core-axiom audit tooling; no accepted-bound change | `PYTHONPATH=src python -m pytest -q tests/test_external_lean_audit.py`; see packet for isolated Lean replay |
 
 ## Historical imports
 

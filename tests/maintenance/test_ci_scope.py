@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from pathlib import Path
+import os
+import shutil
 import subprocess
 
 import pytest
@@ -37,6 +39,15 @@ def test_aggregate_fails_closed_and_accepts_only_intended_skips(workflow, job, d
     assert gate['if'] == 'always()'
     assert set(gate['needs']) == {'scope', dependency}
     shell = gate['steps'][0]['run']
+    # Resolve PATH explicitly: Windows CreateProcess otherwise prefers its
+    # system32 WSL launcher over a configured Git Bash. Preserve the OS
+    # environment (including SystemRoot) required by the selected shell.
+    bash = shutil.which('bash')
+    if os.name == 'nt' and (git := shutil.which('git')):
+        git_bash = Path(git).resolve().parent.parent / 'bin' / 'bash.exe'
+        if git_bash.is_file():
+            bash = str(git_bash)
+    assert bash is not None, 'Bash is required to validate the workflow gates'
     for required, result, scope, passes in [
         ('true', 'success', 'success', True),
         ('false', 'skipped', 'success', True),
@@ -45,7 +56,7 @@ def test_aggregate_fails_closed_and_accepts_only_intended_skips(workflow, job, d
         ('true', 'cancelled', 'success', False),
         ('false', 'skipped', 'failure', False),
     ]:
-        outcome = subprocess.run(['bash', '-e', '-c', shell], env={'REQUIRED': required, 'RESULT': result, 'SCOPE_RESULT': scope})
+        outcome = subprocess.run([bash, '-e', '-c', shell], env={**os.environ, 'REQUIRED': required, 'RESULT': result, 'SCOPE_RESULT': scope})
         assert (outcome.returncode == 0) == passes
 
 

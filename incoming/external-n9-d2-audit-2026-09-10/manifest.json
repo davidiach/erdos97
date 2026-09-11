@@ -1,0 +1,54 @@
+{
+  "groups": {
+    "d2": {
+      "declarations": [
+        "Problem97.ATailTwoRadiusGridNestedEscapeTerminal.false_of_nestedEscape_packet",
+        "Problem97.ATailTwoRadiusGridNestedEscapeTerminal.false_of_twoRadiusGrid_zeroCut_nestedEscape"
+      ],
+      "harness": "D2Audit.lean",
+      "modules": [
+        "Erdos9796Proof.P97.ATail.TwoRadiusGridNestedEscapeTerminal"
+      ]
+    },
+    "n9": {
+      "declarations": [
+        "ExternalN9D2Audit.general_nine",
+        "ExternalN9D2Audit.through_nine",
+        "Problem97.FiniteN9Closure",
+        "Problem97.counterexample_card_ge_ten"
+      ],
+      "harness": "N9Audit.lean",
+      "modules": [
+        "Erdos9796Proof.P97.SmallCardinality"
+      ]
+    }
+  },
+  "local_base_commit": "982e5a363be60cfd805db5ae40d4b258e53f9dfb",
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "schema": "external-n9-d2-audit/v1",
+  "scope": {
+    "accepted_claims_changed": false,
+    "d1_transverse_grid_closed": false,
+    "d2_statement_mathlib_only": false,
+    "general_problem_proved": false,
+    "n10_n11_audited": false
+  },
+  "source_blobs": {
+    "lean-toolchain": "a8afa7d1b02d96f0671eba854a8dc4b416beb473",
+    "lean/Erdos9796Proof/P97/ATail/TwoRadiusGridNestedEscapeTerminal.lean": "9eb56438f0ec8acbf68b5d20347760f35e2ddc52",
+    "lean/Erdos9796Proof/P97/N9Endpoint/Closure.lean": "f3f7f9762c849462c54becf2661dccdc56bdbbc1",
+    "lean/Erdos9796Proof/P97/SmallCardinality.lean": "395b6a4d87704547a8f369311c15133df84e0e49",
+    "lean/Erdos9796Proof/P97/SurplusCOMPGBank.lean": "99c520da9308497f5064d8bea639cb408d46e41b",
+    "lean/lake-manifest.json": "947fa6b1885c04ee457589b9ad3efda139cf7407",
+    "lean/lakefile.toml": "da9e694189f2ebb668745d5b7dfd3423f1019492"
+  },
+  "upstream": {
+    "commit": "76559d59f934d81e5081b40e0e621b39f759f7fa",
+    "repository": "mysticflounder/erdos-97-96-formalization",
+    "toolchain": "leanprover/lean4:v4.33.1"
+  }
+}

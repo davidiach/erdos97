@@ -1,0 +1,4 @@
+'ExternalN9D2Audit.general_nine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExternalN9D2Audit.through_nine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Problem97.FiniteN9Closure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Problem97.counterexample_card_ge_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
