@@ -7,6 +7,18 @@ reviewability fixes that affect how an external reader should interpret the
 repository. It is intentionally not a full git history. No general proof and no
 counterexample are claimed.
 
+## 2026-09-14
+
+- Recorded the external negative result of Liam Kruer, Jensen Kohlmeyer, and
+  Liam Price, with a pinned manuscript, Lean source, and verification limits.
+- Retired the unrestricted affirmative research objective in the main status
+  pages and agent/task instructions. Preserved prior mathematical content,
+  published paths, certificates, failed approaches, and review qualifications.
+- Kept the accepted local metadata and n=8 release snapshot unchanged. Added
+  separate external-result metadata; the failed canonical-page refresh did not
+  advance its last successful-check date. No local discovery, independent local
+  Lean replay, or accepted-result promotion is claimed by this update.
+
 ## 2026-09-06
 
 - Simplified repository maintenance: one contributor verification contract,

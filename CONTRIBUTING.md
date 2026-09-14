@@ -1,7 +1,10 @@
 # Contributing
 
 Contributions should be reproducible, clearly labelled, and modest in claims.
-No general proof and no counterexample are currently claimed. Read [STATE.md](STATE.md),
+An [external negative resolution](docs/external-resolution-2026-09-14.md) is
+recorded; no original discovery or independent local Lean replay is claimed.
+The unrestricted affirmative research queue is retired. Preserve existing
+research evidence and review qualifications. Read [STATE.md](STATE.md),
 [claims](docs/claims.md), and [review priorities](docs/review-priorities.md) first.
 Agent-specific instructions are in [AGENTS.md](AGENTS.md).
 

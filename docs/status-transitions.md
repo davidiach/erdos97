@@ -11,6 +11,21 @@ numerical residuals. External problem status and local accepted results remain
 separate; accepting a local result does not automatically update the website's
 reported status.
 
+## External-result records are separate from local acceptance
+
+The dated record in `metadata/external-resolution-2026-09-14.json` reports the
+externally attributed negative result, with pinned sources and explicit
+verification limits. It does not activate `metadata/status_transition.json`,
+promote a local finite bound, claim original authorship, or assert an
+independent local Lean reproduction or mathematical acceptance.
+
+`metadata/erdos97.yaml` continues to store accepted local claims and the last
+successfully retrieved canonical-website label. A failed website retrieval is
+recorded separately; it must not advance the successful-check date. Public
+status documents must distinguish all three: external mathematics, local
+acceptance, and dated website metadata. The existing trust checks remain in
+force. Any subsequent local acceptance must follow the review process below.
+
 ## Review process
 
 Prepare the exact proof or certificate, a validation report, a separately

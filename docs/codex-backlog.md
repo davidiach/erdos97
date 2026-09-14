@@ -1,6 +1,16 @@
 # Codex Backlog
 
-Status: operational planning guidance only; not mathematical evidence.
+Status: historical operational planning; not an active autonomous work queue.
+
+## Current scope - 14 September 2026
+
+The [external negative resolution](external-resolution-2026-09-14.md) supersedes
+the unrestricted affirmative objective. Do not automatically execute the old
+bridge/proof queue below. Preserve these tasks, results, commands, and issue
+history without presenting them as the next steps toward a universal proof.
+Further audits or smaller explicit constructions require a new explicit scope.
+
+## Historical backlog context
 
 GitHub issues were rechecked on 2026-07-09: the repository had no open GitHub
 issues. Legacy issues `#5`, `#81`, `#82`, and `#83` were closed with the
@@ -9,9 +19,9 @@ crosswalk remains in `docs/open-issue-resolution-crosswalk.md`, checked by
 `python scripts/check_open_issue_resolution_crosswalk.py --assert-expected --json`.
 This backlog is a Codex-facing companion to
 `docs/review-priorities.md`; it does not change the repository claims. No
-general proof and no counterexample are claimed, and the official/global status
-remains falsifiable/open unless manually rechecked and updated from the
-official source.
+general proof and no counterexample were claimed locally at that snapshot;
+falsifiable/open was the then-recorded canonical-website status. Those dated
+statements do not describe the new external mathematical outcome.
 
 For task-selection discipline, read `docs/codex-strategy-instructions.md`.
 Before starting a task, identify which bridge it might strengthen; if it does
@@ -20,7 +30,7 @@ that justifies doing it anyway.
 
 ## Recommended next technical PRs
 
-Use this queue when no more specific issue is selected.
+Historical queue only. The current scope above overrides this old default.
 
 Bridge target map: `docs/lemma-driven-bridge-targets.md` is the current
 claim-neutral ledger for choosing bridge work. Prefer PRs that prove one of
