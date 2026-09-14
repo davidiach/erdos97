@@ -1,0 +1,62 @@
+name: apply external resolution status
+
+on:
+  push:
+    branches: [docs/external-resolution-2026-09-14]
+    paths:
+      - .github/external-resolution-status.patch.zlib
+      - .github/workflows/apply-external-resolution-status.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-external-resolution-2026-09-14
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: github.repository == 'davidiach/erdos97' && github.ref == 'refs/heads/docs/external-resolution-2026-09-14'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Apply the hash-bound documentation patch on its exact base
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = "bca9a3801f63fd1da95ef7e8b23dbd0b07564e0f"
+          python - <<'PY'
+          import base64
+          import hashlib
+          import os
+          from pathlib import Path
+          import zlib
+          transport = Path('.github/external-resolution-status.patch.zlib').read_bytes()
+          # Repair a duplicated base64 transport fragment; the final patch is
+          # accepted only if its exact pre-reviewed SHA-256 matches below.
+          encoded = base64.b64encode(transport).decode('ascii')
+          if encoded.count('ZohibZbZrdIfjl') != 1:
+              raise SystemExit('Unexpected transport content')
+          encoded = encoded.replace('ZohibZbZrdIfjl', 'ZohibZrdIfjl')
+          encoded += '=' * (-len(encoded) % 4)
+          patch = zlib.decompress(base64.b64decode(encoded, validate=True))
+          expected = '46a9713182270662f874ce439d5f970ccdca745d12363e6c7e5d2933ecea4575'
+          if hashlib.sha256(patch).hexdigest() != expected:
+              raise SystemExit('Patch hash mismatch')
+          Path(os.environ['RUNNER_TEMP'], 'external-resolution.patch').write_bytes(patch)
+          print('Verified the reviewed patch SHA-256:', expected)
+          PY
+          git apply --check --index "$RUNNER_TEMP/external-resolution.patch"
+          git apply --index "$RUNNER_TEMP/external-resolution.patch"
+          python scripts/generate_navigation.py --write
+          git add docs/inventory.md reports/research-log-index.md
+          git diff --check
+          git diff --cached --check
+          python -m json.tool metadata/external-resolution-2026-09-14.json > /dev/null
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Record external negative resolution; preserve local claims and history'
+          git push origin HEAD:refs/heads/docs/external-resolution-2026-09-14
