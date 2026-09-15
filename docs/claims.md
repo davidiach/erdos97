@@ -5,11 +5,19 @@ candidate/failed-route docs, not as proofs of equality.
 
 ## Proof-facing claims
 
-This ledger records local proof-facing claims and their current trust posture.
-It is not a claim about the global problem. The elementary geometric theorem
-below settles the repo-local small cases `n <= 8`; selected-witness computation
-independently corroborates that result. The global Erdos #97 problem remains
-falsifiable/open.
+External status: `EXTERNAL_NEGATIVE_RESOLUTION`, recorded 14 September 2026.
+See [the source-pinned record](external-resolution-2026-09-14.md) for the work of
+Kruer, Kohlmeyer, and Price. This is external attribution, not a local discovery
+or an independent local Lean replay.
+
+This ledger continues to record local proof-facing claims and their existing
+trust posture. The elementary geometric theorem below settles the repo-local
+small cases `n <= 8`; selected-witness computation independently corroborates
+that result. No local result is promoted by the external-status update.
+Earlier references below to falsifiable/open are retained historical context;
+the last successful canonical-website check was 2026-07-09, not a fresh check.
+The new external result does not by itself invalidate a correctly scoped local
+lemma, validate a pending lemma, or justify a universal affirmative conclusion.
 
 ### Theorem: no bad strictly convex polygon for n <= 8
 

@@ -19,7 +19,7 @@ source_of_truth_surfaces:
   - docs/claims.md
   - metadata/erdos97.yaml
 archive_digest_schema: erdos97.archived_tracked_artifacts.v1
-archive_inventory_sha256: e5c6c933a00628ca84d0632521600edc06ed988eb77ca745c255e53d05b0dc6f
+archive_inventory_sha256: 07ae4b71451745706bdf4bf10076699240a6031b515c60f6d8fa185db430d5c6
 
 native_trust_policy:
   payload_field: trust
@@ -280,8 +280,8 @@ archived_tracked_artifacts:
     json_top_level_type: object
     reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/n9_vertex_circle_local_cores.json
-    sha256: 3cdd129fa5b614bf50b3405c960832f7f20ebab2c24348f391029be4d8e7a043
-    size_bytes: 38836
+    sha256: 40dcbfb077e517f626191f0c8b6dccbe885e9aa63088248a6e2e85070829b75b
+    size_bytes: 38953
     json_top_level_type: object
     reason: archived legacy or exploratory certificate; byte integrity is pinned, but no current source-of-truth claim depends on it
   - path: data/certificates/ptolemy_order_nlp_survivors.json
@@ -1299,8 +1299,8 @@ artifacts:
 
   - id: n9_vertex_circle_obstruction_shapes
     path: data/certificates/n9_vertex_circle_obstruction_shapes.json
-    sha256: c10ead3203b87e72c96af7eef98b656d6b33788994b8fad6577cb59b99df78c6
-    size_bytes: 6630
+    sha256: 3b50f2d1e50abf6e3eb717bad8b00b19ad09554b79c3cabc90f6ce84a02e19a4
+    size_bytes: 6747
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_n9_vertex_circle_obstruction_shapes.py
     command: python scripts/analyze_n9_vertex_circle_obstruction_shapes.py --assert-expected --write
@@ -1330,8 +1330,8 @@ artifacts:
 
   - id: n9_vertex_circle_motif_families
     path: data/certificates/n9_vertex_circle_motif_families.json
-    sha256: da67b40770ae4b7acf19df4decbeffa595a7a73647c2b9693e97c201650074cf
-    size_bytes: 45158
+    sha256: 7fbe630bdfec4c5e88bebe07ee954600529d79040b6387aa824de16afa4ada0c
+    size_bytes: 45275
     kind: certificate_diagnostic_artifact
     generator: scripts/analyze_n9_vertex_circle_motif_families.py
     command: python scripts/analyze_n9_vertex_circle_motif_families.py --assert-expected --write
@@ -1366,8 +1366,8 @@ artifacts:
 
   - id: n9_inversive_incidence_pilot
     path: data/certificates/n9_inversive_incidence_pilot.json
-    sha256: 2857ac0879cb56bb1c4e66b94f6a0a0df6f1b9d1a571503fd3cecdef401e7e7b
-    size_bytes: 4640
+    sha256: 1016bf9390934c737d7de67899056fca4dde849e36a24a0c162938284c9cfe77
+    size_bytes: 4757
     kind: proof_mining_diagnostic_artifact
     generator: scripts/check_n9_inversive_incidence_pilot.py
     command: python scripts/check_n9_inversive_incidence_pilot.py --assert-expected --write
@@ -2331,8 +2331,8 @@ artifacts:
 
   - id: n9_vertex_circle_frontier_comparison
     path: data/certificates/n9_vertex_circle_frontier_comparison.json
-    sha256: 76074a8001a36600d528db767a0bd643a47becead762e985debfca6e0688ed4c
-    size_bytes: 4780
+    sha256: acd90e5ef893c794c3626e19bac204b75bf7d1eecabcf13374d3051cb3e0910f
+    size_bytes: 4897
     kind: certificate_diagnostic_artifact
     generator: scripts/compare_n9_vertex_circle_frontier.py
     command: python scripts/compare_n9_vertex_circle_frontier.py --assert-expected --write

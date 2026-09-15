@@ -1,15 +1,31 @@
 # STATE.md - Erdos Problem #97 working state
 
-Status: no general proof and no counterexample are claimed.
-Official/global status: falsifiable/open, as recorded in
-[canonical metadata](metadata/erdos97.yaml). This dashboard does not recheck
-or update the official page.
+Status: `EXTERNAL_NEGATIVE_RESOLUTION`, recorded 14 September 2026.
+
+Kruer, Kohlmeyer, and Price's *Unit distances in convex polygons*, released on
+13 September 2026, supplies the external negative result. The construction has
+at least four unit-distance neighbours at every vertex in strictly convex
+position. See the [source-pinned record](docs/external-resolution-2026-09-14.md)
+and [external metadata](metadata/external-resolution-2026-09-14.json).
+
+Local contribution boundary: no general proof and no counterexample are claimed
+as an original or independently replayed result of this repository. Existing
+local claim scopes and pending reviews remain unchanged.
+
+The [canonical metadata](metadata/erdos97.yaml) retains the website label
+falsifiable/open last successfully checked on 2026-07-09. The 2026-09-14 retry
+failed; neither a current website label nor a new successful check is asserted.
+That dated website record must not be read as the current mathematical outcome.
 
 ## Target
 
-Find, or rule out, a strictly convex polygon where each vertex has four other
-vertices at one common distance. The radius and selected witnesses may differ
-between vertices. Numerical near-equalities are not counterexamples.
+The original unrestricted search is retired. Preserve this research record;
+do not launch further affirmative-proof attempts from historical task lists.
+Any further audit or smaller-explicit-example project needs an explicit new scope.
+
+The original question allowed different radii and witnesses at different
+vertices. The external result uses distance one at every vertex. Numerical
+near-equalities remain insufficient for a new explicit construction.
 
 ## Strongest proved state
 
@@ -27,6 +43,10 @@ Equal sides are an extra hypothesis; this does not settle general `n=9`.
 - [Complete results ledger](RESULTS.md)
 
 ## Active review and research
+
+The following table is retained as the **pre-resolution local research map**,
+not an automatic work queue. Independent external-result reproduction and
+preservation of existing evidence are distinct from continuing these old routes.
 
 | Area | Current boundary | Next useful work |
 |---|---|---|

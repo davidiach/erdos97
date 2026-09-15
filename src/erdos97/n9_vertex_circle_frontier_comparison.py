@@ -281,7 +281,8 @@ def frontier_comparison_summary() -> dict[str, object]:
         "notes": [
             "No general proof of Erdos Problem #97 is claimed.",
             "No counterexample is claimed.",
-            "The official/global status remains falsifiable/open.",
+            "Historical canonical-website record: falsifiable/open (checked 2026-07-09). "
+            "See metadata/external-resolution-2026-09-14.json for the separately recorded external result.",
             "Exact core embeddings require a cyclic-order-preserving injection whose selected rows match exactly.",
         ],
         "n9_local_core_artifact": "data/certificates/n9_vertex_circle_local_cores.json",

@@ -1,14 +1,22 @@
 # Codex strategy instructions
 
-Status: strategic planning guidance only; not mathematical evidence.
+Status: historical strategy; superseded as an autonomous research mandate.
+
+## Current scope - 14 September 2026
+
+The [external negative resolution](external-resolution-2026-09-14.md) retires
+the unrestricted affirmative objective. The mission and task-selection rules
+below are retained historical material, not instructions to resume that search.
+Follow `AGENTS.md` and the current `STATE.md`. Further work needs an explicitly
+selected preservation, audit, or new mathematical scope.
 
 This document guides Codex task selection in this repository. If it conflicts
 with `AGENTS.md`, `README.md`, `STATE.md`, `RESULTS.md`,
 `metadata/erdos97.yaml`, `docs/claims.md`, or
 `docs/review-priorities.md`, those files control. In particular, no general
-proof and no counterexample are claimed, and the official/global status remains
-falsifiable/open unless it is manually rechecked and updated from the official
-source.
+proof and no counterexample were claimed locally when this strategy was
+written. Its falsifiable/open language records that historical context, not
+the current external mathematical outcome.
 
 ## Mission
 

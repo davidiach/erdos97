@@ -2,14 +2,35 @@
 
 ![tests](https://github.com/davidiach/erdos97/actions/workflows/tests.yml/badge.svg)
 
-This repository is a public research log and reproducibility workspace for
-Erdos Problem #97. It is intentionally not presented as a solved-proof
-repository.
+This repository preserves the research history, exact checks, and restricted
+results developed for Erdos Problem #97. The original unrestricted search is
+retired following an external negative resolution.
+
+## External result - 13 September 2026
+
+Status: `EXTERNAL_NEGATIVE_RESOLUTION`, recorded 14 September 2026.
+
+**Liam Kruer, Jensen Kohlmeyer, and Liam Price**, in *Unit distances in convex
+polygons*, give strictly convex polygons with at least four unit-distance
+neighbours at every vertex. Their manuscript and complete Lean source are
+linked in the [external-resolution record](docs/external-resolution-2026-09-14.md).
+Credit for that construction and formalization belongs to those authors.
+This repository does not claim the discovery or an independent local Lean replay.
+
+The authors' stated size bound is `3432 * 2^36036`; it is an existence bound,
+not a list of explicit coordinates or a smallest-example claim. Historical
+proof attempts, conditional lemmas, partial constructions, and failed routes
+remain available below. They are not an active queue for an affirmative proof.
 
 ## Status at a glance
 
-- Official/global status: **falsifiable/open**.
-- No general proof and no counterexample are claimed.
+- External mathematical outcome: **negative**, with source-pinned manuscript
+  and formalization. See [external metadata](metadata/external-resolution-2026-09-14.json).
+- Repository-local contribution boundary: no general proof and no counterexample
+  are claimed as an original or independently replayed result of this repository.
+- The canonical website's last successfully recorded label was **falsifiable/open**
+  (checked 2026-07-09). Retrieval failed on 2026-09-14. That historical website
+  record is not the current mathematical outcome, and its checked date is unchanged.
 - Strongest local result: an elementary geometric theorem rules out bad
   strictly convex polygons with `n <= 8`; the selected-witness pipeline gives
   independent repo-local, machine-checked finite-case corroboration.
@@ -22,8 +43,11 @@ repository.
   citation, and is not claimed here.
 - Review-pending `n=9` and draft `n=10` artifacts are recorded for audit, but
   they are not promoted to the source-of-truth strongest local result.
-- Canonical status metadata lives in
-  [`metadata/erdos97.yaml`](metadata/erdos97.yaml).
+- Accepted local claims and the dated canonical-website record remain in
+  [`metadata/erdos97.yaml`](metadata/erdos97.yaml), unchanged by this update.
+  The separately sourced external result lives in
+  [`metadata/external-resolution-2026-09-14.json`](metadata/external-resolution-2026-09-14.json).
+  No local accepted-result transition or independent mathematical review is implied.
 
 ## The problem
 
@@ -57,6 +81,7 @@ are equal. The radius may depend on `i`, the selected witness set may depend on
 
 | If you want... | Read... |
 | --- | --- |
+| the external result, attribution, and verification boundary | [`docs/external-resolution-2026-09-14.md`](docs/external-resolution-2026-09-14.md) |
 | the short working dashboard | [`STATE.md`](STATE.md) |
 | the compact results ledger | [`RESULTS.md`](RESULTS.md) |
 | the proof-facing claims and caveats | [`docs/claims.md`](docs/claims.md) |

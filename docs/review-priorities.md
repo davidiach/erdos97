@@ -2,11 +2,21 @@
 
 Status: planning guidance only; not mathematical evidence.
 
-This file turns current review feedback into concrete work items. It does not
-change the global claim: no general proof and no counterexample are claimed,
-and the official/global status remains falsifiable/open. The local `n <= 8`
-geometric theorem has passed repository review; its selected-witness
-corroboration remains machine-checked and external review is still welcome.
+## Current scope - 14 September 2026
+
+The unrestricted affirmative research queue is retired following the
+[external negative resolution](external-resolution-2026-09-14.md).
+Preserve existing records and their claim qualifications. An independent
+reproduction of the external proof would be a separately scoped audit, not a
+continuation of the old affirmative program; it has not been completed here.
+Do not automatically start an audit or a smaller-example search.
+
+## Historical review priorities
+
+The priorities below are retained for provenance and possible explicitly
+requested local review, not as the current autonomous task queue. Old global
+open-status language is historical. The local `n <= 8` geometric theorem and
+its selected-witness corroboration retain their existing review qualifications.
 
 For a Codex-ready task list with issue links, commands, acceptance criteria,
 trust deltas, and forbidden overclaiming text, see `docs/codex-backlog.md`.

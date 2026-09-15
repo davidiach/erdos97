@@ -1,12 +1,33 @@
 # Results Ledger
 
-This file is the compact results ledger for what this repository currently
-claims, what it has only tested numerically, and what remains open. For the
-long-form canonical synthesis and claim reconciliation, read
-`docs/canonical-synthesis.md`.
+This file preserves the local results ledger: exact and restricted results,
+numerical diagnostics, and unfinished historical work. The external mathematical
+outcome is recorded separately from the accepted local evidence.
 
-Official/global status: falsifiable/open. This repository claims no general
-proof and no counterexample.
+## External result recorded 14 September 2026
+
+Status: `EXTERNAL_NEGATIVE_RESOLUTION`.
+
+Liam Kruer, Jensen Kohlmeyer, and Liam Price's *Unit distances in convex
+polygons* (released 13 September 2026) gives a strictly convex polygon with
+at least four unit-distance neighbours at every vertex. Attribution, pinned
+sources, and verification limits are in
+[the external-resolution record](docs/external-resolution-2026-09-14.md) and
+[external metadata](metadata/external-resolution-2026-09-14.json).
+No original discovery or independent local Lean replay is claimed here.
+
+The canonical website's last recorded label was falsifiable/open, checked on
+2026-07-09; a 2026-09-14 retrieval attempt failed. The dated website record is
+not a statement that the unrestricted mathematical question remains open.
+
+## Preserved local ledger
+
+Local contribution boundary: no general proof and no counterexample are claimed
+as an original or independently replayed result of this repository. Existing
+local proofs, certificates, review qualifications, and historical records are
+unchanged. Earlier open-status references below describe their original context,
+not the current external outcome. For the long-form historical synthesis, read
+`docs/canonical-synthesis.md`.
 
 Strongest local result: the elementary geometric theorem in
 `docs/n8-geometric-proof.md` rules out bad strictly convex polygons with
