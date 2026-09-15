@@ -667,7 +667,8 @@ def obstruction_shape_summary() -> dict[str, object]:
         "notes": [
             "No general proof of Erdos Problem #97 is claimed.",
             "No counterexample is claimed.",
-            "The official/global status remains falsifiable/open.",
+            "Historical canonical-website record: falsifiable/open (checked 2026-07-09). "
+            "See metadata/external-resolution-2026-09-14.json for the separately recorded external result.",
             "This diagnostic identifies obstruction shapes; it is not a separate n=9 proof path.",
         ],
         "n": n9.N,
@@ -767,7 +768,8 @@ def motif_family_summary() -> dict[str, object]:
         "notes": [
             "No general proof of Erdos Problem #97 is claimed.",
             "No counterexample is claimed.",
-            "The official/global status remains falsifiable/open.",
+            "Historical canonical-website record: falsifiable/open (checked 2026-07-09). "
+            "See metadata/external-resolution-2026-09-14.json for the separately recorded external result.",
             "Dihedral incidence families are selected-witness row-system orbits under rotations and reflections of the cyclic labels.",
             "Loose obstruction shapes intentionally discard labels; they are proof-search hints, not complete certificates.",
         ],
@@ -831,7 +833,8 @@ def local_core_summary() -> dict[str, object]:
         "notes": [
             "No general proof of Erdos Problem #97 is claimed.",
             "No counterexample is claimed.",
-            "The official/global status remains falsifiable/open.",
+            "Historical canonical-website record: falsifiable/open (checked 2026-07-09). "
+            "See metadata/external-resolution-2026-09-14.json for the separately recorded external result.",
             "Each core verifies only a representative n=9 motif family under the recorded cyclic order.",
         ],
         "n": n9.N,

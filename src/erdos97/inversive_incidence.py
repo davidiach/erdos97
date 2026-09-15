@@ -272,7 +272,8 @@ def n9_inversive_incidence_summary() -> dict[str, object]:
         "notes": [
             "No general proof of Erdos Problem #97 is claimed.",
             "No counterexample is claimed.",
-            "The official/global status remains falsifiable/open.",
+            "Historical canonical-website record: falsifiable/open (checked 2026-07-09). "
+            "See metadata/external-resolution-2026-09-14.json for the separately recorded external result.",
             "This pilot records forced point-line incidences after inversion; it is not a realizability or impossibility certificate.",
         ],
         "n": n9.N,

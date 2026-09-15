@@ -101,6 +101,12 @@ at their published paths. Earlier open-status statements are historical context.
 A negative global outcome does not automatically invalidate a correctly scoped
 local theorem or validate an unreviewed one.
 
+The live n=9 diagnostic generators date their canonical-website notes to the
+2026-07-09 check and link the separate external record. Their regenerated JSON
+keeps the same mathematical payload and review status. The n=8 release packet
+remains a reproducible historical snapshot at its recorded source revision;
+its dated website wording is not a current-status report.
+
 This update does not delete code or artifacts, close issues, change repository
 archival settings, or weaken verification requirements. Independent reproduction,
 smaller explicit examples, or other research may be selected later, but this
